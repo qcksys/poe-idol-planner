@@ -1,0 +1,148 @@
+{
+	"app": {
+		"title": "POE アイドルプランナー",
+		"subtitle": "フレシアの遺産"
+	},
+	"nav": {
+		"planner": "プランナー",
+		"inventory": "インベントリ",
+		"sets": "セット",
+		"changelog": "変更履歴"
+	},
+	"idolSet": {
+		"newSet": "新規セット",
+		"rename": "名前変更",
+		"delete": "削除",
+		"duplicate": "複製",
+		"confirmDelete": "このセットを削除してもよろしいですか？",
+		"defaultName": "アイドルセット"
+	},
+	"inventory": {
+		"title": "インベントリ",
+		"empty": "インベントリにアイドルがありません。下のボタンでインポートまたは作成してください。",
+		"import": "インポート",
+		"create": "作成",
+		"search": "アイドルを検索...",
+		"clear": "すべてクリア",
+		"usedInSets": "{count}個のセットで使用中",
+		"removeFromInventory": "インベントリから削除",
+		"noMatches": "該当するアイドルが見つかりません"
+	},
+	"grid": {
+		"tab1": "タブ 1",
+		"tab2": "タブ 2",
+		"tab3": "タブ 3",
+		"dropHere": "ここにアイドルをドロップ",
+		"removeFromGrid": "グリッドから削除"
+	},
+	"actions": {
+		"import": "インポート",
+		"export": "エクスポート",
+		"share": "共有",
+		"search": "検索",
+		"clear": "クリア",
+		"cancel": "キャンセル",
+		"confirm": "確認",
+		"save": "保存",
+		"copy": "コピー",
+		"copied": "コピーしました！"
+	},
+	"stats": {
+		"totalStats": "合計ステータス",
+		"byMechanic": "メカニック別",
+		"noStats": "表示するステータスがありません"
+	},
+	"trade": {
+		"findSimilar": "トレードで類似品を検索",
+		"findThisMod": "トレードでこのModを検索",
+		"searchAll": "トレードで全て検索",
+		"openTrade": "トレードサイトを開く",
+		"searchBaseType": "トレードで{type}を検索"
+	},
+	"import": {
+		"title": "アイドルをインポート",
+		"description": "Path of Exileからコピーしたアイドルデータを貼り付けてください",
+		"pasteHere": "アイドルデータ",
+		"placeholder": "ここにアイドルデータを貼り付け...",
+		"howTo": "アイドルデータのコピー方法：",
+		"ctrlC": "Ctrl+C - 基本アイテム情報をコピー",
+		"ctrlAltC": "Ctrl+Alt+C - ティアと範囲を含む詳細情報をコピー",
+		"pasteFromClipboard": "貼り付け",
+		"detected": "検出済み",
+		"simpleFormat": "シンプル形式 (Ctrl+C)",
+		"advancedFormat": "詳細形式 (Ctrl+Alt+C)",
+		"parseError": "アイドルデータを解析できません。形式を確認してください。",
+		"success": "アイドルのインポートに成功しました！",
+		"importButton": "インポート"
+	},
+	"share": {
+		"title": "セットを共有",
+		"description": "以下のリンクでこのセットを他の人と共有できます。",
+		"linkCopied": "リンクをクリップボードにコピーしました！",
+		"loading": "共有リンクを生成中...",
+		"error": "共有リンクの生成に失敗しました。もう一度お試しください。"
+	},
+	"errors": {
+		"invalidIdol": "無効なアイドルデータ",
+		"parseError": "データの解析に失敗",
+		"storageError": "ストレージエラーが発生",
+		"networkError": "ネットワークエラーが発生"
+	},
+	"editor": {
+		"createIdol": "アイドルを作成",
+		"editIdol": "アイドルを編集",
+		"description": "Modを選択してカスタムアイドル構成を作成します。",
+		"baseType": "ベースタイプ",
+		"itemLevel": "アイテムレベル",
+		"name": "名前",
+		"optional": "任意",
+		"namePlaceholder": "カスタムアイドル名...",
+		"filterByMechanic": "メカニックでフィルター",
+		"prefixes": "プレフィックス",
+		"suffixes": "サフィックス",
+		"tier": "ティア",
+		"selectMod": "Modを選択...",
+		"searchMods": "Modを検索...",
+		"noModsFound": "Modが見つかりません。",
+		"searchMechanic": "メカニックを検索...",
+		"noMechanicsFound": "メカニックが見つかりません。",
+		"allMechanics": "全てのメカニック"
+	},
+	"filter": {
+		"mechanic": "メカニックでフィルター",
+		"allMechanics": "全てのメカニック",
+		"type": "タイプでフィルター",
+		"allTypes": "全てのタイプ",
+		"prefixOnly": "プレフィックスのみ",
+		"suffixOnly": "サフィックスのみ"
+	},
+	"mechanics": {
+		"abyss": "アビス",
+		"affliction": "アフリクション",
+		"bestiary": "ビスティアリー",
+		"betrayal": "ビトレイアル",
+		"beyond": "ビヨンド",
+		"blight": "ブライト",
+		"breach": "ブリーチ",
+		"crucible": "クルーシブル",
+		"delirium": "デリリウム",
+		"delve": "デルブ",
+		"elder": "エルダー/シェイパー",
+		"essence": "エッセンス",
+		"expedition": "エクスペディション",
+		"harvest": "ハーベスト",
+		"heist": "ハイスト",
+		"incursion": "インカージョン",
+		"legion": "レギオン",
+		"map": "マップ",
+		"maven": "メイヴン",
+		"metamorph": "メタモルフ",
+		"necropolis": "ネクロポリス",
+		"ritual": "リチュアル",
+		"sanctum": "サンクタム",
+		"shrine": "シュライン",
+		"strongbox": "ストロングボックス",
+		"ultimatum": "アルティメイタム",
+		"generic": "汎用"
+	}
+}

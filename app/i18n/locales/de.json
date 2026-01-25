@@ -1,0 +1,148 @@
+{
+	"app": {
+		"title": "POE Idol-Planer",
+		"subtitle": "Vermächtnis von Phrecia"
+	},
+	"nav": {
+		"planner": "Planer",
+		"inventory": "Inventar",
+		"sets": "Sets",
+		"changelog": "Änderungsprotokoll"
+	},
+	"idolSet": {
+		"newSet": "Neues Set",
+		"rename": "Umbenennen",
+		"delete": "Löschen",
+		"duplicate": "Duplizieren",
+		"confirmDelete": "Möchten Sie dieses Set wirklich löschen?",
+		"defaultName": "Idol-Set"
+	},
+	"inventory": {
+		"title": "Inventar",
+		"empty": "Keine Idole im Inventar. Importieren oder erstellen Sie welche mit den Schaltflächen unten.",
+		"import": "Importieren",
+		"create": "Erstellen",
+		"search": "Idole suchen...",
+		"clear": "Alle löschen",
+		"usedInSets": "Verwendet in {count} Set(s)",
+		"removeFromInventory": "Aus Inventar entfernen",
+		"noMatches": "Keine passenden Idole gefunden"
+	},
+	"grid": {
+		"tab1": "Tab 1",
+		"tab2": "Tab 2",
+		"tab3": "Tab 3",
+		"dropHere": "Idol hier ablegen",
+		"removeFromGrid": "Aus Raster entfernen"
+	},
+	"actions": {
+		"import": "Importieren",
+		"export": "Exportieren",
+		"share": "Teilen",
+		"search": "Suchen",
+		"clear": "Löschen",
+		"cancel": "Abbrechen",
+		"confirm": "Bestätigen",
+		"save": "Speichern",
+		"copy": "Kopieren",
+		"copied": "Kopiert!"
+	},
+	"stats": {
+		"totalStats": "Gesamtstatistiken",
+		"byMechanic": "Nach Mechanik",
+		"noStats": "Keine Statistiken anzuzeigen"
+	},
+	"trade": {
+		"findSimilar": "Ähnliche im Handel finden",
+		"findThisMod": "Diesen Mod im Handel finden",
+		"searchAll": "Alle im Handel suchen",
+		"openTrade": "Handelsseite öffnen",
+		"searchBaseType": "{type} im Handel suchen"
+	},
+	"import": {
+		"title": "Idol importieren",
+		"description": "Fügen Sie die aus Path of Exile kopierten Idol-Daten ein",
+		"pasteHere": "Idol-Daten",
+		"placeholder": "Idol-Daten hier einfügen...",
+		"howTo": "So kopieren Sie Idol-Daten:",
+		"ctrlC": "Strg+C - Grundlegende Gegenstandsinfo kopieren",
+		"ctrlAltC": "Strg+Alt+C - Erweiterte Info mit Stufen und Bereichen kopieren",
+		"pasteFromClipboard": "Einfügen",
+		"detected": "Erkannt",
+		"simpleFormat": "Einfaches Format (Strg+C)",
+		"advancedFormat": "Erweitertes Format (Strg+Alt+C)",
+		"parseError": "Idol-Daten konnten nicht analysiert werden. Bitte überprüfen Sie das Format.",
+		"success": "Idol erfolgreich importiert!",
+		"importButton": "Importieren"
+	},
+	"share": {
+		"title": "Set teilen",
+		"description": "Teilen Sie dieses Set über den untenstehenden Link mit anderen.",
+		"linkCopied": "Link in die Zwischenablage kopiert!",
+		"loading": "Freigabelink wird generiert...",
+		"error": "Freigabelink konnte nicht generiert werden. Bitte versuchen Sie es erneut."
+	},
+	"errors": {
+		"invalidIdol": "Ungültige Idol-Daten",
+		"parseError": "Daten konnten nicht analysiert werden",
+		"storageError": "Speicherfehler aufgetreten",
+		"networkError": "Netzwerkfehler aufgetreten"
+	},
+	"editor": {
+		"createIdol": "Idol erstellen",
+		"editIdol": "Idol bearbeiten",
+		"description": "Wählen Sie Modifikatoren aus, um eine benutzerdefinierte Idol-Konfiguration zu erstellen.",
+		"baseType": "Basistyp",
+		"itemLevel": "Gegenstandsstufe",
+		"name": "Name",
+		"optional": "optional",
+		"namePlaceholder": "Benutzerdefinierter Idol-Name...",
+		"filterByMechanic": "Nach Mechanik filtern",
+		"prefixes": "Präfixe",
+		"suffixes": "Suffixe",
+		"tier": "Stufe",
+		"selectMod": "Modifikator auswählen...",
+		"searchMods": "Modifikatoren suchen...",
+		"noModsFound": "Keine Modifikatoren gefunden.",
+		"searchMechanic": "Mechanik suchen...",
+		"noMechanicsFound": "Keine Mechaniken gefunden.",
+		"allMechanics": "Alle Mechaniken"
+	},
+	"filter": {
+		"mechanic": "Nach Mechanik filtern",
+		"allMechanics": "Alle Mechaniken",
+		"type": "Nach Typ filtern",
+		"allTypes": "Alle Typen",
+		"prefixOnly": "Nur Präfixe",
+		"suffixOnly": "Nur Suffixe"
+	},
+	"mechanics": {
+		"abyss": "Abgrund",
+		"affliction": "Gebrechen",
+		"bestiary": "Bestiarium",
+		"betrayal": "Verrat",
+		"beyond": "Jenseits",
+		"blight": "Verderbnis",
+		"breach": "Riss",
+		"crucible": "Schmelztiegel",
+		"delirium": "Delirium",
+		"delve": "Tiefe",
+		"elder": "Ältester/Former",
+		"essence": "Essenz",
+		"expedition": "Expedition",
+		"harvest": "Ernte",
+		"heist": "Raubzug",
+		"incursion": "Einfall",
+		"legion": "Legion",
+		"map": "Karten",
+		"maven": "Maven",
+		"metamorph": "Metamorph",
+		"necropolis": "Nekropole",
+		"ritual": "Ritual",
+		"sanctum": "Heiligtum",
+		"shrine": "Schrein",
+		"strongbox": "Truhe",
+		"ultimatum": "Ultimatum",
+		"generic": "Allgemein"
+	}
+}

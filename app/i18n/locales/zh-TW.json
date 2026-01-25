@@ -1,0 +1,148 @@
+{
+	"app": {
+		"title": "POE 神像規劃器",
+		"subtitle": "弗雷西亞的遺產"
+	},
+	"nav": {
+		"planner": "規劃器",
+		"inventory": "倉庫",
+		"sets": "配置",
+		"changelog": "更新日誌"
+	},
+	"idolSet": {
+		"newSet": "新配置",
+		"rename": "重新命名",
+		"delete": "刪除",
+		"duplicate": "複製",
+		"confirmDelete": "確定要刪除此配置嗎？",
+		"defaultName": "神像配置"
+	},
+	"inventory": {
+		"title": "倉庫",
+		"empty": "倉庫中沒有神像。請使用下方按鈕匯入或建立神像。",
+		"import": "匯入",
+		"create": "建立",
+		"search": "搜尋神像...",
+		"clear": "清除全部",
+		"usedInSets": "已用於 {count} 個配置",
+		"removeFromInventory": "從倉庫移除",
+		"noMatches": "找不到符合的神像"
+	},
+	"grid": {
+		"tab1": "頁籤 1",
+		"tab2": "頁籤 2",
+		"tab3": "頁籤 3",
+		"dropHere": "拖放神像至此",
+		"removeFromGrid": "從格子移除"
+	},
+	"actions": {
+		"import": "匯入",
+		"export": "匯出",
+		"share": "分享",
+		"search": "搜尋",
+		"clear": "清除",
+		"cancel": "取消",
+		"confirm": "確認",
+		"save": "儲存",
+		"copy": "複製",
+		"copied": "已複製！"
+	},
+	"stats": {
+		"totalStats": "總計屬性",
+		"byMechanic": "依機制分類",
+		"noStats": "沒有可顯示的屬性"
+	},
+	"trade": {
+		"findSimilar": "在交易站搜尋相似物品",
+		"findThisMod": "在交易站搜尋此詞綴",
+		"searchAll": "在交易站搜尋全部",
+		"openTrade": "開啟交易站",
+		"searchBaseType": "在交易站搜尋 {type}"
+	},
+	"import": {
+		"title": "匯入神像",
+		"description": "貼上從流亡黯道複製的神像資料",
+		"pasteHere": "神像資料",
+		"placeholder": "在此貼上神像資料...",
+		"howTo": "如何複製神像資料：",
+		"ctrlC": "Ctrl+C - 複製基本物品資訊",
+		"ctrlAltC": "Ctrl+Alt+C - 複製包含階級和範圍的進階資訊",
+		"pasteFromClipboard": "貼上",
+		"detected": "已偵測",
+		"simpleFormat": "簡易格式 (Ctrl+C)",
+		"advancedFormat": "進階格式 (Ctrl+Alt+C)",
+		"parseError": "無法解析神像資料。請檢查格式。",
+		"success": "神像匯入成功！",
+		"importButton": "匯入"
+	},
+	"share": {
+		"title": "分享配置",
+		"description": "使用以下連結與他人分享此配置。",
+		"linkCopied": "連結已複製到剪貼簿！",
+		"loading": "正在產生分享連結...",
+		"error": "產生分享連結失敗。請重試。"
+	},
+	"errors": {
+		"invalidIdol": "無效的神像資料",
+		"parseError": "解析資料失敗",
+		"storageError": "發生儲存錯誤",
+		"networkError": "發生網路錯誤"
+	},
+	"editor": {
+		"createIdol": "建立神像",
+		"editIdol": "編輯神像",
+		"description": "選擇詞綴來建立自訂神像配置。",
+		"baseType": "基底類型",
+		"itemLevel": "物品等級",
+		"name": "名稱",
+		"optional": "選填",
+		"namePlaceholder": "自訂神像名稱...",
+		"filterByMechanic": "依機制篩選",
+		"prefixes": "前綴",
+		"suffixes": "後綴",
+		"tier": "階級",
+		"selectMod": "選擇詞綴...",
+		"searchMods": "搜尋詞綴...",
+		"noModsFound": "找不到詞綴。",
+		"searchMechanic": "搜尋機制...",
+		"noMechanicsFound": "找不到機制。",
+		"allMechanics": "所有機制"
+	},
+	"filter": {
+		"mechanic": "依機制篩選",
+		"allMechanics": "所有機制",
+		"type": "依類型篩選",
+		"allTypes": "所有類型",
+		"prefixOnly": "僅前綴",
+		"suffixOnly": "僅後綴"
+	},
+	"mechanics": {
+		"abyss": "深淵",
+		"affliction": "災魘",
+		"bestiary": "獸獵",
+		"betrayal": "乙太戰爭",
+		"beyond": "虛空異界",
+		"blight": "凋落",
+		"breach": "裂痕",
+		"crucible": "熔爐",
+		"delirium": "譫妄",
+		"delve": "探索",
+		"elder": "尊師/塑者",
+		"essence": "精髓",
+		"expedition": "探險",
+		"harvest": "豐收",
+		"heist": "劫盜",
+		"incursion": "乘機",
+		"legion": "軍團",
+		"map": "地圖",
+		"maven": "鋒芒",
+		"metamorph": "化身",
+		"necropolis": "墓園",
+		"ritual": "祭壇",
+		"sanctum": "聖堂",
+		"shrine": "神壇",
+		"strongbox": "保險箱",
+		"ultimatum": "最後通牒",
+		"generic": "通用"
+	}
+}

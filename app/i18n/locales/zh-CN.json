@@ -1,0 +1,148 @@
+{
+	"app": {
+		"title": "POE 神像规划器",
+		"subtitle": "弗雷西亚的遗产"
+	},
+	"nav": {
+		"planner": "规划器",
+		"inventory": "仓库",
+		"sets": "配置",
+		"changelog": "更新日志"
+	},
+	"idolSet": {
+		"newSet": "新配置",
+		"rename": "重命名",
+		"delete": "删除",
+		"duplicate": "复制",
+		"confirmDelete": "确定要删除此配置吗？",
+		"defaultName": "神像配置"
+	},
+	"inventory": {
+		"title": "仓库",
+		"empty": "仓库中没有神像。请使用下方按钮导入或创建神像。",
+		"import": "导入",
+		"create": "创建",
+		"search": "搜索神像...",
+		"clear": "清除全部",
+		"usedInSets": "已用于 {count} 个配置",
+		"removeFromInventory": "从仓库移除",
+		"noMatches": "找不到匹配的神像"
+	},
+	"grid": {
+		"tab1": "标签页 1",
+		"tab2": "标签页 2",
+		"tab3": "标签页 3",
+		"dropHere": "拖放神像至此",
+		"removeFromGrid": "从格子移除"
+	},
+	"actions": {
+		"import": "导入",
+		"export": "导出",
+		"share": "分享",
+		"search": "搜索",
+		"clear": "清除",
+		"cancel": "取消",
+		"confirm": "确认",
+		"save": "保存",
+		"copy": "复制",
+		"copied": "已复制！"
+	},
+	"stats": {
+		"totalStats": "总计属性",
+		"byMechanic": "按机制分类",
+		"noStats": "没有可显示的属性"
+	},
+	"trade": {
+		"findSimilar": "在交易站搜索相似物品",
+		"findThisMod": "在交易站搜索此词缀",
+		"searchAll": "在交易站搜索全部",
+		"openTrade": "打开交易站",
+		"searchBaseType": "在交易站搜索 {type}"
+	},
+	"import": {
+		"title": "导入神像",
+		"description": "粘贴从流放之路复制的神像数据",
+		"pasteHere": "神像数据",
+		"placeholder": "在此粘贴神像数据...",
+		"howTo": "如何复制神像数据：",
+		"ctrlC": "Ctrl+C - 复制基本物品信息",
+		"ctrlAltC": "Ctrl+Alt+C - 复制包含阶级和范围的高级信息",
+		"pasteFromClipboard": "粘贴",
+		"detected": "已检测",
+		"simpleFormat": "简易格式 (Ctrl+C)",
+		"advancedFormat": "高级格式 (Ctrl+Alt+C)",
+		"parseError": "无法解析神像数据。请检查格式。",
+		"success": "神像导入成功！",
+		"importButton": "导入"
+	},
+	"share": {
+		"title": "分享配置",
+		"description": "使用以下链接与他人分享此配置。",
+		"linkCopied": "链接已复制到剪贴板！",
+		"loading": "正在生成分享链接...",
+		"error": "生成分享链接失败。请重试。"
+	},
+	"errors": {
+		"invalidIdol": "无效的神像数据",
+		"parseError": "解析数据失败",
+		"storageError": "发生存储错误",
+		"networkError": "发生网络错误"
+	},
+	"editor": {
+		"createIdol": "创建神像",
+		"editIdol": "编辑神像",
+		"description": "选择词缀来创建自定义神像配置。",
+		"baseType": "基底类型",
+		"itemLevel": "物品等级",
+		"name": "名称",
+		"optional": "选填",
+		"namePlaceholder": "自定义神像名称...",
+		"filterByMechanic": "按机制筛选",
+		"prefixes": "前缀",
+		"suffixes": "后缀",
+		"tier": "阶级",
+		"selectMod": "选择词缀...",
+		"searchMods": "搜索词缀...",
+		"noModsFound": "找不到词缀。",
+		"searchMechanic": "搜索机制...",
+		"noMechanicsFound": "找不到机制。",
+		"allMechanics": "所有机制"
+	},
+	"filter": {
+		"mechanic": "按机制筛选",
+		"allMechanics": "所有机制",
+		"type": "按类型筛选",
+		"allTypes": "所有类型",
+		"prefixOnly": "仅前缀",
+		"suffixOnly": "仅后缀"
+	},
+	"mechanics": {
+		"abyss": "深渊",
+		"affliction": "灾变",
+		"bestiary": "猎魔",
+		"betrayal": "背叛",
+		"beyond": "虚空异界",
+		"blight": "枯萎",
+		"breach": "裂隙",
+		"crucible": "熔炉",
+		"delirium": "谵妄",
+		"delve": "掘进",
+		"elder": "尊师/塑界者",
+		"essence": "精华",
+		"expedition": "远征",
+		"harvest": "收割",
+		"heist": "劫掠",
+		"incursion": "突袭",
+		"legion": "军团",
+		"map": "地图",
+		"maven": "裁决者",
+		"metamorph": "异形",
+		"necropolis": "墓地",
+		"ritual": "仪式",
+		"sanctum": "圣所",
+		"shrine": "神龛",
+		"strongbox": "保险箱",
+		"ultimatum": "终极",
+		"generic": "通用"
+	}
+}

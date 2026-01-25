@@ -6,21 +6,30 @@ import {
 	useEffect,
 	useState,
 } from "react";
+import deTranslations from "./locales/de.json";
 import enTranslations from "./locales/en.json";
+import esTranslations from "./locales/es.json";
+import frTranslations from "./locales/fr.json";
+import jaTranslations from "./locales/ja.json";
+import koTranslations from "./locales/ko.json";
+import ptBRTranslations from "./locales/pt-BR.json";
+import ruTranslations from "./locales/ru.json";
+import zhCNTranslations from "./locales/zh-CN.json";
+import zhTWTranslations from "./locales/zh-TW.json";
 import type { SupportedLocale, Translations } from "./types";
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "./types";
 
 const translations: Record<SupportedLocale, Translations> = {
 	en: enTranslations,
-	"zh-TW": enTranslations,
-	"zh-CN": enTranslations,
-	ko: enTranslations,
-	ja: enTranslations,
-	ru: enTranslations,
-	"pt-BR": enTranslations,
-	de: enTranslations,
-	fr: enTranslations,
-	es: enTranslations,
+	"zh-TW": zhTWTranslations,
+	"zh-CN": zhCNTranslations,
+	ko: koTranslations,
+	ja: jaTranslations,
+	ru: ruTranslations,
+	"pt-BR": ptBRTranslations,
+	de: deTranslations,
+	fr: frTranslations,
+	es: esTranslations,
 };
 
 const STORAGE_KEY = "poe-idol-planner-locale";

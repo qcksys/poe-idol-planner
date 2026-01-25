@@ -1,0 +1,148 @@
+{
+	"app": {
+		"title": "POE Planificador de Ídolos",
+		"subtitle": "Legado de Phrecia"
+	},
+	"nav": {
+		"planner": "Planificador",
+		"inventory": "Inventario",
+		"sets": "Conjuntos",
+		"changelog": "Registro de cambios"
+	},
+	"idolSet": {
+		"newSet": "Nuevo conjunto",
+		"rename": "Renombrar",
+		"delete": "Eliminar",
+		"duplicate": "Duplicar",
+		"confirmDelete": "¿Estás seguro de que deseas eliminar este conjunto?",
+		"defaultName": "Conjunto de ídolos"
+	},
+	"inventory": {
+		"title": "Inventario",
+		"empty": "No hay ídolos en el inventario. Importa o crea algunos usando los botones de abajo.",
+		"import": "Importar",
+		"create": "Crear",
+		"search": "Buscar ídolos...",
+		"clear": "Borrar todo",
+		"usedInSets": "Usado en {count} conjunto(s)",
+		"removeFromInventory": "Eliminar del inventario",
+		"noMatches": "No se encontraron ídolos coincidentes"
+	},
+	"grid": {
+		"tab1": "Pestaña 1",
+		"tab2": "Pestaña 2",
+		"tab3": "Pestaña 3",
+		"dropHere": "Suelta el ídolo aquí",
+		"removeFromGrid": "Eliminar de la cuadrícula"
+	},
+	"actions": {
+		"import": "Importar",
+		"export": "Exportar",
+		"share": "Compartir",
+		"search": "Buscar",
+		"clear": "Borrar",
+		"cancel": "Cancelar",
+		"confirm": "Confirmar",
+		"save": "Guardar",
+		"copy": "Copiar",
+		"copied": "¡Copiado!"
+	},
+	"stats": {
+		"totalStats": "Estadísticas totales",
+		"byMechanic": "Por mecánica",
+		"noStats": "No hay estadísticas para mostrar"
+	},
+	"trade": {
+		"findSimilar": "Buscar similar en el comercio",
+		"findThisMod": "Buscar este mod en el comercio",
+		"searchAll": "Buscar todo en el comercio",
+		"openTrade": "Abrir sitio de comercio",
+		"searchBaseType": "Buscar {type} en el comercio"
+	},
+	"import": {
+		"title": "Importar ídolo",
+		"description": "Pega los datos del ídolo copiados de Path of Exile",
+		"pasteHere": "Datos del ídolo",
+		"placeholder": "Pega los datos del ídolo aquí...",
+		"howTo": "Cómo copiar datos del ídolo:",
+		"ctrlC": "Ctrl+C - Copiar información básica del objeto",
+		"ctrlAltC": "Ctrl+Alt+C - Copiar información avanzada con niveles y rangos",
+		"pasteFromClipboard": "Pegar",
+		"detected": "Detectado",
+		"simpleFormat": "Formato simple (Ctrl+C)",
+		"advancedFormat": "Formato avanzado (Ctrl+Alt+C)",
+		"parseError": "No se pudieron analizar los datos del ídolo. Por favor, verifica el formato.",
+		"success": "¡Ídolo importado con éxito!",
+		"importButton": "Importar"
+	},
+	"share": {
+		"title": "Compartir conjunto",
+		"description": "Comparte este conjunto con otros usando el enlace de abajo.",
+		"linkCopied": "¡Enlace copiado al portapapeles!",
+		"loading": "Generando enlace para compartir...",
+		"error": "Error al generar el enlace para compartir. Por favor, inténtalo de nuevo."
+	},
+	"errors": {
+		"invalidIdol": "Datos de ídolo inválidos",
+		"parseError": "Error al analizar los datos",
+		"storageError": "Error de almacenamiento",
+		"networkError": "Error de red"
+	},
+	"editor": {
+		"createIdol": "Crear ídolo",
+		"editIdol": "Editar ídolo",
+		"description": "Selecciona modificadores para crear una configuración de ídolo personalizada.",
+		"baseType": "Tipo base",
+		"itemLevel": "Nivel de objeto",
+		"name": "Nombre",
+		"optional": "opcional",
+		"namePlaceholder": "Nombre personalizado del ídolo...",
+		"filterByMechanic": "Filtrar por mecánica",
+		"prefixes": "Prefijos",
+		"suffixes": "Sufijos",
+		"tier": "Nivel",
+		"selectMod": "Seleccionar modificador...",
+		"searchMods": "Buscar modificadores...",
+		"noModsFound": "No se encontraron modificadores.",
+		"searchMechanic": "Buscar mecánica...",
+		"noMechanicsFound": "No se encontraron mecánicas.",
+		"allMechanics": "Todas las mecánicas"
+	},
+	"filter": {
+		"mechanic": "Filtrar por mecánica",
+		"allMechanics": "Todas las mecánicas",
+		"type": "Filtrar por tipo",
+		"allTypes": "Todos los tipos",
+		"prefixOnly": "Solo prefijos",
+		"suffixOnly": "Solo sufijos"
+	},
+	"mechanics": {
+		"abyss": "Abismo",
+		"affliction": "Aflicción",
+		"bestiary": "Bestiario",
+		"betrayal": "Traición",
+		"beyond": "Más allá",
+		"blight": "Plaga",
+		"breach": "Brecha",
+		"crucible": "Crisol",
+		"delirium": "Delirio",
+		"delve": "Profundidades",
+		"elder": "Ancestro/Formador",
+		"essence": "Esencia",
+		"expedition": "Expedición",
+		"harvest": "Cosecha",
+		"heist": "Atraco",
+		"incursion": "Incursión",
+		"legion": "Legión",
+		"map": "Mapas",
+		"maven": "Maven",
+		"metamorph": "Metamorfo",
+		"necropolis": "Necrópolis",
+		"ritual": "Ritual",
+		"sanctum": "Santuario",
+		"shrine": "Santuario",
+		"strongbox": "Cofre",
+		"ultimatum": "Ultimátum",
+		"generic": "Genérico"
+	}
+}
