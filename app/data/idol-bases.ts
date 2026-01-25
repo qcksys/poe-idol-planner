@@ -74,6 +74,7 @@ export const LEAGUE_MECHANICS = [
 	"metamorph",
 	"necropolis",
 	"ritual",
+	"anarchy",
 	"sanctum",
 	"shrine",
 	"strongbox",

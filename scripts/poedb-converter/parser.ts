@@ -61,6 +61,22 @@ function normalizeModText(html: string): string {
 }
 
 function detectMechanic(text: string): string {
+	const lowerText = text.toLowerCase();
+
+	// Check multi-word phrases first (order matters - check before single words)
+	const phraseKeywords: Record<string, string[]> = {
+		anarchy: ["rogue exile"],
+	};
+
+	for (const [mechanic, keywords] of Object.entries(phraseKeywords)) {
+		for (const keyword of keywords) {
+			if (lowerText.includes(keyword)) {
+				return mechanic;
+			}
+		}
+	}
+
+	// Then check single-word keywords
 	const mechanicKeywords: Record<string, string[]> = {
 		abyss: ["abyss", "abyssal"],
 		legion: ["legion", "incubator", "splinter"],
@@ -90,8 +106,6 @@ function detectMechanic(text: string): string {
 		elder: ["elder", "shaper"],
 		map: ["map", "maps", "atlas"],
 	};
-
-	const lowerText = text.toLowerCase();
 
 	for (const [mechanic, keywords] of Object.entries(mechanicKeywords)) {
 		for (const keyword of keywords) {

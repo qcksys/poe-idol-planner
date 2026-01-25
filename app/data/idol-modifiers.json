@@ -383,7 +383,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -426,7 +426,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -469,7 +469,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -512,7 +512,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -6059,7 +6059,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -6102,7 +6102,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -6145,7 +6145,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -6188,7 +6188,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -11305,7 +11305,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -11348,7 +11348,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -11391,7 +11391,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -11434,7 +11434,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16508,7 +16508,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -16551,7 +16551,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -16594,7 +16594,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22032,7 +22032,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -22075,7 +22075,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -22118,7 +22118,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27860,7 +27860,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -27903,7 +27903,7 @@
 				"weight": 800
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -27946,7 +27946,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -27989,7 +27989,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "heist",
+		"mechanic": "anarchy",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
