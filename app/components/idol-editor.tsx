@@ -47,6 +47,7 @@ interface ModSlotProps {
 	index: number;
 	mod: SelectedMod | null;
 	mechanicFilter: LeagueMechanic | null;
+	idolType: IdolBaseKey;
 	onModChange: (mod: SelectedMod | null) => void;
 	onTierChange: (tier: number) => void;
 	onValueChange: (value: number) => void;
@@ -63,6 +64,7 @@ function ModSlot({
 	index,
 	mod,
 	mechanicFilter,
+	idolType,
 	onModChange,
 	onTierChange,
 	onValueChange,
@@ -95,6 +97,7 @@ function ModSlot({
 					<ModSearch
 						type={type}
 						mechanicFilter={mechanicFilter}
+						idolType={idolType}
 						selectedModId={mod?.modOption.id ?? null}
 						onSelect={handleModSelect}
 					/>
@@ -219,6 +222,23 @@ export function IdolEditor({
 			setSuffixes([null, null]);
 		}
 	}, [initialIdol, allModifiers]);
+
+	useEffect(() => {
+		const idolTypeName =
+			baseType.charAt(0).toUpperCase() + baseType.slice(1);
+
+		const isModValidForIdol = (mod: SelectedMod | null): boolean => {
+			if (!mod) return true;
+			return mod.modOption.applicableIdols.includes(idolTypeName);
+		};
+
+		setPrefixes((prev) =>
+			prev.map((mod) => (isModValidForIdol(mod) ? mod : null)),
+		);
+		setSuffixes((prev) =>
+			prev.map((mod) => (isModValidForIdol(mod) ? mod : null)),
+		);
+	}, [baseType]);
 
 	const updateMod = useCallback(
 		(type: "prefix" | "suffix", index: number, mod: SelectedMod | null) => {
@@ -415,6 +435,7 @@ export function IdolEditor({
 									index={i}
 									mod={mod}
 									mechanicFilter={mechanicFilter}
+									idolType={baseType}
 									onModChange={(m) =>
 										updateMod("prefix", i, m)
 									}
@@ -439,6 +460,7 @@ export function IdolEditor({
 									index={i}
 									mod={mod}
 									mechanicFilter={mechanicFilter}
+									idolType={baseType}
 									onModChange={(m) =>
 										updateMod("suffix", i, m)
 									}

@@ -24,6 +24,7 @@ export interface ModifierOption {
 	type: "prefix" | "suffix";
 	name: string;
 	mechanic: LeagueMechanic;
+	applicableIdols: string[];
 	tiers: {
 		tier: number;
 		levelReq: number;
@@ -35,6 +36,7 @@ export interface ModifierOption {
 interface ModSearchProps {
 	type?: "prefix" | "suffix";
 	mechanicFilter?: LeagueMechanic | null;
+	idolType?: string | null;
 	selectedModId?: string | null;
 	onSelect: (mod: ModifierOption | null) => void;
 	disabled?: boolean;
@@ -47,6 +49,7 @@ export function getModifierOptions(): ModifierOption[] {
 		type: mod.type as "prefix" | "suffix",
 		name: mod.name.en || mod.tiers[0]?.text?.en || mod.id,
 		mechanic: mod.mechanic as LeagueMechanic,
+		applicableIdols: mod.applicableIdols,
 		tiers: mod.tiers.map((tier) => ({
 			tier: tier.tier,
 			levelReq: tier.levelReq,
@@ -59,6 +62,7 @@ export function getModifierOptions(): ModifierOption[] {
 export function ModSearch({
 	type,
 	mechanicFilter,
+	idolType,
 	selectedModId,
 	onSelect,
 	disabled = false,
@@ -73,9 +77,14 @@ export function ModSearch({
 		return allModifiers.filter((mod) => {
 			if (type && mod.type !== type) return false;
 			if (mechanicFilter && mod.mechanic !== mechanicFilter) return false;
+			if (idolType) {
+				const idolTypeName =
+					idolType.charAt(0).toUpperCase() + idolType.slice(1);
+				if (!mod.applicableIdols.includes(idolTypeName)) return false;
+			}
 			return true;
 		});
-	}, [allModifiers, type, mechanicFilter]);
+	}, [allModifiers, type, mechanicFilter, idolType]);
 
 	const groupedModifiers = useMemo(() => {
 		const groups: Record<LeagueMechanic, ModifierOption[]> = {} as Record<
