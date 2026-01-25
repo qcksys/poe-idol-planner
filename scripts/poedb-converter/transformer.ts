@@ -1,5 +1,6 @@
 import type {
 	ConvertedData,
+	IdolBaseType,
 	Locale,
 	ModifierData,
 	ModifierTier,
@@ -18,15 +19,18 @@ function createEmptyLocaleRecord(): Record<Locale, string> {
 }
 
 function generateModifierId(
-	name: string,
+	modFamily: string,
 	type: "prefix" | "suffix",
-	mechanic: string,
+	idolType: IdolBaseType,
 ): string {
-	const slug = name
+	const slug = modFamily
+		.replace(/^MapRelic/, "")
+		.replace(/([A-Z])/g, "_$1")
 		.toLowerCase()
-		.replace(/[^a-z0-9]+/g, "_")
-		.replace(/^_|_$/g, "");
-	return `${type}_${mechanic}_${slug}`;
+		.replace(/^_/, "")
+		.replace(/_+/g, "_")
+		.replace(/_$/, "");
+	return `${type}_${idolType.toLowerCase()}_${slug}`;
 }
 
 export function mergeModifiers(
@@ -37,9 +41,9 @@ export function mergeModifiers(
 
 	for (const rawMod of enModifiers) {
 		const baseId = generateModifierId(
-			rawMod.name,
+			rawMod.modFamily,
 			rawMod.type,
-			rawMod.mechanic,
+			rawMod.idolSource,
 		);
 
 		let modifier = modifierMap.get(baseId);
@@ -50,17 +54,23 @@ export function mergeModifiers(
 				name: createEmptyLocaleRecord(),
 				tiers: [],
 				mechanic: rawMod.mechanic,
-				applicableIdols: [],
+				applicableIdols: [rawMod.idolSource],
 			};
 			modifierMap.set(baseId, modifier);
 		}
 
 		modifier.name.en = rawMod.name;
 
-		const existingTier = modifier.tiers.find((t) => t.tier === rawMod.tier);
+		const existingTier = modifier.tiers.find(
+			(t) =>
+				t.levelReq === rawMod.levelReq &&
+				JSON.stringify(t.values) === JSON.stringify(rawMod.values),
+		);
+
 		if (!existingTier) {
+			const tierNum = modifier.tiers.length + 1;
 			const tier: ModifierTier = {
-				tier: rawMod.tier,
+				tier: tierNum,
 				levelReq: rawMod.levelReq,
 				text: createEmptyLocaleRecord(),
 				values: rawMod.values,
@@ -76,32 +86,20 @@ export function mergeModifiers(
 
 		for (const rawMod of rawMods) {
 			const baseId = generateModifierId(
-				rawMod.name,
+				rawMod.modFamily,
 				rawMod.type,
-				rawMod.mechanic,
+				rawMod.idolSource,
 			);
-			let modifier = modifierMap.get(baseId);
-
-			if (!modifier) {
-				for (const [_id, mod] of modifierMap) {
-					if (
-						mod.type === rawMod.type &&
-						mod.tiers.some(
-							(t) =>
-								t.tier === rawMod.tier &&
-								JSON.stringify(t.values) ===
-									JSON.stringify(rawMod.values),
-						)
-					) {
-						modifier = mod;
-						break;
-					}
-				}
-			}
+			const modifier = modifierMap.get(baseId);
 
 			if (modifier) {
 				modifier.name[locale] = rawMod.name;
-				const tier = modifier.tiers.find((t) => t.tier === rawMod.tier);
+				const tier = modifier.tiers.find(
+					(t) =>
+						t.levelReq === rawMod.levelReq &&
+						JSON.stringify(t.values) ===
+							JSON.stringify(rawMod.values),
+				);
 				if (tier) {
 					tier.text[locale] = rawMod.text;
 				}

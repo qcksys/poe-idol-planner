@@ -5,7 +5,7 @@ import {
 	validateConvertedData,
 	writeConvertedData,
 } from "./output.ts";
-import { parsePoedbPage } from "./parser.ts";
+import { parseIdolPage } from "./parser.ts";
 import {
 	generateTradeStatMappings,
 	writeTradeStatMappings,
@@ -14,7 +14,14 @@ import { transform } from "./transformer.ts";
 import type { Locale, ParsedPage } from "./types.ts";
 import { LOCALES } from "./types.ts";
 
-const PAGES_TO_FETCH = ["Idols#IdolMods"];
+const IDOL_PAGES = [
+	"Minor_Idol",
+	"Noble_Idol",
+	"Kamasan_Idol",
+	"Burial_Idol",
+	"Totemic_Idol",
+	"Conqueror_Idol",
+] as const;
 
 const { values: args } = parseArgs({
 	allowPositionals: true,
@@ -80,14 +87,14 @@ async function main(): Promise<void> {
 	for (const locale of locales) {
 		console.log(`Processing locale: ${locale}`);
 
-		for (const page of PAGES_TO_FETCH) {
+		for (const idolPage of IDOL_PAGES) {
 			try {
 				const html = await fetchPoedbPage(
 					locale,
-					page,
+					idolPage,
 					args.cached ?? false,
 				);
-				const parsed = parsePoedbPage(html, locale);
+				const parsed = parseIdolPage(html, locale, idolPage);
 
 				const existingData = dataByLocale.get(locale) || {
 					modifiers: [],
@@ -98,11 +105,11 @@ async function main(): Promise<void> {
 				dataByLocale.set(locale, existingData);
 
 				console.log(
-					`  Parsed: ${parsed.modifiers.length} modifiers, ${parsed.uniqueIdols.length} uniques`,
+					`  ${idolPage}: ${parsed.modifiers.length} modifiers`,
 				);
 			} catch (error) {
 				console.error(
-					`  Error fetching ${page}:`,
+					`  Error fetching ${idolPage}:`,
 					error instanceof Error ? error.message : error,
 				);
 			}

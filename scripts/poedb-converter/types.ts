@@ -51,6 +51,8 @@ export interface RawModifier {
 	values: ValueRange[];
 	weight: number;
 	tags: string[];
+	idolSource: IdolBaseType;
+	modFamily: string;
 }
 
 export interface ModifierData {
