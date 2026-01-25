@@ -4,3 +4,4 @@
 
 # Scripts
 - Highlight ranges
+- Translation Types CLI

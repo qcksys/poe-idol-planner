@@ -1,5 +1,6 @@
 import Markdown from "react-markdown";
 import changelogRaw from "~/../CHANGELOG.md?raw";
+import { AppHeader } from "~/components/app-header";
 import type { Route } from "./+types/changelog";
 
 export function meta(): Route.MetaDescriptors {
@@ -14,10 +15,13 @@ export function meta(): Route.MetaDescriptors {
 
 export default function Changelog(_props: Route.ComponentProps) {
 	return (
-		<main className="mx-auto max-w-3xl px-4 py-8">
-			<article className="prose prose-neutral dark:prose-invert max-w-none">
-				<Markdown>{changelogRaw}</Markdown>
-			</article>
-		</main>
+		<>
+			<AppHeader />
+			<main className="mx-auto max-w-3xl px-4 py-8">
+				<article className="prose prose-neutral dark:prose-invert max-w-none">
+					<Markdown>{changelogRaw}</Markdown>
+				</article>
+			</main>
+		</>
 	);
 }

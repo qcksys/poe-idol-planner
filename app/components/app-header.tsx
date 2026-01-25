@@ -1,4 +1,5 @@
 import { Share2 } from "lucide-react";
+import { Link } from "react-router";
 import { siGithub } from "simple-icons";
 import { Button } from "~/components/ui/button";
 import { useTranslations } from "~/i18n";
@@ -16,12 +17,18 @@ export function AppHeader({ onShareClick }: AppHeaderProps) {
 		<header className="sticky top-0 z-50 border-border border-b bg-background/90 backdrop-blur">
 			<div className="container mx-auto flex h-14 items-center justify-between px-4">
 				<div className="flex items-center gap-2">
-					<h1 className="font-bold text-lg text-yellow-500">
+					<Link to="/" className="font-bold text-lg text-yellow-500">
 						{t.app.title}
-					</h1>
+					</Link>
 					<span className="rounded bg-blue-600 px-1.5 py-0.5 text-xs">
 						Legacy of Phrecia
 					</span>
+					<Link
+						to="/changelog"
+						className="text-muted-foreground text-sm hover:text-foreground"
+					>
+						{t.nav.changelog}
+					</Link>
 				</div>
 
 				<div className="flex items-center gap-2">

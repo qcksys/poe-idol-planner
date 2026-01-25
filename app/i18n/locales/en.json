@@ -6,7 +6,8 @@
 	"nav": {
 		"planner": "Planner",
 		"inventory": "Inventory",
-		"sets": "Sets"
+		"sets": "Sets",
+		"changelog": "Changelog"
 	},
 	"idolSet": {
 		"newSet": "New Set",

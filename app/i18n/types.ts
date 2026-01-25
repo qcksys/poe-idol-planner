@@ -24,6 +24,7 @@ export interface Translations {
 		planner: string;
 		inventory: string;
 		sets: string;
+		changelog: string;
 	};
 	idolSet: {
 		newSet: string;
