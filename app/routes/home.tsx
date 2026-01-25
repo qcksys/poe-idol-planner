@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AppHeader } from "~/components/app-header";
+import { IdolEditor } from "~/components/idol-editor";
 import { IdolGrid } from "~/components/idol-grid";
 import { ImportModal } from "~/components/import-modal";
 import { InventoryPanel } from "~/components/inventory-panel";
@@ -9,6 +10,7 @@ import { StatsSummary } from "~/components/stats-summary";
 import { DndProvider } from "~/context/dnd-context";
 import { usePlannerState } from "~/hooks/use-planner-state";
 import { useTranslations } from "~/i18n";
+import type { IdolInstance } from "~/schemas/idol";
 import type { Route } from "./+types/home";
 
 export function meta() {
@@ -32,6 +34,11 @@ export default function Home(_props: Route.ComponentProps) {
 		usePlannerState();
 	const [importModalOpen, setImportModalOpen] = useState(false);
 	const [shareModalOpen, setShareModalOpen] = useState(false);
+	const [editorOpen, setEditorOpen] = useState(false);
+
+	const handleSaveIdol = (idol: IdolInstance) => {
+		inventory.addIdols([idol], "manual");
+	};
 
 	if (!isHydrated) {
 		return (
@@ -66,6 +73,7 @@ export default function Home(_props: Route.ComponentProps) {
 							<InventoryPanel
 								inventory={inventory.inventory}
 								onImportClick={() => setImportModalOpen(true)}
+								onCreateClick={() => setEditorOpen(true)}
 								onRemoveIdol={removeIdolFromInventory}
 								onClearAll={inventory.clearInventory}
 							/>
@@ -112,6 +120,12 @@ export default function Home(_props: Route.ComponentProps) {
 					onOpenChange={setShareModalOpen}
 					set={activeSet}
 					inventory={inventory.inventory}
+				/>
+
+				<IdolEditor
+					open={editorOpen}
+					onOpenChange={setEditorOpen}
+					onSave={handleSaveIdol}
 				/>
 			</div>
 		</DndProvider>

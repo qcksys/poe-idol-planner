@@ -12,7 +12,7 @@ Build a comprehensive Path of Exile idol planning tool for the Legacy of Phrecia
 - [x] Phase 6: State Management & Storage
 - [x] Phase 7: Sharing & KV Integration
 - [x] Phase 8: Trade Search Generation
-- [ ] Phase 9: Search & Filtering
+- [x] Phase 9: Search & Filtering
 - [ ] Phase 10: Polish & Testing
 
 ## Key Questions (Answered)
@@ -51,9 +51,22 @@ Build a comprehensive Path of Exile idol planning tool for the Legacy of Phrecia
 - (none yet)
 
 ## Status
-**Currently in Phase 9** - Trade Search complete, ready for Search & Filtering
+**Currently in Phase 10** - Search & Filtering complete, ready for Polish & Testing
 
 ### Completed
+- Phase 10: Polish & Testing (in progress)
+  - Unit tests for idol-parser (test/lib/idol-parser.test.ts) - 25 tests
+  - Unit tests for trade-search (test/lib/trade-search.test.ts) - 19 tests
+  - Total test count: 48 tests passing
+
+- Phase 9: Search & Filtering
+  - Mod search component (app/components/mod-search.tsx) with Command combobox
+  - Searchable modifier selector grouped by league mechanic
+  - MechanicFilter component for filtering mods by mechanic
+  - Idol editor modal (app/components/idol-editor.tsx) for creating custom idols
+  - Updated inventory panel with mechanic filter and create button
+  - Added translations for editor and filter UI
+
 - Phase 8: Trade Search Generation
   - Trade search library (app/lib/trade-search.ts) with URL generation
   - **Dynamic trade stat mapping generation** via poedb-converter:

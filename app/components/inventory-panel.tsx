@@ -1,10 +1,12 @@
-import { Plus, Search, Trash2 } from "lucide-react";
+import { PenLine, Plus, Search, Trash2 } from "lucide-react";
 import { type DragEvent, useState } from "react";
+import { MechanicFilter } from "~/components/mod-search";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import { ScrollArea } from "~/components/ui/scroll-area";
 import { useDnd } from "~/context/dnd-context";
+import type { LeagueMechanic } from "~/data/idol-bases";
 import { useTranslations } from "~/i18n";
 import type { InventoryIdol } from "~/schemas/inventory";
 import { IdolCard } from "./idol-card";
@@ -12,6 +14,7 @@ import { IdolCard } from "./idol-card";
 interface InventoryPanelProps {
 	inventory: InventoryIdol[];
 	onImportClick: () => void;
+	onCreateClick?: () => void;
 	onIdolClick?: (idol: InventoryIdol) => void;
 	onRemoveIdol?: (id: string) => void;
 	onClearAll?: () => void;
@@ -81,18 +84,30 @@ function DraggableIdolCard({
 export function InventoryPanel({
 	inventory,
 	onImportClick,
+	onCreateClick,
 	onIdolClick,
 	onRemoveIdol,
 	onClearAll,
 }: InventoryPanelProps) {
 	const t = useTranslations();
 	const [searchQuery, setSearchQuery] = useState("");
+	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic | null>(
+		null,
+	);
 
 	const filteredInventory = inventory.filter((item) => {
-		if (!searchQuery) return true;
-		const query = searchQuery.toLowerCase();
 		const idol = item.idol;
 		const allMods = [...idol.prefixes, ...idol.suffixes];
+
+		if (mechanicFilter) {
+			const hasMechanic = allMods.some(
+				(mod) => mod.mechanic === mechanicFilter,
+			);
+			if (!hasMechanic) return false;
+		}
+
+		if (!searchQuery) return true;
+		const query = searchQuery.toLowerCase();
 		return (
 			idol.name?.toLowerCase().includes(query) ||
 			idol.baseType.toLowerCase().includes(query) ||
@@ -124,6 +139,11 @@ export function InventoryPanel({
 					/>
 				</div>
 
+				<MechanicFilter
+					value={mechanicFilter}
+					onChange={setMechanicFilter}
+				/>
+
 				<div className="flex gap-2">
 					<Button
 						onClick={onImportClick}
@@ -133,6 +153,17 @@ export function InventoryPanel({
 						<Plus className="mr-1 h-4 w-4" />
 						{t.inventory.import}
 					</Button>
+					{onCreateClick && (
+						<Button
+							onClick={onCreateClick}
+							variant="outline"
+							className="flex-1"
+							size="sm"
+						>
+							<PenLine className="mr-1 h-4 w-4" />
+							{t.inventory.create}
+						</Button>
+					)}
 					{onClearAll && inventory.length > 0 && (
 						<Button
 							variant="destructive"
@@ -149,7 +180,7 @@ export function InventoryPanel({
 						<div className="py-8 text-center text-gray-400">
 							{inventory.length === 0
 								? t.inventory.empty
-								: "No matching idols found"}
+								: t.inventory.noMatches}
 						</div>
 					) : (
 						<ul className="space-y-2 pr-2">

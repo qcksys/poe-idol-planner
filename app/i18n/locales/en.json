@@ -18,12 +18,14 @@
 	},
 	"inventory": {
 		"title": "Inventory",
-		"empty": "No idols in inventory. Import some using the button below.",
-		"import": "Import Idol",
+		"empty": "No idols in inventory. Import or create some using the buttons below.",
+		"import": "Import",
+		"create": "Create",
 		"search": "Search idols...",
 		"clear": "Clear All",
 		"usedInSets": "Used in {count} set(s)",
-		"removeFromInventory": "Remove from Inventory"
+		"removeFromInventory": "Remove from Inventory",
+		"noMatches": "No matching idols found"
 	},
 	"grid": {
 		"tab1": "Tab 1",
@@ -84,6 +86,34 @@
 		"parseError": "Failed to parse data",
 		"storageError": "Storage error occurred",
 		"networkError": "Network error occurred"
+	},
+	"editor": {
+		"createIdol": "Create Idol",
+		"editIdol": "Edit Idol",
+		"description": "Select modifiers to create a custom idol configuration.",
+		"baseType": "Base Type",
+		"itemLevel": "Item Level",
+		"name": "Name",
+		"optional": "optional",
+		"namePlaceholder": "Custom idol name...",
+		"filterByMechanic": "Filter by Mechanic",
+		"prefixes": "Prefixes",
+		"suffixes": "Suffixes",
+		"tier": "Tier",
+		"selectMod": "Select modifier...",
+		"searchMods": "Search modifiers...",
+		"noModsFound": "No modifiers found.",
+		"searchMechanic": "Search mechanic...",
+		"noMechanicsFound": "No mechanics found.",
+		"allMechanics": "All Mechanics"
+	},
+	"filter": {
+		"mechanic": "Filter by Mechanic",
+		"allMechanics": "All Mechanics",
+		"type": "Filter by Type",
+		"allTypes": "All Types",
+		"prefixOnly": "Prefix Only",
+		"suffixOnly": "Suffix Only"
 	},
 	"mechanics": {
 		"abyss": "Abyss",

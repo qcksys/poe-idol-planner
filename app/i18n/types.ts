@@ -37,10 +37,12 @@ export interface Translations {
 		title: string;
 		empty: string;
 		import: string;
+		create: string;
 		search: string;
 		clear: string;
 		usedInSets: string;
 		removeFromInventory: string;
+		noMatches: string;
 	};
 	grid: {
 		tab1: string;
@@ -68,8 +70,10 @@ export interface Translations {
 	};
 	trade: {
 		findSimilar: string;
+		findThisMod: string;
 		searchAll: string;
 		openTrade: string;
+		searchBaseType: string;
 	};
 	import: {
 		title: string;
@@ -99,6 +103,34 @@ export interface Translations {
 		parseError: string;
 		storageError: string;
 		networkError: string;
+	};
+	editor: {
+		createIdol: string;
+		editIdol: string;
+		description: string;
+		baseType: string;
+		itemLevel: string;
+		name: string;
+		optional: string;
+		namePlaceholder: string;
+		filterByMechanic: string;
+		prefixes: string;
+		suffixes: string;
+		tier: string;
+		selectMod: string;
+		searchMods: string;
+		noModsFound: string;
+		searchMechanic: string;
+		noMechanicsFound: string;
+		allMechanics: string;
+	};
+	filter: {
+		mechanic: string;
+		allMechanics: string;
+		type: string;
+		allTypes: string;
+		prefixOnly: string;
+		suffixOnly: string;
 	};
 	mechanics: Record<string, string>;
 }
