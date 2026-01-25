@@ -7,3 +7,4 @@ fix drag and drop and add idol move functionality:
 - add ability to drag and reposition idols already placed on the grid
 - size placed idols based on CELL_SIZE constant (64px) instead of hardcoded values
 - track source placement during drag operations for proper collision detection
+- Total Stats panel now sums identical mod values instead of showing ranges and multipliers

@@ -14,15 +14,42 @@ interface StatsSummaryProps {
 }
 
 interface AggregatedStat {
-	text: string;
-	value: number;
+	template: string;
+	totalValue: number;
 	mechanic: LeagueMechanic;
-	count: number;
+	hasPercent: boolean;
 }
 
 interface StatsByMechanic {
 	mechanic: LeagueMechanic;
 	stats: AggregatedStat[];
+}
+
+// Number pattern: matches integers, decimals, and percentages (e.g., 65, 65.5, 65%)
+const NUMBER_PATTERN = /(\d+(?:\.\d+)?%?)/;
+
+// Create a template by replacing the first number with a placeholder
+function createTemplate(text: string): {
+	template: string;
+	hasPercent: boolean;
+} {
+	const match = text.match(NUMBER_PATTERN);
+	const hasPercent = match ? match[1].includes("%") : false;
+	const template = text.replace(NUMBER_PATTERN, "{value}");
+	return { template, hasPercent };
+}
+
+// Replace the placeholder with the actual summed value
+function formatStatText(
+	template: string,
+	value: number,
+	hasPercent: boolean,
+): string {
+	const formattedValue = Number.isInteger(value)
+		? value.toString()
+		: value.toFixed(1);
+	const displayValue = hasPercent ? `${formattedValue}%` : formattedValue;
+	return template.replace("{value}", displayValue);
 }
 
 function aggregateStats(
@@ -41,17 +68,17 @@ function aggregateStats(
 		const allMods = [...idol.prefixes, ...idol.suffixes];
 
 		for (const mod of allMods) {
-			const key = `${mod.mechanic}:${mod.text}`;
+			const { template, hasPercent } = createTemplate(mod.text);
+			const key = `${mod.mechanic}:${template}`;
 			const existing = statMap.get(key);
 			if (existing) {
-				existing.value += mod.rolledValue;
-				existing.count += 1;
+				existing.totalValue += mod.rolledValue;
 			} else {
 				statMap.set(key, {
-					text: mod.text,
-					value: mod.rolledValue,
+					template,
+					totalValue: mod.rolledValue,
 					mechanic: mod.mechanic,
-					count: 1,
+					hasPercent,
 				});
 			}
 		}
@@ -80,21 +107,21 @@ function MechanicSection({ data }: { data: StatsByMechanic }) {
 				{mechanicName}
 			</h4>
 			<div className="space-y-1">
-				{data.stats.map((stat, index) => (
-					<div
-						key={`${stat.text}-${index}`}
-						className="flex items-start justify-between gap-2 text-sm"
-					>
-						<span className="text-gray-300">
-							{highlightNumbers(stat.text)}
-						</span>
-						{stat.count > 1 && (
-							<span className="whitespace-nowrap text-gray-500">
-								(x{stat.count})
-							</span>
-						)}
-					</div>
-				))}
+				{data.stats.map((stat, index) => {
+					const displayText = formatStatText(
+						stat.template,
+						stat.totalValue,
+						stat.hasPercent,
+					);
+					return (
+						<div
+							key={`${stat.template}-${index}`}
+							className="text-gray-300 text-sm"
+						>
+							{highlightNumbers(displayText)}
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	);
