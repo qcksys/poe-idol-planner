@@ -6,6 +6,10 @@ import {
 	writeConvertedData,
 } from "./output.ts";
 import { parsePoedbPage } from "./parser.ts";
+import {
+	generateTradeStatMappings,
+	writeTradeStatMappings,
+} from "./trade-stats.ts";
 import { transform } from "./transformer.ts";
 import type { Locale, ParsedPage } from "./types.ts";
 import { LOCALES } from "./types.ts";
@@ -129,6 +133,14 @@ async function main(): Promise<void> {
 	if (args["generate-schemas"]) {
 		console.log("\nGenerating JSON schemas...");
 		generateJsonSchemas();
+	}
+
+	console.log("\nGenerating trade stat mappings...");
+	const tradeStatMappings = generateTradeStatMappings(
+		convertedData.modifiers,
+	);
+	if (tradeStatMappings) {
+		writeTradeStatMappings(tradeStatMappings);
 	}
 
 	console.log("\nDone!");

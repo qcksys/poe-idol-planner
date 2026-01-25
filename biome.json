@@ -38,7 +38,7 @@
 			"!code-quality.json",
 			"!scripts/**/.cache"
 		],
-		"maxSize": 1048576
+		"maxSize": 2000000
 	},
 	"vcs": {
 		"enabled": true,

@@ -50,6 +50,7 @@ function DraggableIdolCard({
 			<IdolCard
 				idol={item.idol}
 				compact
+				showTradeMenu
 				onClick={() => onIdolClick?.(item)}
 			/>
 			{onRemoveIdol && (

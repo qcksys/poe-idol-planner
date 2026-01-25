@@ -1,4 +1,11 @@
+import { ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "~/components/ui/dropdown-menu";
 import {
 	Tooltip,
 	TooltipContent,
@@ -6,6 +13,8 @@ import {
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
+import { useTranslations } from "~/i18n";
+import { generateTradeUrl } from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
 
@@ -15,6 +24,7 @@ interface IdolCardProps {
 	compact?: boolean;
 	onClick?: () => void;
 	showTooltip?: boolean;
+	showTradeMenu?: boolean;
 }
 
 function getRarityColor(rarity: IdolInstance["rarity"]): string {
@@ -109,12 +119,19 @@ export function IdolCard({
 	compact = false,
 	onClick,
 	showTooltip = true,
+	showTradeMenu = false,
 }: IdolCardProps) {
+	const t = useTranslations();
 	const rarityColor = getRarityColor(idol.rarity);
 	const rarityBg = getRarityBg(idol.rarity);
 	const base = IDOL_BASES[idol.baseType as IdolBaseKey];
 
-	const cardContent = (
+	const handleFindOnTrade = () => {
+		const url = generateTradeUrl(idol);
+		window.open(url, "_blank", "noopener,noreferrer");
+	};
+
+	const cardElement = (
 		<Card
 			className={cn(
 				"cursor-pointer border-2 transition-all hover:scale-105",
@@ -133,6 +150,20 @@ export function IdolCard({
 				<IdolCardContent idol={idol} compact={compact} />
 			</CardContent>
 		</Card>
+	);
+
+	const cardContent = showTradeMenu ? (
+		<DropdownMenu>
+			<DropdownMenuTrigger asChild>{cardElement}</DropdownMenuTrigger>
+			<DropdownMenuContent>
+				<DropdownMenuItem onClick={handleFindOnTrade}>
+					<ExternalLink className="mr-2 h-4 w-4" />
+					{t.trade.findSimilar}
+				</DropdownMenuItem>
+			</DropdownMenuContent>
+		</DropdownMenu>
+	) : (
+		cardElement
 	);
 
 	if (!showTooltip || !compact) {

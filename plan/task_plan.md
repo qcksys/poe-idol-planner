@@ -11,7 +11,7 @@ Build a comprehensive Path of Exile idol planning tool for the Legacy of Phrecia
 - [x] Phase 5: Core UI Components
 - [x] Phase 6: State Management & Storage
 - [x] Phase 7: Sharing & KV Integration
-- [ ] Phase 8: Trade Search Generation
+- [x] Phase 8: Trade Search Generation
 - [ ] Phase 9: Search & Filtering
 - [ ] Phase 10: Polish & Testing
 
@@ -51,9 +51,24 @@ Build a comprehensive Path of Exile idol planning tool for the Legacy of Phrecia
 - (none yet)
 
 ## Status
-**Currently completing Phase 7** - Sharing & KV Integration complete, ready for Phase 8 (Trade Search)
+**Currently in Phase 9** - Trade Search complete, ready for Search & Filtering
 
 ### Completed
+- Phase 8: Trade Search Generation
+  - Trade search library (app/lib/trade-search.ts) with URL generation
+  - **Dynamic trade stat mapping generation** via poedb-converter:
+    - scripts/poedb-converter/trade-stats.ts - generates mappings from trade API data
+    - app/data/trade-stat-mappings.ts - auto-generated mapping file (368 mappings)
+    - app/data/trade-stat-mappings.json - JSON backup with stats
+    - Uses dev/poe/api.trade.data.stats.json as source data
+    - 482/503 modifiers matched (96% coverage)
+  - generateTradeUrl() for finding similar idols on pathofexile.com/trade
+  - generateTradeUrlForBaseType() for searching by idol type
+  - generateTradeUrlForMod() for searching by specific modifier
+  - Integration with IdolCard component via dropdown menu
+  - "Find Similar on Trade" button on inventory idol cards
+  - Unit tests for trade search functionality
+
 - Phase 2: poedb-converter script created and tested
   - Fetches idol modifier data from poedb.tw (with caching)
   - Parses HTML tables for prefixes/suffixes

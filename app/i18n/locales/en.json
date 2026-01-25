@@ -50,9 +50,11 @@
 		"noStats": "No stats to display"
 	},
 	"trade": {
-		"findSimilar": "Find Similar",
+		"findSimilar": "Find Similar on Trade",
+		"findThisMod": "Find This Mod on Trade",
 		"searchAll": "Search All on Trade",
-		"openTrade": "Open Trade Site"
+		"openTrade": "Open Trade Site",
+		"searchBaseType": "Search {type} on Trade"
 	},
 	"import": {
 		"title": "Import Idol",
