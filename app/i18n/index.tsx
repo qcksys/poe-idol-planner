@@ -11,16 +11,16 @@ import type { SupportedLocale, Translations } from "./types";
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "./types";
 
 const translations: Record<SupportedLocale, Translations> = {
-	en: enTranslations as Translations,
-	"zh-TW": enTranslations as Translations,
-	"zh-CN": enTranslations as Translations,
-	ko: enTranslations as Translations,
-	ja: enTranslations as Translations,
-	ru: enTranslations as Translations,
-	"pt-BR": enTranslations as Translations,
-	de: enTranslations as Translations,
-	fr: enTranslations as Translations,
-	es: enTranslations as Translations,
+	en: enTranslations,
+	"zh-TW": enTranslations,
+	"zh-CN": enTranslations,
+	ko: enTranslations,
+	ja: enTranslations,
+	ru: enTranslations,
+	"pt-BR": enTranslations,
+	de: enTranslations,
+	fr: enTranslations,
+	es: enTranslations,
 };
 
 const STORAGE_KEY = "poe-idol-planner-locale";
