@@ -41,7 +41,7 @@ interface ModSearchProps {
 	placeholder?: string;
 }
 
-function getModifierOptions(): ModifierOption[] {
+export function getModifierOptions(): ModifierOption[] {
 	return idolModifiers.map((mod) => ({
 		id: mod.id,
 		type: mod.type as "prefix" | "suffix",

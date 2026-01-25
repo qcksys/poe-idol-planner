@@ -26,7 +26,8 @@
 		"clear": "すべてクリア",
 		"usedInSets": "{count}個のセットで使用中",
 		"removeFromInventory": "インベントリから削除",
-		"noMatches": "該当するアイドルが見つかりません"
+		"noMatches": "該当するアイドルが見つかりません",
+		"duplicate": "複製"
 	},
 	"grid": {
 		"tab1": "タブ 1",

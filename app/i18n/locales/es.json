@@ -26,7 +26,8 @@
 		"clear": "Borrar todo",
 		"usedInSets": "Usado en {count} conjunto(s)",
 		"removeFromInventory": "Eliminar del inventario",
-		"noMatches": "No se encontraron ídolos coincidentes"
+		"noMatches": "No se encontraron ídolos coincidentes",
+		"duplicate": "Duplicar"
 	},
 	"grid": {
 		"tab1": "Pestaña 1",

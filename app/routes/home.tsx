@@ -11,6 +11,7 @@ import { DndProvider } from "~/context/dnd-context";
 import { usePlannerState } from "~/hooks/use-planner-state";
 import { useTranslations } from "~/i18n";
 import type { IdolInstance } from "~/schemas/idol";
+import type { InventoryIdol } from "~/schemas/inventory";
 import type { Route } from "./+types/home";
 
 export function meta() {
@@ -35,9 +36,26 @@ export default function Home(_props: Route.ComponentProps) {
 	const [importModalOpen, setImportModalOpen] = useState(false);
 	const [shareModalOpen, setShareModalOpen] = useState(false);
 	const [editorOpen, setEditorOpen] = useState(false);
+	const [editingIdol, setEditingIdol] = useState<InventoryIdol | null>(null);
 
 	const handleSaveIdol = (idol: IdolInstance) => {
-		inventory.addIdols([idol], "manual");
+		if (editingIdol) {
+			inventory.updateIdol(editingIdol.id, idol);
+		} else {
+			inventory.addIdols([idol], "manual");
+		}
+	};
+
+	const handleIdolClick = (item: InventoryIdol) => {
+		setEditingIdol(item);
+		setEditorOpen(true);
+	};
+
+	const handleEditorOpenChange = (open: boolean) => {
+		setEditorOpen(open);
+		if (!open) {
+			setEditingIdol(null);
+		}
 	};
 
 	if (!isHydrated) {
@@ -74,6 +92,8 @@ export default function Home(_props: Route.ComponentProps) {
 								inventory={inventory.inventory}
 								onImportClick={() => setImportModalOpen(true)}
 								onCreateClick={() => setEditorOpen(true)}
+								onIdolClick={handleIdolClick}
+								onDuplicateIdol={inventory.duplicateIdol}
 								onRemoveIdol={removeIdolFromInventory}
 								onClearAll={inventory.clearInventory}
 							/>
@@ -124,8 +144,9 @@ export default function Home(_props: Route.ComponentProps) {
 
 				<IdolEditor
 					open={editorOpen}
-					onOpenChange={setEditorOpen}
+					onOpenChange={handleEditorOpenChange}
 					onSave={handleSaveIdol}
+					initialIdol={editingIdol?.idol ?? null}
 				/>
 			</div>
 		</DndProvider>

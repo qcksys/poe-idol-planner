@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
+	getModifierOptions,
 	MechanicFilter,
 	type ModifierOption,
 	ModSearch,
@@ -164,11 +165,37 @@ export function IdolEditor({
 		null,
 	]);
 
+	const allModifiers = useMemo(() => getModifierOptions(), []);
+
 	useEffect(() => {
 		if (initialIdol) {
 			setBaseType(initialIdol.baseType);
 			setItemLevel(initialIdol.itemLevel);
 			setName(initialIdol.name || "");
+
+			const convertToSelectedMod = (
+				mod: import("~/schemas/idol").IdolModifier,
+			): SelectedMod | null => {
+				const modOption = allModifiers.find((m) => m.id === mod.modId);
+				if (!modOption) return null;
+				return {
+					modOption,
+					tier: mod.tier ?? 1,
+					rolledValue: mod.rolledValue,
+				};
+			};
+
+			const loadedPrefixes: (SelectedMod | null)[] = [null, null];
+			initialIdol.prefixes.forEach((mod, i) => {
+				if (i < 2) loadedPrefixes[i] = convertToSelectedMod(mod);
+			});
+			setPrefixes(loadedPrefixes);
+
+			const loadedSuffixes: (SelectedMod | null)[] = [null, null];
+			initialIdol.suffixes.forEach((mod, i) => {
+				if (i < 2) loadedSuffixes[i] = convertToSelectedMod(mod);
+			});
+			setSuffixes(loadedSuffixes);
 		} else {
 			setBaseType("minor");
 			setItemLevel(68);
@@ -176,7 +203,7 @@ export function IdolEditor({
 			setPrefixes([null, null]);
 			setSuffixes([null, null]);
 		}
-	}, [initialIdol]);
+	}, [initialIdol, allModifiers]);
 
 	const updateMod = useCallback(
 		(type: "prefix" | "suffix", index: number, mod: SelectedMod | null) => {

@@ -26,7 +26,8 @@
 		"clear": "Alle löschen",
 		"usedInSets": "Verwendet in {count} Set(s)",
 		"removeFromInventory": "Aus Inventar entfernen",
-		"noMatches": "Keine passenden Idole gefunden"
+		"noMatches": "Keine passenden Idole gefunden",
+		"duplicate": "Duplizieren"
 	},
 	"grid": {
 		"tab1": "Tab 1",

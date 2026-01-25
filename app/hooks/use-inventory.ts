@@ -7,6 +7,8 @@ export interface UseInventoryReturn {
 	inventory: InventoryIdol[];
 	addIdol: (idol: IdolInstance, source: ImportSource) => string;
 	addIdols: (idols: IdolInstance[], source: ImportSource) => string[];
+	updateIdol: (id: string, idol: IdolInstance) => void;
+	duplicateIdol: (id: string) => string | null;
 	removeIdol: (id: string) => void;
 	getIdol: (id: string) => InventoryIdol | undefined;
 	searchInventory: (query: string) => InventoryIdol[];
@@ -47,6 +49,34 @@ export function useInventory(
 			return newItems.map((item) => item.id);
 		},
 		[setInventory],
+	);
+
+	const updateIdol = useCallback(
+		(id: string, idol: IdolInstance): void => {
+			setInventory((prev) =>
+				prev.map((item) => (item.id === id ? { ...item, idol } : item)),
+			);
+		},
+		[setInventory],
+	);
+
+	const duplicateIdol = useCallback(
+		(id: string): string | null => {
+			const original = inventory.find((item) => item.id === id);
+			if (!original) return null;
+
+			const newId = nanoid();
+			const duplicate: InventoryIdol = {
+				id: newId,
+				idol: { ...original.idol, id: nanoid() },
+				importedAt: Date.now(),
+				source: original.source,
+				usageCount: 0,
+			};
+			setInventory((prev) => [...prev, duplicate]);
+			return newId;
+		},
+		[inventory, setInventory],
 	);
 
 	const removeIdol = useCallback(
@@ -110,6 +140,8 @@ export function useInventory(
 			inventory,
 			addIdol,
 			addIdols,
+			updateIdol,
+			duplicateIdol,
 			removeIdol,
 			getIdol,
 			searchInventory,
@@ -120,6 +152,8 @@ export function useInventory(
 			inventory,
 			addIdol,
 			addIdols,
+			updateIdol,
+			duplicateIdol,
 			removeIdol,
 			getIdol,
 			searchInventory,

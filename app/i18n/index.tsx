@@ -6,18 +6,18 @@ import {
 	useEffect,
 	useState,
 } from "react";
-import deTranslations from "./locales/de.json";
-import enTranslations from "./locales/en.json";
-import esTranslations from "./locales/es.json";
-import frTranslations from "./locales/fr.json";
-import jaTranslations from "./locales/ja.json";
-import koTranslations from "./locales/ko.json";
-import ptBRTranslations from "./locales/pt-BR.json";
-import ruTranslations from "./locales/ru.json";
-import zhCNTranslations from "./locales/zh-CN.json";
-import zhTWTranslations from "./locales/zh-TW.json";
-import type { SupportedLocale, Translations } from "./types";
-import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "./types";
+import deTranslations from "~/i18n/locales/de.json";
+import enTranslations from "~/i18n/locales/en.json";
+import esTranslations from "~/i18n/locales/es.json";
+import frTranslations from "~/i18n/locales/fr.json";
+import jaTranslations from "~/i18n/locales/ja.json";
+import koTranslations from "~/i18n/locales/ko.json";
+import ptBRTranslations from "~/i18n/locales/pt-BR.json";
+import ruTranslations from "~/i18n/locales/ru.json";
+import zhCNTranslations from "~/i18n/locales/zh-CN.json";
+import zhTWTranslations from "~/i18n/locales/zh-TW.json";
+import type { SupportedLocale, Translations } from "~/i18n/types";
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "~/i18n/types";
 
 const translations: Record<SupportedLocale, Translations> = {
 	en: enTranslations,

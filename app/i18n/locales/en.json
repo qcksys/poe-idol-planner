@@ -26,7 +26,8 @@
 		"clear": "Clear All",
 		"usedInSets": "Used in {count} set(s)",
 		"removeFromInventory": "Remove from Inventory",
-		"noMatches": "No matching idols found"
+		"noMatches": "No matching idols found",
+		"duplicate": "Duplicate"
 	},
 	"grid": {
 		"tab1": "Tab 1",

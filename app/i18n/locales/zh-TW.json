@@ -26,7 +26,8 @@
 		"clear": "清除全部",
 		"usedInSets": "已用於 {count} 個配置",
 		"removeFromInventory": "從倉庫移除",
-		"noMatches": "找不到符合的神像"
+		"noMatches": "找不到符合的神像",
+		"duplicate": "複製"
 	},
 	"grid": {
 		"tab1": "頁籤 1",

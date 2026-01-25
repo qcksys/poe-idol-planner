@@ -26,7 +26,8 @@
 		"clear": "Tout effacer",
 		"usedInSets": "Utilisé dans {count} ensemble(s)",
 		"removeFromInventory": "Retirer de l'inventaire",
-		"noMatches": "Aucune idole correspondante trouvée"
+		"noMatches": "Aucune idole correspondante trouvée",
+		"duplicate": "Dupliquer"
 	},
 	"grid": {
 		"tab1": "Onglet 1",

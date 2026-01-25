@@ -1,4 +1,4 @@
-import { PenLine, Plus, Search, Trash2 } from "lucide-react";
+import { Copy, PenLine, Plus, Search, Trash2 } from "lucide-react";
 import { type DragEvent, useState } from "react";
 import { MechanicFilter } from "~/components/mod-search";
 import { Button } from "~/components/ui/button";
@@ -16,6 +16,7 @@ interface InventoryPanelProps {
 	onImportClick: () => void;
 	onCreateClick?: () => void;
 	onIdolClick?: (idol: InventoryIdol) => void;
+	onDuplicateIdol?: (id: string) => void;
 	onRemoveIdol?: (id: string) => void;
 	onClearAll?: () => void;
 }
@@ -23,11 +24,13 @@ interface InventoryPanelProps {
 function DraggableIdolCard({
 	item,
 	onIdolClick,
+	onDuplicateIdol,
 	onRemoveIdol,
 	t,
 }: {
 	item: InventoryIdol;
 	onIdolClick?: (idol: InventoryIdol) => void;
+	onDuplicateIdol?: (id: string) => void;
 	onRemoveIdol?: (id: string) => void;
 	t: ReturnType<typeof useTranslations>;
 }) {
@@ -56,19 +59,35 @@ function DraggableIdolCard({
 				showTradeMenu
 				onClick={() => onIdolClick?.(item)}
 			/>
-			{onRemoveIdol && (
-				<Button
-					variant="destructive"
-					size="icon"
-					className="absolute top-1 right-1 h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100"
-					onClick={(e) => {
-						e.stopPropagation();
-						onRemoveIdol(item.id);
-					}}
-				>
-					<Trash2 className="h-3 w-3" />
-				</Button>
-			)}
+			<div className="absolute top-1 right-1 flex gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+				{onDuplicateIdol && (
+					<Button
+						variant="secondary"
+						size="icon"
+						className="h-6 w-6"
+						onClick={(e) => {
+							e.stopPropagation();
+							onDuplicateIdol(item.id);
+						}}
+						title={t.inventory.duplicate}
+					>
+						<Copy className="h-3 w-3" />
+					</Button>
+				)}
+				{onRemoveIdol && (
+					<Button
+						variant="destructive"
+						size="icon"
+						className="h-6 w-6"
+						onClick={(e) => {
+							e.stopPropagation();
+							onRemoveIdol(item.id);
+						}}
+					>
+						<Trash2 className="h-3 w-3" />
+					</Button>
+				)}
+			</div>
 			{item.usageCount > 0 && (
 				<span className="absolute right-1 bottom-1 rounded bg-blue-600 px-1 text-xs">
 					{t.inventory.usedInSets.replace(
@@ -86,6 +105,7 @@ export function InventoryPanel({
 	onImportClick,
 	onCreateClick,
 	onIdolClick,
+	onDuplicateIdol,
 	onRemoveIdol,
 	onClearAll,
 }: InventoryPanelProps) {
@@ -189,6 +209,7 @@ export function InventoryPanel({
 									key={item.id}
 									item={item}
 									onIdolClick={onIdolClick}
+									onDuplicateIdol={onDuplicateIdol}
 									onRemoveIdol={onRemoveIdol}
 									t={t}
 								/>
