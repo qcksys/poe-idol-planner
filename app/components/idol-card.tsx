@@ -14,6 +14,7 @@ import {
 } from "~/components/ui/tooltip";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
 import { useTranslations } from "~/i18n";
+import { highlightNumbers } from "~/lib/highlight-numbers";
 import { generateTradeUrl } from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
@@ -65,7 +66,7 @@ function ModifierLine({ mod }: { mod: IdolModifier }) {
 					mod.type === "prefix" ? "text-blue-300" : "text-green-300"
 				}
 			>
-				{mod.text}
+				{highlightNumbers(mod.text)}
 			</span>
 			{mod.tier && (
 				<span className="ml-1 text-gray-500 text-xs">
@@ -88,9 +89,7 @@ function IdolCardContent({
 
 	return (
 		<div className="space-y-1">
-			<div className="text-gray-400 text-xs">
-				{base.name} • iLvl {idol.itemLevel}
-			</div>
+			<div className="text-gray-400 text-xs">{base.name}</div>
 
 			{idol.implicit && !compact && (
 				<div className="border-gray-700 border-b pb-1 text-purple-300 text-sm">
@@ -141,12 +140,12 @@ export function IdolCard({
 			)}
 			onClick={onClick}
 		>
-			<CardHeader className="p-2 pb-0">
+			<CardHeader className="px-2 pt-1.5 pb-0">
 				<CardTitle className="font-medium text-sm">
 					{idol.name || base.name}
 				</CardTitle>
 			</CardHeader>
-			<CardContent className="p-2 pt-1">
+			<CardContent className="p-2 pt-0.5">
 				<IdolCardContent idol={idol} compact={compact} />
 			</CardContent>
 		</Card>

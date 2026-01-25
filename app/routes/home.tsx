@@ -86,7 +86,7 @@ export default function Home(_props: Route.ComponentProps) {
 						onDeleteSet={sets.deleteSet}
 					/>
 
-					<div className="mt-4 grid gap-4 lg:grid-cols-[300px_1fr_300px]">
+					<div className="mt-4 grid gap-4 lg:grid-cols-[400px_1fr_300px]">
 						<aside className="h-[calc(100vh-180px)]">
 							<InventoryPanel
 								inventory={inventory.inventory}

@@ -9,6 +9,7 @@ import {
 	DialogHeader,
 	DialogTitle,
 } from "~/components/ui/dialog";
+import { ScrollArea } from "~/components/ui/scroll-area";
 import { Textarea } from "~/components/ui/textarea";
 import { useTranslations } from "~/i18n";
 import { type ParseResult, parseIdolText } from "~/lib/idol-parser";
@@ -90,7 +91,7 @@ export function ImportModal({
 
 	return (
 		<Dialog open={open} onOpenChange={handleClose}>
-			<DialogContent className="max-h-[80vh] max-w-2xl overflow-y-auto">
+			<DialogContent className="flex max-h-[85vh] max-w-[1000px] flex-col overflow-hidden">
 				<DialogHeader>
 					<DialogTitle>{t.import.title}</DialogTitle>
 					<DialogDescription>
@@ -98,84 +99,86 @@ export function ImportModal({
 					</DialogDescription>
 				</DialogHeader>
 
-				<div className="space-y-4">
-					<div className="flex items-start gap-2 rounded-lg border border-blue-800 bg-blue-950/50 p-3 text-sm">
-						<Info className="mt-0.5 h-4 w-4 shrink-0 text-blue-400" />
-						<div className="text-blue-300">
-							<p className="font-medium">{t.import.howTo}</p>
-							<ul className="mt-1 list-inside list-disc text-blue-400">
-								<li>{t.import.ctrlC}</li>
-								<li>{t.import.ctrlAltC}</li>
-							</ul>
+				<ScrollArea className="min-h-0 flex-1 pr-4">
+					<div className="space-y-4">
+						<div className="flex items-start gap-2 rounded-lg border border-blue-800 bg-blue-950/50 p-3 text-sm">
+							<Info className="mt-0.5 h-4 w-4 shrink-0 text-blue-400" />
+							<div className="text-blue-300">
+								<p className="font-medium">{t.import.howTo}</p>
+								<ul className="mt-1 list-inside list-disc text-blue-400">
+									<li>{t.import.ctrlC}</li>
+									<li>{t.import.ctrlAltC}</li>
+								</ul>
+							</div>
 						</div>
-					</div>
 
-					<div className="space-y-2">
-						<div className="flex items-center justify-between">
-							<label
-								htmlFor="idol-text"
-								className="font-medium text-sm"
-							>
-								{t.import.pasteHere}
-							</label>
-							<Button
-								variant="outline"
-								size="sm"
-								onClick={handlePaste}
-							>
-								<ClipboardPaste className="mr-1 h-4 w-4" />
-								{t.import.pasteFromClipboard}
-							</Button>
-						</div>
-						<Textarea
-							id="idol-text"
-							value={inputText}
-							onChange={(
-								e: React.ChangeEvent<HTMLTextAreaElement>,
-							) => handleTextChange(e.target.value)}
-							placeholder={t.import.placeholder}
-							className="min-h-[150px] font-mono text-sm"
-						/>
-					</div>
-
-					{hasAttemptedParse && parseResults.length > 0 && (
 						<div className="space-y-2">
-							<div className="flex items-center gap-2 text-sm">
-								{successCount > 0 && (
-									<span className="text-green-400">
-										{successCount} idol(s) parsed
-										successfully
-									</span>
-								)}
-								{errorCount > 0 && (
-									<span className="text-red-400">
-										{errorCount} failed to parse
-									</span>
-								)}
+							<div className="flex items-center justify-between">
+								<label
+									htmlFor="idol-text"
+									className="font-medium text-sm"
+								>
+									{t.import.pasteHere}
+								</label>
+								<Button
+									variant="outline"
+									size="sm"
+									onClick={handlePaste}
+								>
+									<ClipboardPaste className="mr-1 h-4 w-4" />
+									{t.import.pasteFromClipboard}
+								</Button>
 							</div>
-
-							<div className="max-h-[200px] space-y-2 overflow-y-auto rounded border border-gray-700 p-2">
-								{parseResults.map((result, index) =>
-									result.success && result.idol ? (
-										<IdolCard
-											key={result.idol.id}
-											idol={result.idol}
-											compact
-											showTooltip={false}
-										/>
-									) : (
-										<div
-											key={`error-${index}`}
-											className="rounded border border-red-900 bg-red-950/50 p-2 text-red-400 text-sm"
-										>
-											{result.error || "Unknown error"}
-										</div>
-									),
-								)}
-							</div>
+							<Textarea
+								id="idol-text"
+								value={inputText}
+								onChange={(
+									e: React.ChangeEvent<HTMLTextAreaElement>,
+								) => handleTextChange(e.target.value)}
+								placeholder={t.import.placeholder}
+								className="min-h-[150px] font-mono text-sm"
+							/>
 						</div>
-					)}
-				</div>
+
+						{hasAttemptedParse && parseResults.length > 0 && (
+							<div className="space-y-2">
+								<div className="flex items-center gap-2 text-sm">
+									{successCount > 0 && (
+										<span className="text-green-400">
+											{successCount} idol(s) parsed
+											successfully
+										</span>
+									)}
+									{errorCount > 0 && (
+										<span className="text-red-400">
+											{errorCount} failed to parse
+										</span>
+									)}
+								</div>
+
+								<div className="max-h-[200px] space-y-2 overflow-y-auto rounded border border-gray-700 p-2">
+									{parseResults.map((result, index) =>
+										result.success && result.idol ? (
+											<IdolCard
+												key={result.idol.id}
+												idol={result.idol}
+												showTooltip={false}
+											/>
+										) : (
+											<div
+												key={`error-${index}`}
+												className="rounded border border-red-900 bg-red-950/50 p-2 text-red-400 text-sm"
+											>
+												{result.error ||
+													"Unknown error"}
+											</div>
+										),
+									)}
+								</div>
+							</div>
+						)}
+					</div>
+				</ScrollArea>
 
 				<DialogFooter>
 					<Button variant="ghost" onClick={handleClose}>

@@ -55,8 +55,8 @@ function DraggableIdolCard({
 		>
 			<IdolCard
 				idol={item.idol}
-				compact
 				showTradeMenu
+				showTooltip={false}
 				onClick={() => onIdolClick?.(item)}
 			/>
 			<div className="absolute top-1 right-1 flex gap-1 opacity-0 transition-opacity group-hover:opacity-100">

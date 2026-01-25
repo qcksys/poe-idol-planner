@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { ScrollArea } from "~/components/ui/scroll-area";
 import { LEAGUE_MECHANICS } from "~/data/idol-bases";
 import { useTranslations } from "~/i18n";
+import { highlightNumbers } from "~/lib/highlight-numbers";
 import type { LeagueMechanic } from "~/schemas/idol";
 import type { IdolPlacement } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
@@ -84,7 +85,9 @@ function MechanicSection({ data }: { data: StatsByMechanic }) {
 						key={`${stat.text}-${index}`}
 						className="flex items-start justify-between gap-2 text-sm"
 					>
-						<span className="text-gray-300">{stat.text}</span>
+						<span className="text-gray-300">
+							{highlightNumbers(stat.text)}
+						</span>
 						{stat.count > 1 && (
 							<span className="whitespace-nowrap text-gray-500">
 								(x{stat.count})

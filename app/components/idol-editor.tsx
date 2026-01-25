@@ -31,6 +31,7 @@ import {
 	type LeagueMechanic,
 } from "~/data/idol-bases";
 import { useTranslations } from "~/i18n";
+import { highlightNumbers } from "~/lib/highlight-numbers";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
 
 interface IdolEditorProps {
@@ -100,41 +101,54 @@ function ModSlot({
 			</div>
 
 			{mod && (
-				<div className="ml-16 flex gap-2">
-					<Select
-						value={String(mod.tier)}
-						onValueChange={(v) => onTierChange(Number(v))}
-					>
-						<SelectTrigger className="w-24">
-							<SelectValue placeholder={t.editor.tier} />
-						</SelectTrigger>
-						<SelectContent>
-							{mod.modOption.tiers.map((tier) => (
-								<SelectItem
-									key={tier.tier}
-									value={String(tier.tier)}
-								>
-									T{tier.tier}
-								</SelectItem>
-							))}
-						</SelectContent>
-					</Select>
+				<div className="ml-16 space-y-2">
+					<div className="flex gap-2">
+						<Select
+							value={String(mod.tier)}
+							onValueChange={(v) => onTierChange(Number(v))}
+						>
+							<SelectTrigger className="w-24">
+								<SelectValue placeholder={t.editor.tier} />
+							</SelectTrigger>
+							<SelectContent>
+								{mod.modOption.tiers.map((tier) => (
+									<SelectItem
+										key={tier.tier}
+										value={String(tier.tier)}
+									>
+										T{tier.tier}
+									</SelectItem>
+								))}
+							</SelectContent>
+						</Select>
 
-					{valueRange && (
-						<div className="flex items-center gap-2">
-							<Input
-								type="number"
-								min={valueRange.min}
-								max={valueRange.max}
-								value={mod.rolledValue}
-								onChange={(e) =>
-									onValueChange(Number(e.target.value))
-								}
-								className="w-20"
-							/>
-							<span className="text-muted-foreground text-xs">
-								({valueRange.min}-{valueRange.max})
-							</span>
+						{valueRange && (
+							<div className="flex items-center gap-2">
+								<Input
+									type="number"
+									min={valueRange.min}
+									max={valueRange.max}
+									value={mod.rolledValue}
+									onChange={(e) =>
+										onValueChange(Number(e.target.value))
+									}
+									className="w-20"
+								/>
+								<span className="text-muted-foreground text-xs">
+									({valueRange.min}-{valueRange.max})
+								</span>
+							</div>
+						)}
+					</div>
+					{selectedTier?.text && (
+						<div
+							className={
+								type === "prefix"
+									? "text-blue-300 text-sm"
+									: "text-green-300 text-sm"
+							}
+						>
+							{highlightNumbers(selectedTier.text)}
 						</div>
 					)}
 				</div>
@@ -320,7 +334,7 @@ export function IdolEditor({
 
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
-			<DialogContent className="max-w-2xl">
+			<DialogContent className="flex max-h-[85vh] max-w-[1000px] flex-col overflow-hidden">
 				<DialogHeader>
 					<DialogTitle>
 						{initialIdol ? t.editor.editIdol : t.editor.createIdol}
@@ -330,52 +344,29 @@ export function IdolEditor({
 					</DialogDescription>
 				</DialogHeader>
 
-				<ScrollArea className="max-h-[60vh] pr-4">
+				<ScrollArea className="min-h-0 flex-1 pr-4">
 					<div className="space-y-6">
-						<div className="grid grid-cols-2 gap-4">
-							<div className="space-y-2">
-								<span className="font-medium text-sm">
-									{t.editor.baseType}
-								</span>
-								<Select
-									value={baseType}
-									onValueChange={(v) =>
-										setBaseType(v as IdolBaseKey)
-									}
-								>
-									<SelectTrigger
-										aria-label={t.editor.baseType}
-									>
-										<SelectValue />
-									</SelectTrigger>
-									<SelectContent>
-										{IDOL_BASE_KEYS.map((key) => (
-											<SelectItem key={key} value={key}>
-												{IDOL_BASES[key].name}
-											</SelectItem>
-										))}
-									</SelectContent>
-								</Select>
-							</div>
-
-							<div className="space-y-2">
-								<label
-									htmlFor="idol-editor-item-level"
-									className="font-medium text-sm"
-								>
-									{t.editor.itemLevel}
-								</label>
-								<Input
-									id="idol-editor-item-level"
-									type="number"
-									min={1}
-									max={100}
-									value={itemLevel}
-									onChange={(e) =>
-										setItemLevel(Number(e.target.value))
-									}
-								/>
-							</div>
+						<div className="space-y-2">
+							<span className="font-medium text-sm">
+								{t.editor.baseType}
+							</span>
+							<Select
+								value={baseType}
+								onValueChange={(v) =>
+									setBaseType(v as IdolBaseKey)
+								}
+							>
+								<SelectTrigger aria-label={t.editor.baseType}>
+									<SelectValue />
+								</SelectTrigger>
+								<SelectContent>
+									{IDOL_BASE_KEYS.map((key) => (
+										<SelectItem key={key} value={key}>
+											{IDOL_BASES[key].name}
+										</SelectItem>
+									))}
+								</SelectContent>
+							</Select>
 						</div>
 
 						<div className="space-y-2">

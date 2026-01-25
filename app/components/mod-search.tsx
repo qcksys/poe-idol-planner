@@ -95,7 +95,11 @@ export function ModSearch({
 		? allModifiers.find((m) => m.id === selectedModId)
 		: null;
 
-	const displayText = selectedMod?.name || placeholder || t.editor.selectMod;
+	const displayText =
+		selectedMod?.tiers[0]?.text ||
+		selectedMod?.name ||
+		placeholder ||
+		t.editor.selectMod;
 
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
@@ -103,14 +107,16 @@ export function ModSearch({
 				<Button
 					variant="outline"
 					aria-expanded={open}
-					className="w-full justify-between text-left font-normal"
+					className="h-auto min-h-9 w-full justify-between text-left font-normal"
 					disabled={disabled}
 				>
-					<span className="truncate">{displayText}</span>
+					<span className="whitespace-normal text-wrap">
+						{displayText}
+					</span>
 					<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 				</Button>
 			</PopoverTrigger>
-			<PopoverContent className="w-[400px] p-0" align="start">
+			<PopoverContent className="w-[500px] p-0" align="start">
 				<Command>
 					<CommandInput placeholder={t.editor.searchMods} />
 					<CommandList className="max-h-[300px]">
@@ -127,7 +133,7 @@ export function ModSearch({
 									{mods.map((mod) => (
 										<CommandItem
 											key={mod.id}
-											value={`${mod.name} ${mod.mechanic}`}
+											value={`${mod.name} ${mod.tiers[0]?.text || ""} ${mod.mechanic}`}
 											onSelect={() => {
 												onSelect(
 													mod.id === selectedModId
@@ -139,7 +145,7 @@ export function ModSearch({
 										>
 											<Check
 												className={cn(
-													"mr-2 h-4 w-4",
+													"mr-2 h-4 w-4 shrink-0",
 													selectedModId === mod.id
 														? "opacity-100"
 														: "opacity-0",
@@ -147,20 +153,9 @@ export function ModSearch({
 											/>
 											<div className="flex flex-col">
 												<span className="text-sm">
-													{mod.name}
+													{mod.tiers[0]?.text ||
+														mod.name}
 												</span>
-												{mod.tiers[0]?.values?.[0] && (
-													<span className="text-muted-foreground text-xs">
-														{mod.tiers[0].values[0]
-															.min ===
-														mod.tiers[0].values[0]
-															.max
-															? mod.tiers[0]
-																	.values[0]
-																	.min
-															: `${mod.tiers[0].values[0].min}-${mod.tiers[0].values[0].max}`}
-													</span>
-												)}
 											</div>
 										</CommandItem>
 									))}
