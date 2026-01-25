@@ -1,10 +1,46 @@
 export const IDOL_BASES = {
-	minor: { name: "Minor Idol", width: 1, height: 1, implicit: 2 },
-	kamasan: { name: "Kamasan Idol", width: 1, height: 2, implicit: 4 },
-	totemic: { name: "Totemic Idol", width: 1, height: 3, implicit: 6 },
-	noble: { name: "Noble Idol", width: 2, height: 1, implicit: 4 },
-	burial: { name: "Burial Idol", width: 3, height: 1, implicit: 6 },
-	conqueror: { name: "Conqueror Idol", width: 2, height: 2, implicit: 8 },
+	minor: {
+		name: "Minor Idol",
+		width: 1,
+		height: 1,
+		implicit: 2,
+		image: "/images/AtlasRelic1x1.webp",
+	},
+	kamasan: {
+		name: "Kamasan Idol",
+		width: 1,
+		height: 2,
+		implicit: 4,
+		image: "/images/AtlasRelic1x2.webp",
+	},
+	totemic: {
+		name: "Totemic Idol",
+		width: 1,
+		height: 3,
+		implicit: 6,
+		image: "/images/AtlasRelic1x3.webp",
+	},
+	noble: {
+		name: "Noble Idol",
+		width: 2,
+		height: 1,
+		implicit: 4,
+		image: "/images/AtlasRelic2x1.webp",
+	},
+	burial: {
+		name: "Burial Idol",
+		width: 3,
+		height: 1,
+		implicit: 6,
+		image: "/images/AtlasRelic3x1.webp",
+	},
+	conqueror: {
+		name: "Conqueror Idol",
+		width: 2,
+		height: 2,
+		implicit: 8,
+		image: "/images/AtlasRelic2x2.webp",
+	},
 } as const;
 
 export type IdolBaseKey = keyof typeof IDOL_BASES;

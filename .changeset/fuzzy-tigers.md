@@ -10,3 +10,4 @@ Add custom 404 page with Path of Exile themed design
 - "Return to Hideout" button with portal icon and hover effects
 - Error boundary integration for route-level 404 handling
 - Snapshot tests for the 404 page component
+- Update global color palette to match POE amber/bronze theme

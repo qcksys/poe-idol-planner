@@ -32,7 +32,7 @@ export const IdolImplicitSchema = z.object({
 });
 
 export const IdolInstanceSchema = z.object({
-	id: z.string().uuid(),
+	id: z.string().min(1),
 	baseType: IdolBaseKeySchema,
 	itemLevel: z.number().int().min(1).max(100),
 	rarity: RaritySchema,

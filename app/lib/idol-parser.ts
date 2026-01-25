@@ -88,7 +88,7 @@ function parseSimpleFormat(text: string): ParsedIdol | null {
 	const itemLevel = extractItemLevel(text);
 
 	let foundItemLevel = false;
-	let foundSeparatorAfterLevel = false;
+	let separatorCount = 0;
 	const modLines: string[] = [];
 	let implicitText: string | null = null;
 
@@ -97,19 +97,19 @@ function parseSimpleFormat(text: string): ParsedIdol | null {
 			foundItemLevel = true;
 			continue;
 		}
-		if (foundItemLevel && line.startsWith("--------")) {
-			if (!foundSeparatorAfterLevel) {
-				foundSeparatorAfterLevel = true;
-			}
+		if (!foundItemLevel) continue;
+
+		if (line.startsWith("--------")) {
+			separatorCount++;
 			continue;
 		}
-		if (foundSeparatorAfterLevel && line && !line.startsWith("--------")) {
-			if (!implicitText && !line.includes("(implicit)")) {
-				modLines.push(line);
-			}
-			if (line.includes("(implicit)")) {
-				implicitText = line.replace("(implicit)", "").trim();
-			}
+
+		if (!line) continue;
+
+		if (line.includes("(implicit)")) {
+			implicitText = line.replace("(implicit)", "").trim();
+		} else if (separatorCount >= 1) {
+			modLines.push(line);
 		}
 	}
 

@@ -1,9 +1,10 @@
 import { Plus, Search, Trash2 } from "lucide-react";
-import { useState } from "react";
+import { type DragEvent, useState } from "react";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import { ScrollArea } from "~/components/ui/scroll-area";
+import { useDnd } from "~/context/dnd-context";
 import { useTranslations } from "~/i18n";
 import type { InventoryIdol } from "~/schemas/inventory";
 import { IdolCard } from "./idol-card";
@@ -14,6 +15,66 @@ interface InventoryPanelProps {
 	onIdolClick?: (idol: InventoryIdol) => void;
 	onRemoveIdol?: (id: string) => void;
 	onClearAll?: () => void;
+}
+
+function DraggableIdolCard({
+	item,
+	onIdolClick,
+	onRemoveIdol,
+	t,
+}: {
+	item: InventoryIdol;
+	onIdolClick?: (idol: InventoryIdol) => void;
+	onRemoveIdol?: (id: string) => void;
+	t: ReturnType<typeof useTranslations>;
+}) {
+	const { setDraggedItem } = useDnd();
+
+	const handleDragStart = (e: DragEvent<HTMLLIElement>) => {
+		setDraggedItem(item);
+		e.dataTransfer.setData("text/plain", item.id);
+		e.dataTransfer.effectAllowed = "move";
+	};
+
+	const handleDragEnd = () => {
+		setDraggedItem(null);
+	};
+
+	return (
+		<li
+			className="group relative cursor-grab list-none active:cursor-grabbing"
+			draggable
+			onDragStart={handleDragStart}
+			onDragEnd={handleDragEnd}
+		>
+			<IdolCard
+				idol={item.idol}
+				compact
+				onClick={() => onIdolClick?.(item)}
+			/>
+			{onRemoveIdol && (
+				<Button
+					variant="destructive"
+					size="icon"
+					className="absolute top-1 right-1 h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100"
+					onClick={(e) => {
+						e.stopPropagation();
+						onRemoveIdol(item.id);
+					}}
+				>
+					<Trash2 className="h-3 w-3" />
+				</Button>
+			)}
+			{item.usageCount > 0 && (
+				<span className="absolute right-1 bottom-1 rounded bg-blue-600 px-1 text-xs">
+					{t.inventory.usedInSets.replace(
+						"{count}",
+						String(item.usageCount),
+					)}
+				</span>
+			)}
+		</li>
+	);
 }
 
 export function InventoryPanel({
@@ -90,38 +151,17 @@ export function InventoryPanel({
 								: "No matching idols found"}
 						</div>
 					) : (
-						<div className="space-y-2 pr-2">
+						<ul className="space-y-2 pr-2">
 							{filteredInventory.map((item) => (
-								<div key={item.id} className="group relative">
-									<IdolCard
-										idol={item.idol}
-										compact
-										onClick={() => onIdolClick?.(item)}
-									/>
-									{onRemoveIdol && (
-										<Button
-											variant="destructive"
-											size="icon"
-											className="absolute top-1 right-1 h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100"
-											onClick={(e) => {
-												e.stopPropagation();
-												onRemoveIdol(item.id);
-											}}
-										>
-											<Trash2 className="h-3 w-3" />
-										</Button>
-									)}
-									{item.usageCount > 0 && (
-										<span className="absolute right-1 bottom-1 rounded bg-blue-600 px-1 text-xs">
-											{t.inventory.usedInSets.replace(
-												"{count}",
-												String(item.usageCount),
-											)}
-										</span>
-									)}
-								</div>
+								<DraggableIdolCard
+									key={item.id}
+									item={item}
+									onIdolClick={onIdolClick}
+									onRemoveIdol={onRemoveIdol}
+									t={t}
+								/>
 							))}
-						</div>
+						</ul>
 					)}
 				</ScrollArea>
 			</CardContent>

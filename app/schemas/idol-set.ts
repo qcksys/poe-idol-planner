@@ -8,14 +8,14 @@ export const GridPositionSchema = z.object({
 export const GridTabSchema = z.enum(["tab1", "tab2", "tab3"]);
 
 export const IdolPlacementSchema = z.object({
-	id: z.string().uuid(),
-	inventoryIdolId: z.string().uuid(),
+	id: z.string().min(1),
+	inventoryIdolId: z.string().min(1),
 	position: GridPositionSchema,
 	tab: GridTabSchema,
 });
 
 export const IdolSetSchema = z.object({
-	id: z.string().uuid(),
+	id: z.string().min(1),
 	name: z.string().min(1).max(50),
 	createdAt: z.number(),
 	updatedAt: z.number(),

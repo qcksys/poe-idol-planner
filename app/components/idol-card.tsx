@@ -172,13 +172,17 @@ export function IdolCardMini({
 					<button
 						type="button"
 						className={cn(
-							"flex cursor-pointer items-center justify-center rounded border-2 bg-gray-800/50 text-xs transition-all hover:scale-105",
+							"relative flex cursor-pointer items-center justify-center overflow-hidden rounded border-2 transition-all hover:scale-105",
 							rarityColor,
 						)}
 						style={style}
 						onClick={onClick}
 					>
-						{base.width}x{base.height}
+						<img
+							src={base.image}
+							alt={base.name}
+							className="absolute inset-0 h-full w-full object-cover"
+						/>
 					</button>
 				</TooltipTrigger>
 				<TooltipContent side="right" className="max-w-xs">

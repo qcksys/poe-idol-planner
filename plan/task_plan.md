@@ -5,11 +5,11 @@ Build a comprehensive Path of Exile idol planning tool for the Legacy of Phrecia
 
 ## Phases
 - [x] Phase 1: Research & Data Gathering
-- [ ] Phase 2: Data Converter Script (poedb → JSON)
-- [ ] Phase 3: Data Model & Schema Design
-- [ ] Phase 4: Localization Setup
-- [ ] Phase 5: Core UI Components
-- [ ] Phase 6: State Management & Storage
+- [x] Phase 2: Data Converter Script (poedb → JSON)
+- [x] Phase 3: Data Model & Schema Design
+- [x] Phase 4: Localization Setup
+- [~] Phase 5: Core UI Components (partial - need drag-and-drop)
+- [~] Phase 6: State Management & Storage (partial - need DnD integration)
 - [ ] Phase 7: Sharing & KV Integration
 - [ ] Phase 8: Trade Search Generation
 - [ ] Phase 9: Search & Filtering
@@ -51,7 +51,7 @@ Build a comprehensive Path of Exile idol planning tool for the Legacy of Phrecia
 - (none yet)
 
 ## Status
-**Currently in Phase 3** - Creating Zod schemas and base idol types data
+**Currently in Phase 5/6** - Core functionality complete, ready for Phase 7 (Sharing)
 
 ### Completed
 - Phase 2: poedb-converter script created and tested
@@ -60,6 +60,32 @@ Build a comprehensive Path of Exile idol planning tool for the Legacy of Phrecia
   - Extracts: level req, mod type, text, value ranges, mechanics
   - Outputs 503 modifiers to JSON
   - Generates JSON schemas using Zod 4's toJSONSchema
+
+- Phase 3: Data Model & Schema Design
+  - Zod schemas for idol, idol-set, inventory, storage
+  - Base idol types with dimensions and image paths
+  - League mechanics enum
+
+- Phase 4: Localization Setup
+  - i18n provider with hydration handling
+  - English translations complete
+  - Locale detection and persistence
+
+- Phase 5/6: Core UI & State
+  - Home route with 3-column layout
+  - Inventory panel with search/filter and draggable items
+  - Idol grid with tabs and drop targets
+  - Set tabs with CRUD operations
+  - Stats summary panel with mechanic grouping
+  - Import modal with clipboard parser (simple & advanced formats)
+  - LocalStorage persistence with Zod validation
+  - useInventory and useIdolSets hooks
+  - DnD context for drag-and-drop state
+  - Idol images for grid display (added to public/images)
+  - IdolCardMini shows idol images with rarity borders
+
+### In Progress
+- Testing drag-and-drop functionality manually
 
 ---
 

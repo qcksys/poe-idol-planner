@@ -4,7 +4,7 @@ import { IdolInstanceSchema } from "./idol";
 export const ImportSourceSchema = z.enum(["clipboard", "manual", "shared"]);
 
 export const InventoryIdolSchema = z.object({
-	id: z.string().uuid(),
+	id: z.string().min(1),
 	idol: IdolInstanceSchema,
 	importedAt: z.number(),
 	source: ImportSourceSchema,
