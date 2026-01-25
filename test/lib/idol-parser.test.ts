@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/style/noNonNullAssertion: Tests */
 import { describe, expect, it } from "vitest";
 import { parseIdolText, parseMultipleIdols } from "~/lib/idol-parser";
 

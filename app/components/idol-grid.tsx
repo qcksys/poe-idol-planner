@@ -13,6 +13,24 @@ const GRID_WIDTH = 6;
 const GRID_HEIGHT = 7;
 const CELL_SIZE = 40;
 
+// Invalid cells (blocked) based on POE idol inventory layout:
+const INVALID_CELLS: Set<string> = new Set([
+	"0,0",
+	"1,2",
+	"1,3",
+	"1,4",
+	"2,3",
+	"3,3",
+	"4,3",
+	"4,2",
+	"4,4",
+	"5,6",
+]);
+
+function isCellValid(x: number, y: number): boolean {
+	return !INVALID_CELLS.has(`${x},${y}`);
+}
+
 interface IdolGridProps {
 	placements: IdolPlacement[];
 	inventory: InventoryIdol[];
@@ -33,13 +51,15 @@ interface GridCell {
 	placementId?: string;
 	idol?: IdolInstance;
 	isOrigin: boolean;
+	isValid: boolean;
 }
 
 function createEmptyGrid(): GridCell[][] {
-	return Array.from({ length: GRID_HEIGHT }, () =>
-		Array.from({ length: GRID_WIDTH }, () => ({
+	return Array.from({ length: GRID_HEIGHT }, (_, y) =>
+		Array.from({ length: GRID_WIDTH }, (_, x) => ({
 			occupied: false,
 			isOrigin: false,
+			isValid: isCellValid(x, y),
 		})),
 	);
 }
@@ -72,6 +92,7 @@ function populateGrid(
 						placementId: placement.id,
 						idol,
 						isOrigin: dx === 0 && dy === 0,
+						isValid: grid[cellY][cellX].isValid,
 					};
 				}
 			}
@@ -95,7 +116,9 @@ function canPlaceIdol(
 
 	for (let dy = 0; dy < base.height; dy++) {
 		for (let dx = 0; dx < base.width; dx++) {
-			if (grid[y + dy][x + dx].occupied) {
+			const cell = grid[y + dy][x + dx];
+			// Check if cell is occupied or invalid (blocked)
+			if (cell.occupied || !cell.isValid) {
 				return false;
 			}
 		}
@@ -171,6 +194,21 @@ function GridCellComponent({
 		return null;
 	}
 
+	// Render invalid (blocked) cells with a distinct appearance
+	if (!cell.isValid) {
+		return (
+			<div
+				className="absolute border border-gray-800 bg-gray-950/80"
+				style={{
+					left: x * CELL_SIZE,
+					top: y * CELL_SIZE,
+					width: CELL_SIZE,
+					height: CELL_SIZE,
+				}}
+			/>
+		);
+	}
+
 	return (
 		// biome-ignore lint/a11y/noStaticElementInteractions: Drop target for drag-and-drop
 		<div
@@ -232,7 +270,9 @@ function GridTabContent({
 
 			for (let dy = 0; dy < base.height; dy++) {
 				for (let dx = 0; dx < base.width; dx++) {
-					if (grid[y + dy]?.[x + dx]?.occupied) {
+					const cell = grid[y + dy]?.[x + dx];
+					// Check if cell is occupied or invalid (blocked)
+					if (cell?.occupied || !cell?.isValid) {
 						return false;
 					}
 				}
@@ -343,4 +383,11 @@ export function IdolGrid({
 	);
 }
 
-export { canPlaceIdol, GRID_WIDTH, GRID_HEIGHT, CELL_SIZE };
+export {
+	canPlaceIdol,
+	GRID_WIDTH,
+	GRID_HEIGHT,
+	CELL_SIZE,
+	INVALID_CELLS,
+	isCellValid,
+};
