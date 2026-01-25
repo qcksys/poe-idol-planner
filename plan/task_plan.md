@@ -51,7 +51,15 @@ Build a comprehensive Path of Exile idol planning tool for the Legacy of Phrecia
 - (none yet)
 
 ## Status
-**Currently in Phase 2** - Designing data models and schemas
+**Currently in Phase 3** - Creating Zod schemas and base idol types data
+
+### Completed
+- Phase 2: poedb-converter script created and tested
+  - Fetches idol modifier data from poedb.tw (with caching)
+  - Parses HTML tables for prefixes/suffixes
+  - Extracts: level req, mod type, text, value ranges, mechanics
+  - Outputs 503 modifiers to JSON
+  - Generates JSON schemas using Zod 4's toJSONSchema
 
 ---
 

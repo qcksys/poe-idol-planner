@@ -14,6 +14,9 @@
 			"a11y": {
 				"useKeyWithClickEvents": "off",
 				"useKeyWithMouseEvents": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off"
 			}
 		}
 	},

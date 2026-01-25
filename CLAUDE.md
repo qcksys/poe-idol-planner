@@ -77,23 +77,51 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 - **Unit-testable components should have snapshot tests** using `expect(component).toMatchSnapshot()`
 - Run tests with `pnpm run test` or `pnpm run test:watch` for watch mode
 
-## Changesets
+### Git Workflow
+- **Commit at relevant intervals** during development (do not push unless asked)
+- Commit after completing logical units of work: a feature, bug fix, or meaningful refactor
+- Run `pnpm run precommit` before committing to ensure code passes linting and type checks
+- Write clear, concise commit messages describing what changed and why
+- Prefer smaller, focused commits over large monolithic ones
+- **Create a changeset** with each commit using `/changeset` for version management
+  - `patch`: Bug fixes, documentation updates, config changes
+  - `minor`: New features, non-breaking enhancements
+  - `major`: Breaking changes (avoid for 0.x versions)
 
-Use `/changeset` to create changelog entries for version management.
+### Local Browser Testing (Chrome DevTools MCP)
 
-Changeset format in `.changeset/<name>.md`:
-```markdown
----
-"poe-idol-planner": <patch|minor|major>
----
+Use Chrome DevTools MCP tools for interactive testing of the running application:
 
-<description>
+1. **Start the dev server**: `pnpm run dev` (runs on http://localhost:5173)
+
+2. **Navigate and inspect**:
+   - `mcp__chrome-devtools__navigate_page` - Navigate to localhost:5173
+   - `mcp__chrome-devtools__take_snapshot` - Get accessible elements with UIDs
+   - `mcp__chrome-devtools__take_screenshot` - Capture visual state
+
+3. **Interact with UI**:
+   - `mcp__chrome-devtools__click` - Click elements by UID
+   - `mcp__chrome-devtools__fill` - Fill input/textarea fields
+   - `mcp__chrome-devtools__hover` - Hover for tooltips
+
+4. **Debug issues**:
+   - `mcp__chrome-devtools__list_console_messages` - Check for errors/warnings
+   - `mcp__chrome-devtools__list_network_requests` - Inspect API calls
+   - `mcp__chrome-devtools__evaluate_script` - Run JS in page context
+
+5. **Performance**:
+   - `mcp__chrome-devtools__performance_start_trace` - Profile page load
+   - `mcp__chrome-devtools__performance_stop_trace` - Get performance insights
+
+Example workflow:
 ```
-
-Guidelines:
-- `patch`: Bug fixes, documentation updates, config changes
-- `minor`: New features, non-breaking enhancements
-- `major`: Breaking changes (avoid for 0.x versions)
+1. Navigate to http://localhost:5173
+2. Take snapshot to see UI elements
+3. Click "Import Idol" button by UID
+4. Fill textarea with test idol data
+5. Take screenshot to verify result
+6. Check console for any errors
+```
 
 ## Current Development
 
