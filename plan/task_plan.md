@@ -8,9 +8,9 @@ Build a comprehensive Path of Exile idol planning tool for the Legacy of Phrecia
 - [x] Phase 2: Data Converter Script (poedb → JSON)
 - [x] Phase 3: Data Model & Schema Design
 - [x] Phase 4: Localization Setup
-- [~] Phase 5: Core UI Components (partial - need drag-and-drop)
-- [~] Phase 6: State Management & Storage (partial - need DnD integration)
-- [ ] Phase 7: Sharing & KV Integration
+- [x] Phase 5: Core UI Components
+- [x] Phase 6: State Management & Storage
+- [x] Phase 7: Sharing & KV Integration
 - [ ] Phase 8: Trade Search Generation
 - [ ] Phase 9: Search & Filtering
 - [ ] Phase 10: Polish & Testing
@@ -51,7 +51,7 @@ Build a comprehensive Path of Exile idol planning tool for the Legacy of Phrecia
 - (none yet)
 
 ## Status
-**Currently in Phase 5/6** - Core functionality complete, ready for Phase 7 (Sharing)
+**Currently completing Phase 7** - Sharing & KV Integration complete, ready for Phase 8 (Trade Search)
 
 ### Completed
 - Phase 2: poedb-converter script created and tested
@@ -84,8 +84,16 @@ Build a comprehensive Path of Exile idol planning tool for the Legacy of Phrecia
   - Idol images for grid display (added to public/images)
   - IdolCardMini shows idol images with rarity borders
 
+- Phase 7: Sharing & KV Integration
+  - Share schema (app/schemas/share.ts) - SharedSet with idols, set, expiry
+  - Share library (app/lib/share.ts) - createSharePayload, saveShare, loadShare
+  - API routes: POST /api/share, GET /api/share/:id
+  - Share route (app/routes/share.$id.tsx) - load shared set and import
+  - ShareModal component with copy-to-clipboard
+  - 30-day TTL for shared sets in KV
+
 ### In Progress
-- Testing drag-and-drop functionality manually
+- (none)
 
 ---
 

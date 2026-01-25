@@ -4,6 +4,7 @@ import { IdolGrid } from "~/components/idol-grid";
 import { ImportModal } from "~/components/import-modal";
 import { InventoryPanel } from "~/components/inventory-panel";
 import { SetTabs } from "~/components/set-tabs";
+import { ShareModal } from "~/components/share-modal";
 import { StatsSummary } from "~/components/stats-summary";
 import { DndProvider } from "~/context/dnd-context";
 import { usePlannerState } from "~/hooks/use-planner-state";
@@ -30,6 +31,7 @@ export default function Home(_props: Route.ComponentProps) {
 	const { isHydrated, inventory, sets, removeIdolFromInventory } =
 		usePlannerState();
 	const [importModalOpen, setImportModalOpen] = useState(false);
+	const [shareModalOpen, setShareModalOpen] = useState(false);
 
 	if (!isHydrated) {
 		return (
@@ -44,7 +46,7 @@ export default function Home(_props: Route.ComponentProps) {
 	return (
 		<DndProvider>
 			<div className="flex min-h-screen flex-col">
-				<AppHeader />
+				<AppHeader onShareClick={() => setShareModalOpen(true)} />
 
 				<main className="container mx-auto flex-1 p-4">
 					<SetTabs
@@ -103,6 +105,13 @@ export default function Home(_props: Route.ComponentProps) {
 					open={importModalOpen}
 					onOpenChange={setImportModalOpen}
 					onImport={(idols) => inventory.addIdols(idols, "clipboard")}
+				/>
+
+				<ShareModal
+					open={shareModalOpen}
+					onOpenChange={setShareModalOpen}
+					set={activeSet}
+					inventory={inventory.inventory}
 				/>
 			</div>
 		</DndProvider>
