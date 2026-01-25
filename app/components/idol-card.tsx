@@ -89,7 +89,14 @@ function IdolCardContent({
 
 	return (
 		<div className="space-y-1">
-			<div className="text-gray-400 text-xs">{base.name}</div>
+			<div className="flex items-center gap-1.5">
+				<img
+					src={base.image}
+					alt=""
+					className="h-5 w-5 object-contain"
+				/>
+				<span className="text-gray-400 text-xs">{base.name}</span>
+			</div>
 
 			{idol.implicit && !compact && (
 				<div className="border-gray-700 border-b pb-1 text-purple-300 text-sm">

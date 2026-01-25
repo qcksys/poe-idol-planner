@@ -60,6 +60,20 @@ function DraggableIdolCard({
 				onClick={() => onIdolClick?.(item)}
 			/>
 			<div className="absolute top-1 right-1 flex gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+				{onIdolClick && (
+					<Button
+						variant="secondary"
+						size="icon"
+						className="h-6 w-6"
+						onClick={(e) => {
+							e.stopPropagation();
+							onIdolClick(item);
+						}}
+						title={t.inventory.edit}
+					>
+						<PenLine className="h-3 w-3" />
+					</Button>
+				)}
 				{onDuplicateIdol && (
 					<Button
 						variant="secondary"

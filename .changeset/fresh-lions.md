@@ -9,3 +9,6 @@ improve inventory and modal UI:
 - increase modal width and enable text wrapping
 - remove item level from UI
 - reduce padding around idol names in cards
+- add idol icons to inventory cards and base type dropdown selector
+- add edit button to inventory idols
+- replace number input with slider for modifier value ranges

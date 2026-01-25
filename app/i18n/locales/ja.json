@@ -27,7 +27,8 @@
 		"usedInSets": "{count}個のセットで使用中",
 		"removeFromInventory": "インベントリから削除",
 		"noMatches": "該当するアイドルが見つかりません",
-		"duplicate": "複製"
+		"duplicate": "複製",
+		"edit": "編集"
 	},
 	"grid": {
 		"tab1": "タブ 1",

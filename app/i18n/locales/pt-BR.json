@@ -27,7 +27,8 @@
 		"usedInSets": "Usado em {count} conjunto(s)",
 		"removeFromInventory": "Remover do Inventário",
 		"noMatches": "Nenhum ídolo correspondente encontrado",
-		"duplicate": "Duplicar"
+		"duplicate": "Duplicar",
+		"edit": "Editar"
 	},
 	"grid": {
 		"tab1": "Aba 1",

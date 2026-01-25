@@ -24,6 +24,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "~/components/ui/select";
+import { Slider } from "~/components/ui/slider";
 import {
 	IDOL_BASE_KEYS,
 	IDOL_BASES,
@@ -122,20 +123,20 @@ function ModSlot({
 							</SelectContent>
 						</Select>
 
-						{valueRange && (
-							<div className="flex items-center gap-2">
-								<Input
-									type="number"
+						{valueRange && valueRange.min !== valueRange.max && (
+							<div className="flex flex-1 items-center gap-3">
+								<Slider
+									value={[mod.rolledValue]}
 									min={valueRange.min}
 									max={valueRange.max}
-									value={mod.rolledValue}
-									onChange={(e) =>
-										onValueChange(Number(e.target.value))
+									step={1}
+									onValueChange={([value]) =>
+										onValueChange(value)
 									}
-									className="w-20"
+									className="flex-1"
 								/>
-								<span className="text-muted-foreground text-xs">
-									({valueRange.min}-{valueRange.max})
+								<span className="w-16 text-right text-sm tabular-nums">
+									{mod.rolledValue}
 								</span>
 							</div>
 						)}
@@ -362,7 +363,16 @@ export function IdolEditor({
 								<SelectContent>
 									{IDOL_BASE_KEYS.map((key) => (
 										<SelectItem key={key} value={key}>
-											{IDOL_BASES[key].name}
+											<div className="flex items-center gap-2">
+												<img
+													src={IDOL_BASES[key].image}
+													alt=""
+													className="h-5 w-5 object-contain"
+												/>
+												<span>
+													{IDOL_BASES[key].name}
+												</span>
+											</div>
 										</SelectItem>
 									))}
 								</SelectContent>

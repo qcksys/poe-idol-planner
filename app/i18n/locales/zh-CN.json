@@ -27,7 +27,8 @@
 		"usedInSets": "已用于 {count} 个配置",
 		"removeFromInventory": "从仓库移除",
 		"noMatches": "找不到匹配的神像",
-		"duplicate": "复制"
+		"duplicate": "复制",
+		"edit": "编辑"
 	},
 	"grid": {
 		"tab1": "标签页 1",
