@@ -1,8 +1,6 @@
 import { type DragEvent, useCallback, useMemo, useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { useDnd } from "~/context/dnd-context";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
-import { useTranslations } from "~/i18n";
 import { cn } from "~/lib/utils";
 import type { IdolInstance } from "~/schemas/idol";
 import type { GridTab, IdolPlacement } from "~/schemas/idol-set";
@@ -11,7 +9,7 @@ import { IdolCardMini } from "./idol-card";
 
 const GRID_WIDTH = 6;
 const GRID_HEIGHT = 7;
-const CELL_SIZE = 40;
+const CELL_SIZE = 64;
 
 // Invalid cells (blocked) based on POE idol inventory layout:
 const INVALID_CELLS: Set<string> = new Set([
@@ -198,7 +196,7 @@ function GridCellComponent({
 	if (!cell.isValid) {
 		return (
 			<div
-				className="absolute border border-gray-800 bg-gray-950/80"
+				className="absolute border border-red-950 bg-red-950/40"
 				style={{
 					left: x * CELL_SIZE,
 					top: y * CELL_SIZE,
@@ -329,56 +327,20 @@ export function IdolGrid({
 	placements,
 	inventory,
 	activeTab,
-	onTabChange,
+	onTabChange: _onTabChange,
 	onPlaceIdol,
 	onRemoveIdol: _onRemoveIdol,
 	onIdolClick,
 }: IdolGridProps) {
-	const t = useTranslations();
-
 	return (
 		<div className="flex flex-col items-center">
-			<Tabs
-				value={activeTab}
-				onValueChange={(v) => onTabChange(v as GridTab)}
-				className="w-full"
-			>
-				<TabsList className="mb-2 grid w-full grid-cols-3">
-					<TabsTrigger value="tab1">{t.grid.tab1}</TabsTrigger>
-					<TabsTrigger value="tab2">{t.grid.tab2}</TabsTrigger>
-					<TabsTrigger value="tab3">{t.grid.tab3}</TabsTrigger>
-				</TabsList>
-
-				<TabsContent value="tab1" className="flex justify-center">
-					<GridTabContent
-						tab="tab1"
-						placements={placements}
-						inventory={inventory}
-						onIdolClick={onIdolClick}
-						onPlaceIdol={onPlaceIdol}
-					/>
-				</TabsContent>
-
-				<TabsContent value="tab2" className="flex justify-center">
-					<GridTabContent
-						tab="tab2"
-						placements={placements}
-						inventory={inventory}
-						onIdolClick={onIdolClick}
-						onPlaceIdol={onPlaceIdol}
-					/>
-				</TabsContent>
-
-				<TabsContent value="tab3" className="flex justify-center">
-					<GridTabContent
-						tab="tab3"
-						placements={placements}
-						inventory={inventory}
-						onIdolClick={onIdolClick}
-						onPlaceIdol={onPlaceIdol}
-					/>
-				</TabsContent>
-			</Tabs>
+			<GridTabContent
+				tab={activeTab}
+				placements={placements}
+				inventory={inventory}
+				onIdolClick={onIdolClick}
+				onPlaceIdol={onPlaceIdol}
+			/>
 		</div>
 	);
 }
