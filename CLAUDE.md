@@ -45,7 +45,7 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 
 ### Cloudflare Integration
 - KV namespace `KV_SAVE` available for persistent storage
-- Environment configs: `worker-prod` (poe-idol-planner.ta2.dev), `worker-dev` (poe-idol-planner-dev.ta2.dev)
+- Environment configs: `worker-prod` (poe-idol-planner.prae2.com), `worker-dev` (poe-idol-planner-dev.prae2.com)
 - Bindings typed via `pnpm run types:cf`
 
 ### UI Components

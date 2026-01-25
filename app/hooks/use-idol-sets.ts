@@ -27,12 +27,18 @@ export interface UseIdolSetsReturn {
 		position: Position,
 		tab: GridTab,
 	) => string | null;
+	moveIdol: (
+		placementId: string,
+		newPosition: Position,
+		newTab: GridTab,
+	) => boolean;
 	removeIdolFromSet: (placementId: string) => void;
 	removeInventoryIdolFromAllSets: (inventoryIdolId: string) => void;
 	canPlaceIdol: (
 		inventoryIdol: InventoryIdol,
 		position: Position,
 		tab: GridTab,
+		excludePlacementId?: string,
 	) => boolean;
 }
 
@@ -215,6 +221,7 @@ export function useIdolSets(
 			inventoryIdol: InventoryIdol,
 			position: Position,
 			tab: GridTab,
+			excludePlacementId?: string,
 		): boolean => {
 			if (!activeSet) return false;
 
@@ -222,6 +229,7 @@ export function useIdolSets(
 				activeSet.placements,
 				inventory,
 				tab,
+				excludePlacementId,
 			);
 			return checkCanPlace(
 				grid,
@@ -283,6 +291,65 @@ export function useIdolSets(
 		[activeSet, inventory, setSets],
 	);
 
+	const moveIdol = useCallback(
+		(
+			placementId: string,
+			newPosition: Position,
+			newTab: GridTab,
+		): boolean => {
+			if (!activeSet) return false;
+
+			const placement = activeSet.placements.find(
+				(p) => p.id === placementId,
+			);
+			if (!placement) return false;
+
+			const invIdol = inventory.find(
+				(i) => i.id === placement.inventoryIdolId,
+			);
+			if (!invIdol) return false;
+
+			const grid = buildOccupancyGrid(
+				activeSet.placements,
+				inventory,
+				newTab,
+				placementId,
+			);
+			if (
+				!checkCanPlace(
+					grid,
+					invIdol.idol.baseType as IdolBaseKey,
+					newPosition,
+				)
+			) {
+				return false;
+			}
+
+			setSets((prev) =>
+				prev.map((s) =>
+					s.id === activeSet.id
+						? {
+								...s,
+								placements: s.placements.map((p) =>
+									p.id === placementId
+										? {
+												...p,
+												position: newPosition,
+												tab: newTab,
+											}
+										: p,
+								),
+								updatedAt: Date.now(),
+							}
+						: s,
+				),
+			);
+
+			return true;
+		},
+		[activeSet, inventory, setSets],
+	);
+
 	const removeIdolFromSet = useCallback(
 		(placementId: string) => {
 			setSets((prev) =>
@@ -325,6 +392,7 @@ export function useIdolSets(
 			duplicateSet,
 			setActiveTab,
 			placeIdol,
+			moveIdol,
 			removeIdolFromSet,
 			removeInventoryIdolFromAllSets,
 			canPlaceIdol,
@@ -340,6 +408,7 @@ export function useIdolSets(
 			duplicateSet,
 			setActiveTab,
 			placeIdol,
+			moveIdol,
 			removeIdolFromSet,
 			removeInventoryIdolFromAllSets,
 			canPlaceIdol,

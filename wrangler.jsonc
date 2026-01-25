@@ -30,7 +30,7 @@
 			},
 			"routes": [
 				{
-					"pattern": "poe-idol-planner.ta2.dev",
+					"pattern": "poe-idol-planner.prae2.com",
 					"custom_domain": true
 				}
 			],
@@ -52,7 +52,7 @@
 			},
 			"routes": [
 				{
-					"pattern": "poe-idol-planner-dev.ta2.dev",
+					"pattern": "poe-idol-planner-dev.prae2.com",
 					"custom_domain": true
 				}
 			],

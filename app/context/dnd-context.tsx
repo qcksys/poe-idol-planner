@@ -7,29 +7,41 @@ import {
 } from "react";
 import type { InventoryIdol } from "~/schemas/inventory";
 
+interface DragSource {
+	inventoryIdol: InventoryIdol;
+	placementId?: string;
+}
+
 interface DndContextValue {
 	draggedItem: InventoryIdol | null;
-	setDraggedItem: (item: InventoryIdol | null) => void;
+	sourcePlacementId: string | null;
+	setDraggedItem: (item: InventoryIdol | null, placementId?: string) => void;
 	isDragging: boolean;
 }
 
 const DndContext = createContext<DndContextValue | null>(null);
 
 export function DndProvider({ children }: { children: ReactNode }) {
-	const [draggedItem, setDraggedItemState] = useState<InventoryIdol | null>(
-		null,
-	);
+	const [dragSource, setDragSource] = useState<DragSource | null>(null);
 
-	const setDraggedItem = useCallback((item: InventoryIdol | null) => {
-		setDraggedItemState(item);
-	}, []);
+	const setDraggedItem = useCallback(
+		(item: InventoryIdol | null, placementId?: string) => {
+			if (item) {
+				setDragSource({ inventoryIdol: item, placementId });
+			} else {
+				setDragSource(null);
+			}
+		},
+		[],
+	);
 
 	return (
 		<DndContext.Provider
 			value={{
-				draggedItem,
+				draggedItem: dragSource?.inventoryIdol ?? null,
+				sourcePlacementId: dragSource?.placementId ?? null,
 				setDraggedItem,
-				isDragging: draggedItem !== null,
+				isDragging: dragSource !== null,
 			}}
 		>
 			{children}

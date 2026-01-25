@@ -600,7 +600,7 @@ Import (clipboard) → Inventory → Drag to Set → Grid Position
 - `GET /api/share/:id` - Retrieve shared set
 
 ### 7.3 Share URL Format
-- `https://poe-idol-planner.ta2.dev/share/{id}`
+- `https://poe-idol-planner.prae2.com/share/{id}`
 - Opens app with shared set loaded
 
 ## Phase 8: Trade Search Generation

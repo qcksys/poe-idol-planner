@@ -40,6 +40,12 @@ interface IdolGridProps {
 		y: number,
 		tab: GridTab,
 	) => void;
+	onMoveIdol?: (
+		placementId: string,
+		x: number,
+		y: number,
+		tab: GridTab,
+	) => void;
 	onRemoveIdol?: (placementId: string) => void;
 	onIdolClick?: (idol: IdolInstance, placementId: string) => void;
 }
@@ -129,8 +135,11 @@ interface GridCellComponentProps {
 	cell: GridCell;
 	x: number;
 	y: number;
+	inventoryIdol?: InventoryIdol;
 	onClick?: () => void;
 	onDrop?: (x: number, y: number) => void;
+	onDragStart?: (placementId: string) => void;
+	onDragEnd?: () => void;
 	canDropHere?: boolean;
 	isDropPreview?: boolean;
 }
@@ -139,8 +148,11 @@ function GridCellComponent({
 	cell,
 	x,
 	y,
+	inventoryIdol,
 	onClick,
 	onDrop,
+	onDragStart,
+	onDragEnd,
 	canDropHere,
 	isDropPreview,
 }: GridCellComponentProps) {
@@ -174,7 +186,21 @@ function GridCellComponent({
 		[canDropHere, onDrop, x, y],
 	);
 
-	if (cell.isOrigin && cell.idol) {
+	const handleIdolDragStart = useCallback(
+		(e: DragEvent<HTMLButtonElement>) => {
+			if (cell.placementId && onDragStart) {
+				e.dataTransfer.effectAllowed = "move";
+				onDragStart(cell.placementId);
+			}
+		},
+		[cell.placementId, onDragStart],
+	);
+
+	const handleIdolDragEnd = useCallback(() => {
+		onDragEnd?.();
+	}, [onDragEnd]);
+
+	if (cell.isOrigin && cell.idol && inventoryIdol) {
 		return (
 			<div
 				className="absolute"
@@ -183,7 +209,14 @@ function GridCellComponent({
 					top: y * CELL_SIZE,
 				}}
 			>
-				<IdolCardMini idol={cell.idol} onClick={onClick} />
+				<IdolCardMini
+					idol={cell.idol}
+					cellSize={CELL_SIZE}
+					onClick={onClick}
+					draggable
+					onDragStart={handleIdolDragStart}
+					onDragEnd={handleIdolDragEnd}
+				/>
 			</div>
 		);
 	}
@@ -238,6 +271,7 @@ function GridTabContent({
 	inventory,
 	onIdolClick,
 	onPlaceIdol,
+	onMoveIdol,
 }: {
 	tab: GridTab;
 	placements: IdolPlacement[];
@@ -249,13 +283,27 @@ function GridTabContent({
 		y: number,
 		tab: GridTab,
 	) => void;
+	onMoveIdol?: (
+		placementId: string,
+		x: number,
+		y: number,
+		tab: GridTab,
+	) => void;
 }) {
-	const { draggedItem } = useDnd();
+	const { draggedItem, sourcePlacementId, setDraggedItem } = useDnd();
 
 	const grid = useMemo(
 		() => populateGrid(placements, inventory, tab),
 		[placements, inventory, tab],
 	);
+
+	const inventoryMap = useMemo(() => {
+		const map = new Map<string, InventoryIdol>();
+		for (const inv of inventory) {
+			map.set(inv.id, inv);
+		}
+		return map;
+	}, [inventory]);
 
 	const canPlaceAtPosition = useCallback(
 		(x: number, y: number): boolean => {
@@ -269,8 +317,14 @@ function GridTabContent({
 			for (let dy = 0; dy < base.height; dy++) {
 				for (let dx = 0; dx < base.width; dx++) {
 					const cell = grid[y + dy]?.[x + dx];
-					// Check if cell is occupied or invalid (blocked)
-					if (cell?.occupied || !cell?.isValid) {
+					if (!cell?.isValid) return false;
+					if (cell?.occupied) {
+						if (
+							sourcePlacementId &&
+							cell.placementId === sourcePlacementId
+						) {
+							continue;
+						}
 						return false;
 					}
 				}
@@ -278,17 +332,38 @@ function GridTabContent({
 
 			return true;
 		},
-		[draggedItem, grid],
+		[draggedItem, grid, sourcePlacementId],
 	);
 
 	const handleDrop = useCallback(
 		(x: number, y: number) => {
-			if (draggedItem && onPlaceIdol) {
+			if (!draggedItem) return;
+
+			if (sourcePlacementId && onMoveIdol) {
+				onMoveIdol(sourcePlacementId, x, y, tab);
+			} else if (onPlaceIdol) {
 				onPlaceIdol(draggedItem.id, x, y, tab);
 			}
 		},
-		[draggedItem, onPlaceIdol, tab],
+		[draggedItem, sourcePlacementId, onPlaceIdol, onMoveIdol, tab],
 	);
+
+	const handleIdolDragStart = useCallback(
+		(placementId: string) => {
+			const placement = placements.find((p) => p.id === placementId);
+			if (!placement) return;
+
+			const invIdol = inventoryMap.get(placement.inventoryIdolId);
+			if (!invIdol) return;
+
+			setDraggedItem(invIdol, placementId);
+		},
+		[placements, inventoryMap, setDraggedItem],
+	);
+
+	const handleIdolDragEnd = useCallback(() => {
+		setDraggedItem(null);
+	}, [setDraggedItem]);
 
 	return (
 		<div
@@ -299,25 +374,42 @@ function GridTabContent({
 			}}
 		>
 			{grid.flatMap((row, y) =>
-				row.map((cell, x) => (
-					<GridCellComponent
-						key={`cell-${x}-${y}`}
-						cell={cell}
-						x={x}
-						y={y}
-						onClick={
-							cell.isOrigin && cell.idol && cell.placementId
-								? () =>
-										onIdolClick?.(
-											cell.idol as IdolInstance,
-											cell.placementId as string,
-										)
-								: undefined
-						}
-						onDrop={handleDrop}
-						canDropHere={canPlaceAtPosition(x, y)}
-					/>
-				)),
+				row.map((cell, x) => {
+					const inventoryIdol = cell.placementId
+						? inventory.find((inv) => {
+								const placement = placements.find(
+									(p) => p.id === cell.placementId,
+								);
+								return (
+									placement &&
+									inv.id === placement.inventoryIdolId
+								);
+							})
+						: undefined;
+
+					return (
+						<GridCellComponent
+							key={`cell-${x}-${y}`}
+							cell={cell}
+							x={x}
+							y={y}
+							inventoryIdol={inventoryIdol}
+							onClick={
+								cell.isOrigin && cell.idol && cell.placementId
+									? () =>
+											onIdolClick?.(
+												cell.idol as IdolInstance,
+												cell.placementId as string,
+											)
+									: undefined
+							}
+							onDrop={handleDrop}
+							onDragStart={handleIdolDragStart}
+							onDragEnd={handleIdolDragEnd}
+							canDropHere={canPlaceAtPosition(x, y)}
+						/>
+					);
+				}),
 			)}
 		</div>
 	);
@@ -329,6 +421,7 @@ export function IdolGrid({
 	activeTab,
 	onTabChange: _onTabChange,
 	onPlaceIdol,
+	onMoveIdol,
 	onRemoveIdol: _onRemoveIdol,
 	onIdolClick,
 }: IdolGridProps) {
@@ -340,6 +433,7 @@ export function IdolGrid({
 				inventory={inventory}
 				onIdolClick={onIdolClick}
 				onPlaceIdol={onPlaceIdol}
+				onMoveIdol={onMoveIdol}
 			/>
 		</div>
 	);

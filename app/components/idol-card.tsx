@@ -1,11 +1,11 @@
 import { ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu";
+	ContextMenu,
+	ContextMenuContent,
+	ContextMenuItem,
+	ContextMenuTrigger,
+} from "~/components/ui/context-menu";
 import {
 	Tooltip,
 	TooltipContent,
@@ -159,15 +159,15 @@ export function IdolCard({
 	);
 
 	const cardContent = showTradeMenu ? (
-		<DropdownMenu>
-			<DropdownMenuTrigger asChild>{cardElement}</DropdownMenuTrigger>
-			<DropdownMenuContent>
-				<DropdownMenuItem onClick={handleFindOnTrade}>
+		<ContextMenu>
+			<ContextMenuTrigger asChild>{cardElement}</ContextMenuTrigger>
+			<ContextMenuContent>
+				<ContextMenuItem onClick={handleFindOnTrade}>
 					<ExternalLink className="mr-2 h-4 w-4" />
 					{t.trade.findSimilar}
-				</DropdownMenuItem>
-			</DropdownMenuContent>
-		</DropdownMenu>
+				</ContextMenuItem>
+			</ContextMenuContent>
+		</ContextMenu>
 	) : (
 		cardElement
 	);
@@ -188,18 +188,28 @@ export function IdolCard({
 	);
 }
 
+interface IdolCardMiniProps {
+	idol: IdolInstance;
+	cellSize?: number;
+	onClick?: () => void;
+	draggable?: boolean;
+	onDragStart?: (e: React.DragEvent<HTMLButtonElement>) => void;
+	onDragEnd?: (e: React.DragEvent<HTMLButtonElement>) => void;
+}
+
 export function IdolCardMini({
 	idol,
+	cellSize = 64,
 	onClick,
-}: {
-	idol: IdolInstance;
-	onClick?: () => void;
-}) {
+	draggable = false,
+	onDragStart,
+	onDragEnd,
+}: IdolCardMiniProps) {
 	const base = IDOL_BASES[idol.baseType as IdolBaseKey];
 	const rarityColor = getRarityColor(idol.rarity);
 	const style = {
-		width: `${base.width * 40}px`,
-		height: `${base.height * 40}px`,
+		width: `${base.width * cellSize}px`,
+		height: `${base.height * cellSize}px`,
 	};
 
 	return (
@@ -208,8 +218,14 @@ export function IdolCardMini({
 				<TooltipTrigger asChild>
 					<button
 						type="button"
+						draggable={draggable}
+						onDragStart={onDragStart}
+						onDragEnd={onDragEnd}
 						className={cn(
-							"relative flex cursor-pointer items-center justify-center overflow-hidden rounded border-2 transition-all hover:scale-105",
+							"relative flex items-center justify-center overflow-hidden rounded border-2 transition-all hover:scale-105",
+							draggable
+								? "cursor-grab active:cursor-grabbing"
+								: "cursor-pointer",
 							rarityColor,
 						)}
 						style={style}

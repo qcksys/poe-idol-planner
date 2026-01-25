@@ -115,6 +115,13 @@ export default function Home(_props: Route.ComponentProps) {
 											tab,
 										)
 									}
+									onMoveIdol={(placementId, x, y, tab) =>
+										sets.moveIdol(
+											placementId,
+											{ x, y },
+											tab,
+										)
+									}
 									onRemoveIdol={sets.removeIdolFromSet}
 								/>
 							)}
