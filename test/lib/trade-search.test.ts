@@ -16,21 +16,21 @@ describe("trade-search", () => {
 			const statId = getTradeStatId(
 				"Your Maps have +25% chance to contain an Abyss",
 			);
-			expect(statId).toBe("explicit.stat_4278144676");
+			expect(statId).toMatchInlineSnapshot(`"explicit.stat_4278144676"`);
 		});
 
 		it("should find stat ID for text with different value", () => {
 			const statId = getTradeStatId(
 				"Your Maps have +45% chance to contain an Abyss",
 			);
-			expect(statId).toBe("explicit.stat_4278144676");
+			expect(statId).toMatchInlineSnapshot(`"explicit.stat_4278144676"`);
 		});
 
 		it("should find stat ID for text with value range", () => {
 			const statId = getTradeStatId(
 				"Your Maps have +(15—25)% chance to contain an Abyss",
 			);
-			expect(statId).toBe("explicit.stat_4278144676");
+			expect(statId).toMatchInlineSnapshot(`"explicit.stat_4278144676"`);
 		});
 
 		it("should return null for unknown mod text", () => {
@@ -42,21 +42,21 @@ describe("trade-search", () => {
 			const statId = getTradeStatId(
 				"Your Maps have +30% chance to contain a Legion Encounter",
 			);
-			expect(statId).toBe("explicit.stat_1981273563");
+			expect(statId).toMatchInlineSnapshot(`"explicit.stat_1981273563"`);
 		});
 
 		it("should handle Breach mods", () => {
 			const statId = getTradeStatId(
 				"Your Maps have +20% chance to contain Breaches",
 			);
-			expect(statId).toBe("explicit.stat_1133841298");
+			expect(statId).toMatchInlineSnapshot(`"explicit.stat_1133841298"`);
 		});
 
 		it("should handle Delirium mods", () => {
 			const statId = getTradeStatId(
 				"Delirium Monsters in your Maps have 50% increased chance to drop Cluster Jewels",
 			);
-			expect(statId).toBe("explicit.stat_3580714718");
+			expect(statId).toMatchInlineSnapshot(`"explicit.stat_3580714718"`);
 		});
 	});
 
@@ -123,8 +123,8 @@ describe("trade-search", () => {
 			const query = JSON.parse(queryParam);
 
 			expect(query.query.stats[0].filters).toHaveLength(1);
-			expect(query.query.stats[0].filters[0].id).toBe(
-				"explicit.stat_4278144676",
+			expect(query.query.stats[0].filters[0].id).toMatchInlineSnapshot(
+				`"explicit.stat_4278144676"`,
 			);
 		});
 
@@ -184,10 +184,12 @@ describe("trade-search", () => {
 			const query = JSON.parse(queryParam);
 
 			expect(query.query.stats[0].filters).toHaveLength(1);
-			expect(query.query.stats[0].filters[0].id).toBe(
-				"explicit.stat_1981273563",
+			expect(query.query.stats[0].filters[0].id).toMatchInlineSnapshot(
+				`"explicit.stat_1981273563"`,
 			);
-			expect(query.query.stats[0].filters[0].value.min).toBe(30);
+			expect(
+				query.query.stats[0].filters[0].value.min,
+			).toMatchInlineSnapshot(`30`);
 		});
 
 		it("should include base type when specified", () => {
@@ -204,7 +206,7 @@ describe("trade-search", () => {
 			const queryParam = decodeURIComponent(url.split("?q=")[1]);
 			const query = JSON.parse(queryParam);
 
-			expect(query.query.type).toBe("Totemic Idol");
+			expect(query.query.type).toMatchInlineSnapshot(`"Totemic Idol"`);
 		});
 	});
 
