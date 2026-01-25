@@ -39,7 +39,7 @@ export function AppHeader({ onShareClick }: AppHeaderProps) {
 					<ModeToggle />
 					<Button variant="ghost" size="icon" asChild>
 						<a
-							href="https://github.com/user/poe-idol-planner"
+							href="https://github.com/qcksys/poe-idol-planner"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
