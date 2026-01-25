@@ -1,33 +1,38 @@
 {
-  "name": "poe-idol-planner",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "build": "react-router build",
-    "cf-typegen": "wrangler types",
-    "deploy": "npm run build && wrangler deploy",
-    "dev": "react-router dev",
-    "postinstall": "npm run cf-typegen",
-    "preview": "npm run build && vite preview",
-    "typecheck": "npm run cf-typegen && react-router typegen && tsc -b"
-  },
-  "dependencies": {
-    "isbot": "^5.1.31",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "react-router": "7.12.0"
-  },
-  "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.13.7",
-    "@react-router/dev": "7.12.0",
-    "@tailwindcss/vite": "^4.1.13",
-    "@types/node": "^22",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "tailwindcss": "^4.1.13",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.7",
-    "vite-tsconfig-paths": "^5.1.4",
-    "wrangler": "^4.40.2"
-  }
+	"name": "poe-idol-planner",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "react-router build",
+		"biome": "biome check --write --unsafe",
+		"biome:ci": "biome ci",
+		"types:cf": "wrangler types --env-interface CloudflareBindings",
+		"types:rr": "react-router typegen",
+		"types:tsc": "tsc -b",
+		"deploy": "npm run build && wrangler deploy",
+		"dev": "react-router dev",
+		"postinstall": "pnpm run types:cf",
+		"preview": "pnpm run build && vite preview",
+		"typecheck": "pnpm run types:cf && pnpm run types:rr && pnpm run types:tsc"
+	},
+	"dependencies": {
+		"isbot": "^5.1.33",
+		"react": "^19.2.3",
+		"react-dom": "^19.2.3",
+		"react-router": "7.12.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.12",
+		"@cloudflare/vite-plugin": "^1.21.2",
+		"@react-router/dev": "7.12.0",
+		"@tailwindcss/vite": "^4.1.18",
+		"@types/node": "^24.10.9",
+		"@types/react": "^19.2.9",
+		"@types/react-dom": "^19.2.3",
+		"tailwindcss": "^4.1.18",
+		"typescript": "^5.9.3",
+		"vite": "^7.3.1",
+		"vite-tsconfig-paths": "^6.0.5",
+		"wrangler": "^4.60.0"
+	}
 }

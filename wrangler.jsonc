@@ -1,9 +1,66 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "react-router-app",
-  "compatibility_date": "2025-04-04",
-  "main": "./workers/app.ts",
-  "vars": {
-    "VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare"
-  }
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"account_id": "923e3a86a572d6d6d05230ccadbbbe34",
+	"compatibility_date": "2025-12-10",
+	"main": "./workers/app.ts",
+	"observability": {
+		"enabled": true
+	},
+	"vars": {
+		"URL": "",
+		"ENVIRONMENT": "local"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "KV_SAVE",
+			"id": "d3bcefda426a467bae172c059829ad27",
+			"remote": true
+		}
+	],
+	"env": {
+		"worker-prod": {
+			"name": "qs-poe-idol-planner-prod",
+			"observability": {
+				"enabled": true
+			},
+			"vars": {
+				"URL": "",
+				"ENVIRONMENT": "prod"
+			},
+			"routes": [
+				{
+					"pattern": "poe-idol-planner.ta2.dev",
+					"custom_domain": true
+				}
+			],
+			"kv_namespaces": [
+				{
+					"binding": "KV_SAVE",
+					"id": "af94b40deb534917877932d46e9faad5"
+				}
+			]
+		},
+		"worker-dev": {
+			"name": "qs-poe-idol-planner-dev",
+			"observability": {
+				"enabled": true
+			},
+			"vars": {
+				"URL": "",
+				"ENVIRONMENT": "dev"
+			},
+			"routes": [
+				{
+					"pattern": "poe-idol-planner-dev.ta2.dev",
+					"custom_domain": true
+				}
+			],
+			"kv_namespaces": [
+				{
+					"binding": "KV_SAVE",
+					"id": "d3bcefda426a467bae172c059829ad27"
+				}
+			]
+		}
+	}
 }
