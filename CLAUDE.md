@@ -56,6 +56,7 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 ### Path Aliases
 - `~/` maps to `./app/` for application imports
 - `~test/` maps to `./test/` for test imports
+- **Always use path aliases** instead of relative imports (e.g., `~/components/Button` not `../../components/Button`)
 
 ### Formatting (Biome)
 - Tab indentation (width 4)
@@ -69,6 +70,12 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 ### Environment Variables
 - Define in `wrangler.jsonc` `vars` section for each environment
 - Access via `envContext` in loaders
+
+### Testing
+- Use Vitest for unit tests
+- Test files go in `test/` directory with `.test.ts` or `.test.tsx` extension
+- **Unit-testable components should have snapshot tests** using `expect(component).toMatchSnapshot()`
+- Run tests with `pnpm run test` or `pnpm run test:watch` for watch mode
 
 ## Changesets
 
