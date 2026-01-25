@@ -2,6 +2,7 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"account_id": "923e3a86a572d6d6d05230ccadbbbe34",
 	"compatibility_date": "2025-12-10",
+	"compatibility_flags": ["nodejs_compat"],
 	"main": "./workers/app.ts",
 	"observability": {
 		"enabled": true

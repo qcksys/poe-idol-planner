@@ -104,3 +104,15 @@ See `plan/task_plan.md` for project phases and implementation details. Key featu
 - Share sets via Cloudflare KV
 - Trade search URL generation
 - Localization support (10 languages)
+
+### Logging
+
+The app uses **Cloudflare Workers Observability** for logging. Always log objects (not strings) so that keys can be indexed and queried in the dashboard.
+
+```ts
+// Good - object with indexed keys
+console.log({ message: "Sync started", themeId, shop, fileCount: files.length });
+
+// Bad - plain string (not indexable)
+console.log(`Sync started for theme ${themeId}`);
+```

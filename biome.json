@@ -32,7 +32,8 @@
 			"**/*",
 			"!app/generated",
 			"!worker-configuration.d.ts",
-			"!code-quality.json"
+			"!code-quality.json",
+			"!scripts/**/.cache"
 		],
 		"maxSize": 1048576
 	},

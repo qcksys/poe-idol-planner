@@ -10,6 +10,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import type { ReactNode } from "react";
+import { NotFoundPage } from "~/routes/$";
 
 export function Layout({ children }: { children: ReactNode }) {
 	return (
@@ -37,16 +38,17 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+	if (isRouteErrorResponse(error) && error.status === 404) {
+		return <NotFoundPage />;
+	}
+
 	let message = "Oops!";
 	let details = "An unexpected error occurred.";
 	let stack: string | undefined;
 
 	if (isRouteErrorResponse(error)) {
-		message = error.status === 404 ? "404" : "Error";
-		details =
-			error.status === 404
-				? "The requested page could not be found."
-				: error.statusText || details;
+		message = `Error ${error.status}`;
+		details = error.statusText || details;
 	} else if (import.meta.env.DEV && error && error instanceof Error) {
 		details = error.message;
 		stack = error.stack;
