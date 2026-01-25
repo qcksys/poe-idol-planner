@@ -3,23 +3,29 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
+		"dev": "react-router dev",
 		"build": "react-router build",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"deploy:dev:cf": "react-router build --mode worker-dev && wrangler deploy -e=worker-dev",
+		"deploy:prod:cf": "react-router build --mode worker-prod && wrangler deploy -e=worker-prod",
 		"biome": "biome check --write --unsafe",
 		"biome:ci": "biome ci",
+		"types": "pnpm run types:cf && pnpm run types:rr && pnpm run types:tsc",
 		"types:cf": "wrangler types --env-interface CloudflareBindings",
 		"types:rr": "react-router typegen",
 		"types:tsc": "tsc -b",
-		"deploy": "npm run build && wrangler deploy",
-		"dev": "react-router dev",
 		"postinstall": "pnpm run types:cf",
 		"preview": "pnpm run build && vite preview",
-		"typecheck": "pnpm run types:cf && pnpm run types:rr && pnpm run types:tsc"
+		"precommit": "pnpm run biome:ci && pnpm run types",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"isbot": "^5.1.33",
 		"react": "^19.2.3",
 		"react-dom": "^19.2.3",
-		"react-router": "7.12.0"
+		"react-router": "7.12.0",
+		"zod": "^4.3.6"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.12",
@@ -29,10 +35,34 @@
 		"@types/node": "^24.10.9",
 		"@types/react": "^19.2.9",
 		"@types/react-dom": "^19.2.3",
+		"husky": "^9.1.7",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3",
 		"vite": "^7.3.1",
 		"vite-tsconfig-paths": "^6.0.5",
+		"vitest": "^4.0.18",
 		"wrangler": "^4.60.0"
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": "^24.13.0",
+			"onFail": "download"
+		},
+		"packageManager": {
+			"name": "pnpm",
+			"version": "^10.28.1",
+			"onFail": "warn"
+		}
+	},
+	"packageManager": "pnpm@10.28.1",
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@biomejs/biome",
+			"@parcel/watcher",
+			"esbuild",
+			"sharp",
+			"workerd"
+		]
 	}
 }
