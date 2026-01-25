@@ -22,6 +22,9 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 | `pnpm run types:cf` | Generate Cloudflare bindings types |
 | `pnpm run types:rr` | Generate React Router route types |
 | `pnpm run precommit` | Run biome:ci + types (use before committing) |
+| `pnpm run data:convert` | Fetch and convert idol data from poedb.tw |
+| `pnpm run data:convert:cached` | Convert using cached poedb data |
+| `vitest run path/to/file.test.ts` | Run a single test file |
 
 ## Architecture
 
@@ -50,6 +53,38 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 - Components go in `app/components/ui/`
 - Uses `tw-animate-css` for animations
 - Add components via: `pnpx shadcn@latest add <component>`
+
+### State Management
+The app uses a centralized state pattern with localStorage persistence:
+
+- `app/hooks/use-planner-state.ts` - Top-level hook combining inventory and sets state, handles hydration and auto-save
+- `app/hooks/use-inventory.ts` - Manages imported idols collection
+- `app/hooks/use-idol-sets.ts` - Manages named sets with grid placements
+- `app/context/dnd-context.tsx` - React context for drag-and-drop state between inventory and grid
+
+**Data Flow:**
+```
+Import (clipboard) → Inventory → Drag to Set → Grid Position
+                         ↓
+                   Same idol can be in multiple sets
+                         ↓
+              Delete from inventory = removes everywhere
+```
+
+### Schemas (Zod 4)
+All data validated with Zod schemas in `app/schemas/`:
+- `idol.ts` - Base idol types, modifiers, instances
+- `idol-set.ts` - Named sets with grid placements
+- `inventory.ts` - Imported idols with usage tracking
+- `storage.ts` - Complete localStorage format with version
+
+### i18n System
+Lightweight client-side localization in `app/i18n/`:
+- `I18nProvider` wraps app, handles hydration
+- `useI18n()` returns `{ locale, setLocale, t }`
+- `useTranslations()` returns translation object directly
+- Translations in `app/i18n/locales/*.json`
+- Locale stored in localStorage, can override via `?lang=` param
 
 ## Code Conventions
 
@@ -83,10 +118,11 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 - Run `pnpm run precommit` before committing to ensure code passes linting and type checks
 - Write clear, concise commit messages describing what changed and why
 - Prefer smaller, focused commits over large monolithic ones
-- **Create a changeset** with each commit using `/changeset` for version management
+- **Create a changeset BEFORE committing** using `/changeset` for version management
   - `patch`: Bug fixes, documentation updates, config changes
   - `minor`: New features, non-breaking enhancements
   - `major`: Breaking changes (avoid for 0.x versions)
+  - The changeset file should be included in the same commit as the changes it describes
 
 ### Local Browser Testing (Chrome DevTools MCP)
 
