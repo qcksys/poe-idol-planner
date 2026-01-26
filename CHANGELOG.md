@@ -1,5 +1,38 @@
 # Changelog
 
+## 0.3.0
+
+### Minor Changes
+
+- fbc1e58: add per-set inventories and idol copy/paste between sets
+  - each set now has its own isolated inventory (storage schema v1 to v2 migration)
+  - add copy icon on idol cards to copy idols to clipboard for pasting into other sets
+  - add paste button in inventory panel when clipboard has an idol
+  - add X button on grid idols to remove them on hover
+  - add clear button on mod slots in idol editor to unselect mods
+  - auto-read clipboard when import modal opens (no manual paste needed)
+- 25b76a9: add scarabs map device, favorite mods, multi-select, and fix UI bugs
+  - add 5-slot map device for selecting scarabs with searchable dropdown and category filters
+  - scarab effects display in stats summary panel grouped by category
+  - fetch and parse scarab data from poedb.tw with local image caching
+  - storage schema v2 to v3 migration for mapDevice support
+  - fix tooltip overflow with collision detection on idol cards
+  - fix inventory and stats panel scroll issues with min-h-0 flex constraints
+  - fix grid hover detection so tooltips show when hovering any cell of an idol
+  - improve drag-and-drop visual feedback: custom drag image shows full idol with rarity border when dragging from any cell
+  - add favorite mods feature: click star icon to save frequently used mods, filter to show favorites only
+  - add multi-select for inventory: Ctrl+click to toggle selection, Shift+click for range select, bulk delete selected idols
+
+### Patch Changes
+
+- a68ec49: fix UI/UX issues: dedupe mod list by tier text, hide tier selector when only one tier exists, remove tier display from idol cards, fix tooltip contrast on grid idol hover, fix stats aggregation math for mods with multiple numbers
+  - fix stats sum calculation for mods with range text format like "(10—8)%" to properly sum rolled values
+  - move "Find Similar on Trade" from context menu to top hover icons on idol cards
+- a8d6be1: fix UI/UX issues: prevent duplicate mods on same idol, filter mechanics dropdown by display text (allows "exile" to find "Anarchy"), enable dragging idols from any cell for movement, fix modal dropdown mouse wheel scrolling
+- 332ebe8: fix light mode contrast issues: replace hardcoded dark-mode colors with theme-aware CSS variables across all components
+  - add theme color guidelines to CLAUDE.md
+- a018c13: fix Rogue Exile mods incorrectly categorized as Heist; add new "anarchy" mechanic with translations
+
 ## 0.2.0
 
 ### Minor Changes
