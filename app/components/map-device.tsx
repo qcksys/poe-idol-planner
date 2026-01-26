@@ -41,6 +41,8 @@ interface ScarabSlotProps {
 	scarabId: string | null;
 	onSelect: (scarabId: string | null) => void;
 	scarabUsageCount: Map<string, number>;
+	categoryFilter: string | null;
+	onCategoryFilterChange: (category: string | null) => void;
 }
 
 function ScarabSlot({
@@ -48,10 +50,11 @@ function ScarabSlot({
 	scarabId,
 	onSelect,
 	scarabUsageCount,
+	categoryFilter,
+	onCategoryFilterChange,
 }: ScarabSlotProps) {
 	const t = useTranslations();
 	const [open, setOpen] = useState(false);
-	const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
 
 	const scarab = scarabId ? getScarabById(scarabId) : null;
 
@@ -175,7 +178,7 @@ function ScarabSlot({
 							}
 							size="sm"
 							className="h-6 text-xs"
-							onClick={() => setCategoryFilter(null)}
+							onClick={() => onCategoryFilterChange(null)}
 						>
 							All
 						</Button>
@@ -189,7 +192,7 @@ function ScarabSlot({
 								}
 								size="sm"
 								className="h-6 text-xs capitalize"
-								onClick={() => setCategoryFilter(cat)}
+								onClick={() => onCategoryFilterChange(cat)}
 							>
 								{cat}
 							</Button>
@@ -272,6 +275,7 @@ export function MapDeviceComponent({
 	onSlotChange,
 }: MapDeviceProps) {
 	const t = useTranslations();
+	const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
 
 	// Count how many times each scarab is used across all slots
 	const scarabUsageCount = useMemo(() => {
@@ -315,6 +319,8 @@ export function MapDeviceComponent({
 								onSlotChange(slot.slotIndex, scarabId)
 							}
 							scarabUsageCount={scarabUsageCount}
+							categoryFilter={categoryFilter}
+							onCategoryFilterChange={setCategoryFilter}
 						/>
 					))}
 				</div>
