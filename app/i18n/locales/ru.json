@@ -7,7 +7,8 @@
 		"planner": "Планировщик",
 		"inventory": "Инвентарь",
 		"sets": "Наборы",
-		"changelog": "История изменений"
+		"changelog": "История изменений",
+		"github": "Смотреть на GitHub"
 	},
 	"idolSet": {
 		"newSet": "Новый набор",
@@ -33,7 +34,8 @@
 		"selected": "{count} выбрано",
 		"selectAll": "Выбрать все",
 		"deselectAll": "Снять выбор",
-		"deleteSelected": "Удалить выбранное"
+		"deleteSelected": "Удалить выбранное",
+		"selectionHint": "Ctrl+Клик для переключения, Shift+Клик для диапазона"
 	},
 	"grid": {
 		"tab1": "Вкладка 1",
@@ -52,7 +54,13 @@
 		"confirm": "Подтвердить",
 		"save": "Сохранить",
 		"copy": "Копировать",
-		"copied": "Скопировано!"
+		"copied": "Скопировано!",
+		"toggleTheme": "Сменить тему",
+		"moreOptions": "Больше опций",
+		"copyToInventory": "Копировать в инвентарь",
+		"changeLanguage": "Изменить язык",
+		"selectLeague": "Лига для цен и поиска на трейде",
+		"newSet": "Создать новый набор идолов"
 	},
 	"stats": {
 		"totalStats": "Общая статистика",
@@ -127,45 +135,42 @@
 		"suffixOnly": "Только суффиксы"
 	},
 	"mapDevice": {
-		"title": "Map Device",
-		"searchScarabs": "Search scarabs...",
-		"noScarabsFound": "No scarabs found.",
-		"scarabEffects": "Scarab Effects",
-		"selectCraftingOption": "Select crafting option...",
-		"searchCraftingOptions": "Search crafting options...",
-		"noCraftingOptionsFound": "No crafting options found.",
-		"standardOptions": "Standard Options",
-		"imbuedOptions": "Imbued Options",
-		"craftingOptionEffect": "Map Device"
+		"title": "Картографическое устройство",
+		"searchScarabs": "Поиск скарабеев...",
+		"noScarabsFound": "Скарабеи не найдены.",
+		"scarabEffects": "Эффекты скарабеев",
+		"selectCraftingOption": "Выберите опцию крафта...",
+		"searchCraftingOptions": "Поиск опций крафта...",
+		"noCraftingOptionsFound": "Опции крафта не найдены.",
+		"standardOptions": "Стандартные опции",
+		"imbuedOptions": "Пропитанные опции",
+		"craftingOptionEffect": "Картографическое устройство",
+		"clearSlot": "Очистить слот"
 	},
 	"mechanics": {
 		"abyss": "Бездна",
-		"affliction": "Недуг",
+		"anarchy": "Анархия (Разбойники-изгнанники)",
 		"bestiary": "Бестиарий",
 		"betrayal": "Предательство",
 		"beyond": "Потусторонье",
 		"blight": "Скверна",
 		"breach": "Разлом",
-		"crucible": "Горнило",
+		"conqueror": "Завоеватель",
 		"delirium": "Делириум",
 		"delve": "Спуск",
 		"elder": "Древний/Создатель",
 		"essence": "Сущность",
 		"expedition": "Экспедиция",
+		"generic": "Общее",
 		"harvest": "Жатва",
 		"heist": "Кража",
 		"incursion": "Вторжение",
 		"legion": "Легион",
 		"map": "Карты",
 		"maven": "Мейвен",
-		"metamorph": "Метаморф",
-		"necropolis": "Некрополь",
 		"ritual": "Ритуал",
-		"anarchy": "Анархия (Разбойники-изгнанники)",
-		"sanctum": "Святилище",
 		"shrine": "Святыня",
 		"strongbox": "Сундук",
-		"ultimatum": "Ультиматум",
-		"generic": "Общее"
+		"ultimatum": "Ультиматум"
 	}
 }

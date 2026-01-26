@@ -31,6 +31,7 @@ import {
 	SCARAB_CATEGORIES,
 	SCARABS,
 } from "~/data/scarab-data";
+import { useScarabPrices } from "~/hooks/use-scarab-prices";
 import { useTranslations } from "~/i18n";
 import { cn } from "~/lib/utils";
 import {
@@ -39,6 +40,20 @@ import {
 	type MapDevice,
 	type Scarab,
 } from "~/schemas/scarab";
+
+function formatChaosPrice(price: number | null): string | null {
+	if (price === null) return null;
+	if (price >= 1000) {
+		return `${(price / 1000).toFixed(1)}k`;
+	}
+	if (price >= 10) {
+		return Math.round(price).toString();
+	}
+	if (price >= 1) {
+		return price.toFixed(1);
+	}
+	return price.toFixed(2);
+}
 
 interface MapDeviceProps {
 	mapDevice: MapDevice;
@@ -53,6 +68,7 @@ interface ScarabSlotProps {
 	scarabUsageCount: Map<string, number>;
 	categoryFilter: string | null;
 	onCategoryFilterChange: (category: string | null) => void;
+	getPrice: (scarabId: string) => number | null;
 }
 
 function ScarabSlot({
@@ -62,6 +78,7 @@ function ScarabSlot({
 	scarabUsageCount,
 	categoryFilter,
 	onCategoryFilterChange,
+	getPrice,
 }: ScarabSlotProps) {
 	const t = useTranslations();
 	const [open, setOpen] = useState(false);
@@ -136,14 +153,22 @@ function ScarabSlot({
 												}
 											}}
 										/>
-										<Button
-											variant="destructive"
-											size="icon"
-											className="absolute -top-1 -right-1 h-5 w-5 opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100"
-											onClick={handleClear}
-										>
-											<X className="h-3 w-3" />
-										</Button>
+										<Tooltip>
+											<TooltipTrigger asChild>
+												<Button
+													variant="destructive"
+													size="icon"
+													className="absolute -top-1 -right-1 h-5 w-5 opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100"
+													onClick={handleClear}
+												>
+													<X className="h-3 w-3" />
+												</Button>
+											</TooltipTrigger>
+											<TooltipContent>
+												{t.mapDevice?.clearSlot ||
+													"Clear slot"}
+											</TooltipContent>
+										</Tooltip>
 									</>
 								) : (
 									<span className="text-muted-foreground text-xs">
@@ -159,8 +184,16 @@ function ScarabSlot({
 							className="max-w-xs border border-border bg-card text-card-foreground"
 						>
 							<div className="space-y-1">
-								<div className="font-semibold">
-									{scarab.name}
+								<div className="flex items-center gap-2 font-semibold">
+									<span>{scarab.name}</span>
+									{formatChaosPrice(getPrice(scarab.id)) && (
+										<span className="text-yellow-600 dark:text-yellow-400">
+											{formatChaosPrice(
+												getPrice(scarab.id),
+											)}
+											c
+										</span>
+									)}
 								</div>
 								<div className="text-muted-foreground text-sm">
 									{scarab.effect}
@@ -225,6 +258,9 @@ function ScarabSlot({
 										const usage =
 											scarabUsageCount.get(s.id) ?? 0;
 										const isCurrentSlot = s.id === scarabId;
+										const price = getPrice(s.id);
+										const formattedPrice =
+											formatChaosPrice(price);
 										return (
 											<CommandItem
 												key={s.id}
@@ -256,6 +292,12 @@ function ScarabSlot({
 														<span className="text-sm">
 															{s.name}
 														</span>
+														{formattedPrice && (
+															<span className="text-xs text-yellow-600 dark:text-yellow-400">
+																{formattedPrice}
+																c
+															</span>
+														)}
 														{s.limit > 1 && (
 															<span className="text-muted-foreground text-xs">
 																({usage}/
@@ -437,6 +479,7 @@ export function MapDeviceComponent({
 }: MapDeviceProps) {
 	const t = useTranslations();
 	const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
+	const { getPrice } = useScarabPrices();
 
 	// Count how many times each scarab is used across all slots
 	const scarabUsageCount = useMemo(() => {
@@ -492,6 +535,7 @@ export function MapDeviceComponent({
 							scarabUsageCount={scarabUsageCount}
 							categoryFilter={categoryFilter}
 							onCategoryFilterChange={setCategoryFilter}
+							getPrice={getPrice}
 						/>
 					))}
 				</div>

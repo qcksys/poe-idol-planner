@@ -16,6 +16,11 @@ import {
 	DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 import { Input } from "~/components/ui/input";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "~/components/ui/tooltip";
 import { useTranslations } from "~/i18n";
 import type { IdolSet } from "~/schemas/idol-set";
 
@@ -88,19 +93,26 @@ export function SetTabs({
 							{set.name}
 						</Button>
 						<DropdownMenu>
-							<DropdownMenuTrigger asChild>
-								<Button
-									variant={
-										activeSetId === set.id
-											? "default"
-											: "ghost"
-									}
-									size="sm"
-									className="h-8 w-6 rounded-l-none px-1"
-								>
-									<MoreVertical className="h-3 w-3" />
-								</Button>
-							</DropdownMenuTrigger>
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<DropdownMenuTrigger asChild>
+										<Button
+											variant={
+												activeSetId === set.id
+													? "default"
+													: "ghost"
+											}
+											size="sm"
+											className="h-8 w-6 rounded-l-none px-1"
+										>
+											<MoreVertical className="h-3 w-3" />
+										</Button>
+									</DropdownMenuTrigger>
+								</TooltipTrigger>
+								<TooltipContent>
+									{t.actions.moreOptions}
+								</TooltipContent>
+							</Tooltip>
 							<DropdownMenuContent align="end">
 								<DropdownMenuItem
 									onClick={() => handleRenameClick(set)}
@@ -126,10 +138,19 @@ export function SetTabs({
 					</div>
 				))}
 
-				<Button variant="outline" size="sm" onClick={onCreateSet}>
-					<Plus className="mr-1 h-4 w-4" />
-					{t.idolSet.newSet}
-				</Button>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<Button
+							variant="outline"
+							size="sm"
+							onClick={onCreateSet}
+						>
+							<Plus className="mr-1 h-4 w-4" />
+							{t.idolSet.newSet}
+						</Button>
+					</TooltipTrigger>
+					<TooltipContent>{t.actions.newSet}</TooltipContent>
+				</Tooltip>
 			</div>
 
 			<Dialog open={renameDialogOpen} onOpenChange={setRenameDialogOpen}>

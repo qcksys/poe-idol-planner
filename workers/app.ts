@@ -1,5 +1,6 @@
 import { createRequestHandler, RouterContextProvider } from "react-router";
 import { envContext, exeContext } from "~/context.ts";
+import { handleScheduled } from "~/scheduled/index.ts";
 
 const requestHandler = createRequestHandler(
 	() => import("virtual:react-router/server-build"),
@@ -14,5 +15,9 @@ export default {
 		context.set(exeContext, executionContext);
 
 		return requestHandler(request, context);
+	},
+
+	async scheduled(controller, env, ctx) {
+		ctx.waitUntil(handleScheduled(controller, env));
 	},
 } satisfies ExportedHandler<CloudflareBindings>;

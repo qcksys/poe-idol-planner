@@ -6,7 +6,17 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "~/components/ui/select";
-import { SUPPORTED_LOCALES, type SupportedLocale, useI18n } from "~/i18n";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "~/components/ui/tooltip";
+import {
+	SUPPORTED_LOCALES,
+	type SupportedLocale,
+	useI18n,
+	useTranslations,
+} from "~/i18n";
 
 const LOCALE_NAMES: Record<SupportedLocale, string> = {
 	en: "English",
@@ -23,23 +33,31 @@ const LOCALE_NAMES: Record<SupportedLocale, string> = {
 
 export function LocaleSwitcher() {
 	const { locale, setLocale } = useI18n();
+	const t = useTranslations();
 
 	return (
-		<Select
-			value={locale}
-			onValueChange={(v) => setLocale(v as SupportedLocale)}
-		>
-			<SelectTrigger className="w-[140px]">
-				<Globe className="mr-2 h-4 w-4" />
-				<SelectValue />
-			</SelectTrigger>
-			<SelectContent>
-				{SUPPORTED_LOCALES.map((loc) => (
-					<SelectItem key={loc} value={loc}>
-						{LOCALE_NAMES[loc]}
-					</SelectItem>
-				))}
-			</SelectContent>
-		</Select>
+		<Tooltip>
+			<TooltipTrigger asChild>
+				<div>
+					<Select
+						value={locale}
+						onValueChange={(v) => setLocale(v as SupportedLocale)}
+					>
+						<SelectTrigger className="w-[140px]">
+							<Globe className="mr-2 h-4 w-4" />
+							<SelectValue />
+						</SelectTrigger>
+						<SelectContent>
+							{SUPPORTED_LOCALES.map((loc) => (
+								<SelectItem key={loc} value={loc}>
+									{LOCALE_NAMES[loc]}
+								</SelectItem>
+							))}
+						</SelectContent>
+					</Select>
+				</div>
+			</TooltipTrigger>
+			<TooltipContent>{t.actions.changeLanguage}</TooltipContent>
+		</Tooltip>
 	);
 }

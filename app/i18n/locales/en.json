@@ -7,7 +7,8 @@
 		"planner": "Planner",
 		"inventory": "Inventory",
 		"sets": "Sets",
-		"changelog": "Changelog"
+		"changelog": "Changelog",
+		"github": "View on GitHub"
 	},
 	"idolSet": {
 		"newSet": "New Set",
@@ -33,7 +34,8 @@
 		"selected": "{count} selected",
 		"selectAll": "Select All",
 		"deselectAll": "Deselect All",
-		"deleteSelected": "Delete Selected"
+		"deleteSelected": "Delete Selected",
+		"selectionHint": "Ctrl+Click to toggle, Shift+Click for range"
 	},
 	"grid": {
 		"tab1": "Tab 1",
@@ -52,7 +54,13 @@
 		"confirm": "Confirm",
 		"save": "Save",
 		"copy": "Copy",
-		"copied": "Copied!"
+		"copied": "Copied!",
+		"toggleTheme": "Toggle theme",
+		"moreOptions": "More options",
+		"copyToInventory": "Copy to Inventory",
+		"changeLanguage": "Change display language",
+		"selectLeague": "League for prices and trade searches",
+		"newSet": "Create a new idol set"
 	},
 	"stats": {
 		"totalStats": "Total Stats",
@@ -136,36 +144,33 @@
 		"noCraftingOptionsFound": "No crafting options found.",
 		"standardOptions": "Standard Options",
 		"imbuedOptions": "Imbued Options",
-		"craftingOptionEffect": "Map Device"
+		"craftingOptionEffect": "Map Device",
+		"clearSlot": "Clear slot"
 	},
 	"mechanics": {
 		"abyss": "Abyss",
-		"affliction": "Affliction",
+		"anarchy": "Anarchy (Rogue Exiles)",
 		"bestiary": "Bestiary",
 		"betrayal": "Betrayal",
 		"beyond": "Beyond",
 		"blight": "Blight",
 		"breach": "Breach",
-		"crucible": "Crucible",
+		"conqueror": "Conqueror",
 		"delirium": "Delirium",
 		"delve": "Delve",
 		"elder": "Elder/Shaper",
 		"essence": "Essence",
 		"expedition": "Expedition",
+		"generic": "Generic",
 		"harvest": "Harvest",
 		"heist": "Heist",
 		"incursion": "Incursion",
 		"legion": "Legion",
 		"map": "Maps",
 		"maven": "Maven",
-		"metamorph": "Metamorph",
-		"necropolis": "Necropolis",
 		"ritual": "Ritual",
-		"anarchy": "Anarchy (Rogue Exiles)",
-		"sanctum": "Sanctum",
 		"shrine": "Shrine",
 		"strongbox": "Strongbox",
-		"ultimatum": "Ultimatum",
-		"generic": "Generic"
+		"ultimatum": "Ultimatum"
 	}
 }

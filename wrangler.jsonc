@@ -16,6 +16,11 @@
 			"binding": "KV_SAVE",
 			"id": "d3bcefda426a467bae172c059829ad27",
 			"remote": true
+		},
+		{
+			"binding": "KV_POENINJA",
+			"id": "63873b25049148b48c0573a874821aee",
+			"remote": true
 		}
 	],
 	"env": {
@@ -34,10 +39,17 @@
 					"custom_domain": true
 				}
 			],
+			"triggers": {
+				"crons": ["*/15 * * * *"]
+			},
 			"kv_namespaces": [
 				{
 					"binding": "KV_SAVE",
 					"id": "af94b40deb534917877932d46e9faad5"
+				},
+				{
+					"binding": "KV_POENINJA",
+					"id": "b695d0f82c2d47b6a8ebbc848cddcd5f"
 				}
 			]
 		},
@@ -56,10 +68,17 @@
 					"custom_domain": true
 				}
 			],
+			"triggers": {
+				"crons": ["*/15 * * * *"]
+			},
 			"kv_namespaces": [
 				{
 					"binding": "KV_SAVE",
 					"id": "d3bcefda426a467bae172c059829ad27"
+				},
+				{
+					"binding": "KV_POENINJA",
+					"id": "63873b25049148b48c0573a874821aee"
 				}
 			]
 		}

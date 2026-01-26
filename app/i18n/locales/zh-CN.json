@@ -7,7 +7,8 @@
 		"planner": "规划器",
 		"inventory": "仓库",
 		"sets": "配置",
-		"changelog": "更新日志"
+		"changelog": "更新日志",
+		"github": "在 GitHub 上查看"
 	},
 	"idolSet": {
 		"newSet": "新配置",
@@ -33,7 +34,8 @@
 		"selected": "已选择 {count} 个",
 		"selectAll": "全选",
 		"deselectAll": "取消选择",
-		"deleteSelected": "删除已选"
+		"deleteSelected": "删除已选",
+		"selectionHint": "Ctrl+点击切换选择，Shift+点击选择范围"
 	},
 	"grid": {
 		"tab1": "标签页 1",
@@ -52,7 +54,13 @@
 		"confirm": "确认",
 		"save": "保存",
 		"copy": "复制",
-		"copied": "已复制！"
+		"copied": "已复制！",
+		"toggleTheme": "切换主题",
+		"moreOptions": "更多选项",
+		"copyToInventory": "复制到仓库",
+		"changeLanguage": "更改显示语言",
+		"selectLeague": "用于价格和交易搜索的赛季",
+		"newSet": "创建新的神像配置"
 	},
 	"stats": {
 		"totalStats": "总计属性",
@@ -127,45 +135,42 @@
 		"suffixOnly": "仅后缀"
 	},
 	"mapDevice": {
-		"title": "Map Device",
-		"searchScarabs": "Search scarabs...",
-		"noScarabsFound": "No scarabs found.",
-		"scarabEffects": "Scarab Effects",
-		"selectCraftingOption": "Select crafting option...",
-		"searchCraftingOptions": "Search crafting options...",
-		"noCraftingOptionsFound": "No crafting options found.",
-		"standardOptions": "Standard Options",
-		"imbuedOptions": "Imbued Options",
-		"craftingOptionEffect": "Map Device"
+		"title": "地图仪",
+		"searchScarabs": "搜索圣甲虫...",
+		"noScarabsFound": "找不到圣甲虫。",
+		"scarabEffects": "圣甲虫效果",
+		"selectCraftingOption": "选择制作选项...",
+		"searchCraftingOptions": "搜索制作选项...",
+		"noCraftingOptionsFound": "找不到制作选项。",
+		"standardOptions": "标准选项",
+		"imbuedOptions": "灌注选项",
+		"craftingOptionEffect": "地图仪",
+		"clearSlot": "清空槽位"
 	},
 	"mechanics": {
 		"abyss": "深渊",
-		"affliction": "灾变",
+		"anarchy": "混乱 (流亡黑帮)",
 		"bestiary": "猎魔",
 		"betrayal": "背叛",
 		"beyond": "虚空异界",
 		"blight": "枯萎",
 		"breach": "裂隙",
-		"crucible": "熔炉",
+		"conqueror": "征服者",
 		"delirium": "谵妄",
 		"delve": "掘进",
 		"elder": "尊师/塑界者",
 		"essence": "精华",
 		"expedition": "远征",
+		"generic": "通用",
 		"harvest": "收割",
 		"heist": "劫掠",
 		"incursion": "突袭",
 		"legion": "军团",
 		"map": "地图",
 		"maven": "裁决者",
-		"metamorph": "异形",
-		"necropolis": "墓地",
 		"ritual": "仪式",
-		"anarchy": "混乱 (流亡黑帮)",
-		"sanctum": "圣所",
 		"shrine": "神龛",
 		"strongbox": "保险箱",
-		"ultimatum": "终极",
-		"generic": "通用"
+		"ultimatum": "终极"
 	}
 }

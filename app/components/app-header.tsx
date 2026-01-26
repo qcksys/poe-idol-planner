@@ -2,6 +2,11 @@ import { Share2 } from "lucide-react";
 import { Link } from "react-router";
 import { siGithub } from "simple-icons";
 import { Button } from "~/components/ui/button";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "~/components/ui/tooltip";
 import { useTranslations } from "~/i18n";
 import { LeagueSelector } from "./league-selector";
 import { LocaleSwitcher } from "./locale-switcher";
@@ -46,22 +51,27 @@ export function AppHeader({ onShareClick }: AppHeaderProps) {
 					<LeagueSelector />
 					<LocaleSwitcher />
 					<ModeToggle />
-					<Button variant="ghost" size="icon" asChild>
-						<a
-							href="https://github.com/qcksys/poe-idol-planner"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<svg
-								role="img"
-								viewBox="0 0 24 24"
-								className="h-5 w-5 fill-current"
-								aria-label="GitHub"
-							>
-								<path d={siGithub.path} />
-							</svg>
-						</a>
-					</Button>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Button variant="ghost" size="icon" asChild>
+								<a
+									href="https://github.com/qcksys/poe-idol-planner"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<svg
+										role="img"
+										viewBox="0 0 24 24"
+										className="h-5 w-5 fill-current"
+										aria-label="GitHub"
+									>
+										<path d={siGithub.path} />
+									</svg>
+								</a>
+							</Button>
+						</TooltipTrigger>
+						<TooltipContent>{t.nav.github}</TooltipContent>
+					</Tooltip>
 				</div>
 			</div>
 		</header>

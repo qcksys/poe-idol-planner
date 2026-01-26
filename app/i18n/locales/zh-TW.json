@@ -7,7 +7,8 @@
 		"planner": "規劃器",
 		"inventory": "倉庫",
 		"sets": "配置",
-		"changelog": "更新日誌"
+		"changelog": "更新日誌",
+		"github": "在 GitHub 上查看"
 	},
 	"idolSet": {
 		"newSet": "新配置",
@@ -33,7 +34,8 @@
 		"selected": "已選擇 {count} 個",
 		"selectAll": "全選",
 		"deselectAll": "取消選擇",
-		"deleteSelected": "刪除已選"
+		"deleteSelected": "刪除已選",
+		"selectionHint": "Ctrl+點擊切換選擇，Shift+點擊選擇範圍"
 	},
 	"grid": {
 		"tab1": "頁籤 1",
@@ -52,7 +54,13 @@
 		"confirm": "確認",
 		"save": "儲存",
 		"copy": "複製",
-		"copied": "已複製！"
+		"copied": "已複製！",
+		"toggleTheme": "切換主題",
+		"moreOptions": "更多選項",
+		"copyToInventory": "複製到倉庫",
+		"changeLanguage": "變更顯示語言",
+		"selectLeague": "用於價格和交易搜尋的賽季",
+		"newSet": "建立新的神像配置"
 	},
 	"stats": {
 		"totalStats": "總計屬性",
@@ -127,45 +135,42 @@
 		"suffixOnly": "僅後綴"
 	},
 	"mapDevice": {
-		"title": "Map Device",
-		"searchScarabs": "Search scarabs...",
-		"noScarabsFound": "No scarabs found.",
-		"scarabEffects": "Scarab Effects",
-		"selectCraftingOption": "Select crafting option...",
-		"searchCraftingOptions": "Search crafting options...",
-		"noCraftingOptionsFound": "No crafting options found.",
-		"standardOptions": "Standard Options",
-		"imbuedOptions": "Imbued Options",
-		"craftingOptionEffect": "Map Device"
+		"title": "地圖儀",
+		"searchScarabs": "搜尋聖甲蟲...",
+		"noScarabsFound": "找不到聖甲蟲。",
+		"scarabEffects": "聖甲蟲效果",
+		"selectCraftingOption": "選擇製作選項...",
+		"searchCraftingOptions": "搜尋製作選項...",
+		"noCraftingOptionsFound": "找不到製作選項。",
+		"standardOptions": "標準選項",
+		"imbuedOptions": "灌注選項",
+		"craftingOptionEffect": "地圖儀",
+		"clearSlot": "清空槽位"
 	},
 	"mechanics": {
 		"abyss": "深淵",
-		"affliction": "災魘",
+		"anarchy": "混亂 (流亡黑幫)",
 		"bestiary": "獸獵",
 		"betrayal": "乙太戰爭",
 		"beyond": "虛空異界",
 		"blight": "凋落",
 		"breach": "裂痕",
-		"crucible": "熔爐",
+		"conqueror": "征服者",
 		"delirium": "譫妄",
 		"delve": "探索",
 		"elder": "尊師/塑者",
 		"essence": "精髓",
 		"expedition": "探險",
+		"generic": "通用",
 		"harvest": "豐收",
 		"heist": "劫盜",
 		"incursion": "乘機",
 		"legion": "軍團",
 		"map": "地圖",
 		"maven": "鋒芒",
-		"metamorph": "化身",
-		"necropolis": "墓園",
 		"ritual": "祭壇",
-		"anarchy": "混亂 (流亡黑幫)",
-		"sanctum": "聖堂",
 		"shrine": "神壇",
 		"strongbox": "保險箱",
-		"ultimatum": "最後通牒",
-		"generic": "通用"
+		"ultimatum": "最後通牒"
 	}
 }

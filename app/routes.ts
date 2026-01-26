@@ -6,6 +6,7 @@ export default [
 	route("action/set-theme", "routes/action.set-theme.ts"),
 	route("api/share", "routes/api.share.ts"),
 	route("api/share/:id", "routes/api.share.$id.ts"),
+	route("api/prices/scarabs", "routes/api.prices.scarabs.ts"),
 	route("share/:id", "routes/share.$id.tsx"),
 	route("*", "routes/$.tsx"),
 ] satisfies RouteConfig;

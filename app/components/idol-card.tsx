@@ -8,6 +8,7 @@ import {
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
+import { useTranslations } from "~/i18n";
 import { highlightNumbers } from "~/lib/highlight-numbers";
 import { cn } from "~/lib/utils";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
@@ -184,6 +185,7 @@ export function IdolCardMini({
 	onDragStart,
 	onDragEnd,
 }: IdolCardMiniProps) {
+	const t = useTranslations();
 	const base = IDOL_BASES[idol.baseType as IdolBaseKey];
 	const rarityColor = getRarityColor(idol.rarity);
 	const style = {
@@ -227,24 +229,38 @@ export function IdolCardMini({
 						/>
 						<div className="absolute top-0.5 right-0.5 flex gap-0.5 opacity-0 transition-opacity group-hover/mini:opacity-100">
 							{onCopy && (
-								<Button
-									variant="secondary"
-									size="icon"
-									className="h-5 w-5"
-									onClick={handleCopy}
-								>
-									<Copy className="h-3 w-3" />
-								</Button>
+								<Tooltip>
+									<TooltipTrigger asChild>
+										<Button
+											variant="secondary"
+											size="icon"
+											className="h-5 w-5"
+											onClick={handleCopy}
+										>
+											<Copy className="h-3 w-3" />
+										</Button>
+									</TooltipTrigger>
+									<TooltipContent>
+										{t.actions.copyToInventory}
+									</TooltipContent>
+								</Tooltip>
 							)}
 							{onRemove && (
-								<Button
-									variant="destructive"
-									size="icon"
-									className="h-5 w-5"
-									onClick={handleRemove}
-								>
-									<X className="h-3 w-3" />
-								</Button>
+								<Tooltip>
+									<TooltipTrigger asChild>
+										<Button
+											variant="destructive"
+											size="icon"
+											className="h-5 w-5"
+											onClick={handleRemove}
+										>
+											<X className="h-3 w-3" />
+										</Button>
+									</TooltipTrigger>
+									<TooltipContent>
+										{t.grid.removeFromGrid}
+									</TooltipContent>
+								</Tooltip>
 							)}
 						</div>
 					</button>

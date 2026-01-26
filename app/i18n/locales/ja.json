@@ -7,7 +7,8 @@
 		"planner": "プランナー",
 		"inventory": "インベントリ",
 		"sets": "セット",
-		"changelog": "変更履歴"
+		"changelog": "変更履歴",
+		"github": "GitHubで見る"
 	},
 	"idolSet": {
 		"newSet": "新規セット",
@@ -33,7 +34,8 @@
 		"selected": "{count}件選択中",
 		"selectAll": "すべて選択",
 		"deselectAll": "選択解除",
-		"deleteSelected": "選択を削除"
+		"deleteSelected": "選択を削除",
+		"selectionHint": "Ctrl+クリックで切り替え、Shift+クリックで範囲選択"
 	},
 	"grid": {
 		"tab1": "タブ 1",
@@ -52,7 +54,13 @@
 		"confirm": "確認",
 		"save": "保存",
 		"copy": "コピー",
-		"copied": "コピーしました！"
+		"copied": "コピーしました！",
+		"toggleTheme": "テーマを切り替え",
+		"moreOptions": "その他のオプション",
+		"copyToInventory": "インベントリにコピー",
+		"changeLanguage": "表示言語を変更",
+		"selectLeague": "価格とトレード検索用のリーグ",
+		"newSet": "新しいアイドルセットを作成"
 	},
 	"stats": {
 		"totalStats": "合計ステータス",
@@ -127,45 +135,42 @@
 		"suffixOnly": "サフィックスのみ"
 	},
 	"mapDevice": {
-		"title": "Map Device",
-		"searchScarabs": "Search scarabs...",
-		"noScarabsFound": "No scarabs found.",
-		"scarabEffects": "Scarab Effects",
-		"selectCraftingOption": "Select crafting option...",
-		"searchCraftingOptions": "Search crafting options...",
-		"noCraftingOptionsFound": "No crafting options found.",
-		"standardOptions": "Standard Options",
-		"imbuedOptions": "Imbued Options",
-		"craftingOptionEffect": "Map Device"
+		"title": "マップデバイス",
+		"searchScarabs": "スカラベを検索...",
+		"noScarabsFound": "スカラベが見つかりません。",
+		"scarabEffects": "スカラベ効果",
+		"selectCraftingOption": "クラフトオプションを選択...",
+		"searchCraftingOptions": "クラフトオプションを検索...",
+		"noCraftingOptionsFound": "クラフトオプションが見つかりません。",
+		"standardOptions": "スタンダードオプション",
+		"imbuedOptions": "インビュードオプション",
+		"craftingOptionEffect": "マップデバイス",
+		"clearSlot": "スロットをクリア"
 	},
 	"mechanics": {
 		"abyss": "アビス",
-		"affliction": "アフリクション",
+		"anarchy": "アナーキー (ローグエグザイル)",
 		"bestiary": "ビスティアリー",
 		"betrayal": "ビトレイアル",
 		"beyond": "ビヨンド",
 		"blight": "ブライト",
 		"breach": "ブリーチ",
-		"crucible": "クルーシブル",
+		"conqueror": "コンカラー",
 		"delirium": "デリリウム",
 		"delve": "デルブ",
 		"elder": "エルダー/シェイパー",
 		"essence": "エッセンス",
 		"expedition": "エクスペディション",
+		"generic": "汎用",
 		"harvest": "ハーベスト",
 		"heist": "ハイスト",
 		"incursion": "インカージョン",
 		"legion": "レギオン",
 		"map": "マップ",
 		"maven": "メイヴン",
-		"metamorph": "メタモルフ",
-		"necropolis": "ネクロポリス",
 		"ritual": "リチュアル",
-		"anarchy": "アナーキー (ローグエグザイル)",
-		"sanctum": "サンクタム",
 		"shrine": "シュライン",
 		"strongbox": "ストロングボックス",
-		"ultimatum": "アルティメイタム",
-		"generic": "汎用"
+		"ultimatum": "アルティメイタム"
 	}
 }

@@ -7,7 +7,8 @@
 		"planner": "Planejador",
 		"inventory": "Inventário",
 		"sets": "Conjuntos",
-		"changelog": "Histórico de Alterações"
+		"changelog": "Histórico de Alterações",
+		"github": "Ver no GitHub"
 	},
 	"idolSet": {
 		"newSet": "Novo Conjunto",
@@ -33,7 +34,8 @@
 		"selected": "{count} selecionado(s)",
 		"selectAll": "Selecionar Tudo",
 		"deselectAll": "Desmarcar Tudo",
-		"deleteSelected": "Excluir Selecionados"
+		"deleteSelected": "Excluir Selecionados",
+		"selectionHint": "Ctrl+Clique para alternar, Shift+Clique para intervalo"
 	},
 	"grid": {
 		"tab1": "Aba 1",
@@ -52,7 +54,13 @@
 		"confirm": "Confirmar",
 		"save": "Salvar",
 		"copy": "Copiar",
-		"copied": "Copiado!"
+		"copied": "Copiado!",
+		"toggleTheme": "Alternar tema",
+		"moreOptions": "Mais opções",
+		"copyToInventory": "Copiar para o inventário",
+		"changeLanguage": "Alterar idioma",
+		"selectLeague": "Liga para preços e buscas de trade",
+		"newSet": "Criar novo conjunto de ídolos"
 	},
 	"stats": {
 		"totalStats": "Estatísticas Totais",
@@ -127,45 +135,42 @@
 		"suffixOnly": "Apenas Sufixos"
 	},
 	"mapDevice": {
-		"title": "Map Device",
-		"searchScarabs": "Search scarabs...",
-		"noScarabsFound": "No scarabs found.",
-		"scarabEffects": "Scarab Effects",
-		"selectCraftingOption": "Select crafting option...",
-		"searchCraftingOptions": "Search crafting options...",
-		"noCraftingOptionsFound": "No crafting options found.",
-		"standardOptions": "Standard Options",
-		"imbuedOptions": "Imbued Options",
-		"craftingOptionEffect": "Map Device"
+		"title": "Dispositivo de Mapas",
+		"searchScarabs": "Buscar escaravelhos...",
+		"noScarabsFound": "Nenhum escaravelho encontrado.",
+		"scarabEffects": "Efeitos de Escaravelho",
+		"selectCraftingOption": "Selecionar opção de criação...",
+		"searchCraftingOptions": "Buscar opções de criação...",
+		"noCraftingOptionsFound": "Nenhuma opção de criação encontrada.",
+		"standardOptions": "Opções Padrão",
+		"imbuedOptions": "Opções Imbuídas",
+		"craftingOptionEffect": "Dispositivo de Mapas",
+		"clearSlot": "Limpar slot"
 	},
 	"mechanics": {
 		"abyss": "Abismo",
-		"affliction": "Aflição",
+		"anarchy": "Anarquia (Exilados Trapaceiros)",
 		"bestiary": "Bestiário",
 		"betrayal": "Traição",
 		"beyond": "Além",
 		"blight": "Praga",
 		"breach": "Brecha",
-		"crucible": "Crisol",
+		"conqueror": "Conquistador",
 		"delirium": "Delírio",
 		"delve": "Escavação",
 		"elder": "Ancião/Moldador",
 		"essence": "Essência",
 		"expedition": "Expedição",
+		"generic": "Genérico",
 		"harvest": "Colheita",
 		"heist": "Assalto",
 		"incursion": "Incursão",
 		"legion": "Legião",
 		"map": "Mapas",
 		"maven": "Maven",
-		"metamorph": "Metamorfo",
-		"necropolis": "Necrópole",
 		"ritual": "Ritual",
-		"anarchy": "Anarquia (Exilados Trapaceiros)",
-		"sanctum": "Santuário",
 		"shrine": "Santuário",
 		"strongbox": "Arca",
-		"ultimatum": "Ultimato",
-		"generic": "Genérico"
+		"ultimatum": "Ultimato"
 	}
 }

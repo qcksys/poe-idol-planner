@@ -58,3 +58,36 @@ export function createEmptyMapDevice(): MapDevice {
 }
 
 export const HORNED_SCARAB_OF_AWAKENING_ID = "horned_scarab_of_awakening";
+
+export const PoeNinjaScarabSchema = z.object({
+	id: z.number(),
+	name: z.string(),
+	chaosValue: z.number(),
+	exaltedValue: z.number().optional(),
+	divineValue: z.number().optional(),
+	icon: z.string().optional(),
+	listingCount: z.number().optional(),
+});
+
+export type PoeNinjaScarab = z.infer<typeof PoeNinjaScarabSchema>;
+
+export const PoeNinjaResponseSchema = z.object({
+	lines: z.array(PoeNinjaScarabSchema),
+});
+
+export type PoeNinjaResponse = z.infer<typeof PoeNinjaResponseSchema>;
+
+export const ScarabPriceSchema = z.object({
+	name: z.string(),
+	chaosValue: z.number(),
+});
+
+export type ScarabPrice = z.infer<typeof ScarabPriceSchema>;
+
+export const ScarabPricesDataSchema = z.object({
+	league: z.string(),
+	prices: z.record(z.string(), ScarabPriceSchema),
+	updatedAt: z.string(),
+});
+
+export type ScarabPricesData = z.infer<typeof ScarabPricesDataSchema>;

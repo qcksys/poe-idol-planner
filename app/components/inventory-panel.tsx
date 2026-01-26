@@ -15,6 +15,11 @@ import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import { ScrollArea } from "~/components/ui/scroll-area";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "~/components/ui/tooltip";
 import { useDnd } from "~/context/dnd-context";
 import type { LeagueMechanic } from "~/data/idol-bases";
 import { useLeague } from "~/hooks/use-league";
@@ -98,55 +103,74 @@ function DraggableIdolCard({
 		>
 			<IdolCard idol={item.idol} showTooltip={false} />
 			<div className="absolute top-1 right-1 flex gap-1 opacity-0 transition-opacity group-hover:opacity-100">
-				<Button
-					variant="secondary"
-					size="icon"
-					className="h-6 w-6"
-					onClick={handleFindOnTrade}
-					title={t.trade.findSimilar}
-				>
-					<ExternalLink className="h-3 w-3" />
-				</Button>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<Button
+							variant="secondary"
+							size="icon"
+							className="h-6 w-6"
+							onClick={handleFindOnTrade}
+						>
+							<ExternalLink className="h-3 w-3" />
+						</Button>
+					</TooltipTrigger>
+					<TooltipContent>{t.trade.findSimilar}</TooltipContent>
+				</Tooltip>
 				{onIdolClick && (
-					<Button
-						variant="secondary"
-						size="icon"
-						className="h-6 w-6"
-						onClick={(e) => {
-							e.stopPropagation();
-							onIdolClick(item);
-						}}
-						title={t.inventory.edit}
-					>
-						<PenLine className="h-3 w-3" />
-					</Button>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Button
+								variant="secondary"
+								size="icon"
+								className="h-6 w-6"
+								onClick={(e) => {
+									e.stopPropagation();
+									onIdolClick(item);
+								}}
+							>
+								<PenLine className="h-3 w-3" />
+							</Button>
+						</TooltipTrigger>
+						<TooltipContent>{t.inventory.edit}</TooltipContent>
+					</Tooltip>
 				)}
 				{onDuplicateIdol && (
-					<Button
-						variant="secondary"
-						size="icon"
-						className="h-6 w-6"
-						onClick={(e) => {
-							e.stopPropagation();
-							onDuplicateIdol(item.id);
-						}}
-						title={t.inventory.duplicate}
-					>
-						<Copy className="h-3 w-3" />
-					</Button>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Button
+								variant="secondary"
+								size="icon"
+								className="h-6 w-6"
+								onClick={(e) => {
+									e.stopPropagation();
+									onDuplicateIdol(item.id);
+								}}
+							>
+								<Copy className="h-3 w-3" />
+							</Button>
+						</TooltipTrigger>
+						<TooltipContent>{t.inventory.duplicate}</TooltipContent>
+					</Tooltip>
 				)}
 				{onRemoveIdol && (
-					<Button
-						variant="destructive"
-						size="icon"
-						className="h-6 w-6"
-						onClick={(e) => {
-							e.stopPropagation();
-							onRemoveIdol(item.id);
-						}}
-					>
-						<Trash2 className="h-3 w-3" />
-					</Button>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Button
+								variant="destructive"
+								size="icon"
+								className="h-6 w-6"
+								onClick={(e) => {
+									e.stopPropagation();
+									onRemoveIdol(item.id);
+								}}
+							>
+								<Trash2 className="h-3 w-3" />
+							</Button>
+						</TooltipTrigger>
+						<TooltipContent>
+							{t.inventory.removeFromInventory}
+						</TooltipContent>
+					</Tooltip>
 				)}
 			</div>
 			{item.usageCount > 0 && (
@@ -357,13 +381,20 @@ export function InventoryPanel({
 								</Button>
 							)}
 							{onClearAll && inventory.length > 0 && (
-								<Button
-									variant="destructive"
-									size="sm"
-									onClick={onClearAll}
-								>
-									<Trash2 className="h-4 w-4" />
-								</Button>
+								<Tooltip>
+									<TooltipTrigger asChild>
+										<Button
+											variant="destructive"
+											size="sm"
+											onClick={onClearAll}
+										>
+											<Trash2 className="h-4 w-4" />
+										</Button>
+									</TooltipTrigger>
+									<TooltipContent>
+										{t.inventory.clear}
+									</TooltipContent>
+								</Tooltip>
 							)}
 						</div>
 					</>
@@ -371,15 +402,22 @@ export function InventoryPanel({
 
 				{filteredInventory.length > 0 && !hasSelection && (
 					<div className="flex items-center justify-end">
-						<Button
-							variant="ghost"
-							size="sm"
-							onClick={handleSelectAll}
-							className="h-7 text-muted-foreground text-xs"
-						>
-							<CheckSquare className="mr-1 h-3 w-3" />
-							{t.inventory.selectAll}
-						</Button>
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Button
+									variant="ghost"
+									size="sm"
+									onClick={handleSelectAll}
+									className="h-7 text-muted-foreground text-xs"
+								>
+									<CheckSquare className="mr-1 h-3 w-3" />
+									{t.inventory.selectAll}
+								</Button>
+							</TooltipTrigger>
+							<TooltipContent>
+								{t.inventory.selectionHint}
+							</TooltipContent>
+						</Tooltip>
 					</div>
 				)}
 

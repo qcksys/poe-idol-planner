@@ -7,7 +7,8 @@
 		"planner": "Planer",
 		"inventory": "Inventar",
 		"sets": "Sets",
-		"changelog": "Änderungsprotokoll"
+		"changelog": "Änderungsprotokoll",
+		"github": "Auf GitHub ansehen"
 	},
 	"idolSet": {
 		"newSet": "Neues Set",
@@ -33,7 +34,8 @@
 		"selected": "{count} ausgewählt",
 		"selectAll": "Alle auswählen",
 		"deselectAll": "Auswahl aufheben",
-		"deleteSelected": "Ausgewählte löschen"
+		"deleteSelected": "Ausgewählte löschen",
+		"selectionHint": "Strg+Klick zum Umschalten, Shift+Klick für Bereich"
 	},
 	"grid": {
 		"tab1": "Tab 1",
@@ -52,7 +54,13 @@
 		"confirm": "Bestätigen",
 		"save": "Speichern",
 		"copy": "Kopieren",
-		"copied": "Kopiert!"
+		"copied": "Kopiert!",
+		"toggleTheme": "Design wechseln",
+		"moreOptions": "Weitere Optionen",
+		"copyToInventory": "Ins Inventar kopieren",
+		"changeLanguage": "Sprache ändern",
+		"selectLeague": "Liga für Preise und Handelssuchen",
+		"newSet": "Neues Idol-Set erstellen"
 	},
 	"stats": {
 		"totalStats": "Gesamtstatistiken",
@@ -127,45 +135,42 @@
 		"suffixOnly": "Nur Suffixe"
 	},
 	"mapDevice": {
-		"title": "Map Device",
-		"searchScarabs": "Search scarabs...",
-		"noScarabsFound": "No scarabs found.",
-		"scarabEffects": "Scarab Effects",
-		"selectCraftingOption": "Select crafting option...",
-		"searchCraftingOptions": "Search crafting options...",
-		"noCraftingOptionsFound": "No crafting options found.",
-		"standardOptions": "Standard Options",
-		"imbuedOptions": "Imbued Options",
-		"craftingOptionEffect": "Map Device"
+		"title": "Kartengerät",
+		"searchScarabs": "Skarabäen suchen...",
+		"noScarabsFound": "Keine Skarabäen gefunden.",
+		"scarabEffects": "Skarabäus-Effekte",
+		"selectCraftingOption": "Herstellungsoption auswählen...",
+		"searchCraftingOptions": "Herstellungsoptionen suchen...",
+		"noCraftingOptionsFound": "Keine Herstellungsoptionen gefunden.",
+		"standardOptions": "Standardoptionen",
+		"imbuedOptions": "Imbued-Optionen",
+		"craftingOptionEffect": "Kartengerät",
+		"clearSlot": "Slot leeren"
 	},
 	"mechanics": {
 		"abyss": "Abgrund",
-		"affliction": "Gebrechen",
+		"anarchy": "Anarchie (Abtrünnige Verbannte)",
 		"bestiary": "Bestiarium",
 		"betrayal": "Verrat",
 		"beyond": "Jenseits",
 		"blight": "Verderbnis",
 		"breach": "Riss",
-		"crucible": "Schmelztiegel",
+		"conqueror": "Eroberer",
 		"delirium": "Delirium",
 		"delve": "Tiefe",
 		"elder": "Ältester/Former",
 		"essence": "Essenz",
 		"expedition": "Expedition",
+		"generic": "Allgemein",
 		"harvest": "Ernte",
 		"heist": "Raubzug",
 		"incursion": "Einfall",
 		"legion": "Legion",
 		"map": "Karten",
 		"maven": "Maven",
-		"metamorph": "Metamorph",
-		"necropolis": "Nekropole",
 		"ritual": "Ritual",
-		"anarchy": "Anarchie (Abtrünnige Verbannte)",
-		"sanctum": "Heiligtum",
 		"shrine": "Schrein",
 		"strongbox": "Truhe",
-		"ultimatum": "Ultimatum",
-		"generic": "Allgemein"
+		"ultimatum": "Ultimatum"
 	}
 }

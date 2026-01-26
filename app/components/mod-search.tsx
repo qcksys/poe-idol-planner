@@ -15,6 +15,11 @@ import {
 	PopoverContent,
 	PopoverTrigger,
 } from "~/components/ui/popover";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "~/components/ui/tooltip";
 import { useFavorites } from "~/context/favorites-context";
 import { LEAGUE_MECHANICS, type LeagueMechanic } from "~/data/idol-bases";
 import idolModifiers from "~/data/idol-modifiers.json";
@@ -220,30 +225,36 @@ export function ModSearch({
 															mod.name}
 													</span>
 												</div>
-												<button
-													type="button"
-													onClick={(e) => {
-														e.stopPropagation();
-														toggleFavorite(mod.id);
-													}}
-													className="ml-2 shrink-0 rounded p-1 hover:bg-accent"
-													title={
-														modIsFavorite
+												<Tooltip>
+													<TooltipTrigger asChild>
+														<button
+															type="button"
+															onClick={(e) => {
+																e.stopPropagation();
+																toggleFavorite(
+																	mod.id,
+																);
+															}}
+															className="ml-2 shrink-0 rounded p-1 hover:bg-accent"
+														>
+															<Star
+																className={cn(
+																	"h-4 w-4",
+																	modIsFavorite
+																		? "fill-yellow-400 text-yellow-400"
+																		: "text-muted-foreground",
+																)}
+															/>
+														</button>
+													</TooltipTrigger>
+													<TooltipContent>
+														{modIsFavorite
 															? t.editor
 																	.removeFromFavorites
 															: t.editor
-																	.addToFavorites
-													}
-												>
-													<Star
-														className={cn(
-															"h-4 w-4",
-															modIsFavorite
-																? "fill-yellow-400 text-yellow-400"
-																: "text-muted-foreground",
-														)}
-													/>
-												</button>
+																	.addToFavorites}
+													</TooltipContent>
+												</Tooltip>
 											</CommandItem>
 										);
 									})}

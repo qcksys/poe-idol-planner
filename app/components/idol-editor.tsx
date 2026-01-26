@@ -27,6 +27,11 @@ import {
 } from "~/components/ui/select";
 import { Slider } from "~/components/ui/slider";
 import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "~/components/ui/tooltip";
+import {
 	IDOL_BASE_KEYS,
 	IDOL_BASES,
 	type IdolBaseKey,
@@ -107,15 +112,19 @@ function ModSlot({
 					/>
 				</div>
 				{mod && (
-					<Button
-						variant="ghost"
-						size="icon"
-						className="h-8 w-8 shrink-0"
-						onClick={() => onModChange(null)}
-						title={t.actions.clear}
-					>
-						<X className="h-4 w-4" />
-					</Button>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Button
+								variant="ghost"
+								size="icon"
+								className="h-8 w-8 shrink-0"
+								onClick={() => onModChange(null)}
+							>
+								<X className="h-4 w-4" />
+							</Button>
+						</TooltipTrigger>
+						<TooltipContent>{t.actions.clear}</TooltipContent>
+					</Tooltip>
 				)}
 			</div>
 

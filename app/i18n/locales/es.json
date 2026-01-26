@@ -7,7 +7,8 @@
 		"planner": "Planificador",
 		"inventory": "Inventario",
 		"sets": "Conjuntos",
-		"changelog": "Registro de cambios"
+		"changelog": "Registro de cambios",
+		"github": "Ver en GitHub"
 	},
 	"idolSet": {
 		"newSet": "Nuevo conjunto",
@@ -33,7 +34,8 @@
 		"selected": "{count} seleccionado(s)",
 		"selectAll": "Seleccionar todo",
 		"deselectAll": "Deseleccionar todo",
-		"deleteSelected": "Eliminar seleccionados"
+		"deleteSelected": "Eliminar seleccionados",
+		"selectionHint": "Ctrl+Clic para alternar, Shift+Clic para rango"
 	},
 	"grid": {
 		"tab1": "Pestaña 1",
@@ -52,7 +54,13 @@
 		"confirm": "Confirmar",
 		"save": "Guardar",
 		"copy": "Copiar",
-		"copied": "¡Copiado!"
+		"copied": "¡Copiado!",
+		"toggleTheme": "Cambiar tema",
+		"moreOptions": "Más opciones",
+		"copyToInventory": "Copiar al inventario",
+		"changeLanguage": "Cambiar idioma",
+		"selectLeague": "Liga para precios y búsquedas de comercio",
+		"newSet": "Crear nuevo conjunto de ídolos"
 	},
 	"stats": {
 		"totalStats": "Estadísticas totales",
@@ -127,45 +135,42 @@
 		"suffixOnly": "Solo sufijos"
 	},
 	"mapDevice": {
-		"title": "Map Device",
-		"searchScarabs": "Search scarabs...",
-		"noScarabsFound": "No scarabs found.",
-		"scarabEffects": "Scarab Effects",
-		"selectCraftingOption": "Select crafting option...",
-		"searchCraftingOptions": "Search crafting options...",
-		"noCraftingOptionsFound": "No crafting options found.",
-		"standardOptions": "Standard Options",
-		"imbuedOptions": "Imbued Options",
-		"craftingOptionEffect": "Map Device"
+		"title": "Dispositivo de Mapas",
+		"searchScarabs": "Buscar escarabajos...",
+		"noScarabsFound": "No se encontraron escarabajos.",
+		"scarabEffects": "Efectos de Escarabajo",
+		"selectCraftingOption": "Seleccionar opción de elaboración...",
+		"searchCraftingOptions": "Buscar opciones de elaboración...",
+		"noCraftingOptionsFound": "No se encontraron opciones de elaboración.",
+		"standardOptions": "Opciones Estándar",
+		"imbuedOptions": "Opciones Imbuidas",
+		"craftingOptionEffect": "Dispositivo de Mapas",
+		"clearSlot": "Limpiar ranura"
 	},
 	"mechanics": {
 		"abyss": "Abismo",
-		"affliction": "Aflicción",
+		"anarchy": "Anarquía (Exiliados Rebeldes)",
 		"bestiary": "Bestiario",
 		"betrayal": "Traición",
 		"beyond": "Más allá",
 		"blight": "Plaga",
 		"breach": "Brecha",
-		"crucible": "Crisol",
+		"conqueror": "Conquistador",
 		"delirium": "Delirio",
 		"delve": "Profundidades",
 		"elder": "Ancestro/Formador",
 		"essence": "Esencia",
 		"expedition": "Expedición",
+		"generic": "Genérico",
 		"harvest": "Cosecha",
 		"heist": "Atraco",
 		"incursion": "Incursión",
 		"legion": "Legión",
 		"map": "Mapas",
 		"maven": "Maven",
-		"metamorph": "Metamorfo",
-		"necropolis": "Necrópolis",
 		"ritual": "Ritual",
-		"anarchy": "Anarquía (Exiliados Rebeldes)",
-		"sanctum": "Santuario",
 		"shrine": "Santuario",
 		"strongbox": "Cofre",
-		"ultimatum": "Ultimátum",
-		"generic": "Genérico"
+		"ultimatum": "Ultimátum"
 	}
 }

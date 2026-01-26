@@ -7,7 +7,8 @@
 		"planner": "플래너",
 		"inventory": "인벤토리",
 		"sets": "세트",
-		"changelog": "변경 내역"
+		"changelog": "변경 내역",
+		"github": "GitHub에서 보기"
 	},
 	"idolSet": {
 		"newSet": "새 세트",
@@ -33,7 +34,8 @@
 		"selected": "{count}개 선택됨",
 		"selectAll": "모두 선택",
 		"deselectAll": "선택 해제",
-		"deleteSelected": "선택 삭제"
+		"deleteSelected": "선택 삭제",
+		"selectionHint": "Ctrl+클릭으로 전환, Shift+클릭으로 범위 선택"
 	},
 	"grid": {
 		"tab1": "탭 1",
@@ -52,7 +54,13 @@
 		"confirm": "확인",
 		"save": "저장",
 		"copy": "복사",
-		"copied": "복사됨!"
+		"copied": "복사됨!",
+		"toggleTheme": "테마 전환",
+		"moreOptions": "더 많은 옵션",
+		"copyToInventory": "인벤토리에 복사",
+		"changeLanguage": "표시 언어 변경",
+		"selectLeague": "가격 및 거래 검색용 리그",
+		"newSet": "새 우상 세트 만들기"
 	},
 	"stats": {
 		"totalStats": "총 스탯",
@@ -127,45 +135,42 @@
 		"suffixOnly": "접미사만"
 	},
 	"mapDevice": {
-		"title": "Map Device",
-		"searchScarabs": "Search scarabs...",
-		"noScarabsFound": "No scarabs found.",
-		"scarabEffects": "Scarab Effects",
-		"selectCraftingOption": "Select crafting option...",
-		"searchCraftingOptions": "Search crafting options...",
-		"noCraftingOptionsFound": "No crafting options found.",
-		"standardOptions": "Standard Options",
-		"imbuedOptions": "Imbued Options",
-		"craftingOptionEffect": "Map Device"
+		"title": "지도 장치",
+		"searchScarabs": "스카라브 검색...",
+		"noScarabsFound": "스카라브를 찾을 수 없습니다.",
+		"scarabEffects": "스카라브 효과",
+		"selectCraftingOption": "제작 옵션 선택...",
+		"searchCraftingOptions": "제작 옵션 검색...",
+		"noCraftingOptionsFound": "제작 옵션을 찾을 수 없습니다.",
+		"standardOptions": "표준 옵션",
+		"imbuedOptions": "주입 옵션",
+		"craftingOptionEffect": "지도 장치",
+		"clearSlot": "슬롯 비우기"
 	},
 	"mechanics": {
 		"abyss": "심연",
-		"affliction": "역병",
+		"anarchy": "무정부 (도적 추방자)",
 		"bestiary": "야수도감",
 		"betrayal": "배신",
 		"beyond": "너머",
 		"blight": "역병",
 		"breach": "균열",
-		"crucible": "도가니",
+		"conqueror": "정복자",
 		"delirium": "환영",
 		"delve": "탐광",
 		"elder": "엘더/쉐이퍼",
 		"essence": "에센스",
 		"expedition": "원정대",
+		"generic": "일반",
 		"harvest": "수확",
 		"heist": "강탈",
 		"incursion": "침공",
 		"legion": "군단",
 		"map": "지도",
 		"maven": "메이븐",
-		"metamorph": "메타모프",
-		"necropolis": "네크로폴리스",
 		"ritual": "의식",
-		"anarchy": "무정부 (도적 추방자)",
-		"sanctum": "성역",
 		"shrine": "성지",
 		"strongbox": "금고",
-		"ultimatum": "최후통첩",
-		"generic": "일반"
+		"ultimatum": "최후통첩"
 	}
 }

@@ -12,9 +12,11 @@ import {
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
 import { useLeague } from "~/hooks/use-league";
+import { useTranslations } from "~/i18n";
 
 export function LeagueSelector() {
 	const { league, leagues, setLeague, isHydrated } = useLeague();
+	const t = useTranslations();
 
 	if (!isHydrated) {
 		return (
@@ -46,9 +48,7 @@ export function LeagueSelector() {
 					</Select>
 				</div>
 			</TooltipTrigger>
-			<TooltipContent>
-				League selector for prices and trade searches
-			</TooltipContent>
+			<TooltipContent>{t.actions.selectLeague}</TooltipContent>
 		</Tooltip>
 	);
 }
