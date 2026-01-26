@@ -29,7 +29,11 @@
 		"removeFromInventory": "Remover do Inventário",
 		"noMatches": "Nenhum ídolo correspondente encontrado",
 		"duplicate": "Duplicar",
-		"edit": "Editar"
+		"edit": "Editar",
+		"selected": "{count} selecionado(s)",
+		"selectAll": "Selecionar Tudo",
+		"deselectAll": "Desmarcar Tudo",
+		"deleteSelected": "Excluir Selecionados"
 	},
 	"grid": {
 		"tab1": "Aba 1",
@@ -109,7 +113,10 @@
 		"noModsFound": "Nenhum modificador encontrado.",
 		"searchMechanic": "Buscar mecânica...",
 		"noMechanicsFound": "Nenhuma mecânica encontrada.",
-		"allMechanics": "Todas as Mecânicas"
+		"allMechanics": "Todas as Mecânicas",
+		"favoritesOnly": "Apenas Favoritos",
+		"addToFavorites": "Adicionar aos favoritos",
+		"removeFromFavorites": "Remover dos favoritos"
 	},
 	"filter": {
 		"mechanic": "Filtrar por Mecânica",

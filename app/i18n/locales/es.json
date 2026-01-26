@@ -29,7 +29,11 @@
 		"removeFromInventory": "Eliminar del inventario",
 		"noMatches": "No se encontraron ídolos coincidentes",
 		"duplicate": "Duplicar",
-		"edit": "Editar"
+		"edit": "Editar",
+		"selected": "{count} seleccionado(s)",
+		"selectAll": "Seleccionar todo",
+		"deselectAll": "Deseleccionar todo",
+		"deleteSelected": "Eliminar seleccionados"
 	},
 	"grid": {
 		"tab1": "Pestaña 1",
@@ -109,7 +113,10 @@
 		"noModsFound": "No se encontraron modificadores.",
 		"searchMechanic": "Buscar mecánica...",
 		"noMechanicsFound": "No se encontraron mecánicas.",
-		"allMechanics": "Todas las mecánicas"
+		"allMechanics": "Todas las mecánicas",
+		"favoritesOnly": "Solo favoritos",
+		"addToFavorites": "Añadir a favoritos",
+		"removeFromFavorites": "Eliminar de favoritos"
 	},
 	"filter": {
 		"mechanic": "Filtrar por mecánica",

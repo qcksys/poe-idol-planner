@@ -29,7 +29,11 @@
 		"removeFromInventory": "인벤토리에서 제거",
 		"noMatches": "일치하는 우상을 찾을 수 없습니다",
 		"duplicate": "복제",
-		"edit": "편집"
+		"edit": "편집",
+		"selected": "{count}개 선택됨",
+		"selectAll": "모두 선택",
+		"deselectAll": "선택 해제",
+		"deleteSelected": "선택 삭제"
 	},
 	"grid": {
 		"tab1": "탭 1",
@@ -109,7 +113,10 @@
 		"noModsFound": "모디파이어를 찾을 수 없습니다.",
 		"searchMechanic": "메카닉 검색...",
 		"noMechanicsFound": "메카닉을 찾을 수 없습니다.",
-		"allMechanics": "모든 메카닉"
+		"allMechanics": "모든 메카닉",
+		"favoritesOnly": "즐겨찾기만",
+		"addToFavorites": "즐겨찾기에 추가",
+		"removeFromFavorites": "즐겨찾기에서 제거"
 	},
 	"filter": {
 		"mechanic": "메카닉으로 필터",

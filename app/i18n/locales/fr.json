@@ -29,7 +29,11 @@
 		"removeFromInventory": "Retirer de l'inventaire",
 		"noMatches": "Aucune idole correspondante trouvée",
 		"duplicate": "Dupliquer",
-		"edit": "Modifier"
+		"edit": "Modifier",
+		"selected": "{count} sélectionné(s)",
+		"selectAll": "Tout sélectionner",
+		"deselectAll": "Tout désélectionner",
+		"deleteSelected": "Supprimer la sélection"
 	},
 	"grid": {
 		"tab1": "Onglet 1",
@@ -109,7 +113,10 @@
 		"noModsFound": "Aucun modificateur trouvé.",
 		"searchMechanic": "Rechercher une mécanique...",
 		"noMechanicsFound": "Aucune mécanique trouvée.",
-		"allMechanics": "Toutes les mécaniques"
+		"allMechanics": "Toutes les mécaniques",
+		"favoritesOnly": "Favoris uniquement",
+		"addToFavorites": "Ajouter aux favoris",
+		"removeFromFavorites": "Retirer des favoris"
 	},
 	"filter": {
 		"mechanic": "Filtrer par mécanique",

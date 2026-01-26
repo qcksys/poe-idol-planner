@@ -50,6 +50,7 @@ export interface UseIdolSetsReturn {
 	updateIdol: (id: string, idol: IdolInstance) => void;
 	duplicateIdol: (id: string) => string | null;
 	removeIdol: (id: string) => void;
+	removeIdols: (ids: string[]) => void;
 	clearInventory: () => void;
 }
 
@@ -565,6 +566,32 @@ export function useIdolSets(
 		[activeSet, setSets],
 	);
 
+	const removeIdols = useCallback(
+		(ids: string[]) => {
+			if (!activeSet) return;
+
+			const idSet = new Set(ids);
+			// Remove from inventory and placements
+			setSets((prev) =>
+				prev.map((s) =>
+					s.id === activeSet.id
+						? {
+								...s,
+								inventory: s.inventory.filter(
+									(item) => !idSet.has(item.id),
+								),
+								placements: s.placements.filter(
+									(p) => !idSet.has(p.inventoryIdolId),
+								),
+								updatedAt: Date.now(),
+							}
+						: s,
+				),
+			);
+		},
+		[activeSet, setSets],
+	);
+
 	const clearInventory = useCallback(() => {
 		if (!activeSet) return;
 
@@ -604,6 +631,7 @@ export function useIdolSets(
 			updateIdol,
 			duplicateIdol,
 			removeIdol,
+			removeIdols,
 			clearInventory,
 		}),
 		[
@@ -627,6 +655,7 @@ export function useIdolSets(
 			updateIdol,
 			duplicateIdol,
 			removeIdol,
+			removeIdols,
 			clearInventory,
 		],
 	);

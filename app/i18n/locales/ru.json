@@ -29,7 +29,11 @@
 		"removeFromInventory": "Удалить из инвентаря",
 		"noMatches": "Подходящие идолы не найдены",
 		"duplicate": "Дублировать",
-		"edit": "Редактировать"
+		"edit": "Редактировать",
+		"selected": "{count} выбрано",
+		"selectAll": "Выбрать все",
+		"deselectAll": "Снять выбор",
+		"deleteSelected": "Удалить выбранное"
 	},
 	"grid": {
 		"tab1": "Вкладка 1",
@@ -109,7 +113,10 @@
 		"noModsFound": "Модификаторы не найдены.",
 		"searchMechanic": "Поиск механики...",
 		"noMechanicsFound": "Механики не найдены.",
-		"allMechanics": "Все механики"
+		"allMechanics": "Все механики",
+		"favoritesOnly": "Только избранное",
+		"addToFavorites": "Добавить в избранное",
+		"removeFromFavorites": "Удалить из избранного"
 	},
 	"filter": {
 		"mechanic": "Фильтр по механике",

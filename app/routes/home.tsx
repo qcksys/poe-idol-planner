@@ -10,6 +10,7 @@ import { ShareModal } from "~/components/share-modal";
 import { StatsSummary } from "~/components/stats-summary";
 import { ClipboardProvider, useClipboard } from "~/context/clipboard-context";
 import { DndProvider } from "~/context/dnd-context";
+import { FavoritesProvider } from "~/context/favorites-context";
 import { usePlannerState } from "~/hooks/use-planner-state";
 import { useTranslations } from "~/i18n";
 import type { IdolInstance } from "~/schemas/idol";
@@ -106,6 +107,7 @@ function HomeContent() {
 							onIdolClick={handleIdolClick}
 							onDuplicateIdol={sets.duplicateIdol}
 							onRemoveIdol={sets.removeIdol}
+							onRemoveIdols={sets.removeIdols}
 							onClearAll={sets.clearInventory}
 							onPasteIdol={handlePasteIdol}
 							hasClipboardIdol={!!clipboardIdol}
@@ -180,10 +182,12 @@ function HomeContent() {
 
 export default function Home(_props: Route.ComponentProps) {
 	return (
-		<ClipboardProvider>
-			<DndProvider>
-				<HomeContent />
-			</DndProvider>
-		</ClipboardProvider>
+		<FavoritesProvider>
+			<ClipboardProvider>
+				<DndProvider>
+					<HomeContent />
+				</DndProvider>
+			</ClipboardProvider>
+		</FavoritesProvider>
 	);
 }

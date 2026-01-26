@@ -29,7 +29,11 @@
 		"removeFromInventory": "从仓库移除",
 		"noMatches": "找不到匹配的神像",
 		"duplicate": "复制",
-		"edit": "编辑"
+		"edit": "编辑",
+		"selected": "已选择 {count} 个",
+		"selectAll": "全选",
+		"deselectAll": "取消选择",
+		"deleteSelected": "删除已选"
 	},
 	"grid": {
 		"tab1": "标签页 1",
@@ -109,7 +113,10 @@
 		"noModsFound": "找不到词缀。",
 		"searchMechanic": "搜索机制...",
 		"noMechanicsFound": "找不到机制。",
-		"allMechanics": "所有机制"
+		"allMechanics": "所有机制",
+		"favoritesOnly": "仅收藏",
+		"addToFavorites": "添加到收藏",
+		"removeFromFavorites": "从收藏中移除"
 	},
 	"filter": {
 		"mechanic": "按机制筛选",

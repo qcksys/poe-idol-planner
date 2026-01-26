@@ -1,6 +1,7 @@
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, Star } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Button } from "~/components/ui/button";
+import { Checkbox } from "~/components/ui/checkbox";
 import {
 	Command,
 	CommandEmpty,
@@ -14,6 +15,7 @@ import {
 	PopoverContent,
 	PopoverTrigger,
 } from "~/components/ui/popover";
+import { useFavorites } from "~/context/favorites-context";
 import { LEAGUE_MECHANICS, type LeagueMechanic } from "~/data/idol-bases";
 import idolModifiers from "~/data/idol-modifiers.json";
 import { useTranslations } from "~/i18n";
@@ -91,6 +93,8 @@ export function ModSearch({
 }: ModSearchProps) {
 	const t = useTranslations();
 	const [open, setOpen] = useState(false);
+	const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+	const { favorites, toggleFavorite, isFavorite } = useFavorites();
 
 	const allModifiers = useMemo(() => getModifierOptions(), []);
 
@@ -104,9 +108,18 @@ export function ModSearch({
 				if (!mod.applicableIdols.includes(idolTypeName)) return false;
 			}
 			if (excludedModIds.includes(mod.id)) return false;
+			if (showFavoritesOnly && !favorites.includes(mod.id)) return false;
 			return true;
 		});
-	}, [allModifiers, type, mechanicFilter, idolType, excludedModIds]);
+	}, [
+		allModifiers,
+		type,
+		mechanicFilter,
+		idolType,
+		excludedModIds,
+		showFavoritesOnly,
+		favorites,
+	]);
 
 	const groupedModifiers = useMemo(() => {
 		const groups: Record<LeagueMechanic, ModifierOption[]> = {} as Record<
@@ -150,6 +163,21 @@ export function ModSearch({
 			<PopoverContent className="w-[500px] p-0" align="start">
 				<Command>
 					<CommandInput placeholder={t.editor.searchMods} />
+					<div className="flex items-center gap-2 border-b px-3 py-2">
+						<Checkbox
+							id="favorites-filter"
+							checked={showFavoritesOnly}
+							onCheckedChange={(checked) =>
+								setShowFavoritesOnly(checked === true)
+							}
+						/>
+						<label
+							htmlFor="favorites-filter"
+							className="cursor-pointer text-sm"
+						>
+							{t.editor.favoritesOnly}
+						</label>
+					</div>
 					<CommandList className="max-h-[300px]">
 						<CommandEmpty>{t.editor.noModsFound}</CommandEmpty>
 						{LEAGUE_MECHANICS.map((mechanic) => {
@@ -161,35 +189,64 @@ export function ModSearch({
 									key={mechanic}
 									heading={t.mechanics[mechanic] || mechanic}
 								>
-									{mods.map((mod) => (
-										<CommandItem
-											key={mod.id}
-											value={`${mod.name} ${mod.tiers[0]?.text || ""} ${mod.mechanic}`}
-											onSelect={() => {
-												onSelect(
-													mod.id === selectedModId
-														? null
-														: mod,
-												);
-												setOpen(false);
-											}}
-										>
-											<Check
-												className={cn(
-													"mr-2 h-4 w-4 shrink-0",
-													selectedModId === mod.id
-														? "opacity-100"
-														: "opacity-0",
-												)}
-											/>
-											<div className="flex flex-col">
-												<span className="text-sm">
-													{mod.tiers[0]?.text ||
-														mod.name}
-												</span>
-											</div>
-										</CommandItem>
-									))}
+									{mods.map((mod) => {
+										const modIsFavorite = isFavorite(
+											mod.id,
+										);
+										return (
+											<CommandItem
+												key={mod.id}
+												value={`${mod.name} ${mod.tiers[0]?.text || ""} ${mod.mechanic}`}
+												onSelect={() => {
+													onSelect(
+														mod.id === selectedModId
+															? null
+															: mod,
+													);
+													setOpen(false);
+												}}
+											>
+												<Check
+													className={cn(
+														"mr-2 h-4 w-4 shrink-0",
+														selectedModId === mod.id
+															? "opacity-100"
+															: "opacity-0",
+													)}
+												/>
+												<div className="flex flex-1 flex-col">
+													<span className="text-sm">
+														{mod.tiers[0]?.text ||
+															mod.name}
+													</span>
+												</div>
+												<button
+													type="button"
+													onClick={(e) => {
+														e.stopPropagation();
+														toggleFavorite(mod.id);
+													}}
+													className="ml-2 shrink-0 rounded p-1 hover:bg-accent"
+													title={
+														modIsFavorite
+															? t.editor
+																	.removeFromFavorites
+															: t.editor
+																	.addToFavorites
+													}
+												>
+													<Star
+														className={cn(
+															"h-4 w-4",
+															modIsFavorite
+																? "fill-yellow-400 text-yellow-400"
+																: "text-muted-foreground",
+														)}
+													/>
+												</button>
+											</CommandItem>
+										);
+									})}
 								</CommandGroup>
 							);
 						})}

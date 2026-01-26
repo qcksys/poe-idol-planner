@@ -158,6 +158,69 @@ interface GridCellComponentProps {
 	isDropPreview?: boolean;
 }
 
+// Creates a custom drag image element for an idol
+function createDragImage(
+	idol: IdolInstance,
+	cellSize: number,
+): { element: HTMLDivElement; cleanup: () => void } {
+	const base = IDOL_BASES[idol.baseType as IdolBaseKey];
+	const width = base.width * cellSize;
+	const height = base.height * cellSize;
+
+	// Create container
+	const container = document.createElement("div");
+	container.style.position = "fixed";
+	container.style.left = "-9999px";
+	container.style.top = "-9999px";
+	container.style.width = `${width}px`;
+	container.style.height = `${height}px`;
+	container.style.zIndex = "9999";
+	container.style.pointerEvents = "none";
+
+	// Create the idol visual
+	const idolDiv = document.createElement("div");
+	idolDiv.style.width = `${width}px`;
+	idolDiv.style.height = `${height}px`;
+	idolDiv.style.borderRadius = "4px";
+	idolDiv.style.border = "2px solid";
+	idolDiv.style.overflow = "hidden";
+	idolDiv.style.position = "relative";
+	idolDiv.style.opacity = "0.9";
+
+	// Set border color based on rarity
+	const rarityColors: Record<string, string> = {
+		normal: "#c8c8c8",
+		magic: "#8888ff",
+		rare: "#ffff77",
+		unique: "#af6025",
+	};
+	idolDiv.style.borderColor =
+		rarityColors[idol.rarity] || rarityColors.normal;
+
+	// Add idol image
+	const img = document.createElement("img");
+	img.src = base.image;
+	img.style.position = "absolute";
+	img.style.inset = "0";
+	img.style.width = "100%";
+	img.style.height = "100%";
+	img.style.objectFit = "cover";
+	idolDiv.appendChild(img);
+
+	container.appendChild(idolDiv);
+	document.body.appendChild(container);
+
+	return {
+		element: container,
+		cleanup: () => {
+			// Delay cleanup to ensure drag image is captured
+			setTimeout(() => {
+				document.body.removeChild(container);
+			}, 0);
+		},
+	};
+}
+
 function GridCellComponent({
 	cell,
 	x,
@@ -205,16 +268,39 @@ function GridCellComponent({
 
 	const handleIdolDragStart = useCallback(
 		(e: DragEvent<HTMLButtonElement | HTMLDivElement>) => {
-			if (cell.placementId && onDragStart && originPosition) {
+			if (
+				cell.placementId &&
+				onDragStart &&
+				originPosition &&
+				cell.idol
+			) {
 				e.dataTransfer.effectAllowed = "move";
 				const offset = {
 					x: x - originPosition.x,
 					y: y - originPosition.y,
 				};
+
+				// Create custom drag image showing full idol
+				const { element, cleanup } = createDragImage(
+					cell.idol,
+					CELL_SIZE,
+				);
+
+				// Calculate drag image offset (cursor position relative to idol top-left)
+				const dragImageOffsetX = offset.x * CELL_SIZE + CELL_SIZE / 2;
+				const dragImageOffsetY = offset.y * CELL_SIZE + CELL_SIZE / 2;
+
+				e.dataTransfer.setDragImage(
+					element,
+					dragImageOffsetX,
+					dragImageOffsetY,
+				);
+				cleanup();
+
 				onDragStart(cell.placementId, offset);
 			}
 		},
-		[cell.placementId, onDragStart, originPosition, x, y],
+		[cell.placementId, cell.idol, onDragStart, originPosition, x, y],
 	);
 
 	const handleIdolDragEnd = useCallback(() => {

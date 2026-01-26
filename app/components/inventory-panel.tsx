@@ -1,4 +1,5 @@
 import {
+	CheckSquare,
 	ClipboardPaste,
 	Copy,
 	ExternalLink,
@@ -6,8 +7,9 @@ import {
 	Plus,
 	Search,
 	Trash2,
+	X,
 } from "lucide-react";
-import { type DragEvent, useState } from "react";
+import { type DragEvent, useCallback, useRef, useState } from "react";
 import { MechanicFilter } from "~/components/mod-search";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
@@ -17,6 +19,7 @@ import { useDnd } from "~/context/dnd-context";
 import type { LeagueMechanic } from "~/data/idol-bases";
 import { useTranslations } from "~/i18n";
 import { generateTradeUrl } from "~/lib/trade-search";
+import { cn } from "~/lib/utils";
 import type { InventoryIdol } from "~/schemas/inventory";
 import { IdolCard } from "./idol-card";
 
@@ -27,6 +30,7 @@ interface InventoryPanelProps {
 	onIdolClick?: (idol: InventoryIdol) => void;
 	onDuplicateIdol?: (id: string) => void;
 	onRemoveIdol?: (id: string) => void;
+	onRemoveIdols?: (ids: string[]) => void;
 	onClearAll?: () => void;
 	onPasteIdol?: () => void;
 	hasClipboardIdol?: boolean;
@@ -34,15 +38,19 @@ interface InventoryPanelProps {
 
 function DraggableIdolCard({
 	item,
+	isSelected,
 	onIdolClick,
 	onDuplicateIdol,
 	onRemoveIdol,
+	onSelect,
 	t,
 }: {
 	item: InventoryIdol;
+	isSelected: boolean;
 	onIdolClick?: (idol: InventoryIdol) => void;
 	onDuplicateIdol?: (id: string) => void;
 	onRemoveIdol?: (id: string) => void;
+	onSelect?: (id: string, e: React.MouseEvent) => void;
 	t: ReturnType<typeof useTranslations>;
 }) {
 	const { setDraggedItem } = useDnd();
@@ -63,18 +71,29 @@ function DraggableIdolCard({
 		window.open(url, "_blank", "noopener,noreferrer");
 	};
 
+	const handleClick = (e: React.MouseEvent) => {
+		// If Ctrl/Cmd is pressed, handle selection
+		if (e.ctrlKey || e.metaKey || e.shiftKey) {
+			e.preventDefault();
+			onSelect?.(item.id, e);
+		} else {
+			// Normal click opens editor
+			onIdolClick?.(item);
+		}
+	};
+
 	return (
 		<li
-			className="group relative cursor-grab list-none active:cursor-grabbing"
+			className={cn(
+				"group relative cursor-grab list-none active:cursor-grabbing",
+				isSelected && "rounded-md ring-2 ring-primary ring-offset-2",
+			)}
 			draggable
 			onDragStart={handleDragStart}
 			onDragEnd={handleDragEnd}
+			onClick={handleClick}
 		>
-			<IdolCard
-				idol={item.idol}
-				showTooltip={false}
-				onClick={() => onIdolClick?.(item)}
-			/>
+			<IdolCard idol={item.idol} showTooltip={false} />
 			<div className="absolute top-1 right-1 flex gap-1 opacity-0 transition-opacity group-hover:opacity-100">
 				<Button
 					variant="secondary"
@@ -146,6 +165,7 @@ export function InventoryPanel({
 	onIdolClick,
 	onDuplicateIdol,
 	onRemoveIdol,
+	onRemoveIdols,
 	onClearAll,
 	onPasteIdol,
 	hasClipboardIdol,
@@ -155,6 +175,8 @@ export function InventoryPanel({
 	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic | null>(
 		null,
 	);
+	const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+	const lastSelectedId = useRef<string | null>(null);
 
 	const filteredInventory = inventory.filter((item) => {
 		const idol = item.idol;
@@ -176,6 +198,71 @@ export function InventoryPanel({
 		);
 	});
 
+	const handleSelect = useCallback(
+		(id: string, e: React.MouseEvent) => {
+			setSelectedIds((prev) => {
+				const newSet = new Set(prev);
+
+				if (e.shiftKey && lastSelectedId.current) {
+					// Range selection
+					const filteredIds = filteredInventory.map(
+						(item) => item.id,
+					);
+					const lastIndex = filteredIds.indexOf(
+						lastSelectedId.current,
+					);
+					const currentIndex = filteredIds.indexOf(id);
+
+					if (lastIndex !== -1 && currentIndex !== -1) {
+						const start = Math.min(lastIndex, currentIndex);
+						const end = Math.max(lastIndex, currentIndex);
+						for (let i = start; i <= end; i++) {
+							newSet.add(filteredIds[i]);
+						}
+					}
+				} else if (e.ctrlKey || e.metaKey) {
+					// Toggle selection
+					if (newSet.has(id)) {
+						newSet.delete(id);
+					} else {
+						newSet.add(id);
+					}
+					lastSelectedId.current = id;
+				}
+
+				return newSet;
+			});
+		},
+		[filteredInventory],
+	);
+
+	const handleSelectAll = () => {
+		const allIds = filteredInventory.map((item) => item.id);
+		setSelectedIds(new Set(allIds));
+		lastSelectedId.current = allIds[allIds.length - 1] || null;
+	};
+
+	const handleDeselectAll = () => {
+		setSelectedIds(new Set());
+		lastSelectedId.current = null;
+	};
+
+	const handleDeleteSelected = () => {
+		if (onRemoveIdols) {
+			onRemoveIdols(Array.from(selectedIds));
+		} else if (onRemoveIdol) {
+			// Fallback to single delete
+			for (const id of selectedIds) {
+				onRemoveIdol(id);
+			}
+		}
+		setSelectedIds(new Set());
+		lastSelectedId.current = null;
+	};
+
+	const selectionCount = selectedIds.size;
+	const hasSelection = selectionCount > 0;
+
 	return (
 		<Card className="flex h-full flex-col">
 			<CardHeader className="pb-2">
@@ -184,68 +271,113 @@ export function InventoryPanel({
 						{t.inventory.title}
 					</CardTitle>
 					<span className="text-muted-foreground text-sm">
-						{inventory.length} idol(s)
+						{hasSelection
+							? t.inventory.selected.replace(
+									"{count}",
+									String(selectionCount),
+								)
+							: `${inventory.length} idol(s)`}
 					</span>
 				</div>
 			</CardHeader>
 
 			<CardContent className="flex flex-1 flex-col gap-2 overflow-hidden">
-				<div className="relative">
-					<Search className="absolute top-2.5 left-2 h-4 w-4 text-muted-foreground" />
-					<Input
-						placeholder={t.inventory.search}
-						value={searchQuery}
-						onChange={(e) => setSearchQuery(e.target.value)}
-						className="pl-8"
-					/>
-				</div>
-
-				<MechanicFilter
-					value={mechanicFilter}
-					onChange={setMechanicFilter}
-				/>
-
-				<div className="flex flex-wrap gap-2">
-					<Button
-						onClick={onImportClick}
-						className="flex-1"
-						size="sm"
-					>
-						<Plus className="mr-1 h-4 w-4" />
-						{t.inventory.import}
-					</Button>
-					{onCreateClick && (
+				{hasSelection ? (
+					<div className="flex items-center gap-2 rounded-md bg-muted p-2">
 						<Button
-							onClick={onCreateClick}
-							variant="outline"
-							className="flex-1"
+							variant="ghost"
 							size="sm"
+							onClick={handleDeselectAll}
+							className="h-8"
 						>
-							<PenLine className="mr-1 h-4 w-4" />
-							{t.inventory.create}
+							<X className="mr-1 h-4 w-4" />
+							{t.inventory.deselectAll}
 						</Button>
-					)}
-					{hasClipboardIdol && onPasteIdol && (
-						<Button
-							onClick={onPasteIdol}
-							variant="secondary"
-							size="sm"
-							className="flex-1"
-						>
-							<ClipboardPaste className="mr-1 h-4 w-4" />
-							{t.inventory.paste}
-						</Button>
-					)}
-					{onClearAll && inventory.length > 0 && (
+						<div className="flex-1" />
 						<Button
 							variant="destructive"
 							size="sm"
-							onClick={onClearAll}
+							onClick={handleDeleteSelected}
+							className="h-8"
 						>
-							<Trash2 className="h-4 w-4" />
+							<Trash2 className="mr-1 h-4 w-4" />
+							{t.inventory.deleteSelected}
 						</Button>
-					)}
-				</div>
+					</div>
+				) : (
+					<>
+						<div className="relative">
+							<Search className="absolute top-2.5 left-2 h-4 w-4 text-muted-foreground" />
+							<Input
+								placeholder={t.inventory.search}
+								value={searchQuery}
+								onChange={(e) => setSearchQuery(e.target.value)}
+								className="pl-8"
+							/>
+						</div>
+
+						<MechanicFilter
+							value={mechanicFilter}
+							onChange={setMechanicFilter}
+						/>
+
+						<div className="flex flex-wrap gap-2">
+							<Button
+								onClick={onImportClick}
+								className="flex-1"
+								size="sm"
+							>
+								<Plus className="mr-1 h-4 w-4" />
+								{t.inventory.import}
+							</Button>
+							{onCreateClick && (
+								<Button
+									onClick={onCreateClick}
+									variant="outline"
+									className="flex-1"
+									size="sm"
+								>
+									<PenLine className="mr-1 h-4 w-4" />
+									{t.inventory.create}
+								</Button>
+							)}
+							{hasClipboardIdol && onPasteIdol && (
+								<Button
+									onClick={onPasteIdol}
+									variant="secondary"
+									size="sm"
+									className="flex-1"
+								>
+									<ClipboardPaste className="mr-1 h-4 w-4" />
+									{t.inventory.paste}
+								</Button>
+							)}
+							{onClearAll && inventory.length > 0 && (
+								<Button
+									variant="destructive"
+									size="sm"
+									onClick={onClearAll}
+								>
+									<Trash2 className="h-4 w-4" />
+								</Button>
+							)}
+						</div>
+					</>
+				)}
+
+				{filteredInventory.length > 0 && !hasSelection && (
+					<div className="flex items-center justify-end">
+						<Button
+							variant="ghost"
+							size="sm"
+							onClick={handleSelectAll}
+							className="h-7 text-muted-foreground text-xs"
+						>
+							<CheckSquare className="mr-1 h-3 w-3" />
+							{t.inventory.selectAll}
+						</Button>
+					</div>
+				)}
 
 				<ScrollArea className="min-h-0 flex-1">
 					{filteredInventory.length === 0 ? (
@@ -260,9 +392,11 @@ export function InventoryPanel({
 								<DraggableIdolCard
 									key={item.id}
 									item={item}
+									isSelected={selectedIds.has(item.id)}
 									onIdolClick={onIdolClick}
 									onDuplicateIdol={onDuplicateIdol}
 									onRemoveIdol={onRemoveIdol}
+									onSelect={handleSelect}
 									t={t}
 								/>
 							))}

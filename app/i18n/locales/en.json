@@ -29,7 +29,11 @@
 		"removeFromInventory": "Remove from Inventory",
 		"noMatches": "No matching idols found",
 		"duplicate": "Duplicate",
-		"edit": "Edit"
+		"edit": "Edit",
+		"selected": "{count} selected",
+		"selectAll": "Select All",
+		"deselectAll": "Deselect All",
+		"deleteSelected": "Delete Selected"
 	},
 	"grid": {
 		"tab1": "Tab 1",
@@ -109,7 +113,10 @@
 		"noModsFound": "No modifiers found.",
 		"searchMechanic": "Search mechanic...",
 		"noMechanicsFound": "No mechanics found.",
-		"allMechanics": "All Mechanics"
+		"allMechanics": "All Mechanics",
+		"favoritesOnly": "Favorites Only",
+		"addToFavorites": "Add to favorites",
+		"removeFromFavorites": "Remove from favorites"
 	},
 	"filter": {
 		"mechanic": "Filter by Mechanic",

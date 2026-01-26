@@ -29,7 +29,11 @@
 		"removeFromInventory": "從倉庫移除",
 		"noMatches": "找不到符合的神像",
 		"duplicate": "複製",
-		"edit": "編輯"
+		"edit": "編輯",
+		"selected": "已選擇 {count} 個",
+		"selectAll": "全選",
+		"deselectAll": "取消選擇",
+		"deleteSelected": "刪除已選"
 	},
 	"grid": {
 		"tab1": "頁籤 1",
@@ -109,7 +113,10 @@
 		"noModsFound": "找不到詞綴。",
 		"searchMechanic": "搜尋機制...",
 		"noMechanicsFound": "找不到機制。",
-		"allMechanics": "所有機制"
+		"allMechanics": "所有機制",
+		"favoritesOnly": "僅收藏",
+		"addToFavorites": "加入收藏",
+		"removeFromFavorites": "從收藏中移除"
 	},
 	"filter": {
 		"mechanic": "依機制篩選",

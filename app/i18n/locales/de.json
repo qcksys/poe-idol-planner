@@ -29,7 +29,11 @@
 		"removeFromInventory": "Aus Inventar entfernen",
 		"noMatches": "Keine passenden Idole gefunden",
 		"duplicate": "Duplizieren",
-		"edit": "Bearbeiten"
+		"edit": "Bearbeiten",
+		"selected": "{count} ausgewählt",
+		"selectAll": "Alle auswählen",
+		"deselectAll": "Auswahl aufheben",
+		"deleteSelected": "Ausgewählte löschen"
 	},
 	"grid": {
 		"tab1": "Tab 1",
@@ -109,7 +113,10 @@
 		"noModsFound": "Keine Modifikatoren gefunden.",
 		"searchMechanic": "Mechanik suchen...",
 		"noMechanicsFound": "Keine Mechaniken gefunden.",
-		"allMechanics": "Alle Mechaniken"
+		"allMechanics": "Alle Mechaniken",
+		"favoritesOnly": "Nur Favoriten",
+		"addToFavorites": "Zu Favoriten hinzufügen",
+		"removeFromFavorites": "Aus Favoriten entfernen"
 	},
 	"filter": {
 		"mechanic": "Nach Mechanik filtern",

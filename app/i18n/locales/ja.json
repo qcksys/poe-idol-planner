@@ -29,7 +29,11 @@
 		"removeFromInventory": "インベントリから削除",
 		"noMatches": "該当するアイドルが見つかりません",
 		"duplicate": "複製",
-		"edit": "編集"
+		"edit": "編集",
+		"selected": "{count}件選択中",
+		"selectAll": "すべて選択",
+		"deselectAll": "選択解除",
+		"deleteSelected": "選択を削除"
 	},
 	"grid": {
 		"tab1": "タブ 1",
@@ -109,7 +113,10 @@
 		"noModsFound": "Modが見つかりません。",
 		"searchMechanic": "メカニックを検索...",
 		"noMechanicsFound": "メカニックが見つかりません。",
-		"allMechanics": "全てのメカニック"
+		"allMechanics": "全てのメカニック",
+		"favoritesOnly": "お気に入りのみ",
+		"addToFavorites": "お気に入りに追加",
+		"removeFromFavorites": "お気に入りから削除"
 	},
 	"filter": {
 		"mechanic": "メカニックでフィルター",
