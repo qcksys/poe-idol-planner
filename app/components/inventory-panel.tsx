@@ -125,7 +125,7 @@ function DraggableIdolCard({
 				)}
 			</div>
 			{item.usageCount > 0 && (
-				<span className="absolute right-1 bottom-1 rounded bg-blue-600 px-1 text-xs">
+				<span className="absolute right-1 bottom-1 rounded bg-primary px-1 text-primary-foreground text-xs">
 					{t.inventory.usedInSets.replace(
 						"{count}",
 						String(item.usageCount),
@@ -178,7 +178,7 @@ export function InventoryPanel({
 					<CardTitle className="text-lg">
 						{t.inventory.title}
 					</CardTitle>
-					<span className="text-gray-400 text-sm">
+					<span className="text-muted-foreground text-sm">
 						{inventory.length} idol(s)
 					</span>
 				</div>
@@ -186,7 +186,7 @@ export function InventoryPanel({
 
 			<CardContent className="flex flex-1 flex-col gap-2 overflow-hidden">
 				<div className="relative">
-					<Search className="absolute top-2.5 left-2 h-4 w-4 text-gray-400" />
+					<Search className="absolute top-2.5 left-2 h-4 w-4 text-muted-foreground" />
 					<Input
 						placeholder={t.inventory.search}
 						value={searchQuery}
@@ -233,7 +233,7 @@ export function InventoryPanel({
 
 				<ScrollArea className="flex-1">
 					{filteredInventory.length === 0 ? (
-						<div className="py-8 text-center text-gray-400">
+						<div className="py-8 text-center text-muted-foreground">
 							{inventory.length === 0
 								? t.inventory.empty
 								: t.inventory.noMatches}

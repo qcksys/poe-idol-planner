@@ -101,11 +101,11 @@ export function ImportModal({
 
 				<ScrollArea className="min-h-0 flex-1 pr-4">
 					<div className="space-y-4">
-						<div className="flex items-start gap-2 rounded-lg border border-blue-800 bg-blue-950/50 p-3 text-sm">
-							<Info className="mt-0.5 h-4 w-4 shrink-0 text-blue-400" />
-							<div className="text-blue-300">
+						<div className="flex items-start gap-2 rounded-lg border border-primary/30 bg-primary/5 p-3 text-sm">
+							<Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+							<div className="text-foreground">
 								<p className="font-medium">{t.import.howTo}</p>
-								<ul className="mt-1 list-inside list-disc text-blue-400">
+								<ul className="mt-1 list-inside list-disc text-muted-foreground">
 									<li>{t.import.ctrlC}</li>
 									<li>{t.import.ctrlAltC}</li>
 								</ul>
@@ -144,19 +144,19 @@ export function ImportModal({
 							<div className="space-y-2">
 								<div className="flex items-center gap-2 text-sm">
 									{successCount > 0 && (
-										<span className="text-green-400">
+										<span className="text-green-700 dark:text-green-400">
 											{successCount} idol(s) parsed
 											successfully
 										</span>
 									)}
 									{errorCount > 0 && (
-										<span className="text-red-400">
+										<span className="text-red-700 dark:text-red-400">
 											{errorCount} failed to parse
 										</span>
 									)}
 								</div>
 
-								<div className="max-h-[200px] space-y-2 overflow-y-auto rounded border border-gray-700 p-2">
+								<div className="max-h-[200px] space-y-2 overflow-y-auto rounded border border-border p-2">
 									{parseResults.map((result, index) =>
 										result.success && result.idol ? (
 											<IdolCard

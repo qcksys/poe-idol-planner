@@ -94,32 +94,25 @@ export function ShareModal({
 
 	return (
 		<Dialog open={open} onOpenChange={handleClose}>
-			<DialogContent className="border-gray-800 bg-gray-900 sm:max-w-md">
+			<DialogContent className="sm:max-w-md">
 				<DialogHeader>
-					<DialogTitle className="text-gray-100">
-						{t.share.title}
-					</DialogTitle>
-					<DialogDescription className="text-gray-400">
-						{t.share.description}
-					</DialogDescription>
+					<DialogTitle>{t.share.title}</DialogTitle>
+					<DialogDescription>{t.share.description}</DialogDescription>
 				</DialogHeader>
 
 				<div className="space-y-4">
 					{shareState.status === "idle" && set && (
 						<div className="space-y-4">
-							<div className="rounded-lg border border-gray-800 bg-gray-800/50 p-3">
-								<p className="font-medium text-amber-500">
+							<div className="rounded-lg border border-border bg-muted/50 p-3">
+								<p className="font-medium text-accent">
 									{set.name}
 								</p>
-								<p className="text-gray-400 text-sm">
+								<p className="text-muted-foreground text-sm">
 									{set.placements.length} placement
 									{set.placements.length !== 1 && "s"}
 								</p>
 							</div>
-							<Button
-								onClick={handleShare}
-								className="w-full bg-amber-600 text-white hover:bg-amber-700"
-							>
+							<Button onClick={handleShare} className="w-full">
 								Generate Share Link
 							</Button>
 						</div>
@@ -127,8 +120,8 @@ export function ShareModal({
 
 					{shareState.status === "loading" && (
 						<div className="flex flex-col items-center py-6">
-							<div className="mb-3 h-8 w-8 animate-spin rounded-full border-4 border-amber-500 border-t-transparent" />
-							<p className="text-gray-400 text-sm">
+							<div className="mb-3 h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+							<p className="text-muted-foreground text-sm">
 								{t.share.loading}
 							</p>
 						</div>
@@ -140,17 +133,17 @@ export function ShareModal({
 								<Input
 									readOnly
 									value={shareState.shareUrl}
-									className="flex-1 border-gray-700 bg-gray-800 text-gray-200"
+									className="flex-1"
 								/>
 								<Button
 									onClick={handleCopy}
 									variant="outline"
-									className="shrink-0 border-gray-700 text-gray-200 hover:bg-gray-800"
+									className="shrink-0"
 								>
 									{copied ? t.actions.copied : t.actions.copy}
 								</Button>
 							</div>
-							<p className="text-center text-gray-500 text-xs">
+							<p className="text-center text-muted-foreground text-xs">
 								Link expires in 30 days
 							</p>
 						</div>
@@ -158,15 +151,15 @@ export function ShareModal({
 
 					{shareState.status === "error" && (
 						<div className="space-y-3">
-							<div className="rounded-lg border border-red-900/50 bg-red-950/30 p-3">
-								<p className="text-red-400 text-sm">
+							<div className="rounded-lg border border-destructive/50 bg-destructive/10 p-3">
+								<p className="text-destructive text-sm">
 									{shareState.message}
 								</p>
 							</div>
 							<Button
 								onClick={handleShare}
 								variant="outline"
-								className="w-full border-gray-700 text-gray-200 hover:bg-gray-800"
+								className="w-full"
 							>
 								Try Again
 							</Button>

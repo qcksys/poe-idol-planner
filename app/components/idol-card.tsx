@@ -36,15 +36,15 @@ function getRarityColor(rarity: IdolInstance["rarity"]): string {
 function getRarityBg(rarity: IdolInstance["rarity"]): string {
 	switch (rarity) {
 		case "normal":
-			return "bg-gray-900/50";
+			return "bg-muted/50";
 		case "magic":
-			return "bg-blue-900/30";
+			return "bg-blue-500/10 dark:bg-blue-900/30";
 		case "rare":
-			return "bg-yellow-900/30";
+			return "bg-yellow-500/10 dark:bg-yellow-900/30";
 		case "unique":
-			return "bg-orange-900/30";
+			return "bg-orange-500/10 dark:bg-orange-900/30";
 		default:
-			return "bg-gray-900/50";
+			return "bg-muted/50";
 	}
 }
 
@@ -53,7 +53,9 @@ function ModifierLine({ mod }: { mod: IdolModifier }) {
 		<div className="text-sm">
 			<span
 				className={
-					mod.type === "prefix" ? "text-blue-300" : "text-green-300"
+					mod.type === "prefix"
+						? "text-blue-700 dark:text-blue-300"
+						: "text-green-700 dark:text-green-300"
 				}
 			>
 				{highlightNumbers(mod.text)}
@@ -80,17 +82,19 @@ function IdolCardContent({
 					alt=""
 					className="h-5 w-5 object-contain"
 				/>
-				<span className="text-gray-400 text-xs">{base.name}</span>
+				<span className="text-muted-foreground text-xs">
+					{base.name}
+				</span>
 			</div>
 
 			{idol.implicit && !compact && (
-				<div className="border-gray-700 border-b pb-1 text-purple-300 text-sm">
+				<div className="border-border border-b pb-1 text-purple-700 text-sm dark:text-purple-300">
 					{idol.implicit.text}
 				</div>
 			)}
 
 			{compact ? (
-				<div className="text-gray-300 text-sm">
+				<div className="text-muted-foreground text-sm">
 					{allMods.length} mod(s)
 				</div>
 			) : (

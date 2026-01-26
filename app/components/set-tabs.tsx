@@ -17,7 +17,6 @@ import {
 } from "~/components/ui/dropdown-menu";
 import { Input } from "~/components/ui/input";
 import { useTranslations } from "~/i18n";
-import { cn } from "~/lib/utils";
 import type { IdolSet } from "~/schemas/idol-set";
 
 interface SetTabsProps {
@@ -75,7 +74,7 @@ export function SetTabs({
 
 	return (
 		<>
-			<div className="flex items-center gap-1 overflow-x-auto border-gray-700 border-b pb-2">
+			<div className="flex items-center gap-1 overflow-x-auto border-border border-b pb-2">
 				{sets.map((set) => (
 					<div key={set.id} className="group flex items-center">
 						<Button
@@ -83,11 +82,7 @@ export function SetTabs({
 								activeSetId === set.id ? "default" : "ghost"
 							}
 							size="sm"
-							className={cn(
-								"rounded-r-none",
-								activeSetId === set.id &&
-									"bg-blue-600 hover:bg-blue-700",
-							)}
+							className="rounded-r-none"
 							onClick={() => onSelectSet(set.id)}
 						>
 							{set.name}
@@ -101,11 +96,7 @@ export function SetTabs({
 											: "ghost"
 									}
 									size="sm"
-									className={cn(
-										"h-8 w-6 rounded-l-none px-1",
-										activeSetId === set.id &&
-											"bg-blue-600 hover:bg-blue-700",
-									)}
+									className="h-8 w-6 rounded-l-none px-1"
 								>
 									<MoreVertical className="h-3 w-3" />
 								</Button>

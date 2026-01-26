@@ -54,6 +54,17 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 - Uses `tw-animate-css` for animations
 - Add components via: `pnpx shadcn@latest add <component>`
 
+### Theme Colors
+**Always use theme CSS variables** instead of hardcoded colors to ensure light/dark mode compatibility:
+- `text-foreground` / `text-muted-foreground` instead of `text-white` / `text-gray-400`
+- `bg-background` / `bg-card` / `bg-muted` instead of `bg-gray-900` / `bg-gray-950`
+- `border-border` instead of `border-gray-700` / `border-gray-800`
+- `text-primary` / `bg-primary` for accent colors instead of `text-blue-500` / `bg-blue-600`
+- `text-destructive` / `bg-destructive` for errors instead of `text-red-400`
+- For semantic colors that must differ by theme, use `dark:` variants (e.g., `text-blue-700 dark:text-blue-300`)
+
+Theme variables are defined in `app/app.css` under `:root` (light) and `.dark` (dark mode).
+
 ### State Management
 The app uses a centralized state pattern with localStorage persistence:
 

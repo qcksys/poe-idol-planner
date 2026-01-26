@@ -184,7 +184,7 @@ function MechanicSection({ data }: { data: StatsByMechanic }) {
 
 	return (
 		<div className="mb-4">
-			<h4 className="mb-2 font-semibold text-blue-400 text-sm">
+			<h4 className="mb-2 font-semibold text-primary text-sm">
 				{mechanicName}
 			</h4>
 			<div className="space-y-1">
@@ -197,7 +197,7 @@ function MechanicSection({ data }: { data: StatsByMechanic }) {
 					return (
 						<div
 							key={`${stat.template}-${index}`}
-							className="text-gray-300 text-sm"
+							className="text-secondary-foreground text-sm"
 						>
 							{highlightNumbers(displayText)}
 						</div>
@@ -228,7 +228,7 @@ export function StatsSummary({ placements, inventory }: StatsSummaryProps) {
 					<CardTitle className="text-lg">
 						{t.stats.totalStats}
 					</CardTitle>
-					<span className="text-gray-400 text-sm">
+					<span className="text-muted-foreground text-sm">
 						{totalStats} modifier(s)
 					</span>
 				</div>
@@ -236,7 +236,7 @@ export function StatsSummary({ placements, inventory }: StatsSummaryProps) {
 
 			<CardContent className="flex-1 overflow-hidden">
 				{statsByMechanic.length === 0 ? (
-					<div className="py-8 text-center text-gray-400">
+					<div className="py-8 text-center text-muted-foreground">
 						{t.stats.noStats}
 					</div>
 				) : (

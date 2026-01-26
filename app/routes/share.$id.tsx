@@ -142,19 +142,15 @@ export default function SharePage() {
 
 	if (loadState.status === "loading") {
 		return (
-			<div className="flex min-h-screen items-center justify-center bg-gray-950">
-				<Card className="w-full max-w-md bg-gray-900">
+			<div className="flex min-h-screen items-center justify-center bg-background">
+				<Card className="w-full max-w-md">
 					<CardHeader>
-						<CardTitle className="text-gray-100">
-							Loading...
-						</CardTitle>
-						<CardDescription className="text-gray-400">
-							Fetching shared set
-						</CardDescription>
+						<CardTitle>Loading...</CardTitle>
+						<CardDescription>Fetching shared set</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<div className="flex justify-center py-8">
-							<div className="h-8 w-8 animate-spin rounded-full border-4 border-amber-500 border-t-transparent" />
+							<div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
 						</div>
 					</CardContent>
 				</Card>
@@ -164,13 +160,13 @@ export default function SharePage() {
 
 	if (loadState.status === "error") {
 		return (
-			<div className="flex min-h-screen items-center justify-center bg-gray-950">
-				<Card className="w-full max-w-md bg-gray-900">
+			<div className="flex min-h-screen items-center justify-center bg-background">
+				<Card className="w-full max-w-md">
 					<CardHeader>
-						<CardTitle className="text-red-400">Error</CardTitle>
-						<CardDescription className="text-gray-400">
-							{loadState.message}
-						</CardDescription>
+						<CardTitle className="text-destructive">
+							Error
+						</CardTitle>
+						<CardDescription>{loadState.message}</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<Button
@@ -188,22 +184,20 @@ export default function SharePage() {
 	const { set, idols } = loadState.data;
 
 	return (
-		<div className="flex min-h-screen items-center justify-center bg-gray-950 p-4">
-			<Card className="w-full max-w-lg bg-gray-900">
+		<div className="flex min-h-screen items-center justify-center bg-background p-4">
+			<Card className="w-full max-w-lg">
 				<CardHeader>
-					<CardTitle className="text-gray-100">
-						Shared Idol Set
-					</CardTitle>
-					<CardDescription className="text-gray-400">
+					<CardTitle>Shared Idol Set</CardTitle>
+					<CardDescription>
 						Someone shared an idol set with you
 					</CardDescription>
 				</CardHeader>
 				<CardContent className="space-y-4">
-					<div className="rounded-lg border border-gray-800 bg-gray-800/50 p-4">
-						<h3 className="mb-2 font-semibold text-amber-500 text-lg">
+					<div className="rounded-lg border border-border bg-muted/50 p-4">
+						<h3 className="mb-2 font-semibold text-accent text-lg">
 							{set.name}
 						</h3>
-						<div className="space-y-1 text-gray-400 text-sm">
+						<div className="space-y-1 text-muted-foreground text-sm">
 							<p>
 								{idols.length} idol{idols.length !== 1 && "s"}
 							</p>
@@ -215,14 +209,14 @@ export default function SharePage() {
 					</div>
 
 					<div className="space-y-2">
-						<h4 className="font-medium text-gray-300 text-sm">
+						<h4 className="font-medium text-foreground text-sm">
 							Idols in this set:
 						</h4>
 						<ul className="max-h-40 space-y-1 overflow-y-auto">
 							{idols.map((idol) => (
 								<li
 									key={idol.id}
-									className="text-gray-400 text-sm"
+									className="text-muted-foreground text-sm"
 								>
 									• {idol.idol.name || idol.idol.baseType} (
 									{idol.idol.prefixes.length}P/
@@ -243,7 +237,7 @@ export default function SharePage() {
 						<Button
 							onClick={handleImport}
 							disabled={importing}
-							className="flex-1 bg-amber-600 text-white hover:bg-amber-700"
+							className="flex-1"
 						>
 							{importing ? "Importing..." : "Import Set"}
 						</Button>

@@ -153,8 +153,8 @@ function ModSlot({
 						<div
 							className={
 								type === "prefix"
-									? "text-blue-300 text-sm"
-									: "text-green-300 text-sm"
+									? "text-blue-700 text-sm dark:text-blue-300"
+									: "text-green-700 text-sm dark:text-green-300"
 							}
 						>
 							{highlightNumbers(selectedTier.text)}

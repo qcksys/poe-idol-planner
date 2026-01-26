@@ -252,7 +252,7 @@ function GridCellComponent({
 	if (!cell.isValid) {
 		return (
 			<div
-				className="absolute border border-red-950 bg-red-950/40"
+				className="absolute border border-red-300 bg-red-200/40 dark:border-red-950 dark:bg-red-950/40"
 				style={{
 					left: x * CELL_SIZE,
 					top: y * CELL_SIZE,
@@ -267,13 +267,18 @@ function GridCellComponent({
 		// biome-ignore lint/a11y/noStaticElementInteractions: Drop target for drag-and-drop
 		<div
 			className={cn(
-				"absolute border border-gray-700 bg-gray-900/30 transition-colors",
-				isDragOver && canDropHere && "border-green-500 bg-green-900/40",
-				isDragOver && !canDropHere && "border-red-500 bg-red-900/40",
-				isDropPreview && "border-blue-500/50 bg-blue-900/30",
+				"absolute border border-border bg-muted/30 transition-colors",
+				isDragOver &&
+					canDropHere &&
+					"border-green-500 bg-green-500/20 dark:bg-green-900/40",
+				isDragOver &&
+					!canDropHere &&
+					"border-red-500 bg-red-500/20 dark:bg-red-900/40",
+				isDropPreview &&
+					"border-primary/50 bg-primary/10 dark:bg-blue-900/30",
 				!isDragOver &&
 					!isDropPreview &&
-					"hover:border-blue-500/50 hover:bg-blue-900/20",
+					"hover:border-primary/50 hover:bg-primary/10 dark:hover:bg-blue-900/20",
 			)}
 			style={{
 				left: x * CELL_SIZE,
@@ -418,7 +423,7 @@ function GridTabContent({
 
 	return (
 		<div
-			className="relative rounded-lg border border-gray-700 bg-gray-950"
+			className="relative rounded-lg border border-border bg-card"
 			style={{
 				width: GRID_WIDTH * CELL_SIZE,
 				height: GRID_HEIGHT * CELL_SIZE,

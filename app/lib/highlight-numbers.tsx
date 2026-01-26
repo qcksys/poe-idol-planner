@@ -5,7 +5,7 @@ export function highlightNumbers(text: string): ReactNode[] {
 	return parts.map((part, index) => {
 		if (/^\d+(?:\.\d+)?%?$/.test(part)) {
 			return (
-				<span key={index} className="font-semibold text-white">
+				<span key={index} className="font-semibold text-foreground">
 					{part}
 				</span>
 			);
