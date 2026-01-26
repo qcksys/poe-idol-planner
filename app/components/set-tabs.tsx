@@ -115,7 +115,7 @@ export function SetTabs({
 									{t.idolSet.duplicate}
 								</DropdownMenuItem>
 								<DropdownMenuItem
-									className="text-red-400"
+									className="text-destructive"
 									onClick={() => handleDeleteClick(set.id)}
 								>
 									<Trash2 className="mr-2 h-4 w-4" />

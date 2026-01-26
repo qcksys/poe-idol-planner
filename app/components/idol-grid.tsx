@@ -252,7 +252,7 @@ function GridCellComponent({
 	if (!cell.isValid) {
 		return (
 			<div
-				className="absolute border border-red-300 bg-red-200/40 dark:border-red-950 dark:bg-red-950/40"
+				className="absolute border border-invalid bg-invalid/40"
 				style={{
 					left: x * CELL_SIZE,
 					top: y * CELL_SIZE,
@@ -268,17 +268,14 @@ function GridCellComponent({
 		<div
 			className={cn(
 				"absolute border border-border bg-muted/30 transition-colors",
-				isDragOver &&
-					canDropHere &&
-					"border-green-500 bg-green-500/20 dark:bg-green-900/40",
+				isDragOver && canDropHere && "border-success bg-success/20",
 				isDragOver &&
 					!canDropHere &&
-					"border-red-500 bg-red-500/20 dark:bg-red-900/40",
-				isDropPreview &&
-					"border-primary/50 bg-primary/10 dark:bg-blue-900/30",
+					"border-destructive bg-destructive/20",
+				isDropPreview && "border-primary/50 bg-primary/10",
 				!isDragOver &&
 					!isDropPreview &&
-					"hover:border-primary/50 hover:bg-primary/10 dark:hover:bg-blue-900/20",
+					"hover:border-primary/50 hover:bg-primary/10",
 			)}
 			style={{
 				left: x * CELL_SIZE,

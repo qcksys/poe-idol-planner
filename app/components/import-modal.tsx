@@ -144,13 +144,13 @@ export function ImportModal({
 							<div className="space-y-2">
 								<div className="flex items-center gap-2 text-sm">
 									{successCount > 0 && (
-										<span className="text-green-700 dark:text-green-400">
+										<span className="text-success">
 											{successCount} idol(s) parsed
 											successfully
 										</span>
 									)}
 									{errorCount > 0 && (
-										<span className="text-red-700 dark:text-red-400">
+										<span className="text-destructive">
 											{errorCount} failed to parse
 										</span>
 									)}
@@ -167,7 +167,7 @@ export function ImportModal({
 										) : (
 											<div
 												key={`error-${index}`}
-												className="rounded border border-red-900 bg-red-950/50 p-2 text-red-400 text-sm"
+												className="rounded border border-destructive/50 bg-destructive/10 p-2 text-destructive text-sm"
 											>
 												{result.error ||
 													"Unknown error"}

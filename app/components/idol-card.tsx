@@ -21,30 +21,30 @@ interface IdolCardProps {
 function getRarityColor(rarity: IdolInstance["rarity"]): string {
 	switch (rarity) {
 		case "normal":
-			return "border-gray-400";
+			return "border-rarity-normal";
 		case "magic":
-			return "border-blue-500";
+			return "border-rarity-magic";
 		case "rare":
-			return "border-yellow-500";
+			return "border-rarity-rare";
 		case "unique":
-			return "border-orange-500";
+			return "border-rarity-unique";
 		default:
-			return "border-gray-400";
+			return "border-rarity-normal";
 	}
 }
 
 function getRarityBg(rarity: IdolInstance["rarity"]): string {
 	switch (rarity) {
 		case "normal":
-			return "bg-muted/50";
+			return "bg-rarity-normal-bg";
 		case "magic":
-			return "bg-blue-500/10 dark:bg-blue-900/30";
+			return "bg-rarity-magic-bg";
 		case "rare":
-			return "bg-yellow-500/10 dark:bg-yellow-900/30";
+			return "bg-rarity-rare-bg";
 		case "unique":
-			return "bg-orange-500/10 dark:bg-orange-900/30";
+			return "bg-rarity-unique-bg";
 		default:
-			return "bg-muted/50";
+			return "bg-rarity-normal-bg";
 	}
 }
 
@@ -54,8 +54,8 @@ function ModifierLine({ mod }: { mod: IdolModifier }) {
 			<span
 				className={
 					mod.type === "prefix"
-						? "text-blue-700 dark:text-blue-300"
-						: "text-green-700 dark:text-green-300"
+						? "text-mod-prefix"
+						: "text-mod-suffix"
 				}
 			>
 				{highlightNumbers(mod.text)}
@@ -88,7 +88,7 @@ function IdolCardContent({
 			</div>
 
 			{idol.implicit && !compact && (
-				<div className="border-border border-b pb-1 text-purple-700 text-sm dark:text-purple-300">
+				<div className="border-border border-b pb-1 text-mod-implicit text-sm">
 					{idol.implicit.text}
 				</div>
 			)}

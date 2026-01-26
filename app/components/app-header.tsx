@@ -17,10 +17,7 @@ export function AppHeader({ onShareClick }: AppHeaderProps) {
 		<header className="sticky top-0 z-50 border-border border-b bg-background/90 backdrop-blur">
 			<div className="container mx-auto flex h-14 items-center justify-between px-4">
 				<div className="flex items-center gap-2">
-					<Link
-						to="/"
-						className="font-bold text-accent text-lg dark:text-yellow-500"
-					>
+					<Link to="/" className="font-bold text-accent text-lg">
 						{t.app.title}
 					</Link>
 					<span className="rounded bg-primary px-1.5 py-0.5 text-primary-foreground text-xs">
