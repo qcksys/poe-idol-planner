@@ -25,6 +25,7 @@ export const IdolSetSchema = z.object({
 	activeTab: GridTabSchema.default("tab1"),
 	inventory: z.array(InventoryIdolSchema).default([]),
 	mapDevice: MapDeviceSchema.default(createEmptyMapDevice()),
+	unlockedConditions: z.array(z.string()).default([]),
 });
 
 export type GridPosition = z.infer<typeof GridPositionSchema>;

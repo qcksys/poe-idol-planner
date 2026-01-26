@@ -1,11 +1,17 @@
 import { z } from "zod";
+import { SUPPORTED_LOCALES, type SupportedLocale } from "~/i18n/types";
+
+const LocalizedStringSchema = z.record(
+	z.enum(SUPPORTED_LOCALES),
+	z.string(),
+) as z.ZodType<Record<SupportedLocale, string>>;
 
 export const ScarabSchema = z.object({
 	id: z.string(),
-	name: z.string(),
-	effect: z.string(),
+	name: LocalizedStringSchema,
+	effect: LocalizedStringSchema,
 	category: z.string(),
-	image: z.string(),
+	image: z.string().nullable(),
 	limit: z.number().int().positive(),
 });
 

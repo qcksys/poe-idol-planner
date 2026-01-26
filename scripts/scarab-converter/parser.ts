@@ -1,13 +1,13 @@
 import type { RawScarab } from "./types.ts";
 
-function extractCategory(name: string): string {
-	// Extract category from scarab name (e.g., "Breach Scarab" -> "breach")
-	const match = name.match(/^(\w+)\s+Scarab/i);
+function extractCategoryFromId(id: string): string {
+	// Extract category from scarab ID (e.g., "breach_scarab" -> "breach")
+	const match = id.match(/^(\w+)_scarab/i);
 	if (match) {
 		return match[1].toLowerCase();
 	}
-	// Handle "Horned Scarab of X" pattern
-	if (name.startsWith("Horned Scarab")) {
+	// Handle "horned_scarab_of_x" pattern
+	if (id.startsWith("horned_scarab")) {
 		return "horned";
 	}
 	return "other";
@@ -25,12 +25,14 @@ function normalizeEffect(effectHtml: string): string {
 export function parseScarabPage(html: string): RawScarab[] {
 	const scarabs: RawScarab[] = [];
 
-	// Find the ScarabsItem section
+	// Find the ScarabsItem section - the ID varies by locale
+	// English: id="ScarabsItem", Chinese: id="聖甲蟲物品", etc.
+	// Look for the first tab pane with scarab items
 	const scarabsItemMatch = html.match(
-		/<div id="ScarabsItem"[^>]*>([\s\S]*?)(?=<div id="Acronym"|$)/,
+		/<div id="[^"]*"[^>]*class="tab-pane fade show active">([\s\S]*?)(?=<\/div><div id="|<div class="tab-content">|$)/,
 	);
 	if (!scarabsItemMatch) {
-		console.error("Could not find #ScarabsItem section");
+		console.error("Could not find scarab items tab pane");
 		return [];
 	}
 
@@ -52,17 +54,24 @@ export function parseScarabPage(html: string): RawScarab[] {
 			);
 			const imageUrl = imgMatch?.[1] || "";
 
-			// Extract name from anchor text in the flex-grow-1 section
-			const nameMatch = itemHtml.match(
-				/<div class="flex-grow-1[^>]*"><a[^>]+>([^<]+)<\/a>/,
+			// Extract the href link to get the English scarab page name (stable across locales)
+			// Look for pattern like href="Breach_Scarab" or href="Breach_Scarab_of_the_Dreamer"
+			const hrefMatch = itemHtml.match(
+				/<div class="flex-grow-1[^>]*"><a[^>]+href="([^"]+)"[^>]*>([^<]+)<\/a>/,
 			);
-			const name = nameMatch?.[1]?.trim() || "";
+			const hrefPath = hrefMatch?.[1] || "";
+			const name = hrefMatch?.[2]?.trim() || "";
 
-			if (!name || !imageUrl) continue;
+			if (!name || !imageUrl || !hrefPath) continue;
 
-			// Extract limit
+			// Generate ID from href path (which is the English scarab name)
+			// e.g., "Breach_Scarab_of_the_Dreamer" -> "breach_scarab_of_the_dreamer"
+			const id = hrefPath.toLowerCase();
+
+			// Extract limit - handle different languages
+			// English: "Limit:", Chinese: "上限:", etc.
 			const limitMatch = itemHtml.match(
-				/Limit:\s*<span[^>]*>(\d+)<\/span>/,
+				/<span class='colourDefault'>(\d+)<\/span><\/div><div class="separator">/,
 			);
 			const limit = limitMatch ? Number.parseInt(limitMatch[1], 10) : 5;
 
@@ -75,14 +84,8 @@ export function parseScarabPage(html: string): RawScarab[] {
 
 			if (!effect) continue;
 
-			// Generate ID from name
-			const id = name
-				.toLowerCase()
-				.replace(/[^a-z0-9]+/g, "_")
-				.replace(/^_|_$/g, "");
-
-			// Extract category
-			const category = extractCategory(name);
+			// Extract category from ID (uses English name so categories stay consistent)
+			const category = extractCategoryFromId(id);
 
 			scarabs.push({
 				id,

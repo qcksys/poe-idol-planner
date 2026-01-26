@@ -9,6 +9,10 @@ import {
 } from "~/components/ui/tooltip";
 import { useDnd } from "~/context/dnd-context";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
+import {
+	getLockedPositions,
+	MAP_DEVICE_UNLOCKS,
+} from "~/data/map-device-unlocks";
 import { useTranslations } from "~/i18n";
 import { highlightNumbers } from "~/lib/highlight-numbers";
 import { cn } from "~/lib/utils";
@@ -43,6 +47,7 @@ interface IdolGridProps {
 	placements: IdolPlacement[];
 	inventory: InventoryIdol[];
 	activeTab: GridTab;
+	unlockedConditions?: string[];
 	onTabChange: (tab: GridTab) => void;
 	onPlaceIdol?: (
 		inventoryIdolId: string,
@@ -67,15 +72,35 @@ interface GridCell {
 	idol?: IdolInstance;
 	isOrigin: boolean;
 	isValid: boolean;
+	isLocked: boolean;
+	lockReason?: string;
 }
 
-function createEmptyGrid(): GridCell[][] {
+function getLockReason(x: number, y: number): string | undefined {
+	for (const unlock of MAP_DEVICE_UNLOCKS) {
+		for (const pos of unlock.positions) {
+			if (pos.x === x && pos.y === y) {
+				return unlock.name;
+			}
+		}
+	}
+	return undefined;
+}
+
+function createEmptyGrid(unlockedConditions: string[] = []): GridCell[][] {
+	const lockedPositions = getLockedPositions(unlockedConditions);
 	return Array.from({ length: GRID_HEIGHT }, (_, y) =>
-		Array.from({ length: GRID_WIDTH }, (_, x) => ({
-			occupied: false,
-			isOrigin: false,
-			isValid: isCellValid(x, y),
-		})),
+		Array.from({ length: GRID_WIDTH }, (_, x) => {
+			const posKey = `${x},${y}`;
+			const isLocked = lockedPositions.has(posKey);
+			return {
+				occupied: false,
+				isOrigin: false,
+				isValid: isCellValid(x, y),
+				isLocked,
+				lockReason: isLocked ? getLockReason(x, y) : undefined,
+			};
+		}),
 	);
 }
 
@@ -83,8 +108,9 @@ function populateGrid(
 	placements: IdolPlacement[],
 	inventory: InventoryIdol[],
 	tab: GridTab,
+	unlockedConditions: string[] = [],
 ): GridCell[][] {
-	const grid = createEmptyGrid();
+	const grid = createEmptyGrid(unlockedConditions);
 	const tabPlacements = placements.filter((p) => p.tab === tab);
 
 	for (const placement of tabPlacements) {
@@ -108,6 +134,8 @@ function populateGrid(
 						idol,
 						isOrigin: dx === 0 && dy === 0,
 						isValid: grid[cellY][cellX].isValid,
+						isLocked: grid[cellY][cellX].isLocked,
+						lockReason: grid[cellY][cellX].lockReason,
 					};
 				}
 			}
@@ -132,8 +160,8 @@ function canPlaceIdol(
 	for (let dy = 0; dy < base.height; dy++) {
 		for (let dx = 0; dx < base.width; dx++) {
 			const cell = grid[y + dy][x + dx];
-			// Check if cell is occupied or invalid (blocked)
-			if (cell.occupied || !cell.isValid) {
+			// Check if cell is occupied, invalid (blocked), or locked
+			if (cell.occupied || !cell.isValid || cell.isLocked) {
 				return false;
 			}
 		}
@@ -555,6 +583,51 @@ function GridCellComponent({
 		);
 	}
 
+	// Render locked cells
+	if (cell.isLocked) {
+		return (
+			<TooltipProvider>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<div
+							className="absolute flex items-center justify-center border border-amber-600/50 bg-amber-900/30 dark:border-amber-500/40 dark:bg-amber-950/40"
+							style={{
+								left: x * CELL_SIZE,
+								top: y * CELL_SIZE,
+								width: CELL_SIZE,
+								height: CELL_SIZE,
+							}}
+						>
+							<svg
+								className="h-5 w-5 text-amber-600 dark:text-amber-500"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								strokeWidth={2}
+								role="img"
+								aria-label="Locked"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+								/>
+							</svg>
+						</div>
+					</TooltipTrigger>
+					<TooltipContent side="top" className="max-w-xs">
+						<div className="font-medium">Locked Slot</div>
+						{cell.lockReason && (
+							<div className="text-muted-foreground text-xs">
+								{cell.lockReason}
+							</div>
+						)}
+					</TooltipContent>
+				</Tooltip>
+			</TooltipProvider>
+		);
+	}
+
 	return (
 		// biome-ignore lint/a11y/noStaticElementInteractions: Drop target for drag-and-drop
 		<div
@@ -586,6 +659,7 @@ function GridTabContent({
 	tab,
 	placements,
 	inventory,
+	unlockedConditions = [],
 	onIdolClick,
 	onRemoveIdol,
 	onCopyIdol,
@@ -595,6 +669,7 @@ function GridTabContent({
 	tab: GridTab;
 	placements: IdolPlacement[];
 	inventory: InventoryIdol[];
+	unlockedConditions?: string[];
 	onIdolClick?: (idol: IdolInstance, placementId: string) => void;
 	onRemoveIdol?: (placementId: string) => void;
 	onCopyIdol?: (idol: IdolInstance) => void;
@@ -615,8 +690,8 @@ function GridTabContent({
 		useDnd();
 
 	const grid = useMemo(
-		() => populateGrid(placements, inventory, tab),
-		[placements, inventory, tab],
+		() => populateGrid(placements, inventory, tab, unlockedConditions),
+		[placements, inventory, tab, unlockedConditions],
 	);
 
 	const inventoryMap = useMemo(() => {
@@ -656,7 +731,7 @@ function GridTabContent({
 			for (let dy = 0; dy < base.height; dy++) {
 				for (let dx = 0; dx < base.width; dx++) {
 					const cell = grid[originY + dy]?.[originX + dx];
-					if (!cell?.isValid) return false;
+					if (!cell?.isValid || cell?.isLocked) return false;
 					if (cell?.occupied) {
 						if (
 							sourcePlacementId &&
@@ -794,6 +869,7 @@ export function IdolGrid({
 	placements,
 	inventory,
 	activeTab,
+	unlockedConditions,
 	onTabChange: _onTabChange,
 	onPlaceIdol,
 	onMoveIdol,
@@ -807,6 +883,7 @@ export function IdolGrid({
 				tab={activeTab}
 				placements={placements}
 				inventory={inventory}
+				unlockedConditions={unlockedConditions}
 				onIdolClick={onIdolClick}
 				onRemoveIdol={onRemoveIdol}
 				onCopyIdol={onCopyIdol}

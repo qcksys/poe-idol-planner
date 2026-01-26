@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getAllUnlockIds } from "~/data/map-device-unlocks";
 import { loadStorage, saveStorage } from "~/lib/storage";
 import type { IdolSet } from "~/schemas/idol-set";
 import { createEmptyMapDevice } from "~/schemas/scarab";
@@ -25,6 +26,7 @@ export function usePlannerState() {
 				activeTab: "tab1",
 				inventory: [],
 				mapDevice: createEmptyMapDevice(),
+				unlockedConditions: getAllUnlockIds(),
 				createdAt: Date.now(),
 				updatedAt: Date.now(),
 			};

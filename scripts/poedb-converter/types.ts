@@ -22,7 +22,7 @@ export const POEDB_LOCALE_MAP: Record<Locale, string> = {
 	"pt-BR": "pt",
 	de: "de",
 	fr: "fr",
-	es: "es",
+	es: "sp",
 };
 
 export const IDOL_BASE_TYPES = [

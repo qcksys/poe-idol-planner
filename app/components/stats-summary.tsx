@@ -3,9 +3,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { ScrollArea } from "~/components/ui/scroll-area";
 import { IDOL_BASES, LEAGUE_MECHANICS } from "~/data/idol-bases";
 import { getMapCraftingOptionById } from "~/data/map-crafting-options";
-import { getScarabById } from "~/data/scarab-data";
+import { getScarabById, getScarabEffect } from "~/data/scarab-data";
 import { useScarabPrices } from "~/hooks/use-scarab-prices";
-import { useTranslations } from "~/i18n";
+import { useLocale, useTranslations } from "~/i18n";
+import type { SupportedLocale } from "~/i18n/types";
 import { highlightNumbers } from "~/lib/highlight-numbers";
 import type { IdolBaseKey, LeagueMechanic } from "~/schemas/idol";
 import type { IdolPlacement } from "~/schemas/idol-set";
@@ -18,11 +19,8 @@ interface StatsSummaryProps {
 	mapDevice?: MapDevice;
 }
 
-type IdolSizeCategory = "minor" | "small" | "medium" | "large";
-
 interface IdolContribution {
 	baseType: IdolBaseKey;
-	sizeCategory: IdolSizeCategory;
 }
 
 interface AggregatedStat {
@@ -33,7 +31,9 @@ interface AggregatedStat {
 	contributions: IdolContribution[];
 }
 
-function getIdolSizeCategory(baseType: IdolBaseKey): IdolSizeCategory {
+type IdolSizeGroup = "minor" | "small" | "medium" | "large";
+
+function getIdolSizeGroup(baseType: IdolBaseKey): IdolSizeGroup {
 	const base = IDOL_BASES[baseType];
 	const cells = base.width * base.height;
 	if (cells === 1) return "minor";
@@ -42,8 +42,15 @@ function getIdolSizeCategory(baseType: IdolBaseKey): IdolSizeCategory {
 	return "large";
 }
 
+const SIZE_GROUP_NAMES: Record<IdolSizeGroup, string> = {
+	minor: "Minor",
+	small: "Kamasan/Noble",
+	medium: "Totemic/Burial",
+	large: "Conqueror",
+};
+
 function formatContributions(contributions: IdolContribution[]): string {
-	const counts: Record<IdolSizeCategory, number> = {
+	const counts: Record<IdolSizeGroup, number> = {
 		minor: 0,
 		small: 0,
 		medium: 0,
@@ -51,14 +58,15 @@ function formatContributions(contributions: IdolContribution[]): string {
 	};
 
 	for (const c of contributions) {
-		counts[c.sizeCategory]++;
+		counts[getIdolSizeGroup(c.baseType)]++;
 	}
 
 	const parts: string[] = [];
-	if (counts.minor > 0) parts.push(`${counts.minor}x minor`);
-	if (counts.small > 0) parts.push(`${counts.small}x small`);
-	if (counts.medium > 0) parts.push(`${counts.medium}x medium`);
-	if (counts.large > 0) parts.push(`${counts.large}x large`);
+	for (const [group, count] of Object.entries(counts)) {
+		if (count > 0) {
+			parts.push(`${count}x ${SIZE_GROUP_NAMES[group as IdolSizeGroup]}`);
+		}
+	}
 
 	return parts.join(", ");
 }
@@ -189,7 +197,6 @@ function aggregateStats(
 		const allMods = [...idol.prefixes, ...idol.suffixes];
 		const contribution: IdolContribution = {
 			baseType: idol.baseType,
-			sizeCategory: getIdolSizeCategory(idol.baseType),
 		};
 
 		for (const mod of allMods) {
@@ -291,7 +298,13 @@ function CraftingOptionSection({
 	);
 }
 
-function ScarabsSection({ scarabs }: { scarabs: Scarab[] }) {
+function ScarabsSection({
+	scarabs,
+	locale,
+}: {
+	scarabs: Scarab[];
+	locale: SupportedLocale;
+}) {
 	const t = useTranslations();
 
 	if (scarabs.length === 0) return null;
@@ -325,7 +338,9 @@ function ScarabsSection({ scarabs }: { scarabs: Scarab[] }) {
 								key={scarab.id}
 								className="text-secondary-foreground text-sm"
 							>
-								{highlightNumbers(scarab.effect)}
+								{highlightNumbers(
+									getScarabEffect(scarab, locale),
+								)}
 							</div>
 						))}
 					</div>
@@ -354,6 +369,7 @@ export function StatsSummary({
 	mapDevice,
 }: StatsSummaryProps) {
 	const t = useTranslations();
+	const locale = useLocale();
 	const { getPrice } = useScarabPrices();
 
 	const statsByMechanic = useMemo(
@@ -443,7 +459,10 @@ export function StatsSummary({
 							<CraftingOptionSection
 								craftingOption={selectedCraftingOption}
 							/>
-							<ScarabsSection scarabs={selectedScarabs} />
+							<ScarabsSection
+								scarabs={selectedScarabs}
+								locale={locale}
+							/>
 						</div>
 					</ScrollArea>
 				)}

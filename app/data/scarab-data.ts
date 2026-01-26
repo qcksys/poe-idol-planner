@@ -1,4 +1,5 @@
 import scarabsJson from "~/data/scarabs.json";
+import { DEFAULT_LOCALE, type SupportedLocale } from "~/i18n/types";
 import type { Scarab, ScarabsData } from "~/schemas/scarab";
 
 const scarabsData = scarabsJson as ScarabsData;
@@ -20,12 +21,29 @@ export function getScarabsByCategory(category: string): Scarab[] {
 	return SCARABS.filter((s) => s.category === category);
 }
 
-export function searchScarabs(query: string): Scarab[] {
+export function getScarabName(
+	scarab: Scarab,
+	locale: SupportedLocale = DEFAULT_LOCALE,
+): string {
+	return scarab.name[locale] ?? scarab.name.en;
+}
+
+export function getScarabEffect(
+	scarab: Scarab,
+	locale: SupportedLocale = DEFAULT_LOCALE,
+): string {
+	return scarab.effect[locale] ?? scarab.effect.en;
+}
+
+export function searchScarabs(
+	query: string,
+	locale: SupportedLocale = DEFAULT_LOCALE,
+): Scarab[] {
 	const lowerQuery = query.toLowerCase();
 	return SCARABS.filter(
 		(s) =>
-			s.name.toLowerCase().includes(lowerQuery) ||
-			s.effect.toLowerCase().includes(lowerQuery) ||
+			getScarabName(s, locale).toLowerCase().includes(lowerQuery) ||
+			getScarabEffect(s, locale).toLowerCase().includes(lowerQuery) ||
 			s.category.toLowerCase().includes(lowerQuery),
 	);
 }

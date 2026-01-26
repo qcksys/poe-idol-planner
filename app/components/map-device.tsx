@@ -27,12 +27,15 @@ import {
 } from "~/data/map-crafting-options";
 import {
 	getScarabById,
+	getScarabEffect,
+	getScarabName,
 	getScarabsByCategory,
 	SCARAB_CATEGORIES,
 	SCARABS,
 } from "~/data/scarab-data";
 import { useScarabPrices } from "~/hooks/use-scarab-prices";
-import { useTranslations } from "~/i18n";
+import { useLocale, useTranslations } from "~/i18n";
+import type { SupportedLocale } from "~/i18n/types";
 import { cn } from "~/lib/utils";
 import {
 	HORNED_SCARAB_OF_AWAKENING_ID,
@@ -70,6 +73,7 @@ interface ScarabSlotProps {
 	onCategoryFilterChange: (category: string | null) => void;
 	getPrice: (scarabId: string) => number | null;
 	showPriceBelow?: boolean;
+	locale: SupportedLocale;
 }
 
 function ScarabSlot({
@@ -81,6 +85,7 @@ function ScarabSlot({
 	onCategoryFilterChange,
 	getPrice,
 	showPriceBelow = true,
+	locale,
 }: ScarabSlotProps) {
 	const t = useTranslations();
 	const [open, setOpen] = useState(false);
@@ -142,23 +147,23 @@ function ScarabSlot({
 								>
 									{scarab ? (
 										<>
-											<img
-												src={scarab.image}
-												alt={scarab.name}
-												className="h-12 w-12 object-contain"
-												onError={(e) => {
-													// Fallback to CDN if local image fails
-													const img =
-														e.target as HTMLImageElement;
-													if (
-														!img.src.includes(
-															"cdn.poedb.tw",
-														)
-													) {
-														img.src = `https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/${scarab.id}.webp`;
-													}
-												}}
-											/>
+											{scarab.image ? (
+												<img
+													src={scarab.image}
+													alt={getScarabName(
+														scarab,
+														locale,
+													)}
+													className="h-12 w-12 object-contain"
+												/>
+											) : (
+												<div className="flex h-12 w-12 items-center justify-center text-muted-foreground text-xs">
+													{getScarabName(
+														scarab,
+														locale,
+													).slice(0, 2)}
+												</div>
+											)}
 											<Tooltip>
 												<TooltipTrigger asChild>
 													<Button
@@ -191,7 +196,9 @@ function ScarabSlot({
 							>
 								<div className="space-y-1">
 									<div className="flex items-center gap-2 font-semibold">
-										<span>{scarab.name}</span>
+										<span>
+											{getScarabName(scarab, locale)}
+										</span>
 										{formattedSlotPrice && (
 											<span className="text-yellow-600 dark:text-yellow-400">
 												{formattedSlotPrice}c
@@ -199,7 +206,7 @@ function ScarabSlot({
 										)}
 									</div>
 									<div className="text-muted-foreground text-sm">
-										{scarab.effect}
+										{getScarabEffect(scarab, locale)}
 									</div>
 									<div className="text-muted-foreground text-xs">
 										Limit: {scarab.limit}
@@ -269,10 +276,16 @@ function ScarabSlot({
 											const price = getPrice(s.id);
 											const formattedPrice =
 												formatChaosPrice(price);
+											const scarabName = getScarabName(
+												s,
+												locale,
+											);
+											const scarabEffect =
+												getScarabEffect(s, locale);
 											return (
 												<CommandItem
 													key={s.id}
-													value={`${s.name} ${s.effect} ${s.category}`}
+													value={`${scarabName} ${scarabEffect} ${s.category}`}
 													onSelect={() => {
 														onSelect(
 															isCurrentSlot
@@ -290,15 +303,21 @@ function ScarabSlot({
 																: "opacity-0",
 														)}
 													/>
-													<img
-														src={s.image}
-														alt=""
-														className="mr-2 h-6 w-6 object-contain"
-													/>
+													{s.image ? (
+														<img
+															src={s.image}
+															alt=""
+															className="mr-2 h-6 w-6 object-contain"
+														/>
+													) : (
+														<div className="mr-2 flex h-6 w-6 items-center justify-center bg-muted text-muted-foreground text-xs">
+															?
+														</div>
+													)}
 													<div className="flex min-w-0 flex-1 flex-col">
 														<div className="flex items-center gap-2">
 															<span className="text-sm">
-																{s.name}
+																{scarabName}
 															</span>
 															{formattedPrice && (
 																<span className="text-xs text-yellow-600 dark:text-yellow-400">
@@ -316,7 +335,7 @@ function ScarabSlot({
 															)}
 														</div>
 														<span className="line-clamp-1 text-muted-foreground text-xs">
-															{s.effect}
+															{scarabEffect}
 														</span>
 													</div>
 												</CommandItem>
@@ -501,6 +520,7 @@ export function MapDeviceComponent({
 	onCraftingOptionChange,
 }: MapDeviceProps) {
 	const t = useTranslations();
+	const locale = useLocale();
 	const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
 	const { getPrice } = useScarabPrices();
 
@@ -559,6 +579,7 @@ export function MapDeviceComponent({
 							categoryFilter={categoryFilter}
 							onCategoryFilterChange={setCategoryFilter}
 							getPrice={getPrice}
+							locale={locale}
 						/>
 					))}
 				</div>

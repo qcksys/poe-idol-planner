@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import { useCallback, useMemo } from "react";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
+import { getAllUnlockIds } from "~/data/map-device-unlocks";
 import type { IdolInstance } from "~/schemas/idol";
 import type { GridTab, IdolPlacement, IdolSet } from "~/schemas/idol-set";
 import type { ImportSource, InventoryIdol } from "~/schemas/inventory";
@@ -45,6 +46,8 @@ export interface UseIdolSetsReturn {
 	// Map device operations
 	updateMapDeviceSlot: (slotIndex: number, scarabId: string | null) => void;
 	updateMapDeviceCraftingOption: (optionId: string | null) => void;
+	// Unlock operations
+	updateUnlockedConditions: (conditions: string[]) => void;
 	// Inventory operations for active set
 	addIdol: (idol: IdolInstance, source: ImportSource) => string | null;
 	addIdols: (idols: IdolInstance[], source: ImportSource) => string[];
@@ -152,6 +155,7 @@ export function useIdolSets(
 				activeTab: "tab1",
 				inventory: [],
 				mapDevice: createEmptyMapDevice(),
+				unlockedConditions: getAllUnlockIds(),
 				createdAt: Date.now(),
 				updatedAt: Date.now(),
 			};
@@ -450,6 +454,25 @@ export function useIdolSets(
 		[activeSet, setSets],
 	);
 
+	const updateUnlockedConditions = useCallback(
+		(conditions: string[]) => {
+			if (!activeSet) return;
+
+			setSets((prev) =>
+				prev.map((s) =>
+					s.id === activeSet.id
+						? {
+								...s,
+								unlockedConditions: conditions,
+								updatedAt: Date.now(),
+							}
+						: s,
+				),
+			);
+		},
+		[activeSet, setSets],
+	);
+
 	// Inventory operations for active set
 	const addIdol = useCallback(
 		(idol: IdolInstance, source: ImportSource): string | null => {
@@ -650,6 +673,7 @@ export function useIdolSets(
 			canPlaceIdol,
 			updateMapDeviceSlot,
 			updateMapDeviceCraftingOption,
+			updateUnlockedConditions,
 			addIdol,
 			addIdols,
 			updateIdol,
@@ -675,6 +699,7 @@ export function useIdolSets(
 			canPlaceIdol,
 			updateMapDeviceSlot,
 			updateMapDeviceCraftingOption,
+			updateUnlockedConditions,
 			addIdol,
 			addIdols,
 			updateIdol,

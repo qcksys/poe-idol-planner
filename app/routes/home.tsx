@@ -5,6 +5,7 @@ import { IdolGrid } from "~/components/idol-grid";
 import { ImportModal } from "~/components/import-modal";
 import { InventoryPanel } from "~/components/inventory-panel";
 import { MapDeviceComponent } from "~/components/map-device";
+import { MapDeviceUnlocks } from "~/components/map-device-unlocks";
 import { SetTabs } from "~/components/set-tabs";
 import { ShareModal } from "~/components/share-modal";
 import { StatsSummary } from "~/components/stats-summary";
@@ -98,7 +99,7 @@ function HomeContent() {
 					onDeleteSet={sets.deleteSet}
 				/>
 
-				<div className="mt-4 grid gap-4 lg:grid-cols-[400px_1fr_300px]">
+				<div className="mt-4 grid gap-4 lg:grid-cols-[400px_1fr_350px]">
 					<aside className="h-[calc(100vh-180px)]">
 						<InventoryPanel
 							inventory={inventory}
@@ -117,10 +118,24 @@ function HomeContent() {
 					<section className="flex flex-col items-center gap-4">
 						{activeSet && (
 							<>
+								<div className="flex w-full items-center justify-between px-2">
+									<div />
+									<MapDeviceUnlocks
+										unlockedConditions={
+											activeSet.unlockedConditions
+										}
+										onUnlockedConditionsChange={
+											sets.updateUnlockedConditions
+										}
+									/>
+								</div>
 								<IdolGrid
 									placements={activeSet.placements}
 									inventory={inventory}
 									activeTab={activeSet.activeTab}
+									unlockedConditions={
+										activeSet.unlockedConditions
+									}
 									onTabChange={(tab) =>
 										sets.setActiveTab(activeSet.id, tab)
 									}

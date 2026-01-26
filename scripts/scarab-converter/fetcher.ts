@@ -1,6 +1,8 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import ky from "ky";
+import type { Locale } from "./types.ts";
+import { POEDB_LOCALE_MAP } from "./types.ts";
 
 const CACHE_DIR = path.join(import.meta.dirname, ".cache");
 const IMAGE_DIR = path.join(import.meta.dirname, "../../public/images/scarabs");
@@ -19,23 +21,23 @@ async function rateLimit(): Promise<void> {
 	lastFetchTime = Date.now();
 }
 
-function getCachePath(page: string): string {
-	return path.join(CACHE_DIR, `${page}.html`);
+function getCachePath(locale: Locale): string {
+	return path.join(CACHE_DIR, `${locale}-Scarab.html`);
 }
 
-function readCache(page: string): string | null {
-	const cachePath = getCachePath(page);
+function readCache(locale: Locale): string | null {
+	const cachePath = getCachePath(locale);
 	if (fs.existsSync(cachePath)) {
 		return fs.readFileSync(cachePath, "utf-8");
 	}
 	return null;
 }
 
-function writeCache(page: string, content: string): void {
+function writeCache(locale: Locale, content: string): void {
 	if (!fs.existsSync(CACHE_DIR)) {
 		fs.mkdirSync(CACHE_DIR, { recursive: true });
 	}
-	const cachePath = getCachePath(page);
+	const cachePath = getCachePath(locale);
 	fs.writeFileSync(cachePath, content, "utf-8");
 }
 
@@ -54,23 +56,26 @@ const client = ky.create({
 	timeout: 30000,
 });
 
-export async function fetchScarabPage(useCache: boolean): Promise<string> {
-	const page = "Scarab";
+export async function fetchScarabPage(
+	locale: Locale,
+	useCache: boolean,
+): Promise<string> {
 	if (useCache) {
-		const cached = readCache(page);
+		const cached = readCache(locale);
 		if (cached) {
-			console.log(`  [cache hit] ${page}`);
+			console.log(`  [cache hit] ${locale}/Scarab`);
 			return cached;
 		}
 	}
 
-	const url = "https://poedb.tw/us/Scarab";
+	const poedbLocale = POEDB_LOCALE_MAP[locale];
+	const url = `https://poedb.tw/${poedbLocale}/Scarab`;
 
 	await rateLimit();
 	console.log(`  [fetching] ${url}`);
 
 	const html = await client.get(url).text();
-	writeCache(page, html);
+	writeCache(locale, html);
 
 	return html;
 }
