@@ -293,7 +293,7 @@
 			"name": "Ambush Scarab of Discernment",
 			"effect": "Strongboxes in Area are more likely to be rarer varieties",
 			"category": "ambush",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/AltTier4ScarabStrongboxes.webp",
+			"image": "/images/scarabs/ambush_scarab_of_discernment.webp",
 			"limit": 1
 		},
 		{
@@ -301,7 +301,7 @@
 			"name": "Harbinger Scarab",
 			"effect": "Area contains 3 additional Harbingers",
 			"category": "harbinger",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabHarbingers.webp",
+			"image": "/images/scarabs/harbinger_scarab.webp",
 			"limit": 4
 		},
 		{
@@ -317,7 +317,7 @@
 			"name": "Harbinger Scarab of Regency",
 			"effect": "Harbingers in Area have a 50% chance to be replaced by a powerful Harbinger Boss",
 			"category": "harbinger",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabHarbingers.webp",
+			"image": "/images/scarabs/harbinger_scarab_of_regency.webp",
 			"limit": 1
 		},
 		{
@@ -325,7 +325,7 @@
 			"name": "Harbinger Scarab of Warhoards",
 			"effect": "Currency shards dropped by Harbingers in Area are duplicated",
 			"category": "harbinger",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabHarbingers.webp",
+			"image": "/images/scarabs/harbinger_scarab_of_warhoards.webp",
 			"limit": 1
 		},
 		{
@@ -333,7 +333,7 @@
 			"name": "Expedition Scarab",
 			"effect": "Area contains an Expedition Encounter",
 			"category": "expedition",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabExpedition.webp",
+			"image": "/images/scarabs/expedition_scarab.webp",
 			"limit": 1
 		},
 		{
@@ -341,7 +341,7 @@
 			"name": "Expedition Scarab of Runefinding",
 			"effect": "Expedition Encounters in Area have 100% increased number of Runic Monster Markers",
 			"category": "expedition",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/NormalScarabExpedition.webp",
+			"image": "/images/scarabs/expedition_scarab_of_runefinding.webp",
 			"limit": 2
 		},
 		{
@@ -349,7 +349,7 @@
 			"name": "Expedition Scarab of Verisium Powder",
 			"effect": "Expedition Encounters in Area have 50% increased number of Explosives 80% increased Explosive Radius",
 			"category": "expedition",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabExpedition.webp",
+			"image": "/images/scarabs/expedition_scarab_of_verisium_powder.webp",
 			"limit": 1
 		},
 		{
@@ -357,7 +357,7 @@
 			"name": "Expedition Scarab of the Skald",
 			"effect": "Expedition Encounters in Area are lead by Dannig",
 			"category": "expedition",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/AltGreaterScarabExpedition.webp",
+			"image": "/images/scarabs/expedition_scarab_of_the_skald.webp",
 			"limit": 1
 		},
 		{
@@ -365,7 +365,7 @@
 			"name": "Expedition Scarab of Archaeology",
 			"effect": "Remnants in Expedition Encounters in Area have 2 additional Suffixes and Prefixes",
 			"category": "expedition",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabExpedition.webp",
+			"image": "/images/scarabs/expedition_scarab_of_archaeology.webp",
 			"limit": 1
 		},
 		{
@@ -373,7 +373,7 @@
 			"name": "Legion Scarab",
 			"effect": "Area contains an additional Legion Encounter",
 			"category": "legion",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabLegion.webp",
+			"image": "/images/scarabs/legion_scarab.webp",
 			"limit": 5
 		},
 		{
@@ -381,7 +381,7 @@
 			"name": "Legion Scarab of Officers",
 			"effect": "Legion Factions in Area have 5 additional Sergeants",
 			"category": "legion",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/NormalScarabLegion.webp",
+			"image": "/images/scarabs/legion_scarab_of_officers.webp",
 			"limit": 1
 		},
 		{
@@ -389,7 +389,7 @@
 			"name": "Legion Scarab of Command",
 			"effect": "Legion Factions in Area are accompanied by a General",
 			"category": "legion",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/AltNormalScarabLegion.webp",
+			"image": "/images/scarabs/legion_scarab_of_command.webp",
 			"limit": 1
 		},
 		{
@@ -397,7 +397,7 @@
 			"name": "Legion Scarab of The Sekhema",
 			"effect": "Legion Encounters in Area always contain the Maraketh Faction",
 			"category": "legion",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabLegion.webp",
+			"image": "/images/scarabs/legion_scarab_of_the_sekhema.webp",
 			"limit": 1
 		},
 		{
@@ -405,7 +405,7 @@
 			"name": "Legion Scarab of Eternal Conflict",
 			"effect": "Legion Monsters in Area can be broken out of Stasis multiple times Legion Monsters in Area gain increased Difficulty and Reward for each time they are broken out",
 			"category": "legion",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabLegion.webp",
+			"image": "/images/scarabs/legion_scarab_of_eternal_conflict.webp",
 			"limit": 1
 		},
 		{
@@ -437,7 +437,7 @@
 			"name": "Abyss Scarab of Emptiness",
 			"effect": "Rare Abyss Monsters in Area have a 50% chance to drop an additional Rare item with an Abyssal socket",
 			"category": "abyss",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/AltNormalScarabAbyss.webp",
+			"image": "/images/scarabs/abyss_scarab_of_emptiness.webp",
 			"limit": 1
 		},
 		{
@@ -445,7 +445,7 @@
 			"name": "Abyss Scarab of Profound Depth",
 			"effect": "Monsters from Abysses in Areas have increased Difficulty and Reward for each prior Pit in that Abyss",
 			"category": "abyss",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/AltTier4ScarabAbyss.webp",
+			"image": "/images/scarabs/abyss_scarab_of_profound_depth.webp",
 			"limit": 1
 		},
 		{
@@ -453,7 +453,7 @@
 			"name": "Anarchy Scarab",
 			"effect": "Area contains 4 additional Rogue Exiles",
 			"category": "anarchy",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabAnarchy.webp",
+			"image": "/images/scarabs/anarchy_scarab.webp",
 			"limit": 5
 		},
 		{
@@ -461,7 +461,7 @@
 			"name": "Anarchy Scarab of Gigantification",
 			"effect": "Wild Rogue Exiles in Area have a 30% chance to be replaced with a Rogue Giant",
 			"category": "anarchy",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/NormalScarabAnarchy.webp",
+			"image": "/images/scarabs/anarchy_scarab_of_gigantification.webp",
 			"limit": 2
 		},
 		{
@@ -469,7 +469,7 @@
 			"name": "Anarchy Scarab of Partnership",
 			"effect": "Wild Rogue Exiles in Area have a 50% chance to appear in pairs",
 			"category": "anarchy",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabAnarchy.webp",
+			"image": "/images/scarabs/anarchy_scarab_of_partnership.webp",
 			"limit": 1
 		},
 		{
@@ -477,7 +477,7 @@
 			"name": "Essence Scarab",
 			"effect": "Area contains 2 additional Imprisoned Monsters",
 			"category": "essence",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabEssence.webp",
+			"image": "/images/scarabs/essence_scarab.webp",
 			"limit": 5
 		},
 		{
@@ -485,7 +485,7 @@
 			"name": "Essence Scarab of Ascent",
 			"effect": "Essences found in Area are a tier higher",
 			"category": "essence",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/NormalScarabEssence.webp",
+			"image": "/images/scarabs/essence_scarab_of_ascent.webp",
 			"limit": 1
 		},
 		{
@@ -493,7 +493,7 @@
 			"name": "Essence Scarab of Stability",
 			"effect": "Corrupting an Essence in Area can only result in upgrading or transforming Essences",
 			"category": "essence",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabEssence.webp",
+			"image": "/images/scarabs/essence_scarab_of_stability.webp",
 			"limit": 1
 		},
 		{
@@ -501,7 +501,7 @@
 			"name": "Essence Scarab of Calcification",
 			"effect": "Rare monsters that are natural inhabitants of the Area are imprisoned by Essences",
 			"category": "essence",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabEssence.webp",
+			"image": "/images/scarabs/essence_scarab_of_calcification.webp",
 			"limit": 1
 		},
 		{
@@ -509,7 +509,7 @@
 			"name": "Essence Scarab of Adaptation",
 			"effect": "Imprisoned Monsters released in Areas grant a random Essence Modifier to another Imprisoned Monster in the Area Imprisoned Monsters in Areas have increased Difficulty and Reward for each Essence Modifier",
 			"category": "essence",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/AltTier4ScarabEssence.webp",
+			"image": "/images/scarabs/essence_scarab_of_adaptation.webp",
 			"limit": 1
 		},
 		{
@@ -517,7 +517,7 @@
 			"name": "Domination Scarab",
 			"effect": "Area contains 2 additional Shrines",
 			"category": "domination",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabDomination.webp",
+			"image": "/images/scarabs/domination_scarab.webp",
 			"limit": 4
 		},
 		{
@@ -525,7 +525,7 @@
 			"name": "Domination Scarab of Apparitions",
 			"effect": "Area contains 2 additional Apparition Shrines",
 			"category": "domination",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/NormalScarabDomination.webp",
+			"image": "/images/scarabs/domination_scarab_of_apparitions.webp",
 			"limit": 1
 		},
 		{
@@ -533,7 +533,7 @@
 			"name": "Domination Scarab of Evolution",
 			"effect": "Area contains an additional Evolving Shrine",
 			"category": "domination",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabDomination.webp",
+			"image": "/images/scarabs/domination_scarab_of_evolution.webp",
 			"limit": 2
 		},
 		{
@@ -541,7 +541,7 @@
 			"name": "Domination Scarab of Terrors",
 			"effect": "Shrines in Area are guarded by an Atlas Boss Modifiers to the Final Map Boss also apply to these Atlas Bosses",
 			"category": "domination",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabDomination.webp",
+			"image": "/images/scarabs/domination_scarab_of_terrors.webp",
 			"limit": 1
 		},
 		{
@@ -549,7 +549,7 @@
 			"name": "Ritual Scarab of Selectiveness",
 			"effect": "Rerolling Favours at Ritual Altars in Area has no cost the first 2 times Ritual Altars in Area allow rerolling Favours 1 additional time",
 			"category": "ritual",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabRitual.webp",
+			"image": "/images/scarabs/ritual_scarab_of_selectiveness.webp",
 			"limit": 2
 		},
 		{
@@ -565,7 +565,7 @@
 			"name": "Ritual Scarab of Abundance",
 			"effect": "Rituals in Area offer 100% increased Favours",
 			"category": "ritual",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabRitual.webp",
+			"image": "/images/scarabs/ritual_scarab_of_abundance.webp",
 			"limit": 2
 		},
 		{
@@ -573,7 +573,7 @@
 			"name": "Harvest Scarab",
 			"effect": "Area contains the Sacred Grove",
 			"category": "harvest",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabHarvest.webp",
+			"image": "/images/scarabs/harvest_scarab.webp",
 			"limit": 1
 		},
 		{
@@ -581,7 +581,7 @@
 			"name": "Harvest Scarab of Doubling",
 			"effect": "Lifeforce dropped by Harvest Monsters in Area is duplicated Harvest Monsters in Area have 100% more Life",
 			"category": "harvest",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabHarvest.webp",
+			"image": "/images/scarabs/harvest_scarab_of_doubling.webp",
 			"limit": 1
 		},
 		{
@@ -589,7 +589,7 @@
 			"name": "Harvest Scarab of Cornucopia",
 			"effect": "If Area contains the Sacred Grove, it will contain up to 1 additional Tier 4 seed of each type, if possible",
 			"category": "harvest",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabHarvest.webp",
+			"image": "/images/scarabs/harvest_scarab_of_cornucopia.webp",
 			"limit": 1
 		},
 		{
@@ -597,7 +597,7 @@
 			"name": "Incursion Scarab",
 			"effect": "Area contains Alva",
 			"category": "incursion",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabIncursion.webp",
+			"image": "/images/scarabs/incursion_scarab.webp",
 			"limit": 1
 		},
 		{
@@ -605,7 +605,7 @@
 			"name": "Incursion Scarab of Invasion",
 			"effect": "Area contains 12 to 16 additional packs of Incursion Monsters",
 			"category": "incursion",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/NormalScarabIncursion.webp",
+			"image": "/images/scarabs/incursion_scarab_of_invasion.webp",
 			"limit": 3
 		},
 		{
@@ -613,7 +613,7 @@
 			"name": "Incursion Scarab of Champions",
 			"effect": "Incursions in Area have a 35% chance for all Monsters to be at least Magic Incursions in Area have 15% increased Pack Size",
 			"category": "incursion",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabIncursion.webp",
+			"image": "/images/scarabs/incursion_scarab_of_champions.webp",
 			"limit": 2
 		},
 		{
@@ -621,7 +621,7 @@
 			"name": "Incursion Scarab of Timelines",
 			"effect": "Final Architect slain in Area will drop an Itemised Temple Itemised Temples dropped in Area are generated based on current Temple layout, but with randomised room tiers",
 			"category": "incursion",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabIncursion.webp",
+			"image": "/images/scarabs/incursion_scarab_of_timelines.webp",
 			"limit": 1
 		},
 		{
@@ -629,7 +629,7 @@
 			"name": "Betrayal Scarab",
 			"effect": "Area contains Jun",
 			"category": "betrayal",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabBetrayal.webp",
+			"image": "/images/scarabs/betrayal_scarab.webp",
 			"limit": 1
 		},
 		{
@@ -637,7 +637,7 @@
 			"name": "Betrayal Scarab of the Allflame",
 			"effect": "75% Increased number of Monster Packs Substituted by Allflame Embers in Area",
 			"category": "betrayal",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/NormalScarabBetrayal.webp",
+			"image": "/images/scarabs/betrayal_scarab_of_the_allflame.webp",
 			"limit": 1
 		},
 		{
@@ -645,7 +645,7 @@
 			"name": "Betrayal Scarab of Reinforcements",
 			"effect": "Immortal Syndicate Members in Area have 50% increased chance to be accompanied by reinforcements",
 			"category": "betrayal",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabBetrayal.webp",
+			"image": "/images/scarabs/betrayal_scarab_of_reinforcements.webp",
 			"limit": 1
 		},
 		{
@@ -653,7 +653,7 @@
 			"name": "Betrayal Scarab of Perpetuation",
 			"effect": "Defeated Immortal Syndicate targets in Area have a 50% chance to drop an additional Scarab",
 			"category": "betrayal",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabBetrayal.webp",
+			"image": "/images/scarabs/betrayal_scarab_of_perpetuation.webp",
 			"limit": 2
 		},
 		{
@@ -661,7 +661,7 @@
 			"name": "Beyond Scarab",
 			"effect": "Slaying enemies close together in Area can attract monsters from Beyond this realm",
 			"category": "beyond",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabBeyond.webp",
+			"image": "/images/scarabs/beyond_scarab.webp",
 			"limit": 1
 		},
 		{
@@ -669,7 +669,7 @@
 			"name": "Beyond Scarab of Corruption",
 			"effect": "Items dropped by Beyond Demons in Area are Corrupted",
 			"category": "beyond",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabBeyond.webp",
+			"image": "/images/scarabs/beyond_scarab_of_corruption.webp",
 			"limit": 1
 		},
 		{
@@ -677,7 +677,7 @@
 			"name": "Beyond Scarab of Haemophilia",
 			"effect": "Beyond Portals in Area have 50% increased Merging Radius Characters that Kill Beyond Rare Monsters in Area have a 30% chance to gain their Modifiers for 20 seconds",
 			"category": "beyond",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/NormalScarabBeyond.webp",
+			"image": "/images/scarabs/beyond_scarab_of_haemophilia.webp",
 			"limit": 2
 		},
 		{
@@ -693,7 +693,7 @@
 			"name": "Beyond Scarab of the Invasion",
 			"effect": "Rare and Unique Monsters slain in Area create 8 to 12 additional Beyond Portals",
 			"category": "beyond",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabBeyond.webp",
+			"image": "/images/scarabs/beyond_scarab_of_the_invasion.webp",
 			"limit": 1
 		},
 		{
@@ -701,7 +701,7 @@
 			"name": "Ultimatum Scarab",
 			"effect": "Area contains an Ultimatum Encounter",
 			"category": "ultimatum",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabUltimatum.webp",
+			"image": "/images/scarabs/ultimatum_scarab.webp",
 			"limit": 1
 		},
 		{
@@ -709,7 +709,7 @@
 			"name": "Ultimatum Scarab of Bribing",
 			"effect": "Ultimatum Monsters grant 150% increased Experience Ultimatum Encounters grant rewards as though you completed 2 additional Rounds",
 			"category": "ultimatum",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/NormalScarabUltimatum.webp",
+			"image": "/images/scarabs/ultimatum_scarab_of_bribing.webp",
 			"limit": 2
 		},
 		{
@@ -717,7 +717,7 @@
 			"name": "Ultimatum Scarab of Dueling",
 			"effect": "Ultimatum Encounters in Area will always lead to a Unique Boss if possible",
 			"category": "ultimatum",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabUltimatum.webp",
+			"image": "/images/scarabs/ultimatum_scarab_of_dueling.webp",
 			"limit": 1
 		},
 		{
@@ -725,7 +725,7 @@
 			"name": "Ultimatum Scarab of Catalysing",
 			"effect": "Ultimatum Encounters in Area will only offer Catalysts as Rewards to the Map Owner",
 			"category": "ultimatum",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabUltimatum.webp",
+			"image": "/images/scarabs/ultimatum_scarab_of_catalysing.webp",
 			"limit": 1
 		},
 		{
@@ -733,7 +733,7 @@
 			"name": "Ultimatum Scarab of Inscription",
 			"effect": "Ultimatum Encounter rewards in Area offering Catalysts will offer Inscribed Ultimatums to the Map Owner instead",
 			"category": "ultimatum",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/AltTier4ScarabUltimatum.webp",
+			"image": "/images/scarabs/ultimatum_scarab_of_inscription.webp",
 			"limit": 1
 		},
 		{
@@ -741,7 +741,7 @@
 			"name": "Delirium Scarab",
 			"effect": "Area contains a Mirror of Delirium",
 			"category": "delirium",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabDelirium.webp",
+			"image": "/images/scarabs/delirium_scarab.webp",
 			"limit": 1
 		},
 		{
@@ -749,7 +749,7 @@
 			"name": "Delirium Scarab of Mania",
 			"effect": "Delirium Reward Meters fill 100% faster in Area Delirium in Area increases 50% faster with distance from the mirror",
 			"category": "delirium",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/NormalScarabDelirium.webp",
+			"image": "/images/scarabs/delirium_scarab_of_mania.webp",
 			"limit": 2
 		},
 		{
@@ -757,7 +757,7 @@
 			"name": "Delirium Scarab of Paranoia",
 			"effect": "Delirium Encounters in Area generate 2 additional Reward types",
 			"category": "delirium",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabDelirium.webp",
+			"image": "/images/scarabs/delirium_scarab_of_paranoia.webp",
 			"limit": 5
 		},
 		{
@@ -765,7 +765,7 @@
 			"name": "Delirium Scarab of Neuroses",
 			"effect": "Delirium Encounters in Area contain all Unique Delirium Bosses Can only be used with Tier 11+ Maps",
 			"category": "delirium",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/AltGreaterScarabDelirium.webp",
+			"image": "/images/scarabs/delirium_scarab_of_neuroses.webp",
 			"limit": 1
 		},
 		{
@@ -773,7 +773,7 @@
 			"name": "Delirium Scarab of Delusions",
 			"effect": "Maps found in Area have layers of Delirium",
 			"category": "delirium",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabDelirium.webp",
+			"image": "/images/scarabs/delirium_scarab_of_delusions.webp",
 			"limit": 1
 		},
 		{
@@ -781,7 +781,7 @@
 			"name": "Blight Scarab",
 			"effect": "Area contains a Blight Encounter",
 			"category": "blight",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabBlight.webp",
+			"image": "/images/scarabs/blight_scarab.webp",
 			"limit": 1
 		},
 		{
@@ -789,7 +789,7 @@
 			"name": "Blight Scarab of Bounty",
 			"effect": "Blight Chests in Area have a 20% chance to be openable again",
 			"category": "blight",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/NormalScarabBlight.webp",
+			"image": "/images/scarabs/blight_scarab_of_bounty.webp",
 			"limit": 2
 		},
 		{
@@ -805,7 +805,7 @@
 			"name": "Blight Scarab of Blooming",
 			"effect": "Blight Encounters in Area have up to 3 additional Unique Bosses Unique enemies in Blight Encounters have 100% increased life Tier 14+ Blighted Maps found in Area drop as Blight-Ravaged Maps instead",
 			"category": "blight",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabBlight.webp",
+			"image": "/images/scarabs/blight_scarab_of_blooming.webp",
 			"limit": 1
 		},
 		{
@@ -813,7 +813,7 @@
 			"name": "Blight Scarab of Invigoration",
 			"effect": "Each Empowering Tower in Areas grants Blighted Monsters in range increased Difficulty and Reward",
 			"category": "blight",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/AltTier4ScarabBlight.webp",
+			"image": "/images/scarabs/blight_scarab_of_invigoration.webp",
 			"limit": 1
 		},
 		{
@@ -821,7 +821,7 @@
 			"name": "Kalguuran Scarab",
 			"effect": "Area contains an additional Ore Deposit",
 			"category": "kalguuran",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabSettlers.webp",
+			"image": "/images/scarabs/kalguuran_scarab.webp",
 			"limit": 2
 		},
 		{
@@ -829,7 +829,7 @@
 			"name": "Kalguuran Scarab of Guarded Riches",
 			"effect": "Monsters guarding Ore Deposits in Area are at least Magic",
 			"category": "kalguuran",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/NormalScarabSettlers.webp",
+			"image": "/images/scarabs/kalguuran_scarab_of_guarded_riches.webp",
 			"limit": 1
 		},
 		{
@@ -837,7 +837,7 @@
 			"name": "Kalguuran Scarab of Refinement",
 			"effect": "Ore Deposits in Area grant Smelted Bars instead of Marking Ore",
 			"category": "kalguuran",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabSettlers.webp",
+			"image": "/images/scarabs/kalguuran_scarab_of_refinement.webp",
 			"limit": 1
 		},
 		{
@@ -845,7 +845,7 @@
 			"name": "Scarab of Monstrous Lineage",
 			"effect": "40% increased Magic Pack Size",
 			"category": "other",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabMisc.webp",
+			"image": "/images/scarabs/scarab_of_monstrous_lineage.webp",
 			"limit": 2
 		},
 		{
@@ -853,7 +853,7 @@
 			"name": "Scarab of Adversaries",
 			"effect": "Area contains 4 additional Packs with Mirrored Rare Monsters",
 			"category": "other",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/AltLesserScarabMisc.webp",
+			"image": "/images/scarabs/scarab_of_adversaries.webp",
 			"limit": 2
 		},
 		{
@@ -869,7 +869,7 @@
 			"name": "Scarab of Hunted Traitors",
 			"effect": "Area contains Hunted Traitors",
 			"category": "other",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabMisc.webp",
+			"image": "/images/scarabs/scarab_of_hunted_traitors.webp",
 			"limit": 1
 		},
 		{
@@ -877,7 +877,7 @@
 			"name": "Scarab of Stability",
 			"effect": "Portals to Area have a 50% chance to not be consumed on use",
 			"category": "other",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabMisc.webp",
+			"image": "/images/scarabs/scarab_of_stability.webp",
 			"limit": 1
 		},
 		{
@@ -885,7 +885,7 @@
 			"name": "Scarab of the Commander",
 			"effect": "Grants an additional Kirac Mission on Map Completion",
 			"category": "other",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabMisc1.webp",
+			"image": "/images/scarabs/scarab_of_the_commander.webp",
 			"limit": 1
 		},
 		{
@@ -893,7 +893,7 @@
 			"name": "Scarab of Evolution",
 			"effect": "10 Monster Packs in Area are upgraded to Magic",
 			"category": "other",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/LesserScarabMisc2.webp",
+			"image": "/images/scarabs/scarab_of_evolution.webp",
 			"limit": 1
 		},
 		{
@@ -901,7 +901,7 @@
 			"name": "Scarab of Wisps",
 			"effect": "Monsters in Area have a chance to be Empowered by 2000 Wildwood Wisps",
 			"category": "other",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabMisc1.webp",
+			"image": "/images/scarabs/scarab_of_wisps.webp",
 			"limit": 2
 		},
 		{
@@ -909,7 +909,7 @@
 			"name": "Scarab of Bisection",
 			"effect": "You can select the Nullify Prefixes or Nullify Suffixes crafting options on the Map Device",
 			"category": "other",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabMisc2.webp",
+			"image": "/images/scarabs/scarab_of_bisection.webp",
 			"limit": 1
 		},
 		{
@@ -917,7 +917,7 @@
 			"name": "Scarab of Unity",
 			"effect": "All Magic Monsters in Area are in a Union of Souls Monsters in Area get 1% more Rarity of items dropped for each Empowered Soul, up to 500%",
 			"category": "other",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/GreaterScarabMisc2.webp",
+			"image": "/images/scarabs/scarab_of_unity.webp",
 			"limit": 1
 		},
 		{
@@ -925,7 +925,7 @@
 			"name": "Scarab of Radiant Storms",
 			"effect": "Area contains a Resplendent Tempest",
 			"category": "other",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/Tier4ScarabMisc2.webp",
+			"image": "/images/scarabs/scarab_of_radiant_storms.webp",
 			"limit": 1
 		},
 		{
@@ -933,7 +933,7 @@
 			"name": "Horned Scarab of Bloodlines",
 			"effect": "Area has 150% increased Magic Monsters Magic Monsters in area have an additional Modifier",
 			"category": "horned",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/SuperScarab1.webp",
+			"image": "/images/scarabs/horned_scarab_of_bloodlines.webp",
 			"limit": 1
 		},
 		{
@@ -941,7 +941,7 @@
 			"name": "Horned Scarab of Nemeses",
 			"effect": "Rare Monsters in Area have 2 additional Modifiers",
 			"category": "horned",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/SuperScarab2.webp",
+			"image": "/images/scarabs/horned_scarab_of_nemeses.webp",
 			"limit": 2
 		},
 		{
@@ -949,7 +949,7 @@
 			"name": "Horned Scarab of Preservation",
 			"effect": "Other Scarabs are not consumed on use",
 			"category": "horned",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/SuperScarab3.webp",
+			"image": "/images/scarabs/horned_scarab_of_preservation.webp",
 			"limit": 1
 		},
 		{
@@ -965,7 +965,7 @@
 			"name": "Horned Scarab of Tradition",
 			"effect": "All Rare and Unique Monsters in Area have dropped items transformed by a Reward Modifier",
 			"category": "horned",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/SuperScarab5.webp",
+			"image": "/images/scarabs/horned_scarab_of_tradition.webp",
 			"limit": 1
 		},
 		{
@@ -973,7 +973,7 @@
 			"name": "Horned Scarab of Glittering",
 			"effect": "Players in Area gain increased Item Rarity for each Monster slain, up to 400%, decaying over time",
 			"category": "horned",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/SuperScarab6.webp",
+			"image": "/images/scarabs/horned_scarab_of_glittering.webp",
 			"limit": 1
 		},
 		{
@@ -981,7 +981,7 @@
 			"name": "Horned Scarab of Pandemonium",
 			"effect": "Monster packs in Area have a 15% chance to be replaced by a random Atlas Boss Modifiers to the Final Map Boss also apply to these Atlas Bosses",
 			"category": "horned",
-			"image": "https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/SuperScarab7.webp",
+			"image": "/images/scarabs/horned_scarab_of_pandemonium.webp",
 			"limit": 1
 		}
 	],
@@ -1014,6 +1014,6 @@
 		"torment",
 		"ultimatum"
 	],
-	"generatedAt": "2026-01-26T07:00:04.878Z",
+	"generatedAt": "2026-01-26T07:46:47.590Z",
 	"version": 1
 }

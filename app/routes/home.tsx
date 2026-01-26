@@ -114,45 +114,47 @@ function HomeContent() {
 						/>
 					</aside>
 
-					<section className="flex items-start justify-center">
+					<section className="flex flex-col items-center gap-4">
 						{activeSet && (
-							<IdolGrid
-								placements={activeSet.placements}
-								inventory={inventory}
-								activeTab={activeSet.activeTab}
-								onTabChange={(tab) =>
-									sets.setActiveTab(activeSet.id, tab)
-								}
-								onPlaceIdol={(inventoryIdolId, x, y, tab) =>
-									sets.placeIdol(
-										inventoryIdolId,
-										{ x, y },
-										tab,
-									)
-								}
-								onMoveIdol={(placementId, x, y, tab) =>
-									sets.moveIdol(placementId, { x, y }, tab)
-								}
-								onRemoveIdol={sets.removeIdolFromSet}
-								onCopyIdol={handleCopyIdol}
-							/>
+							<>
+								<IdolGrid
+									placements={activeSet.placements}
+									inventory={inventory}
+									activeTab={activeSet.activeTab}
+									onTabChange={(tab) =>
+										sets.setActiveTab(activeSet.id, tab)
+									}
+									onPlaceIdol={(inventoryIdolId, x, y, tab) =>
+										sets.placeIdol(
+											inventoryIdolId,
+											{ x, y },
+											tab,
+										)
+									}
+									onMoveIdol={(placementId, x, y, tab) =>
+										sets.moveIdol(
+											placementId,
+											{ x, y },
+											tab,
+										)
+									}
+									onRemoveIdol={sets.removeIdolFromSet}
+									onCopyIdol={handleCopyIdol}
+								/>
+								<MapDeviceComponent
+									mapDevice={activeSet.mapDevice}
+									onSlotChange={sets.updateMapDeviceSlot}
+								/>
+							</>
 						)}
 					</section>
 
-					<aside className="flex h-[calc(100vh-180px)] flex-col gap-4">
-						{activeSet && (
-							<MapDeviceComponent
-								mapDevice={activeSet.mapDevice}
-								onSlotChange={sets.updateMapDeviceSlot}
-							/>
-						)}
-						<div className="min-h-0 flex-1 overflow-hidden">
-							<StatsSummary
-								placements={activeSet?.placements ?? []}
-								inventory={inventory}
-								mapDevice={activeSet?.mapDevice}
-							/>
-						</div>
+					<aside className="h-[calc(100vh-180px)]">
+						<StatsSummary
+							placements={activeSet?.placements ?? []}
+							inventory={inventory}
+							mapDevice={activeSet?.mapDevice}
+						/>
 					</aside>
 				</div>
 			</main>

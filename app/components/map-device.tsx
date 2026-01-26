@@ -40,14 +40,14 @@ interface ScarabSlotProps {
 	slotIndex: number;
 	scarabId: string | null;
 	onSelect: (scarabId: string | null) => void;
-	usedScarabIds: string[];
+	scarabUsageCount: Map<string, number>;
 }
 
 function ScarabSlot({
 	slotIndex,
 	scarabId,
 	onSelect,
-	usedScarabIds,
+	scarabUsageCount,
 }: ScarabSlotProps) {
 	const t = useTranslations();
 	const [open, setOpen] = useState(false);
@@ -60,13 +60,18 @@ function ScarabSlot({
 			? getScarabsByCategory(categoryFilter)
 			: SCARABS;
 
-		// Filter out already used scarabs (unless it's the current one)
-		scarabs = scarabs.filter(
-			(s) => !usedScarabIds.includes(s.id) || s.id === scarabId,
-		);
+		// Filter out scarabs that have reached their limit
+		// (unless it's the current slot's scarab, which can be reselected)
+		scarabs = scarabs.filter((s) => {
+			const currentUsage = scarabUsageCount.get(s.id) ?? 0;
+			// If this slot already has this scarab, don't count it toward the limit
+			const effectiveUsage =
+				s.id === scarabId ? currentUsage - 1 : currentUsage;
+			return effectiveUsage < s.limit;
+		});
 
 		return scarabs;
-	}, [categoryFilter, usedScarabIds, scarabId]);
+	}, [categoryFilter, scarabUsageCount, scarabId]);
 
 	const groupedScarabs = useMemo(() => {
 		const groups: Record<string, Scarab[]> = {};
@@ -203,42 +208,55 @@ function ScarabSlot({
 										category.slice(1)
 									}
 								>
-									{scarabs.map((s) => (
-										<CommandItem
-											key={s.id}
-											value={`${s.name} ${s.effect} ${s.category}`}
-											onSelect={() => {
-												onSelect(
-													s.id === scarabId
-														? null
-														: s.id,
-												);
-												setOpen(false);
-											}}
-										>
-											<Check
-												className={cn(
-													"mr-2 h-4 w-4 shrink-0",
-													scarabId === s.id
-														? "opacity-100"
-														: "opacity-0",
-												)}
-											/>
-											<img
-												src={s.image}
-												alt=""
-												className="mr-2 h-6 w-6 object-contain"
-											/>
-											<div className="flex flex-col">
-												<span className="text-sm">
-													{s.name}
-												</span>
-												<span className="line-clamp-1 text-muted-foreground text-xs">
-													{s.effect}
-												</span>
-											</div>
-										</CommandItem>
-									))}
+									{scarabs.map((s) => {
+										const usage =
+											scarabUsageCount.get(s.id) ?? 0;
+										const isCurrentSlot = s.id === scarabId;
+										return (
+											<CommandItem
+												key={s.id}
+												value={`${s.name} ${s.effect} ${s.category}`}
+												onSelect={() => {
+													onSelect(
+														isCurrentSlot
+															? null
+															: s.id,
+													);
+													setOpen(false);
+												}}
+											>
+												<Check
+													className={cn(
+														"mr-2 h-4 w-4 shrink-0",
+														isCurrentSlot
+															? "opacity-100"
+															: "opacity-0",
+													)}
+												/>
+												<img
+													src={s.image}
+													alt=""
+													className="mr-2 h-6 w-6 object-contain"
+												/>
+												<div className="flex min-w-0 flex-1 flex-col">
+													<div className="flex items-center gap-2">
+														<span className="text-sm">
+															{s.name}
+														</span>
+														{s.limit > 1 && (
+															<span className="text-muted-foreground text-xs">
+																({usage}/
+																{s.limit})
+															</span>
+														)}
+													</div>
+													<span className="line-clamp-1 text-muted-foreground text-xs">
+														{s.effect}
+													</span>
+												</div>
+											</CommandItem>
+										);
+									})}
 								</CommandGroup>
 							),
 						)}
@@ -255,10 +273,15 @@ export function MapDeviceComponent({
 }: MapDeviceProps) {
 	const t = useTranslations();
 
-	const usedScarabIds = useMemo(() => {
-		return mapDevice.slots
-			.map((slot) => slot.scarabId)
-			.filter((id): id is string => id !== null);
+	// Count how many times each scarab is used across all slots
+	const scarabUsageCount = useMemo(() => {
+		const counts = new Map<string, number>();
+		for (const slot of mapDevice.slots) {
+			if (slot.scarabId) {
+				counts.set(slot.scarabId, (counts.get(slot.scarabId) ?? 0) + 1);
+			}
+		}
+		return counts;
 	}, [mapDevice.slots]);
 
 	const selectedScarabs = useMemo(() => {
@@ -291,7 +314,7 @@ export function MapDeviceComponent({
 							onSelect={(scarabId) =>
 								onSlotChange(slot.slotIndex, scarabId)
 							}
-							usedScarabIds={usedScarabIds}
+							scarabUsageCount={scarabUsageCount}
 						/>
 					))}
 				</div>
