@@ -27,8 +27,19 @@ export const MapDeviceSlotSchema = z.object({
 
 export type MapDeviceSlot = z.infer<typeof MapDeviceSlotSchema>;
 
+export const MapCraftingOptionSchema = z.object({
+	id: z.string(),
+	name: z.string(),
+	effect: z.string(),
+	cost: z.number().int().min(0),
+	imbued: z.boolean().default(false),
+});
+
+export type MapCraftingOption = z.infer<typeof MapCraftingOptionSchema>;
+
 export const MapDeviceSchema = z.object({
 	slots: z.array(MapDeviceSlotSchema).length(5),
+	craftingOptionId: z.string().nullable().default(null),
 });
 
 export type MapDevice = z.infer<typeof MapDeviceSchema>;
@@ -42,5 +53,8 @@ export function createEmptyMapDevice(): MapDevice {
 			{ slotIndex: 3, scarabId: null },
 			{ slotIndex: 4, scarabId: null },
 		],
+		craftingOptionId: null,
 	};
 }
+
+export const HORNED_SCARAB_OF_AWAKENING_ID = "horned_scarab_of_awakening";

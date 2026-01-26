@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { siGithub } from "simple-icons";
 import { Button } from "~/components/ui/button";
 import { useTranslations } from "~/i18n";
+import { LeagueSelector } from "./league-selector";
 import { LocaleSwitcher } from "./locale-switcher";
 import { ModeToggle } from "./mode-toggle";
 
@@ -42,6 +43,7 @@ export function AppHeader({ onShareClick }: AppHeaderProps) {
 							{t.actions.share}
 						</Button>
 					)}
+					<LeagueSelector />
 					<LocaleSwitcher />
 					<ModeToggle />
 					<Button variant="ghost" size="icon" asChild>

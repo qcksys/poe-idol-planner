@@ -144,6 +144,9 @@ function HomeContent() {
 								<MapDeviceComponent
 									mapDevice={activeSet.mapDevice}
 									onSlotChange={sets.updateMapDeviceSlot}
+									onCraftingOptionChange={
+										sets.updateMapDeviceCraftingOption
+									}
 								/>
 							</>
 						)}

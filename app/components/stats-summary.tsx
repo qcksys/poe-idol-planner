@@ -2,13 +2,14 @@ import { useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { ScrollArea } from "~/components/ui/scroll-area";
 import { LEAGUE_MECHANICS } from "~/data/idol-bases";
+import { getMapCraftingOptionById } from "~/data/map-crafting-options";
 import { getScarabById } from "~/data/scarab-data";
 import { useTranslations } from "~/i18n";
 import { highlightNumbers } from "~/lib/highlight-numbers";
 import type { LeagueMechanic } from "~/schemas/idol";
 import type { IdolPlacement } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
-import type { MapDevice, Scarab } from "~/schemas/scarab";
+import type { MapCraftingOption, MapDevice, Scarab } from "~/schemas/scarab";
 
 interface StatsSummaryProps {
 	placements: IdolPlacement[];
@@ -211,6 +212,32 @@ function MechanicSection({ data }: { data: StatsByMechanic }) {
 	);
 }
 
+function CraftingOptionSection({
+	craftingOption,
+}: {
+	craftingOption: MapCraftingOption | null;
+}) {
+	const t = useTranslations();
+
+	if (!craftingOption) return null;
+
+	return (
+		<div className="mb-4 border-border border-t pt-4">
+			<h4 className="mb-2 font-semibold text-primary text-sm">
+				{t.mapDevice?.craftingOptionEffect || "Map Device"}
+			</h4>
+			<div className="mb-1 text-muted-foreground text-xs">
+				{craftingOption.name}
+				{craftingOption.cost > 0 && ` (${craftingOption.cost}c)`}
+				{craftingOption.imbued && " - Imbued"}
+			</div>
+			<div className="text-secondary-foreground text-sm">
+				{highlightNumbers(craftingOption.effect)}
+			</div>
+		</div>
+	);
+}
+
 function ScarabsSection({ scarabs }: { scarabs: Scarab[] }) {
 	const t = useTranslations();
 
@@ -276,12 +303,20 @@ export function StatsSummary({
 			.filter((s): s is Scarab => s !== null);
 	}, [mapDevice]);
 
+	const selectedCraftingOption = useMemo(() => {
+		if (!mapDevice?.craftingOptionId) return null;
+		return getMapCraftingOptionById(mapDevice.craftingOptionId) ?? null;
+	}, [mapDevice?.craftingOptionId]);
+
 	const totalStats = useMemo(
 		() => statsByMechanic.reduce((sum, m) => sum + m.stats.length, 0),
 		[statsByMechanic],
 	);
 
-	const hasContent = statsByMechanic.length > 0 || selectedScarabs.length > 0;
+	const hasContent =
+		statsByMechanic.length > 0 ||
+		selectedScarabs.length > 0 ||
+		selectedCraftingOption !== null;
 
 	return (
 		<Card className="flex h-full flex-col">
@@ -312,6 +347,9 @@ export function StatsSummary({
 									data={data}
 								/>
 							))}
+							<CraftingOptionSection
+								craftingOption={selectedCraftingOption}
+							/>
 							<ScarabsSection scarabs={selectedScarabs} />
 						</div>
 					</ScrollArea>

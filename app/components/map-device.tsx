@@ -1,4 +1,4 @@
-import { Check, X } from "lucide-react";
+import { Check, ChevronDown, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
@@ -22,6 +22,10 @@ import {
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
 import {
+	getAvailableOptions,
+	getMapCraftingOptionById,
+} from "~/data/map-crafting-options";
+import {
 	getScarabById,
 	getScarabsByCategory,
 	SCARAB_CATEGORIES,
@@ -29,11 +33,17 @@ import {
 } from "~/data/scarab-data";
 import { useTranslations } from "~/i18n";
 import { cn } from "~/lib/utils";
-import type { MapDevice, Scarab } from "~/schemas/scarab";
+import {
+	HORNED_SCARAB_OF_AWAKENING_ID,
+	type MapCraftingOption,
+	type MapDevice,
+	type Scarab,
+} from "~/schemas/scarab";
 
 interface MapDeviceProps {
 	mapDevice: MapDevice;
 	onSlotChange: (slotIndex: number, scarabId: string | null) => void;
+	onCraftingOptionChange: (optionId: string | null) => void;
 }
 
 interface ScarabSlotProps {
@@ -270,9 +280,160 @@ function ScarabSlot({
 	);
 }
 
+function CraftingOptionSelector({
+	selectedOptionId,
+	hasAwakeningScrab,
+	onSelect,
+}: {
+	selectedOptionId: string | null;
+	hasAwakeningScrab: boolean;
+	onSelect: (optionId: string | null) => void;
+}) {
+	const t = useTranslations();
+	const [open, setOpen] = useState(false);
+
+	const availableOptions = useMemo(
+		() => getAvailableOptions(hasAwakeningScrab),
+		[hasAwakeningScrab],
+	);
+
+	const selectedOption = selectedOptionId
+		? getMapCraftingOptionById(selectedOptionId)
+		: null;
+
+	const standardOptions = availableOptions.filter((opt) => !opt.imbued);
+	const imbuedOptions = availableOptions.filter((opt) => opt.imbued);
+
+	return (
+		<Popover open={open} onOpenChange={setOpen}>
+			<PopoverTrigger asChild>
+				<Button
+					variant="outline"
+					className="w-full justify-between text-left"
+				>
+					<div className="flex min-w-0 flex-1 flex-col">
+						<span className="truncate text-sm">
+							{selectedOption?.name ||
+								t.mapDevice?.selectCraftingOption ||
+								"Select crafting option..."}
+						</span>
+						{selectedOption && (
+							<span className="truncate text-muted-foreground text-xs">
+								{selectedOption.cost > 0
+									? `${selectedOption.cost}c`
+									: "Free"}
+								{selectedOption.imbued && " (Imbued)"}
+							</span>
+						)}
+					</div>
+					<ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+				</Button>
+			</PopoverTrigger>
+			<PopoverContent className="w-[400px] p-0" align="start">
+				<Command>
+					<CommandInput
+						placeholder={
+							t.mapDevice?.searchCraftingOptions ||
+							"Search crafting options..."
+						}
+					/>
+					<CommandList className="max-h-[300px]">
+						<CommandEmpty>
+							{t.mapDevice?.noCraftingOptionsFound ||
+								"No crafting options found."}
+						</CommandEmpty>
+						<CommandGroup
+							heading={
+								t.mapDevice?.standardOptions ||
+								"Standard Options"
+							}
+						>
+							{standardOptions.map((opt) => (
+								<CraftingOptionItem
+									key={opt.id}
+									option={opt}
+									isSelected={opt.id === selectedOptionId}
+									onSelect={() => {
+										onSelect(
+											opt.id === selectedOptionId
+												? null
+												: opt.id,
+										);
+										setOpen(false);
+									}}
+								/>
+							))}
+						</CommandGroup>
+						{imbuedOptions.length > 0 && (
+							<CommandGroup
+								heading={
+									t.mapDevice?.imbuedOptions ||
+									"Imbued Options"
+								}
+							>
+								{imbuedOptions.map((opt) => (
+									<CraftingOptionItem
+										key={opt.id}
+										option={opt}
+										isSelected={opt.id === selectedOptionId}
+										onSelect={() => {
+											onSelect(
+												opt.id === selectedOptionId
+													? null
+													: opt.id,
+											);
+											setOpen(false);
+										}}
+									/>
+								))}
+							</CommandGroup>
+						)}
+					</CommandList>
+				</Command>
+			</PopoverContent>
+		</Popover>
+	);
+}
+
+function CraftingOptionItem({
+	option,
+	isSelected,
+	onSelect,
+}: {
+	option: MapCraftingOption;
+	isSelected: boolean;
+	onSelect: () => void;
+}) {
+	return (
+		<CommandItem
+			value={`${option.name} ${option.effect}`}
+			onSelect={onSelect}
+		>
+			<Check
+				className={cn(
+					"mr-2 h-4 w-4 shrink-0",
+					isSelected ? "opacity-100" : "opacity-0",
+				)}
+			/>
+			<div className="flex min-w-0 flex-1 flex-col">
+				<div className="flex items-center gap-2">
+					<span className="text-sm">{option.name}</span>
+					<span className="text-muted-foreground text-xs">
+						{option.cost > 0 ? `${option.cost}c` : "Free"}
+					</span>
+				</div>
+				<span className="line-clamp-2 text-muted-foreground text-xs">
+					{option.effect}
+				</span>
+			</div>
+		</CommandItem>
+	);
+}
+
 export function MapDeviceComponent({
 	mapDevice,
 	onSlotChange,
+	onCraftingOptionChange,
 }: MapDeviceProps) {
 	const t = useTranslations();
 	const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
@@ -296,8 +457,18 @@ export function MapDeviceComponent({
 			.filter((s): s is Scarab => s !== null);
 	}, [mapDevice.slots]);
 
+	const hasAwakeningScrab = useMemo(() => {
+		return mapDevice.slots.some(
+			(slot) => slot.scarabId === HORNED_SCARAB_OF_AWAKENING_ID,
+		);
+	}, [mapDevice.slots]);
+
+	const selectedCraftingOption = mapDevice.craftingOptionId
+		? getMapCraftingOptionById(mapDevice.craftingOptionId)
+		: null;
+
 	return (
-		<Card>
+		<Card className="w-fit">
 			<CardHeader className="pb-2">
 				<div className="flex items-center justify-between">
 					<CardTitle className="text-lg">
@@ -308,7 +479,7 @@ export function MapDeviceComponent({
 					</span>
 				</div>
 			</CardHeader>
-			<CardContent>
+			<CardContent className="w-[360px] space-y-3">
 				<div className="flex justify-center gap-2">
 					{mapDevice.slots.map((slot) => (
 						<ScarabSlot
@@ -324,6 +495,16 @@ export function MapDeviceComponent({
 						/>
 					))}
 				</div>
+				<CraftingOptionSelector
+					selectedOptionId={mapDevice.craftingOptionId}
+					hasAwakeningScrab={hasAwakeningScrab}
+					onSelect={onCraftingOptionChange}
+				/>
+				{selectedCraftingOption && (
+					<div className="rounded-md border border-border bg-muted/30 p-2 text-center text-muted-foreground text-sm">
+						{selectedCraftingOption.effect}
+					</div>
+				)}
 			</CardContent>
 		</Card>
 	);

@@ -130,7 +130,13 @@
 		"title": "Map Device",
 		"searchScarabs": "Search scarabs...",
 		"noScarabsFound": "No scarabs found.",
-		"scarabEffects": "Scarab Effects"
+		"scarabEffects": "Scarab Effects",
+		"selectCraftingOption": "Select crafting option...",
+		"searchCraftingOptions": "Search crafting options...",
+		"noCraftingOptionsFound": "No crafting options found.",
+		"standardOptions": "Standard Options",
+		"imbuedOptions": "Imbued Options",
+		"craftingOptionEffect": "Map Device"
 	},
 	"mechanics": {
 		"abyss": "Abgrund",

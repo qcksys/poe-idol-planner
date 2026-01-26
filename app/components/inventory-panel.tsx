@@ -17,6 +17,7 @@ import { Input } from "~/components/ui/input";
 import { ScrollArea } from "~/components/ui/scroll-area";
 import { useDnd } from "~/context/dnd-context";
 import type { LeagueMechanic } from "~/data/idol-bases";
+import { useLeague } from "~/hooks/use-league";
 import { useTranslations } from "~/i18n";
 import { generateTradeUrl } from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
@@ -39,6 +40,7 @@ interface InventoryPanelProps {
 function DraggableIdolCard({
 	item,
 	isSelected,
+	league,
 	onIdolClick,
 	onDuplicateIdol,
 	onRemoveIdol,
@@ -47,6 +49,7 @@ function DraggableIdolCard({
 }: {
 	item: InventoryIdol;
 	isSelected: boolean;
+	league: string;
 	onIdolClick?: (idol: InventoryIdol) => void;
 	onDuplicateIdol?: (id: string) => void;
 	onRemoveIdol?: (id: string) => void;
@@ -67,7 +70,7 @@ function DraggableIdolCard({
 
 	const handleFindOnTrade = (e: React.MouseEvent) => {
 		e.stopPropagation();
-		const url = generateTradeUrl(item.idol);
+		const url = generateTradeUrl(item.idol, { league });
 		window.open(url, "_blank", "noopener,noreferrer");
 	};
 
@@ -171,6 +174,7 @@ export function InventoryPanel({
 	hasClipboardIdol,
 }: InventoryPanelProps) {
 	const t = useTranslations();
+	const { league } = useLeague();
 	const [searchQuery, setSearchQuery] = useState("");
 	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic | null>(
 		null,
@@ -393,6 +397,7 @@ export function InventoryPanel({
 									key={item.id}
 									item={item}
 									isSelected={selectedIds.has(item.id)}
+									league={league}
 									onIdolClick={onIdolClick}
 									onDuplicateIdol={onDuplicateIdol}
 									onRemoveIdol={onRemoveIdol}

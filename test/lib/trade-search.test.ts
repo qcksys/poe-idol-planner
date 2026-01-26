@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import {
-	DEFAULT_LEAGUE,
 	generateTradeUrl,
 	generateTradeUrlForBaseType,
 	generateTradeUrlForMod,
@@ -9,6 +8,7 @@ import {
 	IDOL_TYPE_MAP,
 } from "~/lib/trade-search";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
+import { DEFAULT_LEAGUE } from "~/schemas/league";
 
 describe("trade-search", () => {
 	describe("getTradeStatId", () => {

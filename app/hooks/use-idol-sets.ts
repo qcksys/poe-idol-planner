@@ -44,6 +44,7 @@ export interface UseIdolSetsReturn {
 	) => boolean;
 	// Map device operations
 	updateMapDeviceSlot: (slotIndex: number, scarabId: string | null) => void;
+	updateMapDeviceCraftingOption: (optionId: string | null) => void;
 	// Inventory operations for active set
 	addIdol: (idol: IdolInstance, source: ImportSource) => string | null;
 	addIdols: (idols: IdolInstance[], source: ImportSource) => string[];
@@ -427,6 +428,28 @@ export function useIdolSets(
 		[activeSet, setSets],
 	);
 
+	const updateMapDeviceCraftingOption = useCallback(
+		(optionId: string | null) => {
+			if (!activeSet) return;
+
+			setSets((prev) =>
+				prev.map((s) =>
+					s.id === activeSet.id
+						? {
+								...s,
+								mapDevice: {
+									...s.mapDevice,
+									craftingOptionId: optionId,
+								},
+								updatedAt: Date.now(),
+							}
+						: s,
+				),
+			);
+		},
+		[activeSet, setSets],
+	);
+
 	// Inventory operations for active set
 	const addIdol = useCallback(
 		(idol: IdolInstance, source: ImportSource): string | null => {
@@ -626,6 +649,7 @@ export function useIdolSets(
 			removeInventoryIdolFromAllSets,
 			canPlaceIdol,
 			updateMapDeviceSlot,
+			updateMapDeviceCraftingOption,
 			addIdol,
 			addIdols,
 			updateIdol,
@@ -650,6 +674,7 @@ export function useIdolSets(
 			removeInventoryIdolFromAllSets,
 			canPlaceIdol,
 			updateMapDeviceSlot,
+			updateMapDeviceCraftingOption,
 			addIdol,
 			addIdols,
 			updateIdol,

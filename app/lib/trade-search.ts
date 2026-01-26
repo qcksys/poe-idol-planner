@@ -1,9 +1,9 @@
 import type { IdolBaseKey } from "~/data/idol-bases";
 import { TRADE_STAT_MAPPINGS } from "~/data/trade-stat-mappings";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
+import { DEFAULT_LEAGUE } from "~/schemas/league";
 
 const TRADE_BASE_URL = "https://www.pathofexile.com/trade/search";
-const DEFAULT_LEAGUE = "Phrecia";
 
 type IdolTypeName =
 	| "Minor Idol"
@@ -223,4 +223,4 @@ export function hasTradeStatMapping(modText: string): boolean {
 	return findStatId(modText) !== null;
 }
 
-export { DEFAULT_LEAGUE, IDOL_TYPE_MAP, type TradeQuery };
+export { IDOL_TYPE_MAP, type TradeQuery };
