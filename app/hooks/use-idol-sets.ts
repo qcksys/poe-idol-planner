@@ -4,6 +4,7 @@ import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
 import type { IdolInstance } from "~/schemas/idol";
 import type { GridTab, IdolPlacement, IdolSet } from "~/schemas/idol-set";
 import type { ImportSource, InventoryIdol } from "~/schemas/inventory";
+import { createEmptyMapDevice } from "~/schemas/scarab";
 
 const GRID_WIDTH = 6;
 const GRID_HEIGHT = 7;
@@ -41,6 +42,8 @@ export interface UseIdolSetsReturn {
 		tab: GridTab,
 		excludePlacementId?: string,
 	) => boolean;
+	// Map device operations
+	updateMapDeviceSlot: (slotIndex: number, scarabId: string | null) => void;
 	// Inventory operations for active set
 	addIdol: (idol: IdolInstance, source: ImportSource) => string | null;
 	addIdols: (idols: IdolInstance[], source: ImportSource) => string[];
@@ -146,6 +149,7 @@ export function useIdolSets(
 				placements: [],
 				activeTab: "tab1",
 				inventory: [],
+				mapDevice: createEmptyMapDevice(),
 				createdAt: Date.now(),
 				updatedAt: Date.now(),
 			};
@@ -395,6 +399,33 @@ export function useIdolSets(
 		[setSets],
 	);
 
+	// Map device operations
+	const updateMapDeviceSlot = useCallback(
+		(slotIndex: number, scarabId: string | null) => {
+			if (!activeSet) return;
+
+			setSets((prev) =>
+				prev.map((s) =>
+					s.id === activeSet.id
+						? {
+								...s,
+								mapDevice: {
+									...s.mapDevice,
+									slots: s.mapDevice.slots.map((slot) =>
+										slot.slotIndex === slotIndex
+											? { ...slot, scarabId }
+											: slot,
+									),
+								},
+								updatedAt: Date.now(),
+							}
+						: s,
+				),
+			);
+		},
+		[activeSet, setSets],
+	);
+
 	// Inventory operations for active set
 	const addIdol = useCallback(
 		(idol: IdolInstance, source: ImportSource): string | null => {
@@ -567,6 +598,7 @@ export function useIdolSets(
 			removeIdolFromSet,
 			removeInventoryIdolFromAllSets,
 			canPlaceIdol,
+			updateMapDeviceSlot,
 			addIdol,
 			addIdols,
 			updateIdol,
@@ -589,6 +621,7 @@ export function useIdolSets(
 			removeIdolFromSet,
 			removeInventoryIdolFromAllSets,
 			canPlaceIdol,
+			updateMapDeviceSlot,
 			addIdol,
 			addIdols,
 			updateIdol,

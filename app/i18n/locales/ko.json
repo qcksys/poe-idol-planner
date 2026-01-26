@@ -119,6 +119,12 @@
 		"prefixOnly": "접두사만",
 		"suffixOnly": "접미사만"
 	},
+	"mapDevice": {
+		"title": "Map Device",
+		"searchScarabs": "Search scarabs...",
+		"noScarabsFound": "No scarabs found.",
+		"scarabEffects": "Scarab Effects"
+	},
 	"mechanics": {
 		"abyss": "심연",
 		"affliction": "역병",

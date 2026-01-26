@@ -119,6 +119,12 @@
 		"prefixOnly": "仅前缀",
 		"suffixOnly": "仅后缀"
 	},
+	"mapDevice": {
+		"title": "Map Device",
+		"searchScarabs": "Search scarabs...",
+		"noScarabsFound": "No scarabs found.",
+		"scarabEffects": "Scarab Effects"
+	},
 	"mechanics": {
 		"abyss": "深渊",
 		"affliction": "灾变",

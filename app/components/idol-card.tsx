@@ -152,6 +152,8 @@ export function IdolCard({
 				<TooltipTrigger asChild>{cardElement}</TooltipTrigger>
 				<TooltipContent
 					side="right"
+					avoidCollisions
+					collisionPadding={8}
 					className="max-w-xs border border-border bg-card text-card-foreground"
 				>
 					<IdolCardContent idol={idol} compact={false} />
@@ -249,6 +251,8 @@ export function IdolCardMini({
 				</TooltipTrigger>
 				<TooltipContent
 					side="right"
+					avoidCollisions
+					collisionPadding={8}
 					className="max-w-xs border border-border bg-card text-card-foreground"
 				>
 					<IdolCardContent idol={idol} compact={false} />

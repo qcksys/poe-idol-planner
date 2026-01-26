@@ -4,6 +4,7 @@ import { IdolEditor } from "~/components/idol-editor";
 import { IdolGrid } from "~/components/idol-grid";
 import { ImportModal } from "~/components/import-modal";
 import { InventoryPanel } from "~/components/inventory-panel";
+import { MapDeviceComponent } from "~/components/map-device";
 import { SetTabs } from "~/components/set-tabs";
 import { ShareModal } from "~/components/share-modal";
 import { StatsSummary } from "~/components/stats-summary";
@@ -136,11 +137,20 @@ function HomeContent() {
 						)}
 					</section>
 
-					<aside className="h-[calc(100vh-180px)]">
-						<StatsSummary
-							placements={activeSet?.placements ?? []}
-							inventory={inventory}
-						/>
+					<aside className="flex h-[calc(100vh-180px)] flex-col gap-4">
+						{activeSet && (
+							<MapDeviceComponent
+								mapDevice={activeSet.mapDevice}
+								onSlotChange={sets.updateMapDeviceSlot}
+							/>
+						)}
+						<div className="min-h-0 flex-1 overflow-hidden">
+							<StatsSummary
+								placements={activeSet?.placements ?? []}
+								inventory={inventory}
+								mapDevice={activeSet?.mapDevice}
+							/>
+						</div>
 					</aside>
 				</div>
 			</main>

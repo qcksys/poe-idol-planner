@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { loadStorage, saveStorage } from "~/lib/storage";
 import type { IdolSet } from "~/schemas/idol-set";
+import { createEmptyMapDevice } from "~/schemas/scarab";
 import { STORAGE_VERSION } from "~/schemas/storage";
 import { useIdolSets } from "./use-idol-sets";
 
@@ -23,6 +24,7 @@ export function usePlannerState() {
 				placements: [],
 				activeTab: "tab1",
 				inventory: [],
+				mapDevice: createEmptyMapDevice(),
 				createdAt: Date.now(),
 				updatedAt: Date.now(),
 			};

@@ -1,6 +1,13 @@
 import { type DragEvent, useCallback, useMemo, useState } from "react";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "~/components/ui/tooltip";
 import { useDnd } from "~/context/dnd-context";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
+import { highlightNumbers } from "~/lib/highlight-numbers";
 import { cn } from "~/lib/utils";
 import type { IdolInstance } from "~/schemas/idol";
 import type { GridTab, IdolPlacement } from "~/schemas/idol-set";
@@ -237,21 +244,64 @@ function GridCellComponent({
 		);
 	}
 
-	if (cell.occupied && !cell.isOrigin) {
+	if (cell.occupied && !cell.isOrigin && cell.idol) {
+		const idol = cell.idol;
+		const base = IDOL_BASES[idol.baseType as IdolBaseKey];
+		const allMods = [...idol.prefixes, ...idol.suffixes];
+
 		return (
-			// biome-ignore lint/a11y/noStaticElementInteractions: Drag handle for idol movement
-			<div
-				className="absolute cursor-grab"
-				style={{
-					left: x * CELL_SIZE,
-					top: y * CELL_SIZE,
-					width: CELL_SIZE,
-					height: CELL_SIZE,
-				}}
-				draggable
-				onDragStart={handleIdolDragStart}
-				onDragEnd={handleIdolDragEnd}
-			/>
+			<TooltipProvider>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						{/* biome-ignore lint/a11y/noStaticElementInteractions: Drag handle for idol movement */}
+						<div
+							className="absolute cursor-grab"
+							style={{
+								left: x * CELL_SIZE,
+								top: y * CELL_SIZE,
+								width: CELL_SIZE,
+								height: CELL_SIZE,
+							}}
+							draggable
+							onDragStart={handleIdolDragStart}
+							onDragEnd={handleIdolDragEnd}
+						/>
+					</TooltipTrigger>
+					<TooltipContent
+						side="right"
+						avoidCollisions
+						collisionPadding={8}
+						className="max-w-xs border border-border bg-card text-card-foreground"
+					>
+						<div className="space-y-1">
+							<div className="flex items-center gap-1.5">
+								<img
+									src={base.image}
+									alt=""
+									className="h-5 w-5 object-contain"
+								/>
+								<span className="text-muted-foreground text-xs">
+									{base.name}
+								</span>
+							</div>
+							<div className="space-y-0.5">
+								{allMods.map((mod, index) => (
+									<div
+										key={`${mod.modId}-${index}`}
+										className={
+											mod.type === "prefix"
+												? "text-mod-prefix text-sm"
+												: "text-mod-suffix text-sm"
+										}
+									>
+										{highlightNumbers(mod.text)}
+									</div>
+								))}
+							</div>
+						</div>
+					</TooltipContent>
+				</Tooltip>
+			</TooltipProvider>
 		);
 	}
 

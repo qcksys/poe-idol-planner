@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { InventoryIdolSchema } from "./inventory";
+import { createEmptyMapDevice, MapDeviceSchema } from "./scarab";
 
 export const GridPositionSchema = z.object({
 	x: z.number().int().min(0).max(5),
@@ -23,6 +24,7 @@ export const IdolSetSchema = z.object({
 	placements: z.array(IdolPlacementSchema),
 	activeTab: GridTabSchema.default("tab1"),
 	inventory: z.array(InventoryIdolSchema).default([]),
+	mapDevice: MapDeviceSchema.default(createEmptyMapDevice()),
 });
 
 export type GridPosition = z.infer<typeof GridPositionSchema>;

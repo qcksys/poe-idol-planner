@@ -247,7 +247,7 @@ export function InventoryPanel({
 					)}
 				</div>
 
-				<ScrollArea className="flex-1">
+				<ScrollArea className="min-h-0 flex-1">
 					{filteredInventory.length === 0 ? (
 						<div className="py-8 text-center text-muted-foreground">
 							{inventory.length === 0

@@ -119,6 +119,12 @@
 		"prefixOnly": "Nur Präfixe",
 		"suffixOnly": "Nur Suffixe"
 	},
+	"mapDevice": {
+		"title": "Map Device",
+		"searchScarabs": "Search scarabs...",
+		"noScarabsFound": "No scarabs found.",
+		"scarabEffects": "Scarab Effects"
+	},
 	"mechanics": {
 		"abyss": "Abgrund",
 		"affliction": "Gebrechen",
