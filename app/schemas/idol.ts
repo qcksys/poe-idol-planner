@@ -23,7 +23,7 @@ export const IdolModifierSchema = z.object({
 	rolledValue: z.number(),
 	valueRange: ValueRangeSchema.optional(),
 	tier: z.number().int().min(1).max(10).nullable(),
-	mechanic: LeagueMechanicSchema,
+	mechanic: LeagueMechanicSchema.optional(),
 });
 
 export const IdolImplicitSchema = z.object({

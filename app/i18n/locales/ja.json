@@ -23,6 +23,7 @@
 		"empty": "インベントリにアイドルがありません。下のボタンでインポートまたは作成してください。",
 		"import": "インポート",
 		"create": "作成",
+		"browseMods": "Modを閲覧",
 		"paste": "貼り付け",
 		"search": "アイドルを検索...",
 		"clear": "すべてクリア",
@@ -124,11 +125,29 @@
 		"allMechanics": "全てのメカニック",
 		"favoritesOnly": "お気に入りのみ",
 		"addToFavorites": "お気に入りに追加",
-		"removeFromFavorites": "お気に入りから削除"
+		"removeFromFavorites": "お気に入りから削除",
+		"uniqueIdols": "ユニークアイドル",
+		"selectUniqueIdol": "ユニークアイドルを選択...",
+		"noUniqueIdolsFound": "ユニークアイドルが見つかりません。"
+	},
+	"modsSearch": {
+		"title": "Modを検索",
+		"description": "利用可能なすべてのアイドルModを閲覧します。",
+		"searchPlaceholder": "テキストで検索...",
+		"typeFilter": "タイプ",
+		"all": "すべて",
+		"prefix": "プレフィックス",
+		"suffix": "サフィックス",
+		"favoriteFilter": "お気に入り",
+		"favoritesAll": "すべて",
+		"favoritesOnly": "お気に入りのみ",
+		"favoritesExclude": "お気に入り以外のみ",
+		"modsFound": "{count}件のModが見つかりました"
 	},
 	"filter": {
 		"mechanic": "メカニックでフィルター",
 		"allMechanics": "全てのメカニック",
+		"mechanicsSelected": "{count}個のメカニクス",
 		"type": "タイプでフィルター",
 		"allTypes": "全てのタイプ",
 		"prefixOnly": "プレフィックスのみ",

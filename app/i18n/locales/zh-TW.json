@@ -23,6 +23,7 @@
 		"empty": "倉庫中沒有神像。請使用下方按鈕匯入或建立神像。",
 		"import": "匯入",
 		"create": "建立",
+		"browseMods": "瀏覽詞綴",
 		"paste": "貼上",
 		"search": "搜尋神像...",
 		"clear": "清除全部",
@@ -124,11 +125,29 @@
 		"allMechanics": "所有機制",
 		"favoritesOnly": "僅收藏",
 		"addToFavorites": "加入收藏",
-		"removeFromFavorites": "從收藏中移除"
+		"removeFromFavorites": "從收藏中移除",
+		"uniqueIdols": "傳奇神像",
+		"selectUniqueIdol": "選擇傳奇神像...",
+		"noUniqueIdolsFound": "未找到傳奇神像。"
+	},
+	"modsSearch": {
+		"title": "搜尋詞綴",
+		"description": "瀏覽所有可用的神像詞綴。",
+		"searchPlaceholder": "按文字搜尋...",
+		"typeFilter": "類型",
+		"all": "全部",
+		"prefix": "前綴",
+		"suffix": "後綴",
+		"favoriteFilter": "收藏",
+		"favoritesAll": "全部",
+		"favoritesOnly": "僅收藏",
+		"favoritesExclude": "僅非收藏",
+		"modsFound": "找到 {count} 個詞綴"
 	},
 	"filter": {
 		"mechanic": "依機制篩選",
 		"allMechanics": "所有機制",
+		"mechanicsSelected": "{count} 個機制",
 		"type": "依類型篩選",
 		"allTypes": "所有類型",
 		"prefixOnly": "僅前綴",

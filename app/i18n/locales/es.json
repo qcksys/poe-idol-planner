@@ -23,6 +23,7 @@
 		"empty": "No hay ídolos en el inventario. Importa o crea algunos usando los botones de abajo.",
 		"import": "Importar",
 		"create": "Crear",
+		"browseMods": "Explorar Mods",
 		"paste": "Pegar",
 		"search": "Buscar ídolos...",
 		"clear": "Borrar todo",
@@ -124,11 +125,29 @@
 		"allMechanics": "Todas las mecánicas",
 		"favoritesOnly": "Solo favoritos",
 		"addToFavorites": "Añadir a favoritos",
-		"removeFromFavorites": "Eliminar de favoritos"
+		"removeFromFavorites": "Eliminar de favoritos",
+		"uniqueIdols": "Ídolos Únicos",
+		"selectUniqueIdol": "Seleccionar un ídolo único...",
+		"noUniqueIdolsFound": "No se encontraron ídolos únicos."
+	},
+	"modsSearch": {
+		"title": "Buscar Modificadores",
+		"description": "Explora todos los modificadores de ídolos disponibles.",
+		"searchPlaceholder": "Buscar por texto...",
+		"typeFilter": "Tipo",
+		"all": "Todos",
+		"prefix": "Prefijo",
+		"suffix": "Sufijo",
+		"favoriteFilter": "Favoritos",
+		"favoritesAll": "Todos",
+		"favoritesOnly": "Solo Favoritos",
+		"favoritesExclude": "Solo No-Favoritos",
+		"modsFound": "{count} modificadores encontrados"
 	},
 	"filter": {
 		"mechanic": "Filtrar por mecánica",
 		"allMechanics": "Todas las mecánicas",
+		"mechanicsSelected": "{count} mecánicas",
 		"type": "Filtrar por tipo",
 		"allTypes": "Todos los tipos",
 		"prefixOnly": "Solo prefijos",

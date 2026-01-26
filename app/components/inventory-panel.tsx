@@ -1,4 +1,5 @@
 import {
+	BookOpen,
 	CheckSquare,
 	ClipboardPaste,
 	Copy,
@@ -10,7 +11,8 @@ import {
 	X,
 } from "lucide-react";
 import { type DragEvent, useCallback, useRef, useState } from "react";
-import { MechanicFilter } from "~/components/mod-search";
+import { MultiMechanicFilter } from "~/components/mod-search";
+import { ModsSearchModal } from "~/components/mods-search-modal";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
@@ -200,19 +202,19 @@ export function InventoryPanel({
 	const t = useTranslations();
 	const { league } = useLeague();
 	const [searchQuery, setSearchQuery] = useState("");
-	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic | null>(
-		null,
-	);
+	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic[]>([]);
 	const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 	const lastSelectedId = useRef<string | null>(null);
+	const [modsSearchOpen, setModsSearchOpen] = useState(false);
 
 	const filteredInventory = inventory.filter((item) => {
 		const idol = item.idol;
 		const allMods = [...idol.prefixes, ...idol.suffixes];
 
-		if (mechanicFilter) {
+		if (mechanicFilter.length > 0) {
+			const mechanicSet = new Set(mechanicFilter);
 			const hasMechanic = allMods.some(
-				(mod) => mod.mechanic === mechanicFilter,
+				(mod) => mod.mechanic && mechanicSet.has(mod.mechanic),
 			);
 			if (!hasMechanic) return false;
 		}
@@ -344,7 +346,7 @@ export function InventoryPanel({
 							/>
 						</div>
 
-						<MechanicFilter
+						<MultiMechanicFilter
 							value={mechanicFilter}
 							onChange={setMechanicFilter}
 						/>
@@ -380,6 +382,20 @@ export function InventoryPanel({
 									{t.inventory.paste}
 								</Button>
 							)}
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										variant="secondary"
+										size="sm"
+										onClick={() => setModsSearchOpen(true)}
+									>
+										<BookOpen className="h-4 w-4" />
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent>
+									{t.inventory.browseMods || "Browse Mods"}
+								</TooltipContent>
+							</Tooltip>
 							{onClearAll && inventory.length > 0 && (
 								<Tooltip>
 									<TooltipTrigger asChild>
@@ -447,6 +463,11 @@ export function InventoryPanel({
 					)}
 				</ScrollArea>
 			</CardContent>
+
+			<ModsSearchModal
+				open={modsSearchOpen}
+				onOpenChange={setModsSearchOpen}
+			/>
 		</Card>
 	);
 }

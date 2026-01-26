@@ -1,5 +1,6 @@
 import { Check, ChevronDown, X } from "lucide-react";
 import { useMemo, useState } from "react";
+import { MapDeviceUnlocks } from "~/components/map-device-unlocks";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import {
@@ -62,6 +63,8 @@ interface MapDeviceProps {
 	mapDevice: MapDevice;
 	onSlotChange: (slotIndex: number, scarabId: string | null) => void;
 	onCraftingOptionChange: (optionId: string | null) => void;
+	unlockedConditions?: string[];
+	onUnlockedConditionsChange?: (conditions: string[]) => void;
 }
 
 interface ScarabSlotProps {
@@ -518,6 +521,8 @@ export function MapDeviceComponent({
 	mapDevice,
 	onSlotChange,
 	onCraftingOptionChange,
+	unlockedConditions,
+	onUnlockedConditionsChange,
 }: MapDeviceProps) {
 	const t = useTranslations();
 	const locale = useLocale();
@@ -556,16 +561,28 @@ export function MapDeviceComponent({
 	return (
 		<Card className="w-fit">
 			<CardHeader className="pb-2">
-				<div className="flex items-center justify-between">
-					<CardTitle className="text-lg">
-						{t.mapDevice?.title || "Map Device"}
-					</CardTitle>
+				<div className="flex items-center justify-between gap-3">
+					<div className="flex items-center gap-3">
+						<CardTitle className="text-lg">
+							{t.mapDevice?.title || "Map Device"}
+						</CardTitle>
+					</div>
 					<span className="text-muted-foreground text-sm">
 						{selectedScarabs.length}/5 scarabs
 					</span>
 				</div>
+				<div className="flex items-center justify-between gap-3">
+					{unlockedConditions && onUnlockedConditionsChange && (
+						<MapDeviceUnlocks
+							unlockedConditions={unlockedConditions}
+							onUnlockedConditionsChange={
+								onUnlockedConditionsChange
+							}
+						/>
+					)}
+				</div>
 			</CardHeader>
-			<CardContent className="w-[360px] space-y-3">
+			<CardContent className="w-[384px] space-y-3">
 				<div className="flex justify-center gap-2">
 					{mapDevice.slots.map((slot) => (
 						<ScarabSlot

@@ -23,6 +23,7 @@
 		"empty": "В инвентаре нет идолов. Импортируйте или создайте их с помощью кнопок ниже.",
 		"import": "Импорт",
 		"create": "Создать",
+		"browseMods": "Обзор модов",
 		"paste": "Вставить",
 		"search": "Поиск идолов...",
 		"clear": "Очистить всё",
@@ -124,11 +125,29 @@
 		"allMechanics": "Все механики",
 		"favoritesOnly": "Только избранное",
 		"addToFavorites": "Добавить в избранное",
-		"removeFromFavorites": "Удалить из избранного"
+		"removeFromFavorites": "Удалить из избранного",
+		"uniqueIdols": "Уникальные идолы",
+		"selectUniqueIdol": "Выбрать уникального идола...",
+		"noUniqueIdolsFound": "Уникальные идолы не найдены."
+	},
+	"modsSearch": {
+		"title": "Поиск модификаторов",
+		"description": "Просмотрите все доступные модификаторы идолов.",
+		"searchPlaceholder": "Поиск по тексту...",
+		"typeFilter": "Тип",
+		"all": "Все",
+		"prefix": "Префикс",
+		"suffix": "Суффикс",
+		"favoriteFilter": "Избранное",
+		"favoritesAll": "Все",
+		"favoritesOnly": "Только избранное",
+		"favoritesExclude": "Только не избранное",
+		"modsFound": "{count} модификаторов найдено"
 	},
 	"filter": {
 		"mechanic": "Фильтр по механике",
 		"allMechanics": "Все механики",
+		"mechanicsSelected": "{count} механик",
 		"type": "Фильтр по типу",
 		"allTypes": "Все типы",
 		"prefixOnly": "Только префиксы",

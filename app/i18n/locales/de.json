@@ -23,6 +23,7 @@
 		"empty": "Keine Idole im Inventar. Importieren oder erstellen Sie welche mit den Schaltflächen unten.",
 		"import": "Importieren",
 		"create": "Erstellen",
+		"browseMods": "Mods durchsuchen",
 		"paste": "Einfügen",
 		"search": "Idole suchen...",
 		"clear": "Alle löschen",
@@ -124,11 +125,29 @@
 		"allMechanics": "Alle Mechaniken",
 		"favoritesOnly": "Nur Favoriten",
 		"addToFavorites": "Zu Favoriten hinzufügen",
-		"removeFromFavorites": "Aus Favoriten entfernen"
+		"removeFromFavorites": "Aus Favoriten entfernen",
+		"uniqueIdols": "Einzigartige Idole",
+		"selectUniqueIdol": "Einzigartiges Idol auswählen...",
+		"noUniqueIdolsFound": "Keine einzigartigen Idole gefunden."
+	},
+	"modsSearch": {
+		"title": "Modifikatoren suchen",
+		"description": "Durchsuchen Sie alle verfügbaren Idol-Modifikatoren.",
+		"searchPlaceholder": "Nach Text suchen...",
+		"typeFilter": "Typ",
+		"all": "Alle",
+		"prefix": "Präfix",
+		"suffix": "Suffix",
+		"favoriteFilter": "Favoriten",
+		"favoritesAll": "Alle",
+		"favoritesOnly": "Nur Favoriten",
+		"favoritesExclude": "Nur Nicht-Favoriten",
+		"modsFound": "{count} Modifikatoren gefunden"
 	},
 	"filter": {
 		"mechanic": "Nach Mechanik filtern",
 		"allMechanics": "Alle Mechaniken",
+		"mechanicsSelected": "{count} Mechaniken",
 		"type": "Nach Typ filtern",
 		"allTypes": "Alle Typen",
 		"prefixOnly": "Nur Präfixe",

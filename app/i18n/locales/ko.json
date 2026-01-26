@@ -23,6 +23,7 @@
 		"empty": "인벤토리에 우상이 없습니다. 아래 버튼을 사용하여 가져오거나 생성하세요.",
 		"import": "가져오기",
 		"create": "생성",
+		"browseMods": "모드 찾아보기",
 		"paste": "붙여넣기",
 		"search": "우상 검색...",
 		"clear": "모두 지우기",
@@ -124,11 +125,29 @@
 		"allMechanics": "모든 메카닉",
 		"favoritesOnly": "즐겨찾기만",
 		"addToFavorites": "즐겨찾기에 추가",
-		"removeFromFavorites": "즐겨찾기에서 제거"
+		"removeFromFavorites": "즐겨찾기에서 제거",
+		"uniqueIdols": "고유 아이돌",
+		"selectUniqueIdol": "고유 아이돌 선택...",
+		"noUniqueIdolsFound": "고유 아이돌을 찾을 수 없습니다."
+	},
+	"modsSearch": {
+		"title": "모드 검색",
+		"description": "사용 가능한 모든 아이돌 모드를 찾아보세요.",
+		"searchPlaceholder": "텍스트로 검색...",
+		"typeFilter": "유형",
+		"all": "전체",
+		"prefix": "접두사",
+		"suffix": "접미사",
+		"favoriteFilter": "즐겨찾기",
+		"favoritesAll": "전체",
+		"favoritesOnly": "즐겨찾기만",
+		"favoritesExclude": "즐겨찾기 제외",
+		"modsFound": "{count}개 모드 발견"
 	},
 	"filter": {
 		"mechanic": "메카닉으로 필터",
 		"allMechanics": "모든 메카닉",
+		"mechanicsSelected": "{count}개 메카닉",
 		"type": "유형으로 필터",
 		"allTypes": "모든 유형",
 		"prefixOnly": "접두사만",

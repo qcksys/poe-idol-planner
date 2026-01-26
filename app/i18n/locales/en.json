@@ -23,6 +23,7 @@
 		"empty": "No idols in inventory. Import or create some using the buttons below.",
 		"import": "Import",
 		"create": "Create",
+		"browseMods": "Browse Mods",
 		"paste": "Paste",
 		"search": "Search idols...",
 		"clear": "Clear All",
@@ -124,11 +125,29 @@
 		"allMechanics": "All Mechanics",
 		"favoritesOnly": "Favorites Only",
 		"addToFavorites": "Add to favorites",
-		"removeFromFavorites": "Remove from favorites"
+		"removeFromFavorites": "Remove from favorites",
+		"uniqueIdols": "Unique Idols",
+		"selectUniqueIdol": "Select a unique idol...",
+		"noUniqueIdolsFound": "No unique idols found."
+	},
+	"modsSearch": {
+		"title": "Search Modifiers",
+		"description": "Browse and search all available idol modifiers.",
+		"searchPlaceholder": "Search by text...",
+		"typeFilter": "Type",
+		"all": "All",
+		"prefix": "Prefix",
+		"suffix": "Suffix",
+		"favoriteFilter": "Favorites",
+		"favoritesAll": "All",
+		"favoritesOnly": "Favorites Only",
+		"favoritesExclude": "Non-Favorites Only",
+		"modsFound": "{count} modifiers found"
 	},
 	"filter": {
 		"mechanic": "Filter by Mechanic",
 		"allMechanics": "All Mechanics",
+		"mechanicsSelected": "{count} mechanics",
 		"type": "Filter by Type",
 		"allTypes": "All Types",
 		"prefixOnly": "Prefix Only",

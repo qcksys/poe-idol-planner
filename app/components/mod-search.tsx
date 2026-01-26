@@ -42,7 +42,7 @@ export interface ModifierOption {
 
 interface ModSearchProps {
 	type?: "prefix" | "suffix";
-	mechanicFilter?: LeagueMechanic | null;
+	mechanicFilter?: LeagueMechanic | LeagueMechanic[] | null;
 	idolType?: string | null;
 	selectedModId?: string | null;
 	excludedModIds?: string[];
@@ -106,7 +106,17 @@ export function ModSearch({
 	const filteredModifiers = useMemo(() => {
 		return allModifiers.filter((mod) => {
 			if (type && mod.type !== type) return false;
-			if (mechanicFilter && mod.mechanic !== mechanicFilter) return false;
+			if (mechanicFilter) {
+				if (Array.isArray(mechanicFilter)) {
+					if (
+						mechanicFilter.length > 0 &&
+						!mechanicFilter.includes(mod.mechanic)
+					)
+						return false;
+				} else if (mod.mechanic !== mechanicFilter) {
+					return false;
+				}
+			}
 			if (idolType) {
 				const idolTypeName =
 					idolType.charAt(0).toUpperCase() + idolType.slice(1);
@@ -338,6 +348,118 @@ export function MechanicFilter({
 											className={cn(
 												"mr-2 h-4 w-4",
 												value === mechanic
+													? "opacity-100"
+													: "opacity-0",
+											)}
+										/>
+										{displayText}
+									</CommandItem>
+								);
+							})}
+						</CommandGroup>
+					</CommandList>
+				</Command>
+			</PopoverContent>
+		</Popover>
+	);
+}
+
+interface MultiMechanicFilterProps {
+	value: LeagueMechanic[];
+	onChange: (mechanics: LeagueMechanic[]) => void;
+}
+
+export function MultiMechanicFilter({
+	value,
+	onChange,
+}: MultiMechanicFilterProps) {
+	const t = useTranslations();
+	const [open, setOpen] = useState(false);
+
+	const selectedSet = useMemo(() => new Set(value), [value]);
+
+	const handleToggle = (mechanic: LeagueMechanic) => {
+		if (selectedSet.has(mechanic)) {
+			onChange(value.filter((m) => m !== mechanic));
+		} else {
+			onChange([...value, mechanic]);
+		}
+	};
+
+	const handleSelectAll = () => {
+		onChange([...LEAGUE_MECHANICS]);
+	};
+
+	const handleClearAll = () => {
+		onChange([]);
+	};
+
+	const displayText =
+		value.length === 0
+			? t.editor.allMechanics
+			: value.length === 1
+				? t.mechanics[value[0]]
+				: t.filter?.mechanicsSelected?.replace(
+						"{count}",
+						String(value.length),
+					) || `${value.length} selected`;
+
+	return (
+		<Popover open={open} onOpenChange={setOpen}>
+			<PopoverTrigger asChild>
+				<Button
+					variant="outline"
+					aria-expanded={open}
+					className="w-full justify-between"
+					size="sm"
+				>
+					<span className="truncate">{displayText}</span>
+					<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+				</Button>
+			</PopoverTrigger>
+			<PopoverContent className="w-[250px] p-0" align="start">
+				<Command>
+					<CommandInput placeholder={t.editor.searchMechanic} />
+					<div className="flex items-center justify-between border-b px-3 py-2">
+						<span className="text-muted-foreground text-xs">
+							{value.length}/{LEAGUE_MECHANICS.length}
+						</span>
+						<div className="flex gap-1">
+							<Button
+								variant="ghost"
+								size="sm"
+								className="h-6 px-2 text-xs"
+								onClick={handleSelectAll}
+							>
+								All
+							</Button>
+							<Button
+								variant="ghost"
+								size="sm"
+								className="h-6 px-2 text-xs"
+								onClick={handleClearAll}
+							>
+								None
+							</Button>
+						</div>
+					</div>
+					<CommandList className="max-h-[250px]">
+						<CommandEmpty>{t.editor.noMechanicsFound}</CommandEmpty>
+						<CommandGroup>
+							{LEAGUE_MECHANICS.map((mechanic) => {
+								const displayText =
+									t.mechanics[mechanic] || mechanic;
+								const isSelected = selectedSet.has(mechanic);
+								return (
+									<CommandItem
+										key={mechanic}
+										value={`${mechanic} ${displayText}`}
+										onSelect={() => handleToggle(mechanic)}
+									>
+										<Check
+											className={cn(
+												"mr-2 h-4 w-4",
+												isSelected
 													? "opacity-100"
 													: "opacity-0",
 											)}

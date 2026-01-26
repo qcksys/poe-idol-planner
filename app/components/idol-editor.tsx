@@ -3,9 +3,9 @@ import { nanoid } from "nanoid";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
 	getModifierOptions,
-	MechanicFilter,
 	type ModifierOption,
 	ModSearch,
+	MultiMechanicFilter,
 } from "~/components/mod-search";
 import { Button } from "~/components/ui/button";
 import {
@@ -37,7 +37,12 @@ import {
 	type IdolBaseKey,
 	type LeagueMechanic,
 } from "~/data/idol-bases";
-import { useTranslations } from "~/i18n";
+import {
+	getUniqueIdolName,
+	UNIQUE_IDOLS,
+	type UniqueIdol,
+} from "~/data/unique-idols";
+import { useLocale, useTranslations } from "~/i18n";
 import { highlightNumbers } from "~/lib/highlight-numbers";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
 
@@ -52,7 +57,7 @@ interface ModSlotProps {
 	type: "prefix" | "suffix";
 	index: number;
 	mod: SelectedMod | null;
-	mechanicFilter: LeagueMechanic | null;
+	mechanicFilter: LeagueMechanic[];
 	idolType: IdolBaseKey;
 	excludedModIds: string[];
 	onModChange: (mod: SelectedMod | null) => void;
@@ -187,6 +192,8 @@ function ModSlot({
 	);
 }
 
+type EditorMode = "regular" | "unique";
+
 export function IdolEditor({
 	open,
 	onOpenChange,
@@ -194,12 +201,12 @@ export function IdolEditor({
 	initialIdol,
 }: IdolEditorProps) {
 	const t = useTranslations();
+	const locale = useLocale();
+	const [editorMode, setEditorMode] = useState<EditorMode>("regular");
 	const [baseType, setBaseType] = useState<IdolBaseKey>("minor");
 	const [itemLevel, setItemLevel] = useState(68);
 	const [name, setName] = useState("");
-	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic | null>(
-		null,
-	);
+	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic[]>([]);
 	const [prefixes, setPrefixes] = useState<(SelectedMod | null)[]>([
 		null,
 		null,
@@ -208,11 +215,25 @@ export function IdolEditor({
 		null,
 		null,
 	]);
+	const [selectedUniqueIdol, setSelectedUniqueIdol] =
+		useState<UniqueIdol | null>(null);
 
 	const allModifiers = useMemo(() => getModifierOptions(), []);
 
 	useEffect(() => {
 		if (initialIdol) {
+			if (initialIdol.rarity === "unique") {
+				setEditorMode("unique");
+				const foundUnique = UNIQUE_IDOLS.find(
+					(u) =>
+						u.name.en === initialIdol.name &&
+						u.baseType.toLowerCase() === initialIdol.baseType,
+				);
+				setSelectedUniqueIdol(foundUnique || null);
+			} else {
+				setEditorMode("regular");
+				setSelectedUniqueIdol(null);
+			}
 			setBaseType(initialIdol.baseType);
 			setItemLevel(initialIdol.itemLevel);
 			setName(initialIdol.name || "");
@@ -241,11 +262,13 @@ export function IdolEditor({
 			});
 			setSuffixes(loadedSuffixes);
 		} else {
+			setEditorMode("regular");
 			setBaseType("minor");
 			setItemLevel(68);
 			setName("");
 			setPrefixes([null, null]);
 			setSuffixes([null, null]);
+			setSelectedUniqueIdol(null);
 		}
 	}, [initialIdol, allModifiers]);
 
@@ -347,6 +370,36 @@ export function IdolEditor({
 	};
 
 	const handleSave = () => {
+		if (editorMode === "unique" && selectedUniqueIdol) {
+			const uniqueMods: IdolModifier[] = selectedUniqueIdol.modifiers.map(
+				(mod, index) => ({
+					modId: `unique_${selectedUniqueIdol.id}_${index}`,
+					type: "prefix" as const,
+					text: mod.text.en || mod.text[locale] || "",
+					rolledValue: mod.values[0]?.min ?? mod.values[0]?.max ?? 0,
+					valueRange: mod.values[0],
+					tier: 1,
+					mechanic: undefined,
+				}),
+			);
+
+			const idol: IdolInstance = {
+				id: initialIdol?.id || nanoid(),
+				baseType:
+					selectedUniqueIdol.baseType.toLowerCase() as IdolBaseKey,
+				itemLevel,
+				rarity: "unique",
+				name: getUniqueIdolName(selectedUniqueIdol, locale),
+				prefixes: uniqueMods,
+				suffixes: [],
+				corrupted: false,
+			};
+
+			onSave(idol);
+			onOpenChange(false);
+			return;
+		}
+
 		const prefixMods = prefixes
 			.filter((p): p is SelectedMod => p !== null)
 			.map(convertToIdolModifier);
@@ -379,6 +432,9 @@ export function IdolEditor({
 	const hasAnyMods =
 		prefixes.some((p) => p !== null) || suffixes.some((s) => s !== null);
 
+	const canSave =
+		editorMode === "unique" ? selectedUniqueIdol !== null : hasAnyMods;
+
 	const allSelectedModIds = useMemo(() => {
 		return [
 			...prefixes.filter((p) => p !== null).map((p) => p.modOption.id),
@@ -395,7 +451,7 @@ export function IdolEditor({
 
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
-			<DialogContent className="flex max-h-[85vh] max-w-[1000px] flex-col overflow-hidden">
+			<DialogContent className="flex max-h-[85vh] max-w-250 flex-col overflow-hidden">
 				<DialogHeader>
 					<DialogTitle>
 						{initialIdol ? t.editor.editIdol : t.editor.createIdol}
@@ -412,10 +468,20 @@ export function IdolEditor({
 								{t.editor.baseType}
 							</span>
 							<Select
-								value={baseType}
-								onValueChange={(v) =>
-									setBaseType(v as IdolBaseKey)
+								value={
+									editorMode === "unique"
+										? "unique"
+										: baseType
 								}
+								onValueChange={(v) => {
+									if (v === "unique") {
+										setEditorMode("unique");
+									} else {
+										setEditorMode("regular");
+										setBaseType(v as IdolBaseKey);
+										setSelectedUniqueIdol(null);
+									}
+								}}
 							>
 								<SelectTrigger aria-label={t.editor.baseType}>
 									<SelectValue />
@@ -435,90 +501,192 @@ export function IdolEditor({
 											</div>
 										</SelectItem>
 									))}
+									<SelectItem value="unique">
+										<div className="flex items-center gap-2">
+											<span className="flex h-5 w-5 items-center justify-center text-amber-500">
+												★
+											</span>
+											<span>
+												{t.editor.uniqueIdols ||
+													"Unique Idols"}
+											</span>
+										</div>
+									</SelectItem>
 								</SelectContent>
 							</Select>
 						</div>
 
-						<div className="space-y-2">
-							<label
-								htmlFor="idol-editor-name"
-								className="font-medium text-sm"
-							>
-								{t.editor.name} ({t.editor.optional})
-							</label>
-							<Input
-								id="idol-editor-name"
-								value={name}
-								onChange={(e) => setName(e.target.value)}
-								placeholder={t.editor.namePlaceholder}
-							/>
-						</div>
+						{editorMode === "unique" ? (
+							<>
+								<div className="space-y-2">
+									<span className="font-medium text-sm">
+										{t.editor.selectUniqueIdol ||
+											"Select a unique idol"}
+									</span>
+									<Select
+										value={selectedUniqueIdol?.id || ""}
+										onValueChange={(v) => {
+											const idol = UNIQUE_IDOLS.find(
+												(u) => u.id === v,
+											);
+											setSelectedUniqueIdol(idol || null);
+										}}
+									>
+										<SelectTrigger>
+											<SelectValue
+												placeholder={
+													t.editor.selectUniqueIdol ||
+													"Select a unique idol..."
+												}
+											/>
+										</SelectTrigger>
+										<SelectContent>
+											{UNIQUE_IDOLS.map((idol) => (
+												<SelectItem
+													key={idol.id}
+													value={idol.id}
+												>
+													<div className="flex items-center gap-2">
+														<img
+															src={
+																IDOL_BASES[
+																	idol.baseType.toLowerCase() as IdolBaseKey
+																]?.image
+															}
+															alt=""
+															className="h-5 w-5 object-contain"
+														/>
+														<span className="text-amber-500">
+															{getUniqueIdolName(
+																idol,
+																locale,
+															)}
+														</span>
+														<span className="text-muted-foreground text-xs">
+															({idol.baseType})
+														</span>
+													</div>
+												</SelectItem>
+											))}
+										</SelectContent>
+									</Select>
+								</div>
 
-						<div className="space-y-2">
-							<span className="font-medium text-sm">
-								{t.editor.filterByMechanic}
-							</span>
-							<MechanicFilter
-								value={mechanicFilter}
-								onChange={setMechanicFilter}
-							/>
-						</div>
+								{selectedUniqueIdol && (
+									<div className="space-y-2 rounded-lg border border-amber-500/30 bg-amber-500/5 p-4">
+										<h4 className="font-medium text-amber-500 text-sm">
+											{getUniqueIdolName(
+												selectedUniqueIdol,
+												locale,
+											)}
+										</h4>
+										<div className="space-y-1">
+											{selectedUniqueIdol.modifiers.map(
+												(mod, i) => (
+													<div
+														key={i}
+														className="text-sm"
+													>
+														{highlightNumbers(
+															mod.text.en ||
+																mod.text[
+																	locale
+																] ||
+																"",
+														)}
+													</div>
+												),
+											)}
+										</div>
+									</div>
+								)}
+							</>
+						) : (
+							<>
+								<div className="space-y-2">
+									<label
+										htmlFor="idol-editor-name"
+										className="font-medium text-sm"
+									>
+										{t.editor.name} ({t.editor.optional})
+									</label>
+									<Input
+										id="idol-editor-name"
+										value={name}
+										onChange={(e) =>
+											setName(e.target.value)
+										}
+										placeholder={t.editor.namePlaceholder}
+									/>
+								</div>
 
-						<div className="space-y-4">
-							<h4 className="font-medium text-sm">
-								{t.editor.prefixes}
-							</h4>
-							{prefixes.map((mod, i) => (
-								<ModSlot
-									key={`prefix-${i}`}
-									type="prefix"
-									index={i}
-									mod={mod}
-									mechanicFilter={mechanicFilter}
-									idolType={baseType}
-									excludedModIds={getExcludedModIds(
-										mod?.modOption.id ?? null,
-									)}
-									onModChange={(m) =>
-										updateMod("prefix", i, m)
-									}
-									onTierChange={(tier) =>
-										updateTier("prefix", i, tier)
-									}
-									onValueChange={(value) =>
-										updateValue("prefix", i, value)
-									}
-								/>
-							))}
-						</div>
+								<div className="space-y-2">
+									<span className="font-medium text-sm">
+										{t.editor.filterByMechanic}
+									</span>
+									<MultiMechanicFilter
+										value={mechanicFilter}
+										onChange={setMechanicFilter}
+									/>
+								</div>
 
-						<div className="space-y-4">
-							<h4 className="font-medium text-sm">
-								{t.editor.suffixes}
-							</h4>
-							{suffixes.map((mod, i) => (
-								<ModSlot
-									key={`suffix-${i}`}
-									type="suffix"
-									index={i}
-									mod={mod}
-									mechanicFilter={mechanicFilter}
-									idolType={baseType}
-									excludedModIds={getExcludedModIds(
-										mod?.modOption.id ?? null,
-									)}
-									onModChange={(m) =>
-										updateMod("suffix", i, m)
-									}
-									onTierChange={(tier) =>
-										updateTier("suffix", i, tier)
-									}
-									onValueChange={(value) =>
-										updateValue("suffix", i, value)
-									}
-								/>
-							))}
-						</div>
+								<div className="space-y-4">
+									<h4 className="font-medium text-sm">
+										{t.editor.prefixes}
+									</h4>
+									{prefixes.map((mod, i) => (
+										<ModSlot
+											key={`prefix-${i}`}
+											type="prefix"
+											index={i}
+											mod={mod}
+											mechanicFilter={mechanicFilter}
+											idolType={baseType}
+											excludedModIds={getExcludedModIds(
+												mod?.modOption.id ?? null,
+											)}
+											onModChange={(m) =>
+												updateMod("prefix", i, m)
+											}
+											onTierChange={(tier) =>
+												updateTier("prefix", i, tier)
+											}
+											onValueChange={(value) =>
+												updateValue("prefix", i, value)
+											}
+										/>
+									))}
+								</div>
+
+								<div className="space-y-4">
+									<h4 className="font-medium text-sm">
+										{t.editor.suffixes}
+									</h4>
+									{suffixes.map((mod, i) => (
+										<ModSlot
+											key={`suffix-${i}`}
+											type="suffix"
+											index={i}
+											mod={mod}
+											mechanicFilter={mechanicFilter}
+											idolType={baseType}
+											excludedModIds={getExcludedModIds(
+												mod?.modOption.id ?? null,
+											)}
+											onModChange={(m) =>
+												updateMod("suffix", i, m)
+											}
+											onTierChange={(tier) =>
+												updateTier("suffix", i, tier)
+											}
+											onValueChange={(value) =>
+												updateValue("suffix", i, value)
+											}
+										/>
+									))}
+								</div>
+							</>
+						)}
 					</div>
 				</ScrollArea>
 
@@ -529,7 +697,7 @@ export function IdolEditor({
 					>
 						{t.actions.cancel}
 					</Button>
-					<Button onClick={handleSave} disabled={!hasAnyMods}>
+					<Button onClick={handleSave} disabled={!canSave}>
 						{t.actions.save}
 					</Button>
 				</DialogFooter>

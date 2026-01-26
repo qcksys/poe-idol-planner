@@ -26,7 +26,7 @@ interface IdolContribution {
 interface AggregatedStat {
 	template: string;
 	totalValue: number;
-	mechanic: LeagueMechanic;
+	mechanic: LeagueMechanic | undefined;
 	hasPercent: boolean;
 	contributions: IdolContribution[];
 }

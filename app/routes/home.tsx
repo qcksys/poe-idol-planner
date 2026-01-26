@@ -6,7 +6,6 @@ import { IdolGrid } from "~/components/idol-grid";
 import { ImportModal } from "~/components/import-modal";
 import { InventoryPanel } from "~/components/inventory-panel";
 import { MapDeviceComponent } from "~/components/map-device";
-import { MapDeviceUnlocks } from "~/components/map-device-unlocks";
 import { SetTabs } from "~/components/set-tabs";
 import { ShareModal } from "~/components/share-modal";
 import { StatsSummary } from "~/components/stats-summary";
@@ -119,17 +118,6 @@ function HomeContent() {
 					<section className="flex flex-col items-center gap-4">
 						{activeSet && (
 							<>
-								<div className="flex w-full items-center justify-between px-2">
-									<div />
-									<MapDeviceUnlocks
-										unlockedConditions={
-											activeSet.unlockedConditions
-										}
-										onUnlockedConditionsChange={
-											sets.updateUnlockedConditions
-										}
-									/>
-								</div>
 								<IdolGrid
 									placements={activeSet.placements}
 									inventory={inventory}
@@ -162,6 +150,12 @@ function HomeContent() {
 									onSlotChange={sets.updateMapDeviceSlot}
 									onCraftingOptionChange={
 										sets.updateMapDeviceCraftingOption
+									}
+									unlockedConditions={
+										activeSet.unlockedConditions
+									}
+									onUnlockedConditionsChange={
+										sets.updateUnlockedConditions
 									}
 								/>
 							</>

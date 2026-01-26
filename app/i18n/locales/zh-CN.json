@@ -23,6 +23,7 @@
 		"empty": "仓库中没有神像。请使用下方按钮导入或创建神像。",
 		"import": "导入",
 		"create": "创建",
+		"browseMods": "浏览词缀",
 		"paste": "粘贴",
 		"search": "搜索神像...",
 		"clear": "清除全部",
@@ -124,11 +125,29 @@
 		"allMechanics": "所有机制",
 		"favoritesOnly": "仅收藏",
 		"addToFavorites": "添加到收藏",
-		"removeFromFavorites": "从收藏中移除"
+		"removeFromFavorites": "从收藏中移除",
+		"uniqueIdols": "传奇神像",
+		"selectUniqueIdol": "选择传奇神像...",
+		"noUniqueIdolsFound": "未找到传奇神像。"
+	},
+	"modsSearch": {
+		"title": "搜索词缀",
+		"description": "浏览所有可用的神像词缀。",
+		"searchPlaceholder": "按文本搜索...",
+		"typeFilter": "类型",
+		"all": "全部",
+		"prefix": "前缀",
+		"suffix": "后缀",
+		"favoriteFilter": "收藏",
+		"favoritesAll": "全部",
+		"favoritesOnly": "仅收藏",
+		"favoritesExclude": "仅非收藏",
+		"modsFound": "找到 {count} 个词缀"
 	},
 	"filter": {
 		"mechanic": "按机制筛选",
 		"allMechanics": "所有机制",
+		"mechanicsSelected": "{count} 个机制",
 		"type": "按类型筛选",
 		"allTypes": "所有类型",
 		"prefixOnly": "仅前缀",
