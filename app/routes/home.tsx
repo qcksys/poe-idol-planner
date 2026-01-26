@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AppFooter } from "~/components/app-footer";
 import { AppHeader } from "~/components/app-header";
 import { IdolEditor } from "~/components/idol-editor";
 import { IdolGrid } from "~/components/idol-grid";
@@ -196,6 +197,8 @@ function HomeContent() {
 				onSave={handleSaveIdol}
 				initialIdol={editingIdol?.idol ?? null}
 			/>
+
+			<AppFooter />
 		</div>
 	);
 }

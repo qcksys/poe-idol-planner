@@ -147,6 +147,9 @@
 		"craftingOptionEffect": "지도 장치",
 		"clearSlot": "슬롯 비우기"
 	},
+	"footer": {
+		"dataFrom": "데이터 출처"
+	},
 	"mechanics": {
 		"abyss": "심연",
 		"anarchy": "무정부 (도적 추방자)",

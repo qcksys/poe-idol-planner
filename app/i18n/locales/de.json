@@ -147,6 +147,9 @@
 		"craftingOptionEffect": "Kartengerät",
 		"clearSlot": "Slot leeren"
 	},
+	"footer": {
+		"dataFrom": "Daten von"
+	},
 	"mechanics": {
 		"abyss": "Abgrund",
 		"anarchy": "Anarchie (Abtrünnige Verbannte)",

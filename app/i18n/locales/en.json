@@ -147,6 +147,9 @@
 		"craftingOptionEffect": "Map Device",
 		"clearSlot": "Clear slot"
 	},
+	"footer": {
+		"dataFrom": "Data from"
+	},
 	"mechanics": {
 		"abyss": "Abyss",
 		"anarchy": "Anarchy (Rogue Exiles)",

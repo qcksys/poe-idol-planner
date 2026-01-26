@@ -147,6 +147,9 @@
 		"craftingOptionEffect": "マップデバイス",
 		"clearSlot": "スロットをクリア"
 	},
+	"footer": {
+		"dataFrom": "データ提供"
+	},
 	"mechanics": {
 		"abyss": "アビス",
 		"anarchy": "アナーキー (ローグエグザイル)",

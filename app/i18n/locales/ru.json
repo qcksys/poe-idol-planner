@@ -147,6 +147,9 @@
 		"craftingOptionEffect": "Картографическое устройство",
 		"clearSlot": "Очистить слот"
 	},
+	"footer": {
+		"dataFrom": "Данные из"
+	},
 	"mechanics": {
 		"abyss": "Бездна",
 		"anarchy": "Анархия (Разбойники-изгнанники)",

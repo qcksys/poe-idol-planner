@@ -147,6 +147,9 @@
 		"craftingOptionEffect": "Cartographe",
 		"clearSlot": "Vider l'emplacement"
 	},
+	"footer": {
+		"dataFrom": "Données de"
+	},
 	"mechanics": {
 		"abyss": "Abîme",
 		"anarchy": "Anarchie (Exilés Rebelles)",

@@ -147,6 +147,9 @@
 		"craftingOptionEffect": "Dispositivo de Mapas",
 		"clearSlot": "Limpiar ranura"
 	},
+	"footer": {
+		"dataFrom": "Datos de"
+	},
 	"mechanics": {
 		"abyss": "Abismo",
 		"anarchy": "Anarquía (Exiliados Rebeldes)",

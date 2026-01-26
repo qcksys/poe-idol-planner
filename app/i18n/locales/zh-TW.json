@@ -147,6 +147,9 @@
 		"craftingOptionEffect": "地圖儀",
 		"clearSlot": "清空槽位"
 	},
+	"footer": {
+		"dataFrom": "資料來自"
+	},
 	"mechanics": {
 		"abyss": "深淵",
 		"anarchy": "混亂 (流亡黑幫)",

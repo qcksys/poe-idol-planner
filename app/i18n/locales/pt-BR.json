@@ -147,6 +147,9 @@
 		"craftingOptionEffect": "Dispositivo de Mapas",
 		"clearSlot": "Limpar slot"
 	},
+	"footer": {
+		"dataFrom": "Dados de"
+	},
 	"mechanics": {
 		"abyss": "Abismo",
 		"anarchy": "Anarquia (Exilados Trapaceiros)",
