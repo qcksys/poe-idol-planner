@@ -135,10 +135,14 @@ interface GridCellComponentProps {
 	cell: GridCell;
 	x: number;
 	y: number;
+	originPosition?: { x: number; y: number };
 	inventoryIdol?: InventoryIdol;
 	onClick?: () => void;
 	onDrop?: (x: number, y: number) => void;
-	onDragStart?: (placementId: string) => void;
+	onDragStart?: (
+		placementId: string,
+		offset: { x: number; y: number },
+	) => void;
 	onDragEnd?: () => void;
 	canDropHere?: boolean;
 	isDropPreview?: boolean;
@@ -148,6 +152,7 @@ function GridCellComponent({
 	cell,
 	x,
 	y,
+	originPosition,
 	inventoryIdol,
 	onClick,
 	onDrop,
@@ -187,13 +192,17 @@ function GridCellComponent({
 	);
 
 	const handleIdolDragStart = useCallback(
-		(e: DragEvent<HTMLButtonElement>) => {
-			if (cell.placementId && onDragStart) {
+		(e: DragEvent<HTMLButtonElement | HTMLDivElement>) => {
+			if (cell.placementId && onDragStart && originPosition) {
 				e.dataTransfer.effectAllowed = "move";
-				onDragStart(cell.placementId);
+				const offset = {
+					x: x - originPosition.x,
+					y: y - originPosition.y,
+				};
+				onDragStart(cell.placementId, offset);
 			}
 		},
-		[cell.placementId, onDragStart],
+		[cell.placementId, onDragStart, originPosition, x, y],
 	);
 
 	const handleIdolDragEnd = useCallback(() => {
@@ -221,8 +230,22 @@ function GridCellComponent({
 		);
 	}
 
-	if (cell.occupied) {
-		return null;
+	if (cell.occupied && !cell.isOrigin) {
+		return (
+			// biome-ignore lint/a11y/noStaticElementInteractions: Drag handle for idol movement
+			<div
+				className="absolute cursor-grab"
+				style={{
+					left: x * CELL_SIZE,
+					top: y * CELL_SIZE,
+					width: CELL_SIZE,
+					height: CELL_SIZE,
+				}}
+				draggable
+				onDragStart={handleIdolDragStart}
+				onDragEnd={handleIdolDragEnd}
+			/>
+		);
 	}
 
 	// Render invalid (blocked) cells with a distinct appearance
@@ -290,7 +313,8 @@ function GridTabContent({
 		tab: GridTab,
 	) => void;
 }) {
-	const { draggedItem, sourcePlacementId, setDraggedItem } = useDnd();
+	const { draggedItem, sourcePlacementId, dragOffset, setDraggedItem } =
+		useDnd();
 
 	const grid = useMemo(
 		() => populateGrid(placements, inventory, tab),
@@ -305,18 +329,35 @@ function GridTabContent({
 		return map;
 	}, [inventory]);
 
+	const originPositionMap = useMemo(() => {
+		const map = new Map<string, { x: number; y: number }>();
+		const tabPlacements = placements.filter((p) => p.tab === tab);
+		for (const placement of tabPlacements) {
+			map.set(placement.id, placement.position);
+		}
+		return map;
+	}, [placements, tab]);
+
 	const canPlaceAtPosition = useCallback(
 		(x: number, y: number): boolean => {
 			if (!draggedItem) return false;
 			const base = IDOL_BASES[draggedItem.idol.baseType as IdolBaseKey];
 
-			if (x + base.width > GRID_WIDTH || y + base.height > GRID_HEIGHT) {
+			const originX = x - dragOffset.x;
+			const originY = y - dragOffset.y;
+
+			if (
+				originX < 0 ||
+				originY < 0 ||
+				originX + base.width > GRID_WIDTH ||
+				originY + base.height > GRID_HEIGHT
+			) {
 				return false;
 			}
 
 			for (let dy = 0; dy < base.height; dy++) {
 				for (let dx = 0; dx < base.width; dx++) {
-					const cell = grid[y + dy]?.[x + dx];
+					const cell = grid[originY + dy]?.[originX + dx];
 					if (!cell?.isValid) return false;
 					if (cell?.occupied) {
 						if (
@@ -332,31 +373,41 @@ function GridTabContent({
 
 			return true;
 		},
-		[draggedItem, grid, sourcePlacementId],
+		[draggedItem, grid, sourcePlacementId, dragOffset],
 	);
 
 	const handleDrop = useCallback(
 		(x: number, y: number) => {
 			if (!draggedItem) return;
 
+			const originX = x - dragOffset.x;
+			const originY = y - dragOffset.y;
+
 			if (sourcePlacementId && onMoveIdol) {
-				onMoveIdol(sourcePlacementId, x, y, tab);
+				onMoveIdol(sourcePlacementId, originX, originY, tab);
 			} else if (onPlaceIdol) {
-				onPlaceIdol(draggedItem.id, x, y, tab);
+				onPlaceIdol(draggedItem.id, originX, originY, tab);
 			}
 		},
-		[draggedItem, sourcePlacementId, onPlaceIdol, onMoveIdol, tab],
+		[
+			draggedItem,
+			sourcePlacementId,
+			dragOffset,
+			onPlaceIdol,
+			onMoveIdol,
+			tab,
+		],
 	);
 
 	const handleIdolDragStart = useCallback(
-		(placementId: string) => {
+		(placementId: string, offset: { x: number; y: number }) => {
 			const placement = placements.find((p) => p.id === placementId);
 			if (!placement) return;
 
 			const invIdol = inventoryMap.get(placement.inventoryIdolId);
 			if (!invIdol) return;
 
-			setDraggedItem(invIdol, placementId);
+			setDraggedItem(invIdol, placementId, offset);
 		},
 		[placements, inventoryMap, setDraggedItem],
 	);
@@ -387,12 +438,17 @@ function GridTabContent({
 							})
 						: undefined;
 
+					const originPosition = cell.placementId
+						? originPositionMap.get(cell.placementId)
+						: undefined;
+
 					return (
 						<GridCellComponent
 							key={`cell-${x}-${y}`}
 							cell={cell}
 							x={x}
 							y={y}
+							originPosition={originPosition}
 							inventoryIdol={inventoryIdol}
 							onClick={
 								cell.isOrigin && cell.idol && cell.placementId

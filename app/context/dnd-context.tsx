@@ -7,27 +7,48 @@ import {
 } from "react";
 import type { InventoryIdol } from "~/schemas/inventory";
 
+interface DragOffset {
+	x: number;
+	y: number;
+}
+
 interface DragSource {
 	inventoryIdol: InventoryIdol;
 	placementId?: string;
+	offset?: DragOffset;
 }
 
 interface DndContextValue {
 	draggedItem: InventoryIdol | null;
 	sourcePlacementId: string | null;
-	setDraggedItem: (item: InventoryIdol | null, placementId?: string) => void;
+	dragOffset: DragOffset;
+	setDraggedItem: (
+		item: InventoryIdol | null,
+		placementId?: string,
+		offset?: DragOffset,
+	) => void;
 	isDragging: boolean;
 }
 
 const DndContext = createContext<DndContextValue | null>(null);
 
+const DEFAULT_OFFSET: DragOffset = { x: 0, y: 0 };
+
 export function DndProvider({ children }: { children: ReactNode }) {
 	const [dragSource, setDragSource] = useState<DragSource | null>(null);
 
 	const setDraggedItem = useCallback(
-		(item: InventoryIdol | null, placementId?: string) => {
+		(
+			item: InventoryIdol | null,
+			placementId?: string,
+			offset?: DragOffset,
+		) => {
 			if (item) {
-				setDragSource({ inventoryIdol: item, placementId });
+				setDragSource({
+					inventoryIdol: item,
+					placementId,
+					offset: offset ?? DEFAULT_OFFSET,
+				});
 			} else {
 				setDragSource(null);
 			}
@@ -40,6 +61,7 @@ export function DndProvider({ children }: { children: ReactNode }) {
 			value={{
 				draggedItem: dragSource?.inventoryIdol ?? null,
 				sourcePlacementId: dragSource?.placementId ?? null,
+				dragOffset: dragSource?.offset ?? DEFAULT_OFFSET,
 				setDraggedItem,
 				isDragging: dragSource !== null,
 			}}

@@ -48,6 +48,7 @@ interface ModSlotProps {
 	mod: SelectedMod | null;
 	mechanicFilter: LeagueMechanic | null;
 	idolType: IdolBaseKey;
+	excludedModIds: string[];
 	onModChange: (mod: SelectedMod | null) => void;
 	onTierChange: (tier: number) => void;
 	onValueChange: (value: number) => void;
@@ -65,6 +66,7 @@ function ModSlot({
 	mod,
 	mechanicFilter,
 	idolType,
+	excludedModIds,
 	onModChange,
 	onTierChange,
 	onValueChange,
@@ -99,6 +101,7 @@ function ModSlot({
 						mechanicFilter={mechanicFilter}
 						idolType={idolType}
 						selectedModId={mod?.modOption.id ?? null}
+						excludedModIds={excludedModIds}
 						onSelect={handleModSelect}
 					/>
 				</div>
@@ -355,6 +358,20 @@ export function IdolEditor({
 	const hasAnyMods =
 		prefixes.some((p) => p !== null) || suffixes.some((s) => s !== null);
 
+	const allSelectedModIds = useMemo(() => {
+		return [
+			...prefixes.filter((p) => p !== null).map((p) => p.modOption.id),
+			...suffixes.filter((s) => s !== null).map((s) => s.modOption.id),
+		];
+	}, [prefixes, suffixes]);
+
+	const getExcludedModIds = useCallback(
+		(currentModId: string | null) => {
+			return allSelectedModIds.filter((id) => id !== currentModId);
+		},
+		[allSelectedModIds],
+	);
+
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
 			<DialogContent className="flex max-h-[85vh] max-w-[1000px] flex-col overflow-hidden">
@@ -438,6 +455,9 @@ export function IdolEditor({
 									mod={mod}
 									mechanicFilter={mechanicFilter}
 									idolType={baseType}
+									excludedModIds={getExcludedModIds(
+										mod?.modOption.id ?? null,
+									)}
 									onModChange={(m) =>
 										updateMod("prefix", i, m)
 									}
@@ -463,6 +483,9 @@ export function IdolEditor({
 									mod={mod}
 									mechanicFilter={mechanicFilter}
 									idolType={baseType}
+									excludedModIds={getExcludedModIds(
+										mod?.modOption.id ?? null,
+									)}
 									onModChange={(m) =>
 										updateMod("suffix", i, m)
 									}

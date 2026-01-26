@@ -38,6 +38,7 @@ interface ModSearchProps {
 	mechanicFilter?: LeagueMechanic | null;
 	idolType?: string | null;
 	selectedModId?: string | null;
+	excludedModIds?: string[];
 	onSelect: (mod: ModifierOption | null) => void;
 	disabled?: boolean;
 	placeholder?: string;
@@ -83,6 +84,7 @@ export function ModSearch({
 	mechanicFilter,
 	idolType,
 	selectedModId,
+	excludedModIds = [],
 	onSelect,
 	disabled = false,
 	placeholder,
@@ -101,9 +103,10 @@ export function ModSearch({
 					idolType.charAt(0).toUpperCase() + idolType.slice(1);
 				if (!mod.applicableIdols.includes(idolTypeName)) return false;
 			}
+			if (excludedModIds.includes(mod.id)) return false;
 			return true;
 		});
-	}, [allModifiers, type, mechanicFilter, idolType]);
+	}, [allModifiers, type, mechanicFilter, idolType, excludedModIds]);
 
 	const groupedModifiers = useMemo(() => {
 		const groups: Record<LeagueMechanic, ModifierOption[]> = {} as Record<
@@ -251,26 +254,30 @@ export function MechanicFilter({
 									{t.editor.allMechanics}
 								</CommandItem>
 							)}
-							{LEAGUE_MECHANICS.map((mechanic) => (
-								<CommandItem
-									key={mechanic}
-									value={mechanic}
-									onSelect={() => {
-										onChange(mechanic);
-										setOpen(false);
-									}}
-								>
-									<Check
-										className={cn(
-											"mr-2 h-4 w-4",
-											value === mechanic
-												? "opacity-100"
-												: "opacity-0",
-										)}
-									/>
-									{t.mechanics[mechanic] || mechanic}
-								</CommandItem>
-							))}
+							{LEAGUE_MECHANICS.map((mechanic) => {
+								const displayText =
+									t.mechanics[mechanic] || mechanic;
+								return (
+									<CommandItem
+										key={mechanic}
+										value={`${mechanic} ${displayText}`}
+										onSelect={() => {
+											onChange(mechanic);
+											setOpen(false);
+										}}
+									>
+										<Check
+											className={cn(
+												"mr-2 h-4 w-4",
+												value === mechanic
+													? "opacity-100"
+													: "opacity-0",
+											)}
+										/>
+										{displayText}
+									</CommandItem>
+								);
+							})}
 						</CommandGroup>
 					</CommandList>
 				</Command>
