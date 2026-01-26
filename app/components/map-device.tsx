@@ -168,7 +168,7 @@ function ScarabSlot({
 							t.mapDevice?.searchScarabs || "Search scarabs..."
 						}
 					/>
-					<div className="flex flex-wrap gap-1 border-b p-2">
+					<div className="flex max-h-24 flex-wrap gap-1 overflow-y-auto border-b p-2">
 						<Button
 							variant={
 								categoryFilter === null ? "secondary" : "ghost"
@@ -179,7 +179,7 @@ function ScarabSlot({
 						>
 							All
 						</Button>
-						{SCARAB_CATEGORIES.slice(0, 8).map((cat) => (
+						{SCARAB_CATEGORIES.map((cat) => (
 							<Button
 								key={cat}
 								variant={
