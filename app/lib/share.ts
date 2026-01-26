@@ -1,9 +1,13 @@
 import { nanoid } from "nanoid";
 import type { IdolSet } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
-import { SHARE_TTL_MS, type SharedSet, SharedSetSchema } from "~/schemas/share";
+import {
+	SHARE_ID_LENGTH,
+	SHARE_TTL_MS,
+	type SharedSet,
+	SharedSetSchema,
+} from "~/schemas/share";
 
-const SHARE_ID_LENGTH = 10;
 const KV_PREFIX = "share:";
 
 export function generateShareId(): string {

@@ -1,9 +1,16 @@
+import { z } from "zod";
 import { envContext } from "~/context";
 import {
 	type ScarabPricesData,
 	ScarabPricesDataSchema,
 } from "~/schemas/scarab";
 import type { Route } from "./+types/api.prices.scarabs";
+
+const LeagueQuerySchema = z
+	.string()
+	.min(1, "League is required")
+	.max(100, "League name too long")
+	.regex(/^[\w\s-]+$/, "Invalid league name format");
 
 export async function loader({ request, context }: Route.LoaderArgs) {
 	const env = context.get(envContext);
@@ -18,12 +25,21 @@ export async function loader({ request, context }: Route.LoaderArgs) {
 	}
 
 	const url = new URL(request.url);
-	const league = url.searchParams.get("league");
+	const leagueResult = LeagueQuerySchema.safeParse(
+		url.searchParams.get("league"),
+	);
 
-	if (!league) {
-		return Response.json({ error: "League required" }, { status: 400 });
+	if (!leagueResult.success) {
+		return Response.json(
+			{
+				error:
+					leagueResult.error.issues[0]?.message ?? "Invalid league",
+			},
+			{ status: 400 },
+		);
 	}
 
+	const league = leagueResult.data;
 	const key = `scarab-prices:${league}`;
 	const cached = await kv.get(key);
 

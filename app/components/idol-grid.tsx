@@ -1,4 +1,6 @@
+import { Copy, X } from "lucide-react";
 import { type DragEvent, useCallback, useMemo, useState } from "react";
+import { Button } from "~/components/ui/button";
 import {
 	Tooltip,
 	TooltipContent,
@@ -7,6 +9,7 @@ import {
 } from "~/components/ui/tooltip";
 import { useDnd } from "~/context/dnd-context";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
+import { useTranslations } from "~/i18n";
 import { highlightNumbers } from "~/lib/highlight-numbers";
 import { cn } from "~/lib/utils";
 import type { IdolInstance } from "~/schemas/idol";
@@ -145,6 +148,7 @@ interface GridCellComponentProps {
 	y: number;
 	originPosition?: { x: number; y: number };
 	inventoryIdol?: InventoryIdol;
+	idolBase?: { width: number; height: number };
 	onClick?: () => void;
 	onRemove?: () => void;
 	onCopy?: () => void;
@@ -156,6 +160,181 @@ interface GridCellComponentProps {
 	onDragEnd?: () => void;
 	canDropHere?: boolean;
 	isDropPreview?: boolean;
+}
+
+interface NonOriginCellTooltipProps {
+	base: (typeof IDOL_BASES)[IdolBaseKey];
+	allMods: IdolInstance["prefixes"];
+	tooltipSide: "left" | "right";
+	x: number;
+	y: number;
+	onDragStart: (e: DragEvent<HTMLDivElement>) => void;
+	onDragEnd: () => void;
+	onRemove?: () => void;
+	onCopy?: () => void;
+	onDrop?: (x: number, y: number) => void;
+	canDropHere?: boolean;
+}
+
+function NonOriginCellTooltip({
+	base,
+	allMods,
+	tooltipSide,
+	x,
+	y,
+	onDragStart,
+	onDragEnd,
+	onRemove,
+	onCopy,
+	onDrop,
+	canDropHere,
+}: NonOriginCellTooltipProps) {
+	const t = useTranslations();
+	const [isDragOver, setIsDragOver] = useState(false);
+
+	const handleRemove = (e: React.MouseEvent) => {
+		e.stopPropagation();
+		onRemove?.();
+	};
+
+	const handleCopy = (e: React.MouseEvent) => {
+		e.stopPropagation();
+		onCopy?.();
+	};
+
+	const handleDragOver = useCallback(
+		(e: DragEvent<HTMLDivElement>) => {
+			e.preventDefault();
+			if (canDropHere) {
+				e.dataTransfer.dropEffect = "move";
+				setIsDragOver(true);
+			} else {
+				e.dataTransfer.dropEffect = "none";
+			}
+		},
+		[canDropHere],
+	);
+
+	const handleDragLeave = useCallback(() => {
+		setIsDragOver(false);
+	}, []);
+
+	const handleDrop = useCallback(
+		(e: DragEvent<HTMLDivElement>) => {
+			e.preventDefault();
+			setIsDragOver(false);
+			if (canDropHere && onDrop) {
+				onDrop(x, y);
+			}
+		},
+		[canDropHere, onDrop, x, y],
+	);
+
+	return (
+		<TooltipProvider>
+			<Tooltip>
+				<TooltipTrigger asChild>
+					{/* biome-ignore lint/a11y/noStaticElementInteractions: Drag handle for idol movement */}
+					<div
+						className={cn(
+							"absolute cursor-grab",
+							isDragOver &&
+								canDropHere &&
+								"border-success bg-success/20",
+							isDragOver &&
+								!canDropHere &&
+								"border-destructive bg-destructive/20",
+						)}
+						style={{
+							left: x * CELL_SIZE,
+							top: y * CELL_SIZE,
+							width: CELL_SIZE,
+							height: CELL_SIZE,
+						}}
+						draggable
+						onDragStart={onDragStart}
+						onDragEnd={onDragEnd}
+						onDragOver={handleDragOver}
+						onDragLeave={handleDragLeave}
+						onDrop={handleDrop}
+					/>
+				</TooltipTrigger>
+				<TooltipContent
+					side={tooltipSide}
+					avoidCollisions
+					collisionPadding={8}
+					className="max-w-xs border border-border bg-card text-card-foreground"
+				>
+					<div className="space-y-2">
+						<div className="space-y-1">
+							<div className="flex items-center gap-1.5">
+								<img
+									src={base.image}
+									alt=""
+									className="h-5 w-5 object-contain"
+								/>
+								<span className="text-muted-foreground text-xs">
+									{base.name}
+								</span>
+							</div>
+							<div className="space-y-0.5">
+								{allMods.map((mod, index) => (
+									<div
+										key={`${mod.modId}-${index}`}
+										className={
+											mod.type === "prefix"
+												? "text-mod-prefix text-sm"
+												: "text-mod-suffix text-sm"
+										}
+									>
+										{highlightNumbers(mod.text)}
+									</div>
+								))}
+							</div>
+						</div>
+						{(onRemove || onCopy) && (
+							<div className="flex justify-end gap-1 border-border border-t pt-2">
+								{onCopy && (
+									<Tooltip>
+										<TooltipTrigger asChild>
+											<Button
+												variant="secondary"
+												size="icon"
+												className="h-6 w-6"
+												onClick={handleCopy}
+											>
+												<Copy className="h-3.5 w-3.5" />
+											</Button>
+										</TooltipTrigger>
+										<TooltipContent side="bottom">
+											{t.actions.copyToInventory}
+										</TooltipContent>
+									</Tooltip>
+								)}
+								{onRemove && (
+									<Tooltip>
+										<TooltipTrigger asChild>
+											<Button
+												variant="destructive"
+												size="icon"
+												className="h-6 w-6"
+												onClick={handleRemove}
+											>
+												<X className="h-3.5 w-3.5" />
+											</Button>
+										</TooltipTrigger>
+										<TooltipContent side="bottom">
+											{t.grid.removeFromGrid}
+										</TooltipContent>
+									</Tooltip>
+								)}
+							</div>
+						)}
+					</div>
+				</TooltipContent>
+			</Tooltip>
+		</TooltipProvider>
+	);
 }
 
 // Creates a custom drag image element for an idol
@@ -227,6 +406,7 @@ function GridCellComponent({
 	y,
 	originPosition,
 	inventoryIdol,
+	idolBase,
 	onClick,
 	onRemove,
 	onCopy,
@@ -335,59 +515,28 @@ function GridCellComponent({
 		const base = IDOL_BASES[idol.baseType as IdolBaseKey];
 		const allMods = [...idol.prefixes, ...idol.suffixes];
 
+		// Calculate offset from idol origin to determine tooltip side
+		const offsetX = originPosition ? x - originPosition.x : 0;
+		const idolWidth = idolBase?.width ?? base.width;
+
+		// Show tooltip on the right edge when hovering left side, vice versa
+		const isLeftHalf = offsetX < idolWidth / 2;
+		const tooltipSide = isLeftHalf ? "right" : "left";
+
 		return (
-			<TooltipProvider>
-				<Tooltip>
-					<TooltipTrigger asChild>
-						{/* biome-ignore lint/a11y/noStaticElementInteractions: Drag handle for idol movement */}
-						<div
-							className="absolute cursor-grab"
-							style={{
-								left: x * CELL_SIZE,
-								top: y * CELL_SIZE,
-								width: CELL_SIZE,
-								height: CELL_SIZE,
-							}}
-							draggable
-							onDragStart={handleIdolDragStart}
-							onDragEnd={handleIdolDragEnd}
-						/>
-					</TooltipTrigger>
-					<TooltipContent
-						side="right"
-						avoidCollisions
-						collisionPadding={8}
-						className="max-w-xs border border-border bg-card text-card-foreground"
-					>
-						<div className="space-y-1">
-							<div className="flex items-center gap-1.5">
-								<img
-									src={base.image}
-									alt=""
-									className="h-5 w-5 object-contain"
-								/>
-								<span className="text-muted-foreground text-xs">
-									{base.name}
-								</span>
-							</div>
-							<div className="space-y-0.5">
-								{allMods.map((mod, index) => (
-									<div
-										key={`${mod.modId}-${index}`}
-										className={
-											mod.type === "prefix"
-												? "text-mod-prefix text-sm"
-												: "text-mod-suffix text-sm"
-										}
-									>
-										{highlightNumbers(mod.text)}
-									</div>
-								))}
-							</div>
-						</div>
-					</TooltipContent>
-				</Tooltip>
-			</TooltipProvider>
+			<NonOriginCellTooltip
+				base={base}
+				allMods={allMods}
+				tooltipSide={tooltipSide}
+				x={x}
+				y={y}
+				onDragStart={handleIdolDragStart}
+				onDragEnd={handleIdolDragEnd}
+				onRemove={onRemove}
+				onCopy={onCopy}
+				onDrop={onDrop}
+				canDropHere={canDropHere}
+			/>
 		);
 	}
 
@@ -591,6 +740,10 @@ function GridTabContent({
 						? originPositionMap.get(cell.placementId)
 						: undefined;
 
+					const idolBase = cell.idol
+						? IDOL_BASES[cell.idol.baseType as IdolBaseKey]
+						: undefined;
+
 					return (
 						<GridCellComponent
 							key={`cell-${x}-${y}`}
@@ -599,6 +752,7 @@ function GridTabContent({
 							y={y}
 							originPosition={originPosition}
 							inventoryIdol={inventoryIdol}
+							idolBase={idolBase}
 							onClick={
 								cell.isOrigin && cell.idol && cell.placementId
 									? () =>
@@ -609,7 +763,7 @@ function GridTabContent({
 									: undefined
 							}
 							onRemove={
-								cell.isOrigin && cell.placementId
+								cell.placementId
 									? () =>
 											onRemoveIdol?.(
 												cell.placementId as string,
@@ -617,7 +771,7 @@ function GridTabContent({
 									: undefined
 							}
 							onCopy={
-								cell.isOrigin && cell.idol
+								cell.idol
 									? () =>
 											onCopyIdol?.(
 												cell.idol as IdolInstance,
