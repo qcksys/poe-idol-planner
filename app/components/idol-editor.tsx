@@ -107,24 +107,26 @@ function ModSlot({
 			{mod && (
 				<div className="ml-16 space-y-2">
 					<div className="flex gap-2">
-						<Select
-							value={String(mod.tier)}
-							onValueChange={(v) => onTierChange(Number(v))}
-						>
-							<SelectTrigger className="w-24">
-								<SelectValue placeholder={t.editor.tier} />
-							</SelectTrigger>
-							<SelectContent>
-								{mod.modOption.tiers.map((tier) => (
-									<SelectItem
-										key={tier.tier}
-										value={String(tier.tier)}
-									>
-										T{tier.tier}
-									</SelectItem>
-								))}
-							</SelectContent>
-						</Select>
+						{mod.modOption.tiers.length > 1 && (
+							<Select
+								value={String(mod.tier)}
+								onValueChange={(v) => onTierChange(Number(v))}
+							>
+								<SelectTrigger className="w-24">
+									<SelectValue placeholder={t.editor.tier} />
+								</SelectTrigger>
+								<SelectContent>
+									{mod.modOption.tiers.map((tier) => (
+										<SelectItem
+											key={tier.tier}
+											value={String(tier.tier)}
+										>
+											T{tier.tier}
+										</SelectItem>
+									))}
+								</SelectContent>
+							</Select>
+						)}
 
 						{valueRange && valueRange.min !== valueRange.max && (
 							<div className="flex flex-1 items-center gap-3">

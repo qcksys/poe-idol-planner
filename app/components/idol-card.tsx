@@ -68,11 +68,6 @@ function ModifierLine({ mod }: { mod: IdolModifier }) {
 			>
 				{highlightNumbers(mod.text)}
 			</span>
-			{mod.tier && (
-				<span className="ml-1 text-gray-500 text-xs">
-					(T{mod.tier})
-				</span>
-			)}
 		</div>
 	);
 }
@@ -180,7 +175,10 @@ export function IdolCard({
 		<TooltipProvider>
 			<Tooltip>
 				<TooltipTrigger asChild>{cardContent}</TooltipTrigger>
-				<TooltipContent side="right" className="max-w-xs">
+				<TooltipContent
+					side="right"
+					className="max-w-xs border border-border bg-card text-card-foreground"
+				>
 					<IdolCardContent idol={idol} compact={false} />
 				</TooltipContent>
 			</Tooltip>
@@ -238,7 +236,10 @@ export function IdolCardMini({
 						/>
 					</button>
 				</TooltipTrigger>
-				<TooltipContent side="right" className="max-w-xs">
+				<TooltipContent
+					side="right"
+					className="max-w-xs border border-border bg-card text-card-foreground"
+				>
 					<IdolCardContent idol={idol} compact={false} />
 				</TooltipContent>
 			</Tooltip>

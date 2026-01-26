@@ -44,19 +44,38 @@ interface ModSearchProps {
 }
 
 export function getModifierOptions(): ModifierOption[] {
-	return idolModifiers.map((mod) => ({
-		id: mod.id,
-		type: mod.type as "prefix" | "suffix",
-		name: mod.name.en || mod.tiers[0]?.text?.en || mod.id,
-		mechanic: mod.mechanic as LeagueMechanic,
-		applicableIdols: mod.applicableIdols,
-		tiers: mod.tiers.map((tier) => ({
-			tier: tier.tier,
-			levelReq: tier.levelReq,
-			text: tier.text.en || "",
-			values: tier.values || [],
-		})),
-	}));
+	// Dedupe mods by tier text, merging applicableIdols for identical mods
+	const modsByText = new Map<string, ModifierOption>();
+
+	for (const mod of idolModifiers) {
+		const tierText = mod.tiers[0]?.text?.en || "";
+		const key = `${mod.type}:${mod.mechanic}:${tierText}`;
+
+		const existing = modsByText.get(key);
+		if (existing) {
+			// Merge applicableIdols from duplicate
+			const newIdols = mod.applicableIdols.filter(
+				(idol) => !existing.applicableIdols.includes(idol),
+			);
+			existing.applicableIdols.push(...newIdols);
+		} else {
+			modsByText.set(key, {
+				id: mod.id,
+				type: mod.type as "prefix" | "suffix",
+				name: mod.name.en || tierText || mod.id,
+				mechanic: mod.mechanic as LeagueMechanic,
+				applicableIdols: [...mod.applicableIdols],
+				tiers: mod.tiers.map((tier) => ({
+					tier: tier.tier,
+					levelReq: tier.levelReq,
+					text: tier.text.en || "",
+					values: tier.values || [],
+				})),
+			});
+		}
+	}
+
+	return Array.from(modsByText.values());
 }
 
 export function ModSearch({

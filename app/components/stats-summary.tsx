@@ -25,17 +25,59 @@ interface StatsByMechanic {
 	stats: AggregatedStat[];
 }
 
-// Number pattern: matches integers, decimals, and percentages (e.g., 65, 65.5, 65%)
-const NUMBER_PATTERN = /(\d+(?:\.\d+)?%?)/;
-
-// Create a template by replacing the first number with a placeholder
-function createTemplate(text: string): {
+// Create a template by replacing the rolled value with a placeholder
+function createTemplate(
+	text: string,
+	rolledValue: number,
+): {
 	template: string;
 	hasPercent: boolean;
 } {
-	const match = text.match(NUMBER_PATTERN);
-	const hasPercent = match ? match[1].includes("%") : false;
-	const template = text.replace(NUMBER_PATTERN, "{value}");
+	// Try to match the specific rolled value (with optional % suffix)
+	const valueStr = Number.isInteger(rolledValue)
+		? String(rolledValue)
+		: rolledValue.toFixed(1);
+
+	// First try to match the exact value with optional %
+	const exactPattern = new RegExp(`(${valueStr.replace(".", "\\.")}%?)`);
+	const exactMatch = text.match(exactPattern);
+
+	if (exactMatch) {
+		const hasPercent = exactMatch[1].includes("%");
+		const template = text.replace(exactPattern, "{value}");
+		return { template, hasPercent };
+	}
+
+	// Fallback: find the first number that could be the value
+	// Look for numbers that are close to the rolled value (within the value range)
+	const numberPattern = /(\d+(?:\.\d+)?%?)/g;
+	let match: RegExpExecArray | null;
+	let bestMatch: { match: string; index: number } | null = null;
+
+	// biome-ignore lint/suspicious/noAssignInExpressions: standard regex exec pattern
+	while ((match = numberPattern.exec(text)) !== null) {
+		const numStr = match[1].replace("%", "");
+		const num = Number.parseFloat(numStr);
+		// If this number is close to the rolled value, it's likely the right one
+		if (Math.abs(num - rolledValue) <= Math.max(rolledValue * 0.5, 5)) {
+			bestMatch = { match: match[1], index: match.index };
+			break;
+		}
+	}
+
+	if (bestMatch) {
+		const hasPercent = bestMatch.match.includes("%");
+		const template =
+			text.substring(0, bestMatch.index) +
+			"{value}" +
+			text.substring(bestMatch.index + bestMatch.match.length);
+		return { template, hasPercent };
+	}
+
+	// Last resort: just use the first number
+	const firstMatch = text.match(/(\d+(?:\.\d+)?%?)/);
+	const hasPercent = firstMatch ? firstMatch[1].includes("%") : false;
+	const template = text.replace(/(\d+(?:\.\d+)?%?)/, "{value}");
 	return { template, hasPercent };
 }
 
@@ -68,7 +110,10 @@ function aggregateStats(
 		const allMods = [...idol.prefixes, ...idol.suffixes];
 
 		for (const mod of allMods) {
-			const { template, hasPercent } = createTemplate(mod.text);
+			const { template, hasPercent } = createTemplate(
+				mod.text,
+				mod.rolledValue,
+			);
 			const key = `${mod.mechanic}:${template}`;
 			const existing = statMap.get(key);
 			if (existing) {
