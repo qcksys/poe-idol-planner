@@ -33,12 +33,48 @@ function createTemplate(
 	template: string;
 	hasPercent: boolean;
 } {
+	// First, try to match range format like (10—8)% or (15—25)% (using em-dash or regular dash)
+	// The range format is (min—max) where rolled value falls within
+	const rangePattern = /\((\d+(?:\.\d+)?)[—\-–](\d+(?:\.\d+)?)\)(%?)/g;
+	let rangeMatch: RegExpExecArray | null;
+	let bestRangeMatch: {
+		match: string;
+		index: number;
+		hasPercent: boolean;
+	} | null = null;
+
+	// biome-ignore lint/suspicious/noAssignInExpressions: standard regex exec pattern
+	while ((rangeMatch = rangePattern.exec(text)) !== null) {
+		const num1 = Number.parseFloat(rangeMatch[1]);
+		const num2 = Number.parseFloat(rangeMatch[2]);
+		const min = Math.min(num1, num2);
+		const max = Math.max(num1, num2);
+		// Check if rolled value is within or close to this range
+		if (rolledValue >= min - 1 && rolledValue <= max + 1) {
+			bestRangeMatch = {
+				match: rangeMatch[0],
+				index: rangeMatch.index,
+				hasPercent: rangeMatch[3] === "%",
+			};
+			break;
+		}
+	}
+
+	if (bestRangeMatch) {
+		const template =
+			text.substring(0, bestRangeMatch.index) +
+			"{value}" +
+			(bestRangeMatch.hasPercent ? "" : "") +
+			text.substring(bestRangeMatch.index + bestRangeMatch.match.length);
+		return { template, hasPercent: bestRangeMatch.hasPercent };
+	}
+
 	// Try to match the specific rolled value (with optional % suffix)
 	const valueStr = Number.isInteger(rolledValue)
 		? String(rolledValue)
 		: rolledValue.toFixed(1);
 
-	// First try to match the exact value with optional %
+	// Try to match the exact value with optional %
 	const exactPattern = new RegExp(`(${valueStr.replace(".", "\\.")}%?)`);
 	const exactMatch = text.match(exactPattern);
 

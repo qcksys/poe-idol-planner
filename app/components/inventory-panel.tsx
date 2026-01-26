@@ -1,4 +1,11 @@
-import { Copy, PenLine, Plus, Search, Trash2 } from "lucide-react";
+import {
+	Copy,
+	ExternalLink,
+	PenLine,
+	Plus,
+	Search,
+	Trash2,
+} from "lucide-react";
 import { type DragEvent, useState } from "react";
 import { MechanicFilter } from "~/components/mod-search";
 import { Button } from "~/components/ui/button";
@@ -8,6 +15,7 @@ import { ScrollArea } from "~/components/ui/scroll-area";
 import { useDnd } from "~/context/dnd-context";
 import type { LeagueMechanic } from "~/data/idol-bases";
 import { useTranslations } from "~/i18n";
+import { generateTradeUrl } from "~/lib/trade-search";
 import type { InventoryIdol } from "~/schemas/inventory";
 import { IdolCard } from "./idol-card";
 
@@ -46,6 +54,12 @@ function DraggableIdolCard({
 		setDraggedItem(null);
 	};
 
+	const handleFindOnTrade = (e: React.MouseEvent) => {
+		e.stopPropagation();
+		const url = generateTradeUrl(item.idol);
+		window.open(url, "_blank", "noopener,noreferrer");
+	};
+
 	return (
 		<li
 			className="group relative cursor-grab list-none active:cursor-grabbing"
@@ -55,11 +69,19 @@ function DraggableIdolCard({
 		>
 			<IdolCard
 				idol={item.idol}
-				showTradeMenu
 				showTooltip={false}
 				onClick={() => onIdolClick?.(item)}
 			/>
 			<div className="absolute top-1 right-1 flex gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+				<Button
+					variant="secondary"
+					size="icon"
+					className="h-6 w-6"
+					onClick={handleFindOnTrade}
+					title={t.trade.findSimilar}
+				>
+					<ExternalLink className="h-3 w-3" />
+				</Button>
 				{onIdolClick && (
 					<Button
 						variant="secondary"

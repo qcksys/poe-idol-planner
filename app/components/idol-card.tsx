@@ -1,11 +1,4 @@
-import { ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
-import {
-	ContextMenu,
-	ContextMenuContent,
-	ContextMenuItem,
-	ContextMenuTrigger,
-} from "~/components/ui/context-menu";
 import {
 	Tooltip,
 	TooltipContent,
@@ -13,9 +6,7 @@ import {
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
-import { useTranslations } from "~/i18n";
 import { highlightNumbers } from "~/lib/highlight-numbers";
-import { generateTradeUrl } from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
 
@@ -25,7 +16,6 @@ interface IdolCardProps {
 	compact?: boolean;
 	onClick?: () => void;
 	showTooltip?: boolean;
-	showTradeMenu?: boolean;
 }
 
 function getRarityColor(rarity: IdolInstance["rarity"]): string {
@@ -120,17 +110,10 @@ export function IdolCard({
 	compact = false,
 	onClick,
 	showTooltip = true,
-	showTradeMenu = false,
 }: IdolCardProps) {
-	const t = useTranslations();
 	const rarityColor = getRarityColor(idol.rarity);
 	const rarityBg = getRarityBg(idol.rarity);
 	const base = IDOL_BASES[idol.baseType as IdolBaseKey];
-
-	const handleFindOnTrade = () => {
-		const url = generateTradeUrl(idol);
-		window.open(url, "_blank", "noopener,noreferrer");
-	};
 
 	const cardElement = (
 		<Card
@@ -153,28 +136,14 @@ export function IdolCard({
 		</Card>
 	);
 
-	const cardContent = showTradeMenu ? (
-		<ContextMenu>
-			<ContextMenuTrigger asChild>{cardElement}</ContextMenuTrigger>
-			<ContextMenuContent>
-				<ContextMenuItem onClick={handleFindOnTrade}>
-					<ExternalLink className="mr-2 h-4 w-4" />
-					{t.trade.findSimilar}
-				</ContextMenuItem>
-			</ContextMenuContent>
-		</ContextMenu>
-	) : (
-		cardElement
-	);
-
 	if (!showTooltip || !compact) {
-		return cardContent;
+		return cardElement;
 	}
 
 	return (
 		<TooltipProvider>
 			<Tooltip>
-				<TooltipTrigger asChild>{cardContent}</TooltipTrigger>
+				<TooltipTrigger asChild>{cardElement}</TooltipTrigger>
 				<TooltipContent
 					side="right"
 					className="max-w-xs border border-border bg-card text-card-foreground"
