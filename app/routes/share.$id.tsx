@@ -85,29 +85,20 @@ export default function SharePage() {
 			const storage = loadStorage();
 			const { set: sharedSet, idols: sharedIdols } = loadState.data;
 
+			// Create new inventory items with new IDs
 			const idolIdMap = new Map<string, string>();
-			for (const idol of sharedIdols) {
-				const existingIdol = storage.inventory.find(
-					(inv: InventoryIdol) =>
-						inv.idol.baseType === idol.idol.baseType &&
-						JSON.stringify(inv.idol.prefixes) ===
-							JSON.stringify(idol.idol.prefixes) &&
-						JSON.stringify(inv.idol.suffixes) ===
-							JSON.stringify(idol.idol.suffixes),
-				);
+			const newInventory: InventoryIdol[] = [];
 
-				if (existingIdol) {
-					idolIdMap.set(idol.id, existingIdol.id);
-				} else {
-					const newId = nanoid();
-					idolIdMap.set(idol.id, newId);
-					storage.inventory.push({
-						...idol,
-						id: newId,
-						source: "shared",
-						importedAt: Date.now(),
-					});
-				}
+			for (const idol of sharedIdols) {
+				const newId = nanoid();
+				idolIdMap.set(idol.id, newId);
+				newInventory.push({
+					...idol,
+					id: newId,
+					source: "shared",
+					importedAt: Date.now(),
+					usageCount: 0,
+				});
 			}
 
 			const newSetId = nanoid();
@@ -117,6 +108,7 @@ export default function SharePage() {
 				name: `${sharedSet.name} (Shared)`,
 				createdAt: Date.now(),
 				updatedAt: Date.now(),
+				inventory: newInventory,
 				placements: sharedSet.placements.map((p) => ({
 					...p,
 					id: nanoid(),

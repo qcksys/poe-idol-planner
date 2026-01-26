@@ -1,5 +1,5 @@
 import { ClipboardPaste, Info } from "lucide-react";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
 import {
 	Dialog,
@@ -32,17 +32,7 @@ export function ImportModal({
 	const [parseResults, setParseResults] = useState<ParseResult[]>([]);
 	const [hasAttemptedParse, setHasAttemptedParse] = useState(false);
 
-	const handlePaste = async () => {
-		try {
-			const text = await navigator.clipboard.readText();
-			setInputText(text);
-			handleParse(text);
-		} catch {
-			// Clipboard access denied - user can paste manually
-		}
-	};
-
-	const handleParse = (text: string) => {
+	const parseText = useCallback((text: string) => {
 		if (!text.trim()) {
 			setParseResults([]);
 			setHasAttemptedParse(false);
@@ -56,16 +46,37 @@ export function ImportModal({
 
 		setParseResults(results);
 		setHasAttemptedParse(true);
+	}, []);
+
+	useEffect(() => {
+		if (open) {
+			navigator.clipboard
+				.readText()
+				.then((text) => {
+					if (text.trim()) {
+						setInputText(text);
+						parseText(text);
+					}
+				})
+				.catch(() => {
+					// Permission denied - user can paste manually
+				});
+		}
+	}, [open, parseText]);
+
+	const handlePaste = async () => {
+		try {
+			const text = await navigator.clipboard.readText();
+			setInputText(text);
+			parseText(text);
+		} catch {
+			// Clipboard access denied - user can paste manually
+		}
 	};
 
 	const handleTextChange = (text: string) => {
 		setInputText(text);
-		if (text.trim()) {
-			handleParse(text);
-		} else {
-			setParseResults([]);
-			setHasAttemptedParse(false);
-		}
+		parseText(text);
 	};
 
 	const handleImport = () => {

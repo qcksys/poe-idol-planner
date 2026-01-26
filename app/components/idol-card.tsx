@@ -1,3 +1,5 @@
+import { Copy, X } from "lucide-react";
+import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import {
 	Tooltip,
@@ -163,6 +165,8 @@ interface IdolCardMiniProps {
 	idol: IdolInstance;
 	cellSize?: number;
 	onClick?: () => void;
+	onRemove?: () => void;
+	onCopy?: () => void;
 	draggable?: boolean;
 	onDragStart?: (e: React.DragEvent<HTMLButtonElement>) => void;
 	onDragEnd?: (e: React.DragEvent<HTMLButtonElement>) => void;
@@ -172,6 +176,8 @@ export function IdolCardMini({
 	idol,
 	cellSize = 64,
 	onClick,
+	onRemove,
+	onCopy,
 	draggable = false,
 	onDragStart,
 	onDragEnd,
@@ -181,6 +187,16 @@ export function IdolCardMini({
 	const style = {
 		width: `${base.width * cellSize}px`,
 		height: `${base.height * cellSize}px`,
+	};
+
+	const handleRemove = (e: React.MouseEvent) => {
+		e.stopPropagation();
+		onRemove?.();
+	};
+
+	const handleCopy = (e: React.MouseEvent) => {
+		e.stopPropagation();
+		onCopy?.();
 	};
 
 	return (
@@ -193,7 +209,7 @@ export function IdolCardMini({
 						onDragStart={onDragStart}
 						onDragEnd={onDragEnd}
 						className={cn(
-							"relative flex items-center justify-center overflow-hidden rounded border-2 transition-all hover:scale-105",
+							"group/mini relative flex items-center justify-center overflow-hidden rounded border-2 transition-all hover:scale-105",
 							draggable
 								? "cursor-grab active:cursor-grabbing"
 								: "cursor-pointer",
@@ -207,6 +223,28 @@ export function IdolCardMini({
 							alt={base.name}
 							className="absolute inset-0 h-full w-full object-cover"
 						/>
+						<div className="absolute top-0.5 right-0.5 flex gap-0.5 opacity-0 transition-opacity group-hover/mini:opacity-100">
+							{onCopy && (
+								<Button
+									variant="secondary"
+									size="icon"
+									className="h-5 w-5"
+									onClick={handleCopy}
+								>
+									<Copy className="h-3 w-3" />
+								</Button>
+							)}
+							{onRemove && (
+								<Button
+									variant="destructive"
+									size="icon"
+									className="h-5 w-5"
+									onClick={handleRemove}
+								>
+									<X className="h-3 w-3" />
+								</Button>
+							)}
+						</div>
 					</button>
 				</TooltipTrigger>
 				<TooltipContent

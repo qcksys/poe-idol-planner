@@ -22,6 +22,7 @@
 		"empty": "仓库中没有神像。请使用下方按钮导入或创建神像。",
 		"import": "导入",
 		"create": "创建",
+		"paste": "粘贴",
 		"search": "搜索神像...",
 		"clear": "清除全部",
 		"usedInSets": "已用于 {count} 个配置",

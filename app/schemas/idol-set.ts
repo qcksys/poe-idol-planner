@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { InventoryIdolSchema } from "./inventory";
 
 export const GridPositionSchema = z.object({
 	x: z.number().int().min(0).max(5),
@@ -21,6 +22,7 @@ export const IdolSetSchema = z.object({
 	updatedAt: z.number(),
 	placements: z.array(IdolPlacementSchema),
 	activeTab: GridTabSchema.default("tab1"),
+	inventory: z.array(InventoryIdolSchema).default([]),
 });
 
 export type GridPosition = z.infer<typeof GridPositionSchema>;

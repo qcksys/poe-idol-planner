@@ -10,11 +10,11 @@
 - Hover cards overflow inventory
 - Scroll inventory
 - Scroll dropdowns
+- Hover idols on grid only starts correctly on top left of idol
 
 # UI
 - Trade
-- Drag and drop snap/respect grid picked from
-  - Currently there are issues when moving idols larger than 1x1, since they all place by top left corner
+- Drag and drop when selecting idols from anywhere other than the top right it only shows moving the selected cell, rather than the entire idol
 - Allow multi select mechanics, persist state per idol set
 
 # Scripts

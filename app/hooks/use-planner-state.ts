@@ -1,21 +1,18 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { loadStorage, saveStorage } from "~/lib/storage";
 import type { IdolSet } from "~/schemas/idol-set";
-import type { InventoryIdol } from "~/schemas/inventory";
+import { STORAGE_VERSION } from "~/schemas/storage";
 import { useIdolSets } from "./use-idol-sets";
-import { useInventory } from "./use-inventory";
 
 const DEFAULT_SET_NAME = "Set 1";
 
 export function usePlannerState() {
-	const [inventory, setInventory] = useState<InventoryIdol[]>([]);
 	const [sets, setSets] = useState<IdolSet[]>([]);
 	const [activeSetId, setActiveSetId] = useState<string | null>(null);
 	const [isHydrated, setIsHydrated] = useState(false);
 
 	useEffect(() => {
 		const data = loadStorage();
-		setInventory(data.inventory);
 		setSets(data.sets);
 		setActiveSetId(data.activeSetId);
 
@@ -25,6 +22,7 @@ export function usePlannerState() {
 				name: DEFAULT_SET_NAME,
 				placements: [],
 				activeTab: "tab1",
+				inventory: [],
 				createdAt: Date.now(),
 				updatedAt: Date.now(),
 			};
@@ -39,43 +37,53 @@ export function usePlannerState() {
 		if (!isHydrated) return;
 
 		saveStorage({
-			version: 1,
-			inventory,
+			version: STORAGE_VERSION,
 			sets,
 			activeSetId,
 		});
-	}, [inventory, sets, activeSetId, isHydrated]);
+	}, [sets, activeSetId, isHydrated]);
 
-	const inventoryHook = useInventory(inventory, setInventory);
-	const setsHook = useIdolSets(
-		sets,
-		setSets,
-		activeSetId,
-		setActiveSetId,
-		inventory,
-	);
+	const setsHook = useIdolSets(sets, setSets, activeSetId, setActiveSetId);
 
+	// Update usage counts when placements change
 	useEffect(() => {
-		if (!isHydrated) return;
+		if (!isHydrated || !setsHook.activeSet) return;
 
-		const allPlacementIdolIds = sets.flatMap((s) =>
-			s.placements.map((p) => p.inventoryIdolId),
+		const activeSet = setsHook.activeSet;
+		const placementIdolIds = activeSet.placements.map(
+			(p) => p.inventoryIdolId,
 		);
-		inventoryHook.updateUsageCounts(allPlacementIdolIds);
-	}, [sets, isHydrated, inventoryHook.updateUsageCounts]);
 
-	const removeIdolFromInventory = useCallback(
-		(id: string) => {
-			setsHook.removeInventoryIdolFromAllSets(id);
-			inventoryHook.removeIdol(id);
-		},
-		[setsHook, inventoryHook],
-	);
+		// Build count map
+		const countMap = new Map<string, number>();
+		for (const id of placementIdolIds) {
+			countMap.set(id, (countMap.get(id) ?? 0) + 1);
+		}
+
+		// Update inventory items with usage counts
+		const needsUpdate = activeSet.inventory.some(
+			(item) => item.usageCount !== (countMap.get(item.id) ?? 0),
+		);
+
+		if (needsUpdate) {
+			setSets((prev) =>
+				prev.map((s) =>
+					s.id === activeSet.id
+						? {
+								...s,
+								inventory: s.inventory.map((item) => ({
+									...item,
+									usageCount: countMap.get(item.id) ?? 0,
+								})),
+							}
+						: s,
+				),
+			);
+		}
+	}, [isHydrated, setsHook.activeSet]);
 
 	return {
 		isHydrated,
-		inventory: inventoryHook,
 		sets: setsHook,
-		removeIdolFromInventory,
 	};
 }

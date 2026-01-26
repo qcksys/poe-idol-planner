@@ -1,4 +1,5 @@
 import {
+	ClipboardPaste,
 	Copy,
 	ExternalLink,
 	PenLine,
@@ -27,6 +28,8 @@ interface InventoryPanelProps {
 	onDuplicateIdol?: (id: string) => void;
 	onRemoveIdol?: (id: string) => void;
 	onClearAll?: () => void;
+	onPasteIdol?: () => void;
+	hasClipboardIdol?: boolean;
 }
 
 function DraggableIdolCard({
@@ -144,6 +147,8 @@ export function InventoryPanel({
 	onDuplicateIdol,
 	onRemoveIdol,
 	onClearAll,
+	onPasteIdol,
+	hasClipboardIdol,
 }: InventoryPanelProps) {
 	const t = useTranslations();
 	const [searchQuery, setSearchQuery] = useState("");
@@ -200,7 +205,7 @@ export function InventoryPanel({
 					onChange={setMechanicFilter}
 				/>
 
-				<div className="flex gap-2">
+				<div className="flex flex-wrap gap-2">
 					<Button
 						onClick={onImportClick}
 						className="flex-1"
@@ -218,6 +223,17 @@ export function InventoryPanel({
 						>
 							<PenLine className="mr-1 h-4 w-4" />
 							{t.inventory.create}
+						</Button>
+					)}
+					{hasClipboardIdol && onPasteIdol && (
+						<Button
+							onClick={onPasteIdol}
+							variant="secondary"
+							size="sm"
+							className="flex-1"
+						>
+							<ClipboardPaste className="mr-1 h-4 w-4" />
+							{t.inventory.paste}
 						</Button>
 					)}
 					{onClearAll && inventory.length > 0 && (

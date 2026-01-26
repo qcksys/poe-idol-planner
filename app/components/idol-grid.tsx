@@ -47,6 +47,7 @@ interface IdolGridProps {
 		tab: GridTab,
 	) => void;
 	onRemoveIdol?: (placementId: string) => void;
+	onCopyIdol?: (idol: IdolInstance) => void;
 	onIdolClick?: (idol: IdolInstance, placementId: string) => void;
 }
 
@@ -138,6 +139,8 @@ interface GridCellComponentProps {
 	originPosition?: { x: number; y: number };
 	inventoryIdol?: InventoryIdol;
 	onClick?: () => void;
+	onRemove?: () => void;
+	onCopy?: () => void;
 	onDrop?: (x: number, y: number) => void;
 	onDragStart?: (
 		placementId: string,
@@ -155,6 +158,8 @@ function GridCellComponent({
 	originPosition,
 	inventoryIdol,
 	onClick,
+	onRemove,
+	onCopy,
 	onDrop,
 	onDragStart,
 	onDragEnd,
@@ -222,6 +227,8 @@ function GridCellComponent({
 					idol={cell.idol}
 					cellSize={CELL_SIZE}
 					onClick={onClick}
+					onRemove={onRemove}
+					onCopy={onCopy}
 					draggable
 					onDragStart={handleIdolDragStart}
 					onDragEnd={handleIdolDragEnd}
@@ -295,6 +302,8 @@ function GridTabContent({
 	placements,
 	inventory,
 	onIdolClick,
+	onRemoveIdol,
+	onCopyIdol,
 	onPlaceIdol,
 	onMoveIdol,
 }: {
@@ -302,6 +311,8 @@ function GridTabContent({
 	placements: IdolPlacement[];
 	inventory: InventoryIdol[];
 	onIdolClick?: (idol: IdolInstance, placementId: string) => void;
+	onRemoveIdol?: (placementId: string) => void;
+	onCopyIdol?: (idol: IdolInstance) => void;
 	onPlaceIdol?: (
 		inventoryIdolId: string,
 		x: number,
@@ -461,6 +472,22 @@ function GridTabContent({
 											)
 									: undefined
 							}
+							onRemove={
+								cell.isOrigin && cell.placementId
+									? () =>
+											onRemoveIdol?.(
+												cell.placementId as string,
+											)
+									: undefined
+							}
+							onCopy={
+								cell.isOrigin && cell.idol
+									? () =>
+											onCopyIdol?.(
+												cell.idol as IdolInstance,
+											)
+									: undefined
+							}
 							onDrop={handleDrop}
 							onDragStart={handleIdolDragStart}
 							onDragEnd={handleIdolDragEnd}
@@ -480,7 +507,8 @@ export function IdolGrid({
 	onTabChange: _onTabChange,
 	onPlaceIdol,
 	onMoveIdol,
-	onRemoveIdol: _onRemoveIdol,
+	onRemoveIdol,
+	onCopyIdol,
 	onIdolClick,
 }: IdolGridProps) {
 	return (
@@ -490,6 +518,8 @@ export function IdolGrid({
 				placements={placements}
 				inventory={inventory}
 				onIdolClick={onIdolClick}
+				onRemoveIdol={onRemoveIdol}
+				onCopyIdol={onCopyIdol}
 				onPlaceIdol={onPlaceIdol}
 				onMoveIdol={onMoveIdol}
 			/>

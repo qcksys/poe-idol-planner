@@ -1,3 +1,4 @@
+import { X } from "lucide-react";
 import { nanoid } from "nanoid";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
@@ -105,6 +106,17 @@ function ModSlot({
 						onSelect={handleModSelect}
 					/>
 				</div>
+				{mod && (
+					<Button
+						variant="ghost"
+						size="icon"
+						className="h-8 w-8 shrink-0"
+						onClick={() => onModChange(null)}
+						title={t.actions.clear}
+					>
+						<X className="h-4 w-4" />
+					</Button>
+				)}
 			</div>
 
 			{mod && (

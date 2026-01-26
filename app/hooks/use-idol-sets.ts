@@ -1,8 +1,9 @@
 import { nanoid } from "nanoid";
 import { useCallback, useMemo } from "react";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
+import type { IdolInstance } from "~/schemas/idol";
 import type { GridTab, IdolPlacement, IdolSet } from "~/schemas/idol-set";
-import type { InventoryIdol } from "~/schemas/inventory";
+import type { ImportSource, InventoryIdol } from "~/schemas/inventory";
 
 const GRID_WIDTH = 6;
 const GRID_HEIGHT = 7;
@@ -40,6 +41,13 @@ export interface UseIdolSetsReturn {
 		tab: GridTab,
 		excludePlacementId?: string,
 	) => boolean;
+	// Inventory operations for active set
+	addIdol: (idol: IdolInstance, source: ImportSource) => string | null;
+	addIdols: (idols: IdolInstance[], source: ImportSource) => string[];
+	updateIdol: (id: string, idol: IdolInstance) => void;
+	duplicateIdol: (id: string) => string | null;
+	removeIdol: (id: string) => void;
+	clearInventory: () => void;
 }
 
 function createEmptyGrid(): boolean[][] {
@@ -114,12 +122,13 @@ export function useIdolSets(
 	setSets: React.Dispatch<React.SetStateAction<IdolSet[]>>,
 	activeSetId: string | null,
 	setActiveSetId: React.Dispatch<React.SetStateAction<string | null>>,
-	inventory: InventoryIdol[],
 ): UseIdolSetsReturn {
 	const activeSet = useMemo(
 		() => sets.find((s) => s.id === activeSetId) ?? null,
 		[sets, activeSetId],
 	);
+
+	const inventory = activeSet?.inventory ?? [];
 
 	const selectSet = useCallback(
 		(id: string) => {
@@ -136,6 +145,7 @@ export function useIdolSets(
 				name,
 				placements: [],
 				activeTab: "tab1",
+				inventory: [],
 				createdAt: Date.now(),
 				updatedAt: Date.now(),
 			};
@@ -192,6 +202,11 @@ export function useIdolSets(
 				placements: sourceSet.placements.map((p) => ({
 					...p,
 					id: nanoid(),
+				})),
+				inventory: sourceSet.inventory.map((item) => ({
+					...item,
+					id: nanoid(),
+					idol: { ...item.idol, id: nanoid() },
 				})),
 				createdAt: Date.now(),
 				updatedAt: Date.now(),
@@ -380,6 +395,162 @@ export function useIdolSets(
 		[setSets],
 	);
 
+	// Inventory operations for active set
+	const addIdol = useCallback(
+		(idol: IdolInstance, source: ImportSource): string | null => {
+			if (!activeSet) return null;
+
+			const id = nanoid();
+			const newItem: InventoryIdol = {
+				id,
+				idol,
+				importedAt: Date.now(),
+				source,
+				usageCount: 0,
+			};
+
+			setSets((prev) =>
+				prev.map((s) =>
+					s.id === activeSet.id
+						? {
+								...s,
+								inventory: [...s.inventory, newItem],
+								updatedAt: Date.now(),
+							}
+						: s,
+				),
+			);
+
+			return id;
+		},
+		[activeSet, setSets],
+	);
+
+	const addIdols = useCallback(
+		(idols: IdolInstance[], source: ImportSource): string[] => {
+			if (!activeSet) return [];
+
+			const newItems: InventoryIdol[] = idols.map((idol) => ({
+				id: nanoid(),
+				idol,
+				importedAt: Date.now(),
+				source,
+				usageCount: 0,
+			}));
+
+			setSets((prev) =>
+				prev.map((s) =>
+					s.id === activeSet.id
+						? {
+								...s,
+								inventory: [...s.inventory, ...newItems],
+								updatedAt: Date.now(),
+							}
+						: s,
+				),
+			);
+
+			return newItems.map((item) => item.id);
+		},
+		[activeSet, setSets],
+	);
+
+	const updateIdol = useCallback(
+		(id: string, idol: IdolInstance): void => {
+			if (!activeSet) return;
+
+			setSets((prev) =>
+				prev.map((s) =>
+					s.id === activeSet.id
+						? {
+								...s,
+								inventory: s.inventory.map((item) =>
+									item.id === id ? { ...item, idol } : item,
+								),
+								updatedAt: Date.now(),
+							}
+						: s,
+				),
+			);
+		},
+		[activeSet, setSets],
+	);
+
+	const duplicateIdol = useCallback(
+		(id: string): string | null => {
+			if (!activeSet) return null;
+
+			const original = inventory.find((item) => item.id === id);
+			if (!original) return null;
+
+			const newId = nanoid();
+			const duplicate: InventoryIdol = {
+				id: newId,
+				idol: { ...original.idol, id: nanoid() },
+				importedAt: Date.now(),
+				source: original.source,
+				usageCount: 0,
+			};
+
+			setSets((prev) =>
+				prev.map((s) =>
+					s.id === activeSet.id
+						? {
+								...s,
+								inventory: [...s.inventory, duplicate],
+								updatedAt: Date.now(),
+							}
+						: s,
+				),
+			);
+
+			return newId;
+		},
+		[activeSet, inventory, setSets],
+	);
+
+	const removeIdol = useCallback(
+		(id: string) => {
+			if (!activeSet) return;
+
+			// Remove from inventory and placements
+			setSets((prev) =>
+				prev.map((s) =>
+					s.id === activeSet.id
+						? {
+								...s,
+								inventory: s.inventory.filter(
+									(item) => item.id !== id,
+								),
+								placements: s.placements.filter(
+									(p) => p.inventoryIdolId !== id,
+								),
+								updatedAt: Date.now(),
+							}
+						: s,
+				),
+			);
+		},
+		[activeSet, setSets],
+	);
+
+	const clearInventory = useCallback(() => {
+		if (!activeSet) return;
+
+		setSets((prev) =>
+			prev.map((s) =>
+				s.id === activeSet.id
+					? {
+							...s,
+							inventory: [],
+							placements: [],
+							updatedAt: Date.now(),
+						}
+					: s,
+			),
+		);
+	}, [activeSet, setSets]);
+
 	return useMemo(
 		() => ({
 			sets,
@@ -396,6 +567,12 @@ export function useIdolSets(
 			removeIdolFromSet,
 			removeInventoryIdolFromAllSets,
 			canPlaceIdol,
+			addIdol,
+			addIdols,
+			updateIdol,
+			duplicateIdol,
+			removeIdol,
+			clearInventory,
 		}),
 		[
 			sets,
@@ -412,6 +589,12 @@ export function useIdolSets(
 			removeIdolFromSet,
 			removeInventoryIdolFromAllSets,
 			canPlaceIdol,
+			addIdol,
+			addIdols,
+			updateIdol,
+			duplicateIdol,
+			removeIdol,
+			clearInventory,
 		],
 	);
 }

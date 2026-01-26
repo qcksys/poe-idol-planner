@@ -22,6 +22,7 @@
 		"empty": "Nenhum ídolo no inventário. Importe ou crie alguns usando os botões abaixo.",
 		"import": "Importar",
 		"create": "Criar",
+		"paste": "Colar",
 		"search": "Buscar ídolos...",
 		"clear": "Limpar Tudo",
 		"usedInSets": "Usado em {count} conjunto(s)",

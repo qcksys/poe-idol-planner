@@ -1,11 +1,12 @@
 import {
 	createEmptyStorage,
+	parseAndMigrateStorage,
+	STORAGE_VERSION,
 	type StorageData,
 	StorageSchema,
 } from "~/schemas/storage";
 
 const STORAGE_KEY = "poe-idol-planner-data";
-const STORAGE_VERSION = 1;
 
 export function loadStorage(): StorageData {
 	if (typeof window === "undefined") {
@@ -19,22 +20,19 @@ export function loadStorage(): StorageData {
 		}
 
 		const parsed = JSON.parse(raw);
-		const result = StorageSchema.safeParse(parsed);
+		const migrated = parseAndMigrateStorage(parsed);
 
-		if (!result.success) {
-			console.warn(
-				"Storage validation failed, using empty storage:",
-				result.error,
-			);
+		if (!migrated) {
+			console.warn("Storage migration failed, using empty storage");
 			return createEmptyStorage();
 		}
 
-		if (result.data.version !== STORAGE_VERSION) {
-			console.warn("Storage version mismatch, using empty storage");
-			return createEmptyStorage();
+		// If migration happened, save the new format
+		if (migrated.version === STORAGE_VERSION) {
+			saveStorage(migrated);
 		}
 
-		return result.data;
+		return migrated;
 	} catch (error) {
 		console.error("Failed to load storage:", error);
 		return createEmptyStorage();
