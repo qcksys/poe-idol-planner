@@ -10,7 +10,7 @@
 		"test:watch": "vitest",
 		"data:convert": "tsx scripts/poedb-converter/index.ts",
 		"data:convert:cached": "tsx scripts/poedb-converter/index.ts --cached",
-		"data:convert:all": "tsx scripts/poedb-converter/index.ts --locales en,zh-TW,zh-CN,ko,ja",
+		"data:convert:all": "tsx scripts/poedb-converter/index.ts --locales en,zh-TW,zh-CN,ko,ja,ru,pt-BR,de,fr,sp",
 		"data:scarabs": "tsx scripts/scarab-converter/index.ts",
 		"data:scarabs:cached": "tsx scripts/scarab-converter/index.ts --cached",
 		"data:leagues": "tsx scripts/league-fetcher/index.ts",

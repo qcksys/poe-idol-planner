@@ -69,6 +69,7 @@ interface ScarabSlotProps {
 	categoryFilter: string | null;
 	onCategoryFilterChange: (category: string | null) => void;
 	getPrice: (scarabId: string) => number | null;
+	showPriceBelow?: boolean;
 }
 
 function ScarabSlot({
@@ -79,6 +80,7 @@ function ScarabSlot({
 	categoryFilter,
 	onCategoryFilterChange,
 	getPrice,
+	showPriceBelow = true,
 }: ScarabSlotProps) {
 	const t = useTranslations();
 	const [open, setOpen] = useState(false);
@@ -119,206 +121,227 @@ function ScarabSlot({
 		onSelect(null);
 	};
 
+	const price = scarab ? getPrice(scarab.id) : null;
+	const formattedSlotPrice = formatChaosPrice(price);
+
 	return (
-		<Popover open={open} onOpenChange={setOpen}>
-			<TooltipProvider>
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<PopoverTrigger asChild>
-							<button
-								type="button"
-								className={cn(
-									"relative flex h-16 w-16 items-center justify-center rounded-lg border-2 transition-all hover:border-primary",
-									scarab
-										? "border-primary/50 bg-card"
-										: "border-muted-foreground/30 border-dashed bg-muted/20",
-								)}
-							>
-								{scarab ? (
-									<>
-										<img
-											src={scarab.image}
-											alt={scarab.name}
-											className="h-12 w-12 object-contain"
-											onError={(e) => {
-												// Fallback to CDN if local image fails
-												const img =
-													e.target as HTMLImageElement;
-												if (
-													!img.src.includes(
-														"cdn.poedb.tw",
-													)
-												) {
-													img.src = `https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/${scarab.id}.webp`;
-												}
-											}}
-										/>
-										<Tooltip>
-											<TooltipTrigger asChild>
-												<Button
-													variant="destructive"
-													size="icon"
-													className="absolute -top-1 -right-1 h-5 w-5 opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100"
-													onClick={handleClear}
-												>
-													<X className="h-3 w-3" />
-												</Button>
-											</TooltipTrigger>
-											<TooltipContent>
-												{t.mapDevice?.clearSlot ||
-													"Clear slot"}
-											</TooltipContent>
-										</Tooltip>
-									</>
-								) : (
-									<span className="text-muted-foreground text-xs">
-										{slotIndex + 1}
-									</span>
-								)}
-							</button>
-						</PopoverTrigger>
-					</TooltipTrigger>
-					{scarab && (
-						<TooltipContent
-							side="top"
-							className="max-w-xs border border-border bg-card text-card-foreground"
-						>
-							<div className="space-y-1">
-								<div className="flex items-center gap-2 font-semibold">
-									<span>{scarab.name}</span>
-									{formatChaosPrice(getPrice(scarab.id)) && (
-										<span className="text-yellow-600 dark:text-yellow-400">
-											{formatChaosPrice(
-												getPrice(scarab.id),
-											)}
-											c
+		<div className="flex flex-col items-center gap-1">
+			<Popover open={open} onOpenChange={setOpen}>
+				<TooltipProvider>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<PopoverTrigger asChild>
+								<button
+									type="button"
+									className={cn(
+										"relative flex h-16 w-16 items-center justify-center rounded-lg border-2 transition-all hover:border-primary",
+										scarab
+											? "border-primary/50 bg-card"
+											: "border-muted-foreground/30 border-dashed bg-muted/20",
+									)}
+								>
+									{scarab ? (
+										<>
+											<img
+												src={scarab.image}
+												alt={scarab.name}
+												className="h-12 w-12 object-contain"
+												onError={(e) => {
+													// Fallback to CDN if local image fails
+													const img =
+														e.target as HTMLImageElement;
+													if (
+														!img.src.includes(
+															"cdn.poedb.tw",
+														)
+													) {
+														img.src = `https://cdn.poedb.tw/image/Art/2DItems/Currency/Scarabs/${scarab.id}.webp`;
+													}
+												}}
+											/>
+											<Tooltip>
+												<TooltipTrigger asChild>
+													<Button
+														variant="destructive"
+														size="icon"
+														className="absolute -top-1 -right-1 h-5 w-5 opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100"
+														onClick={handleClear}
+													>
+														<X className="h-3 w-3" />
+													</Button>
+												</TooltipTrigger>
+												<TooltipContent>
+													{t.mapDevice?.clearSlot ||
+														"Clear slot"}
+												</TooltipContent>
+											</Tooltip>
+										</>
+									) : (
+										<span className="text-muted-foreground text-xs">
+											{slotIndex + 1}
 										</span>
 									)}
+								</button>
+							</PopoverTrigger>
+						</TooltipTrigger>
+						{scarab && (
+							<TooltipContent
+								side="top"
+								className="max-w-xs border border-border bg-card text-card-foreground"
+							>
+								<div className="space-y-1">
+									<div className="flex items-center gap-2 font-semibold">
+										<span>{scarab.name}</span>
+										{formattedSlotPrice && (
+											<span className="text-yellow-600 dark:text-yellow-400">
+												{formattedSlotPrice}c
+											</span>
+										)}
+									</div>
+									<div className="text-muted-foreground text-sm">
+										{scarab.effect}
+									</div>
+									<div className="text-muted-foreground text-xs">
+										Limit: {scarab.limit}
+									</div>
 								</div>
-								<div className="text-muted-foreground text-sm">
-									{scarab.effect}
-								</div>
-								<div className="text-muted-foreground text-xs">
-									Limit: {scarab.limit}
-								</div>
-							</div>
-						</TooltipContent>
-					)}
-				</Tooltip>
-			</TooltipProvider>
+							</TooltipContent>
+						)}
+					</Tooltip>
+				</TooltipProvider>
 
-			<PopoverContent className="w-[400px] p-0" align="start">
-				<Command>
-					<CommandInput
-						placeholder={
-							t.mapDevice?.searchScarabs || "Search scarabs..."
-						}
-					/>
-					<div className="flex max-h-24 flex-wrap gap-1 overflow-y-auto border-b p-2">
-						<Button
-							variant={
-								categoryFilter === null ? "secondary" : "ghost"
+				<PopoverContent className="w-[400px] p-0" align="start">
+					<Command>
+						<CommandInput
+							placeholder={
+								t.mapDevice?.searchScarabs ||
+								"Search scarabs..."
 							}
-							size="sm"
-							className="h-6 text-xs"
-							onClick={() => onCategoryFilterChange(null)}
-						>
-							All
-						</Button>
-						{SCARAB_CATEGORIES.map((cat) => (
+						/>
+						<div className="flex max-h-24 flex-wrap gap-1 overflow-y-auto border-b p-2">
 							<Button
-								key={cat}
 								variant={
-									categoryFilter === cat
+									categoryFilter === null
 										? "secondary"
 										: "ghost"
 								}
 								size="sm"
-								className="h-6 text-xs capitalize"
-								onClick={() => onCategoryFilterChange(cat)}
+								className="h-6 text-xs"
+								onClick={() => onCategoryFilterChange(null)}
 							>
-								{cat}
+								All
 							</Button>
-						))}
-					</div>
-					<CommandList className="max-h-[300px]">
-						<CommandEmpty>
-							{t.mapDevice?.noScarabsFound || "No scarabs found."}
-						</CommandEmpty>
-						{Object.entries(groupedScarabs).map(
-							([category, scarabs]) => (
-								<CommandGroup
-									key={category}
-									heading={
-										category.charAt(0).toUpperCase() +
-										category.slice(1)
+							{SCARAB_CATEGORIES.map((cat) => (
+								<Button
+									key={cat}
+									variant={
+										categoryFilter === cat
+											? "secondary"
+											: "ghost"
 									}
+									size="sm"
+									className="h-6 text-xs capitalize"
+									onClick={() => onCategoryFilterChange(cat)}
 								>
-									{scarabs.map((s) => {
-										const usage =
-											scarabUsageCount.get(s.id) ?? 0;
-										const isCurrentSlot = s.id === scarabId;
-										const price = getPrice(s.id);
-										const formattedPrice =
-											formatChaosPrice(price);
-										return (
-											<CommandItem
-												key={s.id}
-												value={`${s.name} ${s.effect} ${s.category}`}
-												onSelect={() => {
-													onSelect(
-														isCurrentSlot
-															? null
-															: s.id,
-													);
-													setOpen(false);
-												}}
-											>
-												<Check
-													className={cn(
-														"mr-2 h-4 w-4 shrink-0",
-														isCurrentSlot
-															? "opacity-100"
-															: "opacity-0",
-													)}
-												/>
-												<img
-													src={s.image}
-													alt=""
-													className="mr-2 h-6 w-6 object-contain"
-												/>
-												<div className="flex min-w-0 flex-1 flex-col">
-													<div className="flex items-center gap-2">
-														<span className="text-sm">
-															{s.name}
+									{cat}
+								</Button>
+							))}
+						</div>
+						<CommandList className="max-h-[300px]">
+							<CommandEmpty>
+								{t.mapDevice?.noScarabsFound ||
+									"No scarabs found."}
+							</CommandEmpty>
+							{Object.entries(groupedScarabs).map(
+								([category, scarabs]) => (
+									<CommandGroup
+										key={category}
+										heading={
+											category.charAt(0).toUpperCase() +
+											category.slice(1)
+										}
+									>
+										{scarabs.map((s) => {
+											const usage =
+												scarabUsageCount.get(s.id) ?? 0;
+											const isCurrentSlot =
+												s.id === scarabId;
+											const price = getPrice(s.id);
+											const formattedPrice =
+												formatChaosPrice(price);
+											return (
+												<CommandItem
+													key={s.id}
+													value={`${s.name} ${s.effect} ${s.category}`}
+													onSelect={() => {
+														onSelect(
+															isCurrentSlot
+																? null
+																: s.id,
+														);
+														setOpen(false);
+													}}
+												>
+													<Check
+														className={cn(
+															"mr-2 h-4 w-4 shrink-0",
+															isCurrentSlot
+																? "opacity-100"
+																: "opacity-0",
+														)}
+													/>
+													<img
+														src={s.image}
+														alt=""
+														className="mr-2 h-6 w-6 object-contain"
+													/>
+													<div className="flex min-w-0 flex-1 flex-col">
+														<div className="flex items-center gap-2">
+															<span className="text-sm">
+																{s.name}
+															</span>
+															{formattedPrice && (
+																<span className="text-xs text-yellow-600 dark:text-yellow-400">
+																	{
+																		formattedPrice
+																	}
+																	c
+																</span>
+															)}
+															{s.limit > 1 && (
+																<span className="text-muted-foreground text-xs">
+																	({usage}/
+																	{s.limit})
+																</span>
+															)}
+														</div>
+														<span className="line-clamp-1 text-muted-foreground text-xs">
+															{s.effect}
 														</span>
-														{formattedPrice && (
-															<span className="text-xs text-yellow-600 dark:text-yellow-400">
-																{formattedPrice}
-																c
-															</span>
-														)}
-														{s.limit > 1 && (
-															<span className="text-muted-foreground text-xs">
-																({usage}/
-																{s.limit})
-															</span>
-														)}
 													</div>
-													<span className="line-clamp-1 text-muted-foreground text-xs">
-														{s.effect}
-													</span>
-												</div>
-											</CommandItem>
-										);
-									})}
-								</CommandGroup>
-							),
-						)}
-					</CommandList>
-				</Command>
-			</PopoverContent>
-		</Popover>
+												</CommandItem>
+											);
+										})}
+									</CommandGroup>
+								),
+							)}
+						</CommandList>
+					</Command>
+				</PopoverContent>
+			</Popover>
+			{showPriceBelow && (
+				<span
+					className={cn(
+						"h-4 text-xs",
+						formattedSlotPrice
+							? "text-yellow-600 dark:text-yellow-400"
+							: "text-muted-foreground/50",
+					)}
+				>
+					{formattedSlotPrice ? `${formattedSlotPrice}c` : "-"}
+				</span>
+			)}
+		</div>
 	);
 }
 

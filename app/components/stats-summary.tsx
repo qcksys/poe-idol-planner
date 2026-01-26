@@ -1,12 +1,13 @@
 import { useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { ScrollArea } from "~/components/ui/scroll-area";
-import { LEAGUE_MECHANICS } from "~/data/idol-bases";
+import { IDOL_BASES, LEAGUE_MECHANICS } from "~/data/idol-bases";
 import { getMapCraftingOptionById } from "~/data/map-crafting-options";
 import { getScarabById } from "~/data/scarab-data";
+import { useScarabPrices } from "~/hooks/use-scarab-prices";
 import { useTranslations } from "~/i18n";
 import { highlightNumbers } from "~/lib/highlight-numbers";
-import type { LeagueMechanic } from "~/schemas/idol";
+import type { IdolBaseKey, LeagueMechanic } from "~/schemas/idol";
 import type { IdolPlacement } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
 import type { MapCraftingOption, MapDevice, Scarab } from "~/schemas/scarab";
@@ -17,11 +18,49 @@ interface StatsSummaryProps {
 	mapDevice?: MapDevice;
 }
 
+type IdolSizeCategory = "minor" | "small" | "medium" | "large";
+
+interface IdolContribution {
+	baseType: IdolBaseKey;
+	sizeCategory: IdolSizeCategory;
+}
+
 interface AggregatedStat {
 	template: string;
 	totalValue: number;
 	mechanic: LeagueMechanic;
 	hasPercent: boolean;
+	contributions: IdolContribution[];
+}
+
+function getIdolSizeCategory(baseType: IdolBaseKey): IdolSizeCategory {
+	const base = IDOL_BASES[baseType];
+	const cells = base.width * base.height;
+	if (cells === 1) return "minor";
+	if (cells === 2) return "small";
+	if (cells === 3) return "medium";
+	return "large";
+}
+
+function formatContributions(contributions: IdolContribution[]): string {
+	const counts: Record<IdolSizeCategory, number> = {
+		minor: 0,
+		small: 0,
+		medium: 0,
+		large: 0,
+	};
+
+	for (const c of contributions) {
+		counts[c.sizeCategory]++;
+	}
+
+	const parts: string[] = [];
+	if (counts.minor > 0) parts.push(`${counts.minor}x minor`);
+	if (counts.small > 0) parts.push(`${counts.small}x small`);
+	if (counts.medium > 0) parts.push(`${counts.medium}x medium`);
+	if (counts.large > 0) parts.push(`${counts.large}x large`);
+
+	return parts.join(", ");
 }
 
 interface StatsByMechanic {
@@ -148,6 +187,10 @@ function aggregateStats(
 
 		const idol = inventoryIdol.idol;
 		const allMods = [...idol.prefixes, ...idol.suffixes];
+		const contribution: IdolContribution = {
+			baseType: idol.baseType,
+			sizeCategory: getIdolSizeCategory(idol.baseType),
+		};
 
 		for (const mod of allMods) {
 			const { template, hasPercent } = createTemplate(
@@ -158,12 +201,14 @@ function aggregateStats(
 			const existing = statMap.get(key);
 			if (existing) {
 				existing.totalValue += mod.rolledValue;
+				existing.contributions.push(contribution);
 			} else {
 				statMap.set(key, {
 					template,
 					totalValue: mod.rolledValue,
 					mechanic: mod.mechanic,
 					hasPercent,
+					contributions: [contribution],
 				});
 			}
 		}
@@ -198,12 +243,20 @@ function MechanicSection({ data }: { data: StatsByMechanic }) {
 						stat.totalValue,
 						stat.hasPercent,
 					);
+					const contributionText = formatContributions(
+						stat.contributions,
+					);
 					return (
 						<div
 							key={`${stat.template}-${index}`}
 							className="text-secondary-foreground text-sm"
 						>
-							{highlightNumbers(displayText)}
+							<div>{highlightNumbers(displayText)}</div>
+							{contributionText && (
+								<div className="text-muted-foreground text-xs">
+									({contributionText})
+								</div>
+							)}
 						</div>
 					);
 				})}
@@ -282,12 +335,26 @@ function ScarabsSection({ scarabs }: { scarabs: Scarab[] }) {
 	);
 }
 
+function formatChaosPrice(price: number): string {
+	if (price >= 1000) {
+		return `${(price / 1000).toFixed(1)}k`;
+	}
+	if (price >= 10) {
+		return Math.round(price).toString();
+	}
+	if (price >= 1) {
+		return price.toFixed(1);
+	}
+	return price.toFixed(2);
+}
+
 export function StatsSummary({
 	placements,
 	inventory,
 	mapDevice,
 }: StatsSummaryProps) {
 	const t = useTranslations();
+	const { getPrice } = useScarabPrices();
 
 	const statsByMechanic = useMemo(
 		() => aggregateStats(placements, inventory),
@@ -313,6 +380,25 @@ export function StatsSummary({
 		[statsByMechanic],
 	);
 
+	const totalCost = useMemo(() => {
+		let cost = 0;
+
+		// Add scarab costs
+		for (const scarab of selectedScarabs) {
+			const price = getPrice(scarab.id);
+			if (price !== null) {
+				cost += price;
+			}
+		}
+
+		// Add crafting option cost
+		if (selectedCraftingOption?.cost) {
+			cost += selectedCraftingOption.cost;
+		}
+
+		return cost;
+	}, [selectedScarabs, selectedCraftingOption, getPrice]);
+
 	const hasContent =
 		statsByMechanic.length > 0 ||
 		selectedScarabs.length > 0 ||
@@ -321,15 +407,22 @@ export function StatsSummary({
 	return (
 		<Card className="flex h-full flex-col">
 			<CardHeader className="pb-2">
-				<div className="flex items-center justify-between">
-					<CardTitle className="text-lg">
-						{t.stats.totalStats}
-					</CardTitle>
-					<span className="text-muted-foreground text-sm">
-						{totalStats} modifier(s)
-						{selectedScarabs.length > 0 &&
-							` + ${selectedScarabs.length} scarab(s)`}
-					</span>
+				<div className="flex flex-col gap-1">
+					<div className="flex items-center justify-between">
+						<CardTitle className="text-lg">
+							{t.stats.totalStats}
+						</CardTitle>
+						<span className="text-muted-foreground text-sm">
+							{totalStats} modifier(s)
+							{selectedScarabs.length > 0 &&
+								` + ${selectedScarabs.length} scarab(s)`}
+						</span>
+					</div>
+					{totalCost > 0 && (
+						<div className="text-right text-sm text-yellow-600 dark:text-yellow-400">
+							Total Cost: {formatChaosPrice(totalCost)}c
+						</div>
+					)}
 				</div>
 			</CardHeader>
 

@@ -26,7 +26,7 @@
 		"paste": "Paste",
 		"search": "Search idols...",
 		"clear": "Clear All",
-		"usedInSets": "Used in {count} set(s)",
+		"usedInSets": "Used {count} time(s)",
 		"removeFromInventory": "Remove from Inventory",
 		"noMatches": "No matching idols found",
 		"duplicate": "Duplicate",
