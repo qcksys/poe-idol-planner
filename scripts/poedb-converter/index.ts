@@ -104,8 +104,12 @@ async function main(): Promise<void> {
 				existingData.uniqueIdols.push(...parsed.uniqueIdols);
 				dataByLocale.set(locale, existingData);
 
+				const uniqueCount =
+					parsed.uniqueIdols.length > 0
+						? `, ${parsed.uniqueIdols.length} uniques`
+						: "";
 				console.log(
-					`  ${idolPage}: ${parsed.modifiers.length} modifiers`,
+					`  ${idolPage}: ${parsed.modifiers.length} modifiers${uniqueCount}`,
 				);
 			} catch (error) {
 				console.error(

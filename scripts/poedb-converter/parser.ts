@@ -157,9 +157,86 @@ function generateModId(modFamily: string, type: string): string {
 	return `${type}_${slug}`;
 }
 
+function parseUniqueIdolsFromHtml(html: string, locale: Locale): UniqueIdol[] {
+	const { document } = parseHTML(html);
+	const uniques: UniqueIdol[] = [];
+
+	const uniqueItems = document.querySelectorAll(
+		".row.row-cols-1.row-cols-lg-2 > .col",
+	);
+
+	for (const item of uniqueItems) {
+		const nameEl = item.querySelector(".uniqueName");
+		const name = nameEl?.textContent?.trim();
+		if (!name) continue;
+
+		const baseTypeEl = item.querySelector(".uniqueTypeLine");
+		const baseTypeText = baseTypeEl?.textContent?.trim() || "";
+		let baseType: IdolBaseType = "Minor";
+		for (const type of IDOL_BASE_TYPES) {
+			if (baseTypeText.toLowerCase().includes(type.toLowerCase())) {
+				baseType = type;
+				break;
+			}
+		}
+
+		const linkEl = item.querySelector("a.uniqueitem[href]");
+		const href = linkEl?.getAttribute("href") || "";
+		const idFromHref = href.split("/").pop() || "";
+		const id =
+			idFromHref ||
+			name
+				.toLowerCase()
+				.replace(/[^a-z0-9]+/g, "_")
+				.replace(/^_|_$/g, "");
+
+		const implicitMods = item.querySelectorAll(".implicitMod");
+		const explicitMods = item.querySelectorAll(".explicitMod");
+
+		const modifiers: {
+			text: Record<Locale, string>;
+			values: ValueRange[];
+		}[] = [];
+
+		for (const modEl of implicitMods) {
+			const modText = normalizeModText(modEl.innerHTML);
+			if (modText) {
+				modifiers.push({
+					text: { [locale]: modText } as Record<Locale, string>,
+					values: extractValues(modEl.innerHTML),
+				});
+			}
+		}
+
+		for (const modEl of explicitMods) {
+			const modText = normalizeModText(modEl.innerHTML);
+			const descriptionEl = modEl.querySelector(".item_description");
+			const secondaryEl = modEl.querySelector(".secondary");
+			if (descriptionEl || secondaryEl) {
+				continue;
+			}
+			if (modText) {
+				modifiers.push({
+					text: { [locale]: modText } as Record<Locale, string>,
+					values: extractValues(modEl.innerHTML),
+				});
+			}
+		}
+
+		uniques.push({
+			id,
+			name: { [locale]: name } as Record<Locale, string>,
+			baseType,
+			modifiers,
+		});
+	}
+
+	return uniques;
+}
+
 export function parseIdolPage(
 	html: string,
-	_locale: Locale,
+	locale: Locale,
 	idolPage: string,
 ): ParsedPage {
 	const modsViewData = extractModsViewJson(html);
@@ -201,70 +278,10 @@ export function parseIdolPage(
 		});
 	}
 
+	const uniqueIdols = parseUniqueIdolsFromHtml(html, locale);
+
 	return {
 		modifiers,
-		uniqueIdols: [],
+		uniqueIdols,
 	};
-}
-
-export function parseUniquesPage(html: string, locale: Locale): UniqueIdol[] {
-	const { document } = parseHTML(html);
-	const uniques: UniqueIdol[] = [];
-
-	const itemBoxes = document.querySelectorAll(".itembox, .unique-item");
-
-	for (const box of itemBoxes) {
-		const nameEl = box.querySelector(".itemName, .name, h3, h4");
-		const name = nameEl?.textContent?.trim() || "";
-
-		if (!name) continue;
-
-		let baseType: IdolBaseType = "Minor";
-		const baseText = box.textContent?.toLowerCase() || "";
-		for (const type of IDOL_BASE_TYPES) {
-			if (baseText.includes(type.toLowerCase())) {
-				baseType = type;
-				break;
-			}
-		}
-
-		const modElements = box.querySelectorAll(
-			".mod, .explicitMod, .implicitMod, li",
-		);
-		const mods: { text: Record<Locale, string>; values: ValueRange[] }[] =
-			[];
-
-		for (const modEl of modElements) {
-			const modText = modEl.textContent?.trim() || "";
-			if (modText && !modText.includes("Requires Level")) {
-				mods.push({
-					text: { [locale]: modText } as Record<Locale, string>,
-					values: extractValues(modText),
-				});
-			}
-		}
-
-		const flavourEl = box.querySelector(".flavourText, .flavour");
-		const flavourText = flavourEl?.textContent?.trim();
-
-		const uniqueId = name
-			.toLowerCase()
-			.replace(/[^a-z0-9]+/g, "_")
-			.replace(/^_|_$/g, "");
-
-		uniques.push({
-			id: uniqueId,
-			name: { [locale]: name } as Record<Locale, string>,
-			baseType,
-			modifiers: mods,
-			...(flavourText && {
-				flavourText: { [locale]: flavourText } as Record<
-					Locale,
-					string
-				>,
-			}),
-		});
-	}
-
-	return uniques;
 }

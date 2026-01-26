@@ -121,7 +121,31 @@ export function mergeUniqueIdols(
 	const enUniques = uniquesByLocale.get("en") || [];
 
 	for (const unique of enUniques) {
-		uniqueMap.set(unique.id, { ...unique });
+		const nameRecord = createEmptyLocaleRecord();
+		nameRecord.en = unique.name.en || "";
+
+		const modifiers = unique.modifiers.map((mod) => {
+			const textRecord = createEmptyLocaleRecord();
+			textRecord.en = mod.text.en || "";
+			return {
+				text: textRecord,
+				values: mod.values,
+			};
+		});
+
+		uniqueMap.set(unique.id, {
+			id: unique.id,
+			name: nameRecord,
+			baseType: unique.baseType,
+			modifiers,
+			...(unique.flavourText && {
+				flavourText: (() => {
+					const record = createEmptyLocaleRecord();
+					record.en = unique.flavourText.en || "";
+					return record;
+				})(),
+			}),
+		});
 	}
 
 	for (const [locale, uniques] of uniquesByLocale) {

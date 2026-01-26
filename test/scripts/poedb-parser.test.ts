@@ -58,6 +58,65 @@ const NO_MODSVIEW_HTML = `
 </html>
 `;
 
+const MINOR_IDOL_WITH_UNIQUES_HTML = `
+<!DOCTYPE html>
+<html>
+<head><title>Minor Idol</title></head>
+<body>
+<script>
+$(function() { new ModsView({"baseitem":{"Code":"Minor Idol"},"normal":[
+{"Name":"Abyssal","Level":"68","ModGenerationTypeID":"1","ModFamilyList":["MapRelicAdditionalAbyssChance"],"DropChance":2000,"str":"Your Maps have <span class='mod-value'>+(15—25)</span>% chance to contain an Abyss"}
+]}); });
+</script>
+<h5 class="card-header"> Unique /2 </h5>
+<div class="row row-cols-1 row-cols-lg-2 g-2">
+<div class="col">
+<div class="d-flex border-top rounded">
+<div class="flex-shrink-0">
+<a class="UniqueItems uniqueitem" data-hover="?s=Data%5CUniqueItems%2FEye+of+the+Djinn" href="Eye_of_the_Djinn">
+<img loading="lazy" src="https://cdn.poedb.tw/image/Art/2DItems/Relics/2UniqueAtlasRelic1x1.webp" class="panel-item-icon"/>
+</a>
+</div>
+<div class="flex-grow-1 ms-2">
+<div>
+<a class="uniqueitem" data-hover="?s=Data%5CUniqueItems%2FEye+of+the+Djinn" href="/us/Eye_of_the_Djinn">
+<span class="uniqueName">Eye of the Djinn</span>
+<span class="uniqueTypeLine">Minor Idol</span>
+</a>
+</div>
+<div class="implicitMod"><span class='mod-value'>2</span>% increased Maps found in Area</div>
+<div class="separator"></div>
+<div class="explicitMod">Scarabs have <span class='mod-value'>50</span>% increased Effect on your Maps per empty Map Device slot</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="d-flex border-top rounded">
+<div class="flex-shrink-0">
+<a class="UniqueItems uniqueitem" href="Wellspring_of_Creation">
+<img loading="lazy" src="https://cdn.poedb.tw/image/Art/2DItems/Relics/2UniqueAtlasRelic1x1.webp" class="panel-item-icon"/>
+</a>
+</div>
+<div class="flex-grow-1 ms-2">
+<div>
+<a class="uniqueitem" href="/us/Wellspring_of_Creation">
+<span class="uniqueName">Wellspring of Creation</span>
+<span class="uniqueTypeLine">Minor Idol</span>
+</a>
+</div>
+<div class="implicitMod"><span class='mod-value'>2</span>% increased Maps found in Area</div>
+<div class="separator"></div>
+<div class="explicitMod">Monsters in your Maps deal <span class='mod-value'>(25—30)</span>% less Damage</div>
+<div class="explicitMod">Monsters in your Maps have <span class='mod-value'>(40—50)</span>% more Life</div>
+<div class="explicitMod"><span class="item_description">(This modifier does not affect things that check the life of corpses)</span></div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+`;
+
 const MULTILINE_MOD_HTML = `
 <!DOCTYPE html>
 <html>
@@ -410,6 +469,117 @@ describe("poedb-converter parser", () => {
 				);
 
 				expect(result.modifiers.length).toBe(0);
+			});
+		});
+
+		describe("unique idol parsing", () => {
+			it("parses unique idols from page", () => {
+				const result = parseIdolPage(
+					MINOR_IDOL_WITH_UNIQUES_HTML,
+					"en",
+					"Minor_Idol",
+				);
+
+				expect(result.uniqueIdols.length).toBe(2);
+			});
+
+			it("extracts unique idol name", () => {
+				const result = parseIdolPage(
+					MINOR_IDOL_WITH_UNIQUES_HTML,
+					"en",
+					"Minor_Idol",
+				);
+
+				const djinn = result.uniqueIdols.find(
+					(u) => u.id === "Eye_of_the_Djinn",
+				);
+				expect(djinn?.name.en).toBe("Eye of the Djinn");
+			});
+
+			it("extracts unique idol ID from href", () => {
+				const result = parseIdolPage(
+					MINOR_IDOL_WITH_UNIQUES_HTML,
+					"en",
+					"Minor_Idol",
+				);
+
+				const ids = result.uniqueIdols.map((u) => u.id);
+				expect(ids).toContain("Eye_of_the_Djinn");
+				expect(ids).toContain("Wellspring_of_Creation");
+			});
+
+			it("extracts base type from uniqueTypeLine", () => {
+				const result = parseIdolPage(
+					MINOR_IDOL_WITH_UNIQUES_HTML,
+					"en",
+					"Minor_Idol",
+				);
+
+				expect(
+					result.uniqueIdols.every((u) => u.baseType === "Minor"),
+				).toBe(true);
+			});
+
+			it("extracts implicit modifiers", () => {
+				const result = parseIdolPage(
+					MINOR_IDOL_WITH_UNIQUES_HTML,
+					"en",
+					"Minor_Idol",
+				);
+
+				const djinn = result.uniqueIdols.find(
+					(u) => u.id === "Eye_of_the_Djinn",
+				);
+				expect(djinn?.modifiers[0]?.text.en).toBe(
+					"2% increased Maps found in Area",
+				);
+			});
+
+			it("extracts explicit modifiers", () => {
+				const result = parseIdolPage(
+					MINOR_IDOL_WITH_UNIQUES_HTML,
+					"en",
+					"Minor_Idol",
+				);
+
+				const djinn = result.uniqueIdols.find(
+					(u) => u.id === "Eye_of_the_Djinn",
+				);
+				expect(djinn?.modifiers[1]?.text.en).toContain(
+					"Scarabs have 50% increased Effect",
+				);
+			});
+
+			it("extracts value ranges from unique idol mods", () => {
+				const result = parseIdolPage(
+					MINOR_IDOL_WITH_UNIQUES_HTML,
+					"en",
+					"Minor_Idol",
+				);
+
+				const wellspring = result.uniqueIdols.find(
+					(u) => u.id === "Wellspring_of_Creation",
+				);
+				const damageMod = wellspring?.modifiers.find((m) =>
+					m.text.en.includes("less Damage"),
+				);
+				expect(damageMod?.values).toEqual([{ min: 25, max: 30 }]);
+			});
+
+			it("skips item_description spans", () => {
+				const result = parseIdolPage(
+					MINOR_IDOL_WITH_UNIQUES_HTML,
+					"en",
+					"Minor_Idol",
+				);
+
+				const wellspring = result.uniqueIdols.find(
+					(u) => u.id === "Wellspring_of_Creation",
+				);
+				const descriptionMod = wellspring?.modifiers.find((m) =>
+					m.text.en.includes("corpses"),
+				);
+				expect(descriptionMod).toBeUndefined();
 			});
 		});
 
