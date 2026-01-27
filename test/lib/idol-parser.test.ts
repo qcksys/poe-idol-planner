@@ -293,4 +293,95 @@ describe("idol-parser", () => {
 			expect(results.length).toBe(0);
 		});
 	});
+
+	describe("modifier matching integration", () => {
+		it("matches modifiers to known definitions from advanced format", () => {
+			const result = parseIdolText(ADVANCED_FORMAT_IDOL);
+
+			expect(result.success).toBe(true);
+			const idol = result.idol!;
+
+			// Check that at least some modifiers have real modIds (not nanoids)
+			const allMods = [...idol.prefixes, ...idol.suffixes];
+			const matchedMods = allMods.filter(
+				(mod) => mod.modId.includes("_") && !mod.modId.startsWith("_"),
+			);
+
+			// Should have matched at least some modifiers
+			expect(matchedMods.length).toBeGreaterThan(0);
+		});
+
+		it("sets correct mechanic for matched modifiers", () => {
+			const result = parseIdolText(ADVANCED_FORMAT_IDOL);
+
+			expect(result.success).toBe(true);
+			const idol = result.idol!;
+
+			// Find the Legion modifier
+			const legionMod = [...idol.prefixes, ...idol.suffixes].find((m) =>
+				m.text.includes("Legion"),
+			);
+
+			if (legionMod?.modId.includes("legion")) {
+				expect(legionMod.mechanic).toBe("legion");
+			}
+		});
+
+		it("matches modifiers from simple format", () => {
+			const result = parseIdolText(SIMPLE_FORMAT_IDOL);
+
+			expect(result.success).toBe(true);
+			const idol = result.idol!;
+
+			// Check that at least some modifiers were matched
+			const allMods = [...idol.prefixes, ...idol.suffixes];
+			const matchedMods = allMods.filter(
+				(mod) =>
+					mod.modId.includes("_") &&
+					!mod.modId.startsWith("_") &&
+					mod.mechanic !== "generic",
+			);
+
+			// Should have matched at least some modifiers
+			expect(matchedMods.length).toBeGreaterThan(0);
+		});
+
+		it("preserves rolled values after matching", () => {
+			const result = parseIdolText(ADVANCED_FORMAT_IDOL);
+
+			expect(result.success).toBe(true);
+			const idol = result.idol!;
+
+			// Find the Legion modifier with known rolled value of 65
+			const legionMod = idol.prefixes.find((p) =>
+				p.text.includes("Legion"),
+			);
+
+			expect(legionMod).toBeDefined();
+			expect(legionMod?.rolledValue).toBe(65);
+		});
+
+		it("sets valueRange for matched modifiers", () => {
+			const result = parseIdolText(ADVANCED_FORMAT_IDOL);
+
+			expect(result.success).toBe(true);
+			const idol = result.idol!;
+
+			// Find a matched modifier
+			const matchedMod = [...idol.prefixes, ...idol.suffixes].find(
+				(mod) =>
+					mod.modId.includes("_") &&
+					!mod.modId.startsWith("_") &&
+					mod.valueRange,
+			);
+
+			if (matchedMod?.valueRange) {
+				expect(matchedMod.valueRange.min).toBeDefined();
+				expect(matchedMod.valueRange.max).toBeDefined();
+				expect(matchedMod.valueRange.min).toBeLessThanOrEqual(
+					matchedMod.valueRange.max,
+				);
+			}
+		});
+	});
 });

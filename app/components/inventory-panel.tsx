@@ -293,7 +293,11 @@ export function InventoryPanel({
 	};
 
 	const handleConfirmDelete = () => {
-		if (idsToDelete.length === 1) {
+		const isDeletingAll =
+			idsToDelete.length === inventory.length && onClearAll;
+		if (isDeletingAll) {
+			onClearAll();
+		} else if (idsToDelete.length === 1) {
 			onRemoveIdol?.(idsToDelete[0]);
 		} else if (onRemoveIdols) {
 			onRemoveIdols(idsToDelete);
@@ -426,7 +430,11 @@ export function InventoryPanel({
 										<Button
 											variant="destructive"
 											size="sm"
-											onClick={onClearAll}
+											onClick={() =>
+												handleRequestDelete(
+													inventory.map((i) => i.id),
+												)
+											}
 										>
 											<Trash2 className="h-4 w-4" />
 										</Button>
@@ -469,7 +477,7 @@ export function InventoryPanel({
 								: t.inventory.noMatches}
 						</div>
 					) : (
-						<ul className="space-y-2 p-1 pr-2">
+						<ul className="space-y-2 px-2 py-1 pr-3">
 							{filteredInventory.map((item) => (
 								<DraggableIdolCard
 									key={item.id}
