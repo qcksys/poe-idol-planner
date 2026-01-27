@@ -1,4 +1,4 @@
-import type enTranslations from "./locales/en.json";
+import type enTranslations from "~/i18n/locales/en.json";
 
 export const SUPPORTED_LOCALES = [
 	"en",

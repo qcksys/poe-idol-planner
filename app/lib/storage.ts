@@ -1,7 +1,5 @@
 import {
 	createEmptyStorage,
-	parseAndMigrateStorage,
-	STORAGE_VERSION,
 	type StorageData,
 	StorageSchema,
 } from "~/schemas/storage";
@@ -20,19 +18,14 @@ export function loadStorage(): StorageData {
 		}
 
 		const parsed = JSON.parse(raw);
-		const migrated = parseAndMigrateStorage(parsed);
+		const result = StorageSchema.safeParse(parsed);
 
-		if (!migrated) {
-			console.warn("Storage migration failed, using empty storage");
+		if (!result.success) {
+			console.warn("Storage validation failed, using empty storage");
 			return createEmptyStorage();
 		}
 
-		// If migration happened, save the new format
-		if (migrated.version === STORAGE_VERSION) {
-			saveStorage(migrated);
-		}
-
-		return migrated;
+		return result.data;
 	} catch (error) {
 		console.error("Failed to load storage:", error);
 		return createEmptyStorage();

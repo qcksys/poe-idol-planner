@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { IdolInstanceSchema } from "./idol";
+import { IdolInstanceSchema } from "~/schemas/idol";
 
 export const ImportSourceSchema = z.enum(["clipboard", "manual", "shared"]);
 

@@ -1,6 +1,9 @@
 import { Share2 } from "lucide-react";
 import { Link } from "react-router";
 import { siGithub } from "simple-icons";
+import { LeagueSelector } from "~/components/league-selector";
+import { LocaleSwitcher } from "~/components/locale-switcher";
+import { ModeToggle } from "~/components/mode-toggle";
 import { Button } from "~/components/ui/button";
 import {
 	Tooltip,
@@ -8,9 +11,6 @@ import {
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
 import { useTranslations } from "~/i18n";
-import { LeagueSelector } from "./league-selector";
-import { LocaleSwitcher } from "./locale-switcher";
-import { ModeToggle } from "./mode-toggle";
 
 interface AppHeaderProps {
 	onShareClick?: () => void;

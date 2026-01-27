@@ -1,5 +1,6 @@
 import { Copy, X } from "lucide-react";
 import { type DragEvent, useCallback, useMemo, useState } from "react";
+import { IdolCardMini } from "~/components/idol-card";
 import { Button } from "~/components/ui/button";
 import {
 	Tooltip,
@@ -19,7 +20,6 @@ import { cn } from "~/lib/utils";
 import type { IdolInstance } from "~/schemas/idol";
 import type { GridTab, IdolPlacement } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
-import { IdolCardMini } from "./idol-card";
 
 const GRID_WIDTH = 6;
 const GRID_HEIGHT = 7;

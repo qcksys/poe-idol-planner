@@ -1,5 +1,5 @@
+import uniqueIdolsData from "~/data/unique-idols.json";
 import type { SupportedLocale } from "~/i18n/types";
-import uniqueIdolsData from "./unique-idols.json";
 
 export interface UniqueIdolModifier {
 	text: Record<SupportedLocale, string>;

@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
+import { useLeague } from "~/hooks/use-league";
 import {
 	type ScarabPricesData,
 	ScarabPricesDataSchema,
 } from "~/schemas/scarab";
-import { useLeague } from "./use-league";
 
 interface ScarabPricesState {
 	data: ScarabPricesData | null;

@@ -1,5 +1,6 @@
 import { ClipboardPaste, Info } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+import { IdolCard } from "~/components/idol-card";
 import { Button } from "~/components/ui/button";
 import {
 	Dialog,
@@ -14,7 +15,6 @@ import { Textarea } from "~/components/ui/textarea";
 import { useTranslations } from "~/i18n";
 import { type ParseResult, parseIdolText } from "~/lib/idol-parser";
 import type { IdolInstance } from "~/schemas/idol";
-import { IdolCard } from "./idol-card";
 
 interface ImportModalProps {
 	open: boolean;

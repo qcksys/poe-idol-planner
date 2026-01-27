@@ -11,6 +11,7 @@ import {
 	X,
 } from "lucide-react";
 import { type DragEvent, useCallback, useRef, useState } from "react";
+import { IdolCard } from "~/components/idol-card";
 import { MultiMechanicFilter } from "~/components/mod-search";
 import { ModsSearchModal } from "~/components/mods-search-modal";
 import { Button } from "~/components/ui/button";
@@ -29,7 +30,6 @@ import { useTranslations } from "~/i18n";
 import { generateTradeUrl } from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
 import type { InventoryIdol } from "~/schemas/inventory";
-import { IdolCard } from "./idol-card";
 
 interface InventoryPanelProps {
 	inventory: InventoryIdol[];

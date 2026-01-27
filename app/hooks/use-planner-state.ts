@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { getAllUnlockIds } from "~/data/map-device-unlocks";
+import { useIdolSets } from "~/hooks/use-idol-sets";
 import { loadStorage, saveStorage } from "~/lib/storage";
 import type { IdolSet } from "~/schemas/idol-set";
 import { createEmptyMapDevice } from "~/schemas/scarab";
 import { STORAGE_VERSION } from "~/schemas/storage";
-import { useIdolSets } from "./use-idol-sets";
 
 const DEFAULT_SET_NAME = "Set 1";
 

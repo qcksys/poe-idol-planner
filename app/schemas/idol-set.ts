@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { InventoryIdolSchema } from "./inventory";
-import { createEmptyMapDevice, MapDeviceSchema } from "./scarab";
+import { InventoryIdolSchema } from "~/schemas/inventory";
+import { createEmptyMapDevice, MapDeviceSchema } from "~/schemas/scarab";
 
 export const GridPositionSchema = z.object({
 	x: z.number().int().min(0).max(5),

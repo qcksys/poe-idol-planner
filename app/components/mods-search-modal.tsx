@@ -1,5 +1,10 @@
 import { Search, Star } from "lucide-react";
 import { useMemo, useState } from "react";
+import {
+	getModifierOptions,
+	MultiIdolTypeFilter,
+	MultiMechanicFilter,
+} from "~/components/mod-search";
 import { Button } from "~/components/ui/button";
 import {
 	Dialog,
@@ -30,11 +35,6 @@ import {
 } from "~/data/idol-bases";
 import { useTranslations } from "~/i18n";
 import { cn } from "~/lib/utils";
-import {
-	getModifierOptions,
-	MultiIdolTypeFilter,
-	MultiMechanicFilter,
-} from "./mod-search";
 
 interface ModsSearchModalProps {
 	open: boolean;

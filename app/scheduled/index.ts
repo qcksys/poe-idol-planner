@@ -1,4 +1,4 @@
-import { updateScarabPrices } from "./poeninja";
+import { updateScarabPrices } from "~/scheduled/poeninja";
 
 const CRON_POENINJA_PRICES = "*/15 * * * *";
 

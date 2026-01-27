@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { IdolSetSchema } from "./idol-set";
-import { InventoryIdolSchema } from "./inventory";
+import { IdolSetSchema } from "~/schemas/idol-set";
+import { InventoryIdolSchema } from "~/schemas/inventory";
 
 export const SHARE_ID_LENGTH = 10;
 
