@@ -5,7 +5,10 @@
 	"compatibility_flags": ["nodejs_compat"],
 	"main": "./workers/app.ts",
 	"observability": {
-		"enabled": true
+		"enabled": true,
+		"logs": {
+			"invocation_logs": false
+		}
 	},
 	"vars": {
 		"URL": "",
@@ -27,7 +30,10 @@
 		"worker-prod": {
 			"name": "qs-poe-idol-planner-prod",
 			"observability": {
-				"enabled": true
+				"enabled": true,
+				"logs": {
+					"invocation_logs": false
+				}
 			},
 			"vars": {
 				"URL": "",
@@ -56,7 +62,10 @@
 		"worker-dev": {
 			"name": "qs-poe-idol-planner-dev",
 			"observability": {
-				"enabled": true
+				"enabled": true,
+				"logs": {
+					"invocation_logs": false
+				}
 			},
 			"vars": {
 				"URL": "",
