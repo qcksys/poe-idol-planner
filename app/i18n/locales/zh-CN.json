@@ -145,9 +145,14 @@
 		"modsFound": "找到 {count} 个词缀"
 	},
 	"filter": {
-		"mechanic": "按机制筛选",
+		"mechanic": "机制",
 		"allMechanics": "所有机制",
 		"mechanicsSelected": "{count} 个机制",
+		"idolType": "圣像类型",
+		"allIdolTypes": "所有圣像类型",
+		"idolTypesSelected": "{count} 个圣像类型",
+		"searchIdolType": "搜索圣像类型...",
+		"noIdolTypesFound": "未找到圣像类型。",
 		"type": "按类型筛选",
 		"allTypes": "所有类型",
 		"prefixOnly": "仅前缀",

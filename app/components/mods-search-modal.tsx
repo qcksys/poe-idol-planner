@@ -23,10 +23,18 @@ import {
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
 import { useFavorites } from "~/context/favorites-context";
-import { LEAGUE_MECHANICS, type LeagueMechanic } from "~/data/idol-bases";
+import {
+	type IdolBaseKey,
+	LEAGUE_MECHANICS,
+	type LeagueMechanic,
+} from "~/data/idol-bases";
 import { useTranslations } from "~/i18n";
 import { cn } from "~/lib/utils";
-import { getModifierOptions, MultiMechanicFilter } from "./mod-search";
+import {
+	getModifierOptions,
+	MultiIdolTypeFilter,
+	MultiMechanicFilter,
+} from "./mod-search";
 
 interface ModsSearchModalProps {
 	open: boolean;
@@ -42,6 +50,7 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 
 	const [searchQuery, setSearchQuery] = useState("");
 	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic[]>([]);
+	const [idolTypeFilter, setIdolTypeFilter] = useState<IdolBaseKey[]>([]);
 	const [typeFilter, setTypeFilter] = useState<TypeFilter>("all");
 	const [favoriteFilter, setFavoriteFilter] = useState<FavoriteFilter>("all");
 
@@ -53,6 +62,16 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 
 			if (mechanicFilter.length > 0) {
 				if (!mechanicFilter.includes(mod.mechanic)) return false;
+			}
+
+			if (idolTypeFilter.length > 0) {
+				const idolTypeNames = idolTypeFilter.map(
+					(key) => key.charAt(0).toUpperCase() + key.slice(1),
+				);
+				const hasIdolType = mod.applicableIdols.some((idol) =>
+					idolTypeNames.includes(idol),
+				);
+				if (!hasIdolType) return false;
 			}
 
 			if (favoriteFilter === "favorites" && !favorites.includes(mod.id))
@@ -77,6 +96,7 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 		allModifiers,
 		typeFilter,
 		mechanicFilter,
+		idolTypeFilter,
 		favoriteFilter,
 		favorites,
 		searchQuery,
@@ -121,7 +141,7 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 						/>
 					</div>
 
-					<div className="grid grid-cols-3 gap-2">
+					<div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
 						<div className="space-y-1">
 							<span className="text-muted-foreground text-xs">
 								{t.modsSearch?.typeFilter || "Type"}
@@ -176,6 +196,16 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 									</SelectItem>
 								</SelectContent>
 							</Select>
+						</div>
+
+						<div className="space-y-1">
+							<span className="text-muted-foreground text-xs">
+								{t.filter?.idolType || "Idol Type"}
+							</span>
+							<MultiIdolTypeFilter
+								value={idolTypeFilter}
+								onChange={setIdolTypeFilter}
+							/>
 						</div>
 
 						<div className="space-y-1">

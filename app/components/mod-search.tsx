@@ -21,7 +21,13 @@ import {
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
 import { useFavorites } from "~/context/favorites-context";
-import { LEAGUE_MECHANICS, type LeagueMechanic } from "~/data/idol-bases";
+import {
+	IDOL_BASE_KEYS,
+	IDOL_BASES,
+	type IdolBaseKey,
+	LEAGUE_MECHANICS,
+	type LeagueMechanic,
+} from "~/data/idol-bases";
 import idolModifiers from "~/data/idol-modifiers.json";
 import { useTranslations } from "~/i18n";
 import { cn } from "~/lib/utils";
@@ -455,6 +461,124 @@ export function MultiMechanicFilter({
 										key={mechanic}
 										value={`${mechanic} ${displayText}`}
 										onSelect={() => handleToggle(mechanic)}
+									>
+										<Check
+											className={cn(
+												"mr-2 h-4 w-4",
+												isSelected
+													? "opacity-100"
+													: "opacity-0",
+											)}
+										/>
+										{displayText}
+									</CommandItem>
+								);
+							})}
+						</CommandGroup>
+					</CommandList>
+				</Command>
+			</PopoverContent>
+		</Popover>
+	);
+}
+
+interface MultiIdolTypeFilterProps {
+	value: IdolBaseKey[];
+	onChange: (idolTypes: IdolBaseKey[]) => void;
+}
+
+export function MultiIdolTypeFilter({
+	value,
+	onChange,
+}: MultiIdolTypeFilterProps) {
+	const t = useTranslations();
+	const [open, setOpen] = useState(false);
+
+	const selectedSet = useMemo(() => new Set(value), [value]);
+
+	const handleToggle = (idolType: IdolBaseKey) => {
+		if (selectedSet.has(idolType)) {
+			onChange(value.filter((i) => i !== idolType));
+		} else {
+			onChange([...value, idolType]);
+		}
+	};
+
+	const handleSelectAll = () => {
+		onChange([...IDOL_BASE_KEYS]);
+	};
+
+	const handleClearAll = () => {
+		onChange([]);
+	};
+
+	const displayText =
+		value.length === 0
+			? t.filter?.allIdolTypes || "All Idol Types"
+			: value.length === 1
+				? IDOL_BASES[value[0]].name
+				: (t.filter?.idolTypesSelected || "{count} idol types").replace(
+						"{count}",
+						String(value.length),
+					);
+
+	return (
+		<Popover open={open} onOpenChange={setOpen}>
+			<PopoverTrigger asChild>
+				<Button
+					variant="outline"
+					aria-expanded={open}
+					className="w-full justify-between"
+					size="sm"
+				>
+					<span className="truncate">{displayText}</span>
+					<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+				</Button>
+			</PopoverTrigger>
+			<PopoverContent className="w-[250px] p-0" align="start">
+				<Command>
+					<CommandInput
+						placeholder={
+							t.filter?.searchIdolType || "Search idol type..."
+						}
+					/>
+					<div className="flex items-center justify-between border-b px-3 py-2">
+						<span className="text-muted-foreground text-xs">
+							{value.length}/{IDOL_BASE_KEYS.length}
+						</span>
+						<div className="flex gap-1">
+							<Button
+								variant="ghost"
+								size="sm"
+								className="h-6 px-2 text-xs"
+								onClick={handleSelectAll}
+							>
+								All
+							</Button>
+							<Button
+								variant="ghost"
+								size="sm"
+								className="h-6 px-2 text-xs"
+								onClick={handleClearAll}
+							>
+								None
+							</Button>
+						</div>
+					</div>
+					<CommandList className="max-h-[250px]">
+						<CommandEmpty>
+							{t.filter?.noIdolTypesFound ||
+								"No idol types found."}
+						</CommandEmpty>
+						<CommandGroup>
+							{IDOL_BASE_KEYS.map((idolType) => {
+								const displayText = IDOL_BASES[idolType].name;
+								const isSelected = selectedSet.has(idolType);
+								return (
+									<CommandItem
+										key={idolType}
+										value={`${idolType} ${displayText}`}
+										onSelect={() => handleToggle(idolType)}
 									>
 										<Check
 											className={cn(

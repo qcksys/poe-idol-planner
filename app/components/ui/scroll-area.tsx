@@ -18,6 +18,8 @@ function ScrollArea({
 		>
 			<ScrollAreaPrimitive.Viewport
 				data-slot="scroll-area-viewport"
+				data-scroll-lock-allow-scroll
+				onWheel={(e) => e.stopPropagation()}
 				className="size-full overflow-auto rounded-[inherit] outline-none transition-[color,box-shadow] focus-visible:outline-1 focus-visible:ring-[3px] focus-visible:ring-ring/50"
 			>
 				{children}

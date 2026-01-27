@@ -145,9 +145,14 @@
 		"modsFound": "{count} модификаторов найдено"
 	},
 	"filter": {
-		"mechanic": "Фильтр по механике",
+		"mechanic": "Механика",
 		"allMechanics": "Все механики",
 		"mechanicsSelected": "{count} механик",
+		"idolType": "Тип идола",
+		"allIdolTypes": "Все типы идолов",
+		"idolTypesSelected": "{count} типов идолов",
+		"searchIdolType": "Поиск типа идола...",
+		"noIdolTypesFound": "Типы идолов не найдены.",
 		"type": "Фильтр по типу",
 		"allTypes": "Все типы",
 		"prefixOnly": "Только префиксы",

@@ -145,9 +145,14 @@
 		"modsFound": "{count} modificateurs trouvés"
 	},
 	"filter": {
-		"mechanic": "Filtrer par mécanique",
+		"mechanic": "Mécanique",
 		"allMechanics": "Toutes les mécaniques",
 		"mechanicsSelected": "{count} mécaniques",
+		"idolType": "Type d'idole",
+		"allIdolTypes": "Tous les types d'idole",
+		"idolTypesSelected": "{count} types d'idole",
+		"searchIdolType": "Rechercher un type d'idole...",
+		"noIdolTypesFound": "Aucun type d'idole trouvé.",
 		"type": "Filtrer par type",
 		"allTypes": "Tous les types",
 		"prefixOnly": "Préfixes uniquement",

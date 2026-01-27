@@ -145,9 +145,14 @@
 		"modsFound": "{count}件のModが見つかりました"
 	},
 	"filter": {
-		"mechanic": "メカニックでフィルター",
+		"mechanic": "メカニック",
 		"allMechanics": "全てのメカニック",
 		"mechanicsSelected": "{count}個のメカニクス",
+		"idolType": "アイドルタイプ",
+		"allIdolTypes": "全てのアイドルタイプ",
+		"idolTypesSelected": "{count}個のアイドルタイプ",
+		"searchIdolType": "アイドルタイプを検索...",
+		"noIdolTypesFound": "アイドルタイプが見つかりません。",
 		"type": "タイプでフィルター",
 		"allTypes": "全てのタイプ",
 		"prefixOnly": "プレフィックスのみ",

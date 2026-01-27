@@ -145,9 +145,14 @@
 		"modsFound": "{count} modifiers found"
 	},
 	"filter": {
-		"mechanic": "Filter by Mechanic",
+		"mechanic": "Mechanic",
 		"allMechanics": "All Mechanics",
 		"mechanicsSelected": "{count} mechanics",
+		"idolType": "Idol Type",
+		"allIdolTypes": "All Idol Types",
+		"idolTypesSelected": "{count} idol types",
+		"searchIdolType": "Search idol type...",
+		"noIdolTypesFound": "No idol types found.",
 		"type": "Filter by Type",
 		"allTypes": "All Types",
 		"prefixOnly": "Prefix Only",
