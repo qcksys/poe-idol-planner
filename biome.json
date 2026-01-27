@@ -14,6 +14,9 @@
 			"a11y": {
 				"useKeyWithClickEvents": "off",
 				"useKeyWithMouseEvents": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off"
 			}
 		}
 	},
@@ -32,9 +35,10 @@
 			"**/*",
 			"!app/generated",
 			"!worker-configuration.d.ts",
-			"!code-quality.json"
+			"!code-quality.json",
+			"!scripts/**/.cache"
 		],
-		"maxSize": 1048576
+		"maxSize": 5000000
 	},
 	"vcs": {
 		"enabled": true,

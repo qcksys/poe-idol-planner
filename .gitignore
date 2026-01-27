@@ -3,6 +3,12 @@
 /node_modules/
 *.tsbuildinfo
 
+# Scripts cache
+scripts/**/.cache/
+
+# Claude Code
+.claude/
+
 # React Router
 /.react-router/
 /build/

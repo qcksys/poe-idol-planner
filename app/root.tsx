@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import {
 	isRouteErrorResponse,
 	Links,
@@ -5,15 +6,32 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useLoaderData,
 } from "react-router";
+import {
+	PreventFlashOnWrongTheme,
+	ThemeProvider,
+	useTheme,
+} from "remix-themes";
 
 import type { Route } from "./+types/root";
 import "./app.css";
 import type { ReactNode } from "react";
+import { I18nProvider } from "~/i18n";
+import { NotFoundPage } from "~/routes/$";
+import { themeSessionResolver } from "~/sessions.server";
 
-export function Layout({ children }: { children: ReactNode }) {
+export async function loader({ request }: Route.LoaderArgs) {
+	const { getTheme } = await themeSessionResolver(request);
+	return { theme: getTheme() };
+}
+
+function AppLayout({ children }: { children: ReactNode }) {
+	const data = useLoaderData<typeof loader>();
+	const [theme] = useTheme();
+
 	return (
-		<html lang="en">
+		<html lang="en" className={clsx(theme)}>
 			<head>
 				<meta charSet="utf-8" />
 				<meta
@@ -21,14 +39,28 @@ export function Layout({ children }: { children: ReactNode }) {
 					content="width=device-width, initial-scale=1"
 				/>
 				<Meta />
+				<PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
 				<Links />
 			</head>
-			<body>
-				{children}
+			<body className="min-h-screen bg-background text-foreground">
+				<I18nProvider>{children}</I18nProvider>
 				<ScrollRestoration />
 				<Scripts />
 			</body>
 		</html>
+	);
+}
+
+export function Layout({ children }: { children: ReactNode }) {
+	const data = useLoaderData<typeof loader>();
+
+	return (
+		<ThemeProvider
+			specifiedTheme={data.theme}
+			themeAction="/action/set-theme"
+		>
+			<AppLayout>{children}</AppLayout>
+		</ThemeProvider>
 	);
 }
 
@@ -37,16 +69,17 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+	if (isRouteErrorResponse(error) && error.status === 404) {
+		return <NotFoundPage />;
+	}
+
 	let message = "Oops!";
 	let details = "An unexpected error occurred.";
 	let stack: string | undefined;
 
 	if (isRouteErrorResponse(error)) {
-		message = error.status === 404 ? "404" : "Error";
-		details =
-			error.status === 404
-				? "The requested page could not be found."
-				: error.statusText || details;
+		message = `Error ${error.status}`;
+		details = error.statusText || details;
 	} else if (import.meta.env.DEV && error && error instanceof Error) {
 		details = error.message;
 		stack = error.stack;

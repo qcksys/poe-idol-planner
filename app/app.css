@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 @source ".";
@@ -27,6 +28,7 @@
 	--color-accent: var(--accent);
 	--color-accent-foreground: var(--accent-foreground);
 	--color-destructive: var(--destructive);
+	--color-destructive-foreground: var(--destructive-foreground);
 	--color-border: var(--border);
 	--color-input: var(--input);
 	--color-ring: var(--ring);
@@ -43,75 +45,147 @@
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
+	/* Semantic colors */
+	--color-success: var(--success);
+	--color-success-foreground: var(--success-foreground);
+	--color-warning: var(--warning);
+	--color-warning-foreground: var(--warning-foreground);
+	--color-invalid: var(--invalid);
+	--color-invalid-foreground: var(--invalid-foreground);
+	/* Rarity colors */
+	--color-rarity-normal: var(--rarity-normal);
+	--color-rarity-magic: var(--rarity-magic);
+	--color-rarity-rare: var(--rarity-rare);
+	--color-rarity-unique: var(--rarity-unique);
+	--color-rarity-normal-bg: var(--rarity-normal-bg);
+	--color-rarity-magic-bg: var(--rarity-magic-bg);
+	--color-rarity-rare-bg: var(--rarity-rare-bg);
+	--color-rarity-unique-bg: var(--rarity-unique-bg);
+	/* Mod type colors */
+	--color-mod-prefix: var(--mod-prefix);
+	--color-mod-suffix: var(--mod-suffix);
+	--color-mod-unique: var(--mod-unique);
+	--color-mod-implicit: var(--mod-implicit);
+	/* Overlay */
+	--color-overlay: var(--overlay);
 }
 
 :root {
 	--radius: 0.625rem;
-	--background: oklch(1 0 0);
-	--foreground: oklch(0.145 0 0);
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.145 0 0);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.145 0 0);
-	--primary: oklch(0.205 0 0);
-	--primary-foreground: oklch(0.985 0 0);
-	--secondary: oklch(0.97 0 0);
-	--secondary-foreground: oklch(0.205 0 0);
-	--muted: oklch(0.97 0 0);
-	--muted-foreground: oklch(0.556 0 0);
-	--accent: oklch(0.97 0 0);
-	--accent-foreground: oklch(0.205 0 0);
-	--destructive: oklch(0.577 0.245 27.325);
-	--border: oklch(0.922 0 0);
-	--input: oklch(0.922 0 0);
-	--ring: oklch(0.708 0 0);
-	--chart-1: oklch(0.646 0.222 41.116);
-	--chart-2: oklch(0.6 0.118 184.704);
-	--chart-3: oklch(0.398 0.07 227.392);
-	--chart-4: oklch(0.828 0.189 84.429);
-	--chart-5: oklch(0.769 0.188 70.08);
-	--sidebar: oklch(0.985 0 0);
-	--sidebar-foreground: oklch(0.145 0 0);
-	--sidebar-primary: oklch(0.205 0 0);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.97 0 0);
-	--sidebar-accent-foreground: oklch(0.205 0 0);
-	--sidebar-border: oklch(0.922 0 0);
-	--sidebar-ring: oklch(0.708 0 0);
+	/* Light mode - warm parchment/aged paper aesthetic with bronze accents */
+	--background: oklch(0.96 0.015 75);
+	--foreground: oklch(0.25 0.03 55);
+	--card: oklch(0.98 0.01 70);
+	--card-foreground: oklch(0.25 0.03 55);
+	--popover: oklch(0.99 0.008 70);
+	--popover-foreground: oklch(0.25 0.03 55);
+	--primary: oklch(0.5 0.12 55);
+	--primary-foreground: oklch(0.98 0.01 70);
+	--secondary: oklch(0.92 0.02 70);
+	--secondary-foreground: oklch(0.3 0.04 55);
+	--muted: oklch(0.93 0.015 72);
+	--muted-foreground: oklch(0.45 0.03 55);
+	--accent: oklch(0.55 0.14 50);
+	--accent-foreground: oklch(0.98 0.01 70);
+	--destructive: oklch(0.55 0.22 25);
+	--destructive-foreground: oklch(0.98 0.01 70);
+	--border: oklch(0.85 0.03 65);
+	--input: oklch(0.9 0.02 70);
+	--ring: oklch(0.55 0.12 55);
+	--chart-1: oklch(0.55 0.14 55);
+	--chart-2: oklch(0.5 0.12 45);
+	--chart-3: oklch(0.45 0.1 35);
+	--chart-4: oklch(0.6 0.1 70);
+	--chart-5: oklch(0.4 0.08 25);
+	--sidebar: oklch(0.94 0.018 72);
+	--sidebar-foreground: oklch(0.25 0.03 55);
+	--sidebar-primary: oklch(0.5 0.12 55);
+	--sidebar-primary-foreground: oklch(0.98 0.01 70);
+	--sidebar-accent: oklch(0.9 0.025 68);
+	--sidebar-accent-foreground: oklch(0.25 0.03 55);
+	--sidebar-border: oklch(0.85 0.03 65);
+	--sidebar-ring: oklch(0.55 0.12 55);
+	/* Semantic colors */
+	--success: oklch(0.45 0.15 145);
+	--success-foreground: oklch(0.98 0.01 70);
+	--warning: oklch(0.7 0.15 75);
+	--warning-foreground: oklch(0.2 0.03 55);
+	--invalid: oklch(0.85 0.08 25);
+	--invalid-foreground: oklch(0.4 0.15 25);
+	/* Rarity colors - POE-inspired */
+	--rarity-normal: oklch(0.6 0.02 60);
+	--rarity-magic: oklch(0.55 0.2 260);
+	--rarity-rare: oklch(0.7 0.18 85);
+	--rarity-unique: oklch(0.65 0.2 50);
+	--rarity-normal-bg: oklch(0.93 0.015 72 / 0.5);
+	--rarity-magic-bg: oklch(0.7 0.1 260 / 0.15);
+	--rarity-rare-bg: oklch(0.8 0.1 85 / 0.15);
+	--rarity-unique-bg: oklch(0.75 0.1 50 / 0.15);
+	/* Mod type colors */
+	--mod-prefix: oklch(0.5 0.18 260);
+	--mod-suffix: oklch(0.45 0.15 145);
+	--mod-unique: oklch(0.5 0.18 50);
+	--mod-implicit: oklch(0.5 0.18 310);
+	/* Overlay */
+	--overlay: oklch(0 0 0 / 0.5);
 }
 
 .dark {
-	--background: oklch(0.145 0 0);
-	--foreground: oklch(0.985 0 0);
-	--card: oklch(0.205 0 0);
-	--card-foreground: oklch(0.985 0 0);
-	--popover: oklch(0.205 0 0);
-	--popover-foreground: oklch(0.985 0 0);
-	--primary: oklch(0.922 0 0);
-	--primary-foreground: oklch(0.205 0 0);
-	--secondary: oklch(0.269 0 0);
-	--secondary-foreground: oklch(0.985 0 0);
-	--muted: oklch(0.269 0 0);
-	--muted-foreground: oklch(0.708 0 0);
-	--accent: oklch(0.269 0 0);
-	--accent-foreground: oklch(0.985 0 0);
-	--destructive: oklch(0.704 0.191 22.216);
-	--border: oklch(1 0 0 / 10%);
-	--input: oklch(1 0 0 / 15%);
-	--ring: oklch(0.556 0 0);
-	--chart-1: oklch(0.488 0.243 264.376);
-	--chart-2: oklch(0.696 0.17 162.48);
-	--chart-3: oklch(0.769 0.188 70.08);
-	--chart-4: oklch(0.627 0.265 303.9);
-	--chart-5: oklch(0.645 0.246 16.439);
-	--sidebar: oklch(0.205 0 0);
-	--sidebar-foreground: oklch(0.985 0 0);
-	--sidebar-primary: oklch(0.488 0.243 264.376);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.269 0 0);
-	--sidebar-accent-foreground: oklch(0.985 0 0);
-	--sidebar-border: oklch(1 0 0 / 10%);
-	--sidebar-ring: oklch(0.556 0 0);
+	--background: oklch(0.12 0.01 60);
+	--foreground: oklch(0.87 0.04 75);
+	--card: oklch(0.16 0.015 55);
+	--card-foreground: oklch(0.87 0.04 75);
+	--popover: oklch(0.14 0.012 55);
+	--popover-foreground: oklch(0.87 0.04 75);
+	--primary: oklch(0.72 0.12 65);
+	--primary-foreground: oklch(0.15 0.01 60);
+	--secondary: oklch(0.22 0.02 55);
+	--secondary-foreground: oklch(0.82 0.05 70);
+	--muted: oklch(0.2 0.015 55);
+	--muted-foreground: oklch(0.55 0.03 60);
+	--accent: oklch(0.65 0.14 55);
+	--accent-foreground: oklch(0.95 0.02 75);
+	--destructive: oklch(0.55 0.22 25);
+	--destructive-foreground: oklch(0.98 0.01 70);
+	--border: oklch(0.3 0.03 55);
+	--input: oklch(0.25 0.025 55);
+	--ring: oklch(0.65 0.12 60);
+	--chart-1: oklch(0.72 0.14 65);
+	--chart-2: oklch(0.6 0.12 55);
+	--chart-3: oklch(0.5 0.1 45);
+	--chart-4: oklch(0.75 0.1 80);
+	--chart-5: oklch(0.55 0.08 35);
+	--sidebar: oklch(0.14 0.012 55);
+	--sidebar-foreground: oklch(0.87 0.04 75);
+	--sidebar-primary: oklch(0.72 0.12 65);
+	--sidebar-primary-foreground: oklch(0.15 0.01 60);
+	--sidebar-accent: oklch(0.25 0.025 55);
+	--sidebar-accent-foreground: oklch(0.87 0.04 75);
+	--sidebar-border: oklch(0.3 0.03 55);
+	--sidebar-ring: oklch(0.65 0.12 60);
+	/* Semantic colors */
+	--success: oklch(0.65 0.18 145);
+	--success-foreground: oklch(0.15 0.01 60);
+	--warning: oklch(0.75 0.15 75);
+	--warning-foreground: oklch(0.15 0.01 60);
+	--invalid: oklch(0.25 0.05 25);
+	--invalid-foreground: oklch(0.5 0.1 25);
+	/* Rarity colors - POE-inspired */
+	--rarity-normal: oklch(0.6 0.02 60);
+	--rarity-magic: oklch(0.7 0.18 260);
+	--rarity-rare: oklch(0.75 0.18 85);
+	--rarity-unique: oklch(0.7 0.2 50);
+	--rarity-normal-bg: oklch(0.2 0.015 55 / 0.5);
+	--rarity-magic-bg: oklch(0.35 0.1 260 / 0.3);
+	--rarity-rare-bg: oklch(0.4 0.1 85 / 0.3);
+	--rarity-unique-bg: oklch(0.4 0.1 50 / 0.3);
+	/* Mod type colors */
+	--mod-prefix: oklch(0.7 0.15 260);
+	--mod-suffix: oklch(0.7 0.15 145);
+	--mod-unique: oklch(0.7 0.15 50);
+	--mod-implicit: oklch(0.7 0.15 310);
+	/* Overlay */
+	--overlay: oklch(0 0 0 / 0.5);
 }
 
 @layer base {

@@ -22,6 +22,9 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 | `pnpm run types:cf` | Generate Cloudflare bindings types |
 | `pnpm run types:rr` | Generate React Router route types |
 | `pnpm run precommit` | Run biome:ci + types (use before committing) |
+| `pnpm run data:convert` | Fetch and convert idol data from poedb.tw |
+| `pnpm run data:convert:cached` | Convert using cached poedb data |
+| `vitest run path/to/file.test.ts` | Run a single test file |
 
 ## Architecture
 
@@ -42,7 +45,7 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 
 ### Cloudflare Integration
 - KV namespace `KV_SAVE` available for persistent storage
-- Environment configs: `worker-prod` (poe-idol-planner.ta2.dev), `worker-dev` (poe-idol-planner-dev.ta2.dev)
+- Environment configs: `worker-prod` (poe-idol-planner.prae2.com), `worker-dev` (poe-idol-planner-dev.prae2.com)
 - Bindings typed via `pnpm run types:cf`
 
 ### UI Components
@@ -51,11 +54,55 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 - Uses `tw-animate-css` for animations
 - Add components via: `pnpx shadcn@latest add <component>`
 
+### Theme Colors
+**Always use theme CSS variables** instead of hardcoded colors to ensure light/dark mode compatibility:
+- `text-foreground` / `text-muted-foreground` instead of `text-white` / `text-gray-400`
+- `bg-background` / `bg-card` / `bg-muted` instead of `bg-gray-900` / `bg-gray-950`
+- `border-border` instead of `border-gray-700` / `border-gray-800`
+- `text-primary` / `bg-primary` for accent colors instead of `text-blue-500` / `bg-blue-600`
+- `text-destructive` / `bg-destructive` for errors instead of `text-red-400`
+- For semantic colors that must differ by theme, use `dark:` variants (e.g., `text-blue-700 dark:text-blue-300`)
+
+Theme variables are defined in `app/app.css` under `:root` (light) and `.dark` (dark mode).
+
+### State Management
+The app uses a centralized state pattern with localStorage persistence:
+
+- `app/hooks/use-planner-state.ts` - Top-level hook combining inventory and sets state, handles hydration and auto-save
+- `app/hooks/use-inventory.ts` - Manages imported idols collection
+- `app/hooks/use-idol-sets.ts` - Manages named sets with grid placements
+- `app/context/dnd-context.tsx` - React context for drag-and-drop state between inventory and grid
+
+**Data Flow:**
+```
+Import (clipboard) → Inventory → Drag to Set → Grid Position
+                         ↓
+                   Same idol can be in multiple sets
+                         ↓
+              Delete from inventory = removes everywhere
+```
+
+### Schemas (Zod 4)
+All data validated with Zod schemas in `app/schemas/`:
+- `idol.ts` - Base idol types, modifiers, instances
+- `idol-set.ts` - Named sets with grid placements
+- `inventory.ts` - Imported idols with usage tracking
+- `storage.ts` - Complete localStorage format with version
+
+### i18n System
+Lightweight client-side localization in `app/i18n/`:
+- `I18nProvider` wraps app, handles hydration
+- `useI18n()` returns `{ locale, setLocale, t }`
+- `useTranslations()` returns translation object directly
+- Translations in `app/i18n/locales/*.json`
+- Locale stored in localStorage, can override via `?lang=` param
+
 ## Code Conventions
 
 ### Path Aliases
 - `~/` maps to `./app/` for application imports
 - `~test/` maps to `./test/` for test imports
+- **Always use path aliases** instead of relative imports (e.g., `~/components/Button` not `../../components/Button`)
 
 ### Formatting (Biome)
 - Tab indentation (width 4)
@@ -70,23 +117,58 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 - Define in `wrangler.jsonc` `vars` section for each environment
 - Access via `envContext` in loaders
 
-## Changesets
+### Testing
+- Use Vitest for unit tests
+- Test files go in `test/` directory with `.test.ts` or `.test.tsx` extension
+- **Unit-testable components should have snapshot tests** using `expect(component).toMatchSnapshot()`
+- Run tests with `pnpm run test` or `pnpm run test:watch` for watch mode
 
-Use `/changeset` to create changelog entries for version management.
+### Git Workflow
+- **Commit at relevant intervals** during development (do not push unless asked)
+- Commit after completing logical units of work: a feature, bug fix, or meaningful refactor
+- Run `pnpm run precommit` before committing to ensure code passes linting and type checks
+- Write clear, concise commit messages describing what changed and why
+- Prefer smaller, focused commits over large monolithic ones
+- **Create a changeset BEFORE committing** using `/changeset` for version management
+  - `patch`: Bug fixes, documentation updates, config changes
+  - `minor`: New features, non-breaking enhancements
+  - `major`: Breaking changes (avoid for 0.x versions)
+  - The changeset file should be included in the same commit as the changes it describes
 
-Changeset format in `.changeset/<name>.md`:
-```markdown
----
-"poe-idol-planner": <patch|minor|major>
----
+### Local Browser Testing (Chrome DevTools MCP)
 
-<description>
+Use Chrome DevTools MCP tools for interactive testing of the running application:
+
+1. **Start the dev server**: `pnpm run dev` (runs on http://localhost:5173)
+
+2. **Navigate and inspect**:
+   - `mcp__chrome-devtools__navigate_page` - Navigate to localhost:5173
+   - `mcp__chrome-devtools__take_snapshot` - Get accessible elements with UIDs
+   - `mcp__chrome-devtools__take_screenshot` - Capture visual state
+
+3. **Interact with UI**:
+   - `mcp__chrome-devtools__click` - Click elements by UID
+   - `mcp__chrome-devtools__fill` - Fill input/textarea fields
+   - `mcp__chrome-devtools__hover` - Hover for tooltips
+
+4. **Debug issues**:
+   - `mcp__chrome-devtools__list_console_messages` - Check for errors/warnings
+   - `mcp__chrome-devtools__list_network_requests` - Inspect API calls
+   - `mcp__chrome-devtools__evaluate_script` - Run JS in page context
+
+5. **Performance**:
+   - `mcp__chrome-devtools__performance_start_trace` - Profile page load
+   - `mcp__chrome-devtools__performance_stop_trace` - Get performance insights
+
+Example workflow:
 ```
-
-Guidelines:
-- `patch`: Bug fixes, documentation updates, config changes
-- `minor`: New features, non-breaking enhancements
-- `major`: Breaking changes (avoid for 0.x versions)
+1. Navigate to http://localhost:5173
+2. Take snapshot to see UI elements
+3. Click "Import Idol" button by UID
+4. Fill textarea with test idol data
+5. Take screenshot to verify result
+6. Check console for any errors
+```
 
 ## Current Development
 
@@ -97,3 +179,15 @@ See `plan/task_plan.md` for project phases and implementation details. Key featu
 - Share sets via Cloudflare KV
 - Trade search URL generation
 - Localization support (10 languages)
+
+### Logging
+
+The app uses **Cloudflare Workers Observability** for logging. Always log objects (not strings) so that keys can be indexed and queried in the dashboard.
+
+```ts
+// Good - object with indexed keys
+console.log({ message: "Sync started", themeId, shop, fileCount: files.length });
+
+// Bad - plain string (not indexable)
+console.log(`Sync started for theme ${themeId}`);
+```

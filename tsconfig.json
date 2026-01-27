@@ -6,6 +6,7 @@
 		"app/**/.client/**/*",
 		"workers/**/*",
 		"test/**/*",
+		"scripts/**/*",
 		"*"
 	],
 	"compilerOptions": {

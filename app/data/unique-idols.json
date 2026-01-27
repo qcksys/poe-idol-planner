@@ -1,0 +1,2667 @@
+[
+	{
+		"id": "Eye_of_the_Djinn",
+		"name": {
+			"en": "Eye of the Djinn",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Scarabs have 50% increased Effect on your Maps per empty Map Device slot",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Lone_Adventurer",
+		"name": {
+			"en": "Lone Adventurer",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "10% increased Pack Size in your Maps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Only 1 Portal is opened to each of your Maps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Twist_of_Fate",
+		"name": {
+			"en": "Twist of Fate",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Corrupted Rare Maps and any Map Crafting options applying to them are modified unpredictably when opened",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Maps modified in this way have 1-3 additional random Map Modifiers",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Wellspring_of_Creation",
+		"name": {
+			"en": "Wellspring of Creation",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Monsters in your Maps deal (25—30)% less Damage",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 25,
+						"max": 30
+					}
+				]
+			},
+			{
+				"text": {
+					"en": "Monsters in your Maps have (40—50)% more Life",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 40,
+						"max": 50
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "Dance_of_Destruction",
+		"name": {
+			"en": "Dance of Destruction",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Monsters in your Maps deal (20—25)% more Damage",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 20,
+						"max": 25
+					}
+				]
+			},
+			{
+				"text": {
+					"en": "Monsters in your Maps have (25—30)% less Life",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 25,
+						"max": 30
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "Singular_Focus",
+		"name": {
+			"en": "Singular Focus",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Maps found have (200—220)% more chance to be Favoured Maps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 200,
+						"max": 220
+					}
+				]
+			},
+			{
+				"text": {
+					"en": "Non-Favoured Maps found in your Maps drop as Basic Currency Items instead",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Eldritch_Gaze",
+		"name": {
+			"en": "Eldritch Gaze",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Eldritch Altars Influenced by The Eater of Worlds have an additional Downside",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Eldritch Altars Influenced by The Eater of Worlds have (50—60)% increased Effect of Upsides",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 50,
+						"max": 60
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "Wrath_of_the_Cosmos",
+		"name": {
+			"en": "Wrath of the Cosmos",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Eldritch Altars Influenced by The Searing Exarch have (50—60)% chance to have an additional Upside",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 50,
+						"max": 60
+					}
+				]
+			},
+			{
+				"text": {
+					"en": "Eldritch Altars Influenced by The Searing Exarch which have an additional Upside have (80—100)% increased Effect of Downsides",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 80,
+						"max": 100
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "Shadow_Shaping",
+		"name": {
+			"en": "Shadow Shaping",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Maps found cannot be your Favoured Maps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Maps found in your Maps have +1% chance to have a special Implicit Modifier for each different Map you have Favoured",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Extreme_Archaeology",
+		"name": {
+			"en": "Extreme Archaeology",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "(200—250)% increased Explosive Radius in your Maps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 200,
+						"max": 250
+					}
+				]
+			},
+			{
+				"text": {
+					"en": "(100—150)% increased Explosive Placement Range in your Maps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 100,
+						"max": 150
+					}
+				]
+			},
+			{
+				"text": {
+					"en": "Expedition Monsters in your Maps spawn with an additional (10—15)% of Life missing",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 10,
+						"max": 15
+					}
+				]
+			},
+			{
+				"text": {
+					"en": "Number of Explosives is one",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Crop_Rotation",
+		"name": {
+			"en": "Crop Rotation",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Harvest Crops in your Maps contain only Tier 1 Plants Harvesting Crops in your Maps has a chance to upgrade the Tier of Plants of different colours",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Timeless_Conflict",
+		"name": {
+			"en": "Timeless Conflict",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Legion Encounters in your Maps have no Timer Breaking out Monsters and Chests that are in stasis progressively causes a Schism Legion Encounters in your Maps begin once the Schism has occurred",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Unending_Nightmare",
+		"name": {
+			"en": "Unending Nightmare",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Delirium Fog in your Maps never dissipates Delirium in your Maps has doubled difficulty scaling with distance from the mirror Simulacrum Splinters cannot be found in your Maps Delirium Orbs cannot be found in your Maps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Immutable_Dogma",
+		"name": {
+			"en": "Immutable Dogma",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Cannot Reroll Favours at Ritual Altars in your Maps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Monsters Sacrificed at Ritual Altars in your Maps grant (100—150)% more Tribute",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 100,
+						"max": 150
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "Arbitrary_Tenets",
+		"name": {
+			"en": "Arbitrary Tenets",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Favours at Ritual Altars in your Maps randomly cost between 90% less and 80% more",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Endless_Tide",
+		"name": {
+			"en": "Endless Tide",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Beyond Portals in your Maps cannot spawn Unique Bosses",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Beyond Portals in your Maps have (40—50)% less Merging Radius",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 40,
+						"max": 50
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "Speaker_of_the_Dead",
+		"name": {
+			"en": "Speaker of the Dead",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Tormented Spirits in your Maps can Possess Players for 20 seconds Tormented Spirits in your Maps cannot Possess Monsters",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Cassias_Pride",
+		"name": {
+			"en": "Cassia's Pride",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Blight Monsters in your Maps take (65—75)% less Damage from Players and their Minions",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 65,
+						"max": 75
+					}
+				]
+			},
+			{
+				"text": {
+					"en": "Blight Towers and their Minions in your Maps deal (300—400)% more Damage",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 300,
+						"max": 400
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "Meticulous_Appraiser",
+		"name": {
+			"en": "Meticulous Appraiser",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Modifiers to Quantity of Items found in your Maps instead apply to Rarity of Items found in your Maps at 300% of their value",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Lucid_Dreams",
+		"name": {
+			"en": "Lucid Dreams",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Vaal Side Areas in your Maps are no longer Corrupted",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Destructive_Play",
+		"name": {
+			"en": "Destructive Play",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "The Maven casts Up the Stakes, summoning 1 to 3 additional Atlas Bosses when Witnessing Map Bosses The number of additional Bosses summoned is higher if there are fewer monsters remaining in the Map Modifiers to the Final Map Boss in each Map also apply to these summoned Bosses",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Bold_Undertakings",
+		"name": {
+			"en": "Bold Undertakings",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Fortune Favours the Brave applies an additional random Option 100% more cost of the Fortune Favours the Brave Map Crafting Option",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Gruelling_Gauntlet",
+		"name": {
+			"en": "Gruelling Gauntlet",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Players cannot choose which Ultimatum Modifier is applied each Round",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Ultimatum Encounters in your Maps last up to 13 Rounds",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Cannot have a Boss in the final Round",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Ruinous_Wager",
+		"name": {
+			"en": "Ruinous Wager",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Ultimatum Monsters in your Maps apply Ruin with their special abilities Fail on reaching 7 Ruin",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Ultimatum Monsters and Modifiers in your Maps deal (50—60)% less Damage",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 50,
+						"max": 60
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "Thorough_Exploration",
+		"name": {
+			"en": "Thorough Exploration",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "If there are fewer than 50 monsters remaining in your Maps, Final Map Bosses are Empowered by Wildwood Wisps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Black_Thumb",
+		"name": {
+			"en": "Black Thumb",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have no chance to contain the Sacred Grove",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Scarabs found in your Maps cannot be Harvest Scarabs",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have +5% chance to contain other Extra Content that can be turned off through Atlas Passives",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Loved_by_the_Sun",
+		"name": {
+			"en": "Loved by the Sun",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have no chance to contain Abysses",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Scarabs found in your Maps cannot be Abyss Scarabs",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have +5% chance to contain other Extra Content that can be turned off through Atlas Passives",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Dimensional_Barrier",
+		"name": {
+			"en": "Dimensional Barrier",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have no chance to contain Breaches",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Scarabs found in your Maps cannot be Breach Scarabs",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have +5% chance to contain other Extra Content that can be turned off through Atlas Passives",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Trade_Embargo",
+		"name": {
+			"en": "Trade Embargo",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have no chance to contain Expedition Encounters",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Scarabs found in your Maps cannot be Expedition Scarabs",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have +5% chance to contain other Extra Content that can be turned off through Atlas Passives",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Sealed_Domain",
+		"name": {
+			"en": "Sealed Domain",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have no chance to contain Legion Encounters",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Scarabs found in your Maps cannot be Legion Scarabs",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have +5% chance to contain other Extra Content that can be turned off through Atlas Passives",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Servant_of_Order",
+		"name": {
+			"en": "Servant of Order",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have no chance to contain Ultimatum Encounters",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Scarabs found in your Maps cannot be Ultimatum Scarabs",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have +5% chance to contain other Extra Content that can be turned off through Atlas Passives",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Fungal_Remission",
+		"name": {
+			"en": "Fungal Remission",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have no chance to contain Blight Encounters",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Scarabs found in your Maps cannot be Blight Scarabs",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have +5% chance to contain other Extra Content that can be turned off through Atlas Passives",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Secular_Focus",
+		"name": {
+			"en": "Secular Focus",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have no chance to contain Ritual Altars",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Scarabs found in your Maps cannot be Ritual Scarabs",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have +5% chance to contain other Extra Content that can be turned off through Atlas Passives",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Straight_and_Narrow",
+		"name": {
+			"en": "Straight and Narrow",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Rogue's Markers, Contracts and Blueprints cannot be found in Your Maps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have no chance to contain Smuggler's Caches",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have +5% chance to contain other Extra Content that can be turned off through Atlas Passives",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Ominous_Silence",
+		"name": {
+			"en": "Ominous Silence",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have no chance to contain Mirrors of Delirium",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Scarabs found in your Maps cannot be Delirium Scarabs",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Your Maps have +5% chance to contain other Extra Content that can be turned off through Atlas Passives",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Smash_and_Grab",
+		"name": {
+			"en": "Smash and Grab",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Each Legion in your Maps contains an additional War Hoard",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Legion Chests in your Maps contain an additional Random Reward",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Legion Encounters in your Maps have (-80—-60)% increased Duration",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Crystallised_Power",
+		"name": {
+			"en": "Crystallised Power",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "A Map Boss is granted a random Essence Modifier from any Imprisoned Monsters slain in your Maps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Well_Supplied",
+		"name": {
+			"en": "Well Supplied",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Syndicate Members Obtain an additional Equipment Item when appearing in your Maps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "(30—50)% increased Intelligence gained from Immortal Syndicate targets encountered in your Maps",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 30,
+						"max": 50
+					}
+				]
+			},
+			{
+				"text": {
+					"en": "Immortal Syndicate Leaders in your Maps drop an additional Veiled Item",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Perceived_Greatness",
+		"name": {
+			"en": "Perceived Greatness",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Delirium Reward Types in your Maps gain +1 to count on Map Completion",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Delirious Monsters Killed in your Maps provide (-30—-20)% increased Reward Progress",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	},
+	{
+		"id": "Twisted_Wish",
+		"name": {
+			"en": "Twisted Wish",
+			"zh-TW": "",
+			"zh-CN": "",
+			"ko": "",
+			"ja": "",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Ultimatum Modifiers in your Maps start a Tier higher if possible",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "Ultimatum Encounters in your Maps get 3% reduced Radius each Round",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			},
+			{
+				"text": {
+					"en": "[3 Random Ultimatum Modifiers]",
+					"zh-TW": "",
+					"zh-CN": "",
+					"ko": "",
+					"ja": "",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "",
+					"es": ""
+				},
+				"values": []
+			}
+		]
+	}
+]
