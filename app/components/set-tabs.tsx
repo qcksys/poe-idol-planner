@@ -1,5 +1,13 @@
-import { Copy, MoreVertical, Pencil, Plus, Trash2 } from "lucide-react";
+import {
+	Copy,
+	Download,
+	MoreVertical,
+	Pencil,
+	Plus,
+	Trash2,
+} from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { Button } from "~/components/ui/button";
 import {
 	Dialog,
@@ -44,10 +52,14 @@ export function SetTabs({
 	onDeleteSet,
 }: SetTabsProps) {
 	const t = useTranslations();
+	const navigate = useNavigate();
 	const [renameDialogOpen, setRenameDialogOpen] = useState(false);
 	const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+	const [importDialogOpen, setImportDialogOpen] = useState(false);
 	const [selectedSetId, setSelectedSetId] = useState<string | null>(null);
 	const [newName, setNewName] = useState("");
+	const [shareUrl, setShareUrl] = useState("");
+	const [importError, setImportError] = useState("");
 
 	const handleRenameClick = (set: IdolSet) => {
 		setSelectedSetId(set.id);
@@ -75,6 +87,26 @@ export function SetTabs({
 		}
 		setDeleteDialogOpen(false);
 		setSelectedSetId(null);
+	};
+
+	const handleImportClick = () => {
+		setShareUrl("");
+		setImportError("");
+		setImportDialogOpen(true);
+	};
+
+	const handleImportConfirm = () => {
+		const url = shareUrl.trim();
+		// Extract share ID from URL - supports various formats
+		const shareMatch = url.match(/\/share\/([a-zA-Z0-9_-]+)/);
+		if (shareMatch) {
+			setImportDialogOpen(false);
+			setShareUrl("");
+			setImportError("");
+			navigate(`/share/${shareMatch[1]}`);
+		} else {
+			setImportError(t.idolSet.invalidShareUrl);
+		}
 	};
 
 	return (
@@ -151,6 +183,22 @@ export function SetTabs({
 					</TooltipTrigger>
 					<TooltipContent>{t.actions.newSet}</TooltipContent>
 				</Tooltip>
+
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<Button
+							variant="outline"
+							size="sm"
+							onClick={handleImportClick}
+						>
+							<Download className="mr-1 h-4 w-4" />
+							{t.idolSet.importShare}
+						</Button>
+					</TooltipTrigger>
+					<TooltipContent>
+						{t.idolSet.importShareTitle}
+					</TooltipContent>
+				</Tooltip>
 			</div>
 
 			<Dialog open={renameDialogOpen} onOpenChange={setRenameDialogOpen}>
@@ -200,6 +248,49 @@ export function SetTabs({
 							onClick={handleDeleteConfirm}
 						>
 							{t.idolSet.delete}
+						</Button>
+					</DialogFooter>
+				</DialogContent>
+			</Dialog>
+
+			<Dialog open={importDialogOpen} onOpenChange={setImportDialogOpen}>
+				<DialogContent>
+					<DialogHeader>
+						<DialogTitle>{t.idolSet.importShareTitle}</DialogTitle>
+						<DialogDescription>
+							{t.idolSet.importShareDescription}
+						</DialogDescription>
+					</DialogHeader>
+					<div className="space-y-2">
+						<Input
+							value={shareUrl}
+							onChange={(e) => {
+								setShareUrl(e.target.value);
+								setImportError("");
+							}}
+							placeholder={t.idolSet.shareLinkPlaceholder}
+							onKeyDown={(e) =>
+								e.key === "Enter" && handleImportConfirm()
+							}
+						/>
+						{importError && (
+							<p className="text-destructive text-sm">
+								{importError}
+							</p>
+						)}
+					</div>
+					<DialogFooter>
+						<Button
+							variant="ghost"
+							onClick={() => setImportDialogOpen(false)}
+						>
+							{t.actions.cancel}
+						</Button>
+						<Button
+							onClick={handleImportConfirm}
+							disabled={!shareUrl.trim()}
+						>
+							{t.idolSet.importShare}
 						</Button>
 					</DialogFooter>
 				</DialogContent>

@@ -1,4 +1,4 @@
-import { Share2 } from "lucide-react";
+import { Mail, Share2 } from "lucide-react";
 import { Link } from "react-router";
 import { siGithub } from "simple-icons";
 import { LeagueSelector } from "~/components/league-selector";
@@ -51,6 +51,16 @@ export function AppHeader({ onShareClick }: AppHeaderProps) {
 					<LeagueSelector />
 					<LocaleSwitcher />
 					<ModeToggle />
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Button variant="ghost" size="icon" asChild>
+								<a href="mailto:poe@qcksys.com">
+									<Mail className="h-5 w-5" />
+								</a>
+							</Button>
+						</TooltipTrigger>
+						<TooltipContent>Email me</TooltipContent>
+					</Tooltip>
 					<Tooltip>
 						<TooltipTrigger asChild>
 							<Button variant="ghost" size="icon" asChild>

@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
+import { matchModifierToDefinition } from "~/lib/mod-matcher";
 import type { IdolInstance, IdolModifier, Rarity } from "~/schemas/idol";
 
 type ParseFormat = "simple" | "advanced";
@@ -222,16 +223,42 @@ function convertToIdolInstance(parsed: ParsedIdol): IdolInstance {
 	const suffixes: IdolModifier[] = [];
 
 	for (const mod of parsed.modifiers) {
-		const idolMod: IdolModifier = {
-			modId: mod.modName || nanoid(),
-			type: mod.type,
-			tier: mod.tier,
-			text: mod.text,
-			rolledValue: mod.rolledValue,
-			mechanic: "generic",
-		};
+		// Try to match the modifier text against known modifier definitions
+		const match = matchModifierToDefinition(
+			mod.text,
+			mod.rolledValue,
+			mod.type === "prefix" || mod.type === "suffix"
+				? mod.type
+				: undefined,
+			parsed.baseType,
+		);
 
-		if (mod.type === "prefix") {
+		let idolMod: IdolModifier;
+
+		if (match) {
+			// Use matched modifier definition
+			idolMod = {
+				modId: match.modId,
+				type: match.type,
+				tier: match.tier,
+				text: mod.text,
+				rolledValue: mod.rolledValue,
+				valueRange: match.valueRange,
+				mechanic: match.mechanic,
+			};
+		} else {
+			// Fallback to original behavior when no match found
+			idolMod = {
+				modId: mod.modName || nanoid(),
+				type: mod.type,
+				tier: mod.tier,
+				text: mod.text,
+				rolledValue: mod.rolledValue,
+				mechanic: "generic",
+			};
+		}
+
+		if (idolMod.type === "prefix") {
 			prefixes.push(idolMod);
 		} else {
 			suffixes.push(idolMod);

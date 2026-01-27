@@ -16,7 +16,12 @@
 		"delete": "Eliminar",
 		"duplicate": "Duplicar",
 		"confirmDelete": "¿Estás seguro de que deseas eliminar este conjunto?",
-		"defaultName": "Conjunto de ídolos"
+		"defaultName": "Conjunto de ídolos",
+		"importShare": "Importar",
+		"importShareTitle": "Importar conjunto compartido",
+		"importShareDescription": "Pega una URL de compartir para importar un conjunto de ídolos.",
+		"shareLinkPlaceholder": "https://poe-idol-planner.prae2.com/share/...",
+		"invalidShareUrl": "URL de compartir inválida. Por favor, pega un enlace de compartir válido."
 	},
 	"inventory": {
 		"title": "Inventario",
@@ -36,7 +41,11 @@
 		"selectAll": "Seleccionar todo",
 		"deselectAll": "Deseleccionar todo",
 		"deleteSelected": "Eliminar seleccionados",
-		"selectionHint": "Ctrl+Clic para alternar, Shift+Clic para rango"
+		"selectionHint": "Ctrl+Clic para alternar, Shift+Clic para rango",
+		"confirmDelete": "Eliminar ídolo",
+		"confirmDeleteMessage": "¿Estás seguro de que deseas eliminar este ídolo? También se eliminará de todas las ubicaciones.",
+		"confirmDeleteMultiple": "Eliminar {count} ídolos",
+		"confirmDeleteMultipleMessage": "¿Estás seguro de que deseas eliminar {count} ídolos? También se eliminarán de todas las ubicaciones."
 	},
 	"grid": {
 		"tab1": "Pestaña 1",

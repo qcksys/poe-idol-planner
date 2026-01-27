@@ -16,7 +16,12 @@
 		"delete": "删除",
 		"duplicate": "复制",
 		"confirmDelete": "确定要删除此配置吗？",
-		"defaultName": "神像配置"
+		"defaultName": "神像配置",
+		"importShare": "导入",
+		"importShareTitle": "导入分享配置",
+		"importShareDescription": "粘贴分享链接以导入神像配置。",
+		"shareLinkPlaceholder": "https://poe-idol-planner.prae2.com/share/...",
+		"invalidShareUrl": "无效的分享链接。请粘贴有效的分享链接。"
 	},
 	"inventory": {
 		"title": "仓库",
@@ -36,7 +41,11 @@
 		"selectAll": "全选",
 		"deselectAll": "取消选择",
 		"deleteSelected": "删除已选",
-		"selectionHint": "Ctrl+点击切换选择，Shift+点击选择范围"
+		"selectionHint": "Ctrl+点击切换选择，Shift+点击选择范围",
+		"confirmDelete": "删除神像",
+		"confirmDeleteMessage": "确定要删除此神像吗？这也会将其从所有布局中移除。",
+		"confirmDeleteMultiple": "删除 {count} 个神像",
+		"confirmDeleteMultipleMessage": "确定要删除 {count} 个神像吗？这也会将它们从所有布局中移除。"
 	},
 	"grid": {
 		"tab1": "标签页 1",

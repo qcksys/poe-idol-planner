@@ -317,6 +317,7 @@ interface EmptyCellProps {
 	cell: GridCell;
 	canDropHere: boolean;
 	isDropPreview: boolean;
+	canDropAtOrigin: boolean;
 	onDrop: (x: number, y: number) => void;
 }
 
@@ -326,6 +327,7 @@ function EmptyCell({
 	cell,
 	canDropHere,
 	isDropPreview,
+	canDropAtOrigin,
 	onDrop,
 }: EmptyCellProps) {
 	const [isDragOver, setIsDragOver] = useState(false);
@@ -425,9 +427,11 @@ function EmptyCell({
 				isDragOver &&
 					!canDropHere &&
 					"border-destructive bg-destructive/20",
-				isDropPreview && canDropHere && "border-primary bg-primary/20",
 				isDropPreview &&
-					!canDropHere &&
+					canDropAtOrigin &&
+					"border-primary bg-primary/20",
+				isDropPreview &&
+					!canDropAtOrigin &&
 					"border-destructive/50 bg-destructive/10",
 				!isDragOver &&
 					!isDropPreview &&
@@ -570,6 +574,11 @@ function GridTabContent({
 
 	const previewCells = useMemo(() => getPreviewCells(), [getPreviewCells]);
 
+	const canDropAtOrigin = useMemo(() => {
+		if (!draggedItem || !dragHoverPosition) return false;
+		return canPlaceAtPosition(dragHoverPosition.x, dragHoverPosition.y);
+	}, [draggedItem, dragHoverPosition, canPlaceAtPosition]);
+
 	const handleDrop = useCallback(
 		(x: number, y: number) => {
 			if (!draggedItem) return;
@@ -654,6 +663,7 @@ function GridTabContent({
 							cell={cell}
 							canDropHere={canPlaceAtPosition(x, y)}
 							isDropPreview={isPreview}
+							canDropAtOrigin={canDropAtOrigin}
 							onDrop={handleDrop}
 						/>
 					);
