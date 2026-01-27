@@ -445,7 +445,7 @@ export function InventoryPanel({
 								: t.inventory.noMatches}
 						</div>
 					) : (
-						<ul className="space-y-2 pr-2">
+						<ul className="space-y-2 p-1 pr-2">
 							{filteredInventory.map((item) => (
 								<DraggableIdolCard
 									key={item.id}

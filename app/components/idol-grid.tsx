@@ -1,7 +1,5 @@
-import { Copy, X } from "lucide-react";
 import { type DragEvent, useCallback, useMemo, useState } from "react";
 import { IdolCardMini } from "~/components/idol-card";
-import { Button } from "~/components/ui/button";
 import {
 	Tooltip,
 	TooltipContent,
@@ -14,8 +12,6 @@ import {
 	getLockedPositions,
 	MAP_DEVICE_UNLOCKS,
 } from "~/data/map-device-unlocks";
-import { useTranslations } from "~/i18n";
-import { highlightNumbers } from "~/lib/highlight-numbers";
 import { cn } from "~/lib/utils";
 import type { IdolInstance } from "~/schemas/idol";
 import type { GridTab, IdolPlacement } from "~/schemas/idol-set";
@@ -170,201 +166,6 @@ function canPlaceIdol(
 	return true;
 }
 
-interface GridCellComponentProps {
-	cell: GridCell;
-	x: number;
-	y: number;
-	originPosition?: { x: number; y: number };
-	inventoryIdol?: InventoryIdol;
-	idolBase?: { width: number; height: number };
-	onClick?: () => void;
-	onRemove?: () => void;
-	onCopy?: () => void;
-	onDrop?: (x: number, y: number) => void;
-	onDragStart?: (
-		placementId: string,
-		offset: { x: number; y: number },
-	) => void;
-	onDragEnd?: () => void;
-	canDropHere?: boolean;
-	isDropPreview?: boolean;
-}
-
-interface NonOriginCellTooltipProps {
-	base: (typeof IDOL_BASES)[IdolBaseKey];
-	allMods: IdolInstance["prefixes"];
-	tooltipSide: "left" | "right";
-	x: number;
-	y: number;
-	onDragStart: (e: DragEvent<HTMLDivElement>) => void;
-	onDragEnd: () => void;
-	onRemove?: () => void;
-	onCopy?: () => void;
-	onDrop?: (x: number, y: number) => void;
-	canDropHere?: boolean;
-}
-
-function NonOriginCellTooltip({
-	base,
-	allMods,
-	tooltipSide,
-	x,
-	y,
-	onDragStart,
-	onDragEnd,
-	onRemove,
-	onCopy,
-	onDrop,
-	canDropHere,
-}: NonOriginCellTooltipProps) {
-	const t = useTranslations();
-	const [isDragOver, setIsDragOver] = useState(false);
-
-	const handleRemove = (e: React.MouseEvent) => {
-		e.stopPropagation();
-		onRemove?.();
-	};
-
-	const handleCopy = (e: React.MouseEvent) => {
-		e.stopPropagation();
-		onCopy?.();
-	};
-
-	const handleDragOver = useCallback(
-		(e: DragEvent<HTMLDivElement>) => {
-			e.preventDefault();
-			if (canDropHere) {
-				e.dataTransfer.dropEffect = "move";
-				setIsDragOver(true);
-			} else {
-				e.dataTransfer.dropEffect = "none";
-			}
-		},
-		[canDropHere],
-	);
-
-	const handleDragLeave = useCallback(() => {
-		setIsDragOver(false);
-	}, []);
-
-	const handleDrop = useCallback(
-		(e: DragEvent<HTMLDivElement>) => {
-			e.preventDefault();
-			setIsDragOver(false);
-			if (canDropHere && onDrop) {
-				onDrop(x, y);
-			}
-		},
-		[canDropHere, onDrop, x, y],
-	);
-
-	return (
-		<TooltipProvider>
-			<Tooltip>
-				<TooltipTrigger asChild>
-					{/* biome-ignore lint/a11y/noStaticElementInteractions: Drag handle for idol movement */}
-					<div
-						className={cn(
-							"absolute cursor-grab",
-							isDragOver &&
-								canDropHere &&
-								"border-success bg-success/20",
-							isDragOver &&
-								!canDropHere &&
-								"border-destructive bg-destructive/20",
-						)}
-						style={{
-							left: x * CELL_SIZE,
-							top: y * CELL_SIZE,
-							width: CELL_SIZE,
-							height: CELL_SIZE,
-						}}
-						draggable
-						onDragStart={onDragStart}
-						onDragEnd={onDragEnd}
-						onDragOver={handleDragOver}
-						onDragLeave={handleDragLeave}
-						onDrop={handleDrop}
-					/>
-				</TooltipTrigger>
-				<TooltipContent
-					side={tooltipSide}
-					avoidCollisions
-					collisionPadding={8}
-					className="max-w-xs border border-border bg-card text-card-foreground"
-				>
-					<div className="space-y-2">
-						<div className="space-y-1">
-							<div className="flex items-center gap-1.5">
-								<img
-									src={base.image}
-									alt=""
-									className="h-5 w-5 object-contain"
-								/>
-								<span className="text-muted-foreground text-xs">
-									{base.name}
-								</span>
-							</div>
-							<div className="space-y-0.5">
-								{allMods.map((mod, index) => (
-									<div
-										key={`${mod.modId}-${index}`}
-										className={
-											mod.type === "prefix"
-												? "text-mod-prefix text-sm"
-												: "text-mod-suffix text-sm"
-										}
-									>
-										{highlightNumbers(mod.text)}
-									</div>
-								))}
-							</div>
-						</div>
-						{(onRemove || onCopy) && (
-							<div className="flex justify-end gap-1 border-border border-t pt-2">
-								{onCopy && (
-									<Tooltip>
-										<TooltipTrigger asChild>
-											<Button
-												variant="secondary"
-												size="icon"
-												className="h-6 w-6"
-												onClick={handleCopy}
-											>
-												<Copy className="h-3.5 w-3.5" />
-											</Button>
-										</TooltipTrigger>
-										<TooltipContent side="bottom">
-											{t.actions.copyToInventory}
-										</TooltipContent>
-									</Tooltip>
-								)}
-								{onRemove && (
-									<Tooltip>
-										<TooltipTrigger asChild>
-											<Button
-												variant="destructive"
-												size="icon"
-												className="h-6 w-6"
-												onClick={handleRemove}
-											>
-												<X className="h-3.5 w-3.5" />
-											</Button>
-										</TooltipTrigger>
-										<TooltipContent side="bottom">
-											{t.grid.removeFromGrid}
-										</TooltipContent>
-									</Tooltip>
-								)}
-							</div>
-						)}
-					</div>
-				</TooltipContent>
-			</Tooltip>
-		</TooltipProvider>
-	);
-}
-
 // Creates a custom drag image element for an idol
 function createDragImage(
 	idol: IdolInstance,
@@ -428,22 +229,105 @@ function createDragImage(
 	};
 }
 
-function GridCellComponent({
-	cell,
-	x,
-	y,
-	originPosition,
+interface PlacedIdolProps {
+	placement: IdolPlacement;
+	inventoryIdol: InventoryIdol;
+	isHovered: boolean;
+	onHoverStart: (placementId: string) => void;
+	onHoverEnd: () => void;
+	onIdolClick?: (idol: IdolInstance, placementId: string) => void;
+	onRemoveIdol?: (placementId: string) => void;
+	onCopyIdol?: (idol: IdolInstance) => void;
+	onDragStart: (
+		placementId: string,
+		offset: { x: number; y: number },
+	) => void;
+	onDragEnd: () => void;
+}
+
+function PlacedIdol({
+	placement,
 	inventoryIdol,
-	idolBase,
-	onClick,
-	onRemove,
-	onCopy,
-	onDrop,
+	isHovered,
+	onHoverStart,
+	onHoverEnd,
+	onIdolClick,
+	onRemoveIdol,
+	onCopyIdol,
 	onDragStart,
 	onDragEnd,
+}: PlacedIdolProps) {
+	const idol = inventoryIdol.idol;
+	const { x, y } = placement.position;
+
+	const handleDragStart = useCallback(
+		(e: React.DragEvent<HTMLButtonElement>) => {
+			e.dataTransfer.effectAllowed = "move";
+			const { element, cleanup } = createDragImage(idol, CELL_SIZE);
+			e.dataTransfer.setDragImage(element, CELL_SIZE / 2, CELL_SIZE / 2);
+			cleanup();
+			onDragStart(placement.id, { x: 0, y: 0 });
+		},
+		[idol, placement.id, onDragStart],
+	);
+
+	const handleDragEnd = useCallback(() => {
+		onDragEnd();
+	}, [onDragEnd]);
+
+	const handleMouseEnter = useCallback(() => {
+		onHoverStart(placement.id);
+	}, [placement.id, onHoverStart]);
+
+	return (
+		// biome-ignore lint/a11y/noStaticElementInteractions: Hover detection for idol highlight
+		<div
+			className="absolute z-10"
+			style={{
+				left: x * CELL_SIZE,
+				top: y * CELL_SIZE,
+			}}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={onHoverEnd}
+		>
+			<IdolCardMini
+				idol={idol}
+				cellSize={CELL_SIZE}
+				onClick={
+					onIdolClick
+						? () => onIdolClick(idol, placement.id)
+						: undefined
+				}
+				onRemove={
+					onRemoveIdol ? () => onRemoveIdol(placement.id) : undefined
+				}
+				onCopy={onCopyIdol ? () => onCopyIdol(idol) : undefined}
+				draggable
+				onDragStart={handleDragStart}
+				onDragEnd={handleDragEnd}
+				isHovered={isHovered}
+			/>
+		</div>
+	);
+}
+
+interface EmptyCellProps {
+	x: number;
+	y: number;
+	cell: GridCell;
+	canDropHere: boolean;
+	isDropPreview: boolean;
+	onDrop: (x: number, y: number) => void;
+}
+
+function EmptyCell({
+	x,
+	y,
+	cell,
 	canDropHere,
 	isDropPreview,
-}: GridCellComponentProps) {
+	onDrop,
+}: EmptyCellProps) {
 	const [isDragOver, setIsDragOver] = useState(false);
 
 	const handleDragOver = useCallback(
@@ -467,108 +351,13 @@ function GridCellComponent({
 		(e: DragEvent<HTMLDivElement>) => {
 			e.preventDefault();
 			setIsDragOver(false);
-			if (canDropHere && onDrop) {
+			if (canDropHere) {
 				onDrop(x, y);
 			}
 		},
 		[canDropHere, onDrop, x, y],
 	);
 
-	const handleIdolDragStart = useCallback(
-		(e: DragEvent<HTMLButtonElement | HTMLDivElement>) => {
-			if (
-				cell.placementId &&
-				onDragStart &&
-				originPosition &&
-				cell.idol
-			) {
-				e.dataTransfer.effectAllowed = "move";
-				const offset = {
-					x: x - originPosition.x,
-					y: y - originPosition.y,
-				};
-
-				// Create custom drag image showing full idol
-				const { element, cleanup } = createDragImage(
-					cell.idol,
-					CELL_SIZE,
-				);
-
-				// Calculate drag image offset (cursor position relative to idol top-left)
-				const dragImageOffsetX = offset.x * CELL_SIZE + CELL_SIZE / 2;
-				const dragImageOffsetY = offset.y * CELL_SIZE + CELL_SIZE / 2;
-
-				e.dataTransfer.setDragImage(
-					element,
-					dragImageOffsetX,
-					dragImageOffsetY,
-				);
-				cleanup();
-
-				onDragStart(cell.placementId, offset);
-			}
-		},
-		[cell.placementId, cell.idol, onDragStart, originPosition, x, y],
-	);
-
-	const handleIdolDragEnd = useCallback(() => {
-		onDragEnd?.();
-	}, [onDragEnd]);
-
-	if (cell.isOrigin && cell.idol && inventoryIdol) {
-		return (
-			<div
-				className="absolute"
-				style={{
-					left: x * CELL_SIZE,
-					top: y * CELL_SIZE,
-				}}
-			>
-				<IdolCardMini
-					idol={cell.idol}
-					cellSize={CELL_SIZE}
-					onClick={onClick}
-					onRemove={onRemove}
-					onCopy={onCopy}
-					draggable
-					onDragStart={handleIdolDragStart}
-					onDragEnd={handleIdolDragEnd}
-				/>
-			</div>
-		);
-	}
-
-	if (cell.occupied && !cell.isOrigin && cell.idol) {
-		const idol = cell.idol;
-		const base = IDOL_BASES[idol.baseType as IdolBaseKey];
-		const allMods = [...idol.prefixes, ...idol.suffixes];
-
-		// Calculate offset from idol origin to determine tooltip side
-		const offsetX = originPosition ? x - originPosition.x : 0;
-		const idolWidth = idolBase?.width ?? base.width;
-
-		// Show tooltip on the right edge when hovering left side, vice versa
-		const isLeftHalf = offsetX < idolWidth / 2;
-		const tooltipSide = isLeftHalf ? "right" : "left";
-
-		return (
-			<NonOriginCellTooltip
-				base={base}
-				allMods={allMods}
-				tooltipSide={tooltipSide}
-				x={x}
-				y={y}
-				onDragStart={handleIdolDragStart}
-				onDragEnd={handleIdolDragEnd}
-				onRemove={onRemove}
-				onCopy={onCopy}
-				onDrop={onDrop}
-				canDropHere={canDropHere}
-			/>
-		);
-	}
-
-	// Render invalid (blocked) cells with a distinct appearance
 	if (!cell.isValid) {
 		return (
 			<div
@@ -583,7 +372,6 @@ function GridCellComponent({
 		);
 	}
 
-	// Render locked cells
 	if (cell.isLocked) {
 		return (
 			<TooltipProvider>
@@ -637,7 +425,10 @@ function GridCellComponent({
 				isDragOver &&
 					!canDropHere &&
 					"border-destructive bg-destructive/20",
-				isDropPreview && "border-primary/50 bg-primary/10",
+				isDropPreview && canDropHere && "border-primary bg-primary/20",
+				isDropPreview &&
+					!canDropHere &&
+					"border-destructive/50 bg-destructive/10",
 				!isDragOver &&
 					!isDropPreview &&
 					"hover:border-primary/50 hover:bg-primary/10",
@@ -688,6 +479,13 @@ function GridTabContent({
 }) {
 	const { draggedItem, sourcePlacementId, dragOffset, setDraggedItem } =
 		useDnd();
+	const [hoveredPlacementId, setHoveredPlacementId] = useState<string | null>(
+		null,
+	);
+	const [dragHoverPosition, setDragHoverPosition] = useState<{
+		x: number;
+		y: number;
+	} | null>(null);
 
 	const grid = useMemo(
 		() => populateGrid(placements, inventory, tab, unlockedConditions),
@@ -702,14 +500,10 @@ function GridTabContent({
 		return map;
 	}, [inventory]);
 
-	const originPositionMap = useMemo(() => {
-		const map = new Map<string, { x: number; y: number }>();
-		const tabPlacements = placements.filter((p) => p.tab === tab);
-		for (const placement of tabPlacements) {
-			map.set(placement.id, placement.position);
-		}
-		return map;
-	}, [placements, tab]);
+	const tabPlacements = useMemo(
+		() => placements.filter((p) => p.tab === tab),
+		[placements, tab],
+	);
 
 	const canPlaceAtPosition = useCallback(
 		(x: number, y: number): boolean => {
@@ -749,6 +543,33 @@ function GridTabContent({
 		[draggedItem, grid, sourcePlacementId, dragOffset],
 	);
 
+	const getPreviewCells = useCallback((): Set<string> => {
+		const cells = new Set<string>();
+		if (!draggedItem || !dragHoverPosition) return cells;
+
+		const base = IDOL_BASES[draggedItem.idol.baseType as IdolBaseKey];
+		const originX = dragHoverPosition.x - dragOffset.x;
+		const originY = dragHoverPosition.y - dragOffset.y;
+
+		for (let dy = 0; dy < base.height; dy++) {
+			for (let dx = 0; dx < base.width; dx++) {
+				const cellX = originX + dx;
+				const cellY = originY + dy;
+				if (
+					cellX >= 0 &&
+					cellX < GRID_WIDTH &&
+					cellY >= 0 &&
+					cellY < GRID_HEIGHT
+				) {
+					cells.add(`${cellX},${cellY}`);
+				}
+			}
+		}
+		return cells;
+	}, [draggedItem, dragHoverPosition, dragOffset]);
+
+	const previewCells = useMemo(() => getPreviewCells(), [getPreviewCells]);
+
 	const handleDrop = useCallback(
 		(x: number, y: number) => {
 			if (!draggedItem) return;
@@ -761,6 +582,7 @@ function GridTabContent({
 			} else if (onPlaceIdol) {
 				onPlaceIdol(draggedItem.id, originX, originY, tab);
 			}
+			setDragHoverPosition(null);
 		},
 		[
 			draggedItem,
@@ -787,80 +609,78 @@ function GridTabContent({
 
 	const handleIdolDragEnd = useCallback(() => {
 		setDraggedItem(null);
+		setDragHoverPosition(null);
 	}, [setDraggedItem]);
 
+	const handleGridDragOver = useCallback(
+		(e: DragEvent<HTMLDivElement>) => {
+			if (!draggedItem) return;
+			const rect = e.currentTarget.getBoundingClientRect();
+			const x = Math.floor((e.clientX - rect.left) / CELL_SIZE);
+			const y = Math.floor((e.clientY - rect.top) / CELL_SIZE);
+			if (x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT) {
+				setDragHoverPosition({ x, y });
+			}
+		},
+		[draggedItem],
+	);
+
+	const handleGridDragLeave = useCallback(() => {
+		setDragHoverPosition(null);
+	}, []);
+
 	return (
+		// biome-ignore lint/a11y/noStaticElementInteractions: Grid drag tracking
 		<div
 			className="relative rounded-lg border border-border bg-card"
 			style={{
 				width: GRID_WIDTH * CELL_SIZE,
 				height: GRID_HEIGHT * CELL_SIZE,
 			}}
+			onDragOver={handleGridDragOver}
+			onDragLeave={handleGridDragLeave}
 		>
+			{/* Render empty cells as base layer */}
 			{grid.flatMap((row, y) =>
 				row.map((cell, x) => {
-					const inventoryIdol = cell.placementId
-						? inventory.find((inv) => {
-								const placement = placements.find(
-									(p) => p.id === cell.placementId,
-								);
-								return (
-									placement &&
-									inv.id === placement.inventoryIdolId
-								);
-							})
-						: undefined;
-
-					const originPosition = cell.placementId
-						? originPositionMap.get(cell.placementId)
-						: undefined;
-
-					const idolBase = cell.idol
-						? IDOL_BASES[cell.idol.baseType as IdolBaseKey]
-						: undefined;
-
+					if (cell.occupied) return null;
+					const cellKey = `${x},${y}`;
+					const isPreview = previewCells.has(cellKey);
 					return (
-						<GridCellComponent
+						<EmptyCell
 							key={`cell-${x}-${y}`}
-							cell={cell}
 							x={x}
 							y={y}
-							originPosition={originPosition}
-							inventoryIdol={inventoryIdol}
-							idolBase={idolBase}
-							onClick={
-								cell.isOrigin && cell.idol && cell.placementId
-									? () =>
-											onIdolClick?.(
-												cell.idol as IdolInstance,
-												cell.placementId as string,
-											)
-									: undefined
-							}
-							onRemove={
-								cell.placementId
-									? () =>
-											onRemoveIdol?.(
-												cell.placementId as string,
-											)
-									: undefined
-							}
-							onCopy={
-								cell.idol
-									? () =>
-											onCopyIdol?.(
-												cell.idol as IdolInstance,
-											)
-									: undefined
-							}
-							onDrop={handleDrop}
-							onDragStart={handleIdolDragStart}
-							onDragEnd={handleIdolDragEnd}
+							cell={cell}
 							canDropHere={canPlaceAtPosition(x, y)}
+							isDropPreview={isPreview}
+							onDrop={handleDrop}
 						/>
 					);
 				}),
 			)}
+
+			{/* Render placed idols as overlay layer */}
+			{tabPlacements.map((placement) => {
+				const invIdol = inventoryMap.get(placement.inventoryIdolId);
+				if (!invIdol) return null;
+
+				return (
+					<PlacedIdol
+						key={placement.id}
+						placement={placement}
+						inventoryIdol={invIdol}
+						isHovered={hoveredPlacementId === placement.id}
+						onHoverStart={setHoveredPlacementId}
+						onHoverEnd={() => setHoveredPlacementId(null)}
+						onIdolClick={onIdolClick}
+						onRemoveIdol={onRemoveIdol}
+						onCopyIdol={onCopyIdol}
+						onDragStart={handleIdolDragStart}
+						onDragEnd={handleIdolDragEnd}
+					/>
+				);
+			})}
 		</div>
 	);
 }

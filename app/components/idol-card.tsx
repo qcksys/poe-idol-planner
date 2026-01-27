@@ -64,11 +64,59 @@ function getModTypeColor(type: IdolModifier["type"]): string {
 	}
 }
 
+function formatModTextWithRange(mod: IdolModifier): string {
+	const { text, rolledValue, valueRange } = mod;
+
+	// If no range or range equals rolled value, just return text as-is
+	if (
+		!valueRange ||
+		(valueRange.min === rolledValue && valueRange.max === rolledValue)
+	) {
+		return text;
+	}
+
+	// Check if the text already contains a range format like (15—25)
+	const existingRangePattern = /\(\d+(?:\.\d+)?[—\-–]\d+(?:\.\d+)?\)/;
+	if (existingRangePattern.test(text)) {
+		return text;
+	}
+
+	// Format the range string
+	const rangeStr = `(${valueRange.min}—${valueRange.max})`;
+
+	// Try to find and replace the rolled value with value + range
+	// Look for the rolled value as a standalone number (not part of a larger number)
+	const valueStr = Number.isInteger(rolledValue)
+		? String(rolledValue)
+		: rolledValue.toFixed(1);
+
+	// Pattern to match the value followed by optional % but not already followed by a range
+	const valuePattern = new RegExp(
+		`(^|[^\\d])(${valueStr.replace(".", "\\.")})(%?)(?!\\s*[—\\-–]|\\s*\\()`,
+		"g",
+	);
+
+	let replaced = false;
+	const result = text.replace(
+		valuePattern,
+		(match, prefix, _value, percent) => {
+			if (!replaced) {
+				replaced = true;
+				return `${prefix}${rangeStr}${percent}`;
+			}
+			return match;
+		},
+	);
+
+	return replaced ? result : text;
+}
+
 function ModifierLine({ mod }: { mod: IdolModifier }) {
+	const displayText = formatModTextWithRange(mod);
 	return (
 		<div className="text-sm">
 			<span className={getModTypeColor(mod.type)}>
-				{highlightNumbers(mod.text)}
+				{highlightNumbers(displayText)}
 			</span>
 		</div>
 	);
@@ -180,6 +228,7 @@ interface IdolCardMiniProps {
 	draggable?: boolean;
 	onDragStart?: (e: React.DragEvent<HTMLButtonElement>) => void;
 	onDragEnd?: (e: React.DragEvent<HTMLButtonElement>) => void;
+	isHovered?: boolean;
 }
 
 export function IdolCardMini({
@@ -191,6 +240,7 @@ export function IdolCardMini({
 	draggable = false,
 	onDragStart,
 	onDragEnd,
+	isHovered = false,
 }: IdolCardMiniProps) {
 	const t = useTranslations();
 	const base = IDOL_BASES[idol.baseType as IdolBaseKey];
@@ -229,6 +279,7 @@ export function IdolCardMini({
 								? "cursor-grab active:cursor-grabbing"
 								: "cursor-pointer",
 							rarityColor,
+							isHovered && "scale-105",
 						)}
 						style={style}
 						onClick={onClick}
@@ -238,7 +289,12 @@ export function IdolCardMini({
 							alt={base.name}
 							className="absolute inset-0 h-full w-full object-cover"
 						/>
-						<div className="absolute top-0.5 right-0.5 flex gap-0.5 opacity-0 transition-opacity group-hover/mini:opacity-100">
+						<div
+							className={cn(
+								"absolute top-0.5 right-0.5 flex gap-0.5 transition-opacity group-hover/mini:opacity-100",
+								isHovered ? "opacity-100" : "opacity-0",
+							)}
+						>
 							{onCopy && (
 								<Tooltip>
 									<TooltipTrigger asChild>
