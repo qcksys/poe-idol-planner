@@ -16,6 +16,14 @@ import { MultiMechanicFilter } from "~/components/mod-search";
 import { ModsSearchModal } from "~/components/mods-search-modal";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+} from "~/components/ui/dialog";
 import { Input } from "~/components/ui/input";
 import { ScrollArea } from "~/components/ui/scroll-area";
 import {
@@ -206,6 +214,8 @@ export function InventoryPanel({
 	const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 	const lastSelectedId = useRef<string | null>(null);
 	const [modsSearchOpen, setModsSearchOpen] = useState(false);
+	const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+	const [idsToDelete, setIdsToDelete] = useState<string[]>([]);
 
 	const filteredInventory = inventory.filter((item) => {
 		const idol = item.idol;
@@ -277,17 +287,31 @@ export function InventoryPanel({
 		lastSelectedId.current = null;
 	};
 
-	const handleDeleteSelected = () => {
-		if (onRemoveIdols) {
-			onRemoveIdols(Array.from(selectedIds));
+	const handleRequestDelete = (ids: string[]) => {
+		setIdsToDelete(ids);
+		setDeleteDialogOpen(true);
+	};
+
+	const handleConfirmDelete = () => {
+		if (idsToDelete.length === 1) {
+			onRemoveIdol?.(idsToDelete[0]);
+		} else if (onRemoveIdols) {
+			onRemoveIdols(idsToDelete);
 		} else if (onRemoveIdol) {
-			// Fallback to single delete
-			for (const id of selectedIds) {
+			for (const id of idsToDelete) {
 				onRemoveIdol(id);
 			}
 		}
-		setSelectedIds(new Set());
-		lastSelectedId.current = null;
+		if (idsToDelete.length > 1) {
+			setSelectedIds(new Set());
+			lastSelectedId.current = null;
+		}
+		setDeleteDialogOpen(false);
+		setIdsToDelete([]);
+	};
+
+	const handleDeleteSelected = () => {
+		handleRequestDelete(Array.from(selectedIds));
 	};
 
 	const selectionCount = selectedIds.size;
@@ -454,7 +478,11 @@ export function InventoryPanel({
 									league={league}
 									onIdolClick={onIdolClick}
 									onDuplicateIdol={onDuplicateIdol}
-									onRemoveIdol={onRemoveIdol}
+									onRemoveIdol={
+										onRemoveIdol
+											? (id) => handleRequestDelete([id])
+											: undefined
+									}
 									onSelect={handleSelect}
 									t={t}
 								/>
@@ -468,6 +496,43 @@ export function InventoryPanel({
 				open={modsSearchOpen}
 				onOpenChange={setModsSearchOpen}
 			/>
+
+			<Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
+				<DialogContent>
+					<DialogHeader>
+						<DialogTitle>
+							{idsToDelete.length === 1
+								? t.inventory.confirmDelete
+								: t.inventory.confirmDeleteMultiple.replace(
+										"{count}",
+										String(idsToDelete.length),
+									)}
+						</DialogTitle>
+						<DialogDescription>
+							{idsToDelete.length === 1
+								? t.inventory.confirmDeleteMessage
+								: t.inventory.confirmDeleteMultipleMessage.replace(
+										"{count}",
+										String(idsToDelete.length),
+									)}
+						</DialogDescription>
+					</DialogHeader>
+					<DialogFooter>
+						<Button
+							variant="ghost"
+							onClick={() => setDeleteDialogOpen(false)}
+						>
+							{t.actions.cancel}
+						</Button>
+						<Button
+							variant="destructive"
+							onClick={handleConfirmDelete}
+						>
+							{t.idolSet.delete}
+						</Button>
+					</DialogFooter>
+				</DialogContent>
+			</Dialog>
 		</Card>
 	);
 }

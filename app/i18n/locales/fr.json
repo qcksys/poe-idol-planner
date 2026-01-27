@@ -16,7 +16,12 @@
 		"delete": "Supprimer",
 		"duplicate": "Dupliquer",
 		"confirmDelete": "Êtes-vous sûr de vouloir supprimer cet ensemble ?",
-		"defaultName": "Ensemble d'idoles"
+		"defaultName": "Ensemble d'idoles",
+		"importShare": "Importer",
+		"importShareTitle": "Importer un ensemble partagé",
+		"importShareDescription": "Collez une URL de partage pour importer un ensemble d'idoles.",
+		"shareLinkPlaceholder": "https://poe-idol-planner.prae2.com/share/...",
+		"invalidShareUrl": "URL de partage invalide. Veuillez coller un lien de partage valide."
 	},
 	"inventory": {
 		"title": "Inventaire",
@@ -36,7 +41,11 @@
 		"selectAll": "Tout sélectionner",
 		"deselectAll": "Tout désélectionner",
 		"deleteSelected": "Supprimer la sélection",
-		"selectionHint": "Ctrl+Clic pour basculer, Shift+Clic pour la plage"
+		"selectionHint": "Ctrl+Clic pour basculer, Shift+Clic pour la plage",
+		"confirmDelete": "Supprimer l'idole",
+		"confirmDeleteMessage": "Êtes-vous sûr de vouloir supprimer cette idole ? Elle sera également retirée de tous les emplacements.",
+		"confirmDeleteMultiple": "Supprimer {count} idoles",
+		"confirmDeleteMultipleMessage": "Êtes-vous sûr de vouloir supprimer {count} idoles ? Elles seront également retirées de tous les emplacements."
 	},
 	"grid": {
 		"tab1": "Onglet 1",

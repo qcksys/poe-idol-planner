@@ -16,7 +16,12 @@
 		"delete": "削除",
 		"duplicate": "複製",
 		"confirmDelete": "このセットを削除してもよろしいですか？",
-		"defaultName": "アイドルセット"
+		"defaultName": "アイドルセット",
+		"importShare": "インポート",
+		"importShareTitle": "共有セットをインポート",
+		"importShareDescription": "共有URLを貼り付けてアイドルセットをインポートします。",
+		"shareLinkPlaceholder": "https://poe-idol-planner.prae2.com/share/...",
+		"invalidShareUrl": "無効な共有URLです。有効な共有リンクを貼り付けてください。"
 	},
 	"inventory": {
 		"title": "インベントリ",
@@ -36,7 +41,11 @@
 		"selectAll": "すべて選択",
 		"deselectAll": "選択解除",
 		"deleteSelected": "選択を削除",
-		"selectionHint": "Ctrl+クリックで切り替え、Shift+クリックで範囲選択"
+		"selectionHint": "Ctrl+クリックで切り替え、Shift+クリックで範囲選択",
+		"confirmDelete": "アイドルを削除",
+		"confirmDeleteMessage": "このアイドルを削除してもよろしいですか？すべての配置からも削除されます。",
+		"confirmDeleteMultiple": "{count}個のアイドルを削除",
+		"confirmDeleteMultipleMessage": "{count}個のアイドルを削除してもよろしいですか？すべての配置からも削除されます。"
 	},
 	"grid": {
 		"tab1": "タブ 1",

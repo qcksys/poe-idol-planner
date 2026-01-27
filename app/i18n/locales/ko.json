@@ -16,7 +16,12 @@
 		"delete": "삭제",
 		"duplicate": "복제",
 		"confirmDelete": "이 세트를 삭제하시겠습니까?",
-		"defaultName": "우상 세트"
+		"defaultName": "우상 세트",
+		"importShare": "가져오기",
+		"importShareTitle": "공유 세트 가져오기",
+		"importShareDescription": "공유 URL을 붙여넣어 우상 세트를 가져옵니다.",
+		"shareLinkPlaceholder": "https://poe-idol-planner.prae2.com/share/...",
+		"invalidShareUrl": "잘못된 공유 URL입니다. 유효한 공유 링크를 붙여넣으세요."
 	},
 	"inventory": {
 		"title": "인벤토리",
@@ -36,7 +41,11 @@
 		"selectAll": "모두 선택",
 		"deselectAll": "선택 해제",
 		"deleteSelected": "선택 삭제",
-		"selectionHint": "Ctrl+클릭으로 전환, Shift+클릭으로 범위 선택"
+		"selectionHint": "Ctrl+클릭으로 전환, Shift+클릭으로 범위 선택",
+		"confirmDelete": "우상 삭제",
+		"confirmDeleteMessage": "이 우상을 삭제하시겠습니까? 모든 배치에서도 제거됩니다.",
+		"confirmDeleteMultiple": "{count}개 우상 삭제",
+		"confirmDeleteMultipleMessage": "{count}개 우상을 삭제하시겠습니까? 모든 배치에서도 제거됩니다."
 	},
 	"grid": {
 		"tab1": "탭 1",

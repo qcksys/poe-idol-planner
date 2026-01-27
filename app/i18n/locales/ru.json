@@ -16,7 +16,12 @@
 		"delete": "Удалить",
 		"duplicate": "Дублировать",
 		"confirmDelete": "Вы уверены, что хотите удалить этот набор?",
-		"defaultName": "Набор идолов"
+		"defaultName": "Набор идолов",
+		"importShare": "Импорт",
+		"importShareTitle": "Импортировать общий набор",
+		"importShareDescription": "Вставьте URL-адрес общего доступа для импорта набора идолов.",
+		"shareLinkPlaceholder": "https://poe-idol-planner.prae2.com/share/...",
+		"invalidShareUrl": "Недействительный URL общего доступа. Пожалуйста, вставьте действительную ссылку."
 	},
 	"inventory": {
 		"title": "Инвентарь",
@@ -36,7 +41,11 @@
 		"selectAll": "Выбрать все",
 		"deselectAll": "Снять выбор",
 		"deleteSelected": "Удалить выбранное",
-		"selectionHint": "Ctrl+Клик для переключения, Shift+Клик для диапазона"
+		"selectionHint": "Ctrl+Клик для переключения, Shift+Клик для диапазона",
+		"confirmDelete": "Удалить идола",
+		"confirmDeleteMessage": "Вы уверены, что хотите удалить этого идола? Он также будет удалён из всех расстановок.",
+		"confirmDeleteMultiple": "Удалить {count} идолов",
+		"confirmDeleteMultipleMessage": "Вы уверены, что хотите удалить {count} идолов? Они также будут удалены из всех расстановок."
 	},
 	"grid": {
 		"tab1": "Вкладка 1",
