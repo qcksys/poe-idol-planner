@@ -5,6 +5,7 @@ export const IDOL_BASES = {
 		height: 1,
 		implicit: 2,
 		image: "/images/AtlasRelic1x1.webp",
+		uniqueImage: "/images/3UniqueAtlasRelic1x1.webp",
 	},
 	kamasan: {
 		name: "Kamasan Idol",
@@ -12,6 +13,7 @@ export const IDOL_BASES = {
 		height: 2,
 		implicit: 4,
 		image: "/images/AtlasRelic1x2.webp",
+		uniqueImage: undefined,
 	},
 	totemic: {
 		name: "Totemic Idol",
@@ -19,6 +21,7 @@ export const IDOL_BASES = {
 		height: 3,
 		implicit: 6,
 		image: "/images/AtlasRelic1x3.webp",
+		uniqueImage: undefined,
 	},
 	noble: {
 		name: "Noble Idol",
@@ -26,6 +29,7 @@ export const IDOL_BASES = {
 		height: 1,
 		implicit: 4,
 		image: "/images/AtlasRelic2x1.webp",
+		uniqueImage: undefined,
 	},
 	burial: {
 		name: "Burial Idol",
@@ -33,6 +37,7 @@ export const IDOL_BASES = {
 		height: 1,
 		implicit: 6,
 		image: "/images/AtlasRelic3x1.webp",
+		uniqueImage: undefined,
 	},
 	conqueror: {
 		name: "Conqueror Idol",
@@ -40,6 +45,7 @@ export const IDOL_BASES = {
 		height: 2,
 		implicit: 8,
 		image: "/images/AtlasRelic2x2.webp",
+		uniqueImage: undefined,
 	},
 } as const;
 

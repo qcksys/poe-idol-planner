@@ -1,4 +1,4 @@
-import { X } from "lucide-react";
+import { Check, ChevronsUpDown, X } from "lucide-react";
 import { nanoid } from "nanoid";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
@@ -9,6 +9,13 @@ import {
 } from "~/components/mod-search";
 import { Button } from "~/components/ui/button";
 import {
+	Command,
+	CommandEmpty,
+	CommandInput,
+	CommandItem,
+	CommandList,
+} from "~/components/ui/command";
+import {
 	Dialog,
 	DialogContent,
 	DialogDescription,
@@ -17,6 +24,11 @@ import {
 	DialogTitle,
 } from "~/components/ui/dialog";
 import { Input } from "~/components/ui/input";
+import {
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+} from "~/components/ui/popover";
 import { ScrollArea } from "~/components/ui/scroll-area";
 import {
 	Select,
@@ -38,6 +50,7 @@ import {
 	type LeagueMechanic,
 } from "~/data/idol-bases";
 import {
+	getUniqueIdolModText,
 	getUniqueIdolName,
 	UNIQUE_IDOLS,
 	type UniqueIdol,
@@ -217,6 +230,7 @@ export function IdolEditor({
 	]);
 	const [selectedUniqueIdol, setSelectedUniqueIdol] =
 		useState<UniqueIdol | null>(null);
+	const [uniqueIdolOpen, setUniqueIdolOpen] = useState(false);
 
 	const allModifiers = useMemo(() => getModifierOptions(), []);
 
@@ -374,7 +388,7 @@ export function IdolEditor({
 			const uniqueMods: IdolModifier[] = selectedUniqueIdol.modifiers.map(
 				(mod, index) => ({
 					modId: `unique_${selectedUniqueIdol.id}_${index}`,
-					type: "prefix" as const,
+					type: "unique" as const,
 					text: mod.text.en || mod.text[locale] || "",
 					rolledValue: mod.values[0]?.min ?? mod.values[0]?.max ?? 0,
 					valueRange: mod.values[0],
@@ -503,9 +517,13 @@ export function IdolEditor({
 									))}
 									<SelectItem value="unique">
 										<div className="flex items-center gap-2">
-											<span className="flex h-5 w-5 items-center justify-center text-amber-500">
-												★
-											</span>
+											<img
+												src={
+													IDOL_BASES.minor.uniqueImage
+												}
+												alt=""
+												className="h-5 w-5 object-contain"
+											/>
 											<span>
 												{t.editor.uniqueIdols ||
 													"Unique Idols"}
@@ -523,53 +541,129 @@ export function IdolEditor({
 										{t.editor.selectUniqueIdol ||
 											"Select a unique idol"}
 									</span>
-									<Select
-										value={selectedUniqueIdol?.id || ""}
-										onValueChange={(v) => {
-											const idol = UNIQUE_IDOLS.find(
-												(u) => u.id === v,
-											);
-											setSelectedUniqueIdol(idol || null);
-										}}
+									<Popover
+										open={uniqueIdolOpen}
+										onOpenChange={setUniqueIdolOpen}
 									>
-										<SelectTrigger>
-											<SelectValue
-												placeholder={
-													t.editor.selectUniqueIdol ||
-													"Select a unique idol..."
-												}
-											/>
-										</SelectTrigger>
-										<SelectContent>
-											{UNIQUE_IDOLS.map((idol) => (
-												<SelectItem
-													key={idol.id}
-													value={idol.id}
-												>
-													<div className="flex items-center gap-2">
-														<img
-															src={
+										<PopoverTrigger asChild>
+											<Button
+												variant="outline"
+												role="combobox"
+												aria-expanded={uniqueIdolOpen}
+												className="w-full justify-between"
+											>
+												{selectedUniqueIdol
+													? getUniqueIdolName(
+															selectedUniqueIdol,
+															locale,
+														)
+													: t.editor
+															.selectUniqueIdol ||
+														"Select a unique idol..."}
+												<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+											</Button>
+										</PopoverTrigger>
+										<PopoverContent className="w-[500px] p-0">
+											<Command>
+												<CommandInput placeholder="Search unique idols..." />
+												<CommandList className="max-h-80">
+													<CommandEmpty>
+														{t.editor
+															.noUniqueIdolsFound ||
+															"No unique idols found."}
+													</CommandEmpty>
+													{UNIQUE_IDOLS.map(
+														(idol) => {
+															const base =
 																IDOL_BASES[
 																	idol.baseType.toLowerCase() as IdolBaseKey
-																]?.image
-															}
-															alt=""
-															className="h-5 w-5 object-contain"
-														/>
-														<span className="text-amber-500">
-															{getUniqueIdolName(
-																idol,
-																locale,
-															)}
-														</span>
-														<span className="text-muted-foreground text-xs">
-															({idol.baseType})
-														</span>
-													</div>
-												</SelectItem>
-											))}
-										</SelectContent>
-									</Select>
+																];
+															const imageSrc =
+																base?.uniqueImage ??
+																base?.image;
+															const modTexts =
+																idol.modifiers
+																	.map(
+																		(mod) =>
+																			getUniqueIdolModText(
+																				mod,
+																				locale,
+																			),
+																	)
+																	.join(" ");
+															return (
+																<CommandItem
+																	key={
+																		idol.id
+																	}
+																	value={`${getUniqueIdolName(idol, locale)} ${idol.baseType}`}
+																	keywords={[
+																		modTexts,
+																	]}
+																	onSelect={() => {
+																		setSelectedUniqueIdol(
+																			idol,
+																		);
+																		setUniqueIdolOpen(
+																			false,
+																		);
+																	}}
+																>
+																	<Check
+																		className={`mr-2 h-4 w-4 ${selectedUniqueIdol?.id === idol.id ? "opacity-100" : "opacity-0"}`}
+																	/>
+																	<div className="flex flex-col gap-1 py-1">
+																		<div className="flex items-center gap-2">
+																			<img
+																				src={
+																					imageSrc
+																				}
+																				alt=""
+																				className="h-5 w-5 object-contain"
+																			/>
+																			<span className="font-medium text-amber-500">
+																				{getUniqueIdolName(
+																					idol,
+																					locale,
+																				)}
+																			</span>
+																			<span className="text-xs opacity-70">
+																				(
+																				{
+																					idol.baseType
+																				}
+																				)
+																			</span>
+																		</div>
+																		<div className="ml-7 space-y-0.5">
+																			{idol.modifiers.map(
+																				(
+																					mod,
+																					i,
+																				) => (
+																					<div
+																						key={
+																							i
+																						}
+																						className="text-xs opacity-70"
+																					>
+																						{getUniqueIdolModText(
+																							mod,
+																							locale,
+																						)}
+																					</div>
+																				),
+																			)}
+																		</div>
+																	</div>
+																</CommandItem>
+															);
+														},
+													)}
+												</CommandList>
+											</Command>
+										</PopoverContent>
+									</Popover>
 								</div>
 
 								{selectedUniqueIdol && (

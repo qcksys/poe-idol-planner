@@ -51,16 +51,23 @@ function getRarityBg(rarity: IdolInstance["rarity"]): string {
 	}
 }
 
+function getModTypeColor(type: IdolModifier["type"]): string {
+	switch (type) {
+		case "prefix":
+			return "text-mod-prefix";
+		case "suffix":
+			return "text-mod-suffix";
+		case "unique":
+			return "text-mod-unique";
+		default:
+			return "text-mod-prefix";
+	}
+}
+
 function ModifierLine({ mod }: { mod: IdolModifier }) {
 	return (
 		<div className="text-sm">
-			<span
-				className={
-					mod.type === "prefix"
-						? "text-mod-prefix"
-						: "text-mod-suffix"
-				}
-			>
+			<span className={getModTypeColor(mod.type)}>
 				{highlightNumbers(mod.text)}
 			</span>
 		</div>
@@ -76,15 +83,15 @@ function IdolCardContent({
 }) {
 	const base = IDOL_BASES[idol.baseType as IdolBaseKey];
 	const allMods = [...idol.prefixes, ...idol.suffixes];
+	const imageSrc =
+		idol.rarity === "unique" && base.uniqueImage
+			? base.uniqueImage
+			: base.image;
 
 	return (
 		<div className="space-y-1">
 			<div className="flex items-center gap-1.5">
-				<img
-					src={base.image}
-					alt=""
-					className="h-5 w-5 object-contain"
-				/>
+				<img src={imageSrc} alt="" className="h-5 w-5 object-contain" />
 				<span className="text-muted-foreground text-xs">
 					{base.name}
 				</span>
@@ -188,6 +195,10 @@ export function IdolCardMini({
 	const t = useTranslations();
 	const base = IDOL_BASES[idol.baseType as IdolBaseKey];
 	const rarityColor = getRarityColor(idol.rarity);
+	const imageSrc =
+		idol.rarity === "unique" && base.uniqueImage
+			? base.uniqueImage
+			: base.image;
 	const style = {
 		width: `${base.width * cellSize}px`,
 		height: `${base.height * cellSize}px`,
@@ -223,7 +234,7 @@ export function IdolCardMini({
 						onClick={onClick}
 					>
 						<img
-							src={base.image}
+							src={imageSrc}
 							alt={base.name}
 							className="absolute inset-0 h-full w-full object-cover"
 						/>

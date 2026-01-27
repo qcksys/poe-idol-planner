@@ -18,7 +18,7 @@ export const LeagueMechanicSchema = z.enum(LEAGUE_MECHANICS);
 
 export const IdolModifierSchema = z.object({
 	modId: z.string(),
-	type: z.enum(["prefix", "suffix"]),
+	type: z.enum(["prefix", "suffix", "unique"]),
 	text: z.string(),
 	rolledValue: z.number(),
 	valueRange: ValueRangeSchema.optional(),

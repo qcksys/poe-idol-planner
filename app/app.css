@@ -64,6 +64,7 @@
 	/* Mod type colors */
 	--color-mod-prefix: var(--mod-prefix);
 	--color-mod-suffix: var(--mod-suffix);
+	--color-mod-unique: var(--mod-unique);
 	--color-mod-implicit: var(--mod-implicit);
 	/* Overlay */
 	--color-overlay: var(--overlay);
@@ -123,6 +124,7 @@
 	/* Mod type colors */
 	--mod-prefix: oklch(0.5 0.18 260);
 	--mod-suffix: oklch(0.45 0.15 145);
+	--mod-unique: oklch(0.5 0.18 50);
 	--mod-implicit: oklch(0.5 0.18 310);
 	/* Overlay */
 	--overlay: oklch(0 0 0 / 0.5);
@@ -180,6 +182,7 @@
 	/* Mod type colors */
 	--mod-prefix: oklch(0.7 0.15 260);
 	--mod-suffix: oklch(0.7 0.15 145);
+	--mod-unique: oklch(0.7 0.15 50);
 	--mod-implicit: oklch(0.7 0.15 310);
 	/* Overlay */
 	--overlay: oklch(0 0 0 / 0.5);
