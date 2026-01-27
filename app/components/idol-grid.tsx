@@ -257,10 +257,8 @@ function PlacedIdol({
 	onDragStart,
 	onDragEnd,
 }: PlacedIdolProps) {
-	const { sourcePlacementId } = useDnd();
 	const idol = inventoryIdol.idol;
 	const { x, y } = placement.position;
-	const isBeingDragged = sourcePlacementId === placement.id;
 
 	const handleDragStart = useCallback(
 		(e: React.DragEvent<HTMLButtonElement>) => {
@@ -288,7 +286,6 @@ function PlacedIdol({
 			style={{
 				left: x * CELL_SIZE,
 				top: y * CELL_SIZE,
-				pointerEvents: isBeingDragged ? "none" : "auto",
 			}}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={onHoverEnd}
@@ -655,8 +652,7 @@ function GridTabContent({
 			{/* Render empty cells as base layer */}
 			{grid.flatMap((row, y) =>
 				row.map((cell, x) => {
-					if (cell.occupied && cell.placementId !== sourcePlacementId)
-						return null;
+					if (cell.occupied) return null;
 					const cellKey = `${x},${y}`;
 					const isPreview = previewCells.has(cellKey);
 					return (
