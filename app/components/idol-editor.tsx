@@ -475,7 +475,7 @@ export function IdolEditor({
 					</DialogDescription>
 				</DialogHeader>
 
-				<ScrollArea className="min-h-0 flex-1 pr-4">
+				<ScrollArea className="h-0 flex-1 pr-4">
 					<div className="space-y-6">
 						<div className="space-y-2">
 							<span className="font-medium text-sm">

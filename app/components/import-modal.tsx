@@ -110,7 +110,7 @@ export function ImportModal({
 					</DialogDescription>
 				</DialogHeader>
 
-				<ScrollArea className="min-h-0 flex-1 pr-4">
+				<ScrollArea className="h-0 flex-1 pr-4">
 					<div className="space-y-4">
 						<div className="flex items-start gap-2 rounded-lg border border-primary/30 bg-primary/5 p-3 text-sm">
 							<Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" />

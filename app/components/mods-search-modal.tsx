@@ -226,7 +226,7 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 					</div>
 				</div>
 
-				<ScrollArea className="min-h-0 flex-1">
+				<ScrollArea className="h-0 flex-1">
 					<div className="space-y-4 pr-4">
 						{LEAGUE_MECHANICS.map((mechanic) => {
 							const mods = groupedModifiers[mechanic];
