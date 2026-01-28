@@ -21,9 +21,7 @@ export const IdolModifierSchema = z.object({
 	type: z.enum(["prefix", "suffix", "unique"]),
 	text: z.string().optional(),
 	rolledValue: z.number(),
-	valueRange: ValueRangeSchema.optional(),
 	tier: z.number().int().min(1).max(10).nullable(),
-	mechanic: LeagueMechanicSchema.optional(),
 });
 
 export const IdolImplicitSchema = z.object({
@@ -40,7 +38,6 @@ export const IdolInstanceSchema = z.object({
 	implicit: IdolImplicitSchema.optional(),
 	prefixes: z.array(IdolModifierSchema).max(2),
 	suffixes: z.array(IdolModifierSchema).max(2),
-	corrupted: z.boolean().default(false),
 });
 
 export type ValueRange = z.infer<typeof ValueRangeSchema>;

@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate } from "react-router";
 import { Button } from "~/components/ui/button";
 import {
 	Card,
@@ -9,16 +9,111 @@ import {
 	CardHeader,
 	CardTitle,
 } from "~/components/ui/card";
+import { envContext } from "~/context";
 import { useTranslations } from "~/i18n";
+import {
+	buildShareUrl,
+	calculateScarabCost,
+	extractMechanics,
+	extractScarabIds,
+	extractScarabNames,
+	formatMetaDescription,
+	loadShare,
+} from "~/lib/share";
 import { loadStorage, saveStorage } from "~/lib/storage";
 import type { InventoryIdol } from "~/schemas/inventory";
-import { type SharedSet, SharedSetSchema } from "~/schemas/share";
+import {
+	type ScarabPricesData,
+	ScarabPricesDataSchema,
+} from "~/schemas/scarab";
+import type { SharedSet } from "~/schemas/share";
 import type { Route } from "./+types/share.$id";
 
-export function meta(_args: Route.MetaArgs) {
+const DEFAULT_LEAGUE = "Keepers";
+
+export async function loader({ params, request, context }: Route.LoaderArgs) {
+	const shareId = params.id;
+	if (!shareId) {
+		return { sharedSet: null, prices: null, shareUrl: null };
+	}
+
+	const env = context.get(envContext);
+	const sharedSet = await loadShare(env.KV_SAVE, shareId);
+
+	let prices: ScarabPricesData | null = null;
+	if (sharedSet && env.KV_POENINJA) {
+		const priceKey = `scarab-prices:${DEFAULT_LEAGUE}`;
+		const cachedPrices = await env.KV_POENINJA.get(priceKey);
+		if (cachedPrices) {
+			try {
+				const parsed = JSON.parse(cachedPrices);
+				const result = ScarabPricesDataSchema.safeParse(parsed);
+				if (result.success) {
+					prices = result.data;
+				}
+			} catch {
+				// Ignore price fetch errors
+			}
+		}
+	}
+
+	const shareUrl = buildShareUrl(request.url, shareId);
+
+	return { sharedSet, prices, shareUrl };
+}
+
+export function meta({ loaderData }: Route.MetaArgs) {
+	const { sharedSet, prices, shareUrl } = loaderData;
+
+	if (!sharedSet) {
+		return [
+			{ title: "Set Not Found - POE Idol Planner" },
+			{
+				name: "description",
+				content: "This shared set may have expired or does not exist.",
+			},
+			{
+				property: "og:title",
+				content: "Set Not Found - POE Idol Planner",
+			},
+			{
+				property: "og:description",
+				content: "This shared set may have expired or does not exist.",
+			},
+			{ property: "og:type", content: "website" },
+			{ property: "og:site_name", content: "POE Idol Planner" },
+			{ name: "twitter:card", content: "summary" },
+			{
+				name: "twitter:title",
+				content: "Set Not Found - POE Idol Planner",
+			},
+			{
+				name: "twitter:description",
+				content: "This shared set may have expired or does not exist.",
+			},
+		];
+	}
+
+	const setName = sharedSet.set.name;
+	const title = `${setName} - POE Idol Planner`;
+
+	const mechanics = extractMechanics(sharedSet);
+	const scarabNames = extractScarabNames(sharedSet, "en");
+	const scarabIds = extractScarabIds(sharedSet);
+	const cost = calculateScarabCost(scarabIds, prices);
+	const description = formatMetaDescription(mechanics, scarabNames, cost);
+
 	return [
-		{ title: "Shared Set - POE Idol Planner" },
-		{ name: "description", content: "View and import a shared idol set" },
+		{ title },
+		{ name: "description", content: description },
+		{ property: "og:title", content: title },
+		{ property: "og:description", content: description },
+		{ property: "og:type", content: "website" },
+		{ property: "og:site_name", content: "POE Idol Planner" },
+		...(shareUrl ? [{ property: "og:url", content: shareUrl }] : []),
+		{ name: "twitter:card", content: "summary" },
+		{ name: "twitter:title", content: title },
+		{ name: "twitter:description", content: description },
 	];
 }
 
@@ -27,55 +122,24 @@ type LoadState =
 	| { status: "error"; message: string }
 	| { status: "loaded"; data: SharedSet };
 
-export default function SharePage() {
+export default function SharePage({ loaderData }: Route.ComponentProps) {
 	const t = useTranslations();
 	const navigate = useNavigate();
-	const params = useParams<{ id: string }>();
-	const [loadState, setLoadState] = useState<LoadState>({
-		status: "loading",
+	const { sharedSet: initialData } = loaderData;
+
+	const [loadState, setLoadState] = useState<LoadState>(() => {
+		if (initialData) {
+			return { status: "loaded", data: initialData };
+		}
+		return { status: "error", message: "Share not found or expired" };
 	});
 	const [importing, setImporting] = useState(false);
 
 	useEffect(() => {
-		if (!params.id) {
-			setLoadState({ status: "error", message: "No share ID provided" });
-			return;
+		if (initialData) {
+			setLoadState({ status: "loaded", data: initialData });
 		}
-
-		async function fetchShare() {
-			try {
-				const response = await fetch(`/api/share/${params.id}`);
-				if (!response.ok) {
-					const errorData = (await response
-						.json()
-						.catch(() => ({}))) as {
-						error?: string;
-					};
-					throw new Error(
-						errorData.error || `HTTP ${response.status}`,
-					);
-				}
-
-				const data = await response.json();
-				const result = SharedSetSchema.safeParse(data);
-				if (!result.success) {
-					throw new Error("Invalid share data");
-				}
-
-				setLoadState({ status: "loaded", data: result.data });
-			} catch (error) {
-				setLoadState({
-					status: "error",
-					message:
-						error instanceof Error
-							? error.message
-							: "Failed to load share",
-				});
-			}
-		}
-
-		fetchShare();
-	}, [params.id]);
+	}, [initialData]);
 
 	const handleImport = () => {
 		if (loadState.status !== "loaded") return;
@@ -85,7 +149,6 @@ export default function SharePage() {
 			const storage = loadStorage();
 			const { set: sharedSet, idols: sharedIdols } = loadState.data;
 
-			// Create new inventory items with new IDs
 			const idolIdMap = new Map<string, string>();
 			const newInventory: InventoryIdol[] = [];
 

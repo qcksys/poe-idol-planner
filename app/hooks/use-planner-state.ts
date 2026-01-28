@@ -23,7 +23,6 @@ export function usePlannerState() {
 				id: "default",
 				name: DEFAULT_SET_NAME,
 				placements: [],
-				activeTab: "tab1",
 				inventory: [],
 				mapDevice: createEmptyMapDevice(),
 				unlockedConditions: getAllUnlockIds(),

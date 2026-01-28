@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.6.0
+
+### Minor Changes
+
+- 6d8a998: Remove redundant schema fields and derive values at runtime:
+  - Remove `tab` and `activeTab` from idol set schema (tabs feature removed)
+  - Remove `valueRange` and `mechanic` from modifier schema (derivable from modId)
+  - Remove `corrupted` from idol schema (idols cannot be corrupted)
+  - Add `getModValueRange()` helper for runtime value range derivation
+  - Existing data migrates automatically via Zod schema parsing
+- 1243d3f: Add dynamic OpenGraph and Twitter meta tags for shared sets, including set name, league mechanics, scarabs, and scarab cost
+
+### Patch Changes
+
+- 0190c56: Move browse mods button above search input with visible text label
+- db04399: Fix grid placement allowing idols to move to positions that partially overlap their current location
+- 16c02b1: Remove copy to inventory button from idol grid
+- 039acc6: Only pre-populate import modal from clipboard when clipboard contains valid idol data
+
 ## 0.5.0
 
 ### Minor Changes

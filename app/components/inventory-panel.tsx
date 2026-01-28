@@ -35,7 +35,7 @@ import { useDnd } from "~/context/dnd-context";
 import type { LeagueMechanic } from "~/data/idol-bases";
 import { useLeague } from "~/hooks/use-league";
 import { useLocale, useTranslations } from "~/i18n";
-import { resolveModText } from "~/lib/mod-text-resolver";
+import { getModMechanic, resolveModText } from "~/lib/mod-text-resolver";
 import { generateTradeUrl } from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
 import type { InventoryIdol } from "~/schemas/inventory";
@@ -225,9 +225,10 @@ export function InventoryPanel({
 
 		if (mechanicFilter.length > 0) {
 			const mechanicSet = new Set(mechanicFilter);
-			const hasMechanic = allMods.some(
-				(mod) => mod.mechanic && mechanicSet.has(mod.mechanic),
-			);
+			const hasMechanic = allMods.some((mod) => {
+				const mechanic = getModMechanic(mod.modId);
+				return mechanic && mechanicSet.has(mechanic);
+			});
 			if (!hasMechanic) return false;
 		}
 
@@ -371,6 +372,16 @@ export function InventoryPanel({
 					</div>
 				) : (
 					<>
+						<Button
+							variant="outline"
+							size="sm"
+							className="w-full"
+							onClick={() => setModsSearchOpen(true)}
+						>
+							<BookOpen className="mr-1 h-4 w-4" />
+							{t.inventory.browseMods || "Browse Mods"}
+						</Button>
+
 						<div className="relative">
 							<Search className="absolute top-2.5 left-2 h-4 w-4 text-muted-foreground" />
 							<Input
@@ -417,20 +428,6 @@ export function InventoryPanel({
 									{t.inventory.paste}
 								</Button>
 							)}
-							<Tooltip>
-								<TooltipTrigger asChild>
-									<Button
-										variant="secondary"
-										size="sm"
-										onClick={() => setModsSearchOpen(true)}
-									>
-										<BookOpen className="h-4 w-4" />
-									</Button>
-								</TooltipTrigger>
-								<TooltipContent>
-									{t.inventory.browseMods || "Browse Mods"}
-								</TooltipContent>
-							</Tooltip>
 							{onClearAll && inventory.length > 0 && (
 								<Tooltip>
 									<TooltipTrigger asChild>

@@ -54,15 +54,24 @@ export function ImportModal({
 				.readText()
 				.then((text) => {
 					if (text.trim()) {
-						setInputText(text);
-						parseText(text);
+						const sections = text.split(/(?=Rarity:)/);
+						const results = sections
+							.filter((s) => s.trim())
+							.map((section) => parseIdolText(section));
+						const hasValidIdol = results.some((r) => r.success);
+
+						if (hasValidIdol) {
+							setInputText(text);
+							setParseResults(results);
+							setHasAttemptedParse(true);
+						}
 					}
 				})
 				.catch(() => {
 					// Permission denied - user can paste manually
 				});
 		}
-	}, [open, parseText]);
+	}, [open]);
 
 	const handlePaste = async () => {
 		try {

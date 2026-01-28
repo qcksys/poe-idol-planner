@@ -11,7 +11,10 @@ import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
 import { useLocale, useTranslations } from "~/i18n";
 import type { SupportedLocale } from "~/i18n/types";
 import { highlightNumbers } from "~/lib/highlight-numbers";
-import { resolveModTextWithRange } from "~/lib/mod-text-resolver";
+import {
+	getModValueRange,
+	resolveModTextWithRange,
+} from "~/lib/mod-text-resolver";
 import { cn } from "~/lib/utils";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
 
@@ -117,10 +120,11 @@ function ModifierLine({
 	locale: SupportedLocale;
 }) {
 	const resolvedText = resolveModTextWithRange(mod, locale);
+	const valueRange = getModValueRange(mod.modId, mod.tier);
 	const displayText = formatModTextWithRange(
 		resolvedText,
 		mod.rolledValue,
-		mod.valueRange,
+		valueRange,
 	);
 	return (
 		<div className="text-sm">

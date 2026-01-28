@@ -8,7 +8,10 @@ import { useScarabPrices } from "~/hooks/use-scarab-prices";
 import { useLocale, useTranslations } from "~/i18n";
 import type { SupportedLocale } from "~/i18n/types";
 import { highlightNumbers } from "~/lib/highlight-numbers";
-import { resolveModTextWithRange } from "~/lib/mod-text-resolver";
+import {
+	getModMechanic,
+	resolveModTextWithRange,
+} from "~/lib/mod-text-resolver";
 import type { IdolBaseKey, IdolModifier, LeagueMechanic } from "~/schemas/idol";
 import type { IdolPlacement } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
@@ -234,7 +237,8 @@ function aggregateStats(
 				modText,
 				mod.rolledValue,
 			);
-			const key = `${mod.mechanic}:${template}`;
+			const mechanic = getModMechanic(mod.modId);
+			const key = `${mechanic}:${template}`;
 			const existing = statMap.get(key);
 			if (existing) {
 				existing.totalValue += mod.rolledValue;
@@ -243,7 +247,7 @@ function aggregateStats(
 				statMap.set(key, {
 					template,
 					totalValue: mod.rolledValue,
-					mechanic: mod.mechanic,
+					mechanic,
 					hasPercent,
 					contributions: [contribution],
 				});

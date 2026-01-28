@@ -136,11 +136,8 @@ export function resolveModText(
 	const definitionText = getModText(mod.modId, mod.tier, locale);
 
 	if (definitionText) {
-		return substituteModValue(
-			definitionText,
-			mod.rolledValue,
-			mod.valueRange,
-		);
+		const valueRange = getModValueRange(mod.modId, mod.tier);
+		return substituteModValue(definitionText, mod.rolledValue, valueRange);
 	}
 
 	if (mod.text) {
@@ -174,4 +171,32 @@ export function getModMechanic(modId: string): LeagueMechanic | undefined {
 
 	const mod = modifierMap.get(modId);
 	return mod?.mechanic as LeagueMechanic | undefined;
+}
+
+export function getModValueRange(
+	modId: string,
+	tier: number | null,
+): { min: number; max: number } | undefined {
+	if (modId.startsWith("unique_")) {
+		return getUniqueModValueRange(modId);
+	}
+
+	const tierData = getModTier(modId, tier);
+	return tierData?.values[0];
+}
+
+function getUniqueModValueRange(
+	modId: string,
+): { min: number; max: number } | undefined {
+	const parts = modId.split("_");
+	if (parts.length < 3) return undefined;
+
+	const idolId = parts.slice(1, -1).join("_");
+	const modIndex = Number.parseInt(parts[parts.length - 1], 10);
+
+	const idol = uniqueIdolMap.get(idolId);
+	if (!idol || Number.isNaN(modIndex)) return undefined;
+
+	const mod = idol.modifiers[modIndex];
+	return mod?.values[0];
 }

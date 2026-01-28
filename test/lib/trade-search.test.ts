@@ -84,7 +84,6 @@ describe("trade-search", () => {
 			rarity: "rare",
 			prefixes: [],
 			suffixes: [],
-			corrupted: false,
 			...overrides,
 		});
 
@@ -114,7 +113,6 @@ describe("trade-search", () => {
 				text: "Your Maps have +25% chance to contain an Abyss",
 				rolledValue: 25,
 				tier: 1,
-				mechanic: "abyss",
 			};
 			const idol = createTestIdol({ prefixes: [mod] });
 			const url = generateTradeUrl(idol);
@@ -176,7 +174,6 @@ describe("trade-search", () => {
 				text: "Your Maps have +30% chance to contain a Legion Encounter",
 				rolledValue: 30,
 				tier: 1,
-				mechanic: "legion",
 			};
 			const url = generateTradeUrlForMod(mod);
 
@@ -199,7 +196,6 @@ describe("trade-search", () => {
 				text: "Your Maps have +30% chance to contain a Legion Encounter",
 				rolledValue: 30,
 				tier: 1,
-				mechanic: "legion",
 			};
 			const url = generateTradeUrlForMod(mod, { baseType: "totemic" });
 

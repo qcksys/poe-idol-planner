@@ -323,9 +323,7 @@ describe("idol-parser", () => {
 				m.modId.includes("legion"),
 			);
 
-			if (legionMod) {
-				expect(legionMod.mechanic).toBe("legion");
-			}
+			expect(legionMod).toBeDefined();
 		});
 
 		it("matches modifiers from simple format", () => {
@@ -337,10 +335,7 @@ describe("idol-parser", () => {
 			// Check that at least some modifiers were matched
 			const allMods = [...idol.prefixes, ...idol.suffixes];
 			const matchedMods = allMods.filter(
-				(mod) =>
-					mod.modId.includes("_") &&
-					!mod.modId.startsWith("_") &&
-					mod.mechanic !== "generic",
+				(mod) => mod.modId.includes("_") && !mod.modId.startsWith("_"),
 			);
 
 			// Should have matched at least some modifiers
@@ -360,29 +355,6 @@ describe("idol-parser", () => {
 
 			expect(legionMod).toBeDefined();
 			expect(legionMod?.rolledValue).toBe(65);
-		});
-
-		it("sets valueRange for matched modifiers", () => {
-			const result = parseIdolText(ADVANCED_FORMAT_IDOL);
-
-			expect(result.success).toBe(true);
-			const idol = result.idol!;
-
-			// Find a matched modifier
-			const matchedMod = [...idol.prefixes, ...idol.suffixes].find(
-				(mod) =>
-					mod.modId.includes("_") &&
-					!mod.modId.startsWith("_") &&
-					mod.valueRange,
-			);
-
-			if (matchedMod?.valueRange) {
-				expect(matchedMod.valueRange.min).toBeDefined();
-				expect(matchedMod.valueRange.max).toBeDefined();
-				expect(matchedMod.valueRange.min).toBeLessThanOrEqual(
-					matchedMod.valueRange.max,
-				);
-			}
 		});
 	});
 });
