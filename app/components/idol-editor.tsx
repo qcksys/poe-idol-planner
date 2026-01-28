@@ -393,9 +393,7 @@ export function IdolEditor({
 			type: mod.modOption.type,
 			text: tierData?.text || mod.modOption.name,
 			rolledValue: mod.rolledValue,
-			valueRange: tierData?.values?.[0],
 			tier: mod.tier,
-			mechanic: mod.modOption.mechanic,
 		};
 	};
 
@@ -407,9 +405,7 @@ export function IdolEditor({
 					type: "unique" as const,
 					text: mod.text[locale] || mod.text.en || "",
 					rolledValue: mod.values[0]?.min ?? mod.values[0]?.max ?? 0,
-					valueRange: mod.values[0],
 					tier: 1,
-					mechanic: undefined,
 				}),
 			);
 
@@ -422,7 +418,6 @@ export function IdolEditor({
 				name: getUniqueIdolName(selectedUniqueIdol, locale),
 				prefixes: uniqueMods,
 				suffixes: [],
-				corrupted: false,
 			};
 
 			onSave(idol);
@@ -452,7 +447,6 @@ export function IdolEditor({
 			name: name || undefined,
 			prefixes: prefixMods,
 			suffixes: suffixMods,
-			corrupted: false,
 		};
 
 		onSave(idol);

@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import { getScarabById, getScarabName } from "~/data/scarab-data";
 import type { SupportedLocale } from "~/i18n/types";
+import { getModMechanic } from "~/lib/mod-text-resolver";
 import type { IdolSet } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
 import type { ScarabPricesData } from "~/schemas/scarab";
@@ -106,8 +107,9 @@ export function extractMechanics(sharedSet: SharedSet): string[] {
 	const mechanics = new Set<string>();
 	for (const idol of sharedSet.idols) {
 		for (const mod of [...idol.idol.prefixes, ...idol.idol.suffixes]) {
-			if (mod.mechanic) {
-				mechanics.add(mod.mechanic);
+			const mechanic = getModMechanic(mod.modId);
+			if (mechanic) {
+				mechanics.add(mechanic);
 			}
 		}
 	}

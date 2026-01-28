@@ -18,7 +18,6 @@ const createMockSharedSet = (overrides: Partial<SharedSet> = {}): SharedSet => {
 			createdAt: Date.now(),
 			updatedAt: Date.now(),
 			placements: [],
-			activeTab: "tab1",
 			inventory: [],
 			unlockedConditions: [],
 			mapDevice: {
@@ -46,7 +45,7 @@ describe("share helpers", () => {
 			expect(extractMechanics(sharedSet)).toEqual([]);
 		});
 
-		it("extracts unique mechanics from idol modifiers", () => {
+		it("extracts unique mechanics from idol modifiers using real mod IDs", () => {
 			const sharedSet = createMockSharedSet({
 				idols: [
 					{
@@ -61,23 +60,20 @@ describe("share helpers", () => {
 							rarity: "rare",
 							prefixes: [
 								{
-									modId: "mod-1",
+									modId: "prefix_minor_additional_abyss_chance",
 									type: "prefix",
-									rolledValue: 10,
+									rolledValue: 20,
 									tier: 1,
-									mechanic: "delirium",
 								},
 							],
 							suffixes: [
 								{
-									modId: "mod-2",
+									modId: "suffix_minor_breach_increased_magic_packs",
 									type: "suffix",
-									rolledValue: 5,
+									rolledValue: 10,
 									tier: 1,
-									mechanic: "breach",
 								},
 							],
-							corrupted: false,
 						},
 					},
 					{
@@ -92,32 +88,29 @@ describe("share helpers", () => {
 							rarity: "rare",
 							prefixes: [
 								{
-									modId: "mod-3",
+									modId: "prefix_minor_additional_abyss_chance",
 									type: "prefix",
-									rolledValue: 10,
+									rolledValue: 15,
 									tier: 1,
-									mechanic: "delirium",
 								},
 							],
 							suffixes: [
 								{
-									modId: "mod-4",
+									modId: "suffix_minor_legion_general_chance",
 									type: "suffix",
 									rolledValue: 5,
 									tier: 1,
-									mechanic: "legion",
 								},
 							],
-							corrupted: false,
 						},
 					},
 				],
 			});
 			const mechanics = extractMechanics(sharedSet);
-			expect(mechanics).toEqual(["breach", "delirium", "legion"]);
+			expect(mechanics).toEqual(["abyss", "breach", "legion"]);
 		});
 
-		it("ignores modifiers without mechanics", () => {
+		it("ignores modifiers without mechanics (unknown mod IDs)", () => {
 			const sharedSet = createMockSharedSet({
 				idols: [
 					{
@@ -132,14 +125,13 @@ describe("share helpers", () => {
 							rarity: "rare",
 							prefixes: [
 								{
-									modId: "mod-1",
+									modId: "unknown_mod_id",
 									type: "prefix",
 									rolledValue: 10,
 									tier: 1,
 								},
 							],
 							suffixes: [],
-							corrupted: false,
 						},
 					},
 				],
@@ -162,7 +154,6 @@ describe("share helpers", () => {
 					createdAt: Date.now(),
 					updatedAt: Date.now(),
 					placements: [],
-					activeTab: "tab1",
 					inventory: [],
 					unlockedConditions: [],
 					mapDevice: {

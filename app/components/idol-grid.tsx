@@ -15,7 +15,7 @@ import {
 import { useTranslations } from "~/i18n";
 import { cn } from "~/lib/utils";
 import type { IdolInstance } from "~/schemas/idol";
-import type { GridTab, IdolPlacement } from "~/schemas/idol-set";
+import type { IdolPlacement } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
 
 const GRID_WIDTH = 6;
@@ -43,21 +43,9 @@ function isCellValid(x: number, y: number): boolean {
 interface IdolGridProps {
 	placements: IdolPlacement[];
 	inventory: InventoryIdol[];
-	activeTab: GridTab;
 	unlockedConditions?: string[];
-	onTabChange: (tab: GridTab) => void;
-	onPlaceIdol?: (
-		inventoryIdolId: string,
-		x: number,
-		y: number,
-		tab: GridTab,
-	) => void;
-	onMoveIdol?: (
-		placementId: string,
-		x: number,
-		y: number,
-		tab: GridTab,
-	) => void;
+	onPlaceIdol?: (inventoryIdolId: string, x: number, y: number) => void;
+	onMoveIdol?: (placementId: string, x: number, y: number) => void;
 	onRemoveIdol?: (placementId: string) => void;
 	onIdolClick?: (idol: IdolInstance, placementId: string) => void;
 }
@@ -103,13 +91,11 @@ function createEmptyGrid(unlockedConditions: string[] = []): GridCell[][] {
 function populateGrid(
 	placements: IdolPlacement[],
 	inventory: InventoryIdol[],
-	tab: GridTab,
 	unlockedConditions: string[] = [],
 ): GridCell[][] {
 	const grid = createEmptyGrid(unlockedConditions);
-	const tabPlacements = placements.filter((p) => p.tab === tab);
 
-	for (const placement of tabPlacements) {
+	for (const placement of placements) {
 		const inventoryIdol = inventory.find(
 			(i) => i.id === placement.inventoryIdolId,
 		);
@@ -476,7 +462,6 @@ function EmptyCell({
 }
 
 function GridTabContent({
-	tab,
 	placements,
 	inventory,
 	unlockedConditions = [],
@@ -485,24 +470,13 @@ function GridTabContent({
 	onPlaceIdol,
 	onMoveIdol,
 }: {
-	tab: GridTab;
 	placements: IdolPlacement[];
 	inventory: InventoryIdol[];
 	unlockedConditions?: string[];
 	onIdolClick?: (idol: IdolInstance, placementId: string) => void;
 	onRemoveIdol?: (placementId: string) => void;
-	onPlaceIdol?: (
-		inventoryIdolId: string,
-		x: number,
-		y: number,
-		tab: GridTab,
-	) => void;
-	onMoveIdol?: (
-		placementId: string,
-		x: number,
-		y: number,
-		tab: GridTab,
-	) => void;
+	onPlaceIdol?: (inventoryIdolId: string, x: number, y: number) => void;
+	onMoveIdol?: (placementId: string, x: number, y: number) => void;
 }) {
 	const { draggedItem, sourcePlacementId, dragOffset, setDraggedItem } =
 		useDnd();
@@ -515,8 +489,8 @@ function GridTabContent({
 	} | null>(null);
 
 	const grid = useMemo(
-		() => populateGrid(placements, inventory, tab, unlockedConditions),
-		[placements, inventory, tab, unlockedConditions],
+		() => populateGrid(placements, inventory, unlockedConditions),
+		[placements, inventory, unlockedConditions],
 	);
 
 	const inventoryMap = useMemo(() => {
@@ -527,10 +501,7 @@ function GridTabContent({
 		return map;
 	}, [inventory]);
 
-	const tabPlacements = useMemo(
-		() => placements.filter((p) => p.tab === tab),
-		[placements, tab],
-	);
+	const allPlacements = useMemo(() => placements, [placements]);
 
 	const canPlaceAtPosition = useCallback(
 		(x: number, y: number): boolean => {
@@ -610,20 +581,13 @@ function GridTabContent({
 			const originY = y - dragOffset.y;
 
 			if (sourcePlacementId && onMoveIdol) {
-				onMoveIdol(sourcePlacementId, originX, originY, tab);
+				onMoveIdol(sourcePlacementId, originX, originY);
 			} else if (onPlaceIdol) {
-				onPlaceIdol(draggedItem.id, originX, originY, tab);
+				onPlaceIdol(draggedItem.id, originX, originY);
 			}
 			setDragHoverPosition(null);
 		},
-		[
-			draggedItem,
-			sourcePlacementId,
-			dragOffset,
-			onPlaceIdol,
-			onMoveIdol,
-			tab,
-		],
+		[draggedItem, sourcePlacementId, dragOffset, onPlaceIdol, onMoveIdol],
 	);
 
 	const handleIdolDragStart = useCallback(
@@ -734,7 +698,7 @@ function GridTabContent({
 				)}
 
 			{/* Render placed idols as overlay layer */}
-			{tabPlacements.map((placement) => {
+			{allPlacements.map((placement) => {
 				const invIdol = inventoryMap.get(placement.inventoryIdolId);
 				if (!invIdol) return null;
 
@@ -761,9 +725,7 @@ function GridTabContent({
 export function IdolGrid({
 	placements,
 	inventory,
-	activeTab,
 	unlockedConditions,
-	onTabChange: _onTabChange,
 	onPlaceIdol,
 	onMoveIdol,
 	onRemoveIdol,
@@ -772,7 +734,6 @@ export function IdolGrid({
 	return (
 		<div className="flex flex-col items-center">
 			<GridTabContent
-				tab={activeTab}
 				placements={placements}
 				inventory={inventory}
 				unlockedConditions={unlockedConditions}

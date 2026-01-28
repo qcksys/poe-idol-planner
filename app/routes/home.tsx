@@ -117,26 +117,17 @@ function HomeContent() {
 								<IdolGrid
 									placements={activeSet.placements}
 									inventory={inventory}
-									activeTab={activeSet.activeTab}
 									unlockedConditions={
 										activeSet.unlockedConditions
 									}
-									onTabChange={(tab) =>
-										sets.setActiveTab(activeSet.id, tab)
+									onPlaceIdol={(inventoryIdolId, x, y) =>
+										sets.placeIdol(inventoryIdolId, {
+											x,
+											y,
+										})
 									}
-									onPlaceIdol={(inventoryIdolId, x, y, tab) =>
-										sets.placeIdol(
-											inventoryIdolId,
-											{ x, y },
-											tab,
-										)
-									}
-									onMoveIdol={(placementId, x, y, tab) =>
-										sets.moveIdol(
-											placementId,
-											{ x, y },
-											tab,
-										)
+									onMoveIdol={(placementId, x, y) =>
+										sets.moveIdol(placementId, { x, y })
 									}
 									onRemoveIdol={sets.removeIdolFromSet}
 								/>

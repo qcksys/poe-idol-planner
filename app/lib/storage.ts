@@ -1,5 +1,5 @@
 import type { IdolModifier } from "~/schemas/idol";
-import type { IdolSet } from "~/schemas/idol-set";
+import type { IdolPlacement, IdolSet } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
 import {
 	createEmptyStorage,
@@ -10,34 +10,92 @@ import {
 
 const STORAGE_KEY = "poe-idol-planner-data";
 
-function migrateModifier(mod: IdolModifier & { text?: string }): IdolModifier {
+interface LegacyModifier extends IdolModifier {
+	valueRange?: { min: number; max: number };
+	mechanic?: string;
+}
+
+interface LegacyPlacement extends IdolPlacement {
+	tab?: string;
+}
+
+interface LegacySet extends Omit<IdolSet, "placements" | "inventory"> {
+	activeTab?: string;
+	placements: LegacyPlacement[];
+	inventory: Array<{
+		id: string;
+		idol: {
+			id: string;
+			baseType: string;
+			itemLevel: number;
+			rarity: string;
+			name?: string;
+			implicit?: { text: string; value: number };
+			prefixes: LegacyModifier[];
+			suffixes: LegacyModifier[];
+			corrupted: boolean;
+		};
+		importedAt: number;
+		source: string;
+		usageCount: number;
+	}>;
+}
+
+function migrateModifier(mod: LegacyModifier): IdolModifier {
 	const isMatchedMod =
 		mod.modId.startsWith("prefix_") ||
 		mod.modId.startsWith("suffix_") ||
 		mod.modId.startsWith("unique_");
 
 	return {
-		...mod,
+		modId: mod.modId,
+		type: mod.type,
 		text: isMatchedMod ? undefined : mod.text,
+		rolledValue: mod.rolledValue,
+		tier: mod.tier,
 	};
 }
 
-function migrateInventoryIdol(invIdol: InventoryIdol): InventoryIdol {
+function migratePlacement(placement: LegacyPlacement): IdolPlacement {
 	return {
-		...invIdol,
+		id: placement.id,
+		inventoryIdolId: placement.inventoryIdolId,
+		position: placement.position,
+	};
+}
+
+function migrateInventoryIdol(
+	invIdol: LegacySet["inventory"][number],
+): InventoryIdol {
+	return {
+		id: invIdol.id,
 		idol: {
-			...invIdol.idol,
+			id: invIdol.idol.id,
+			baseType: invIdol.idol.baseType,
+			itemLevel: invIdol.idol.itemLevel,
+			rarity: invIdol.idol.rarity,
+			name: invIdol.idol.name,
+			implicit: invIdol.idol.implicit,
 			prefixes: invIdol.idol.prefixes.map(migrateModifier),
 			suffixes: invIdol.idol.suffixes.map(migrateModifier),
 		},
-	};
+		importedAt: invIdol.importedAt,
+		source: invIdol.source,
+		usageCount: invIdol.usageCount,
+	} as InventoryIdol;
 }
 
-function migrateSet(set: IdolSet): IdolSet {
+function migrateSet(set: LegacySet): IdolSet {
 	return {
-		...set,
+		id: set.id,
+		name: set.name,
+		createdAt: set.createdAt,
+		updatedAt: set.updatedAt,
+		placements: set.placements.map(migratePlacement),
 		inventory: set.inventory.map(migrateInventoryIdol),
-	};
+		mapDevice: set.mapDevice,
+		unlockedConditions: set.unlockedConditions,
+	} as IdolSet;
 }
 
 function migrateStorage(parsed: unknown): StorageData | null {
@@ -47,7 +105,7 @@ function migrateStorage(parsed: unknown): StorageData | null {
 
 	const data = parsed as {
 		version?: number;
-		sets?: unknown[];
+		sets?: LegacySet[];
 		activeSetId?: string | null;
 	};
 
@@ -56,10 +114,10 @@ function migrateStorage(parsed: unknown): StorageData | null {
 	}
 
 	if (data.version === 4) {
-		console.log("Migrating storage from v4 to v5");
+		console.log({ message: "Migrating storage from v4 to v5" });
 		const migrated: StorageData = {
 			version: STORAGE_VERSION,
-			sets: (data.sets as IdolSet[])?.map(migrateSet) ?? [],
+			sets: data.sets?.map(migrateSet) ?? [],
 			activeSetId: data.activeSetId ?? null,
 		};
 		return migrated;

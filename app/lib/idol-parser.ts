@@ -240,8 +240,6 @@ function convertToIdolInstance(parsed: ParsedIdol): IdolInstance {
 				type: match.type,
 				tier: match.tier,
 				rolledValue: mod.rolledValue,
-				valueRange: match.valueRange,
-				mechanic: match.mechanic,
 			};
 		} else {
 			idolMod = {
@@ -250,7 +248,6 @@ function convertToIdolInstance(parsed: ParsedIdol): IdolInstance {
 				tier: mod.tier,
 				text: mod.text,
 				rolledValue: mod.rolledValue,
-				mechanic: "generic",
 			};
 		}
 
@@ -275,7 +272,6 @@ function convertToIdolInstance(parsed: ParsedIdol): IdolInstance {
 			: undefined,
 		prefixes,
 		suffixes,
-		corrupted: false,
 	};
 }
 

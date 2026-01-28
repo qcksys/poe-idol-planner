@@ -3,7 +3,7 @@ import { useCallback, useMemo } from "react";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
 import { getAllUnlockIds } from "~/data/map-device-unlocks";
 import type { IdolInstance } from "~/schemas/idol";
-import type { GridTab, IdolPlacement, IdolSet } from "~/schemas/idol-set";
+import type { IdolPlacement, IdolSet } from "~/schemas/idol-set";
 import type { ImportSource, InventoryIdol } from "~/schemas/inventory";
 import { createEmptyMapDevice } from "~/schemas/scarab";
 
@@ -24,23 +24,13 @@ export interface UseIdolSetsReturn {
 	deleteSet: (id: string) => void;
 	renameSet: (id: string, name: string) => void;
 	duplicateSet: (id: string) => string | null;
-	setActiveTab: (setId: string, tab: GridTab) => void;
-	placeIdol: (
-		inventoryIdolId: string,
-		position: Position,
-		tab: GridTab,
-	) => string | null;
-	moveIdol: (
-		placementId: string,
-		newPosition: Position,
-		newTab: GridTab,
-	) => boolean;
+	placeIdol: (inventoryIdolId: string, position: Position) => string | null;
+	moveIdol: (placementId: string, newPosition: Position) => boolean;
 	removeIdolFromSet: (placementId: string) => void;
 	removeInventoryIdolFromAllSets: (inventoryIdolId: string) => void;
 	canPlaceIdol: (
 		inventoryIdol: InventoryIdol,
 		position: Position,
-		tab: GridTab,
 		excludePlacementId?: string,
 	) => boolean;
 	// Map device operations
@@ -67,15 +57,14 @@ function createEmptyGrid(): boolean[][] {
 function buildOccupancyGrid(
 	placements: IdolPlacement[],
 	inventory: InventoryIdol[],
-	tab: GridTab,
 	excludePlacementId?: string,
 ): boolean[][] {
 	const grid = createEmptyGrid();
-	const tabPlacements = placements.filter(
-		(p) => p.tab === tab && p.id !== excludePlacementId,
+	const filteredPlacements = placements.filter(
+		(p) => p.id !== excludePlacementId,
 	);
 
-	for (const placement of tabPlacements) {
+	for (const placement of filteredPlacements) {
 		const invIdol = inventory.find(
 			(i) => i.id === placement.inventoryIdolId,
 		);
@@ -152,7 +141,6 @@ export function useIdolSets(
 				id,
 				name,
 				placements: [],
-				activeTab: "tab1",
 				inventory: [],
 				mapDevice: createEmptyMapDevice(),
 				unlockedConditions: getAllUnlockIds(),
@@ -228,24 +216,10 @@ export function useIdolSets(
 		[sets, setSets, setActiveSetId],
 	);
 
-	const setActiveTab = useCallback(
-		(setId: string, tab: GridTab) => {
-			setSets((prev) =>
-				prev.map((s) =>
-					s.id === setId
-						? { ...s, activeTab: tab, updatedAt: Date.now() }
-						: s,
-				),
-			);
-		},
-		[setSets],
-	);
-
 	const canPlaceIdol = useCallback(
 		(
 			inventoryIdol: InventoryIdol,
 			position: Position,
-			tab: GridTab,
 			excludePlacementId?: string,
 		): boolean => {
 			if (!activeSet) return false;
@@ -253,7 +227,6 @@ export function useIdolSets(
 			const grid = buildOccupancyGrid(
 				activeSet.placements,
 				inventory,
-				tab,
 				excludePlacementId,
 			);
 			return checkCanPlace(
@@ -266,21 +239,13 @@ export function useIdolSets(
 	);
 
 	const placeIdol = useCallback(
-		(
-			inventoryIdolId: string,
-			position: Position,
-			tab: GridTab,
-		): string | null => {
+		(inventoryIdolId: string, position: Position): string | null => {
 			if (!activeSet) return null;
 
 			const invIdol = inventory.find((i) => i.id === inventoryIdolId);
 			if (!invIdol) return null;
 
-			const grid = buildOccupancyGrid(
-				activeSet.placements,
-				inventory,
-				tab,
-			);
+			const grid = buildOccupancyGrid(activeSet.placements, inventory);
 			if (
 				!checkCanPlace(
 					grid,
@@ -296,7 +261,6 @@ export function useIdolSets(
 				id: placementId,
 				inventoryIdolId,
 				position,
-				tab,
 			};
 
 			setSets((prev) =>
@@ -317,11 +281,7 @@ export function useIdolSets(
 	);
 
 	const moveIdol = useCallback(
-		(
-			placementId: string,
-			newPosition: Position,
-			newTab: GridTab,
-		): boolean => {
+		(placementId: string, newPosition: Position): boolean => {
 			if (!activeSet) return false;
 
 			const placement = activeSet.placements.find(
@@ -337,7 +297,6 @@ export function useIdolSets(
 			const grid = buildOccupancyGrid(
 				activeSet.placements,
 				inventory,
-				newTab,
 				placementId,
 			);
 			if (
@@ -360,7 +319,6 @@ export function useIdolSets(
 										? {
 												...p,
 												position: newPosition,
-												tab: newTab,
 											}
 										: p,
 								),
@@ -665,7 +623,6 @@ export function useIdolSets(
 			deleteSet,
 			renameSet,
 			duplicateSet,
-			setActiveTab,
 			placeIdol,
 			moveIdol,
 			removeIdolFromSet,
@@ -691,7 +648,6 @@ export function useIdolSets(
 			deleteSet,
 			renameSet,
 			duplicateSet,
-			setActiveTab,
 			placeIdol,
 			moveIdol,
 			removeIdolFromSet,
