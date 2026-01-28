@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.1
+
+### Patch Changes
+
+- 88eecde: update CLAUDE.md with missing data scripts and cloudflare integration details
+- 88eecde: improve mods search modal: show idol type icons with names instead of tier count, update filter layout to full-width 2-column grid
+- 046e54b: default to dark mode for new visitors
+- 71abcea: fix nested button HTML violation in idol card and scarab slot components
+
 ## 0.4.0
 
 ### Minor Changes
