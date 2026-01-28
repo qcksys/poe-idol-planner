@@ -77,6 +77,8 @@ function detectMechanic(text: string): string {
 	}
 
 	// Then check single-word keywords
+	// Note: Order matters - more specific mechanics should come before generic ones
+	// "harbinger" must come before "map" since harbinger mods mention "Maps"
 	const mechanicKeywords: Record<string, string[]> = {
 		abyss: ["abyss", "abyssal"],
 		bestiary: ["bestiary", "einhar", "beast"],
@@ -90,6 +92,7 @@ function detectMechanic(text: string): string {
 		elder: ["elder", "shaper"],
 		essence: ["essence"],
 		expedition: ["expedition", "artifact", "logbook"],
+		harbinger: ["harbinger"],
 		harvest: ["harvest", "lifeforce"],
 		heist: ["heist", "blueprint", "contract", "rogue"],
 		incursion: ["incursion", "temple", "alva"],

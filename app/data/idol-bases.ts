@@ -72,6 +72,7 @@ export const LEAGUE_MECHANICS = [
 	"essence",
 	"expedition",
 	"generic",
+	"harbinger",
 	"harvest",
 	"heist",
 	"incursion",

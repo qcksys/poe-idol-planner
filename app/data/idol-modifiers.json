@@ -2748,7 +2748,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -2791,7 +2791,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -8510,7 +8510,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -8553,7 +8553,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10187,7 +10187,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -13756,7 +13756,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13799,7 +13799,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15433,7 +15433,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -18795,7 +18795,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -18838,7 +18838,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -18881,7 +18881,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -24319,7 +24319,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -24362,7 +24362,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -24405,7 +24405,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -30155,7 +30155,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -30198,7 +30198,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -30236,7 +30236,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harbinger",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
