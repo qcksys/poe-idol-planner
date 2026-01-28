@@ -75,7 +75,10 @@
 	"stats": {
 		"totalStats": "Statistiques totales",
 		"byMechanic": "Par mécanique",
-		"noStats": "Aucune statistique à afficher"
+		"noStats": "Aucune statistique à afficher",
+		"modifierCount": "{count} modificateur(s)",
+		"scarabCount": "{count} scarabée(s)",
+		"totalCost": "Coût total :"
 	},
 	"trade": {
 		"findSimilar": "Trouver similaire sur le marché",
@@ -126,6 +129,9 @@
 		"prefixes": "Préfixes",
 		"suffixes": "Suffixes",
 		"tier": "Tier",
+		"tierLabel": "T{tier}",
+		"prefixSlot": "Préfixe {index}",
+		"suffixSlot": "Suffixe {index}",
 		"selectMod": "Sélectionner un modificateur...",
 		"searchMods": "Rechercher des modificateurs...",
 		"noModsFound": "Aucun modificateur trouvé.",
@@ -165,7 +171,9 @@
 		"type": "Filtrer par type",
 		"allTypes": "Tous les types",
 		"prefixOnly": "Préfixes uniquement",
-		"suffixOnly": "Suffixes uniquement"
+		"suffixOnly": "Suffixes uniquement",
+		"selectAll": "Tous",
+		"selectNone": "Aucun"
 	},
 	"mapDevice": {
 		"title": "Cartographe",
@@ -178,7 +186,23 @@
 		"standardOptions": "Options Standard",
 		"imbuedOptions": "Options Imprégnées",
 		"craftingOptionEffect": "Cartographe",
-		"clearSlot": "Vider l'emplacement"
+		"clearSlot": "Vider l'emplacement",
+		"limitLabel": "Limite :",
+		"costFree": "Gratuit",
+		"scarabCount": "{count}/5 scarabées"
+	},
+	"idol": {
+		"modCount": "{count} modificateur(s)",
+		"minorIdol": "Idole Mineure",
+		"kamasanIdol": "Idole Kamasan",
+		"totemicIdol": "Idole Totémique",
+		"nobleIdol": "Idole Noble",
+		"burialIdol": "Idole Funéraire",
+		"conquerorIdol": "Idole du Conquérant",
+		"sizeGroupMinor": "Mineure",
+		"sizeGroupSmall": "Kamasan/Noble",
+		"sizeGroupMedium": "Totémique/Funéraire",
+		"sizeGroupLarge": "Conquérant"
 	},
 	"footer": {
 		"dataFrom": "Données de"

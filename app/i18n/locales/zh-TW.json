@@ -75,7 +75,10 @@
 	"stats": {
 		"totalStats": "總計屬性",
 		"byMechanic": "依機制分類",
-		"noStats": "沒有可顯示的屬性"
+		"noStats": "沒有可顯示的屬性",
+		"modifierCount": "{count} 個詞綴",
+		"scarabCount": "{count} 個聖甲蟲",
+		"totalCost": "總成本："
 	},
 	"trade": {
 		"findSimilar": "在交易站搜尋相似物品",
@@ -126,6 +129,9 @@
 		"prefixes": "前綴",
 		"suffixes": "後綴",
 		"tier": "階級",
+		"tierLabel": "T{tier}",
+		"prefixSlot": "前綴 {index}",
+		"suffixSlot": "後綴 {index}",
 		"selectMod": "選擇詞綴...",
 		"searchMods": "搜尋詞綴...",
 		"noModsFound": "找不到詞綴。",
@@ -165,7 +171,9 @@
 		"type": "依類型篩選",
 		"allTypes": "所有類型",
 		"prefixOnly": "僅前綴",
-		"suffixOnly": "僅後綴"
+		"suffixOnly": "僅後綴",
+		"selectAll": "全選",
+		"selectNone": "取消"
 	},
 	"mapDevice": {
 		"title": "地圖儀",
@@ -178,7 +186,23 @@
 		"standardOptions": "標準選項",
 		"imbuedOptions": "灌注選項",
 		"craftingOptionEffect": "地圖儀",
-		"clearSlot": "清空槽位"
+		"clearSlot": "清空槽位",
+		"limitLabel": "限制：",
+		"costFree": "免費",
+		"scarabCount": "{count}/5 聖甲蟲"
+	},
+	"idol": {
+		"modCount": "{count} 個詞綴",
+		"minorIdol": "小型神像",
+		"kamasanIdol": "卡瑪桑神像",
+		"totemicIdol": "圖騰神像",
+		"nobleIdol": "貴族神像",
+		"burialIdol": "葬禮神像",
+		"conquerorIdol": "征服者神像",
+		"sizeGroupMinor": "小型",
+		"sizeGroupSmall": "卡瑪桑/貴族",
+		"sizeGroupMedium": "圖騰/葬禮",
+		"sizeGroupLarge": "征服者"
 	},
 	"footer": {
 		"dataFrom": "資料來自"

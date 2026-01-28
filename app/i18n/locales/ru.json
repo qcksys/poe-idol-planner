@@ -75,7 +75,10 @@
 	"stats": {
 		"totalStats": "Общая статистика",
 		"byMechanic": "По механике",
-		"noStats": "Нет статистики для отображения"
+		"noStats": "Нет статистики для отображения",
+		"modifierCount": "{count} модификаторов",
+		"scarabCount": "{count} скарабеев",
+		"totalCost": "Общая стоимость:"
 	},
 	"trade": {
 		"findSimilar": "Найти похожие на трейде",
@@ -126,6 +129,9 @@
 		"prefixes": "Префиксы",
 		"suffixes": "Суффиксы",
 		"tier": "Тир",
+		"tierLabel": "T{tier}",
+		"prefixSlot": "Префикс {index}",
+		"suffixSlot": "Суффикс {index}",
 		"selectMod": "Выберите модификатор...",
 		"searchMods": "Поиск модификаторов...",
 		"noModsFound": "Модификаторы не найдены.",
@@ -165,7 +171,9 @@
 		"type": "Фильтр по типу",
 		"allTypes": "Все типы",
 		"prefixOnly": "Только префиксы",
-		"suffixOnly": "Только суффиксы"
+		"suffixOnly": "Только суффиксы",
+		"selectAll": "Все",
+		"selectNone": "Ничего"
 	},
 	"mapDevice": {
 		"title": "Картографическое устройство",
@@ -178,7 +186,23 @@
 		"standardOptions": "Стандартные опции",
 		"imbuedOptions": "Пропитанные опции",
 		"craftingOptionEffect": "Картографическое устройство",
-		"clearSlot": "Очистить слот"
+		"clearSlot": "Очистить слот",
+		"limitLabel": "Лимит:",
+		"costFree": "Бесплатно",
+		"scarabCount": "{count}/5 скарабеев"
+	},
+	"idol": {
+		"modCount": "{count} модификаторов",
+		"minorIdol": "Малый идол",
+		"kamasanIdol": "Идол Камасан",
+		"totemicIdol": "Тотемный идол",
+		"nobleIdol": "Благородный идол",
+		"burialIdol": "Погребальный идол",
+		"conquerorIdol": "Идол завоевателя",
+		"sizeGroupMinor": "Малые",
+		"sizeGroupSmall": "Камасан/Благородные",
+		"sizeGroupMedium": "Тотемные/Погребальные",
+		"sizeGroupLarge": "Завоеватели"
 	},
 	"footer": {
 		"dataFrom": "Данные из"

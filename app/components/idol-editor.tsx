@@ -113,11 +113,22 @@ function ModSlot({
 		});
 	};
 
+	const slotLabel =
+		type === "prefix"
+			? (t.editor?.prefixSlot || "Prefix {index}").replace(
+					"{index}",
+					String(index + 1),
+				)
+			: (t.editor?.suffixSlot || "Suffix {index}").replace(
+					"{index}",
+					String(index + 1),
+				);
+
 	return (
 		<div className="space-y-2 rounded-lg border p-3">
 			<div className="flex items-center gap-2">
-				<span className="w-16 text-muted-foreground text-sm capitalize">
-					{type} {index + 1}
+				<span className="w-16 text-muted-foreground text-sm">
+					{slotLabel}
 				</span>
 				<div className="flex-1">
 					<ModSearch
@@ -163,7 +174,12 @@ function ModSlot({
 											key={tier.tier}
 											value={String(tier.tier)}
 										>
-											T{tier.tier}
+											{(
+												t.editor?.tierLabel || "T{tier}"
+											).replace(
+												"{tier}",
+												String(tier.tier),
+											)}
 										</SelectItem>
 									))}
 								</SelectContent>

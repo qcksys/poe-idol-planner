@@ -75,7 +75,10 @@
 	"stats": {
 		"totalStats": "Gesamtstatistiken",
 		"byMechanic": "Nach Mechanik",
-		"noStats": "Keine Statistiken anzuzeigen"
+		"noStats": "Keine Statistiken anzuzeigen",
+		"modifierCount": "{count} Modifikator(en)",
+		"scarabCount": "{count} Skarabäus(se)",
+		"totalCost": "Gesamtkosten:"
 	},
 	"trade": {
 		"findSimilar": "Ähnliche im Handel finden",
@@ -126,6 +129,9 @@
 		"prefixes": "Präfixe",
 		"suffixes": "Suffixe",
 		"tier": "Stufe",
+		"tierLabel": "T{tier}",
+		"prefixSlot": "Präfix {index}",
+		"suffixSlot": "Suffix {index}",
 		"selectMod": "Modifikator auswählen...",
 		"searchMods": "Modifikatoren suchen...",
 		"noModsFound": "Keine Modifikatoren gefunden.",
@@ -165,7 +171,9 @@
 		"type": "Nach Typ filtern",
 		"allTypes": "Alle Typen",
 		"prefixOnly": "Nur Präfixe",
-		"suffixOnly": "Nur Suffixe"
+		"suffixOnly": "Nur Suffixe",
+		"selectAll": "Alle",
+		"selectNone": "Keine"
 	},
 	"mapDevice": {
 		"title": "Kartengerät",
@@ -178,7 +186,23 @@
 		"standardOptions": "Standardoptionen",
 		"imbuedOptions": "Imbued-Optionen",
 		"craftingOptionEffect": "Kartengerät",
-		"clearSlot": "Slot leeren"
+		"clearSlot": "Slot leeren",
+		"limitLabel": "Limit:",
+		"costFree": "Kostenlos",
+		"scarabCount": "{count}/5 Skarabäen"
+	},
+	"idol": {
+		"modCount": "{count} Modifikator(en)",
+		"minorIdol": "Kleines Idol",
+		"kamasanIdol": "Kamasan-Idol",
+		"totemicIdol": "Totem-Idol",
+		"nobleIdol": "Edles Idol",
+		"burialIdol": "Begräbnis-Idol",
+		"conquerorIdol": "Eroberer-Idol",
+		"sizeGroupMinor": "Klein",
+		"sizeGroupSmall": "Kamasan/Edel",
+		"sizeGroupMedium": "Totem/Begräbnis",
+		"sizeGroupLarge": "Eroberer"
 	},
 	"footer": {
 		"dataFrom": "Daten von"

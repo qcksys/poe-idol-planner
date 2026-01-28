@@ -75,7 +75,10 @@
 	"stats": {
 		"totalStats": "Total Stats",
 		"byMechanic": "By Mechanic",
-		"noStats": "No stats to display"
+		"noStats": "No stats to display",
+		"modifierCount": "{count} modifier(s)",
+		"scarabCount": "{count} scarab(s)",
+		"totalCost": "Total Cost:"
 	},
 	"trade": {
 		"findSimilar": "Find Similar on Trade",
@@ -126,6 +129,9 @@
 		"prefixes": "Prefixes",
 		"suffixes": "Suffixes",
 		"tier": "Tier",
+		"tierLabel": "T{tier}",
+		"prefixSlot": "Prefix {index}",
+		"suffixSlot": "Suffix {index}",
 		"selectMod": "Select modifier...",
 		"searchMods": "Search modifiers...",
 		"noModsFound": "No modifiers found.",
@@ -165,7 +171,9 @@
 		"type": "Filter by Type",
 		"allTypes": "All Types",
 		"prefixOnly": "Prefix Only",
-		"suffixOnly": "Suffix Only"
+		"suffixOnly": "Suffix Only",
+		"selectAll": "All",
+		"selectNone": "None"
 	},
 	"mapDevice": {
 		"title": "Map Device",
@@ -178,7 +186,23 @@
 		"standardOptions": "Standard Options",
 		"imbuedOptions": "Imbued Options",
 		"craftingOptionEffect": "Map Device",
-		"clearSlot": "Clear slot"
+		"clearSlot": "Clear slot",
+		"limitLabel": "Limit:",
+		"costFree": "Free",
+		"scarabCount": "{count}/5 scarabs"
+	},
+	"idol": {
+		"modCount": "{count} mod(s)",
+		"minorIdol": "Minor Idol",
+		"kamasanIdol": "Kamasan Idol",
+		"totemicIdol": "Totemic Idol",
+		"nobleIdol": "Noble Idol",
+		"burialIdol": "Burial Idol",
+		"conquerorIdol": "Conqueror Idol",
+		"sizeGroupMinor": "Minor",
+		"sizeGroupSmall": "Kamasan/Noble",
+		"sizeGroupMedium": "Totemic/Burial",
+		"sizeGroupLarge": "Conqueror"
 	},
 	"footer": {
 		"dataFrom": "Data from"

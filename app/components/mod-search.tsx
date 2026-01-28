@@ -437,7 +437,7 @@ export function MultiMechanicFilter({
 								className="h-6 px-2 text-xs"
 								onClick={handleSelectAll}
 							>
-								All
+								{t.filter?.selectAll || "All"}
 							</Button>
 							<Button
 								variant="ghost"
@@ -445,7 +445,7 @@ export function MultiMechanicFilter({
 								className="h-6 px-2 text-xs"
 								onClick={handleClearAll}
 							>
-								None
+								{t.filter?.selectNone || "None"}
 							</Button>
 						</div>
 					</div>
@@ -512,11 +512,16 @@ export function MultiIdolTypeFilter({
 		onChange([]);
 	};
 
+	const getIdolName = (key: IdolBaseKey) => {
+		const idolNameKey = `${key}Idol` as keyof typeof t.idol;
+		return t.idol?.[idolNameKey] || IDOL_BASES[key].name;
+	};
+
 	const displayText =
 		value.length === 0
 			? t.filter?.allIdolTypes || "All Idol Types"
 			: value.length === 1
-				? IDOL_BASES[value[0]].name
+				? getIdolName(value[0])
 				: (t.filter?.idolTypesSelected || "{count} idol types").replace(
 						"{count}",
 						String(value.length),
@@ -553,7 +558,7 @@ export function MultiIdolTypeFilter({
 								className="h-6 px-2 text-xs"
 								onClick={handleSelectAll}
 							>
-								All
+								{t.filter?.selectAll || "All"}
 							</Button>
 							<Button
 								variant="ghost"
@@ -561,7 +566,7 @@ export function MultiIdolTypeFilter({
 								className="h-6 px-2 text-xs"
 								onClick={handleClearAll}
 							>
-								None
+								{t.filter?.selectNone || "None"}
 							</Button>
 						</div>
 					</div>
@@ -572,7 +577,7 @@ export function MultiIdolTypeFilter({
 						</CommandEmpty>
 						<CommandGroup>
 							{IDOL_BASE_KEYS.map((idolType) => {
-								const displayText = IDOL_BASES[idolType].name;
+								const displayText = getIdolName(idolType);
 								const isSelected = selectedSet.has(idolType);
 								return (
 									<CommandItem

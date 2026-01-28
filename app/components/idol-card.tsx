@@ -129,6 +129,7 @@ function IdolCardContent({
 	idol: IdolInstance;
 	compact?: boolean;
 }) {
+	const t = useTranslations();
 	const base = IDOL_BASES[idol.baseType as IdolBaseKey];
 	const allMods = [...idol.prefixes, ...idol.suffixes];
 	const imageSrc =
@@ -136,12 +137,15 @@ function IdolCardContent({
 			? base.uniqueImage
 			: base.image;
 
+	const idolNameKey = `${idol.baseType}Idol` as keyof typeof t.idol;
+	const idolName = t.idol?.[idolNameKey] || base.name;
+
 	return (
 		<div className="space-y-1">
 			<div className="flex items-center gap-1.5">
 				<img src={imageSrc} alt="" className="h-5 w-5 object-contain" />
 				<span className="text-muted-foreground text-xs">
-					{base.name}
+					{idolName}
 				</span>
 			</div>
 
@@ -153,7 +157,10 @@ function IdolCardContent({
 
 			{compact ? (
 				<div className="text-muted-foreground text-sm">
-					{allMods.length} mod(s)
+					{(t.idol?.modCount || "{count} mod(s)").replace(
+						"{count}",
+						String(allMods.length),
+					)}
 				</div>
 			) : (
 				<div className="space-y-0.5">

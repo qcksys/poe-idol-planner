@@ -75,7 +75,10 @@
 	"stats": {
 		"totalStats": "Estadísticas totales",
 		"byMechanic": "Por mecánica",
-		"noStats": "No hay estadísticas para mostrar"
+		"noStats": "No hay estadísticas para mostrar",
+		"modifierCount": "{count} modificador(es)",
+		"scarabCount": "{count} escarabajo(s)",
+		"totalCost": "Costo Total:"
 	},
 	"trade": {
 		"findSimilar": "Buscar similar en el comercio",
@@ -126,6 +129,9 @@
 		"prefixes": "Prefijos",
 		"suffixes": "Sufijos",
 		"tier": "Nivel",
+		"tierLabel": "T{tier}",
+		"prefixSlot": "Prefijo {index}",
+		"suffixSlot": "Sufijo {index}",
 		"selectMod": "Seleccionar modificador...",
 		"searchMods": "Buscar modificadores...",
 		"noModsFound": "No se encontraron modificadores.",
@@ -165,7 +171,9 @@
 		"type": "Filtrar por tipo",
 		"allTypes": "Todos los tipos",
 		"prefixOnly": "Solo prefijos",
-		"suffixOnly": "Solo sufijos"
+		"suffixOnly": "Solo sufijos",
+		"selectAll": "Todos",
+		"selectNone": "Ninguno"
 	},
 	"mapDevice": {
 		"title": "Dispositivo de Mapas",
@@ -178,7 +186,23 @@
 		"standardOptions": "Opciones Estándar",
 		"imbuedOptions": "Opciones Imbuidas",
 		"craftingOptionEffect": "Dispositivo de Mapas",
-		"clearSlot": "Limpiar ranura"
+		"clearSlot": "Limpiar ranura",
+		"limitLabel": "Límite:",
+		"costFree": "Gratis",
+		"scarabCount": "{count}/5 escarabajos"
+	},
+	"idol": {
+		"modCount": "{count} modificador(es)",
+		"minorIdol": "Ídolo Menor",
+		"kamasanIdol": "Ídolo Kamasan",
+		"totemicIdol": "Ídolo Totémico",
+		"nobleIdol": "Ídolo Noble",
+		"burialIdol": "Ídolo Funerario",
+		"conquerorIdol": "Ídolo Conquistador",
+		"sizeGroupMinor": "Menor",
+		"sizeGroupSmall": "Kamasan/Noble",
+		"sizeGroupMedium": "Totémico/Funerario",
+		"sizeGroupLarge": "Conquistador"
 	},
 	"footer": {
 		"dataFrom": "Datos de"

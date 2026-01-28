@@ -75,7 +75,10 @@
 	"stats": {
 		"totalStats": "총 스탯",
 		"byMechanic": "메카닉별",
-		"noStats": "표시할 스탯이 없습니다"
+		"noStats": "표시할 스탯이 없습니다",
+		"modifierCount": "{count}개 속성",
+		"scarabCount": "{count}개 스카라브",
+		"totalCost": "총 비용:"
 	},
 	"trade": {
 		"findSimilar": "거래소에서 비슷한 아이템 찾기",
@@ -126,6 +129,9 @@
 		"prefixes": "접두사",
 		"suffixes": "접미사",
 		"tier": "티어",
+		"tierLabel": "T{tier}",
+		"prefixSlot": "접두사 {index}",
+		"suffixSlot": "접미사 {index}",
 		"selectMod": "모디파이어 선택...",
 		"searchMods": "모디파이어 검색...",
 		"noModsFound": "모디파이어를 찾을 수 없습니다.",
@@ -165,7 +171,9 @@
 		"type": "유형으로 필터",
 		"allTypes": "모든 유형",
 		"prefixOnly": "접두사만",
-		"suffixOnly": "접미사만"
+		"suffixOnly": "접미사만",
+		"selectAll": "전체",
+		"selectNone": "없음"
 	},
 	"mapDevice": {
 		"title": "지도 장치",
@@ -178,7 +186,23 @@
 		"standardOptions": "표준 옵션",
 		"imbuedOptions": "주입 옵션",
 		"craftingOptionEffect": "지도 장치",
-		"clearSlot": "슬롯 비우기"
+		"clearSlot": "슬롯 비우기",
+		"limitLabel": "제한:",
+		"costFree": "무료",
+		"scarabCount": "{count}/5 스카라브"
+	},
+	"idol": {
+		"modCount": "{count}개 속성",
+		"minorIdol": "마이너 아이돌",
+		"kamasanIdol": "카마산 아이돌",
+		"totemicIdol": "토테믹 아이돌",
+		"nobleIdol": "노블 아이돌",
+		"burialIdol": "베리얼 아이돌",
+		"conquerorIdol": "정복자 아이돌",
+		"sizeGroupMinor": "마이너",
+		"sizeGroupSmall": "카마산/노블",
+		"sizeGroupMedium": "토테믹/베리얼",
+		"sizeGroupLarge": "정복자"
 	},
 	"footer": {
 		"dataFrom": "데이터 출처"

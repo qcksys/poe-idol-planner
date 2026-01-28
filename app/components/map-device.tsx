@@ -195,7 +195,9 @@ function ScarabSlot({
 											{getScarabEffect(scarab, locale)}
 										</div>
 										<div className="text-muted-foreground text-xs">
-											Limit: {scarab.limit}
+											{t.mapDevice?.limitLabel ||
+												"Limit:"}{" "}
+											{scarab.limit}
 										</div>
 									</div>
 								</TooltipContent>
@@ -240,7 +242,7 @@ function ScarabSlot({
 								className="h-6 text-xs"
 								onClick={() => onCategoryFilterChange(null)}
 							>
-								All
+								{t.filter?.selectAll || "All"}
 							</Button>
 							{SCARAB_CATEGORIES.map((cat) => (
 								<Button
@@ -251,10 +253,12 @@ function ScarabSlot({
 											: "ghost"
 									}
 									size="sm"
-									className="h-6 text-xs capitalize"
+									className="h-6 text-xs"
 									onClick={() => onCategoryFilterChange(cat)}
 								>
-									{cat}
+									{t.mechanics?.[
+										cat as keyof typeof t.mechanics
+									] || cat}
 								</Button>
 							))}
 						</div>
@@ -268,8 +272,9 @@ function ScarabSlot({
 									<CommandGroup
 										key={category}
 										heading={
-											category.charAt(0).toUpperCase() +
-											category.slice(1)
+											t.mechanics?.[
+												category as keyof typeof t.mechanics
+											] || category
 										}
 									>
 										{scarabs.map((s) => {
@@ -409,7 +414,7 @@ function CraftingOptionSelector({
 							<span className="truncate text-muted-foreground text-xs">
 								{selectedOption.cost > 0
 									? `${selectedOption.cost}c`
-									: "Free"}
+									: t.mapDevice?.costFree || "Free"}
 								{selectedOption.imbued && " (Imbued)"}
 							</span>
 						)}
@@ -492,6 +497,7 @@ function CraftingOptionItem({
 	isSelected: boolean;
 	onSelect: () => void;
 }) {
+	const t = useTranslations();
 	return (
 		<CommandItem
 			value={`${option.name} ${option.effect}`}
@@ -507,7 +513,9 @@ function CraftingOptionItem({
 				<div className="flex items-center gap-2">
 					<span className="text-sm">{option.name}</span>
 					<span className="text-muted-foreground text-xs">
-						{option.cost > 0 ? `${option.cost}c` : "Free"}
+						{option.cost > 0
+							? `${option.cost}c`
+							: t.mapDevice?.costFree || "Free"}
 					</span>
 				</div>
 				<span className="line-clamp-2 text-muted-foreground text-xs">
@@ -569,7 +577,9 @@ export function MapDeviceComponent({
 						</CardTitle>
 					</div>
 					<span className="text-muted-foreground text-sm">
-						{selectedScarabs.length}/5 scarabs
+						{(
+							t.mapDevice?.scarabCount || "{count}/5 scarabs"
+						).replace("{count}", String(selectedScarabs.length))}
 					</span>
 				</div>
 				<div className="flex items-center justify-between gap-3">

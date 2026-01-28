@@ -75,7 +75,10 @@
 	"stats": {
 		"totalStats": "合計ステータス",
 		"byMechanic": "メカニック別",
-		"noStats": "表示するステータスがありません"
+		"noStats": "表示するステータスがありません",
+		"modifierCount": "{count}個のMod",
+		"scarabCount": "{count}個のスカラベ",
+		"totalCost": "合計コスト："
 	},
 	"trade": {
 		"findSimilar": "トレードで類似品を検索",
@@ -126,6 +129,9 @@
 		"prefixes": "プレフィックス",
 		"suffixes": "サフィックス",
 		"tier": "ティア",
+		"tierLabel": "T{tier}",
+		"prefixSlot": "プレフィックス {index}",
+		"suffixSlot": "サフィックス {index}",
 		"selectMod": "Modを選択...",
 		"searchMods": "Modを検索...",
 		"noModsFound": "Modが見つかりません。",
@@ -165,7 +171,9 @@
 		"type": "タイプでフィルター",
 		"allTypes": "全てのタイプ",
 		"prefixOnly": "プレフィックスのみ",
-		"suffixOnly": "サフィックスのみ"
+		"suffixOnly": "サフィックスのみ",
+		"selectAll": "すべて",
+		"selectNone": "なし"
 	},
 	"mapDevice": {
 		"title": "マップデバイス",
@@ -178,7 +186,23 @@
 		"standardOptions": "スタンダードオプション",
 		"imbuedOptions": "インビュードオプション",
 		"craftingOptionEffect": "マップデバイス",
-		"clearSlot": "スロットをクリア"
+		"clearSlot": "スロットをクリア",
+		"limitLabel": "上限：",
+		"costFree": "無料",
+		"scarabCount": "{count}/5 スカラベ"
+	},
+	"idol": {
+		"modCount": "{count}個のMod",
+		"minorIdol": "マイナーアイドル",
+		"kamasanIdol": "カマサンアイドル",
+		"totemicIdol": "トーテミックアイドル",
+		"nobleIdol": "ノーブルアイドル",
+		"burialIdol": "バリアルアイドル",
+		"conquerorIdol": "コンカラーアイドル",
+		"sizeGroupMinor": "マイナー",
+		"sizeGroupSmall": "カマサン/ノーブル",
+		"sizeGroupMedium": "トーテミック/バリアル",
+		"sizeGroupLarge": "コンカラー"
 	},
 	"footer": {
 		"dataFrom": "データ提供"
