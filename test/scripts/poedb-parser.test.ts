@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseIdolPage } from "../../scripts/poedb-converter/parser";
+import { parseIdolPage } from "../../scripts/poedb-idol-converter/parser";
 
 const MINOR_IDOL_HTML = `
 <!DOCTYPE html>

@@ -205,7 +205,7 @@ export function IdolCard({
 	const cardElement = (
 		<Card
 			className={cn(
-				"cursor-pointer border-2 transition-all hover:scale-105",
+				"cursor-pointer border-2 transition-all hover:scale-102",
 				rarityColor,
 				rarityBg,
 				className,
@@ -300,7 +300,7 @@ export function IdolCardMini({
 							onDragStart={onDragStart}
 							onDragEnd={onDragEnd}
 							className={cn(
-								"flex h-full w-full items-center justify-center overflow-hidden rounded border-2 transition-all hover:scale-105",
+								"flex h-full w-full items-center justify-center overflow-hidden rounded border-2 transition-all hover:scale-102",
 								draggable
 									? "cursor-grab active:cursor-grabbing"
 									: "cursor-pointer",
