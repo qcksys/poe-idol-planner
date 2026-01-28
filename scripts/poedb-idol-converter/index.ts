@@ -28,7 +28,6 @@ const { values: args } = parseArgs({
 	options: {
 		cached: { type: "boolean", default: false },
 		"clear-cache": { type: "boolean", default: false },
-		locales: { type: "string", default: "en" },
 		"generate-schemas": { type: "boolean", default: true },
 		help: { type: "boolean", short: "h", default: false },
 	},
@@ -38,21 +37,20 @@ function printHelp(): void {
 	console.log(`
 poedb-converter - Fetch and convert POE idol data from poedb.tw
 
-Usage: pnpm run data:convert [options]
+Usage: pnpm run data:idols [options]
 
 Options:
   --cached           Use cached HTML files if available
   --clear-cache      Clear the cache before fetching
-  --locales <list>   Comma-separated list of locales (default: en)
-                     Available: ${LOCALES.join(", ")}
   --generate-schemas Generate JSON Schema files (default: true)
   -h, --help         Show this help message
 
+Locales processed: ${LOCALES.join(", ")}
+
 Examples:
-  pnpm run data:convert
-  pnpm run data:convert --cached
-  pnpm run data:convert --locales en,zh-TW,ko
-  pnpm run data:convert --clear-cache --locales en
+  pnpm run data:idols
+  pnpm run data:idols --cached
+  pnpm run data:idols --clear-cache
 `);
 }
 
@@ -73,18 +71,12 @@ async function main(): Promise<void> {
 		clearCache();
 	}
 
-	const locales = args.locales
-		?.split(",")
-		.map((l) => l.trim())
-		.filter((l): l is Locale => LOCALES.includes(l as Locale)) || ["en"];
-
-	console.log(`Locales to process: ${locales.join(", ")}`);
 	console.log(`Use cache: ${args.cached}`);
 	console.log("");
 
 	const dataByLocale = new Map<Locale, ParsedPage>();
 
-	for (const locale of locales) {
+	for (const locale of LOCALES) {
 		console.log(`Processing locale: ${locale}`);
 
 		for (const idolPage of IDOL_PAGES) {
@@ -120,8 +112,9 @@ async function main(): Promise<void> {
 		}
 	}
 
-	if (dataByLocale.size === 0) {
-		console.error("No data fetched. Exiting.");
+	const enData = dataByLocale.get("en");
+	if (!enData || enData.modifiers.length === 0) {
+		console.error("No English idol data found. Exiting.");
 		process.exit(1);
 	}
 
