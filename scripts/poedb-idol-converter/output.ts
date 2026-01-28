@@ -20,6 +20,7 @@ const ModifierTierSchema = z.object({
 	text: LocaleRecord,
 	values: z.array(ValueRangeSchema),
 	weight: z.number().int().min(0),
+	tradeStatId: z.string().optional(),
 });
 
 const ModifierDataSchema = z.object({

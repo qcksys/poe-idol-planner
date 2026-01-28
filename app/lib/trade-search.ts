@@ -1,6 +1,5 @@
 import type { IdolBaseKey } from "~/data/idol-bases";
-import { TRADE_STAT_MAPPINGS } from "~/data/trade-stat-mappings";
-import { resolveModTextWithRange } from "~/lib/mod-text-resolver";
+import idolModifiers from "~/data/idol-modifiers.json";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
 import { DEFAULT_LEAGUE } from "~/schemas/league";
 
@@ -66,6 +65,56 @@ interface TradeQuery {
 	};
 }
 
+interface ModifierTierData {
+	tier: number;
+	text: Record<string, string>;
+	tradeStatId?: string;
+}
+
+interface ModifierDataFromJson {
+	id: string;
+	tiers: ModifierTierData[];
+}
+
+let modIdIndex: Map<string, string> | null = null;
+let textMappings: Record<string, string> | null = null;
+
+function buildModIdIndex(): Map<string, string> {
+	if (modIdIndex) {
+		return modIdIndex;
+	}
+
+	modIdIndex = new Map();
+	for (const mod of idolModifiers as ModifierDataFromJson[]) {
+		for (const tier of mod.tiers) {
+			if (tier.tradeStatId) {
+				const key = `${mod.id}:${tier.tier}`;
+				modIdIndex.set(key, tier.tradeStatId);
+			}
+		}
+	}
+
+	return modIdIndex;
+}
+
+function buildTextMappings(): Record<string, string> {
+	if (textMappings) {
+		return textMappings;
+	}
+
+	textMappings = {};
+	for (const mod of idolModifiers as ModifierDataFromJson[]) {
+		for (const tier of mod.tiers) {
+			if (tier.tradeStatId && tier.text.en) {
+				const normalized = normalizeModText(tier.text.en);
+				textMappings[normalized] = tier.tradeStatId;
+			}
+		}
+	}
+
+	return textMappings;
+}
+
 function normalizeModText(text: string): string {
 	return text
 		.replace(
@@ -78,18 +127,40 @@ function normalizeModText(text: string): string {
 		.trim();
 }
 
-function findStatId(modText: string): string | null {
+function findStatIdByModId(modId: string, tier: number | null): string | null {
+	if (tier === null) return null;
+
+	const index = buildModIdIndex();
+	const key = `${modId}:${tier}`;
+	return index.get(key) ?? null;
+}
+
+function findStatIdByText(modText: string): string | null {
+	const mappings = buildTextMappings();
 	const normalized = normalizeModText(modText);
 
-	if (TRADE_STAT_MAPPINGS[normalized]) {
-		return TRADE_STAT_MAPPINGS[normalized];
+	if (mappings[normalized]) {
+		return mappings[normalized];
 	}
 
-	for (const [pattern, statId] of Object.entries(TRADE_STAT_MAPPINGS)) {
+	for (const [pattern, statId] of Object.entries(mappings)) {
 		const normalizedPattern = normalizeModText(pattern);
 		if (normalized === normalizedPattern) {
 			return statId;
 		}
+	}
+
+	return null;
+}
+
+function findStatIdForMod(mod: IdolModifier): string | null {
+	const statId = findStatIdByModId(mod.modId, mod.tier);
+	if (statId) {
+		return statId;
+	}
+
+	if (mod.text) {
+		return findStatIdByText(mod.text);
 	}
 
 	return null;
@@ -128,8 +199,7 @@ function buildTradeQuery(
 		const statFilters: TradeStatFilter[] = [];
 
 		for (const mod of mods) {
-			const modText = resolveModTextWithRange(mod, "en");
-			const statId = findStatId(modText);
+			const statId = findStatIdForMod(mod);
 			if (statId) {
 				statFilters.push({
 					id: statId,
@@ -218,11 +288,11 @@ export function generateTradeUrlForMod(
 }
 
 export function getTradeStatId(modText: string): string | null {
-	return findStatId(modText);
+	return findStatIdByText(modText);
 }
 
 export function hasTradeStatMapping(modText: string): boolean {
-	return findStatId(modText) !== null;
+	return findStatIdByText(modText) !== null;
 }
 
 export { IDOL_TYPE_MAP, type TradeQuery };

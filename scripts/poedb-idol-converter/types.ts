@@ -70,6 +70,7 @@ export interface ModifierTier {
 	text: Record<Locale, string>;
 	values: ValueRange[];
 	weight: number;
+	tradeStatId?: string;
 }
 
 export interface UniqueIdol {

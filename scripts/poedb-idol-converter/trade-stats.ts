@@ -1,12 +1,6 @@
-import * as fs from "node:fs";
-import * as path from "node:path";
 import type { ModifierData } from "./types.ts";
 
-const TRADE_STATS_PATH = path.resolve(
-	import.meta.dirname,
-	"../../dev/poe/api.trade.data.stats.json",
-);
-const OUTPUT_DIR = path.resolve(import.meta.dirname, "../../app/data");
+const TRADE_STATS_API_URL = "https://www.pathofexile.com/api/trade/data/stats";
 
 interface TradeStatEntry {
 	id: string;
@@ -30,15 +24,10 @@ interface TradeStatMapping {
 	originalText: string;
 }
 
-export interface TradeStatMappings {
-	mappings: Record<string, string>;
-	generatedAt: string;
-	version: number;
-	stats: {
-		totalMappings: number;
-		matchedModifiers: number;
-		unmatchedModifiers: string[];
-	};
+export interface TradeStatResult {
+	matchedCount: number;
+	unmatchedCount: number;
+	unmatchedModifiers: string[];
 }
 
 function normalizeModText(text: string): string {
@@ -54,18 +43,33 @@ function normalizeModText(text: string): string {
 		.trim();
 }
 
-function loadTradeStats(): TradeStatsData | null {
-	if (!fs.existsSync(TRADE_STATS_PATH)) {
-		console.warn(`  Trade stats file not found: ${TRADE_STATS_PATH}`);
+async function fetchTradeStats(): Promise<TradeStatsData | null> {
+	console.log(`  Fetching trade stats from POE API...`);
+	try {
+		const response = await fetch(TRADE_STATS_API_URL, {
+			headers: {
+				"User-Agent": "poe-idol-planner/1.0",
+				Accept: "application/json",
+			},
+		});
+
+		if (!response.ok) {
+			console.warn(
+				`  Failed to fetch trade stats: ${response.status} ${response.statusText}`,
+			);
+			return null;
+		}
+
+		const data = (await response.json()) as TradeStatsData;
+		console.log(`  Fetched ${data.result.length} stat categories`);
+		return data;
+	} catch (error) {
 		console.warn(
-			"  To generate trade stat mappings, add the POE trade API stats data to:",
+			`  Error fetching trade stats:`,
+			error instanceof Error ? error.message : error,
 		);
-		console.warn(`  ${TRADE_STATS_PATH}`);
 		return null;
 	}
-
-	const content = fs.readFileSync(TRADE_STATS_PATH, "utf-8");
-	return JSON.parse(content) as TradeStatsData;
 }
 
 function buildTradeStatIndex(
@@ -135,86 +139,63 @@ function findBestMatch(
 	return bestMatch;
 }
 
-export function generateTradeStatMappings(
+export async function applyTradeStatMappings(
 	modifiers: ModifierData[],
-): TradeStatMappings | null {
-	const tradeStats = loadTradeStats();
+): Promise<TradeStatResult> {
+	const tradeStats = await fetchTradeStats();
 	if (!tradeStats) {
-		return null;
+		return {
+			matchedCount: 0,
+			unmatchedCount: 0,
+			unmatchedModifiers: [],
+		};
 	}
 
 	console.log("  Building trade stat index...");
 	const index = buildTradeStatIndex(tradeStats);
 	console.log(`  Trade stat index size: ${index.size} entries`);
 
-	const mappings: Record<string, string> = {};
 	const unmatchedModifiers: string[] = [];
 	let matchedCount = 0;
+	let unmatchedCount = 0;
 
 	const seenTexts = new Set<string>();
 
 	for (const mod of modifiers) {
 		for (const tier of mod.tiers) {
 			const englishText = tier.text.en;
-			if (!englishText || seenTexts.has(englishText)) continue;
-			seenTexts.add(englishText);
+			if (!englishText) continue;
 
-			const normalized = normalizeModText(englishText);
 			const match = findBestMatch(englishText, index);
 
 			if (match) {
-				mappings[normalized] = match.statId;
-				matchedCount++;
+				tier.tradeStatId = match.statId;
+				if (!seenTexts.has(englishText)) {
+					matchedCount++;
+					seenTexts.add(englishText);
+				}
 			} else {
-				unmatchedModifiers.push(englishText);
+				if (!seenTexts.has(englishText)) {
+					unmatchedModifiers.push(englishText);
+					unmatchedCount++;
+					seenTexts.add(englishText);
+				}
 			}
 		}
 	}
 
 	console.log(`  Matched modifiers: ${matchedCount}`);
-	console.log(`  Unmatched modifiers: ${unmatchedModifiers.length}`);
+	console.log(`  Unmatched modifiers: ${unmatchedCount}`);
 
 	return {
-		mappings,
-		generatedAt: new Date().toISOString(),
-		version: 1,
-		stats: {
-			totalMappings: Object.keys(mappings).length,
-			matchedModifiers: matchedCount,
-			unmatchedModifiers:
-				unmatchedModifiers.length > 10
-					? [
-							...unmatchedModifiers.slice(0, 10),
-							`... and ${unmatchedModifiers.length - 10} more`,
-						]
-					: unmatchedModifiers,
-		},
+		matchedCount,
+		unmatchedCount,
+		unmatchedModifiers:
+			unmatchedModifiers.length > 10
+				? [
+						...unmatchedModifiers.slice(0, 10),
+						`... and ${unmatchedModifiers.length - 10} more`,
+					]
+				: unmatchedModifiers,
 	};
-}
-
-export function writeTradeStatMappings(data: TradeStatMappings): void {
-	if (!fs.existsSync(OUTPUT_DIR)) {
-		fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-	}
-
-	const jsonPath = path.join(OUTPUT_DIR, "trade-stat-mappings.json");
-	fs.writeFileSync(jsonPath, JSON.stringify(data, null, "\t"), "utf-8");
-	console.log(
-		`  Written: ${jsonPath} (${data.stats.totalMappings} mappings)`,
-	);
-
-	const tsContent = `// Auto-generated file - do not edit manually
-// Generated at: ${data.generatedAt}
-// Total mappings: ${data.stats.totalMappings}
-
-export const TRADE_STAT_MAPPINGS: Record<string, string> = ${JSON.stringify(data.mappings, null, "\t")};
-
-export function getTradeStatId(normalizedText: string): string | undefined {
-	return TRADE_STAT_MAPPINGS[normalizedText];
-}
-`;
-
-	const tsPath = path.join(OUTPUT_DIR, "trade-stat-mappings.ts");
-	fs.writeFileSync(tsPath, tsContent, "utf-8");
-	console.log(`  Written: ${tsPath}`);
 }

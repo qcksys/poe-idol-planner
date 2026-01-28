@@ -6,10 +6,7 @@ import {
 	writeConvertedData,
 } from "./output.ts";
 import { parseIdolPage } from "./parser.ts";
-import {
-	generateTradeStatMappings,
-	writeTradeStatMappings,
-} from "./trade-stats.ts";
+import { applyTradeStatMappings } from "./trade-stats.ts";
 import { transform } from "./transformer.ts";
 import type { Locale, ParsedPage } from "./types.ts";
 import { LOCALES } from "./types.ts";
@@ -124,6 +121,17 @@ async function main(): Promise<void> {
 	console.log(`  Total modifiers: ${convertedData.modifiers.length}`);
 	console.log(`  Total uniques: ${convertedData.uniqueIdols.length}`);
 
+	console.log("\nApplying trade stat mappings...");
+	const tradeStatResult = await applyTradeStatMappings(
+		convertedData.modifiers,
+	);
+	if (tradeStatResult.unmatchedModifiers.length > 0) {
+		console.log(
+			"  Unmatched modifiers:",
+			tradeStatResult.unmatchedModifiers,
+		);
+	}
+
 	console.log("\nValidating data...");
 	if (!validateConvertedData(convertedData)) {
 		console.error("Validation failed. Data not written.");
@@ -137,14 +145,6 @@ async function main(): Promise<void> {
 	if (args["generate-schemas"]) {
 		console.log("\nGenerating JSON schemas...");
 		generateJsonSchemas();
-	}
-
-	console.log("\nGenerating trade stat mappings...");
-	const tradeStatMappings = generateTradeStatMappings(
-		convertedData.modifiers,
-	);
-	if (tradeStatMappings) {
-		writeTradeStatMappings(tradeStatMappings);
 	}
 
 	console.log("\nDone!");
