@@ -30,10 +30,17 @@ export interface TradeStatResult {
 	unmatchedModifiers: string[];
 }
 
-function normalizeModText(text: string): string {
-	return text
+const DIRECTION_CANONICALIZATION: [RegExp, string][] = [
+	[/\breduced\b/gi, "increased"],
+	[/\bless\b/gi, "more"],
+	[/\bslower\b/gi, "faster"],
+	[/\bfewer\b/gi, "additional"],
+];
+
+export function normalizeModText(text: string): string {
+	let normalized = text
 		.replace(
-			/(\+)?(\(?\d+(?:—\d+)?\)?)(%)?/g,
+			/(\+)?(\(?[\d.]+(?:—[\d.]+)?\)?)(%)?/g,
 			(_match, plus, _num, percent) => {
 				return `${plus || ""}#${percent || ""}`;
 			},
@@ -41,6 +48,12 @@ function normalizeModText(text: string): string {
 		.replace(/\s+/g, " ")
 		.replace(/\n/g, " ")
 		.trim();
+
+	for (const [pattern, replacement] of DIRECTION_CANONICALIZATION) {
+		normalized = normalized.replace(pattern, replacement);
+	}
+
+	return normalized;
 }
 
 async function fetchTradeStats(): Promise<TradeStatsData | null> {

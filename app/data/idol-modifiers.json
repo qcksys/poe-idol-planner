@@ -1136,7 +1136,8 @@
 						"max": 20
 					}
 				],
-				"weight": 800
+				"weight": 800,
+				"tradeStatId": "explicit.stat_2078691497"
 			}
 		],
 		"mechanic": "blight",
@@ -3027,7 +3028,8 @@
 						"max": 15
 					}
 				],
-				"weight": 300
+				"weight": 300,
+				"tradeStatId": "explicit.stat_744497885"
 			}
 		],
 		"mechanic": "harvest",
@@ -3070,7 +3072,8 @@
 						"max": 15
 					}
 				],
-				"weight": 300
+				"weight": 300,
+				"tradeStatId": "explicit.stat_1234594761"
 			}
 		],
 		"mechanic": "harvest",
@@ -3113,7 +3116,8 @@
 						"max": 15
 					}
 				],
-				"weight": 300
+				"weight": 300,
+				"tradeStatId": "explicit.stat_4191390667"
 			}
 		],
 		"mechanic": "harvest",
@@ -4520,7 +4524,8 @@
 						"max": 12
 					}
 				],
-				"weight": 400
+				"weight": 400,
+				"tradeStatId": "explicit.stat_2282052746"
 			}
 		],
 		"mechanic": "map",
@@ -4607,7 +4612,8 @@
 						"max": 60
 					}
 				],
-				"weight": 800
+				"weight": 800,
+				"tradeStatId": "explicit.stat_3957379603"
 			}
 		],
 		"mechanic": "map",
@@ -7728,7 +7734,8 @@
 						"max": 5
 					}
 				],
-				"weight": 600
+				"weight": 600,
+				"tradeStatId": "explicit.stat_3350944114"
 			}
 		],
 		"mechanic": "delirium",
@@ -9971,7 +9978,8 @@
 						"max": 5
 					}
 				],
-				"weight": 300
+				"weight": 300,
+				"tradeStatId": "explicit.stat_340836576"
 			}
 		],
 		"mechanic": "map",
@@ -10146,7 +10154,8 @@
 						"max": 1.2
 					}
 				],
-				"weight": 200
+				"weight": 200,
+				"tradeStatId": "explicit.stat_937291386"
 			}
 		],
 		"mechanic": "map",
@@ -13092,7 +13101,8 @@
 						"max": 5
 					}
 				],
-				"weight": 600
+				"weight": 600,
+				"tradeStatId": "explicit.stat_3350944114"
 			}
 		],
 		"mechanic": "delirium",
@@ -15335,7 +15345,8 @@
 						"max": 5
 					}
 				],
-				"weight": 300
+				"weight": 300,
+				"tradeStatId": "explicit.stat_340836576"
 			}
 		],
 		"mechanic": "map",
@@ -15510,7 +15521,8 @@
 						"max": 1.2
 					}
 				],
-				"weight": 200
+				"weight": 200,
+				"tradeStatId": "explicit.stat_937291386"
 			}
 		],
 		"mechanic": "map",
@@ -17909,7 +17921,8 @@
 						"max": 30
 					}
 				],
-				"weight": 400
+				"weight": 400,
+				"tradeStatId": "explicit.stat_2504358770"
 			}
 		],
 		"mechanic": "breach",
@@ -21241,7 +21254,8 @@
 						"max": 20
 					}
 				],
-				"weight": 400
+				"weight": 400,
+				"tradeStatId": "explicit.stat_1345835998"
 			}
 		],
 		"mechanic": "map",
@@ -21654,7 +21668,8 @@
 						"max": 1.2
 					}
 				],
-				"weight": 475
+				"weight": 475,
+				"tradeStatId": "explicit.stat_2121601076"
 			}
 		],
 		"mechanic": "conqueror",
@@ -21995,7 +22010,8 @@
 						"max": 2.5
 					}
 				],
-				"weight": 1000
+				"weight": 1000,
+				"tradeStatId": "explicit.stat_2771143254"
 			}
 		],
 		"mechanic": "map",
@@ -23558,7 +23574,8 @@
 						"max": 30
 					}
 				],
-				"weight": 400
+				"weight": 400,
+				"tradeStatId": "explicit.stat_2504358770"
 			}
 		],
 		"mechanic": "breach",
@@ -26890,7 +26907,8 @@
 						"max": 20
 					}
 				],
-				"weight": 400
+				"weight": 400,
+				"tradeStatId": "explicit.stat_1345835998"
 			}
 		],
 		"mechanic": "map",
@@ -27303,7 +27321,8 @@
 						"max": 1.2
 					}
 				],
-				"weight": 475
+				"weight": 475,
+				"tradeStatId": "explicit.stat_2121601076"
 			}
 		],
 		"mechanic": "conqueror",
@@ -27644,7 +27663,8 @@
 						"max": 2.5
 					}
 				],
-				"weight": 1000
+				"weight": 1000,
+				"tradeStatId": "explicit.stat_2771143254"
 			}
 		],
 		"mechanic": "map",
