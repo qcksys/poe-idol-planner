@@ -22,6 +22,10 @@ import { I18nProvider } from "~/i18n";
 import { NotFoundPage } from "~/routes/$";
 import { themeSessionResolver } from "~/sessions.server";
 
+export const links: Route.LinksFunction = () => [
+	{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+];
+
 export async function loader({ request }: Route.LoaderArgs) {
 	const { getTheme } = await themeSessionResolver(request);
 	return { theme: getTheme() ?? Theme.DARK };
