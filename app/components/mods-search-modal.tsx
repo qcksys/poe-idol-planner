@@ -29,6 +29,7 @@ import {
 } from "~/components/ui/tooltip";
 import { useFavorites } from "~/context/favorites-context";
 import {
+	IDOL_BASES,
 	type IdolBaseKey,
 	LEAGUE_MECHANICS,
 	type LeagueMechanic,
@@ -141,7 +142,7 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 						/>
 					</div>
 
-					<div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+					<div className="grid grid-cols-2 gap-2">
 						<div className="space-y-1">
 							<span className="text-muted-foreground text-xs">
 								{t.modsSearch?.typeFilter || "Type"}
@@ -152,7 +153,7 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 									setTypeFilter(v as TypeFilter)
 								}
 							>
-								<SelectTrigger className="h-8">
+								<SelectTrigger className="h-8 w-full">
 									<SelectValue />
 								</SelectTrigger>
 								<SelectContent>
@@ -179,7 +180,7 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 									setFavoriteFilter(v as FavoriteFilter)
 								}
 							>
-								<SelectTrigger className="h-8">
+								<SelectTrigger className="h-8 w-full">
 									<SelectValue />
 								</SelectTrigger>
 								<SelectContent>
@@ -290,21 +291,62 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 																?.text ||
 																mod.name}
 														</div>
-														<div className="text-muted-foreground text-xs">
-															{mod.type ===
-															"prefix"
-																? t.modsSearch
-																		?.prefix ||
-																	"Prefix"
-																: t.modsSearch
-																		?.suffix ||
-																	"Suffix"}{" "}
-															• {mod.tiers.length}{" "}
-															tier
-															{mod.tiers.length >
-															1
-																? "s"
-																: ""}
+														<div className="flex items-center gap-1 text-muted-foreground text-xs">
+															<span>
+																{mod.type ===
+																"prefix"
+																	? t
+																			.modsSearch
+																			?.prefix ||
+																		"Prefix"
+																	: t
+																			.modsSearch
+																			?.suffix ||
+																		"Suffix"}
+															</span>
+															<span>•</span>
+															{mod.applicableIdols.map(
+																(
+																	idol,
+																	index,
+																) => {
+																	const key =
+																		idol.toLowerCase() as IdolBaseKey;
+																	const base =
+																		IDOL_BASES[
+																			key
+																		];
+																	if (!base)
+																		return null;
+																	return (
+																		<span
+																			key={
+																				key
+																			}
+																			className="inline-flex items-center gap-0.5"
+																		>
+																			{index >
+																				0 && (
+																				<span className="mr-0.5">
+																					,
+																				</span>
+																			)}
+																			<img
+																				src={
+																					base.image
+																				}
+																				alt=""
+																				className="h-4 w-4 object-contain"
+																			/>
+																			<span>
+																				{
+																					idol
+																				}
+																			</span>
+																		</span>
+																	);
+																},
+															)}
 														</div>
 													</div>
 												</div>
