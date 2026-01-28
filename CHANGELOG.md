@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1
+
+### Patch Changes
+
+- 046e54b: default to dark mode for new visitors
+
 ## 0.4.0
 
 ### Minor Changes
