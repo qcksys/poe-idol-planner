@@ -574,7 +574,35 @@ export function IdolEditor({
 											</Button>
 										</PopoverTrigger>
 										<PopoverContent className="w-[500px] p-0">
-											<Command>
+											<Command
+												filter={(
+													value,
+													search,
+													keywords,
+												) => {
+													const searchLower =
+														search.toLowerCase();
+													const valueLower =
+														value.toLowerCase();
+													if (
+														valueLower.includes(
+															searchLower,
+														)
+													)
+														return 1;
+													if (
+														keywords?.some((kw) =>
+															kw
+																.toLowerCase()
+																.includes(
+																	searchLower,
+																),
+														)
+													)
+														return 0.5;
+													return 0;
+												}}
+											>
 												<CommandInput placeholder="Search unique idols..." />
 												<CommandList className="max-h-80">
 													<CommandEmpty>

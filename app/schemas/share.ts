@@ -16,10 +16,6 @@ export const SharedSetSchema = z.object({
 	set: IdolSetSchema,
 	idols: z.array(InventoryIdolSchema),
 	createdAt: z.number(),
-	expiresAt: z.number(),
 });
 
 export type SharedSet = z.infer<typeof SharedSetSchema>;
-
-export const SHARE_TTL_DAYS = 30;
-export const SHARE_TTL_MS = SHARE_TTL_DAYS * 24 * 60 * 60 * 1000;

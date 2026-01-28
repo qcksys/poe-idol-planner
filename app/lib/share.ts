@@ -7,7 +7,6 @@ import type { InventoryIdol } from "~/schemas/inventory";
 import type { ScarabPricesData } from "~/schemas/scarab";
 import {
 	SHARE_ID_LENGTH,
-	SHARE_TTL_MS,
 	type SharedSet,
 	SharedSetSchema,
 } from "~/schemas/share";
@@ -26,13 +25,11 @@ export function createSharePayload(
 		set.placements.some((p) => p.inventoryIdolId === inv.id),
 	);
 
-	const now = Date.now();
 	return {
 		version: 1,
 		set,
 		idols: relevantIdols,
-		createdAt: now,
-		expiresAt: now + SHARE_TTL_MS,
+		createdAt: Date.now(),
 	};
 }
 
@@ -60,9 +57,7 @@ export async function saveShare(
 	const shareId = generateShareId();
 	const payload = createSharePayload(set, inventory);
 
-	await kv.put(getKvKey(shareId), JSON.stringify(payload), {
-		expirationTtl: Math.ceil(SHARE_TTL_MS / 1000),
-	});
+	await kv.put(getKvKey(shareId), JSON.stringify(payload));
 
 	console.log({
 		message: "Share created",
