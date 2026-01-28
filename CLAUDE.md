@@ -22,10 +22,10 @@ POE Idol Planner is a Path of Exile idol planning tool for the Legacy of Phrecia
 | `pnpm run types:cf` | Generate Cloudflare bindings types |
 | `pnpm run types:rr` | Generate React Router route types |
 | `pnpm run precommit` | Run biome:ci + types (use before committing) |
-| `pnpm run data:convert` | Fetch and convert idol data from poedb.tw |
-| `pnpm run data:convert:cached` | Convert using cached poedb data |
-| `pnpm run data:convert:all` | Convert idol data for all locales |
-| `pnpm run data:scarabs` | Fetch scarab data from poe.ninja |
+| `pnpm run data:idols` | Fetch and convert idol data from poedb.tw |
+| `pnpm run data:idols:cached` | Convert using cached poedb data |
+| `pnpm run data:scarabs` | Fetch scarab data from poedb.tw |
+| `pnpm run data:scarabs:cached` | Convert using cached scarab data |
 | `pnpm run data:leagues` | Fetch current league data |
 | `vitest run path/to/file.test.ts` | Run a single test file |
 
@@ -92,6 +92,9 @@ All data validated with Zod schemas in `app/schemas/`:
 - `idol-set.ts` - Named sets with grid placements
 - `inventory.ts` - Imported idols with usage tracking
 - `storage.ts` - Complete localStorage format with version
+- `league.ts` - League data structure
+- `scarab.ts` - Scarab types and pricing
+- `share.ts` - Sharing/URL encoding format
 
 ### i18n System
 Lightweight client-side localization in `app/i18n/`:
