@@ -65,9 +65,18 @@ function getLocalizedText(
 	return textObj[locale] || textObj.en || "";
 }
 
+// Module-level cache for modifier options per locale
+const modifierOptionsCache = new Map<SupportedLocale, ModifierOption[]>();
+
 export function getModifierOptions(
 	locale: SupportedLocale = "en",
 ): ModifierOption[] {
+	// Return cached result if available
+	const cached = modifierOptionsCache.get(locale);
+	if (cached) {
+		return cached;
+	}
+
 	// Dedupe mods by tier text, merging applicableIdols for identical mods
 	const modsByText = new Map<string, ModifierOption>();
 
@@ -99,7 +108,9 @@ export function getModifierOptions(
 		}
 	}
 
-	return Array.from(modsByText.values());
+	const result = Array.from(modsByText.values());
+	modifierOptionsCache.set(locale, result);
+	return result;
 }
 
 export function ModSearch({

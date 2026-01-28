@@ -1,7 +1,8 @@
 import { Search, Star } from "lucide-react";
-import { useMemo, useState } from "react";
+import { memo, useCallback, useDeferredValue, useMemo, useState } from "react";
 import {
 	getModifierOptions,
+	type ModifierOption,
 	MultiIdolTypeFilter,
 	MultiMechanicFilter,
 } from "~/components/mod-search";
@@ -35,6 +36,7 @@ import {
 	type LeagueMechanic,
 } from "~/data/idol-bases";
 import { useLocale, useTranslations } from "~/i18n";
+import type { Translations } from "~/i18n/types";
 import { cn } from "~/lib/utils";
 
 interface ModsSearchModalProps {
@@ -44,6 +46,128 @@ interface ModsSearchModalProps {
 
 type FavoriteFilter = "all" | "favorites" | "non-favorites";
 type TypeFilter = "all" | "prefix" | "suffix";
+
+interface ModifierRowProps {
+	mod: ModifierOption;
+	isFavorite: boolean;
+	onToggleFavorite: (id: string) => void;
+	t: Translations;
+}
+
+const ModifierRow = memo(function ModifierRow({
+	mod,
+	isFavorite,
+	onToggleFavorite,
+	t,
+}: ModifierRowProps) {
+	const handleToggle = useCallback(() => {
+		onToggleFavorite(mod.id);
+	}, [mod.id, onToggleFavorite]);
+
+	return (
+		<div className="flex items-start gap-2 rounded-md p-2 hover:bg-muted/50">
+			<Tooltip>
+				<TooltipTrigger asChild>
+					<button
+						type="button"
+						onClick={handleToggle}
+						className="mt-0.5 shrink-0 rounded p-1 hover:bg-accent"
+					>
+						<Star
+							className={cn(
+								"h-4 w-4",
+								isFavorite
+									? "fill-yellow-400 text-yellow-400"
+									: "text-muted-foreground",
+							)}
+						/>
+					</button>
+				</TooltipTrigger>
+				<TooltipContent>
+					{isFavorite
+						? t.editor.removeFromFavorites
+						: t.editor.addToFavorites}
+				</TooltipContent>
+			</Tooltip>
+			<div className="min-w-0 flex-1">
+				<div
+					className={cn(
+						"text-sm",
+						mod.type === "prefix"
+							? "text-mod-prefix"
+							: "text-mod-suffix",
+					)}
+				>
+					{mod.tiers[0]?.text || mod.name}
+				</div>
+				<div className="flex items-center gap-1 text-muted-foreground text-xs">
+					<span>
+						{mod.type === "prefix"
+							? t.modsSearch?.prefix || "Prefix"
+							: t.modsSearch?.suffix || "Suffix"}
+					</span>
+					<span>•</span>
+					{mod.applicableIdols.map((idol, index) => {
+						const key = idol.toLowerCase() as IdolBaseKey;
+						const base = IDOL_BASES[key];
+						if (!base) return null;
+						return (
+							<span
+								key={key}
+								className="inline-flex items-center gap-0.5"
+							>
+								{index > 0 && <span className="mr-0.5">,</span>}
+								<img
+									src={base.image}
+									alt=""
+									className="h-4 w-4 object-contain"
+								/>
+								<span>{idol}</span>
+							</span>
+						);
+					})}
+				</div>
+			</div>
+		</div>
+	);
+});
+
+interface MechanicSectionProps {
+	mechanic: LeagueMechanic;
+	mods: ModifierOption[];
+	isFavorite: (id: string) => boolean;
+	onToggleFavorite: (id: string) => void;
+	t: Translations;
+}
+
+const MechanicSection = memo(function MechanicSection({
+	mechanic,
+	mods,
+	isFavorite,
+	onToggleFavorite,
+	t,
+}: MechanicSectionProps) {
+	if (mods.length === 0) return null;
+
+	return (
+		<div>
+			<h4 className="mb-2 border-b pb-1 font-medium text-sm">
+				{t.mechanics[mechanic] || mechanic}
+			</h4>
+			<div className="space-y-1">
+				{mods.map((mod) => (
+					<ModifierRow
+						key={mod.id}
+						mod={mod}
+						isFavorite={isFavorite(mod.id)}
+						onToggleFavorite={onToggleFavorite}
+						t={t}
+					/>
+				))}
+			</div>
+		</div>
+	);
+});
 
 export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 	const t = useTranslations();
@@ -56,6 +180,10 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 	const [typeFilter, setTypeFilter] = useState<TypeFilter>("all");
 	const [favoriteFilter, setFavoriteFilter] = useState<FavoriteFilter>("all");
 
+	// Defer the search query to avoid blocking input
+	const deferredSearchQuery = useDeferredValue(searchQuery);
+
+	// Module-level cached call
 	const allModifiers = useMemo(() => getModifierOptions(locale), [locale]);
 
 	const filteredModifiers = useMemo(() => {
@@ -84,8 +212,8 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 			)
 				return false;
 
-			if (searchQuery) {
-				const query = searchQuery.toLowerCase();
+			if (deferredSearchQuery) {
+				const query = deferredSearchQuery.toLowerCase();
 				const tierText = mod.tiers[0]?.text?.toLowerCase() || "";
 				const nameText = mod.name.toLowerCase();
 				if (!tierText.includes(query) && !nameText.includes(query))
@@ -101,12 +229,14 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 		idolTypeFilter,
 		favoriteFilter,
 		favorites,
-		searchQuery,
+		deferredSearchQuery,
 	]);
 
 	const groupedModifiers = useMemo(() => {
-		const groups: Record<LeagueMechanic, typeof filteredModifiers> =
-			{} as Record<LeagueMechanic, typeof filteredModifiers>;
+		const groups: Record<LeagueMechanic, ModifierOption[]> = {} as Record<
+			LeagueMechanic,
+			ModifierOption[]
+		>;
 		for (const mod of filteredModifiers) {
 			if (!groups[mod.mechanic]) {
 				groups[mod.mechanic] = [];
@@ -115,6 +245,13 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 		}
 		return groups;
 	}, [filteredModifiers]);
+
+	const handleToggleFavorite = useCallback(
+		(id: string) => {
+			toggleFavorite(id);
+		},
+		[toggleFavorite],
+	);
 
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
@@ -235,126 +372,14 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 							if (!mods || mods.length === 0) return null;
 
 							return (
-								<div key={mechanic}>
-									<h4 className="mb-2 border-b pb-1 font-medium text-sm">
-										{t.mechanics[mechanic] || mechanic}
-									</h4>
-									<div className="space-y-1">
-										{mods.map((mod) => {
-											const modIsFavorite = isFavorite(
-												mod.id,
-											);
-											return (
-												<div
-													key={mod.id}
-													className="flex items-start gap-2 rounded-md p-2 hover:bg-muted/50"
-												>
-													<Tooltip>
-														<TooltipTrigger asChild>
-															<button
-																type="button"
-																onClick={() =>
-																	toggleFavorite(
-																		mod.id,
-																	)
-																}
-																className="mt-0.5 shrink-0 rounded p-1 hover:bg-accent"
-															>
-																<Star
-																	className={cn(
-																		"h-4 w-4",
-																		modIsFavorite
-																			? "fill-yellow-400 text-yellow-400"
-																			: "text-muted-foreground",
-																	)}
-																/>
-															</button>
-														</TooltipTrigger>
-														<TooltipContent>
-															{modIsFavorite
-																? t.editor
-																		.removeFromFavorites
-																: t.editor
-																		.addToFavorites}
-														</TooltipContent>
-													</Tooltip>
-													<div className="min-w-0 flex-1">
-														<div
-															className={cn(
-																"text-sm",
-																mod.type ===
-																	"prefix"
-																	? "text-mod-prefix"
-																	: "text-mod-suffix",
-															)}
-														>
-															{mod.tiers[0]
-																?.text ||
-																mod.name}
-														</div>
-														<div className="flex items-center gap-1 text-muted-foreground text-xs">
-															<span>
-																{mod.type ===
-																"prefix"
-																	? t
-																			.modsSearch
-																			?.prefix ||
-																		"Prefix"
-																	: t
-																			.modsSearch
-																			?.suffix ||
-																		"Suffix"}
-															</span>
-															<span>•</span>
-															{mod.applicableIdols.map(
-																(
-																	idol,
-																	index,
-																) => {
-																	const key =
-																		idol.toLowerCase() as IdolBaseKey;
-																	const base =
-																		IDOL_BASES[
-																			key
-																		];
-																	if (!base)
-																		return null;
-																	return (
-																		<span
-																			key={
-																				key
-																			}
-																			className="inline-flex items-center gap-0.5"
-																		>
-																			{index >
-																				0 && (
-																				<span className="mr-0.5">
-																					,
-																				</span>
-																			)}
-																			<img
-																				src={
-																					base.image
-																				}
-																				alt=""
-																				className="h-4 w-4 object-contain"
-																			/>
-																			<span>
-																				{
-																					idol
-																				}
-																			</span>
-																		</span>
-																	);
-																},
-															)}
-														</div>
-													</div>
-												</div>
-											);
-										})}
-									</div>
-								</div>
+								<MechanicSection
+									key={mechanic}
+									mechanic={mechanic}
+									mods={mods}
+									isFavorite={isFavorite}
+									onToggleFavorite={handleToggleFavorite}
+									t={t}
+								/>
 							);
 						})}
 
