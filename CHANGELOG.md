@@ -1,5 +1,57 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- 234df15: add map device unlock tracking per set - dropdown with toggles to select which atlas/boss unlocks are completed, locked grid slots shown with amber lock icons and tooltips explaining the requirement. All unlocks are enabled by default.
+
+  update scarab images to use local files only, remove CDN fallback - scarab converter script now returns null for missing images instead of falling back to CDN URLs.
+
+- 1b59c11: - add league selector to header for selecting trade league
+  - trade searches now use the selected league instead of hardcoded default
+  - league selection persists to localStorage
+  - add data:leagues script to fetch available leagues from PoE API
+- 9544f9a: - fix scarab selector to show all category types instead of only first 8
+  - remember selected scarab category filter across slots
+  - add map device crafting options (standard and imbued)
+  - imbued options only available when Horned Scarab of Awakening is selected
+  - display crafting option effect on map device card and in total stats summary
+- 8de3cca: add unique idol parsing to poedb-converter script - extracts 40 unique Minor Idols with names, base types, implicit/explicit modifiers, and value ranges from poedb.tw pages
+- fc5842d: add confirmation dialog for idol deletion and import button for shared sets
+- e950dc2: Enhanced unique idol support: added "unique" modifier type for proper mod storage and display, unique idol images for Minor idols, amber/gold mod coloring, and searchable unique idol selector with mod text filtering
+- 03b1571: feat: parse imported idol values into preset mods for editing
+
+  When importing an idol from POE clipboard, the parser now matches modifier text against known modifier definitions. This allows imported idols to be edited with the preset mods already filled out (correct tier, rolled value, modifier ID, and mechanic).
+  - Added `mod-matcher.ts` with text normalization and matching logic
+  - Integrated matching into `idol-parser.ts` conversion flow
+  - Added comprehensive tests for matching and integration
+
+- 3094de4: remove legacy storage schemas (V1-V3) and migration functions
+- 92fa1eb: - add Cloudflare cron job to fetch scarab prices from POE Ninja every 15 minutes
+  - store scarab prices in KV namespace per league
+  - add API endpoint to retrieve cached scarab prices
+  - display chaos prices in map device scarab selector and tooltips
+- 94a7f80: Add mods search modal, unique idols support, and multi-select mechanic filters
+  - Move unlocks dropdown into map device section header
+  - Add new mods search modal with filters for type, favorites, and mechanics (accessible via Browse Mods button)
+  - Add unique idols as a selectable option in the create idol dropdown
+  - Update all mechanic filters to support multi-select (inventory panel, idol editor, mods search)
+  - Add translations for new features across all 10 locales
+
+### Patch Changes
+
+- 929d10d: Add Harbinger mechanic to filter list - fixes Harbinger mods being incorrectly categorized as "map" mechanic
+- fc5842d: fix drag preview highlighting showing red on valid cells
+- 234df15: - increase total stats panel width from 300px to 350px
+  - show idol type names (Minor, Kamasan/Noble, Totemic/Burial, Conqueror) instead of generic sizes in stat contribution breakdown
+- 2dc4aa5: fix ScrollArea not scrolling with mouse wheel inside Dialog
+- 0e97325: - fix idol grid hover to show remove/copy buttons when hovering any cell of multi-cell idols, not just the top-left origin cell
+  - fix tooltip positioning to show on the opposite side when hovering wide idols (left half shows tooltip on right, right half shows on left)
+  - fix drag-and-drop to allow dropping an idol onto its own position for repositioning
+  - add Zod validation for share ID format in share API endpoint
+  - add Zod validation for league query parameter in scarab prices API endpoint
+
 ## 0.3.0
 
 ### Minor Changes
