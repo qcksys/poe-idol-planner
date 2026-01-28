@@ -1,5 +1,5 @@
 // Auto-generated file - do not edit manually
-// Generated at: 2026-01-26T10:57:02.956Z
+// Generated at: 2026-01-28T01:59:10.728Z
 // Total mappings: 368
 
 export const TRADE_STAT_MAPPINGS: Record<string, string> = {
