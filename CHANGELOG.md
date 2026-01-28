@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.7.0
+
+### Minor Changes
+
+- 4735020: Consolidate trade stat mappings into idol-modifiers.json. The converter now fetches trade stats directly from the POE API and embeds `tradeStatId` into each modifier tier, eliminating the separate trade-stat-mappings files.
+  - Improve trade stat matching to handle decimal number ranges (e.g., `(0.8—1.2)%`)
+  - Add direction word canonicalization so opposite modifiers match (reduced↔increased, less↔more, slower↔faster, fewer↔additional)
+  - Reduce unmatched modifiers from 31 to 8 (74% improvement)
+
+### Patch Changes
+
+- 229e602: Fix unique idol search filtering and remove shared set expiry
+  - Fix unique idol selector search not filtering items by adding custom filter function to Command component
+  - Remove 30-day expiry from shared sets - shares are now permanent
+
 ## 0.6.0
 
 ### Minor Changes
