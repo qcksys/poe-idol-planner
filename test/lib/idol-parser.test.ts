@@ -1,6 +1,7 @@
 /** biome-ignore-all lint/style/noNonNullAssertion: Tests */
 import { describe, expect, it } from "vitest";
 import { parseIdolText, parseMultipleIdols } from "~/lib/idol-parser";
+import { resolveModText } from "~/lib/mod-text-resolver";
 
 const SIMPLE_FORMAT_IDOL = `
 Item Class: Idols
@@ -159,7 +160,7 @@ describe("idol-parser", () => {
 				expect(result.success).toBe(true);
 				const idol = result.idol!;
 				const legionMod = idol.prefixes.find((p) =>
-					p.text.includes("Legion"),
+					resolveModText(p, "en").includes("Legion"),
 				);
 				expect(legionMod?.rolledValue).toBe(65);
 			});
@@ -317,12 +318,12 @@ describe("idol-parser", () => {
 			expect(result.success).toBe(true);
 			const idol = result.idol!;
 
-			// Find the Legion modifier
+			// Find the Legion modifier by modId
 			const legionMod = [...idol.prefixes, ...idol.suffixes].find((m) =>
-				m.text.includes("Legion"),
+				m.modId.includes("legion"),
 			);
 
-			if (legionMod?.modId.includes("legion")) {
+			if (legionMod) {
 				expect(legionMod.mechanic).toBe("legion");
 			}
 		});
@@ -352,9 +353,9 @@ describe("idol-parser", () => {
 			expect(result.success).toBe(true);
 			const idol = result.idol!;
 
-			// Find the Legion modifier with known rolled value of 65
+			// Find the Legion modifier by modId with known rolled value of 65
 			const legionMod = idol.prefixes.find((p) =>
-				p.text.includes("Legion"),
+				p.modId.includes("legion"),
 			);
 
 			expect(legionMod).toBeDefined();

@@ -223,7 +223,6 @@ function convertToIdolInstance(parsed: ParsedIdol): IdolInstance {
 	const suffixes: IdolModifier[] = [];
 
 	for (const mod of parsed.modifiers) {
-		// Try to match the modifier text against known modifier definitions
 		const match = matchModifierToDefinition(
 			mod.text,
 			mod.rolledValue,
@@ -236,18 +235,15 @@ function convertToIdolInstance(parsed: ParsedIdol): IdolInstance {
 		let idolMod: IdolModifier;
 
 		if (match) {
-			// Use matched modifier definition
 			idolMod = {
 				modId: match.modId,
 				type: match.type,
 				tier: match.tier,
-				text: mod.text,
 				rolledValue: mod.rolledValue,
 				valueRange: match.valueRange,
 				mechanic: match.mechanic,
 			};
 		} else {
-			// Fallback to original behavior when no match found
 			idolMod = {
 				modId: mod.modName || nanoid(),
 				type: mod.type,
