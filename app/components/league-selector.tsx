@@ -23,7 +23,7 @@ export function LeagueSelector() {
 			<Select disabled>
 				<SelectTrigger className="w-[180px]">
 					<Trophy className="mr-2 h-4 w-4" />
-					<SelectValue placeholder="Loading..." />
+					<SelectValue placeholder={t.actions.loading} />
 				</SelectTrigger>
 			</Select>
 		);

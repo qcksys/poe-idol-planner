@@ -42,14 +42,30 @@ function getIdolSizeGroup(baseType: IdolBaseKey): IdolSizeGroup {
 	return "large";
 }
 
-const SIZE_GROUP_NAMES: Record<IdolSizeGroup, string> = {
+type SizeGroupNameKey =
+	| "sizeGroupMinor"
+	| "sizeGroupSmall"
+	| "sizeGroupMedium"
+	| "sizeGroupLarge";
+
+const SIZE_GROUP_NAME_KEYS: Record<IdolSizeGroup, SizeGroupNameKey> = {
+	minor: "sizeGroupMinor",
+	small: "sizeGroupSmall",
+	medium: "sizeGroupMedium",
+	large: "sizeGroupLarge",
+};
+
+const SIZE_GROUP_FALLBACKS: Record<IdolSizeGroup, string> = {
 	minor: "Minor",
 	small: "Kamasan/Noble",
 	medium: "Totemic/Burial",
 	large: "Conqueror",
 };
 
-function formatContributions(contributions: IdolContribution[]): string {
+function formatContributions(
+	contributions: IdolContribution[],
+	idolTranslations?: Record<string, string>,
+): string {
 	const counts: Record<IdolSizeGroup, number> = {
 		minor: 0,
 		small: 0,
@@ -64,7 +80,11 @@ function formatContributions(contributions: IdolContribution[]): string {
 	const parts: string[] = [];
 	for (const [group, count] of Object.entries(counts)) {
 		if (count > 0) {
-			parts.push(`${count}x ${SIZE_GROUP_NAMES[group as IdolSizeGroup]}`);
+			const key = SIZE_GROUP_NAME_KEYS[group as IdolSizeGroup];
+			const name =
+				idolTranslations?.[key] ||
+				SIZE_GROUP_FALLBACKS[group as IdolSizeGroup];
+			parts.push(`${count}x ${name}`);
 		}
 	}
 
@@ -252,6 +272,7 @@ function MechanicSection({ data }: { data: StatsByMechanic }) {
 					);
 					const contributionText = formatContributions(
 						stat.contributions,
+						t.idol as Record<string, string> | undefined,
 					);
 					return (
 						<div
@@ -329,8 +350,9 @@ function ScarabsSection({
 			</h4>
 			{Object.entries(scarabsByCategory).map(([category, catScarabs]) => (
 				<div key={category} className="mb-2">
-					<div className="mb-1 text-muted-foreground text-xs capitalize">
-						{category}
+					<div className="mb-1 text-muted-foreground text-xs">
+						{t.mechanics?.[category as keyof typeof t.mechanics] ||
+							category}
 					</div>
 					<div className="space-y-1">
 						{catScarabs.map((scarab) => (
@@ -429,14 +451,17 @@ export function StatsSummary({
 							{t.stats.totalStats}
 						</CardTitle>
 						<span className="text-muted-foreground text-sm">
-							{totalStats} modifier(s)
+							{(
+								t.stats?.modifierCount || "{count} modifier(s)"
+							).replace("{count}", String(totalStats))}
 							{selectedScarabs.length > 0 &&
-								` + ${selectedScarabs.length} scarab(s)`}
+								` + ${(t.stats?.scarabCount || "{count} scarab(s)").replace("{count}", String(selectedScarabs.length))}`}
 						</span>
 					</div>
 					{totalCost > 0 && (
 						<div className="text-right text-sm text-yellow-600 dark:text-yellow-400">
-							Total Cost: {formatChaosPrice(totalCost)}c
+							{t.stats?.totalCost || "Total Cost:"}{" "}
+							{formatChaosPrice(totalCost)}c
 						</div>
 					)}
 				</div>

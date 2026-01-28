@@ -27,7 +27,7 @@ export function AppHeader({ onShareClick }: AppHeaderProps) {
 						{t.app.title}
 					</Link>
 					<span className="rounded bg-primary px-1.5 py-0.5 text-primary-foreground text-xs">
-						Legacy of Phrecia
+						{t.app.subtitle}
 					</span>
 					<Link
 						to="/changelog"
@@ -59,7 +59,7 @@ export function AppHeader({ onShareClick }: AppHeaderProps) {
 								</a>
 							</Button>
 						</TooltipTrigger>
-						<TooltipContent>Email me</TooltipContent>
+						<TooltipContent>{t.footer.emailMe}</TooltipContent>
 					</Tooltip>
 					<Tooltip>
 						<TooltipTrigger asChild>

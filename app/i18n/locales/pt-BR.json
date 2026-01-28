@@ -45,14 +45,16 @@
 		"confirmDelete": "Excluir Ídolo",
 		"confirmDeleteMessage": "Tem certeza de que deseja excluir este ídolo? Ele também será removido de todas as colocações.",
 		"confirmDeleteMultiple": "Excluir {count} Ídolos",
-		"confirmDeleteMultipleMessage": "Tem certeza de que deseja excluir {count} ídolos? Eles também serão removidos de todas as colocações."
+		"confirmDeleteMultipleMessage": "Tem certeza de que deseja excluir {count} ídolos? Eles também serão removidos de todas as colocações.",
+		"idolCount": "{count} ídolo(s)"
 	},
 	"grid": {
 		"tab1": "Aba 1",
 		"tab2": "Aba 2",
 		"tab3": "Aba 3",
 		"dropHere": "Solte o ídolo aqui",
-		"removeFromGrid": "Remover da Grade"
+		"removeFromGrid": "Remover da Grade",
+		"lockedSlot": "Slot Bloqueado"
 	},
 	"actions": {
 		"import": "Importar",
@@ -70,12 +72,17 @@
 		"copyToInventory": "Copiar para o inventário",
 		"changeLanguage": "Alterar idioma",
 		"selectLeague": "Liga para preços e buscas de trade",
-		"newSet": "Criar novo conjunto de ídolos"
+		"newSet": "Criar novo conjunto de ídolos",
+		"loading": "Carregando...",
+		"tryAgain": "Tentar Novamente"
 	},
 	"stats": {
 		"totalStats": "Estatísticas Totais",
 		"byMechanic": "Por Mecânica",
-		"noStats": "Nenhuma estatística para exibir"
+		"noStats": "Nenhuma estatística para exibir",
+		"modifierCount": "{count} modificador(es)",
+		"scarabCount": "{count} escaravelho(s)",
+		"totalCost": "Custo Total:"
 	},
 	"trade": {
 		"findSimilar": "Encontrar Similar no Trade",
@@ -98,20 +105,33 @@
 		"advancedFormat": "Formato avançado (Ctrl+Alt+C)",
 		"parseError": "Não foi possível analisar os dados do ídolo. Verifique o formato.",
 		"success": "Ídolo importado com sucesso!",
-		"importButton": "Importar"
+		"importButton": "Importar",
+		"parseSuccess": "{count} ídolo(s) analisado(s) com sucesso",
+		"parseFailed": "{count} falhou ao analisar"
 	},
 	"share": {
 		"title": "Compartilhar Conjunto",
 		"description": "Compartilhe este conjunto com outros usando o link abaixo.",
 		"linkCopied": "Link copiado para a área de transferência!",
 		"loading": "Gerando link de compartilhamento...",
-		"error": "Falha ao gerar link de compartilhamento. Tente novamente."
+		"error": "Falha ao gerar link de compartilhamento. Tente novamente.",
+		"generateLink": "Gerar Link de Compartilhamento",
+		"linkExpiry": "O link expira em 30 dias",
+		"fetching": "Carregando conjunto compartilhado",
+		"goToPlanner": "Ir para o Planejador",
+		"sharedSetTitle": "Conjunto de Ídolos Compartilhado",
+		"sharedSetDescription": "Alguém compartilhou um conjunto de ídolos com você",
+		"idolsInSet": "Ídolos neste conjunto:",
+		"importing": "Importando...",
+		"importSet": "Importar Conjunto"
 	},
 	"errors": {
 		"invalidIdol": "Dados de ídolo inválidos",
 		"parseError": "Falha ao analisar dados",
 		"storageError": "Erro de armazenamento ocorrido",
-		"networkError": "Erro de rede ocorrido"
+		"networkError": "Erro de rede ocorrido",
+		"title": "Erro",
+		"unknown": "Erro desconhecido"
 	},
 	"editor": {
 		"createIdol": "Criar Ídolo",
@@ -126,6 +146,9 @@
 		"prefixes": "Prefixos",
 		"suffixes": "Sufixos",
 		"tier": "Tier",
+		"tierLabel": "T{tier}",
+		"prefixSlot": "Prefixo {index}",
+		"suffixSlot": "Sufixo {index}",
 		"selectMod": "Selecionar modificador...",
 		"searchMods": "Buscar modificadores...",
 		"noModsFound": "Nenhum modificador encontrado.",
@@ -165,7 +188,9 @@
 		"type": "Filtrar por Tipo",
 		"allTypes": "Todos os Tipos",
 		"prefixOnly": "Apenas Prefixos",
-		"suffixOnly": "Apenas Sufixos"
+		"suffixOnly": "Apenas Sufixos",
+		"selectAll": "Todos",
+		"selectNone": "Nenhum"
 	},
 	"mapDevice": {
 		"title": "Dispositivo de Mapas",
@@ -178,10 +203,29 @@
 		"standardOptions": "Opções Padrão",
 		"imbuedOptions": "Opções Imbuídas",
 		"craftingOptionEffect": "Dispositivo de Mapas",
-		"clearSlot": "Limpar slot"
+		"clearSlot": "Limpar slot",
+		"limitLabel": "Limite:",
+		"costFree": "Grátis",
+		"scarabCount": "{count}/5 escaravelhos",
+		"unlocksTitle": "Desbloqueios do Dispositivo",
+		"unlocksCount": "Desbloqueados ({unlocked}/{total})"
+	},
+	"idol": {
+		"modCount": "{count} modificador(es)",
+		"minorIdol": "Ídolo Menor",
+		"kamasanIdol": "Ídolo Kamasan",
+		"totemicIdol": "Ídolo Totêmico",
+		"nobleIdol": "Ídolo Nobre",
+		"burialIdol": "Ídolo de Enterro",
+		"conquerorIdol": "Ídolo Conquistador",
+		"sizeGroupMinor": "Menor",
+		"sizeGroupSmall": "Kamasan/Nobre",
+		"sizeGroupMedium": "Totêmico/Enterro",
+		"sizeGroupLarge": "Conquistador"
 	},
 	"footer": {
-		"dataFrom": "Dados de"
+		"dataFrom": "Dados de",
+		"emailMe": "Enviar email"
 	},
 	"mechanics": {
 		"abyss": "Abismo",

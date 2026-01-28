@@ -156,13 +156,18 @@ export function ImportModal({
 								<div className="flex items-center gap-2 text-sm">
 									{successCount > 0 && (
 										<span className="text-success">
-											{successCount} idol(s) parsed
-											successfully
+											{t.import.parseSuccess.replace(
+												"{count}",
+												String(successCount),
+											)}
 										</span>
 									)}
 									{errorCount > 0 && (
 										<span className="text-destructive">
-											{errorCount} failed to parse
+											{t.import.parseFailed.replace(
+												"{count}",
+												String(errorCount),
+											)}
 										</span>
 									)}
 								</div>
@@ -181,7 +186,7 @@ export function ImportModal({
 												className="rounded border border-destructive/50 bg-destructive/10 p-2 text-destructive text-sm"
 											>
 												{result.error ||
-													"Unknown error"}
+													t.errors.unknown}
 											</div>
 										),
 									)}

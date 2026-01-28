@@ -10,6 +10,7 @@ import {
 	DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 import { MAP_DEVICE_UNLOCKS } from "~/data/map-device-unlocks";
+import { useTranslations } from "~/i18n";
 
 interface MapDeviceUnlocksProps {
 	unlockedConditions: string[];
@@ -20,6 +21,7 @@ export function MapDeviceUnlocks({
 	unlockedConditions,
 	onUnlockedConditionsChange,
 }: MapDeviceUnlocksProps) {
+	const t = useTranslations();
 	const unlockedSet = useMemo(
 		() => new Set(unlockedConditions),
 		[unlockedConditions],
@@ -56,14 +58,16 @@ export function MapDeviceUnlocks({
 						<Lock className="h-4 w-4" />
 					)}
 					<span>
-						Unlocks ({unlockedCount}/{totalCount})
+						{t.mapDevice.unlocksCount
+							.replace("{unlocked}", String(unlockedCount))
+							.replace("{total}", String(totalCount))}
 					</span>
 					<ChevronDown className="h-4 w-4" />
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="start" className="w-80">
 				<DropdownMenuLabel className="flex items-center justify-between">
-					<span>Map Device Unlocks</span>
+					<span>{t.mapDevice.unlocksTitle}</span>
 					<div className="flex gap-1">
 						<Button
 							variant="ghost"
@@ -71,7 +75,7 @@ export function MapDeviceUnlocks({
 							className="h-6 px-2 text-xs"
 							onClick={unlockAll}
 						>
-							All
+							{t.filter.selectAll}
 						</Button>
 						<Button
 							variant="ghost"
@@ -79,7 +83,7 @@ export function MapDeviceUnlocks({
 							className="h-6 px-2 text-xs"
 							onClick={lockAll}
 						>
-							None
+							{t.filter.selectNone}
 						</Button>
 					</div>
 				</DropdownMenuLabel>

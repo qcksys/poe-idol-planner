@@ -45,14 +45,16 @@
 		"confirmDelete": "删除神像",
 		"confirmDeleteMessage": "确定要删除此神像吗？这也会将其从所有布局中移除。",
 		"confirmDeleteMultiple": "删除 {count} 个神像",
-		"confirmDeleteMultipleMessage": "确定要删除 {count} 个神像吗？这也会将它们从所有布局中移除。"
+		"confirmDeleteMultipleMessage": "确定要删除 {count} 个神像吗？这也会将它们从所有布局中移除。",
+		"idolCount": "{count} 个神像"
 	},
 	"grid": {
 		"tab1": "标签页 1",
 		"tab2": "标签页 2",
 		"tab3": "标签页 3",
 		"dropHere": "拖放神像至此",
-		"removeFromGrid": "从格子移除"
+		"removeFromGrid": "从格子移除",
+		"lockedSlot": "已锁定的槽位"
 	},
 	"actions": {
 		"import": "导入",
@@ -70,12 +72,17 @@
 		"copyToInventory": "复制到仓库",
 		"changeLanguage": "更改显示语言",
 		"selectLeague": "用于价格和交易搜索的赛季",
-		"newSet": "创建新的神像配置"
+		"newSet": "创建新的神像配置",
+		"loading": "加载中...",
+		"tryAgain": "重试"
 	},
 	"stats": {
 		"totalStats": "总计属性",
 		"byMechanic": "按机制分类",
-		"noStats": "没有可显示的属性"
+		"noStats": "没有可显示的属性",
+		"modifierCount": "{count} 个词缀",
+		"scarabCount": "{count} 个圣甲虫",
+		"totalCost": "总成本："
 	},
 	"trade": {
 		"findSimilar": "在交易站搜索相似物品",
@@ -98,20 +105,33 @@
 		"advancedFormat": "高级格式 (Ctrl+Alt+C)",
 		"parseError": "无法解析神像数据。请检查格式。",
 		"success": "神像导入成功！",
-		"importButton": "导入"
+		"importButton": "导入",
+		"parseSuccess": "成功解析 {count} 个神像",
+		"parseFailed": "{count} 个解析失败"
 	},
 	"share": {
 		"title": "分享配置",
 		"description": "使用以下链接与他人分享此配置。",
 		"linkCopied": "链接已复制到剪贴板！",
 		"loading": "正在生成分享链接...",
-		"error": "生成分享链接失败。请重试。"
+		"error": "生成分享链接失败。请重试。",
+		"generateLink": "生成分享链接",
+		"linkExpiry": "链接将在 30 天后过期",
+		"fetching": "正在获取分享配置",
+		"goToPlanner": "前往规划器",
+		"sharedSetTitle": "分享的神像配置",
+		"sharedSetDescription": "有人与你分享了一个神像配置",
+		"idolsInSet": "此配置中的神像：",
+		"importing": "导入中...",
+		"importSet": "导入配置"
 	},
 	"errors": {
 		"invalidIdol": "无效的神像数据",
 		"parseError": "解析数据失败",
 		"storageError": "发生存储错误",
-		"networkError": "发生网络错误"
+		"networkError": "发生网络错误",
+		"title": "错误",
+		"unknown": "未知错误"
 	},
 	"editor": {
 		"createIdol": "创建神像",
@@ -126,6 +146,9 @@
 		"prefixes": "前缀",
 		"suffixes": "后缀",
 		"tier": "阶级",
+		"tierLabel": "T{tier}",
+		"prefixSlot": "前缀 {index}",
+		"suffixSlot": "后缀 {index}",
 		"selectMod": "选择词缀...",
 		"searchMods": "搜索词缀...",
 		"noModsFound": "找不到词缀。",
@@ -165,7 +188,9 @@
 		"type": "按类型筛选",
 		"allTypes": "所有类型",
 		"prefixOnly": "仅前缀",
-		"suffixOnly": "仅后缀"
+		"suffixOnly": "仅后缀",
+		"selectAll": "全选",
+		"selectNone": "取消"
 	},
 	"mapDevice": {
 		"title": "地图仪",
@@ -178,10 +203,29 @@
 		"standardOptions": "标准选项",
 		"imbuedOptions": "灌注选项",
 		"craftingOptionEffect": "地图仪",
-		"clearSlot": "清空槽位"
+		"clearSlot": "清空槽位",
+		"limitLabel": "限制：",
+		"costFree": "免费",
+		"scarabCount": "{count}/5 圣甲虫",
+		"unlocksTitle": "地图仪解锁",
+		"unlocksCount": "已解锁 ({unlocked}/{total})"
+	},
+	"idol": {
+		"modCount": "{count} 个词缀",
+		"minorIdol": "小型神像",
+		"kamasanIdol": "卡玛桑神像",
+		"totemicIdol": "图腾神像",
+		"nobleIdol": "贵族神像",
+		"burialIdol": "葬礼神像",
+		"conquerorIdol": "征服者神像",
+		"sizeGroupMinor": "小型",
+		"sizeGroupSmall": "卡玛桑/贵族",
+		"sizeGroupMedium": "图腾/葬礼",
+		"sizeGroupLarge": "征服者"
 	},
 	"footer": {
-		"dataFrom": "数据来自"
+		"dataFrom": "数据来自",
+		"emailMe": "发送邮件"
 	},
 	"mechanics": {
 		"abyss": "深渊",

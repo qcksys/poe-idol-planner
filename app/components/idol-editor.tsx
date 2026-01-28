@@ -113,11 +113,22 @@ function ModSlot({
 		});
 	};
 
+	const slotLabel =
+		type === "prefix"
+			? (t.editor?.prefixSlot || "Prefix {index}").replace(
+					"{index}",
+					String(index + 1),
+				)
+			: (t.editor?.suffixSlot || "Suffix {index}").replace(
+					"{index}",
+					String(index + 1),
+				);
+
 	return (
 		<div className="space-y-2 rounded-lg border p-3">
 			<div className="flex items-center gap-2">
-				<span className="w-16 text-muted-foreground text-sm capitalize">
-					{type} {index + 1}
+				<span className="w-16 text-muted-foreground text-sm">
+					{slotLabel}
 				</span>
 				<div className="flex-1">
 					<ModSearch
@@ -163,7 +174,12 @@ function ModSlot({
 											key={tier.tier}
 											value={String(tier.tier)}
 										>
-											T{tier.tier}
+											{(
+												t.editor?.tierLabel || "T{tier}"
+											).replace(
+												"{tier}",
+												String(tier.tier),
+											)}
 										</SelectItem>
 									))}
 								</SelectContent>
@@ -232,7 +248,7 @@ export function IdolEditor({
 		useState<UniqueIdol | null>(null);
 	const [uniqueIdolOpen, setUniqueIdolOpen] = useState(false);
 
-	const allModifiers = useMemo(() => getModifierOptions(), []);
+	const allModifiers = useMemo(() => getModifierOptions(locale), [locale]);
 
 	useEffect(() => {
 		if (initialIdol) {
@@ -389,7 +405,7 @@ export function IdolEditor({
 				(mod, index) => ({
 					modId: `unique_${selectedUniqueIdol.id}_${index}`,
 					type: "unique" as const,
-					text: mod.text.en || mod.text[locale] || "",
+					text: mod.text[locale] || mod.text.en || "",
 					rolledValue: mod.values[0]?.min ?? mod.values[0]?.max ?? 0,
 					valueRange: mod.values[0],
 					tier: 1,
@@ -682,10 +698,8 @@ export function IdolEditor({
 														className="text-sm"
 													>
 														{highlightNumbers(
-															mod.text.en ||
-																mod.text[
-																	locale
-																] ||
+															mod.text[locale] ||
+																mod.text.en ||
 																"",
 														)}
 													</div>

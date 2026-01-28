@@ -29,7 +29,8 @@ import {
 	type LeagueMechanic,
 } from "~/data/idol-bases";
 import idolModifiers from "~/data/idol-modifiers.json";
-import { useTranslations } from "~/i18n";
+import { useLocale, useTranslations } from "~/i18n";
+import type { SupportedLocale } from "~/i18n/types";
 import { cn } from "~/lib/utils";
 
 export interface ModifierOption {
@@ -57,13 +58,22 @@ interface ModSearchProps {
 	placeholder?: string;
 }
 
-export function getModifierOptions(): ModifierOption[] {
+function getLocalizedText(
+	textObj: Record<string, string>,
+	locale: SupportedLocale,
+): string {
+	return textObj[locale] || textObj.en || "";
+}
+
+export function getModifierOptions(
+	locale: SupportedLocale = "en",
+): ModifierOption[] {
 	// Dedupe mods by tier text, merging applicableIdols for identical mods
 	const modsByText = new Map<string, ModifierOption>();
 
 	for (const mod of idolModifiers) {
-		const tierText = mod.tiers[0]?.text?.en || "";
-		const key = `${mod.type}:${mod.mechanic}:${tierText}`;
+		const tierText = getLocalizedText(mod.tiers[0]?.text || {}, locale);
+		const key = `${mod.type}:${mod.mechanic}:${mod.tiers[0]?.text?.en || ""}`;
 
 		const existing = modsByText.get(key);
 		if (existing) {
@@ -76,13 +86,13 @@ export function getModifierOptions(): ModifierOption[] {
 			modsByText.set(key, {
 				id: mod.id,
 				type: mod.type as "prefix" | "suffix",
-				name: mod.name.en || tierText || mod.id,
+				name: getLocalizedText(mod.name, locale) || tierText || mod.id,
 				mechanic: mod.mechanic as LeagueMechanic,
 				applicableIdols: [...mod.applicableIdols],
 				tiers: mod.tiers.map((tier) => ({
 					tier: tier.tier,
 					levelReq: tier.levelReq,
-					text: tier.text.en || "",
+					text: getLocalizedText(tier.text, locale),
 					values: tier.values || [],
 				})),
 			});
@@ -103,11 +113,12 @@ export function ModSearch({
 	placeholder,
 }: ModSearchProps) {
 	const t = useTranslations();
+	const locale = useLocale();
 	const [open, setOpen] = useState(false);
 	const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
 	const { favorites, toggleFavorite, isFavorite } = useFavorites();
 
-	const allModifiers = useMemo(() => getModifierOptions(), []);
+	const allModifiers = useMemo(() => getModifierOptions(locale), [locale]);
 
 	const filteredModifiers = useMemo(() => {
 		return allModifiers.filter((mod) => {
@@ -437,7 +448,7 @@ export function MultiMechanicFilter({
 								className="h-6 px-2 text-xs"
 								onClick={handleSelectAll}
 							>
-								All
+								{t.filter?.selectAll || "All"}
 							</Button>
 							<Button
 								variant="ghost"
@@ -445,7 +456,7 @@ export function MultiMechanicFilter({
 								className="h-6 px-2 text-xs"
 								onClick={handleClearAll}
 							>
-								None
+								{t.filter?.selectNone || "None"}
 							</Button>
 						</div>
 					</div>
@@ -512,11 +523,16 @@ export function MultiIdolTypeFilter({
 		onChange([]);
 	};
 
+	const getIdolName = (key: IdolBaseKey) => {
+		const idolNameKey = `${key}Idol` as keyof typeof t.idol;
+		return t.idol?.[idolNameKey] || IDOL_BASES[key].name;
+	};
+
 	const displayText =
 		value.length === 0
 			? t.filter?.allIdolTypes || "All Idol Types"
 			: value.length === 1
-				? IDOL_BASES[value[0]].name
+				? getIdolName(value[0])
 				: (t.filter?.idolTypesSelected || "{count} idol types").replace(
 						"{count}",
 						String(value.length),
@@ -553,7 +569,7 @@ export function MultiIdolTypeFilter({
 								className="h-6 px-2 text-xs"
 								onClick={handleSelectAll}
 							>
-								All
+								{t.filter?.selectAll || "All"}
 							</Button>
 							<Button
 								variant="ghost"
@@ -561,7 +577,7 @@ export function MultiIdolTypeFilter({
 								className="h-6 px-2 text-xs"
 								onClick={handleClearAll}
 							>
-								None
+								{t.filter?.selectNone || "None"}
 							</Button>
 						</div>
 					</div>
@@ -572,7 +588,7 @@ export function MultiIdolTypeFilter({
 						</CommandEmpty>
 						<CommandGroup>
 							{IDOL_BASE_KEYS.map((idolType) => {
-								const displayText = IDOL_BASES[idolType].name;
+								const displayText = getIdolName(idolType);
 								const isSelected = selectedSet.has(idolType);
 								return (
 									<CommandItem
