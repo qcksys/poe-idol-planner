@@ -59,7 +59,6 @@ interface IdolGridProps {
 		tab: GridTab,
 	) => void;
 	onRemoveIdol?: (placementId: string) => void;
-	onCopyIdol?: (idol: IdolInstance) => void;
 	onIdolClick?: (idol: IdolInstance, placementId: string) => void;
 }
 
@@ -239,7 +238,6 @@ interface PlacedIdolProps {
 	onHoverEnd: () => void;
 	onIdolClick?: (idol: IdolInstance, placementId: string) => void;
 	onRemoveIdol?: (placementId: string) => void;
-	onCopyIdol?: (idol: IdolInstance) => void;
 	onDragStart: (
 		placementId: string,
 		offset: { x: number; y: number },
@@ -256,7 +254,6 @@ function PlacedIdol({
 	onHoverEnd,
 	onIdolClick,
 	onRemoveIdol,
-	onCopyIdol,
 	onDragStart,
 	onDragEnd,
 }: PlacedIdolProps) {
@@ -328,7 +325,6 @@ function PlacedIdol({
 				onRemove={
 					onRemoveIdol ? () => onRemoveIdol(placement.id) : undefined
 				}
-				onCopy={onCopyIdol ? () => onCopyIdol(idol) : undefined}
 				draggable
 				onDragStart={handleDragStart}
 				onDragEnd={handleDragEnd}
@@ -486,7 +482,6 @@ function GridTabContent({
 	unlockedConditions = [],
 	onIdolClick,
 	onRemoveIdol,
-	onCopyIdol,
 	onPlaceIdol,
 	onMoveIdol,
 }: {
@@ -496,7 +491,6 @@ function GridTabContent({
 	unlockedConditions?: string[];
 	onIdolClick?: (idol: IdolInstance, placementId: string) => void;
 	onRemoveIdol?: (placementId: string) => void;
-	onCopyIdol?: (idol: IdolInstance) => void;
 	onPlaceIdol?: (
 		inventoryIdolId: string,
 		x: number,
@@ -755,7 +749,6 @@ function GridTabContent({
 						onHoverEnd={() => setHoveredPlacementId(null)}
 						onIdolClick={onIdolClick}
 						onRemoveIdol={onRemoveIdol}
-						onCopyIdol={onCopyIdol}
 						onDragStart={handleIdolDragStart}
 						onDragEnd={handleIdolDragEnd}
 					/>
@@ -774,7 +767,6 @@ export function IdolGrid({
 	onPlaceIdol,
 	onMoveIdol,
 	onRemoveIdol,
-	onCopyIdol,
 	onIdolClick,
 }: IdolGridProps) {
 	return (
@@ -786,7 +778,6 @@ export function IdolGrid({
 				unlockedConditions={unlockedConditions}
 				onIdolClick={onIdolClick}
 				onRemoveIdol={onRemoveIdol}
-				onCopyIdol={onCopyIdol}
 				onPlaceIdol={onPlaceIdol}
 				onMoveIdol={onMoveIdol}
 			/>

@@ -36,7 +36,7 @@ export function loader(_args: Route.LoaderArgs) {
 function HomeContent() {
 	const t = useTranslations();
 	const { isHydrated, sets } = usePlannerState();
-	const { clipboardIdol, copyToClipboard, clearClipboard } = useClipboard();
+	const { clipboardIdol, clearClipboard } = useClipboard();
 	const [importModalOpen, setImportModalOpen] = useState(false);
 	const [shareModalOpen, setShareModalOpen] = useState(false);
 	const [editorOpen, setEditorOpen] = useState(false);
@@ -60,10 +60,6 @@ function HomeContent() {
 		if (!open) {
 			setEditingIdol(null);
 		}
-	};
-
-	const handleCopyIdol = (idol: IdolInstance) => {
-		copyToClipboard(idol);
 	};
 
 	const handlePasteIdol = () => {
@@ -143,7 +139,6 @@ function HomeContent() {
 										)
 									}
 									onRemoveIdol={sets.removeIdolFromSet}
-									onCopyIdol={handleCopyIdol}
 								/>
 								<MapDeviceComponent
 									mapDevice={activeSet.mapDevice}
