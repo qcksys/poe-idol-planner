@@ -45,14 +45,16 @@
 		"confirmDelete": "アイドルを削除",
 		"confirmDeleteMessage": "このアイドルを削除してもよろしいですか？すべての配置からも削除されます。",
 		"confirmDeleteMultiple": "{count}個のアイドルを削除",
-		"confirmDeleteMultipleMessage": "{count}個のアイドルを削除してもよろしいですか？すべての配置からも削除されます。"
+		"confirmDeleteMultipleMessage": "{count}個のアイドルを削除してもよろしいですか？すべての配置からも削除されます。",
+		"idolCount": "{count}個のアイドル"
 	},
 	"grid": {
 		"tab1": "タブ 1",
 		"tab2": "タブ 2",
 		"tab3": "タブ 3",
 		"dropHere": "ここにアイドルをドロップ",
-		"removeFromGrid": "グリッドから削除"
+		"removeFromGrid": "グリッドから削除",
+		"lockedSlot": "ロックされたスロット"
 	},
 	"actions": {
 		"import": "インポート",
@@ -70,7 +72,9 @@
 		"copyToInventory": "インベントリにコピー",
 		"changeLanguage": "表示言語を変更",
 		"selectLeague": "価格とトレード検索用のリーグ",
-		"newSet": "新しいアイドルセットを作成"
+		"newSet": "新しいアイドルセットを作成",
+		"loading": "読み込み中...",
+		"tryAgain": "再試行"
 	},
 	"stats": {
 		"totalStats": "合計ステータス",
@@ -101,20 +105,33 @@
 		"advancedFormat": "詳細形式 (Ctrl+Alt+C)",
 		"parseError": "アイドルデータを解析できません。形式を確認してください。",
 		"success": "アイドルのインポートに成功しました！",
-		"importButton": "インポート"
+		"importButton": "インポート",
+		"parseSuccess": "{count}個のアイドルを解析しました",
+		"parseFailed": "{count}個の解析に失敗"
 	},
 	"share": {
 		"title": "セットを共有",
 		"description": "以下のリンクでこのセットを他の人と共有できます。",
 		"linkCopied": "リンクをクリップボードにコピーしました！",
 		"loading": "共有リンクを生成中...",
-		"error": "共有リンクの生成に失敗しました。もう一度お試しください。"
+		"error": "共有リンクの生成に失敗しました。もう一度お試しください。",
+		"generateLink": "共有リンクを生成",
+		"linkExpiry": "リンクは30日後に期限切れになります",
+		"fetching": "共有セットを取得中",
+		"goToPlanner": "プランナーへ移動",
+		"sharedSetTitle": "共有されたアイドルセット",
+		"sharedSetDescription": "誰かがアイドルセットを共有しました",
+		"idolsInSet": "このセットのアイドル:",
+		"importing": "インポート中...",
+		"importSet": "セットをインポート"
 	},
 	"errors": {
 		"invalidIdol": "無効なアイドルデータ",
 		"parseError": "データの解析に失敗",
 		"storageError": "ストレージエラーが発生",
-		"networkError": "ネットワークエラーが発生"
+		"networkError": "ネットワークエラーが発生",
+		"title": "エラー",
+		"unknown": "不明なエラー"
 	},
 	"editor": {
 		"createIdol": "アイドルを作成",
@@ -189,7 +206,9 @@
 		"clearSlot": "スロットをクリア",
 		"limitLabel": "上限：",
 		"costFree": "無料",
-		"scarabCount": "{count}/5 スカラベ"
+		"scarabCount": "{count}/5 スカラベ",
+		"unlocksTitle": "マップデバイスのアンロック",
+		"unlocksCount": "アンロック ({unlocked}/{total})"
 	},
 	"idol": {
 		"modCount": "{count}個のMod",
@@ -205,7 +224,8 @@
 		"sizeGroupLarge": "コンカラー"
 	},
 	"footer": {
-		"dataFrom": "データ提供"
+		"dataFrom": "データ提供",
+		"emailMe": "メールを送る"
 	},
 	"mechanics": {
 		"abyss": "アビス",

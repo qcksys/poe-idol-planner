@@ -76,7 +76,7 @@ function HomeContent() {
 	if (!isHydrated) {
 		return (
 			<div className="flex min-h-screen items-center justify-center">
-				<div className="text-muted-foreground">Loading...</div>
+				<div className="text-muted-foreground">{t.actions.loading}</div>
 			</div>
 		);
 	}

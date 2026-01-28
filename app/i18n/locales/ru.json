@@ -45,14 +45,16 @@
 		"confirmDelete": "Удалить идола",
 		"confirmDeleteMessage": "Вы уверены, что хотите удалить этого идола? Он также будет удалён из всех расстановок.",
 		"confirmDeleteMultiple": "Удалить {count} идолов",
-		"confirmDeleteMultipleMessage": "Вы уверены, что хотите удалить {count} идолов? Они также будут удалены из всех расстановок."
+		"confirmDeleteMultipleMessage": "Вы уверены, что хотите удалить {count} идолов? Они также будут удалены из всех расстановок.",
+		"idolCount": "{count} идолов"
 	},
 	"grid": {
 		"tab1": "Вкладка 1",
 		"tab2": "Вкладка 2",
 		"tab3": "Вкладка 3",
 		"dropHere": "Перетащите идола сюда",
-		"removeFromGrid": "Удалить из сетки"
+		"removeFromGrid": "Удалить из сетки",
+		"lockedSlot": "Заблокированный слот"
 	},
 	"actions": {
 		"import": "Импорт",
@@ -70,7 +72,9 @@
 		"copyToInventory": "Копировать в инвентарь",
 		"changeLanguage": "Изменить язык",
 		"selectLeague": "Лига для цен и поиска на трейде",
-		"newSet": "Создать новый набор идолов"
+		"newSet": "Создать новый набор идолов",
+		"loading": "Загрузка...",
+		"tryAgain": "Повторить"
 	},
 	"stats": {
 		"totalStats": "Общая статистика",
@@ -101,20 +105,33 @@
 		"advancedFormat": "Расширенный формат (Ctrl+Alt+C)",
 		"parseError": "Не удалось разобрать данные идола. Проверьте формат.",
 		"success": "Идол успешно импортирован!",
-		"importButton": "Импорт"
+		"importButton": "Импорт",
+		"parseSuccess": "{count} идолов успешно разобрано",
+		"parseFailed": "{count} не удалось разобрать"
 	},
 	"share": {
 		"title": "Поделиться набором",
 		"description": "Поделитесь этим набором с другими по ссылке ниже.",
 		"linkCopied": "Ссылка скопирована в буфер обмена!",
 		"loading": "Создание ссылки для обмена...",
-		"error": "Не удалось создать ссылку. Попробуйте ещё раз."
+		"error": "Не удалось создать ссылку. Попробуйте ещё раз.",
+		"generateLink": "Создать ссылку для обмена",
+		"linkExpiry": "Ссылка истекает через 30 дней",
+		"fetching": "Загрузка общего набора",
+		"goToPlanner": "Перейти к планировщику",
+		"sharedSetTitle": "Общий набор идолов",
+		"sharedSetDescription": "Кто-то поделился с вами набором идолов",
+		"idolsInSet": "Идолы в этом наборе:",
+		"importing": "Импорт...",
+		"importSet": "Импортировать набор"
 	},
 	"errors": {
 		"invalidIdol": "Неверные данные идола",
 		"parseError": "Ошибка разбора данных",
 		"storageError": "Ошибка хранилища",
-		"networkError": "Ошибка сети"
+		"networkError": "Ошибка сети",
+		"title": "Ошибка",
+		"unknown": "Неизвестная ошибка"
 	},
 	"editor": {
 		"createIdol": "Создать идола",
@@ -189,7 +206,9 @@
 		"clearSlot": "Очистить слот",
 		"limitLabel": "Лимит:",
 		"costFree": "Бесплатно",
-		"scarabCount": "{count}/5 скарабеев"
+		"scarabCount": "{count}/5 скарабеев",
+		"unlocksTitle": "Разблокировки карт. устройства",
+		"unlocksCount": "Разблокировано ({unlocked}/{total})"
 	},
 	"idol": {
 		"modCount": "{count} модификаторов",
@@ -205,7 +224,8 @@
 		"sizeGroupLarge": "Завоеватели"
 	},
 	"footer": {
-		"dataFrom": "Данные из"
+		"dataFrom": "Данные из",
+		"emailMe": "Написать мне"
 	},
 	"mechanics": {
 		"abyss": "Бездна",

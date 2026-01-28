@@ -45,14 +45,16 @@
 		"confirmDelete": "Eliminar ídolo",
 		"confirmDeleteMessage": "¿Estás seguro de que deseas eliminar este ídolo? También se eliminará de todas las ubicaciones.",
 		"confirmDeleteMultiple": "Eliminar {count} ídolos",
-		"confirmDeleteMultipleMessage": "¿Estás seguro de que deseas eliminar {count} ídolos? También se eliminarán de todas las ubicaciones."
+		"confirmDeleteMultipleMessage": "¿Estás seguro de que deseas eliminar {count} ídolos? También se eliminarán de todas las ubicaciones.",
+		"idolCount": "{count} ídolo(s)"
 	},
 	"grid": {
 		"tab1": "Pestaña 1",
 		"tab2": "Pestaña 2",
 		"tab3": "Pestaña 3",
 		"dropHere": "Suelta el ídolo aquí",
-		"removeFromGrid": "Eliminar de la cuadrícula"
+		"removeFromGrid": "Eliminar de la cuadrícula",
+		"lockedSlot": "Ranura bloqueada"
 	},
 	"actions": {
 		"import": "Importar",
@@ -70,7 +72,9 @@
 		"copyToInventory": "Copiar al inventario",
 		"changeLanguage": "Cambiar idioma",
 		"selectLeague": "Liga para precios y búsquedas de comercio",
-		"newSet": "Crear nuevo conjunto de ídolos"
+		"newSet": "Crear nuevo conjunto de ídolos",
+		"loading": "Cargando...",
+		"tryAgain": "Reintentar"
 	},
 	"stats": {
 		"totalStats": "Estadísticas totales",
@@ -101,20 +105,33 @@
 		"advancedFormat": "Formato avanzado (Ctrl+Alt+C)",
 		"parseError": "No se pudieron analizar los datos del ídolo. Por favor, verifica el formato.",
 		"success": "¡Ídolo importado con éxito!",
-		"importButton": "Importar"
+		"importButton": "Importar",
+		"parseSuccess": "{count} ídolo(s) analizado(s) con éxito",
+		"parseFailed": "{count} falló al analizar"
 	},
 	"share": {
 		"title": "Compartir conjunto",
 		"description": "Comparte este conjunto con otros usando el enlace de abajo.",
 		"linkCopied": "¡Enlace copiado al portapapeles!",
 		"loading": "Generando enlace para compartir...",
-		"error": "Error al generar el enlace para compartir. Por favor, inténtalo de nuevo."
+		"error": "Error al generar el enlace para compartir. Por favor, inténtalo de nuevo.",
+		"generateLink": "Generar enlace para compartir",
+		"linkExpiry": "El enlace expira en 30 días",
+		"fetching": "Cargando conjunto compartido",
+		"goToPlanner": "Ir al planificador",
+		"sharedSetTitle": "Conjunto de ídolos compartido",
+		"sharedSetDescription": "Alguien ha compartido un conjunto de ídolos contigo",
+		"idolsInSet": "Ídolos en este conjunto:",
+		"importing": "Importando...",
+		"importSet": "Importar conjunto"
 	},
 	"errors": {
 		"invalidIdol": "Datos de ídolo inválidos",
 		"parseError": "Error al analizar los datos",
 		"storageError": "Error de almacenamiento",
-		"networkError": "Error de red"
+		"networkError": "Error de red",
+		"title": "Error",
+		"unknown": "Error desconocido"
 	},
 	"editor": {
 		"createIdol": "Crear ídolo",
@@ -189,7 +206,9 @@
 		"clearSlot": "Limpiar ranura",
 		"limitLabel": "Límite:",
 		"costFree": "Gratis",
-		"scarabCount": "{count}/5 escarabajos"
+		"scarabCount": "{count}/5 escarabajos",
+		"unlocksTitle": "Desbloqueos del dispositivo",
+		"unlocksCount": "Desbloqueados ({unlocked}/{total})"
 	},
 	"idol": {
 		"modCount": "{count} modificador(es)",
@@ -205,7 +224,8 @@
 		"sizeGroupLarge": "Conquistador"
 	},
 	"footer": {
-		"dataFrom": "Datos de"
+		"dataFrom": "Datos de",
+		"emailMe": "Enviar correo"
 	},
 	"mechanics": {
 		"abyss": "Abismo",

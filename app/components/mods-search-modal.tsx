@@ -34,7 +34,7 @@ import {
 	LEAGUE_MECHANICS,
 	type LeagueMechanic,
 } from "~/data/idol-bases";
-import { useTranslations } from "~/i18n";
+import { useLocale, useTranslations } from "~/i18n";
 import { cn } from "~/lib/utils";
 
 interface ModsSearchModalProps {
@@ -47,6 +47,7 @@ type TypeFilter = "all" | "prefix" | "suffix";
 
 export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 	const t = useTranslations();
+	const locale = useLocale();
 	const { favorites, toggleFavorite, isFavorite } = useFavorites();
 
 	const [searchQuery, setSearchQuery] = useState("");
@@ -55,7 +56,7 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 	const [typeFilter, setTypeFilter] = useState<TypeFilter>("all");
 	const [favoriteFilter, setFavoriteFilter] = useState<FavoriteFilter>("all");
 
-	const allModifiers = useMemo(() => getModifierOptions(), []);
+	const allModifiers = useMemo(() => getModifierOptions(locale), [locale]);
 
 	const filteredModifiers = useMemo(() => {
 		return allModifiers.filter((mod) => {

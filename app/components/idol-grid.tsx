@@ -12,6 +12,7 @@ import {
 	getLockedPositions,
 	MAP_DEVICE_UNLOCKS,
 } from "~/data/map-device-unlocks";
+import { useTranslations } from "~/i18n";
 import { cn } from "~/lib/utils";
 import type { IdolInstance } from "~/schemas/idol";
 import type { GridTab, IdolPlacement } from "~/schemas/idol-set";
@@ -330,6 +331,7 @@ function EmptyCell({
 	canDropAtOrigin,
 	onDrop,
 }: EmptyCellProps) {
+	const t = useTranslations();
 	const [isDragOver, setIsDragOver] = useState(false);
 
 	const handleDragOver = useCallback(
@@ -406,7 +408,7 @@ function EmptyCell({
 						</div>
 					</TooltipTrigger>
 					<TooltipContent side="top" className="max-w-xs">
-						<div className="font-medium">Locked Slot</div>
+						<div className="font-medium">{t.grid.lockedSlot}</div>
 						{cell.lockReason && (
 							<div className="text-muted-foreground text-xs">
 								{cell.lockReason}

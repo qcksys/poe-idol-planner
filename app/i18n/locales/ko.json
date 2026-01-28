@@ -45,14 +45,16 @@
 		"confirmDelete": "우상 삭제",
 		"confirmDeleteMessage": "이 우상을 삭제하시겠습니까? 모든 배치에서도 제거됩니다.",
 		"confirmDeleteMultiple": "{count}개 우상 삭제",
-		"confirmDeleteMultipleMessage": "{count}개 우상을 삭제하시겠습니까? 모든 배치에서도 제거됩니다."
+		"confirmDeleteMultipleMessage": "{count}개 우상을 삭제하시겠습니까? 모든 배치에서도 제거됩니다.",
+		"idolCount": "{count}개 우상"
 	},
 	"grid": {
 		"tab1": "탭 1",
 		"tab2": "탭 2",
 		"tab3": "탭 3",
 		"dropHere": "여기에 우상을 놓으세요",
-		"removeFromGrid": "그리드에서 제거"
+		"removeFromGrid": "그리드에서 제거",
+		"lockedSlot": "잠긴 슬롯"
 	},
 	"actions": {
 		"import": "가져오기",
@@ -70,7 +72,9 @@
 		"copyToInventory": "인벤토리에 복사",
 		"changeLanguage": "표시 언어 변경",
 		"selectLeague": "가격 및 거래 검색용 리그",
-		"newSet": "새 우상 세트 만들기"
+		"newSet": "새 우상 세트 만들기",
+		"loading": "로딩 중...",
+		"tryAgain": "다시 시도"
 	},
 	"stats": {
 		"totalStats": "총 스탯",
@@ -101,20 +105,33 @@
 		"advancedFormat": "고급 형식 (Ctrl+Alt+C)",
 		"parseError": "우상 데이터를 분석할 수 없습니다. 형식을 확인해주세요.",
 		"success": "우상을 성공적으로 가져왔습니다!",
-		"importButton": "가져오기"
+		"importButton": "가져오기",
+		"parseSuccess": "{count}개 우상 분석 성공",
+		"parseFailed": "{count}개 분석 실패"
 	},
 	"share": {
 		"title": "세트 공유",
 		"description": "아래 링크를 사용하여 이 세트를 다른 사람과 공유하세요.",
 		"linkCopied": "링크가 클립보드에 복사되었습니다!",
 		"loading": "공유 링크 생성 중...",
-		"error": "공유 링크 생성에 실패했습니다. 다시 시도해주세요."
+		"error": "공유 링크 생성에 실패했습니다. 다시 시도해주세요.",
+		"generateLink": "공유 링크 생성",
+		"linkExpiry": "링크는 30일 후 만료됩니다",
+		"fetching": "공유 세트 불러오는 중",
+		"goToPlanner": "플래너로 이동",
+		"sharedSetTitle": "공유된 우상 세트",
+		"sharedSetDescription": "누군가 우상 세트를 공유했습니다",
+		"idolsInSet": "이 세트의 우상:",
+		"importing": "가져오는 중...",
+		"importSet": "세트 가져오기"
 	},
 	"errors": {
 		"invalidIdol": "잘못된 우상 데이터",
 		"parseError": "데이터 분석 실패",
 		"storageError": "저장 오류 발생",
-		"networkError": "네트워크 오류 발생"
+		"networkError": "네트워크 오류 발생",
+		"title": "오류",
+		"unknown": "알 수 없는 오류"
 	},
 	"editor": {
 		"createIdol": "우상 생성",
@@ -189,7 +206,9 @@
 		"clearSlot": "슬롯 비우기",
 		"limitLabel": "제한:",
 		"costFree": "무료",
-		"scarabCount": "{count}/5 스카라브"
+		"scarabCount": "{count}/5 스카라브",
+		"unlocksTitle": "지도 장치 해금",
+		"unlocksCount": "해금 ({unlocked}/{total})"
 	},
 	"idol": {
 		"modCount": "{count}개 속성",
@@ -205,7 +224,8 @@
 		"sizeGroupLarge": "정복자"
 	},
 	"footer": {
-		"dataFrom": "데이터 출처"
+		"dataFrom": "데이터 출처",
+		"emailMe": "이메일 보내기"
 	},
 	"mechanics": {
 		"abyss": "심연",

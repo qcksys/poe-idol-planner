@@ -45,14 +45,16 @@
 		"confirmDelete": "刪除神像",
 		"confirmDeleteMessage": "確定要刪除此神像嗎？這也會將其從所有佈局中移除。",
 		"confirmDeleteMultiple": "刪除 {count} 個神像",
-		"confirmDeleteMultipleMessage": "確定要刪除 {count} 個神像嗎？這也會將它們從所有佈局中移除。"
+		"confirmDeleteMultipleMessage": "確定要刪除 {count} 個神像嗎？這也會將它們從所有佈局中移除。",
+		"idolCount": "{count} 個神像"
 	},
 	"grid": {
 		"tab1": "頁籤 1",
 		"tab2": "頁籤 2",
 		"tab3": "頁籤 3",
 		"dropHere": "拖放神像至此",
-		"removeFromGrid": "從格子移除"
+		"removeFromGrid": "從格子移除",
+		"lockedSlot": "已鎖定的槽位"
 	},
 	"actions": {
 		"import": "匯入",
@@ -70,7 +72,9 @@
 		"copyToInventory": "複製到倉庫",
 		"changeLanguage": "變更顯示語言",
 		"selectLeague": "用於價格和交易搜尋的賽季",
-		"newSet": "建立新的神像配置"
+		"newSet": "建立新的神像配置",
+		"loading": "載入中...",
+		"tryAgain": "重試"
 	},
 	"stats": {
 		"totalStats": "總計屬性",
@@ -101,20 +105,33 @@
 		"advancedFormat": "進階格式 (Ctrl+Alt+C)",
 		"parseError": "無法解析神像資料。請檢查格式。",
 		"success": "神像匯入成功！",
-		"importButton": "匯入"
+		"importButton": "匯入",
+		"parseSuccess": "成功解析 {count} 個神像",
+		"parseFailed": "{count} 個解析失敗"
 	},
 	"share": {
 		"title": "分享配置",
 		"description": "使用以下連結與他人分享此配置。",
 		"linkCopied": "連結已複製到剪貼簿！",
 		"loading": "正在產生分享連結...",
-		"error": "產生分享連結失敗。請重試。"
+		"error": "產生分享連結失敗。請重試。",
+		"generateLink": "產生分享連結",
+		"linkExpiry": "連結將在 30 天後過期",
+		"fetching": "正在取得分享配置",
+		"goToPlanner": "前往規劃器",
+		"sharedSetTitle": "分享的神像配置",
+		"sharedSetDescription": "有人與你分享了一個神像配置",
+		"idolsInSet": "此配置中的神像：",
+		"importing": "匯入中...",
+		"importSet": "匯入配置"
 	},
 	"errors": {
 		"invalidIdol": "無效的神像資料",
 		"parseError": "解析資料失敗",
 		"storageError": "發生儲存錯誤",
-		"networkError": "發生網路錯誤"
+		"networkError": "發生網路錯誤",
+		"title": "錯誤",
+		"unknown": "未知錯誤"
 	},
 	"editor": {
 		"createIdol": "建立神像",
@@ -189,7 +206,9 @@
 		"clearSlot": "清空槽位",
 		"limitLabel": "限制：",
 		"costFree": "免費",
-		"scarabCount": "{count}/5 聖甲蟲"
+		"scarabCount": "{count}/5 聖甲蟲",
+		"unlocksTitle": "地圖儀解鎖",
+		"unlocksCount": "已解鎖 ({unlocked}/{total})"
 	},
 	"idol": {
 		"modCount": "{count} 個詞綴",
@@ -205,7 +224,8 @@
 		"sizeGroupLarge": "征服者"
 	},
 	"footer": {
-		"dataFrom": "資料來自"
+		"dataFrom": "資料來自",
+		"emailMe": "發送郵件"
 	},
 	"mechanics": {
 		"abyss": "深淵",

@@ -137,8 +137,8 @@ export default function SharePage() {
 			<div className="flex min-h-screen items-center justify-center bg-background">
 				<Card className="w-full max-w-md">
 					<CardHeader>
-						<CardTitle>Loading...</CardTitle>
-						<CardDescription>Fetching shared set</CardDescription>
+						<CardTitle>{t.actions.loading}</CardTitle>
+						<CardDescription>{t.share.fetching}</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<div className="flex justify-center py-8">
@@ -156,7 +156,7 @@ export default function SharePage() {
 				<Card className="w-full max-w-md">
 					<CardHeader>
 						<CardTitle className="text-destructive">
-							Error
+							{t.errors.title}
 						</CardTitle>
 						<CardDescription>{loadState.message}</CardDescription>
 					</CardHeader>
@@ -165,7 +165,7 @@ export default function SharePage() {
 							onClick={() => navigate("/")}
 							className="w-full"
 						>
-							Go to Planner
+							{t.share.goToPlanner}
 						</Button>
 					</CardContent>
 				</Card>
@@ -179,9 +179,9 @@ export default function SharePage() {
 		<div className="flex min-h-screen items-center justify-center bg-background p-4">
 			<Card className="w-full max-w-lg">
 				<CardHeader>
-					<CardTitle>Shared Idol Set</CardTitle>
+					<CardTitle>{t.share.sharedSetTitle}</CardTitle>
 					<CardDescription>
-						Someone shared an idol set with you
+						{t.share.sharedSetDescription}
 					</CardDescription>
 				</CardHeader>
 				<CardContent className="space-y-4">
@@ -202,7 +202,7 @@ export default function SharePage() {
 
 					<div className="space-y-2">
 						<h4 className="font-medium text-foreground text-sm">
-							Idols in this set:
+							{t.share.idolsInSet}
 						</h4>
 						<ul className="max-h-40 space-y-1 overflow-y-auto">
 							{idols.map((idol) => (
@@ -231,7 +231,7 @@ export default function SharePage() {
 							disabled={importing}
 							className="flex-1"
 						>
-							{importing ? "Importing..." : "Import Set"}
+							{importing ? t.share.importing : t.share.importSet}
 						</Button>
 					</div>
 				</CardContent>

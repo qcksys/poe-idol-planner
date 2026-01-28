@@ -334,7 +334,10 @@ export function InventoryPanel({
 									"{count}",
 									String(selectionCount),
 								)
-							: `${inventory.length} idol(s)`}
+							: t.inventory.idolCount.replace(
+									"{count}",
+									String(inventory.length),
+								)}
 					</span>
 				</div>
 			</CardHeader>

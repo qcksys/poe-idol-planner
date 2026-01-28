@@ -248,7 +248,7 @@ export function IdolEditor({
 		useState<UniqueIdol | null>(null);
 	const [uniqueIdolOpen, setUniqueIdolOpen] = useState(false);
 
-	const allModifiers = useMemo(() => getModifierOptions(), []);
+	const allModifiers = useMemo(() => getModifierOptions(locale), [locale]);
 
 	useEffect(() => {
 		if (initialIdol) {
@@ -405,7 +405,7 @@ export function IdolEditor({
 				(mod, index) => ({
 					modId: `unique_${selectedUniqueIdol.id}_${index}`,
 					type: "unique" as const,
-					text: mod.text.en || mod.text[locale] || "",
+					text: mod.text[locale] || mod.text.en || "",
 					rolledValue: mod.values[0]?.min ?? mod.values[0]?.max ?? 0,
 					valueRange: mod.values[0],
 					tier: 1,
@@ -698,10 +698,8 @@ export function IdolEditor({
 														className="text-sm"
 													>
 														{highlightNumbers(
-															mod.text.en ||
-																mod.text[
-																	locale
-																] ||
+															mod.text[locale] ||
+																mod.text.en ||
 																"",
 														)}
 													</div>

@@ -113,7 +113,7 @@ export function ShareModal({
 								</p>
 							</div>
 							<Button onClick={handleShare} className="w-full">
-								Generate Share Link
+								{t.share.generateLink}
 							</Button>
 						</div>
 					)}
@@ -144,7 +144,7 @@ export function ShareModal({
 								</Button>
 							</div>
 							<p className="text-center text-muted-foreground text-xs">
-								Link expires in 30 days
+								{t.share.linkExpiry}
 							</p>
 						</div>
 					)}
@@ -161,7 +161,7 @@ export function ShareModal({
 								variant="outline"
 								className="w-full"
 							>
-								Try Again
+								{t.actions.tryAgain}
 							</Button>
 						</div>
 					)}

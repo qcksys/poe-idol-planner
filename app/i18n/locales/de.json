@@ -45,14 +45,16 @@
 		"confirmDelete": "Idol löschen",
 		"confirmDeleteMessage": "Möchten Sie dieses Idol wirklich löschen? Es wird auch aus allen Platzierungen entfernt.",
 		"confirmDeleteMultiple": "{count} Idole löschen",
-		"confirmDeleteMultipleMessage": "Möchten Sie {count} Idole wirklich löschen? Sie werden auch aus allen Platzierungen entfernt."
+		"confirmDeleteMultipleMessage": "Möchten Sie {count} Idole wirklich löschen? Sie werden auch aus allen Platzierungen entfernt.",
+		"idolCount": "{count} Idol(e)"
 	},
 	"grid": {
 		"tab1": "Tab 1",
 		"tab2": "Tab 2",
 		"tab3": "Tab 3",
 		"dropHere": "Idol hier ablegen",
-		"removeFromGrid": "Aus Raster entfernen"
+		"removeFromGrid": "Aus Raster entfernen",
+		"lockedSlot": "Gesperrter Slot"
 	},
 	"actions": {
 		"import": "Importieren",
@@ -70,7 +72,9 @@
 		"copyToInventory": "Ins Inventar kopieren",
 		"changeLanguage": "Sprache ändern",
 		"selectLeague": "Liga für Preise und Handelssuchen",
-		"newSet": "Neues Idol-Set erstellen"
+		"newSet": "Neues Idol-Set erstellen",
+		"loading": "Laden...",
+		"tryAgain": "Erneut versuchen"
 	},
 	"stats": {
 		"totalStats": "Gesamtstatistiken",
@@ -101,20 +105,33 @@
 		"advancedFormat": "Erweitertes Format (Strg+Alt+C)",
 		"parseError": "Idol-Daten konnten nicht analysiert werden. Bitte überprüfen Sie das Format.",
 		"success": "Idol erfolgreich importiert!",
-		"importButton": "Importieren"
+		"importButton": "Importieren",
+		"parseSuccess": "{count} Idol(e) erfolgreich analysiert",
+		"parseFailed": "{count} fehlgeschlagen"
 	},
 	"share": {
 		"title": "Set teilen",
 		"description": "Teilen Sie dieses Set über den untenstehenden Link mit anderen.",
 		"linkCopied": "Link in die Zwischenablage kopiert!",
 		"loading": "Freigabelink wird generiert...",
-		"error": "Freigabelink konnte nicht generiert werden. Bitte versuchen Sie es erneut."
+		"error": "Freigabelink konnte nicht generiert werden. Bitte versuchen Sie es erneut.",
+		"generateLink": "Freigabelink erstellen",
+		"linkExpiry": "Link läuft in 30 Tagen ab",
+		"fetching": "Geteiltes Set wird geladen",
+		"goToPlanner": "Zum Planer gehen",
+		"sharedSetTitle": "Geteiltes Idol-Set",
+		"sharedSetDescription": "Jemand hat ein Idol-Set mit Ihnen geteilt",
+		"idolsInSet": "Idole in diesem Set:",
+		"importing": "Importieren...",
+		"importSet": "Set importieren"
 	},
 	"errors": {
 		"invalidIdol": "Ungültige Idol-Daten",
 		"parseError": "Daten konnten nicht analysiert werden",
 		"storageError": "Speicherfehler aufgetreten",
-		"networkError": "Netzwerkfehler aufgetreten"
+		"networkError": "Netzwerkfehler aufgetreten",
+		"title": "Fehler",
+		"unknown": "Unbekannter Fehler"
 	},
 	"editor": {
 		"createIdol": "Idol erstellen",
@@ -189,7 +206,9 @@
 		"clearSlot": "Slot leeren",
 		"limitLabel": "Limit:",
 		"costFree": "Kostenlos",
-		"scarabCount": "{count}/5 Skarabäen"
+		"scarabCount": "{count}/5 Skarabäen",
+		"unlocksTitle": "Kartengerät-Freischaltungen",
+		"unlocksCount": "Freigeschaltet ({unlocked}/{total})"
 	},
 	"idol": {
 		"modCount": "{count} Modifikator(en)",
@@ -205,7 +224,8 @@
 		"sizeGroupLarge": "Eroberer"
 	},
 	"footer": {
-		"dataFrom": "Daten von"
+		"dataFrom": "Daten von",
+		"emailMe": "E-Mail senden"
 	},
 	"mechanics": {
 		"abyss": "Abgrund",

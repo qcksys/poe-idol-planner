@@ -45,14 +45,16 @@
 		"confirmDelete": "Supprimer l'idole",
 		"confirmDeleteMessage": "Êtes-vous sûr de vouloir supprimer cette idole ? Elle sera également retirée de tous les emplacements.",
 		"confirmDeleteMultiple": "Supprimer {count} idoles",
-		"confirmDeleteMultipleMessage": "Êtes-vous sûr de vouloir supprimer {count} idoles ? Elles seront également retirées de tous les emplacements."
+		"confirmDeleteMultipleMessage": "Êtes-vous sûr de vouloir supprimer {count} idoles ? Elles seront également retirées de tous les emplacements.",
+		"idolCount": "{count} idole(s)"
 	},
 	"grid": {
 		"tab1": "Onglet 1",
 		"tab2": "Onglet 2",
 		"tab3": "Onglet 3",
 		"dropHere": "Déposez l'idole ici",
-		"removeFromGrid": "Retirer de la grille"
+		"removeFromGrid": "Retirer de la grille",
+		"lockedSlot": "Emplacement verrouillé"
 	},
 	"actions": {
 		"import": "Importer",
@@ -70,7 +72,9 @@
 		"copyToInventory": "Copier dans l'inventaire",
 		"changeLanguage": "Changer la langue",
 		"selectLeague": "Ligue pour les prix et les recherches de marché",
-		"newSet": "Créer un nouvel ensemble d'idoles"
+		"newSet": "Créer un nouvel ensemble d'idoles",
+		"loading": "Chargement...",
+		"tryAgain": "Réessayer"
 	},
 	"stats": {
 		"totalStats": "Statistiques totales",
@@ -101,20 +105,33 @@
 		"advancedFormat": "Format avancé (Ctrl+Alt+C)",
 		"parseError": "Impossible d'analyser les données de l'idole. Veuillez vérifier le format.",
 		"success": "Idole importée avec succès !",
-		"importButton": "Importer"
+		"importButton": "Importer",
+		"parseSuccess": "{count} idole(s) analysée(s) avec succès",
+		"parseFailed": "{count} échec(s) d'analyse"
 	},
 	"share": {
 		"title": "Partager l'ensemble",
 		"description": "Partagez cet ensemble avec d'autres en utilisant le lien ci-dessous.",
 		"linkCopied": "Lien copié dans le presse-papiers !",
 		"loading": "Génération du lien de partage...",
-		"error": "Échec de la génération du lien de partage. Veuillez réessayer."
+		"error": "Échec de la génération du lien de partage. Veuillez réessayer.",
+		"generateLink": "Générer un lien de partage",
+		"linkExpiry": "Le lien expire dans 30 jours",
+		"fetching": "Chargement de l'ensemble partagé",
+		"goToPlanner": "Aller au planificateur",
+		"sharedSetTitle": "Ensemble d'idoles partagé",
+		"sharedSetDescription": "Quelqu'un a partagé un ensemble d'idoles avec vous",
+		"idolsInSet": "Idoles dans cet ensemble :",
+		"importing": "Importation...",
+		"importSet": "Importer l'ensemble"
 	},
 	"errors": {
 		"invalidIdol": "Données d'idole invalides",
 		"parseError": "Échec de l'analyse des données",
 		"storageError": "Erreur de stockage survenue",
-		"networkError": "Erreur réseau survenue"
+		"networkError": "Erreur réseau survenue",
+		"title": "Erreur",
+		"unknown": "Erreur inconnue"
 	},
 	"editor": {
 		"createIdol": "Créer une idole",
@@ -189,7 +206,9 @@
 		"clearSlot": "Vider l'emplacement",
 		"limitLabel": "Limite :",
 		"costFree": "Gratuit",
-		"scarabCount": "{count}/5 scarabées"
+		"scarabCount": "{count}/5 scarabées",
+		"unlocksTitle": "Déverrouillages du cartographe",
+		"unlocksCount": "Déverrouillés ({unlocked}/{total})"
 	},
 	"idol": {
 		"modCount": "{count} modificateur(s)",
@@ -205,7 +224,8 @@
 		"sizeGroupLarge": "Conquérant"
 	},
 	"footer": {
-		"dataFrom": "Données de"
+		"dataFrom": "Données de",
+		"emailMe": "M'envoyer un email"
 	},
 	"mechanics": {
 		"abyss": "Abîme",
