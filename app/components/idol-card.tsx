@@ -266,81 +266,84 @@ export function IdolCardMini({
 
 	return (
 		<TooltipProvider>
-			<Tooltip>
-				<TooltipTrigger asChild>
-					<button
-						type="button"
-						draggable={draggable}
-						onDragStart={onDragStart}
-						onDragEnd={onDragEnd}
-						className={cn(
-							"group/mini relative flex items-center justify-center overflow-hidden rounded border-2 transition-all hover:scale-105",
-							draggable
-								? "cursor-grab active:cursor-grabbing"
-								: "cursor-pointer",
-							rarityColor,
-							isHovered && "scale-105",
-						)}
-						style={style}
-						onClick={onClick}
-					>
-						<img
-							src={imageSrc}
-							alt={base.name}
-							className="absolute inset-0 h-full w-full object-cover"
-						/>
-						<div
+			<div className="group/mini relative" style={style}>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<button
+							type="button"
+							draggable={draggable}
+							onDragStart={onDragStart}
+							onDragEnd={onDragEnd}
 							className={cn(
-								"absolute top-0.5 right-0.5 flex gap-0.5 transition-opacity group-hover/mini:opacity-100",
-								isHovered ? "opacity-100" : "opacity-0",
+								"flex h-full w-full items-center justify-center overflow-hidden rounded border-2 transition-all hover:scale-105",
+								draggable
+									? "cursor-grab active:cursor-grabbing"
+									: "cursor-pointer",
+								rarityColor,
+								isHovered && "scale-105",
 							)}
+							onClick={onClick}
 						>
-							{onCopy && (
-								<Tooltip>
-									<TooltipTrigger asChild>
-										<Button
-											variant="secondary"
-											size="icon"
-											className="h-5 w-5"
-											onClick={handleCopy}
-										>
-											<Copy className="h-3 w-3" />
-										</Button>
-									</TooltipTrigger>
-									<TooltipContent>
-										{t.actions.copyToInventory}
-									</TooltipContent>
-								</Tooltip>
-							)}
-							{onRemove && (
-								<Tooltip>
-									<TooltipTrigger asChild>
-										<Button
-											variant="destructive"
-											size="icon"
-											className="h-5 w-5"
-											onClick={handleRemove}
-										>
-											<X className="h-3 w-3" />
-										</Button>
-									</TooltipTrigger>
-									<TooltipContent>
-										{t.grid.removeFromGrid}
-									</TooltipContent>
-								</Tooltip>
-							)}
-						</div>
-					</button>
-				</TooltipTrigger>
-				<TooltipContent
-					side="right"
-					avoidCollisions
-					collisionPadding={8}
-					className="max-w-xs border border-border bg-card text-card-foreground"
-				>
-					<IdolCardContent idol={idol} compact={false} />
-				</TooltipContent>
-			</Tooltip>
+							<img
+								src={imageSrc}
+								alt={base.name}
+								className="absolute inset-0 h-full w-full object-cover"
+							/>
+						</button>
+					</TooltipTrigger>
+					<TooltipContent
+						side="right"
+						avoidCollisions
+						collisionPadding={8}
+						className="max-w-xs border border-border bg-card text-card-foreground"
+					>
+						<IdolCardContent idol={idol} compact={false} />
+					</TooltipContent>
+				</Tooltip>
+				{(onCopy || onRemove) && (
+					<div
+						className={cn(
+							"absolute top-0.5 right-0.5 flex gap-0.5 transition-opacity group-hover/mini:opacity-100",
+							isHovered ? "opacity-100" : "opacity-0",
+						)}
+					>
+						{onCopy && (
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										variant="secondary"
+										size="icon"
+										className="h-5 w-5"
+										onClick={handleCopy}
+									>
+										<Copy className="h-3 w-3" />
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent>
+									{t.actions.copyToInventory}
+								</TooltipContent>
+							</Tooltip>
+						)}
+						{onRemove && (
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										variant="destructive"
+										size="icon"
+										className="h-5 w-5"
+										onClick={handleRemove}
+									>
+										<X className="h-3 w-3" />
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent>
+									{t.grid.removeFromGrid}
+								</TooltipContent>
+							</Tooltip>
+						)}
+					</div>
+				)}
+			</div>
 		</TooltipProvider>
 	);
 }

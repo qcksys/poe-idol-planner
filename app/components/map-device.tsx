@@ -136,21 +136,21 @@ function ScarabSlot({
 		<div className="flex flex-col items-center gap-1">
 			<Popover open={open} onOpenChange={setOpen}>
 				<TooltipProvider>
-					<Tooltip>
-						<TooltipTrigger asChild>
-							<PopoverTrigger asChild>
-								<button
-									type="button"
-									className={cn(
-										"relative flex h-16 w-16 items-center justify-center rounded-lg border-2 transition-all hover:border-primary",
-										scarab
-											? "border-primary/50 bg-card"
-											: "border-muted-foreground/30 border-dashed bg-muted/20",
-									)}
-								>
-									{scarab ? (
-										<>
-											{scarab.image ? (
+					<div className="group relative">
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<PopoverTrigger asChild>
+									<button
+										type="button"
+										className={cn(
+											"relative flex h-16 w-16 items-center justify-center rounded-lg border-2 transition-all hover:border-primary",
+											scarab
+												? "border-primary/50 bg-card"
+												: "border-muted-foreground/30 border-dashed bg-muted/20",
+										)}
+									>
+										{scarab ? (
+											scarab.image ? (
 												<img
 													src={scarab.image}
 													alt={getScarabName(
@@ -166,58 +166,59 @@ function ScarabSlot({
 														locale,
 													).slice(0, 2)}
 												</div>
-											)}
-											<Tooltip>
-												<TooltipTrigger asChild>
-													<Button
-														variant="destructive"
-														size="icon"
-														className="absolute -top-1 -right-1 h-5 w-5 opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100"
-														onClick={handleClear}
-													>
-														<X className="h-3 w-3" />
-													</Button>
-												</TooltipTrigger>
-												<TooltipContent>
-													{t.mapDevice?.clearSlot ||
-														"Clear slot"}
-												</TooltipContent>
-											</Tooltip>
-										</>
-									) : (
-										<span className="text-muted-foreground text-xs">
-											{slotIndex + 1}
-										</span>
-									)}
-								</button>
-							</PopoverTrigger>
-						</TooltipTrigger>
-						{scarab && (
-							<TooltipContent
-								side="top"
-								className="max-w-xs border border-border bg-card text-card-foreground"
-							>
-								<div className="space-y-1">
-									<div className="flex items-center gap-2 font-semibold">
-										<span>
-											{getScarabName(scarab, locale)}
-										</span>
-										{formattedSlotPrice && (
-											<span className="text-yellow-600 dark:text-yellow-400">
-												{formattedSlotPrice}c
+											)
+										) : (
+											<span className="text-muted-foreground text-xs">
+												{slotIndex + 1}
 											</span>
 										)}
+									</button>
+								</PopoverTrigger>
+							</TooltipTrigger>
+							{scarab && (
+								<TooltipContent
+									side="top"
+									className="max-w-xs border border-border bg-card text-card-foreground"
+								>
+									<div className="space-y-1">
+										<div className="flex items-center gap-2 font-semibold">
+											<span>
+												{getScarabName(scarab, locale)}
+											</span>
+											{formattedSlotPrice && (
+												<span className="text-yellow-600 dark:text-yellow-400">
+													{formattedSlotPrice}c
+												</span>
+											)}
+										</div>
+										<div className="text-muted-foreground text-sm">
+											{getScarabEffect(scarab, locale)}
+										</div>
+										<div className="text-muted-foreground text-xs">
+											Limit: {scarab.limit}
+										</div>
 									</div>
-									<div className="text-muted-foreground text-sm">
-										{getScarabEffect(scarab, locale)}
-									</div>
-									<div className="text-muted-foreground text-xs">
-										Limit: {scarab.limit}
-									</div>
-								</div>
-							</TooltipContent>
+								</TooltipContent>
+							)}
+						</Tooltip>
+						{scarab && (
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										variant="destructive"
+										size="icon"
+										className="absolute -top-1 -right-1 h-5 w-5 opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100"
+										onClick={handleClear}
+									>
+										<X className="h-3 w-3" />
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent>
+									{t.mapDevice?.clearSlot || "Clear slot"}
+								</TooltipContent>
+							</Tooltip>
 						)}
-					</Tooltip>
+					</div>
 				</TooltipProvider>
 
 				<PopoverContent className="w-[400px] p-0" align="start">
