@@ -10,6 +10,7 @@ import {
 } from "react-router";
 import {
 	PreventFlashOnWrongTheme,
+	Theme,
 	ThemeProvider,
 	useTheme,
 } from "remix-themes";
@@ -23,7 +24,7 @@ import { themeSessionResolver } from "~/sessions.server";
 
 export async function loader({ request }: Route.LoaderArgs) {
 	const { getTheme } = await themeSessionResolver(request);
-	return { theme: getTheme() };
+	return { theme: getTheme() ?? Theme.DARK };
 }
 
 function AppLayout({ children }: { children: ReactNode }) {
