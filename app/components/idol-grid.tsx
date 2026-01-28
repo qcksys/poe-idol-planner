@@ -234,6 +234,7 @@ interface PlacedIdolProps {
 	placement: IdolPlacement;
 	inventoryIdol: InventoryIdol;
 	isHovered: boolean;
+	isBeingDragged: boolean;
 	onHoverStart: (placementId: string) => void;
 	onHoverEnd: () => void;
 	onIdolClick?: (idol: IdolInstance, placementId: string) => void;
@@ -250,6 +251,7 @@ function PlacedIdol({
 	placement,
 	inventoryIdol,
 	isHovered,
+	isBeingDragged,
 	onHoverStart,
 	onHoverEnd,
 	onIdolClick,
@@ -280,6 +282,28 @@ function PlacedIdol({
 		onHoverStart(placement.id);
 	}, [placement.id, onHoverStart]);
 
+	// Allow dragover when this idol is being dragged (for self-overlap drops)
+	const handleDragOver = useCallback(
+		(e: React.DragEvent<HTMLDivElement>) => {
+			if (isBeingDragged) {
+				e.preventDefault();
+				e.dataTransfer.dropEffect = "move";
+			}
+		},
+		[isBeingDragged],
+	);
+
+	// Allow drop to bubble to grid when this idol is being dragged
+	const handleDrop = useCallback(
+		(e: React.DragEvent<HTMLDivElement>) => {
+			if (isBeingDragged) {
+				e.preventDefault();
+				// Don't stopPropagation - let it bubble to grid's onDrop handler
+			}
+		},
+		[isBeingDragged],
+	);
+
 	return (
 		// biome-ignore lint/a11y/noStaticElementInteractions: Hover detection for idol highlight
 		<div
@@ -290,6 +314,8 @@ function PlacedIdol({
 			}}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={onHoverEnd}
+			onDragOver={handleDragOver}
+			onDrop={handleDrop}
 		>
 			<IdolCardMini
 				idol={idol}
@@ -354,6 +380,7 @@ function EmptyCell({
 	const handleDrop = useCallback(
 		(e: DragEvent<HTMLDivElement>) => {
 			e.preventDefault();
+			e.stopPropagation(); // Prevent grid-level handler from also firing
 			setIsDragOver(false);
 			if (canDropHere) {
 				onDrop(x, y);
@@ -640,6 +667,17 @@ function GridTabContent({
 		setDragHoverPosition(null);
 	}, []);
 
+	const handleGridDrop = useCallback(
+		(e: DragEvent<HTMLDivElement>) => {
+			e.preventDefault();
+			if (!draggedItem || !dragHoverPosition) return;
+			if (!canPlaceAtPosition(dragHoverPosition.x, dragHoverPosition.y))
+				return;
+			handleDrop(dragHoverPosition.x, dragHoverPosition.y);
+		},
+		[draggedItem, dragHoverPosition, canPlaceAtPosition, handleDrop],
+	);
+
 	return (
 		// biome-ignore lint/a11y/noStaticElementInteractions: Grid drag tracking
 		<div
@@ -650,6 +688,7 @@ function GridTabContent({
 			}}
 			onDragOver={handleGridDragOver}
 			onDragLeave={handleGridDragLeave}
+			onDrop={handleGridDrop}
 		>
 			{/* Render empty cells as base layer */}
 			{grid.flatMap((row, y) =>
@@ -672,6 +711,34 @@ function GridTabContent({
 				}),
 			)}
 
+			{/* Render preview overlay for occupied cells when dragging self */}
+			{sourcePlacementId &&
+				grid.flatMap((row, y) =>
+					row.map((cell, x) => {
+						if (!cell.occupied) return null;
+						if (cell.placementId !== sourcePlacementId) return null;
+						const cellKey = `${x},${y}`;
+						if (!previewCells.has(cellKey)) return null;
+						return (
+							<div
+								key={`preview-${x}-${y}`}
+								className={cn(
+									"pointer-events-none absolute z-20 border transition-colors",
+									canDropAtOrigin
+										? "border-primary bg-primary/20"
+										: "border-destructive/50 bg-destructive/10",
+								)}
+								style={{
+									left: x * CELL_SIZE,
+									top: y * CELL_SIZE,
+									width: CELL_SIZE,
+									height: CELL_SIZE,
+								}}
+							/>
+						);
+					}),
+				)}
+
 			{/* Render placed idols as overlay layer */}
 			{tabPlacements.map((placement) => {
 				const invIdol = inventoryMap.get(placement.inventoryIdolId);
@@ -683,6 +750,7 @@ function GridTabContent({
 						placement={placement}
 						inventoryIdol={invIdol}
 						isHovered={hoveredPlacementId === placement.id}
+						isBeingDragged={sourcePlacementId === placement.id}
 						onHoverStart={setHoveredPlacementId}
 						onHoverEnd={() => setHoveredPlacementId(null)}
 						onIdolClick={onIdolClick}
