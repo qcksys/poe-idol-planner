@@ -34,7 +34,8 @@ import {
 import { useDnd } from "~/context/dnd-context";
 import type { LeagueMechanic } from "~/data/idol-bases";
 import { useLeague } from "~/hooks/use-league";
-import { useTranslations } from "~/i18n";
+import { useLocale, useTranslations } from "~/i18n";
+import { resolveModText } from "~/lib/mod-text-resolver";
 import { generateTradeUrl } from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
 import type { InventoryIdol } from "~/schemas/inventory";
@@ -208,6 +209,7 @@ export function InventoryPanel({
 	hasClipboardIdol,
 }: InventoryPanelProps) {
 	const t = useTranslations();
+	const locale = useLocale();
 	const { league } = useLeague();
 	const [searchQuery, setSearchQuery] = useState("");
 	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic[]>([]);
@@ -234,7 +236,9 @@ export function InventoryPanel({
 		return (
 			idol.name?.toLowerCase().includes(query) ||
 			idol.baseType.toLowerCase().includes(query) ||
-			allMods.some((mod) => mod.text.toLowerCase().includes(query))
+			allMods.some((mod) =>
+				resolveModText(mod, locale).toLowerCase().includes(query),
+			)
 		);
 	});
 

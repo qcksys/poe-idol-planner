@@ -8,7 +8,8 @@ import { useScarabPrices } from "~/hooks/use-scarab-prices";
 import { useLocale, useTranslations } from "~/i18n";
 import type { SupportedLocale } from "~/i18n/types";
 import { highlightNumbers } from "~/lib/highlight-numbers";
-import type { IdolBaseKey, LeagueMechanic } from "~/schemas/idol";
+import { resolveModTextWithRange } from "~/lib/mod-text-resolver";
+import type { IdolBaseKey, IdolModifier, LeagueMechanic } from "~/schemas/idol";
 import type { IdolPlacement } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
 import type { MapCraftingOption, MapDevice, Scarab } from "~/schemas/scarab";
@@ -201,9 +202,17 @@ function formatStatText(
 	return template.replace("{value}", displayValue);
 }
 
+function getModTextForAggregation(
+	mod: IdolModifier,
+	locale: SupportedLocale,
+): string {
+	return resolveModTextWithRange(mod, locale);
+}
+
 function aggregateStats(
 	placements: IdolPlacement[],
 	inventory: InventoryIdol[],
+	locale: SupportedLocale,
 ): StatsByMechanic[] {
 	const statMap = new Map<string, AggregatedStat>();
 
@@ -220,8 +229,9 @@ function aggregateStats(
 		};
 
 		for (const mod of allMods) {
+			const modText = getModTextForAggregation(mod, locale);
 			const { template, hasPercent } = createTemplate(
-				mod.text,
+				modText,
 				mod.rolledValue,
 			);
 			const key = `${mod.mechanic}:${template}`;
@@ -395,8 +405,8 @@ export function StatsSummary({
 	const { getPrice } = useScarabPrices();
 
 	const statsByMechanic = useMemo(
-		() => aggregateStats(placements, inventory),
-		[placements, inventory],
+		() => aggregateStats(placements, inventory, locale),
+		[placements, inventory, locale],
 	);
 
 	const selectedScarabs = useMemo(() => {

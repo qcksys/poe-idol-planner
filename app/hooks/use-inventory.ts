@@ -106,7 +106,7 @@ export function useInventory(
 					idol.name?.toLowerCase().includes(lowerQuery) ||
 					idol.baseType.toLowerCase().includes(lowerQuery) ||
 					allMods.some((mod) =>
-						mod.text.toLowerCase().includes(lowerQuery),
+						mod.text?.toLowerCase().includes(lowerQuery),
 					)
 				);
 			});

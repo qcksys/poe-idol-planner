@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { IdolSetSchema } from "~/schemas/idol-set";
 
-export const STORAGE_VERSION = 4;
+export const STORAGE_VERSION = 5;
 
 export const StorageSchema = z.object({
 	version: z.literal(STORAGE_VERSION),

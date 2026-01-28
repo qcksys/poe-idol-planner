@@ -1,5 +1,6 @@
 import type { IdolBaseKey } from "~/data/idol-bases";
 import { TRADE_STAT_MAPPINGS } from "~/data/trade-stat-mappings";
+import { resolveModTextWithRange } from "~/lib/mod-text-resolver";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
 import { DEFAULT_LEAGUE } from "~/schemas/league";
 
@@ -127,7 +128,8 @@ function buildTradeQuery(
 		const statFilters: TradeStatFilter[] = [];
 
 		for (const mod of mods) {
-			const statId = findStatId(mod.text);
+			const modText = resolveModTextWithRange(mod, "en");
+			const statId = findStatId(modText);
 			if (statId) {
 				statFilters.push({
 					id: statId,

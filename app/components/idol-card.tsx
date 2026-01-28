@@ -8,8 +8,10 @@ import {
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
 import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
-import { useTranslations } from "~/i18n";
+import { useLocale, useTranslations } from "~/i18n";
+import type { SupportedLocale } from "~/i18n/types";
 import { highlightNumbers } from "~/lib/highlight-numbers";
+import { resolveModTextWithRange } from "~/lib/mod-text-resolver";
 import { cn } from "~/lib/utils";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
 
@@ -64,10 +66,11 @@ function getModTypeColor(type: IdolModifier["type"]): string {
 	}
 }
 
-function formatModTextWithRange(mod: IdolModifier): string {
-	const { text, rolledValue, valueRange } = mod;
-
-	// If no range or range equals rolled value, just return text as-is
+function formatModTextWithRange(
+	text: string,
+	rolledValue: number,
+	valueRange?: { min: number; max: number },
+): string {
 	if (
 		!valueRange ||
 		(valueRange.min === rolledValue && valueRange.max === rolledValue)
@@ -75,22 +78,17 @@ function formatModTextWithRange(mod: IdolModifier): string {
 		return text;
 	}
 
-	// Check if the text already contains a range format like (15—25)
 	const existingRangePattern = /\(\d+(?:\.\d+)?[—\-–]\d+(?:\.\d+)?\)/;
 	if (existingRangePattern.test(text)) {
 		return text;
 	}
 
-	// Format the range string
 	const rangeStr = `(${valueRange.min}—${valueRange.max})`;
 
-	// Try to find and replace the rolled value with value + range
-	// Look for the rolled value as a standalone number (not part of a larger number)
 	const valueStr = Number.isInteger(rolledValue)
 		? String(rolledValue)
 		: rolledValue.toFixed(1);
 
-	// Pattern to match the value followed by optional % but not already followed by a range
 	const valuePattern = new RegExp(
 		`(^|[^\\d])(${valueStr.replace(".", "\\.")})(%?)(?!\\s*[—\\-–]|\\s*\\()`,
 		"g",
@@ -111,8 +109,19 @@ function formatModTextWithRange(mod: IdolModifier): string {
 	return replaced ? result : text;
 }
 
-function ModifierLine({ mod }: { mod: IdolModifier }) {
-	const displayText = formatModTextWithRange(mod);
+function ModifierLine({
+	mod,
+	locale,
+}: {
+	mod: IdolModifier;
+	locale: SupportedLocale;
+}) {
+	const resolvedText = resolveModTextWithRange(mod, locale);
+	const displayText = formatModTextWithRange(
+		resolvedText,
+		mod.rolledValue,
+		mod.valueRange,
+	);
 	return (
 		<div className="text-sm">
 			<span className={getModTypeColor(mod.type)}>
@@ -130,6 +139,7 @@ function IdolCardContent({
 	compact?: boolean;
 }) {
 	const t = useTranslations();
+	const locale = useLocale();
 	const base = IDOL_BASES[idol.baseType as IdolBaseKey];
 	const allMods = [...idol.prefixes, ...idol.suffixes];
 	const imageSrc =
@@ -165,7 +175,11 @@ function IdolCardContent({
 			) : (
 				<div className="space-y-0.5">
 					{allMods.map((mod, index) => (
-						<ModifierLine key={`${mod.modId}-${index}`} mod={mod} />
+						<ModifierLine
+							key={`${mod.modId}-${index}`}
+							mod={mod}
+							locale={locale}
+						/>
 					))}
 				</div>
 			)}
