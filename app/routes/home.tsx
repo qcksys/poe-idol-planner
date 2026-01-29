@@ -73,7 +73,7 @@ function HomeContent() {
 
 	if (!isHydrated) {
 		return (
-			<div className="flex min-h-screen items-center justify-center">
+			<div className="flex h-screen items-center justify-center">
 				<div className="text-muted-foreground">{t.actions.loading}</div>
 			</div>
 		);
@@ -83,10 +83,10 @@ function HomeContent() {
 	const inventory = activeSet?.inventory ?? [];
 
 	return (
-		<div className="flex min-h-screen flex-col">
+		<div className="flex h-screen flex-col overflow-hidden">
 			<AppHeader onShareClick={() => setShareModalOpen(true)} />
 
-			<main className="container mx-auto flex-1 p-4">
+			<main className="container mx-auto flex min-h-0 flex-1 flex-col p-4">
 				<SetTabs
 					sets={sets.sets}
 					activeSetId={sets.activeSetId}
@@ -98,7 +98,7 @@ function HomeContent() {
 				/>
 
 				{/* Mobile: stack vertically (inventory, grid, stats). Desktop: 3-column layout */}
-				<div className="mt-4 grid gap-4 lg:grid-cols-[280px_1fr_260px] xl:grid-cols-[400px_1fr_350px]">
+				<div className="mt-4 grid min-h-0 flex-1 gap-4 overflow-y-auto lg:grid-cols-[280px_1fr_260px] lg:overflow-visible xl:grid-cols-[400px_1fr_350px]">
 					{/* Inventory panel - above grid on mobile */}
 					<aside className="max-h-[50vh] lg:h-[calc(100vh-180px)] lg:max-h-none">
 						<InventoryPanel
