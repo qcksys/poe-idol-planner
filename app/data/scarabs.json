@@ -196,7 +196,7 @@
 			},
 			"effect": {
 				"en": "10% increased Maps found in Area for each Map Modifier affecting Area",
-				"zh-TW": "每個地圖詞綴影響區域增加 10% 區域內掉落地圖",
+				"zh-TW": "每個地圖詞綴影響區域增加 10% 區域中掉落地圖",
 				"zh-CN": "每个影响区域的地图词缀使区域内发现的异界地图数量提高 10%",
 				"ko": "지역에 영향을 주는 지도 속성 하나당 지역에서 발견하는 지도 10% 증가",
 				"ja": "エリアが影響を受けているマップモッド数ごとにエリアでのマップ獲得量が10%増加する",
@@ -316,7 +316,7 @@
 			},
 			"effect": {
 				"en": "Area contains 8 to 12 additional packs of Difficult and Rewarding Monsters which drop 300% increased Maps",
-				"zh-TW": "區域內含有額外 8 至 12 群 困難和會賦予獎勵的怪物群，它們會掉落額外 300% 的地圖",
+				"zh-TW": "區域中含有額外 8 至 12 群 困難和會賦予獎勵的怪物群，它們會掉落額外 300% 的地圖",
 				"zh-CN": "区域内有 8 到 12 个额外的 高难度和高奖励怪物群，它们掉落的地图数量提高 300%",
 				"ko": "지역에 난이도와 보상이 높은 몬스터로 이루어진 무리가 8~12개 등장합니다. 이러한 몬스터는 떨어뜨리는 지도 수량이 300% 증가합니다.",
 				"ja": "エリアにはドロップするマップが300%増加した高難易度で見返りの 大きいモンスターが追加で8から12パック出現する",
@@ -334,7 +334,7 @@
 			"id": "titanic_scarab",
 			"name": {
 				"en": "Titanic Scarab",
-				"zh-TW": "聖甲蟲．泰坦",
+				"zh-TW": "聖甲蟲：泰坦",
 				"zh-CN": "泰坦圣甲虫",
 				"ko": "거대한 갑충석",
 				"ja": "タイタンのスカラベ",
@@ -406,13 +406,13 @@
 			},
 			"effect": {
 				"en": "Unique Monsters in Area have 4 additional Monster Modifiers",
-				"zh-TW": "區域中的傳奇怪物含有 2 個額外怪物詞綴",
+				"zh-TW": "區域中的傳奇怪物含有 4 個額外怪物詞綴",
 				"zh-CN": "区域内的传奇怪物额外具有 2 个怪物词缀",
-				"ko": "Unique Monsters in Area have 4 additional Monster Modifiers",
-				"ja": "エリアのユニークモンスターはモンスターモッドを追加で2個持つ",
+				"ko": "지역 내 고유 몬스터가 몬스터 속성 4개 추가 보유",
+				"ja": "エリアのユニークモンスターはモンスターモッドを追加で4個持つ",
 				"ru": "Уникальные монстры в области имеют 2 дополнительных свойства",
 				"pt-BR": "Monstros Únicos na Área têm 2 Modificadores de Monstros adicionais",
-				"de": "Einzigartige Monster im Gebiet haben 2 zusätzliche Monstermodifikatoren",
+				"de": "Einzigartige Monster im Gebiet haben 4 zusätzliche Monstermodifikatoren",
 				"fr": "Les Monstres uniques de la zone ont 4 Modificateurs de monstre supplémentaires",
 				"es": "Los monstruos únicos del área tienen 2 modificadores de monstruo adicionales"
 			},
@@ -424,7 +424,7 @@
 			"id": "bestiary_scarab",
 			"name": {
 				"en": "Bestiary Scarab",
-				"zh-TW": "聖甲蟲·獸獵",
+				"zh-TW": "聖甲蟲：獸獵",
 				"zh-CN": "猎魔圣甲虫",
 				"ko": "야수 도감 갑충석",
 				"ja": "ベスティアリースカラベ",
@@ -466,7 +466,7 @@
 			},
 			"effect": {
 				"en": "Area contains 5 additional Red Beasts if it contains Einhar",
-				"zh-TW": "含有埃哈的區域內含5隻額外紅色野獸",
+				"zh-TW": "含有埃哈的區域中含5隻額外紅色野獸",
 				"zh-CN": "区域内若有伊恩哈尔，额外包含 5 个红魔物",
 				"ko": "아인하르가 등장하는 지역에 붉은 야수 5마리 추가 등장",
 				"ja": "エリアにアイナーが出現する場合にエリアに赤ビーストが5体追加される",
@@ -526,7 +526,7 @@
 			},
 			"effect": {
 				"en": "Area contains The Black Mórrigan if it contains Einhar",
-				"zh-TW": "含有埃哈的區域內含黑色莫里根",
+				"zh-TW": "含有埃哈的區域中含黑色莫里根",
 				"zh-CN": "区域内若有伊恩哈尔，则包含黑羽之莫丽根",
 				"ko": "아인하르가 등장하는 지역에 검은 모리건 등장",
 				"ja": "エリアにアイナーが出現する場合にエリアに黒のモリガンが追加される",
@@ -544,7 +544,7 @@
 			"id": "influencing_scarab_of_the_shaper",
 			"name": {
 				"en": "Influencing Scarab of the Shaper",
-				"zh-TW": "聖甲蟲：",
+				"zh-TW": "聖甲蟲：塑界感染",
 				"zh-CN": "塑界者之影响圣甲虫",
 				"ko": "쉐이퍼의 영향력 갑충석",
 				"ja": "シェイパーのインフルエンススカラベ",
@@ -574,7 +574,7 @@
 			"id": "influencing_scarab_of_the_elder",
 			"name": {
 				"en": "Influencing Scarab of the Elder",
-				"zh-TW": "聖甲蟲：",
+				"zh-TW": "聖甲蟲：尊師感染",
 				"zh-CN": "裂界者之影响圣甲虫",
 				"ko": "엘더의 영향력 갑충석",
 				"ja": "エルダーのインフルエンススカラベ",
@@ -604,7 +604,7 @@
 			"id": "influencing_scarab_of_hordes",
 			"name": {
 				"en": "Influencing Scarab of Hordes",
-				"zh-TW": "聖甲蟲：",
+				"zh-TW": "聖甲蟲：群集感染",
 				"zh-CN": "部落之影响圣甲虫",
 				"ko": "군단의 영향력 갑충석",
 				"ja": "群れのインフルエンススカラベ",
@@ -634,7 +634,7 @@
 			"id": "influencing_scarab_of_conversion",
 			"name": {
 				"en": "Influencing Scarab of Conversion",
-				"zh-TW": "聖甲蟲：",
+				"zh-TW": "聖甲蟲：轉化感染",
 				"zh-CN": "转化之影响圣甲虫",
 				"ko": "전향의 영향력 갑충석",
 				"ja": "変換のインフルエンススカラベ",
@@ -664,7 +664,7 @@
 			"id": "sulphite_scarab",
 			"name": {
 				"en": "Sulphite Scarab",
-				"zh-TW": "聖甲蟲·硫酸",
+				"zh-TW": "聖甲蟲：硫酸",
 				"zh-CN": "亚硫酸圣甲虫",
 				"ko": "아황산염 갑충석",
 				"ja": "サルファイトスカラベ",
@@ -676,7 +676,7 @@
 			},
 			"effect": {
 				"en": "Area contains Niko Map owner gains 150% more Sulphite",
-				"zh-TW": "區域內含尼科 地圖擁有者獲得 150% 更多硫酸",
+				"zh-TW": "區域中含尼科 地圖擁有者獲得 150% 更多硫酸",
 				"zh-CN": "该区域会出现尼克 地图拥有者获得的亚硫酸数量总增 150%",
 				"ko": "지역 내 니코 등장 지도 소유자가 획득하는 아황산염 150% 증폭",
 				"ja": "エリアにニコが出現する マップの所有者が得るサルファイトの量が150%上昇する",
@@ -766,7 +766,7 @@
 			},
 			"effect": {
 				"en": "Area contains 8 to 12 additional packs of Doedre's Devoted Doedre's Devoted have 1% additional chance to drop a Stacked Deck",
-				"zh-TW": "區域內含有額外 8 至 12 群德瑞的信徒 德瑞的信徒有額外 1% 的機率會掉落豐裕牌組",
+				"zh-TW": "區域中含有額外 8 至 12 群德瑞的信徒 德瑞的信徒有額外 1% 的機率會掉落豐裕牌組",
 				"zh-CN": "区域内有 8 到 12 个额外的敬奉德瑞怪物群 敬奉德瑞的怪物有额外 1% 的几率掉落未知命运卡",
 				"ko": "지역에 도이드리의 헌신자 무리 8~12개가 추가로 등장 도이드리의 헌신자가 카드 묶음을 떨어뜨릴 확률 1% 추가",
 				"ja": "エリアにはドゥードリに敬虔なモンスターが追加で8から12パック出現する ドゥードリに敬虔なモンスターは細工されたデッキをドロップする確率を追加で1%持つ",
@@ -826,7 +826,7 @@
 			},
 			"effect": {
 				"en": "Divination Cards which drop in Area are stolen by a Final Map Boss That Final Map Boss becomes more Difficult and deals increased Damage the more Divination Cards they have stolen That Final Map Boss duplicates all stolen Divination Cards when defeated",
-				"zh-TW": "最終地圖頭目會偷走區域內掉落的命運卡 該名最終地圖頭目會根據偷取的命運卡數量 變得更難對付並造成更多傷害 擊敗該名最終地圖頭目時，被偷取的命運卡會以 2 倍的數量掉落",
+				"zh-TW": "最終地圖頭目會偷走區域中掉落的命運卡 該名最終地圖頭目會根據偷取的命運卡數量 變得更難對付並造成更多傷害 擊敗該名最終地圖頭目時，被偷取的命運卡會以 2 倍的數量掉落",
 				"zh-CN": "区域内掉落的命运卡被一个地图最终首领窃取 该地图最终首领窃取的命运卡越多 其难度越高，伤害越高 该地图最终首领被击败时复制所有窃取的命运卡",
 				"ko": "지역에서 발견하는 점술 카드를 지도의 마지막 보스가 강탈 지도의 해당 마지막 보스가 강탈한 점술 카드가 많을수록 난이도가 높아지고 마지막 보스가 주는 피해 증가 지도의 해당 마지막 보스 처치 시 강탈한 모든 점술 카드 복제",
 				"ja": "エリアでドロップする占いカードはマップの最終ボスに盗まれる マップの最終ボスは盗んだ占いカードが多いほど 難易度が上昇しダメージが増加する マップの最終ボスを倒した時に盗んだすべての占いカードを複製する",
@@ -844,7 +844,7 @@
 			"id": "torment_scarab",
 			"name": {
 				"en": "Torment Scarab",
-				"zh-TW": "聖甲蟲·苦痛",
+				"zh-TW": "聖甲蟲：苦痛",
 				"zh-CN": "苦痛圣甲虫",
 				"ko": "고통 갑충석",
 				"ja": "トーメントスカラベ",
@@ -858,7 +858,7 @@
 				"en": "Area is haunted by 3 additional Tormented Spirits Tormented Spirits in Area have a 50% chance to be set free when Possessed Monsters are slain",
 				"zh-TW": "區域被 3 個額外罪魂糾纏 擊殺區域內被附身的怪物時 有 50% 機率釋放罪魂",
 				"zh-CN": "区域被 3 个额外的罪魂纠缠 击败区域内被附身的怪物时 有 50% 的几率释放罪魂",
-				"ko": "Area is haunted by 3 additional Tormented Spirits Tormented Spirits in Area have a 50% chance to be set free when Possessed Monsters are slain",
+				"ko": "지역에 고통받는 혼백 3마리 추가 등장 사로잡힌 몬스터 처치 시 지역 내 고통받는 혼백이 50%의 확률로 해방",
 				"ja": "エリアは拷問された幽霊が追加で3体彷徨っている エリアの拷問された幽霊は50%の確率で 憑依したモンスターが倒された時に解放される",
 				"ru": "В области обитают 3 дополнительных страдающих духа Страдающие духи в области с 50% шансом могут высвободиться при убийстве одержимых монстров",
 				"pt-BR": "Área assombrada por 3 Espíritos Atormentados adicionais Espíritos Atormentados na área têm 50% de chance de serem libertados quando o monstro possuído for morto",
@@ -948,7 +948,7 @@
 				"en": "Rare Monsters in Area have a quarter chance to be Possessed by up to 3 Tormented Spirits",
 				"zh-TW": "稀有怪物有四分之一機率被最多 3 個罪魂附身",
 				"zh-CN": "区域内的稀有怪物有四分之一的几率被最多 3 个罪魂附身",
-				"ko": "Rare Monsters in Area have a quarter chance to be Possessed by up to 3 Tormented Spirits",
+				"ko": "지역 내 희귀 몬스터가 1/4 확률로 최대 3마리의 고통받는 혼백에게 사로잡힘",
 				"ja": "エリアのレアモンスターは4分の1の確率で最大3体の拷問された幽霊に憑依されている",
 				"ru": "Редкие монстры в области с 25% шансом могут быть одержимы вплоть до 3 страдающими духами",
 				"pt-BR": "Monstros raros na área têm um quarto de chance de serem possuídos por até 3 Espíritos Atormentados",
@@ -964,7 +964,7 @@
 			"id": "ambush_scarab",
 			"name": {
 				"en": "Ambush Scarab",
-				"zh-TW": "聖甲蟲·伏擊",
+				"zh-TW": "聖甲蟲：伏擊",
 				"zh-CN": "强袭圣甲虫",
 				"ko": "매복 갑충석",
 				"ja": "アンブッシュスカラベ",
@@ -1114,7 +1114,7 @@
 			"id": "harbinger_scarab",
 			"name": {
 				"en": "Harbinger Scarab",
-				"zh-TW": "聖甲蟲·神諭",
+				"zh-TW": "聖甲蟲：神諭",
 				"zh-CN": "先驱圣甲虫",
 				"ko": "선구자 갑충석",
 				"ja": "ハービンジャースカラベ",
@@ -1126,7 +1126,7 @@
 			},
 			"effect": {
 				"en": "Area contains 3 additional Harbingers",
-				"zh-TW": "區域內含 3 個額外神諭",
+				"zh-TW": "區域中含 3 個額外神諭",
 				"zh-CN": "该区域会出现额外 3 个先驱者",
 				"ko": "지역 내 선구자 3명 추가",
 				"ja": "エリアにハービンジャーが3体追加される",
@@ -1156,7 +1156,7 @@
 			},
 			"effect": {
 				"en": "Harbingers in Area spawn Empowered Obelisks Empowered Obelisks drop Currency Shards when defeated",
-				"zh-TW": "區域內的神諭會生成強化石碑 擊敗強化石碑後會掉落通貨碎片",
+				"zh-TW": "區域中的神諭會生成強化石碑 擊敗強化石碑後會掉落通貨碎片",
 				"zh-CN": "区域内的先驱者生成强化方尖碑 强化方尖碑被击败时会掉落通货碎片",
 				"ko": "지역 내 선구자가 강화된 오벨리스크 생성 강화된 오벨리스크는 파괴될 시 일정 확률로 화폐 파편을 떨어뜨림",
 				"ja": "エリアのハービンジャーは強化されたオベリスクをスポーンする 強化されたオベリスクは倒した時にカレンシーのシャードをドロップする",
@@ -1246,7 +1246,7 @@
 			},
 			"effect": {
 				"en": "Area contains an Expedition Encounter",
-				"zh-TW": "區域內包含 1 個額外探險事件",
+				"zh-TW": "區域中包含 1 個額外探險事件",
 				"zh-CN": "区域内有一场先祖秘藏遭遇战",
 				"ko": "지역에 탐험 인카운터 1개 등장",
 				"ja": "エリアにエクスペディションエンカウンターが出現する",
@@ -1368,7 +1368,7 @@
 				"en": "Remnants in Expedition Encounters in Area have 2 additional Suffixes and Prefixes",
 				"zh-TW": "區域中的探險事件的遺跡內含 2 個額外後綴與前綴",
 				"zh-CN": "区域内的先祖秘藏遭遇战残骸有 2 个额外的前缀和后缀",
-				"ko": "지역 내 탐험 인카운터의 유물에 접미어 및 접두어 2개 추가",
+				"ko": "지역 내 탐험 인카운터의 유적에 접미어 및 접두어 2개 추가",
 				"ja": "エリアのエクスペディションエンカウンターのレムナントはサフィックスおよびプレフィックスを追加で2個持つ",
 				"ru": "У реликтов на раскопках Экспедиции в области есть 2 дополнительных префикса и суффикса",
 				"pt-BR": "Restos em Encontros Expedition na Área têm 2 Sufixos e Prefixos adicionais",
@@ -1396,7 +1396,7 @@
 			},
 			"effect": {
 				"en": "Area contains an additional Legion Encounter",
-				"zh-TW": "區域內包含 1 個額外戰亂事件",
+				"zh-TW": "區域中包含 1 個額外戰亂事件",
 				"zh-CN": "该区域会出现 1 场额外的战乱之殇遭遇战",
 				"ko": "지역에 추가 군단 인카운터 등장",
 				"ja": "エリアにリージョンエンカウンターが追加される",
@@ -1516,7 +1516,7 @@
 			},
 			"effect": {
 				"en": "Legion Monsters in Area can be broken out of Stasis multiple times Legion Monsters in Area gain increased Difficulty and Reward for each time they are broken out",
-				"zh-TW": "區域內軍團怪物可以多次脫離靜止狀態 區域內軍團怪物每次脫離都會增加難度和獎勵",
+				"zh-TW": "區域中軍團怪物可以多次脫離靜止狀態 區域中軍團怪物每次脫離都會增加難度和獎勵",
 				"zh-CN": "区域内的战乱之殇怪物可以打破静滞多次 区域内的战乱之殇怪物每次打破静滞时难度和奖励都会提高",
 				"ko": "지역 내 군단 몬스터를 여러 번 깨울 수 있음 지역 내 군단 몬스터를 깨울 때마다 난이도와 보상 증가",
 				"ja": "エリアのリージョンモンスターは静止状態から複数回抜け出すことができる リージョンモンスターは解放されるたびに難易度および報酬が増加する",
@@ -1546,7 +1546,7 @@
 			},
 			"effect": {
 				"en": "Area contains an additional Abyss",
-				"zh-TW": "區域內包含 1 個額外深淵",
+				"zh-TW": "區域中包含 1 個額外深淵",
 				"zh-CN": "区域内有一个额外的深渊",
 				"ko": "지역에 심연 1개 추가 등장",
 				"ja": "エリアにアビスが追加される",
@@ -1576,7 +1576,7 @@
 			},
 			"effect": {
 				"en": "Abysses in Area spawn 50% increased Monsters",
-				"zh-TW": "區域內深淵生成的怪物增加 50%",
+				"zh-TW": "區域中深淵生成的怪物增加 50%",
 				"zh-CN": "区域内深渊产生的怪物提高 50%",
 				"ko": "지역 내 심연에서 생성되는 몬스터 50% 증가",
 				"ja": "エリアのアビスがスポーンするモンスターの数が50%増加する",
@@ -1696,7 +1696,7 @@
 			},
 			"effect": {
 				"en": "Area contains 4 additional Rogue Exiles",
-				"zh-TW": "區域內含 4 個額外盜賊流亡者",
+				"zh-TW": "區域中含 4 個額外盜賊流亡者",
 				"zh-CN": "区域内有 4 个额外的盗贼流放者",
 				"ko": "지역 내 탈주 유배자 4명 추가 등장",
 				"ja": "エリアにローグエグザイルが4体追加される",
@@ -1786,7 +1786,7 @@
 			},
 			"effect": {
 				"en": "Area contains 2 additional Imprisoned Monsters",
-				"zh-TW": "區域內包含 2 個被禁錮的怪物",
+				"zh-TW": "區域中包含 2 個被禁錮的怪物",
 				"zh-CN": "区域内有 2 个额外的禁锢怪物",
 				"ko": "지역에 갇힌 몬스터 2마리 추가 등장",
 				"ja": "エリアに囚われたモンスターが追加で2体出現する",
@@ -1906,7 +1906,7 @@
 			},
 			"effect": {
 				"en": "Imprisoned Monsters released in Areas grant a random Essence Modifier to another Imprisoned Monster in the Area Imprisoned Monsters in Areas have increased Difficulty and Reward for each Essence Modifier",
-				"zh-TW": "區域內被禁錮的怪物脫困後使另一個被禁錮的怪物獲得一個隨機精髓詞綴 每個精髓詞綴 使被禁錮的怪物增加難度和獎勵",
+				"zh-TW": "區域中被禁錮的怪物脫困後使另一個被禁錮的怪物獲得一個隨機精髓詞綴 每個精髓詞綴 使被禁錮的怪物增加難度和獎勵",
 				"zh-CN": "释放区域内被禁锢的怪物会使区域内的另一个被禁锢的怪物获得一个随机精华词缀 区域内被禁锢的怪物每有一个精华词缀 难度和奖励都会提高",
 				"ko": "지역 내 갇힌 몬스터가 풀려나면 지역 내 다른 갇힌 몬스터에게 무작위 에센스 속성 부여 에센스 속성의 수에 따라 지역 내 갇힌 몬스터의 난이도와 보상 증가",
 				"ja": "エリア内で解き放たれた囚われたモンスターはエリア内の他の囚われたモンスターにランダムなエッセンスモッドを一つ付与する エリアのエッセンスに囚われたモンスターはエッセンスモッドごとに難易度と報酬が増加する",
@@ -1936,7 +1936,7 @@
 			},
 			"effect": {
 				"en": "Area contains 2 additional Shrines",
-				"zh-TW": "區域內含有 2 個額外神殿",
+				"zh-TW": "區域中含有 2 個額外神殿",
 				"zh-CN": "区域内包含 2 个额外的神龛",
 				"ko": "지역에 성소 2개 추가 등장",
 				"ja": "エリアにシュラインが2個追加される",
@@ -1966,7 +1966,7 @@
 			},
 			"effect": {
 				"en": "Area contains 2 additional Apparition Shrines",
-				"zh-TW": "區域內含有 2 個額外映像神殿",
+				"zh-TW": "區域中含有 2 個額外映像神殿",
 				"zh-CN": "区域包含 2 个额外的幽灵神龛",
 				"ko": "지역에 유령 성소 2개 추가 등장",
 				"ja": "エリアに幻影のシュラインが追加で2個出現する",
@@ -1996,7 +1996,7 @@
 			},
 			"effect": {
 				"en": "Area contains an additional Evolving Shrine",
-				"zh-TW": "區域內含有一個額外的進化神殿",
+				"zh-TW": "區域中含有一個額外的進化神殿",
 				"zh-CN": "该区域包含一个额外的进化神龛",
 				"ko": "지역에 진화의 성소 1개 추가 등장",
 				"ja": "エリアに進化のシュラインが追加で1個出現する",
@@ -2123,7 +2123,7 @@
 				"ru": "Ритуалы в области предлагают на 100% больше наград",
 				"pt-BR": "Rituais na Área oferecem Favores aumentados em 100%",
 				"de": "Rituale im Gebiet gewähren 100% erhöhte Gunst",
-				"fr": "Les Autels de Rituel de la Zone offrent 100% d'Augmentation des Faveurs",
+				"fr": "Les Rituels de la Zone offrent 100% d'Augmentation des Faveurs",
 				"es": "La cantidad de favores que ofrecen los rituales del área está aumentada un 100%"
 			},
 			"category": "ritual",
@@ -2536,9 +2536,9 @@
 			},
 			"effect": {
 				"en": "Beyond Portals in Area have 50% increased Merging Radius Characters that Kill Beyond Rare Monsters in Area have a 30% chance to gain their Modifiers for 20 seconds",
-				"zh-TW": "區域中，超越傳送門的融合範圍增加 50% 擊殺區域內的超越怪物時有30%機率獲得其詞綴，持續20秒",
+				"zh-TW": "區域中，超越傳送門的融合範圍增加 50% 擊殺區域中的超越怪物時有30%機率獲得其詞綴，持續20秒",
 				"zh-CN": "区域内的超越时空之门的融合范围扩大 50%",
-				"ko": "Beyond Portals in Area have 50% increased Merging Radius Characters that Kill Beyond Rare Monsters in Area have a 30% chance to gain their Modifiers for 20 seconds",
+				"ko": "지역 내 이계 포탈의 병합 범위 50% 증가 지역 내에서 이계 희귀 몬스터를 처치하는 캐릭터들이 30% 확률로 20초 동안 몬스터의 속성을 획득함",
 				"ja": "エリアのビヨンドポータルのマージ半径が50%増加する エリアでビヨンドレアモンスターを倒したキャラクターは30%の確率でそのモッドを20秒間獲得する",
 				"ru": "50% увеличение радиуса слияния порталов Иномирья в области Персонажи, убившие редких монстров Иномирья в области, с 30% шансом могут получить их свойства на 20 секунд",
 				"pt-BR": "Portais do Além na área têm o raio de fusão aumentado em 50% Personagens que matam monstros raros do Além da área têm 30% de chance de ganhar seus modificadores por 20 segundos",
@@ -2626,7 +2626,7 @@
 			},
 			"effect": {
 				"en": "Area contains an Ultimatum Encounter",
-				"zh-TW": "區域內包含 1 個通諜事件",
+				"zh-TW": "區域中包含 1 個通諜事件",
 				"zh-CN": "区域内有致命贪婪遭遇战",
 				"ko": "지역에 결전 인카운터 1개 등장",
 				"ja": "エリアにアルティメイタムエンカウンターが出現する",
@@ -2926,7 +2926,7 @@
 			},
 			"effect": {
 				"en": "Area contains a Blight Encounter",
-				"zh-TW": "區域內包含 1 個凋落事件",
+				"zh-TW": "區域中包含 1 個凋落事件",
 				"zh-CN": "区域内有一场菌潮遭遇战",
 				"ko": "지역에 역병 인카운터 1개 등장",
 				"ja": "エリアにブライトエンカウンターが出現する",
@@ -2986,7 +2986,7 @@
 			},
 			"effect": {
 				"en": "Blight Encounters in Area have one Blighted Chest Blight Encounters in Area spawn many more waves of Enemies Blighted Chests in Area grow larger and more rewarding the more Blighted Enemies are slain",
-				"zh-TW": "區域內的凋落事件會掉落一個凋落保險箱 區域內的凋落事件會生成更多波的敵人 區域內的凋落保險箱會隨著 擊殺的敵人變得更大，獎勵變得更豐富",
+				"zh-TW": "區域中的凋落事件會掉落一個凋落保險箱 區域中的凋落事件會生成更多波的敵人 區域中的凋落保險箱會隨著 擊殺的敵人變得更大，獎勵變得更豐富",
 				"zh-CN": "区域内的菌潮遭遇战有一个菌潮宝箱 区域内的菌潮遭遇战会生成更多波次的敌人 击败菌潮敌人会使区域内的菌潮宝箱变得更大，奖励更多",
 				"ko": "지역 내 역병 인카운터에 역병 걸린 상자 1개 등장 지역 내 역병 인카운터에서 생성되는 적 웨이브 수가 크게 증폭 역병 걸린 적을 많이 처치할수록 지역 내 역병 걸린 상자의 크기가 커지고 보상이 늘어남",
 				"ja": "エリアのブライトエンカウンターはブライトチェストが1個出現する エリアのブライトエンカウンターはより多くの敵のウェーブをスポーンする エリアのブライトチェストはブライトモンスターを倒すごとにより大きく成長し、高報酬となる",
@@ -3046,7 +3046,7 @@
 			},
 			"effect": {
 				"en": "Each Empowering Tower in Areas grants Blighted Monsters in range increased Difficulty and Reward",
-				"zh-TW": "區域內每個賦予塔使範圍內 凋落的怪物增加難度和獎勵",
+				"zh-TW": "區域中每個賦予塔使範圍內 凋落的怪物增加難度和獎勵",
 				"zh-CN": "区域内每有一个赋能之塔 范围内的菌潮怪物的难度和奖励都会提高",
 				"ko": "지역 내 강화의 탑이 각각 범위 내 역병 몬스터의 난이도와 보상을 증가시킴",
 				"ja": "エリアの各エンパワーリングタワーは範囲内のブライトモンスターに難易度と報酬の増加を付与する",
@@ -3083,7 +3083,7 @@
 				"ru": "В области можно найти дополнительное месторождение руды",
 				"pt-BR": "Área contém um Encontro de Minério adicional",
 				"de": "Gebiet enthält ein zusätzliches Erzvorkommen",
-				"fr": "La Zone contient un Gisement de Minerais supplémentaire",
+				"fr": "La Zone contient un Gisement de Minerai supplémentaire",
 				"es": "El área contiene un depósito de mineral adicional"
 			},
 			"category": "kalguuran",
@@ -3094,7 +3094,7 @@
 			"id": "kalguuran_scarab_of_guarded_riches",
 			"name": {
 				"en": "Kalguuran Scarab of Guarded Riches",
-				"zh-TW": "卡爾葛聖甲蟲：守衛財寶",
+				"zh-TW": "聖甲蟲：守衛財寶卡爾葛",
 				"zh-CN": "森严重宝之卡古兰圣甲虫",
 				"ko": "보호받는 재물의 칼구르 갑충석",
 				"ja": "守られた富のカルグールスカラベ",
@@ -3106,14 +3106,14 @@
 			},
 			"effect": {
 				"en": "Monsters guarding Ore Deposits in Area are at least Magic",
-				"zh-TW": "區域內守衛礦床的怪物至少為魔法",
+				"zh-TW": "區域中守衛礦床的怪物至少為魔法",
 				"zh-CN": "区域内看守矿脉的怪物至少为魔法怪物",
 				"ko": "지역 내 광맥을 방어하는 몬스터가 마법 이상으로 등장",
 				"ja": "エリアの鉱床を守るモンスターは最低でもマジックとなる",
 				"ru": "Охраняющие месторождения руды монстры в области как минимум волшебные",
 				"pt-BR": "Monstros vigiando Encontros de Minério na Área têm uma chance de 30% de serem pelo menos Mágicos",
 				"de": "Monster, die Erzvorkommen im Gebiet bewachen, sind mindestens magisch",
-				"fr": "Les monstres qui protègent les Gisements de Minerais de la Zone sont au moins Magiques",
+				"fr": "Les monstres qui protègent les Gisements de Minerai de la Zone sont au moins Magiques",
 				"es": "Los monstruos que custodian los depósitos de mineral del área son al menos mágicos"
 			},
 			"category": "kalguuran",
@@ -3124,7 +3124,7 @@
 			"id": "kalguuran_scarab_of_refinement",
 			"name": {
 				"en": "Kalguuran Scarab of Refinement",
-				"zh-TW": "卡爾葛聖甲蟲：精化",
+				"zh-TW": "聖甲蟲：精化卡爾葛",
 				"zh-CN": "精炼之卡古兰圣甲虫",
 				"ko": "정제의 칼구르 갑충석",
 				"ja": "精錬のカルグールスカラベ",
@@ -3136,14 +3136,14 @@
 			},
 			"effect": {
 				"en": "Ore Deposits in Area grant Smelted Bars instead of Marking Ore",
-				"zh-TW": "區域內礦床賦予冶鍊金屬條而非印記礦石",
+				"zh-TW": "區域中礦床賦予冶鍊金屬條而非印記礦石",
 				"zh-CN": "区域内的矿脉提供冶炼金属锭，而非标记的矿石",
 				"ko": "지역 내 광맥이 광석 채광을 지시하는 대신 제련한 주괴 부여",
 				"ja": "エリアの鉱床は、鉱石をマークする代わり製錬された延べ棒を与える",
 				"ru": "Месторождения в области дают руду в виде выплавленных слитков",
 				"pt-BR": "Depósitos de minério na área dão Barras Derretidas em vez de marcar minérios",
 				"de": "Erzvorkommen im Gebiet gewähren geschmolzene Barren anstatt Erze zu markieren",
-				"fr": "Les Gisements de Minerais de la Zone octroient des Lingots fondus à la place des Minerais",
+				"fr": "Les Gisements de Minerai de la Zone octroient des Lingots fondus à la place des Minerais",
 				"es": "Los depósitos de mineral del área otorgan barras fundidas en lugar del mineral marcado"
 			},
 			"category": "kalguuran",
@@ -3226,9 +3226,9 @@
 			},
 			"effect": {
 				"en": "Up to 3 additional Rare Monsters in Area will be Pantheon-Touched Apparitions spawned by Pantheon-Touched Monsters deal 100% increased damage",
-				"zh-TW": "區域內最多會有 3 個額外帶有眾神之觸的稀有怪物 帶有眾神之觸的怪物所召喚的映像造成的傷害提升 100%",
+				"zh-TW": "區域中最多會有 3 個額外帶有眾神之觸的稀有怪物 帶有眾神之觸的怪物所召喚的映像造成的傷害提升 100%",
 				"zh-CN": "区域内最多额外出现 3 个万神殿之触的稀有怪物 万神殿之触的怪物生成的幽灵造成的伤害提高 100%",
-				"ko": "Up to 3 additional Rare Monsters in Area will be Pantheon-Touched Apparitions spawned by Pantheon-Touched Monsters deal 100% increased damage",
+				"ko": "지역 내 판테온의 손길에 닿은 희귀 몬스터 최대 3마리 추가 판테온의 손길에 닿은 몬스터가 생성하는 유령이 주는 피해 100% 증가",
 				"ja": "エリアの追加レアモンスター最大3体はパンテオンに触れられている パンテオンに触れられたモンスターによってスポーンした幻影は与えるダメージが100%増加する",
 				"ru": "До 3 дополнительных редких монстров в области будут находиться под действием касания Пантеона Призраки, порождённые монстрами под действием касания Пантеона, наносят увеличенный на 100% урон",
 				"pt-BR": "Até 3 monstros raros adicionais na área serão Tocados pelo Panteão Aparições Criadas por monstros Tocados pelo Panteão causam dano aumentado em 100%",
@@ -3346,7 +3346,7 @@
 			},
 			"effect": {
 				"en": "10 Monster Packs in Area are upgraded to Magic",
-				"zh-TW": "區域內 10 個怪物群升級為魔法怪物",
+				"zh-TW": "區域中 10 個怪物群升級為魔法怪物",
 				"zh-CN": "区域内的 10 个怪物群被升级为魔法怪物",
 				"ko": "지역 내 몬스터 무리 10개가 마법으로 업그레이드",
 				"ja": "エリアの10パックのモンスターパックはマジックにアップグレードされる",
@@ -3496,9 +3496,9 @@
 			},
 			"effect": {
 				"en": "Area has 150% increased Magic Monsters Magic Monsters in area have an additional Modifier",
-				"zh-TW": "區域中的魔法怪物增加 150% 區域內的魔法怪物有1條額外詞綴",
+				"zh-TW": "區域中的魔法怪物增加 150% 區域中的魔法怪物有1條額外詞綴",
 				"zh-CN": "区域内的魔法怪物数量提高 150% 区域内的魔法怪物拥有额外一条词缀",
-				"ko": "Area has 150% increased Magic Monsters Magic Monsters in area have an additional Modifier",
+				"ko": "지역의 마법 몬스터 150% 증가 지역 내 마법 몬스터가 속성 1개를 추가로 보유",
 				"ja": "エリアのマジックモンスターが150%増加する エリアのマジックモンスターはモッドを追加で1個持つ",
 				"ru": "150% увеличение количества волшебных монстров в области Волшебные монстры в области обладают дополнительным свойством",
 				"pt-BR": "Área tem a quantidade de monstros mágicos aumentada em 150% Monstros mágicos na área têm um modificador adicional",
@@ -3616,7 +3616,7 @@
 			},
 			"effect": {
 				"en": "All Rare and Unique Monsters in Area have dropped items transformed by a Reward Modifier",
-				"zh-TW": "區域內所有稀有和傳奇怪物掉落的物品都會 被獎勵詞綴轉化",
+				"zh-TW": "區域中所有稀有和傳奇怪物掉落的物品都會 被獎勵詞綴轉化",
 				"zh-CN": "区域内的全部稀有和传奇怪物掉落的物品 被随机奖励词缀转化",
 				"ko": "지역 내 모든 희귀 및 고유 몬스터가 떨어뜨리는 아이템이 보상 속성에 의해 변화됨",
 				"ja": "エリアのすべてのレアおよびユニークモンスターは 報酬モッドによって変換されたアイテムをドロップする",
@@ -3690,6 +3690,6 @@
 		"torment",
 		"ultimatum"
 	],
-	"generatedAt": "2026-01-28T22:43:23.448Z",
+	"generatedAt": "2026-01-29T22:09:51.222Z",
 	"version": 2
 }

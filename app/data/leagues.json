@@ -1,6 +1,16 @@
 {
 	"result": [
 		{
+			"id": "Phrecia 2.0",
+			"realm": "pc",
+			"text": "Phrecia 2.0"
+		},
+		{
+			"id": "Hardcore Phrecia 2.0",
+			"realm": "pc",
+			"text": "Hardcore Phrecia 2.0"
+		},
+		{
 			"id": "Keepers",
 			"realm": "pc",
 			"text": "Keepers"
@@ -61,6 +71,16 @@
 			"text": "HC Ruthless Keepers"
 		},
 		{
+			"id": "Phrecia 2.0",
+			"realm": "xbox",
+			"text": "Phrecia 2.0"
+		},
+		{
+			"id": "Hardcore Phrecia 2.0",
+			"realm": "xbox",
+			"text": "Hardcore Phrecia 2.0"
+		},
+		{
 			"id": "Standard",
 			"realm": "xbox",
 			"text": "Standard"
@@ -99,6 +119,16 @@
 			"id": "HC Ruthless Keepers",
 			"realm": "sony",
 			"text": "HC Ruthless Keepers"
+		},
+		{
+			"id": "Phrecia 2.0",
+			"realm": "sony",
+			"text": "Phrecia 2.0"
+		},
+		{
+			"id": "Hardcore Phrecia 2.0",
+			"realm": "sony",
+			"text": "Hardcore Phrecia 2.0"
 		},
 		{
 			"id": "Standard",
