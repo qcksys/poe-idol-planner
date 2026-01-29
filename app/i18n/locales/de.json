@@ -116,7 +116,7 @@
 		"loading": "Freigabelink wird generiert...",
 		"error": "Freigabelink konnte nicht generiert werden. Bitte versuchen Sie es erneut.",
 		"generateLink": "Freigabelink erstellen",
-		"linkExpiry": "Link läuft in 30 Tagen ab",
+		"linkExpiry": "Link läuft nie ab",
 		"fetching": "Geteiltes Set wird geladen",
 		"goToPlanner": "Zum Planer gehen",
 		"sharedSetTitle": "Geteiltes Idol-Set",

@@ -73,14 +73,17 @@ export interface ModifierTier {
 	tradeStatId?: string;
 }
 
+export interface UniqueIdolModifier {
+	text: Record<Locale, string>;
+	values: ValueRange[];
+	tradeStatId?: string;
+}
+
 export interface UniqueIdol {
 	id: string;
 	name: Record<Locale, string>;
 	baseType: IdolBaseType;
-	modifiers: {
-		text: Record<Locale, string>;
-		values: ValueRange[];
-	}[];
+	modifiers: UniqueIdolModifier[];
 	flavourText?: Record<Locale, string>;
 }
 

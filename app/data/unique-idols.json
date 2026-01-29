@@ -28,7 +28,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -76,7 +77,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -91,7 +93,8 @@
 					"fr": "10% d'Augmentation de la taille des Groupes dans vos Cartes",
 					"es": "Tamaño de los grupos de monstruos en tus mapas aumentado 10%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_2017682521"
 			},
 			{
 				"text": {
@@ -106,7 +109,8 @@
 					"fr": "Vos Cartes ne peuvent ouvrir que 1 Portail",
 					"es": "Solo se abre 1 portal hacia cada uno de tus mapas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3418377329"
 			}
 		]
 	},
@@ -139,7 +143,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -154,7 +159,8 @@
 					"fr": "Lorsqu'elles sont ouvertes, vos Cartes Rares Corrompus et options d'artisanat de Carte les affectant sont modifiées de façon imprévisible",
 					"es": "Tus mapas raros corruptos y cualquier opción de fabricación de mapas que tengan aplicada se modificarán de modo impredecible al abrirse"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3936990754"
 			},
 			{
 				"text": {
@@ -169,7 +175,8 @@
 					"fr": "Les Cartes modifiées de cette manière ont 1 à 3 Modificateurs de Carte supplémentaires aléatoires",
 					"es": "Los mapas modificados de esta forma tienen de 1 a 3 modificadores de mapa aleatorios adicionales"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_812317919"
 			}
 		]
 	},
@@ -202,7 +209,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -222,7 +230,8 @@
 						"min": 25,
 						"max": 30
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_3516276449"
 			},
 			{
 				"text": {
@@ -242,7 +251,8 @@
 						"min": 40,
 						"max": 50
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_4190580879"
 			}
 		]
 	},
@@ -275,7 +285,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -295,7 +306,8 @@
 						"min": 20,
 						"max": 25
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_3516276449"
 			},
 			{
 				"text": {
@@ -315,7 +327,8 @@
 						"min": 25,
 						"max": 30
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_4190580879"
 			}
 		]
 	},
@@ -348,7 +361,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -368,7 +382,8 @@
 						"min": 200,
 						"max": 220
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_3527275979"
 			},
 			{
 				"text": {
@@ -383,7 +398,8 @@
 					"fr": "Dans vos Cartes, les Cartes non Préférées trouvées sont cédées sous forme d'Objets monétaires basiques",
 					"es": "Los mapas que no sean de tus favoritos que encuentras en tus mapas caen como objetos monetarios básicos"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3764294022"
 			}
 		]
 	},
@@ -416,7 +432,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -431,7 +448,8 @@
 					"fr": "Les Autels surnaturels Influencés par le Mangeur de mondes ont un effet négatif supplémentaire",
 					"es": "Los altares sobrenaturales influenciados por el Devorador de mundos tienen una desventaja adicional"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1488839433"
 			},
 			{
 				"text": {
@@ -451,7 +469,8 @@
 						"min": 50,
 						"max": 60
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_3619368685"
 			}
 		]
 	},
@@ -484,7 +503,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -504,7 +524,8 @@
 						"min": 50,
 						"max": 60
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_2348590020"
 			},
 			{
 				"text": {
@@ -524,7 +545,8 @@
 						"min": 80,
 						"max": 100
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_1804970439"
 			}
 		]
 	},
@@ -557,7 +579,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -572,7 +595,8 @@
 					"fr": "Les Cartes trouvées ne peuvent pas être vos Cartes Préférées",
 					"es": "Los mapas que encuentras no pueden ser tus mapas favoritos"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_441900529"
 			},
 			{
 				"text": {
@@ -587,7 +611,8 @@
 					"fr": "Dans vos Cartes, les Cartes trouvées ont +1% de chances d'avoir un Implicite spécial par Carte que vous Préférez",
 					"es": "Los mapas que encuentras en tus mapas tienen +1% de probabilidad de tener un modificador implícito especial por cada mapa diferente que tengas como favorito"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1363247141"
 			}
 		]
 	},
@@ -620,7 +645,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -640,7 +666,8 @@
 						"min": 200,
 						"max": 250
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_3289828378"
 			},
 			{
 				"text": {
@@ -660,7 +687,8 @@
 						"min": 100,
 						"max": 150
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_1539368271"
 			},
 			{
 				"text": {
@@ -680,7 +708,8 @@
 						"min": 10,
 						"max": 15
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_2684644644"
 			},
 			{
 				"text": {
@@ -695,7 +724,8 @@
 					"fr": "Le nombre d'Explosifs est un",
 					"es": "Solo dispones de un explosivo"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_353291915"
 			}
 		]
 	},
@@ -728,7 +758,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -743,7 +774,8 @@
 					"fr": "Dans vos Cartes, les Cultures ne contiennent que des Plantes de Palier 1 Dans vos Cartes, la Récolte a des chances d'améliorer le Palier des Plantes de couleurs différentes",
 					"es": "Los cultivos de Harvest de tus mapas solo contienen plantas de grado 1 Al cosechar los cultivos de tus mapas, hay una probabilidad de que aumente el grado de las plantas de colores diferentes"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_2765997141"
 			}
 		]
 	},
@@ -776,7 +808,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -791,7 +824,8 @@
 					"fr": "Dans vos Cartes, le temps des Rencontres de Légion n'est pas limité Libérer des Monstres et coffres qui sont en stase génère peu à peu un Schisme Dans vos Cartes, les Rencontres de Légion commencent lorsqu'un Schisme a lieu",
 					"es": "Los encuentros de Legion de tus mapas no tienen contador Al liberar a los monstruos y cofres que están inmovilizados se irá produciendo progresivamente una escisión Los encuentros de Legion de tus mapas comienzan una vez que se haya producido la escisión"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_222333372"
 			}
 		]
 	},
@@ -824,7 +858,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -839,7 +874,8 @@
 					"fr": "Dans vos Cartes, les Brumes du Délire ne se dissipent jamais Dans vos Cartes, la difficulté du Délire progresse deux fois plus vite en fonction de l'éloignement du miroir Les Esquilles du Simulacre ne peuvent être trouvées dans vos Cartes Les Orbes du Délire ne peuvent pas être trouvé dans vos Cartes",
 					"es": "La niebla de delirio de tus mapas nunca se disipa El aumento de dificultad del delirio de tus mapas por la distancia hasta el espejo está duplicado No puedes encontrar orbes de delirio en tus mapas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_4222365107"
 			}
 		]
 	},
@@ -872,7 +908,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -887,7 +924,8 @@
 					"fr": "Dans vos Cartes, les Faveurs des Autels de Rituel ne peuvent pas être tirées à nouveau",
 					"es": "No puedes aleatorizar los favores en los altares de Ritual de tus mapas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_164133604"
 			},
 			{
 				"text": {
@@ -907,7 +945,8 @@
 						"min": 100,
 						"max": 150
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_2590915311"
 			}
 		]
 	},
@@ -940,7 +979,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -955,7 +995,8 @@
 					"fr": "Dans vos Cartes, les Faveurs des Autels de Rituel Coûtent entre 90% de Perte et 80% Davantage de leur Coût initial",
 					"es": "Los favores de los altares de Ritual de tus mapas cuestan al azar entre un 90% menos y un 80% más"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1276541261"
 			}
 		]
 	},
@@ -988,7 +1029,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1003,7 +1045,8 @@
 					"fr": "Dans vos Cartes, les Portails vers Ailleurs ne peuvent pas générer de Boss Uniques",
 					"es": "Los portales del Más allá de tus mapas no pueden generar jefes únicos"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1280481887"
 			},
 			{
 				"text": {
@@ -1023,7 +1066,8 @@
 						"min": 40,
 						"max": 50
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_3009539307"
 			}
 		]
 	},
@@ -1056,7 +1100,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1071,7 +1116,8 @@
 					"fr": "Dans vos Cartes, les Esprits tourmentés peuvent posséder les Joueurs pendant 20 secondes Dans vos Cartes, les Esprits tourmentés ne peuvent pas posséder les Monstres",
 					"es": "Los espíritus atormentados de tus mapas pueden poseer a los jugadores durante 20 segundos Los espíritus atormentados de tus mapas no pueden poseer a los monstruos"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1582162479"
 			}
 		]
 	},
@@ -1104,7 +1150,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1124,7 +1171,8 @@
 						"min": 65,
 						"max": 75
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_2460639269"
 			},
 			{
 				"text": {
@@ -1144,7 +1192,8 @@
 						"min": 300,
 						"max": 400
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_3738423246"
 			}
 		]
 	},
@@ -1177,7 +1226,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1192,7 +1242,8 @@
 					"fr": "Dans vos Cartes, les Modificateurs de Quantité d'Objets trouvés s'appliquent à la place à la Rareté des Objets trouvés, à 300% de leur valeur",
 					"es": "Los modificadores de cantidad de objetos que encuentras en tus mapas se aplican a la rareza de objetos que encuentras en tus mapas al 300% de su valor"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3399892496"
 			}
 		]
 	},
@@ -1225,7 +1276,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1240,7 +1292,8 @@
 					"fr": "Dans vos Cartes, les Zones annexes vaal ne sont plus Corrompues",
 					"es": "Las áreas secundarias vaal de tus mapas ya no están corruptas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1516986886"
 			}
 		]
 	},
@@ -1273,7 +1326,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1288,7 +1342,8 @@
 					"fr": "Lorsqu'elle observe des Boss de Carte, la Prodige lance Monter les enchères, invoquant 1 à 3 Boss de l'Atlas supplémentaires Le nombre de Boss supplémentaires invoqués est plus élevé s'il y a moins de monstres restants dans la Carte Les modificateurs affectant le Boss de fin de chaque Carte s'appliquent également à ces Boss invoqués",
 					"es": "La Especialista lanza Aumentar el riesgo e invocar de 1 a 3 jefes del atlas adicionales al observar a los jefes de los mapas La cantidad de jefes adicionales invocados es mayor cuantos menos monstruos queden en el mapa Los modificadores de los jefes finales del mapa de cada mapa también se aplican a estos jefes invocados"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_2960155368"
 			}
 		]
 	},
@@ -1321,7 +1376,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1336,7 +1392,8 @@
 					"fr": "La Fortune sourit aux audacieux applique une option aléatoire supplémentaire 100% Davantage de Coût de l'option d'artisanat cartographique La Fortune sourit aux audacieux",
 					"es": "La fortuna favorece a los valientes aplica una opción aleatoria adicional 100% más de costo de la opción de fabricación de mapas La fortuna favorece a los valientes"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1944897696"
 			}
 		]
 	},
@@ -1369,7 +1426,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1384,7 +1442,8 @@
 					"fr": "Les Joueurs ne peuvent pas choisir quel Modificateur d'Ultimatum est appliqué à chaque Manche",
 					"es": "Los jugadores no pueden elegir qué modificador de Ultimatum se aplicará en cada ronda"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3845167239"
 			},
 			{
 				"text": {
@@ -1399,7 +1458,8 @@
 					"fr": "Dans vos Cartes, les Rencontres d'Ultimatum vont jusqu'à 13 Rounds",
 					"es": "Los encuentros de Ultimatum de tus mapas duran hasta 13 rondas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3283585444"
 			},
 			{
 				"text": {
@@ -1414,7 +1474,8 @@
 					"fr": "Il n'y a jamais de Boss lors du Round final",
 					"es": "No puede haber un jefe en la ronda final"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_2694161522"
 			}
 		]
 	},
@@ -1447,7 +1508,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1462,7 +1524,8 @@
 					"fr": "Dans vos Cartes, les Monstres d'Ultimatum infligent Ruine avec leurs capacités spéciales Vous échouez lorsque vous atteignez 7 de Ruine",
 					"es": "Los monstruos de Ultimatum de tus mapas aplican Ruina con sus habilidades especiales Fallas al alcanzar 7 de Ruina"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3645622851"
 			},
 			{
 				"text": {
@@ -1482,7 +1545,8 @@
 						"min": 50,
 						"max": 60
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_3683980805"
 			}
 		]
 	},
@@ -1515,7 +1579,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1530,7 +1595,8 @@
 					"fr": "S'il y a moins de 50 monstres restants dans vos Cartes, les Boss de fin de la Carte sont Améliorés par des Flammeroles de la Sylve",
 					"es": "Si hay menos de 50 monstruos restantes en tus mapas, los jefes finales del mapa están potenciados por fuegos fatuos del Bosque viridino"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_199329214"
 			}
 		]
 	},
@@ -1563,7 +1629,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1578,7 +1645,8 @@
 					"fr": "Vos Cartes n'ont aucune chance de contenir le Bosquet sacré",
 					"es": "Tus mapas no tienen ninguna probabilidad de contener el Huerto sagrado"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_328145899"
 			},
 			{
 				"text": {
@@ -1593,7 +1661,8 @@
 					"fr": "Les Scarabées trouvés dans vos Cartes ne peuvent pas être des Scarabées du Bosquet",
 					"es": "Los escarabajos que encuentras en tus mapas no pueden ser escarabajos de Harvest"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_388787643"
 			},
 			{
 				"text": {
@@ -1608,7 +1677,8 @@
 					"fr": "Vos Cartes ont +5% de chances de contenir du Contenu supplémentaire qui peut être désactivé avec les Talents de l'Atlas",
 					"es": "Tus mapas tienen un +5% de probabilidad de contener otro contenido adicional que se puede desactivar mediante las pasivas del Atlas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_344979199"
 			}
 		]
 	},
@@ -1641,7 +1711,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1656,7 +1727,8 @@
 					"fr": "Vos Cartes n'ont aucune chance de contenir des Abysses",
 					"es": "Tus mapas no tienen ninguna probabilidad de contener abismos"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_2399560930"
 			},
 			{
 				"text": {
@@ -1671,7 +1743,8 @@
 					"fr": "Les Scarabées trouvés dans vos Cartes ne peuvent pas être des Scarabées d'Abysse",
 					"es": "Los escarabajos que encuentras en tus mapas no pueden ser escarabajos de Abismo"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1978710645"
 			},
 			{
 				"text": {
@@ -1686,7 +1759,8 @@
 					"fr": "Vos Cartes ont +5% de chances de contenir du Contenu supplémentaire qui peut être désactivé avec les Talents de l'Atlas",
 					"es": "Tus mapas tienen un +5% de probabilidad de contener otro contenido adicional que se puede desactivar mediante las pasivas del Atlas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_344979199"
 			}
 		]
 	},
@@ -1719,7 +1793,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1734,7 +1809,8 @@
 					"fr": "Vos Cartes n'ont aucune chance de contenir des Brèches",
 					"es": "Tus mapas no tienen ninguna probabilidad de contener fisuras"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1562449600"
 			},
 			{
 				"text": {
@@ -1749,7 +1825,8 @@
 					"fr": "Les Scarabées trouvés dans vos Cartes ne peuvent pas être des Scarabées de Brèche",
 					"es": "Los escarabajos que encuentras en tus mapas no pueden ser escarabajos de Fisura"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1089629910"
 			},
 			{
 				"text": {
@@ -1764,7 +1841,8 @@
 					"fr": "Vos Cartes ont +5% de chances de contenir du Contenu supplémentaire qui peut être désactivé avec les Talents de l'Atlas",
 					"es": "Tus mapas tienen un +5% de probabilidad de contener otro contenido adicional que se puede desactivar mediante las pasivas del Atlas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_344979199"
 			}
 		]
 	},
@@ -1797,7 +1875,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1812,7 +1891,8 @@
 					"fr": "Vos Cartes n'ont aucune chance de contenir des Rencontres d'Expédition",
 					"es": "Tus mapas no tienen ninguna probabilidad de contener encuentros de Expedition"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_2978599106"
 			},
 			{
 				"text": {
@@ -1827,7 +1907,8 @@
 					"fr": "Les Scarabées trouvés dans vos Cartes ne peuvent pas être des Scarabées d'Expédition",
 					"es": "Los escarabajos que encuentras en tus mapas no pueden ser escarabajos de Expedition"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3965835074"
 			},
 			{
 				"text": {
@@ -1842,7 +1923,8 @@
 					"fr": "Vos Cartes ont +5% de chances de contenir du Contenu supplémentaire qui peut être désactivé avec les Talents de l'Atlas",
 					"es": "Tus mapas tienen un +5% de probabilidad de contener otro contenido adicional que se puede desactivar mediante las pasivas del Atlas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_344979199"
 			}
 		]
 	},
@@ -1875,7 +1957,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1890,7 +1973,8 @@
 					"fr": "Vos Cartes n'ont aucune chance de contenir des Rencontres de Légion",
 					"es": "Tus mapas no tienen ninguna probabilidad de contener encuentros de Legion"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1132162798"
 			},
 			{
 				"text": {
@@ -1905,7 +1989,8 @@
 					"fr": "Les Scarabées trouvés dans vos Cartes ne peuvent pas être des Scarabées de Légion",
 					"es": "Los escarabajos que encuentras en tus mapas no pueden ser escarabajos de Legion"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3777973541"
 			},
 			{
 				"text": {
@@ -1920,7 +2005,8 @@
 					"fr": "Vos Cartes ont +5% de chances de contenir du Contenu supplémentaire qui peut être désactivé avec les Talents de l'Atlas",
 					"es": "Tus mapas tienen un +5% de probabilidad de contener otro contenido adicional que se puede desactivar mediante las pasivas del Atlas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_344979199"
 			}
 		]
 	},
@@ -1953,7 +2039,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -1968,7 +2055,8 @@
 					"fr": "Vos Cartes n'ont aucune chance de contenir des Rencontres d'Ultimatum",
 					"es": "Tus mapas no tienen ninguna probabilidad de contener un encuentro de Ultimatum"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3819443367"
 			},
 			{
 				"text": {
@@ -1983,7 +2071,8 @@
 					"fr": "Les Scarabées trouvés dans vos Cartes ne peuvent pas être des Scarabées d'Ultimatum",
 					"es": "Los escarabajos que encuentras en tus mapas no pueden ser escarabajos de Ultimatum"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_264552782"
 			},
 			{
 				"text": {
@@ -1998,7 +2087,8 @@
 					"fr": "Vos Cartes ont +5% de chances de contenir du Contenu supplémentaire qui peut être désactivé avec les Talents de l'Atlas",
 					"es": "Tus mapas tienen un +5% de probabilidad de contener otro contenido adicional que se puede desactivar mediante las pasivas del Atlas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_344979199"
 			}
 		]
 	},
@@ -2031,7 +2121,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -2046,7 +2137,8 @@
 					"fr": "Vos Cartes n'ont aucune chance de contenir des Rencontres d'Infestation",
 					"es": "Tus mapas no tienen ninguna probabilidad de contener encuentros de Blight"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1981776737"
 			},
 			{
 				"text": {
@@ -2061,7 +2153,8 @@
 					"fr": "Les Scarabées trouvés dans vos Cartes ne peuvent pas être des Scarabées d'Infestation",
 					"es": "Los escarabajos que encuentras en tus mapas no pueden ser escarabajos de Blight"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_785938790"
 			},
 			{
 				"text": {
@@ -2076,7 +2169,8 @@
 					"fr": "Vos Cartes ont +5% de chances de contenir du Contenu supplémentaire qui peut être désactivé avec les Talents de l'Atlas",
 					"es": "Tus mapas tienen un +5% de probabilidad de contener otro contenido adicional que se puede desactivar mediante las pasivas del Atlas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_344979199"
 			}
 		]
 	},
@@ -2109,7 +2203,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -2124,7 +2219,8 @@
 					"fr": "Vos Cartes n'ont aucune chance de contenir des Autels de Rituel",
 					"es": "Tus mapas no tienen ninguna probabilidad de contener altares de Ritual"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_847340197"
 			},
 			{
 				"text": {
@@ -2139,7 +2235,8 @@
 					"fr": "Les Scarabées trouvés dans vos Cartes ne peuvent pas être des Scarabées de Rituel",
 					"es": "Los escarabajos que encuentras en tus mapas no pueden ser escarabajos de Ritual"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1693489030"
 			},
 			{
 				"text": {
@@ -2154,7 +2251,8 @@
 					"fr": "Vos Cartes ont +5% de chances de contenir du Contenu supplémentaire qui peut être désactivé avec les Talents de l'Atlas",
 					"es": "Tus mapas tienen un +5% de probabilidad de contener otro contenido adicional que se puede desactivar mediante las pasivas del Atlas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_344979199"
 			}
 		]
 	},
@@ -2187,7 +2285,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -2202,7 +2301,8 @@
 					"fr": "Les Pièces marquées, Contrats et Plans ne peuvent plus être trouvés dans vos Cartes",
 					"es": "No hay monedas del renegado, contratos ni planos de Heist en tus mapas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1379148633"
 			},
 			{
 				"text": {
@@ -2217,7 +2317,8 @@
 					"fr": "Vos Cartes n'ont aucune chance de contenir des Caches de contrebandier",
 					"es": "Tus mapas no tienen ninguna probabilidad de contener Alijos del contrabandista"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3178985579"
 			},
 			{
 				"text": {
@@ -2232,7 +2333,8 @@
 					"fr": "Vos Cartes ont +5% de chances de contenir du Contenu supplémentaire qui peut être désactivé avec les Talents de l'Atlas",
 					"es": "Tus mapas tienen un +5% de probabilidad de contener otro contenido adicional que se puede desactivar mediante las pasivas del Atlas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_344979199"
 			}
 		]
 	},
@@ -2265,7 +2367,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -2280,7 +2383,8 @@
 					"fr": "Vos Cartes n'ont aucune chance de contenir des Miroirs du Délire",
 					"es": "Tus mapas no tienen ninguna probabilidad de contener espejos de delirio"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_2400312255"
 			},
 			{
 				"text": {
@@ -2295,7 +2399,8 @@
 					"fr": "Les Scarabées trouvés dans vos Cartes ne peuvent pas être des Scarabées du Délire",
 					"es": "Los escarabajos que encuentras en tus mapas no pueden ser escarabajos de Delirium"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_278421201"
 			},
 			{
 				"text": {
@@ -2310,7 +2415,8 @@
 					"fr": "Vos Cartes ont +5% de chances de contenir du Contenu supplémentaire qui peut être désactivé avec les Talents de l'Atlas",
 					"es": "Tus mapas tienen un +5% de probabilidad de contener otro contenido adicional que se puede desactivar mediante las pasivas del Atlas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_344979199"
 			}
 		]
 	},
@@ -2343,7 +2449,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -2358,7 +2465,8 @@
 					"fr": "Dans vos Cartes chaque Légion garde une Réserve de guerre supplémentaire",
 					"es": "Todas las legiones de tus mapas contienen una Reserva de guerra adicional"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_95850091"
 			},
 			{
 				"text": {
@@ -2373,7 +2481,8 @@
 					"fr": "Dans vos Cartes, les Coffres de Légion contiennent une Récompense aléatoire supplémentaire",
 					"es": "Los cofres de Legion de tus mapas contienen una recompensas aleatoria adicional"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1088328219"
 			},
 			{
 				"text": {
@@ -2388,7 +2497,8 @@
 					"fr": "Dans vos Cartes, les Rencontres de Légion ont (-80—-60)% d'Augmentation de Durée",
 					"es": "Los encuentros de Legion de tus mapas tienen la duración aumentada un (-80—-60)%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_699122342"
 			}
 		]
 	},
@@ -2421,7 +2531,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -2436,7 +2547,8 @@
 					"fr": "Dans vos Cartes, lorsque vous tuez des Monstres Emprisonnés, un Boss de Carte reçoit au hasard l'un de leurs Modificateurs d'Essence",
 					"es": "Un jefe de mapa recibe un modificador de esencia adicional de alguno de los monstruos aprisionados que mates en tus mapas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_2623157736"
 			}
 		]
 	},
@@ -2469,7 +2581,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -2484,7 +2597,8 @@
 					"fr": "Lorsqu'ils apparaissent dans vos Cartes, les Membres du Syndicat obtiennent un Objet d'équipement supplémentaire",
 					"es": "Los miembros del Sindicato obtienen un objeto de equipamiento adicional cuando aparecen en tus mapas"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_623132242"
 			},
 			{
 				"text": {
@@ -2504,7 +2618,8 @@
 						"min": 30,
 						"max": 50
 					}
-				]
+				],
+				"tradeStatId": "explicit.stat_1682417271"
 			},
 			{
 				"text": {
@@ -2519,7 +2634,8 @@
 					"fr": "Dans vos Cartes, les Dirigeants du Syndicat immortel cèdent un Objet Crypté supplémentaire",
 					"es": "Los líderes del Sindicato inmortal de tus mapas arrojan un objeto encriptado adicional"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1856204587"
 			}
 		]
 	},
@@ -2552,7 +2668,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -2567,7 +2684,8 @@
 					"fr": "Dans vos Cartes, les Récompenses du Délire progressent de +1 lorsque la Carte est complétée",
 					"es": "Los tipos de recompensas de Delirium de tus mapas ganan +1 al contador cuando completas el mapa"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3387171641"
 			},
 			{
 				"text": {
@@ -2582,7 +2700,8 @@
 					"fr": "Les Monstres du Délire tués dans vos Cartes octroient (-30—-20)% d'Augmentation du Progrès des Récompenses",
 					"es": "Los monstruos de delirio que matas en tus mapas otorgan el progreso de las recompensas aumentado un (-30—-20)%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_3428124128"
 			}
 		]
 	},
@@ -2615,7 +2734,8 @@
 					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
 					"es": "La cantidad de mapas que caen en el mapa está aumentada un 2%"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
 			},
 			{
 				"text": {
@@ -2630,7 +2750,8 @@
 					"fr": "Dans vos Cartes, les Modificateurs d'Ultimatum commencent un palier plus élevé si possible",
 					"es": "Los modificadores de Ultimatum de tus mapas empiezan en un nivel más alto siempre que sea posible"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1901628087"
 			},
 			{
 				"text": {
@@ -2645,7 +2766,8 @@
 					"fr": "Dans vos Cartes, les Rencontres d'Ultimation ont 3% de Réduction de Rayon à chaque Round",
 					"es": "El radio de los encuentros de Ultimatum de tus mapas se reduce un 3% en cada ronda"
 				},
-				"values": []
+				"values": [],
+				"tradeStatId": "explicit.stat_1602736646"
 			},
 			{
 				"text": {

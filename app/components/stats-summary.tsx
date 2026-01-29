@@ -100,6 +100,11 @@ interface StatsByMechanic {
 	stats: AggregatedStat[];
 }
 
+interface UniqueIdolStat {
+	text: string;
+	baseType: IdolBaseKey;
+}
+
 // Create a template by replacing the rolled value with a placeholder
 function createTemplate(
 	text: string,
@@ -212,12 +217,20 @@ function getModTextForAggregation(
 	return resolveModTextWithRange(mod, locale);
 }
 
+interface AggregatedStatsResult {
+	statsByMechanic: StatsByMechanic[];
+	uniqueStats: UniqueIdolStat[];
+	baseImplicit: number;
+}
+
 function aggregateStats(
 	placements: IdolPlacement[],
 	inventory: InventoryIdol[],
 	locale: SupportedLocale,
-): StatsByMechanic[] {
+): AggregatedStatsResult {
 	const statMap = new Map<string, AggregatedStat>();
+	const uniqueStats: UniqueIdolStat[] = [];
+	let baseImplicit = 0;
 
 	for (const placement of placements) {
 		const inventoryIdol = inventory.find(
@@ -226,12 +239,25 @@ function aggregateStats(
 		if (!inventoryIdol) continue;
 
 		const idol = inventoryIdol.idol;
+		const base = IDOL_BASES[idol.baseType];
+		baseImplicit += base.implicit;
+
 		const allMods = [...idol.prefixes, ...idol.suffixes];
 		const contribution: IdolContribution = {
 			baseType: idol.baseType,
 		};
 
 		for (const mod of allMods) {
+			// Unique mods are handled separately since they don't aggregate
+			if (mod.type === "unique") {
+				const modText = resolveModTextWithRange(mod, locale);
+				uniqueStats.push({
+					text: modText,
+					baseType: idol.baseType,
+				});
+				continue;
+			}
+
 			const modText = getModTextForAggregation(mod, locale);
 			const { template, hasPercent } = createTemplate(
 				modText,
@@ -265,7 +291,7 @@ function aggregateStats(
 		}
 	}
 
-	return statsByMechanic;
+	return { statsByMechanic, uniqueStats, baseImplicit };
 }
 
 function MechanicSection({ data }: { data: StatsByMechanic }) {
@@ -302,6 +328,45 @@ function MechanicSection({ data }: { data: StatsByMechanic }) {
 						</div>
 					);
 				})}
+			</div>
+		</div>
+	);
+}
+
+function BaseImplicitSection({ value }: { value: number }) {
+	if (value === 0) return null;
+
+	return (
+		<div className="mb-4">
+			<h4 className="mb-2 font-semibold text-primary text-sm">
+				Base Implicit
+			</h4>
+			<div className="text-secondary-foreground text-sm">
+				{highlightNumbers(`${value}% increased Maps found in Area`)}
+			</div>
+		</div>
+	);
+}
+
+function UniqueIdolSection({ stats }: { stats: UniqueIdolStat[] }) {
+	const t = useTranslations();
+
+	if (stats.length === 0) return null;
+
+	return (
+		<div className="mb-4">
+			<h4 className="mb-2 font-semibold text-primary text-sm">
+				{t.editor?.uniqueIdols || "Unique Idols"}
+			</h4>
+			<div className="space-y-1">
+				{stats.map((stat, index) => (
+					<div
+						key={`unique-${stat.baseType}-${index}`}
+						className="text-secondary-foreground text-sm"
+					>
+						<div>{highlightNumbers(stat.text)}</div>
+					</div>
+				))}
 			</div>
 		</div>
 	);
@@ -408,7 +473,7 @@ export function StatsSummary({
 	const locale = useLocale();
 	const { getPrice } = useScarabPrices();
 
-	const statsByMechanic = useMemo(
+	const { statsByMechanic, uniqueStats, baseImplicit } = useMemo(
 		() => aggregateStats(placements, inventory, locale),
 		[placements, inventory, locale],
 	);
@@ -428,8 +493,10 @@ export function StatsSummary({
 	}, [mapDevice?.craftingOptionId]);
 
 	const totalStats = useMemo(
-		() => statsByMechanic.reduce((sum, m) => sum + m.stats.length, 0),
-		[statsByMechanic],
+		() =>
+			statsByMechanic.reduce((sum, m) => sum + m.stats.length, 0) +
+			uniqueStats.length,
+		[statsByMechanic, uniqueStats],
 	);
 
 	const totalCost = useMemo(() => {
@@ -452,7 +519,9 @@ export function StatsSummary({
 	}, [selectedScarabs, selectedCraftingOption, getPrice]);
 
 	const hasContent =
+		baseImplicit > 0 ||
 		statsByMechanic.length > 0 ||
+		uniqueStats.length > 0 ||
 		selectedScarabs.length > 0 ||
 		selectedCraftingOption !== null;
 
@@ -495,6 +564,8 @@ export function StatsSummary({
 									data={data}
 								/>
 							))}
+							<UniqueIdolSection stats={uniqueStats} />
+							<BaseImplicitSection value={baseImplicit} />
 							<CraftingOptionSection
 								craftingOption={selectedCraftingOption}
 							/>

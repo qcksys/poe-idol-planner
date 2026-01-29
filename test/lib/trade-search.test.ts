@@ -133,14 +133,46 @@ describe("trade-search", () => {
 			expect(url).toContain("/Standard?");
 		});
 
-		it("should respect onlineOnly option", () => {
-			const idol = createTestIdol();
-			const url = generateTradeUrl(idol, { onlineOnly: true });
+		it("should include up to 4 mods (2 prefixes + 2 suffixes)", () => {
+			const prefixMod1: IdolModifier = {
+				modId: "test-prefix-1",
+				type: "prefix",
+				text: "Your Maps have +25% chance to contain an Abyss",
+				rolledValue: 25,
+				tier: 1,
+			};
+			const prefixMod2: IdolModifier = {
+				modId: "test-prefix-2",
+				type: "prefix",
+				text: "Your Maps have +30% chance to contain a Legion Encounter",
+				rolledValue: 30,
+				tier: 1,
+			};
+			const suffixMod1: IdolModifier = {
+				modId: "test-suffix-1",
+				type: "suffix",
+				text: "Your Maps have +20% chance to contain Breaches",
+				rolledValue: 20,
+				tier: 1,
+			};
+			const suffixMod2: IdolModifier = {
+				modId: "test-suffix-2",
+				type: "suffix",
+				text: "Delirium Monsters in your Maps have 50% increased chance to drop Cluster Jewels",
+				rolledValue: 50,
+				tier: 1,
+			};
+			const idol = createTestIdol({
+				baseType: "conqueror",
+				prefixes: [prefixMod1, prefixMod2],
+				suffixes: [suffixMod1, suffixMod2],
+			});
+			const url = generateTradeUrl(idol);
 
 			const queryParam = decodeURIComponent(url.split("?q=")[1]);
 			const query = JSON.parse(queryParam);
 
-			expect(query.query.status.option).toBe("online");
+			expect(query.query.stats[0].filters).toHaveLength(4);
 		});
 	});
 
@@ -152,17 +184,6 @@ describe("trade-search", () => {
 			const query = JSON.parse(queryParam);
 
 			expect(query.query.type).toBe("Burial Idol");
-		});
-
-		it("should include minItemLevel filter when specified", () => {
-			const url = generateTradeUrlForBaseType("noble", {
-				minItemLevel: 80,
-			});
-
-			const queryParam = decodeURIComponent(url.split("?q=")[1]);
-			const query = JSON.parse(queryParam);
-
-			expect(query.query.filters.misc_filters.filters.ilvl.min).toBe(80);
 		});
 	});
 

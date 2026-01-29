@@ -116,7 +116,7 @@
 		"loading": "共有リンクを生成中...",
 		"error": "共有リンクの生成に失敗しました。もう一度お試しください。",
 		"generateLink": "共有リンクを生成",
-		"linkExpiry": "リンクは30日後に期限切れになります",
+		"linkExpiry": "リンクは期限切れになりません",
 		"fetching": "共有セットを取得中",
 		"goToPlanner": "プランナーへ移動",
 		"sharedSetTitle": "共有されたアイドルセット",

@@ -116,7 +116,7 @@
 		"loading": "正在產生分享連結...",
 		"error": "產生分享連結失敗。請重試。",
 		"generateLink": "產生分享連結",
-		"linkExpiry": "連結將在 30 天後過期",
+		"linkExpiry": "連結永不過期",
 		"fetching": "正在取得分享配置",
 		"goToPlanner": "前往規劃器",
 		"sharedSetTitle": "分享的神像配置",

@@ -1,5 +1,6 @@
 import type { IdolBaseKey } from "~/data/idol-bases";
 import idolModifiers from "~/data/idol-modifiers.json";
+import uniqueIdols from "~/data/unique-idols.json";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
 import { DEFAULT_LEAGUE } from "~/schemas/league";
 
@@ -34,7 +35,7 @@ interface TradeStatFilter {
 interface TradeQuery {
 	query: {
 		status: {
-			option: "online" | "any";
+			option: "securable";
 		};
 		type?: string;
 		stats: Array<{
@@ -78,6 +79,37 @@ interface ModifierDataFromJson {
 
 let modIdIndex: Map<string, string> | null = null;
 let textMappings: Record<string, string> | null = null;
+let uniqueModIndex: Map<string, string> | null = null;
+
+interface UniqueIdolJsonModifier {
+	text: Record<string, string>;
+	values: { min: number; max: number }[];
+	tradeStatId?: string;
+}
+
+interface UniqueIdolFromJson {
+	id: string;
+	modifiers: UniqueIdolJsonModifier[];
+}
+
+function buildUniqueModIndex(): Map<string, string> {
+	if (uniqueModIndex) {
+		return uniqueModIndex;
+	}
+
+	uniqueModIndex = new Map();
+	for (const idol of uniqueIdols as UniqueIdolFromJson[]) {
+		for (let i = 0; i < idol.modifiers.length; i++) {
+			const mod = idol.modifiers[i];
+			if (mod.tradeStatId) {
+				const key = `unique_${idol.id}_${i}`;
+				uniqueModIndex.set(key, mod.tradeStatId);
+			}
+		}
+	}
+
+	return uniqueModIndex;
+}
 
 function buildModIdIndex(): Map<string, string> {
 	if (modIdIndex) {
@@ -153,7 +185,16 @@ function findStatIdByText(modText: string): string | null {
 	return null;
 }
 
+function findStatIdForUniqueMod(modId: string): string | null {
+	const index = buildUniqueModIndex();
+	return index.get(modId) ?? null;
+}
+
 function findStatIdForMod(mod: IdolModifier): string | null {
+	if (mod.type === "unique") {
+		return findStatIdForUniqueMod(mod.modId);
+	}
+
 	const statId = findStatIdByModId(mod.modId, mod.tier);
 	if (statId) {
 		return statId;
@@ -169,15 +210,11 @@ function findStatIdForMod(mod: IdolModifier): string | null {
 function buildTradeQuery(
 	idolType?: IdolBaseKey,
 	mods?: IdolModifier[],
-	options?: {
-		minItemLevel?: number;
-		onlineOnly?: boolean;
-	},
 ): TradeQuery {
 	const query: TradeQuery = {
 		query: {
 			status: {
-				option: options?.onlineOnly ? "online" : "any",
+				option: "securable",
 			},
 			stats: [
 				{
@@ -215,17 +252,6 @@ function buildTradeQuery(
 		}
 	}
 
-	if (options?.minItemLevel) {
-		query.query.filters = {
-			...query.query.filters,
-			misc_filters: {
-				filters: {
-					ilvl: { min: options.minItemLevel },
-				},
-			},
-		};
-	}
-
 	return query;
 }
 
@@ -233,7 +259,6 @@ export function generateTradeUrl(
 	idol: IdolInstance,
 	options?: {
 		league?: string;
-		onlineOnly?: boolean;
 		includeAllMods?: boolean;
 	},
 ): string {
@@ -242,11 +267,9 @@ export function generateTradeUrl(
 
 	const modsToSearch = options?.includeAllMods
 		? allMods
-		: allMods.slice(0, 2);
+		: allMods.slice(0, 4);
 
-	const query = buildTradeQuery(idol.baseType, modsToSearch, {
-		onlineOnly: options?.onlineOnly,
-	});
+	const query = buildTradeQuery(idol.baseType, modsToSearch);
 
 	const queryParam = encodeURIComponent(JSON.stringify(query));
 	return `${TRADE_BASE_URL}/${league}?q=${queryParam}`;
@@ -261,10 +284,7 @@ export function generateTradeUrlForBaseType(
 	},
 ): string {
 	const league = options?.league || DEFAULT_LEAGUE;
-	const query = buildTradeQuery(baseType, undefined, {
-		onlineOnly: options?.onlineOnly,
-		minItemLevel: options?.minItemLevel,
-	});
+	const query = buildTradeQuery(baseType);
 
 	const queryParam = encodeURIComponent(JSON.stringify(query));
 	return `${TRADE_BASE_URL}/${league}?q=${queryParam}`;
@@ -279,9 +299,7 @@ export function generateTradeUrlForMod(
 	},
 ): string {
 	const league = options?.league || DEFAULT_LEAGUE;
-	const query = buildTradeQuery(options?.baseType, [mod], {
-		onlineOnly: options?.onlineOnly,
-	});
+	const query = buildTradeQuery(options?.baseType, [mod]);
 
 	const queryParam = encodeURIComponent(JSON.stringify(query));
 	return `${TRADE_BASE_URL}/${league}?q=${queryParam}`;

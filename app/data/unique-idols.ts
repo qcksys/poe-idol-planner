@@ -4,6 +4,7 @@ import type { SupportedLocale } from "~/i18n/types";
 export interface UniqueIdolModifier {
 	text: Record<SupportedLocale, string>;
 	values: { min: number; max: number }[];
+	tradeStatId?: string;
 }
 
 export interface UniqueIdol {

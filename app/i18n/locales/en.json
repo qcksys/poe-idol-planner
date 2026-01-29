@@ -116,7 +116,7 @@
 		"loading": "Generating share link...",
 		"error": "Failed to generate share link. Please try again.",
 		"generateLink": "Generate Share Link",
-		"linkExpiry": "Link expires in 30 days",
+		"linkExpiry": "Link never expires",
 		"fetching": "Fetching shared set",
 		"goToPlanner": "Go to Planner",
 		"sharedSetTitle": "Shared Idol Set",
