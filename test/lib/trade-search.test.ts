@@ -45,11 +45,11 @@ describe("trade-search", () => {
 			expect(statId).toMatchInlineSnapshot(`"explicit.stat_1981273563"`);
 		});
 
-		it("should handle Breach mods", () => {
+		it("should handle Delirium mods", () => {
 			const statId = getTradeStatId(
-				"Your Maps have +20% chance to contain Breaches",
+				"Your Maps have +20% chance to contain a Mirror of Delirium",
 			);
-			expect(statId).toMatchInlineSnapshot(`"explicit.stat_1133841298"`);
+			expect(statId).toMatchInlineSnapshot(`"explicit.stat_1808954678"`);
 		});
 
 		it("should handle Delirium mods", () => {
@@ -151,7 +151,7 @@ describe("trade-search", () => {
 			const suffixMod1: IdolModifier = {
 				modId: "test-suffix-1",
 				type: "suffix",
-				text: "Your Maps have +20% chance to contain Breaches",
+				text: "Your Maps have +20% chance to contain a Mirror of Delirium",
 				rolledValue: 20,
 				tier: 1,
 			};

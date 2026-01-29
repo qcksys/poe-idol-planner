@@ -1228,7 +1228,7 @@
 				"tradeStatId": "explicit.stat_2127991449"
 			}
 		],
-		"mechanic": "conqueror",
+		"mechanic": "cleansing",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -1888,7 +1888,7 @@
 				"tradeStatId": "explicit.stat_1458119808"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -1932,7 +1932,7 @@
 				"tradeStatId": "explicit.stat_2571125745"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -1976,7 +1976,7 @@
 				"tradeStatId": "explicit.stat_1260233365"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -2108,7 +2108,7 @@
 				"tradeStatId": "explicit.stat_4098286334"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "essence",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -2152,7 +2152,7 @@
 				"tradeStatId": "explicit.stat_2039130613"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "essence",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -2284,7 +2284,7 @@
 				"tradeStatId": "explicit.stat_3289828378"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "expedition",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -2460,7 +2460,7 @@
 				"tradeStatId": "explicit.stat_1145451936"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harvest",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -2504,7 +2504,7 @@
 				"tradeStatId": "explicit.stat_2936740844"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harvest",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -2724,7 +2724,7 @@
 				"tradeStatId": "explicit.stat_1975869602"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -2768,7 +2768,7 @@
 				"tradeStatId": "explicit.stat_4069523014"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3472,7 +3472,7 @@
 				"tradeStatId": "explicit.stat_1603263120"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3516,7 +3516,7 @@
 				"tradeStatId": "explicit.stat_880963174"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3560,7 +3560,7 @@
 				"tradeStatId": "explicit.stat_1365687125"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3604,7 +3604,7 @@
 				"tradeStatId": "explicit.stat_4236665456"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3648,7 +3648,7 @@
 				"tradeStatId": "explicit.stat_1280423224"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3692,7 +3692,7 @@
 				"tradeStatId": "explicit.stat_3814215147"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3736,7 +3736,7 @@
 				"tradeStatId": "explicit.stat_1656757869"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3780,7 +3780,7 @@
 				"tradeStatId": "explicit.stat_2014727907"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3824,7 +3824,7 @@
 				"tradeStatId": "explicit.stat_802960755"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3868,7 +3868,7 @@
 				"tradeStatId": "explicit.stat_297961897"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3912,7 +3912,7 @@
 				"tradeStatId": "explicit.stat_2091246228"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3956,7 +3956,7 @@
 				"tradeStatId": "explicit.stat_306537703"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -3999,7 +3999,7 @@
 				"weight": 2000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4042,7 +4042,7 @@
 				"weight": 2000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4085,7 +4085,7 @@
 				"weight": 800
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4128,7 +4128,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4171,7 +4171,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4214,7 +4214,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4257,7 +4257,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4300,7 +4300,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4344,7 +4344,7 @@
 				"tradeStatId": "explicit.stat_1314822783"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4388,7 +4388,7 @@
 				"tradeStatId": "explicit.stat_1777351949"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4432,7 +4432,7 @@
 				"tradeStatId": "explicit.stat_2282052746"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4476,7 +4476,7 @@
 				"tradeStatId": "explicit.stat_28208665"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4520,7 +4520,7 @@
 				"tradeStatId": "explicit.stat_3957379603"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4564,7 +4564,7 @@
 				"tradeStatId": "explicit.stat_1351268685"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4608,7 +4608,7 @@
 				"tradeStatId": "explicit.stat_3190161627"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4652,7 +4652,7 @@
 				"tradeStatId": "explicit.stat_2388936716"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4696,7 +4696,7 @@
 				"tradeStatId": "explicit.stat_2115623338"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4740,7 +4740,7 @@
 				"tradeStatId": "explicit.stat_3273190973"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4784,7 +4784,7 @@
 				"tradeStatId": "explicit.stat_2388239017"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4828,7 +4828,7 @@
 				"tradeStatId": "explicit.stat_773912026"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4872,7 +4872,7 @@
 				"tradeStatId": "explicit.stat_1943774953"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "tangle",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4916,7 +4916,7 @@
 				"tradeStatId": "explicit.stat_2157440077"
 			}
 		],
-		"mechanic": "conqueror",
+		"mechanic": "tangle",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -4960,7 +4960,7 @@
 				"tradeStatId": "explicit.stat_846433713"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -5004,7 +5004,7 @@
 				"tradeStatId": "explicit.stat_2750973094"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -5048,7 +5048,7 @@
 				"tradeStatId": "explicit.stat_663610248"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -5268,7 +5268,7 @@
 				"tradeStatId": "explicit.stat_4045495237"
 			}
 		],
-		"mechanic": "delirium",
+		"mechanic": "scouting",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -5312,7 +5312,7 @@
 				"tradeStatId": "explicit.stat_1347565511"
 			}
 		],
-		"mechanic": "blight",
+		"mechanic": "scouting",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -5356,7 +5356,7 @@
 				"tradeStatId": "explicit.stat_1385164385"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scouting",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -5400,7 +5400,7 @@
 				"tradeStatId": "explicit.stat_2327933970"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scouting",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -5444,7 +5444,7 @@
 				"tradeStatId": "explicit.stat_2246445775"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scouting",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -5488,7 +5488,7 @@
 				"tradeStatId": "explicit.stat_2681413993"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scouting",
 		"applicableIdols": ["Minor"]
 	},
 	{
@@ -6895,7 +6895,7 @@
 				"tradeStatId": "explicit.stat_532540562"
 			}
 		],
-		"mechanic": "conqueror",
+		"mechanic": "cleansing",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -7423,7 +7423,7 @@
 				"tradeStatId": "explicit.stat_2571125745"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -7467,7 +7467,7 @@
 				"tradeStatId": "explicit.stat_1260233365"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -7510,7 +7510,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -7553,7 +7553,7 @@
 				"weight": 475
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "zana",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -7596,7 +7596,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "generic",
+		"mechanic": "zana",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -7639,7 +7639,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "generic",
+		"mechanic": "zana",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -7682,7 +7682,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "generic",
+		"mechanic": "zana",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -7814,7 +7814,7 @@
 				"tradeStatId": "explicit.stat_4098286334"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "essence",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -7858,7 +7858,7 @@
 				"tradeStatId": "explicit.stat_2039130613"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "essence",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -8078,7 +8078,7 @@
 				"tradeStatId": "explicit.stat_3051490307"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "expedition",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -8122,7 +8122,7 @@
 				"tradeStatId": "explicit.stat_2934907255"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "expedition",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -8298,7 +8298,7 @@
 				"tradeStatId": "explicit.stat_1145451936"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harvest",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -8342,7 +8342,7 @@
 				"tradeStatId": "explicit.stat_2936740844"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harvest",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -8474,7 +8474,7 @@
 				"tradeStatId": "explicit.stat_1975869602"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -8518,7 +8518,7 @@
 				"tradeStatId": "explicit.stat_4069523014"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -8694,7 +8694,7 @@
 				"tradeStatId": "explicit.stat_549540629"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9222,7 +9222,7 @@
 				"tradeStatId": "explicit.stat_880963174"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9266,7 +9266,7 @@
 				"tradeStatId": "explicit.stat_1365687125"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9310,7 +9310,7 @@
 				"tradeStatId": "explicit.stat_4281937233"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9354,7 +9354,7 @@
 				"tradeStatId": "explicit.stat_1805474879"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9398,7 +9398,7 @@
 				"tradeStatId": "explicit.stat_294140055"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9442,7 +9442,7 @@
 				"tradeStatId": "explicit.stat_3099069648"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9486,7 +9486,7 @@
 				"tradeStatId": "explicit.stat_340836576"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9529,7 +9529,7 @@
 				"weight": 2000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9572,7 +9572,7 @@
 				"weight": 2000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9616,7 +9616,7 @@
 				"tradeStatId": "explicit.stat_1314822783"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9660,7 +9660,7 @@
 				"tradeStatId": "explicit.stat_1777351949"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9748,7 +9748,7 @@
 				"tradeStatId": "explicit.stat_937291386"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9792,7 +9792,7 @@
 				"tradeStatId": "explicit.stat_2219456349"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9836,7 +9836,7 @@
 				"tradeStatId": "explicit.stat_1724306833"
 			}
 		],
-		"mechanic": "legion",
+		"mechanic": "ritual",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9880,7 +9880,7 @@
 				"tradeStatId": "explicit.stat_1762451150"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9924,7 +9924,7 @@
 				"tradeStatId": "explicit.stat_3017211510"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9968,7 +9968,7 @@
 				"tradeStatId": "explicit.stat_2584308379"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10012,7 +10012,7 @@
 				"tradeStatId": "explicit.stat_1560748306"
 			}
 		],
-		"mechanic": "harbinger",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10056,7 +10056,7 @@
 				"tradeStatId": "explicit.stat_2507275343"
 			}
 		],
-		"mechanic": "beyond",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10100,7 +10100,7 @@
 				"tradeStatId": "explicit.stat_751635784"
 			}
 		],
-		"mechanic": "essence",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10144,7 +10144,7 @@
 				"tradeStatId": "explicit.stat_3070577277"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10188,7 +10188,7 @@
 				"tradeStatId": "explicit.stat_2477998669"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10232,7 +10232,7 @@
 				"tradeStatId": "explicit.stat_723578929"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10275,7 +10275,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "bestiary",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10318,7 +10318,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10361,7 +10361,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "legion",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10404,7 +10404,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "delve",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10447,7 +10447,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "blight",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10490,7 +10490,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "abyss",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10533,7 +10533,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10576,7 +10576,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "delirium",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10619,7 +10619,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10662,7 +10662,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "harvest",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10705,7 +10705,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "betrayal",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10748,7 +10748,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "incursion",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10791,7 +10791,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "expedition",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10834,7 +10834,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10878,7 +10878,7 @@
 				"tradeStatId": "explicit.stat_2388936716"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10922,7 +10922,7 @@
 				"tradeStatId": "explicit.stat_403369937"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -10966,7 +10966,7 @@
 				"tradeStatId": "explicit.stat_1054904554"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -11054,7 +11054,7 @@
 				"tradeStatId": "explicit.stat_846433713"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -11098,7 +11098,7 @@
 				"tradeStatId": "explicit.stat_2750973094"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -11142,7 +11142,7 @@
 				"tradeStatId": "explicit.stat_4028829918"
 			}
 		],
-		"mechanic": "generic",
+		"mechanic": "torment",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -11186,7 +11186,7 @@
 				"tradeStatId": "explicit.stat_906368454"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -12594,7 +12594,7 @@
 				"tradeStatId": "explicit.stat_532540562"
 			}
 		],
-		"mechanic": "conqueror",
+		"mechanic": "cleansing",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13122,7 +13122,7 @@
 				"tradeStatId": "explicit.stat_2571125745"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13166,7 +13166,7 @@
 				"tradeStatId": "explicit.stat_1260233365"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13209,7 +13209,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13252,7 +13252,7 @@
 				"weight": 475
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "zana",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13295,7 +13295,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "generic",
+		"mechanic": "zana",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13338,7 +13338,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "generic",
+		"mechanic": "zana",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13381,7 +13381,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "generic",
+		"mechanic": "zana",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13513,7 +13513,7 @@
 				"tradeStatId": "explicit.stat_4098286334"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "essence",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13557,7 +13557,7 @@
 				"tradeStatId": "explicit.stat_2039130613"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "essence",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13777,7 +13777,7 @@
 				"tradeStatId": "explicit.stat_3051490307"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "expedition",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13821,7 +13821,7 @@
 				"tradeStatId": "explicit.stat_2934907255"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "expedition",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13997,7 +13997,7 @@
 				"tradeStatId": "explicit.stat_1145451936"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harvest",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -14041,7 +14041,7 @@
 				"tradeStatId": "explicit.stat_2936740844"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harvest",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -14173,7 +14173,7 @@
 				"tradeStatId": "explicit.stat_1975869602"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -14217,7 +14217,7 @@
 				"tradeStatId": "explicit.stat_4069523014"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -14393,7 +14393,7 @@
 				"tradeStatId": "explicit.stat_549540629"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -14921,7 +14921,7 @@
 				"tradeStatId": "explicit.stat_880963174"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -14965,7 +14965,7 @@
 				"tradeStatId": "explicit.stat_1365687125"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15009,7 +15009,7 @@
 				"tradeStatId": "explicit.stat_4281937233"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15053,7 +15053,7 @@
 				"tradeStatId": "explicit.stat_1805474879"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15097,7 +15097,7 @@
 				"tradeStatId": "explicit.stat_294140055"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15141,7 +15141,7 @@
 				"tradeStatId": "explicit.stat_3099069648"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15185,7 +15185,7 @@
 				"tradeStatId": "explicit.stat_340836576"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15228,7 +15228,7 @@
 				"weight": 2000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15271,7 +15271,7 @@
 				"weight": 2000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15315,7 +15315,7 @@
 				"tradeStatId": "explicit.stat_1314822783"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15359,7 +15359,7 @@
 				"tradeStatId": "explicit.stat_1777351949"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15447,7 +15447,7 @@
 				"tradeStatId": "explicit.stat_937291386"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15491,7 +15491,7 @@
 				"tradeStatId": "explicit.stat_2219456349"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15535,7 +15535,7 @@
 				"tradeStatId": "explicit.stat_1724306833"
 			}
 		],
-		"mechanic": "legion",
+		"mechanic": "ritual",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15579,7 +15579,7 @@
 				"tradeStatId": "explicit.stat_1762451150"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15623,7 +15623,7 @@
 				"tradeStatId": "explicit.stat_3017211510"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15667,7 +15667,7 @@
 				"tradeStatId": "explicit.stat_2584308379"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15711,7 +15711,7 @@
 				"tradeStatId": "explicit.stat_1560748306"
 			}
 		],
-		"mechanic": "harbinger",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15755,7 +15755,7 @@
 				"tradeStatId": "explicit.stat_2507275343"
 			}
 		],
-		"mechanic": "beyond",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15799,7 +15799,7 @@
 				"tradeStatId": "explicit.stat_751635784"
 			}
 		],
-		"mechanic": "essence",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15843,7 +15843,7 @@
 				"tradeStatId": "explicit.stat_3070577277"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15887,7 +15887,7 @@
 				"tradeStatId": "explicit.stat_2477998669"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15931,7 +15931,7 @@
 				"tradeStatId": "explicit.stat_723578929"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15974,7 +15974,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "bestiary",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16017,7 +16017,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16060,7 +16060,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "legion",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16103,7 +16103,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "delve",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16146,7 +16146,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "blight",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16189,7 +16189,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "abyss",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16232,7 +16232,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16275,7 +16275,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "delirium",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16318,7 +16318,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16361,7 +16361,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "harvest",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16404,7 +16404,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "betrayal",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16447,7 +16447,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "incursion",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16490,7 +16490,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "expedition",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16533,7 +16533,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16577,7 +16577,7 @@
 				"tradeStatId": "explicit.stat_2388936716"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16621,7 +16621,7 @@
 				"tradeStatId": "explicit.stat_403369937"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16665,7 +16665,7 @@
 				"tradeStatId": "explicit.stat_1054904554"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16753,7 +16753,7 @@
 				"tradeStatId": "explicit.stat_846433713"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16797,7 +16797,7 @@
 				"tradeStatId": "explicit.stat_2750973094"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16841,7 +16841,7 @@
 				"tradeStatId": "explicit.stat_4028829918"
 			}
 		],
-		"mechanic": "generic",
+		"mechanic": "torment",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -16885,7 +16885,7 @@
 				"tradeStatId": "explicit.stat_906368454"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -17281,7 +17281,7 @@
 				"tradeStatId": "explicit.stat_1346625818"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "incursion",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -18161,7 +18161,7 @@
 				"tradeStatId": "explicit.stat_3259960466"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "blight",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -18249,7 +18249,7 @@
 				"tradeStatId": "explicit.stat_3179686508"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "cleansing",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -18684,7 +18684,7 @@
 				"tradeStatId": "explicit.stat_1468737867"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -18728,7 +18728,7 @@
 				"tradeStatId": "explicit.stat_2571125745"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -18772,7 +18772,7 @@
 				"tradeStatId": "explicit.stat_1751949663"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -18816,7 +18816,7 @@
 				"tradeStatId": "explicit.stat_3017475694"
 			}
 		],
-		"mechanic": "conqueror",
+		"mechanic": "shaper",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -18860,7 +18860,7 @@
 				"tradeStatId": "explicit.stat_3275918621"
 			}
 		],
-		"mechanic": "conqueror",
+		"mechanic": "elder",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -18903,7 +18903,7 @@
 				"weight": 350
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "zana",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -18946,7 +18946,7 @@
 				"weight": 350
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "zana",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -18985,7 +18985,7 @@
 				"tradeStatId": "explicit.stat_395808938"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "essence",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -19029,7 +19029,7 @@
 				"tradeStatId": "explicit.stat_4098286334"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "essence",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -19205,7 +19205,7 @@
 				"tradeStatId": "explicit.stat_1871805225"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "expedition",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -19596,7 +19596,7 @@
 				"tradeStatId": "explicit.stat_1145451936"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harvest",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -19640,7 +19640,7 @@
 				"tradeStatId": "explicit.stat_2936740844"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harvest",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -19816,7 +19816,7 @@
 				"tradeStatId": "explicit.stat_1975869602"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -19860,7 +19860,7 @@
 				"tradeStatId": "explicit.stat_4069523014"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -20300,7 +20300,7 @@
 				"tradeStatId": "explicit.stat_495465216"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ascendancy",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -20876,7 +20876,7 @@
 				"tradeStatId": "explicit.stat_631736299"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "fortune",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -20920,7 +20920,7 @@
 				"tradeStatId": "explicit.stat_2619073196"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "fortune",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -20964,7 +20964,7 @@
 				"tradeStatId": "explicit.stat_3433267351"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "fortune",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21008,7 +21008,7 @@
 				"tradeStatId": "explicit.stat_880963174"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21052,7 +21052,7 @@
 				"tradeStatId": "explicit.stat_1365687125"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21096,7 +21096,7 @@
 				"tradeStatId": "explicit.stat_3025100555"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21140,7 +21140,7 @@
 				"tradeStatId": "explicit.stat_3027114376"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21184,7 +21184,7 @@
 				"tradeStatId": "explicit.stat_2112979059"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21228,7 +21228,7 @@
 				"tradeStatId": "explicit.stat_2412871991"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21272,7 +21272,7 @@
 				"tradeStatId": "explicit.stat_2367226239"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21315,7 +21315,7 @@
 				"weight": 2000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21358,7 +21358,7 @@
 				"weight": 2000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21401,7 +21401,7 @@
 				"weight": 400
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21444,7 +21444,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21482,7 +21482,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21525,7 +21525,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21568,7 +21568,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21611,7 +21611,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21655,7 +21655,7 @@
 				"tradeStatId": "explicit.stat_1314822783"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21699,7 +21699,7 @@
 				"tradeStatId": "explicit.stat_1777351949"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21743,7 +21743,7 @@
 				"tradeStatId": "explicit.stat_159726667"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21787,7 +21787,7 @@
 				"tradeStatId": "explicit.stat_2428948876"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21831,7 +21831,7 @@
 				"tradeStatId": "explicit.stat_3008766302"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21875,7 +21875,7 @@
 				"tradeStatId": "explicit.stat_4086926366"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21919,7 +21919,7 @@
 				"tradeStatId": "explicit.stat_829341851"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22001,7 +22001,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22045,7 +22045,7 @@
 				"tradeStatId": "explicit.stat_2388936716"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22084,7 +22084,7 @@
 				"tradeStatId": "explicit.stat_92114609"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22123,7 +22123,7 @@
 				"tradeStatId": "explicit.stat_4089738202"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22162,7 +22162,7 @@
 				"tradeStatId": "explicit.stat_3469094021"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22201,7 +22201,7 @@
 				"tradeStatId": "explicit.stat_1992708227"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22245,7 +22245,7 @@
 				"tradeStatId": "explicit.stat_2121601076"
 			}
 		],
-		"mechanic": "conqueror",
+		"mechanic": "tangle",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22289,7 +22289,7 @@
 				"tradeStatId": "explicit.stat_2988344505"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "tangle",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22333,7 +22333,7 @@
 				"tradeStatId": "explicit.stat_2750973094"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22372,7 +22372,7 @@
 				"tradeStatId": "explicit.stat_3788412017"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22411,7 +22411,7 @@
 				"tradeStatId": "explicit.stat_358129101"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22499,7 +22499,7 @@
 				"tradeStatId": "explicit.stat_4131593417"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "vaal",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -22983,7 +22983,7 @@
 				"tradeStatId": "explicit.stat_1346625818"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "incursion",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -23863,7 +23863,7 @@
 				"tradeStatId": "explicit.stat_3259960466"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "blight",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -23951,7 +23951,7 @@
 				"tradeStatId": "explicit.stat_3179686508"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "cleansing",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -24386,7 +24386,7 @@
 				"tradeStatId": "explicit.stat_1468737867"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -24430,7 +24430,7 @@
 				"tradeStatId": "explicit.stat_2571125745"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -24474,7 +24474,7 @@
 				"tradeStatId": "explicit.stat_1751949663"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -24518,7 +24518,7 @@
 				"tradeStatId": "explicit.stat_3017475694"
 			}
 		],
-		"mechanic": "conqueror",
+		"mechanic": "shaper",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -24562,7 +24562,7 @@
 				"tradeStatId": "explicit.stat_3275918621"
 			}
 		],
-		"mechanic": "conqueror",
+		"mechanic": "elder",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -24605,7 +24605,7 @@
 				"weight": 350
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "zana",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -24648,7 +24648,7 @@
 				"weight": 350
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "zana",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -24687,7 +24687,7 @@
 				"tradeStatId": "explicit.stat_395808938"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "essence",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -24731,7 +24731,7 @@
 				"tradeStatId": "explicit.stat_4098286334"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "essence",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -24907,7 +24907,7 @@
 				"tradeStatId": "explicit.stat_1871805225"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "expedition",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -25298,7 +25298,7 @@
 				"tradeStatId": "explicit.stat_1145451936"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harvest",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -25342,7 +25342,7 @@
 				"tradeStatId": "explicit.stat_2936740844"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harvest",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -25518,7 +25518,7 @@
 				"tradeStatId": "explicit.stat_1975869602"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -25562,7 +25562,7 @@
 				"tradeStatId": "explicit.stat_4069523014"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -26002,7 +26002,7 @@
 				"tradeStatId": "explicit.stat_495465216"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ascendancy",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -26578,7 +26578,7 @@
 				"tradeStatId": "explicit.stat_631736299"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "fortune",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -26622,7 +26622,7 @@
 				"tradeStatId": "explicit.stat_2619073196"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "fortune",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -26666,7 +26666,7 @@
 				"tradeStatId": "explicit.stat_3433267351"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "fortune",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -26710,7 +26710,7 @@
 				"tradeStatId": "explicit.stat_880963174"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -26754,7 +26754,7 @@
 				"tradeStatId": "explicit.stat_1365687125"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -26798,7 +26798,7 @@
 				"tradeStatId": "explicit.stat_3025100555"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -26842,7 +26842,7 @@
 				"tradeStatId": "explicit.stat_3027114376"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -26886,7 +26886,7 @@
 				"tradeStatId": "explicit.stat_2112979059"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -26930,7 +26930,7 @@
 				"tradeStatId": "explicit.stat_2412871991"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -26974,7 +26974,7 @@
 				"tradeStatId": "explicit.stat_2367226239"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27017,7 +27017,7 @@
 				"weight": 2000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27060,7 +27060,7 @@
 				"weight": 2000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27103,7 +27103,7 @@
 				"weight": 400
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27146,7 +27146,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27184,7 +27184,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27227,7 +27227,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27270,7 +27270,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27313,7 +27313,7 @@
 				"weight": 200
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27357,7 +27357,7 @@
 				"tradeStatId": "explicit.stat_1314822783"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27401,7 +27401,7 @@
 				"tradeStatId": "explicit.stat_1777351949"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27445,7 +27445,7 @@
 				"tradeStatId": "explicit.stat_159726667"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27489,7 +27489,7 @@
 				"tradeStatId": "explicit.stat_2428948876"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27533,7 +27533,7 @@
 				"tradeStatId": "explicit.stat_3008766302"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27577,7 +27577,7 @@
 				"tradeStatId": "explicit.stat_4086926366"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27621,7 +27621,7 @@
 				"tradeStatId": "explicit.stat_829341851"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27703,7 +27703,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27747,7 +27747,7 @@
 				"tradeStatId": "explicit.stat_2388936716"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27786,7 +27786,7 @@
 				"tradeStatId": "explicit.stat_92114609"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27825,7 +27825,7 @@
 				"tradeStatId": "explicit.stat_4089738202"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27864,7 +27864,7 @@
 				"tradeStatId": "explicit.stat_3469094021"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27903,7 +27903,7 @@
 				"tradeStatId": "explicit.stat_1992708227"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27947,7 +27947,7 @@
 				"tradeStatId": "explicit.stat_2121601076"
 			}
 		],
-		"mechanic": "conqueror",
+		"mechanic": "tangle",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -27991,7 +27991,7 @@
 				"tradeStatId": "explicit.stat_2988344505"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "tangle",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -28035,7 +28035,7 @@
 				"tradeStatId": "explicit.stat_2750973094"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -28074,7 +28074,7 @@
 				"tradeStatId": "explicit.stat_3788412017"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -28113,7 +28113,7 @@
 				"tradeStatId": "explicit.stat_358129101"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -28201,7 +28201,7 @@
 				"tradeStatId": "explicit.stat_4131593417"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "vaal",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -28841,7 +28841,7 @@
 				"tradeStatId": "explicit.stat_3052174721"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "incursion",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -29939,7 +29939,7 @@
 				"tradeStatId": "explicit.stat_2523194133"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "cleansing",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -29983,7 +29983,7 @@
 				"tradeStatId": "explicit.stat_2514681311"
 			}
 		],
-		"mechanic": "conqueror",
+		"mechanic": "cleansing",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -30539,7 +30539,7 @@
 				"tradeStatId": "explicit.stat_1468737867"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -30583,7 +30583,7 @@
 				"tradeStatId": "explicit.stat_2571125745"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -30622,7 +30622,7 @@
 				"tradeStatId": "explicit.stat_2167121354"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -30661,7 +30661,7 @@
 				"tradeStatId": "explicit.stat_1594755360"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -30705,7 +30705,7 @@
 				"tradeStatId": "explicit.stat_2831543675"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "shrine",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -30748,7 +30748,7 @@
 				"weight": 475
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "zana",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -30787,7 +30787,7 @@
 				"tradeStatId": "explicit.stat_395808938"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "essence",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -30831,7 +30831,7 @@
 				"tradeStatId": "explicit.stat_4098286334"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "essence",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -31084,7 +31084,7 @@
 				"tradeStatId": "explicit.stat_1539368271"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "expedition",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -31172,7 +31172,7 @@
 				"tradeStatId": "explicit.stat_1640965354"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "expedition",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -31338,7 +31338,7 @@
 				"tradeStatId": "explicit.stat_1145451936"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harvest",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -31382,7 +31382,7 @@
 				"tradeStatId": "explicit.stat_2936740844"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "harvest",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -31558,7 +31558,7 @@
 				"tradeStatId": "explicit.stat_1975869602"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -31602,7 +31602,7 @@
 				"tradeStatId": "explicit.stat_4069523014"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -31690,7 +31690,7 @@
 				"tradeStatId": "explicit.stat_1488908340"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -31773,7 +31773,7 @@
 				"tradeStatId": "explicit.stat_4286661423"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "heist",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -31993,7 +31993,7 @@
 				"tradeStatId": "explicit.stat_340272125"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ascendancy",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32334,7 +32334,7 @@
 				"tradeStatId": "explicit.stat_880963174"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32378,7 +32378,7 @@
 				"tradeStatId": "explicit.stat_1365687125"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32417,7 +32417,7 @@
 				"tradeStatId": "explicit.stat_1937345315"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32500,7 +32500,7 @@
 				"tradeStatId": "explicit.stat_1683239984"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ultimatum",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32543,7 +32543,7 @@
 				"weight": 2000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32586,7 +32586,7 @@
 				"weight": 2000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32624,7 +32624,7 @@
 				"weight": 500
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32667,7 +32667,7 @@
 				"weight": 300
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "settlers",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32711,7 +32711,7 @@
 				"tradeStatId": "explicit.stat_1314822783"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32755,7 +32755,7 @@
 				"tradeStatId": "explicit.stat_1777351949"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32794,7 +32794,7 @@
 				"tradeStatId": "explicit.stat_2302977956"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32833,7 +32833,7 @@
 				"tradeStatId": "explicit.stat_120737942"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32877,7 +32877,7 @@
 				"tradeStatId": "explicit.stat_1345835998"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "ritual",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32921,7 +32921,7 @@
 				"tradeStatId": "explicit.stat_4140427516"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32960,7 +32960,7 @@
 				"tradeStatId": "explicit.stat_2789471089"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "scarab",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -32998,7 +32998,7 @@
 				"weight": 1000
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -33042,7 +33042,7 @@
 				"tradeStatId": "explicit.stat_2388936716"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -33081,7 +33081,7 @@
 				"tradeStatId": "explicit.stat_1564500422"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -33120,7 +33120,7 @@
 				"tradeStatId": "explicit.stat_2681419531"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -33164,7 +33164,7 @@
 				"tradeStatId": "explicit.stat_3353484695"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "strongbox",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -33208,7 +33208,7 @@
 				"tradeStatId": "explicit.stat_2049349490"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "synthesis",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -33252,7 +33252,7 @@
 				"tradeStatId": "explicit.stat_4185631652"
 			}
 		],
-		"mechanic": "conqueror",
+		"mechanic": "tangle",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -33296,7 +33296,7 @@
 				"tradeStatId": "explicit.stat_2750973094"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -33335,7 +33335,7 @@
 				"tradeStatId": "explicit.stat_564845047"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -33374,7 +33374,7 @@
 				"tradeStatId": "explicit.stat_358129101"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "torment",
 		"applicableIdols": ["Conqueror"]
 	},
 	{
@@ -33418,7 +33418,7 @@
 				"tradeStatId": "explicit.stat_3089299676"
 			}
 		],
-		"mechanic": "map",
+		"mechanic": "maven",
 		"applicableIdols": ["Conqueror"]
 	},
 	{

@@ -1342,8 +1342,7 @@
 					"fr": "Lorsqu'elle observe des Boss de Carte, la Prodige lance Monter les enchères, invoquant 1 à 3 Boss de l'Atlas supplémentaires Le nombre de Boss supplémentaires invoqués est plus élevé s'il y a moins de monstres restants dans la Carte Les modificateurs affectant le Boss de fin de chaque Carte s'appliquent également à ces Boss invoqués",
 					"es": "La Especialista lanza Aumentar el riesgo e invocar de 1 a 3 jefes del atlas adicionales al observar a los jefes de los mapas La cantidad de jefes adicionales invocados es mayor cuantos menos monstruos queden en el mapa Los modificadores de los jefes finales del mapa de cada mapa también se aplican a estos jefes invocados"
 				},
-				"values": [],
-				"tradeStatId": "explicit.stat_2960155368"
+				"values": []
 			}
 		]
 	},

@@ -60,7 +60,68 @@ function normalizeModText(html: string): string {
 		.trim();
 }
 
-function detectMechanic(text: string): string {
+// All known mechanics that can be extracted from modFamily or text
+const KNOWN_MECHANICS = [
+	"abyss",
+	"anarchy",
+	"ascendancy",
+	"bestiary",
+	"betrayal",
+	"beyond",
+	"blight",
+	"breach",
+	"cleansing",
+	"conqueror",
+	"delirium",
+	"delve",
+	"elder",
+	"essence",
+	"expedition",
+	"fortune",
+	"harbinger",
+	"harvest",
+	"heist",
+	"incursion",
+	"legion",
+	"maven",
+	"ritual",
+	"scarab",
+	"scouting",
+	"settlers",
+	"shaper",
+	"shrine",
+	"strongbox",
+	"synthesis",
+	"tangle",
+	"torment",
+	"ultimatum",
+	"vaal",
+	"zana",
+] as const;
+
+function detectMechanicFromModFamily(modFamily: string): string | null {
+	// Remove "MapRelic" prefix and convert to lowercase for matching
+	const normalized = modFamily.replace(/^MapRelic/, "").toLowerCase();
+
+	// Check if the modFamily starts with a known mechanic
+	for (const mechanic of KNOWN_MECHANICS) {
+		if (normalized.startsWith(mechanic)) {
+			return mechanic;
+		}
+	}
+
+	// Handle typos in poedb data
+	if (
+		normalized.startsWith("beastiary") ||
+		normalized.startsWith("besitary")
+	) {
+		return "bestiary";
+	}
+
+	return null;
+}
+
+function detectMechanicFromText(text: string): string {
 	const lowerText = text.toLowerCase();
 
 	// Check multi-word phrases first (order matters - check before single words)
@@ -78,7 +139,6 @@ function detectMechanic(text: string): string {
 
 	// Then check single-word keywords
 	// Note: Order matters - more specific mechanics should come before generic ones
-	// "harbinger" must come before "map" since harbinger mods mention "Maps"
 	const mechanicKeywords: Record<string, string[]> = {
 		abyss: ["abyss", "abyssal"],
 		bestiary: ["bestiary", "einhar", "beast"],
@@ -97,11 +157,13 @@ function detectMechanic(text: string): string {
 		heist: ["heist", "blueprint", "contract", "rogue"],
 		incursion: ["incursion", "temple", "alva"],
 		legion: ["legion", "incubator", "splinter"],
-		map: ["map", "maps", "atlas"],
 		maven: ["maven", "witnessed"],
 		ritual: ["ritual", "tribute"],
+		scarab: ["scarab"],
+		settlers: ["settlers", "shipment"],
 		shrine: ["shrine"],
 		strongbox: ["strongbox"],
+		torment: ["torment", "possessed", "spirit"],
 		ultimatum: ["ultimatum"],
 	};
 
@@ -113,7 +175,23 @@ function detectMechanic(text: string): string {
 		}
 	}
 
+	// Fall back to "map" for generic map mods (contains "maps" but no specific mechanic)
+	if (lowerText.includes("map") || lowerText.includes("atlas")) {
+		return "map";
+	}
+
 	return "generic";
+}
+
+function detectMechanic(modFamily: string, text: string): string {
+	// First try to extract mechanic from modFamily (more reliable)
+	const fromFamily = detectMechanicFromModFamily(modFamily);
+	if (fromFamily) {
+		return fromFamily;
+	}
+
+	// Fall back to text-based detection
+	return detectMechanicFromText(text);
 }
 
 function extractModsViewJson(html: string): ModsViewData | null {
@@ -261,9 +339,9 @@ export function parseIdolPage(
 		const type = mod.ModGenerationTypeID === "1" ? "prefix" : "suffix";
 		const modText = normalizeModText(mod.str);
 		const values = extractValues(mod.str);
-		const mechanic = detectMechanic(modText);
 		const levelReq = Number.parseInt(mod.Level, 10) || 68;
 		const modFamily = mod.ModFamilyList?.[0] || mod.Name;
+		const mechanic = detectMechanic(modFamily, modText);
 
 		modifiers.push({
 			modId: generateModId(modFamily, type),

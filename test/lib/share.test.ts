@@ -67,7 +67,7 @@ describe("share helpers", () => {
 							],
 							suffixes: [
 								{
-									modId: "suffix_minor_breach_increased_magic_packs",
+									modId: "suffix_minor_delirium_additional_reward_type_chance",
 									type: "suffix",
 									rolledValue: 10,
 									tier: 1,
@@ -106,7 +106,7 @@ describe("share helpers", () => {
 				],
 			});
 			const mechanics = extractMechanics(sharedSet);
-			expect(mechanics).toEqual(["abyss", "breach", "legion"]);
+			expect(mechanics).toEqual(["abyss", "delirium", "legion"]);
 		});
 
 		it("ignores modifiers without mechanics (unknown mod IDs)", () => {
@@ -159,7 +159,7 @@ describe("share helpers", () => {
 						slots: [
 							{ slotIndex: 0, scarabId: "divination_scarab" },
 							{ slotIndex: 1, scarabId: null },
-							{ slotIndex: 2, scarabId: "breach_scarab" },
+							{ slotIndex: 2, scarabId: "delirium_scarab" },
 							{ slotIndex: 3, scarabId: null },
 							{ slotIndex: 4, scarabId: "legion_scarab" },
 						],
@@ -169,7 +169,7 @@ describe("share helpers", () => {
 			});
 			expect(extractScarabIds(sharedSet)).toEqual([
 				"divination_scarab",
-				"breach_scarab",
+				"delirium_scarab",
 				"legion_scarab",
 			]);
 		});
@@ -227,38 +227,38 @@ describe("share helpers", () => {
 
 		it("formats mechanics only", () => {
 			expect(
-				formatMetaDescription(["delirium", "breach"], [], null),
-			).toBe("Delirium, Breach");
+				formatMetaDescription(["delirium", "legion"], [], null),
+			).toBe("Delirium, Legion");
 		});
 
 		it("formats scarabs only", () => {
 			expect(
 				formatMetaDescription(
 					[],
-					["Divination Scarab", "Breach Scarab"],
+					["Divination Scarab", "Delirium Scarab"],
 					null,
 				),
-			).toBe("Divination Scarab, Breach Scarab");
+			).toBe("Divination Scarab, Delirium Scarab");
 		});
 
 		it("formats scarabs with cost", () => {
 			expect(
 				formatMetaDescription(
 					[],
-					["Divination Scarab", "Breach Scarab"],
+					["Divination Scarab", "Delirium Scarab"],
 					45,
 				),
-			).toBe("Divination Scarab, Breach Scarab (45c)");
+			).toBe("Divination Scarab, Delirium Scarab (45c)");
 		});
 
 		it("formats mechanics and scarabs with cost", () => {
 			expect(
 				formatMetaDescription(
-					["delirium", "breach"],
+					["delirium", "legion"],
 					["Divination Scarab"],
 					30.5,
 				),
-			).toBe("Delirium, Breach | Divination Scarab (30.5c)");
+			).toBe("Delirium, Legion | Divination Scarab (30.5c)");
 		});
 	});
 

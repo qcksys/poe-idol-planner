@@ -123,7 +123,7 @@ const MULTILINE_MOD_HTML = `
 <body>
 <script>
 $(function() { new ModsView({"baseitem":{"Code":"Minor Idol"},"normal":[
-{"Name":"of Breach","Level":"68","ModGenerationTypeID":"2","ModFamilyList":["MapRelicBreachMonsterDensity"],"DropChance":1000,"str":"Breaches in your Maps spawn <span class='mod-value'>(15—25)</span>% increased Monsters<br/>Breach Hands in your Maps have <span class='mod-value'>(10—15)</span>% increased chance to spawn a Breachlord"}
+{"Name":"of Delirium","Level":"68","ModGenerationTypeID":"2","ModFamilyList":["MapRelicDeliriumRewardType"],"DropChance":1000,"str":"Delirium Encounters in your Maps have <span class='mod-value'>(15—25)</span>% increased chance for an additional Reward type<br/>Delirium Monsters in your Maps drop <span class='mod-value'>(10—15)</span>% increased Simulacrum Splinters"}
 ]}); });
 </script>
 </body>
@@ -296,12 +296,14 @@ describe("poedb-converter parser", () => {
 					"Minor_Idol",
 				);
 
-				const breachMod = result.modifiers[0];
-				expect(breachMod?.text).toContain(
-					"Breaches in your Maps spawn",
+				const deliriumMod = result.modifiers[0];
+				expect(deliriumMod?.text).toContain(
+					"Delirium Encounters in your Maps",
 				);
-				expect(breachMod?.text).toContain("Breach Hands in your Maps");
-				expect(breachMod?.text).not.toContain("<br");
+				expect(deliriumMod?.text).toContain(
+					"Delirium Monsters in your Maps",
+				);
+				expect(deliriumMod?.text).not.toContain("<br");
 			});
 		});
 
@@ -385,15 +387,15 @@ describe("poedb-converter parser", () => {
 				expect(legionMod?.mechanic).toBe("legion");
 			});
 
-			it("detects breach mechanic", () => {
+			it("detects delirium mechanic", () => {
 				const result = parseIdolPage(
 					MULTILINE_MOD_HTML,
 					"en",
 					"Minor_Idol",
 				);
 
-				const breachMod = result.modifiers[0];
-				expect(breachMod?.mechanic).toBe("breach");
+				const deliriumMod = result.modifiers[0];
+				expect(deliriumMod?.mechanic).toBe("delirium");
 			});
 
 			it("defaults to generic for pack size mods", () => {
