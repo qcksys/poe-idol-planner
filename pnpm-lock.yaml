@@ -132,6 +132,9 @@ importers:
       node:
         specifier: runtime:^24.13.0
         version: runtime:24.13.0
+      pathofexile-dat:
+        specifier: ^15.0.0
+        version: 15.0.0
       tailwindcss:
         specifier: ^4.1.18
         version: 4.1.18
@@ -2669,6 +2672,9 @@ packages:
   obug@2.1.1:
     resolution: {integrity: sha512-uTqF9MuPraAQ+IsnPf366RG4cP9RtUi7MLO1N3KEc+wb0a6yKpeL0lmk2IB1jY5KHPAlTc6T/JRdC/YqxHNwkQ==}
 
+  ooz-wasm@2.0.0:
+    resolution: {integrity: sha512-Ewk+Vga2m9niFGV5qT+4EKfBnFEQSQfnTdOWSlnQcpDB2OAdk7TpRHfKqxLSLhDKRjKjw9R+sGlOreWW8ABR0A==}
+
   outdent@0.5.0:
     resolution: {integrity: sha512-/jHxFIzoMXdqPzTaCpFzAAWhpkSjZPF4Vsn6jAfNpmbH/ymsmd7Qc6VE9BGn0L6YMj6uwpQLxCECpus4ukKS9Q==}
 
@@ -2725,6 +2731,14 @@ packages:
 
   pathe@2.0.3:
     resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
+
+  pathofexile-dat-schema@8.0.0:
+    resolution: {integrity: sha512-sn/8cJHbDCM6HjLMk9LnWXXS5Nbl2YqzqZslbooC7ankKbnr0tBwfl8AxM5fI+IzX49zNnKGuqpFvQQ2UMFuig==}
+
+  pathofexile-dat@15.0.0:
+    resolution: {integrity: sha512-VoDaLWcxZYRxFkie9if4zWCpOnLYa2l3P2hj3UShX6+X/XQJHSr8q83eOYZ0emyH3/RVdl7XWpzqptq9QGjWUg==}
+    engines: {node: '>=20.0.0'}
+    hasBin: true
 
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
@@ -5767,6 +5781,8 @@ snapshots:
 
   obug@2.1.1: {}
 
+  ooz-wasm@2.0.0: {}
+
   outdent@0.5.0: {}
 
   p-filter@2.1.0:
@@ -5816,6 +5832,13 @@ snapshots:
   pathe@1.1.2: {}
 
   pathe@2.0.3: {}
+
+  pathofexile-dat-schema@8.0.0: {}
+
+  pathofexile-dat@15.0.0:
+    dependencies:
+      ooz-wasm: 2.0.0
+      pathofexile-dat-schema: 8.0.0
 
   picocolors@1.1.1: {}
 

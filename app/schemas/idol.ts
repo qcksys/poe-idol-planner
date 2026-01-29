@@ -36,7 +36,13 @@ export const IdolInstanceSchema = z.object({
 	rarity: RaritySchema,
 	name: z.string().optional(),
 	implicit: IdolImplicitSchema.optional(),
-	prefixes: z.array(IdolModifierSchema).max(2),
+	prefixes: z
+		.array(IdolModifierSchema)
+		.max(5)
+		.refine((mod) => mod.filter((m) => m.type === "prefix").length > 2, {
+			error: "A maximum of 2 prefixes are allowed",
+			path: ["prefixes"],
+		}), // Prefixes slot also stores unique mods, need to refactor later
 	suffixes: z.array(IdolModifierSchema).max(2),
 });
 
