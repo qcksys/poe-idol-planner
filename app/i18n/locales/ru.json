@@ -252,6 +252,18 @@
 		"ritual": "Ритуал",
 		"shrine": "Святыня",
 		"strongbox": "Сундук",
-		"ultimatum": "Ультиматум"
+		"ultimatum": "Ultimatum",
+		"ascendancy": "Ascendancy",
+		"cleansing": "Searing Exarch",
+		"fortune": "Fortune",
+		"scarab": "Scarab",
+		"scouting": "Scouting",
+		"settlers": "Settlers",
+		"shaper": "Shaper",
+		"synthesis": "Synthesis",
+		"tangle": "Eater of Worlds",
+		"torment": "Torment",
+		"vaal": "Vaal",
+		"zana": "Zana"
 	}
 }

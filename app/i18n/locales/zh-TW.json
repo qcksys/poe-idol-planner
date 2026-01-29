@@ -252,6 +252,18 @@
 		"ritual": "祭壇",
 		"shrine": "神壇",
 		"strongbox": "保險箱",
-		"ultimatum": "最後通牒"
+		"ultimatum": "Ultimatum",
+		"ascendancy": "Ascendancy",
+		"cleansing": "Searing Exarch",
+		"fortune": "Fortune",
+		"scarab": "Scarab",
+		"scouting": "Scouting",
+		"settlers": "Settlers",
+		"shaper": "Shaper",
+		"synthesis": "Synthesis",
+		"tangle": "Eater of Worlds",
+		"torment": "Torment",
+		"vaal": "Vaal",
+		"zana": "Zana"
 	}
 }
