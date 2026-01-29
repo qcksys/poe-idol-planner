@@ -14,7 +14,17 @@ export default {
 		context.set(envContext, env);
 		context.set(exeContext, executionContext);
 
-		return requestHandler(request, context);
+		// Strip body from GET/HEAD requests to work around Cloudflare Workers + React Router issue
+		// Some bots send GET requests with Content-Length headers, which causes React Router's
+		// internal stripIndexParam function to fail when creating a new Request
+		// See: https://pmil.me/posts/request-get-head-body
+		const isGetOrHead =
+			request.method === "GET" || request.method === "HEAD";
+
+		return requestHandler(
+			isGetOrHead ? new Request(request, { body: null }) : request,
+			context,
+		);
 	},
 
 	async scheduled(controller, env, ctx) {
