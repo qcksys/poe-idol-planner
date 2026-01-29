@@ -168,7 +168,7 @@ export default function SharePage({ loaderData }: Route.ComponentProps) {
 			const importedSet = {
 				...sharedSet,
 				id: newSetId,
-				name: `${sharedSet.name} (Shared)`,
+				name: `${sharedSet.name} (Imported)`,
 				createdAt: Date.now(),
 				updatedAt: Date.now(),
 				inventory: newInventory,
