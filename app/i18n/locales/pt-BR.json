@@ -116,7 +116,7 @@
 		"loading": "Gerando link de compartilhamento...",
 		"error": "Falha ao gerar link de compartilhamento. Tente novamente.",
 		"generateLink": "Gerar Link de Compartilhamento",
-		"linkExpiry": "O link expira em 30 dias",
+		"linkExpiry": "O link nunca expira",
 		"fetching": "Carregando conjunto compartilhado",
 		"goToPlanner": "Ir para o Planejador",
 		"sharedSetTitle": "Conjunto de Ídolos Compartilhado",

@@ -116,7 +116,7 @@
 		"loading": "Génération du lien de partage...",
 		"error": "Échec de la génération du lien de partage. Veuillez réessayer.",
 		"generateLink": "Générer un lien de partage",
-		"linkExpiry": "Le lien expire dans 30 jours",
+		"linkExpiry": "Le lien n'expire jamais",
 		"fetching": "Chargement de l'ensemble partagé",
 		"goToPlanner": "Aller au planificateur",
 		"sharedSetTitle": "Ensemble d'idoles partagé",
