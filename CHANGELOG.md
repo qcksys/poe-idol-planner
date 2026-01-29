@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.2
+
+### Patch Changes
+
+- fix prefixes validation logic - condition was incorrectly checking > 2 instead of <= 2
+
 ## 0.9.1
 
 ### Patch Changes

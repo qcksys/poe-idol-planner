@@ -39,7 +39,7 @@ export const IdolInstanceSchema = z.object({
 	prefixes: z
 		.array(IdolModifierSchema)
 		.max(5)
-		.refine((mod) => mod.filter((m) => m.type === "prefix").length > 2, {
+		.refine((mod) => mod.filter((m) => m.type === "prefix").length <= 2, {
 			error: "A maximum of 2 prefixes are allowed",
 			path: ["prefixes"],
 		}), // Prefixes slot also stores unique mods, need to refactor later
