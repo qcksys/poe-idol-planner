@@ -242,7 +242,7 @@ export function generateTradeUrl(
 
 	const modsToSearch = options?.includeAllMods
 		? allMods
-		: allMods.slice(0, 2);
+		: allMods.slice(0, 4);
 
 	const query = buildTradeQuery(idol.baseType, modsToSearch, {
 		onlineOnly: options?.onlineOnly,
