@@ -20,6 +20,7 @@ import {
 import type { Route } from "./+types/root";
 import "~/app.css";
 import { Toaster } from "~/components/ui/sonner";
+import { LeagueProvider } from "~/context/league-context";
 import { I18nProvider } from "~/i18n";
 import { NotFoundPage } from "~/routes/$";
 import { themeSessionResolver } from "~/sessions.server";
@@ -46,11 +47,13 @@ function AppLayout({ children }: { children: ReactNode }) {
 					content="width=device-width, initial-scale=1"
 				/>
 				<Meta />
-				<PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
+				<PreventFlashOnWrongTheme ssrTheme={Boolean(data?.theme)} />
 				<Links />
 			</head>
 			<body className="bg-background text-foreground">
-				<I18nProvider>{children}</I18nProvider>
+				<LeagueProvider>
+					<I18nProvider>{children}</I18nProvider>
+				</LeagueProvider>
 				<Toaster />
 				<ScrollRestoration />
 				<Scripts />
@@ -61,12 +64,10 @@ function AppLayout({ children }: { children: ReactNode }) {
 
 export function Layout({ children }: { children: ReactNode }) {
 	const data = useLoaderData<typeof loader>();
+	const theme = data?.theme ?? Theme.DARK;
 
 	return (
-		<ThemeProvider
-			specifiedTheme={data.theme}
-			themeAction="/action/set-theme"
-		>
+		<ThemeProvider specifiedTheme={theme} themeAction="/action/set-theme">
 			<AppLayout>{children}</AppLayout>
 		</ThemeProvider>
 	);
