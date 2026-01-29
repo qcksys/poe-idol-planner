@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.0
+
+### Minor Changes
+
+- 744844b: Add toast notifications when localStorage save validation fails
+
 ## 0.9.2
 
 ### Patch Changes
