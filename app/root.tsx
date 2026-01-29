@@ -1,4 +1,6 @@
+import * as Sentry from "@sentry/react-router/cloudflare";
 import clsx from "clsx";
+import { type ReactNode, useEffect } from "react";
 import {
 	isRouteErrorResponse,
 	Links,
@@ -17,7 +19,6 @@ import {
 
 import type { Route } from "./+types/root";
 import "~/app.css";
-import type { ReactNode } from "react";
 import { Toaster } from "~/components/ui/sonner";
 import { I18nProvider } from "~/i18n";
 import { NotFoundPage } from "~/routes/$";
@@ -76,6 +77,12 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+	useEffect(() => {
+		if (!isRouteErrorResponse(error) || error.status >= 500) {
+			Sentry.captureException(error);
+		}
+	}, [error]);
+
 	if (isRouteErrorResponse(error) && error.status === 404) {
 		return <NotFoundPage />;
 	}
