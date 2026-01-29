@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.8.0
+
+### Minor Changes
+
+- Update with new idol data
+- 5f78db0: add trade search improvements:
+  - default to instant buyout (status: available) instead of "any"
+  - map unique idol mods to trade stat IDs in data script
+  - unique idol "Maps found in Area" uses implicit stat ID (base implicit, 2% per cell)
+  - regular prefix mod uses explicit stat ID as expected
+  - enable trade searching for unique idol mods
+  - show base implicit "X% increased Maps found in Area" in stats summary (2% per cell)
+
+### Patch Changes
+
+- d57192e: fix unique idol mods not appearing in total stats summary, fix share link expiry text to correctly indicate links never expire
+- 0294997: fix trade links only including first 2 mods, now includes up to 4 mods (2 prefixes + 2 suffixes)
+
 ## 0.7.0
 
 ### Minor Changes
