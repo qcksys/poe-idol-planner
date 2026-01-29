@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import { getAllUnlockIds } from "~/data/map-device-unlocks";
 import { useIdolSets } from "~/hooks/use-idol-sets";
 import { loadStorage, saveStorage } from "~/lib/storage";
@@ -39,11 +40,17 @@ export function usePlannerState() {
 	useEffect(() => {
 		if (!isHydrated) return;
 
-		saveStorage({
+		const result = saveStorage({
 			version: STORAGE_VERSION,
 			sets,
 			activeSetId,
 		});
+
+		if (!result.success) {
+			toast.error("Failed to save changes", {
+				description: result.error,
+			});
+		}
 	}, [sets, activeSetId, isHydrated]);
 
 	const setsHook = useIdolSets(sets, setSets, activeSetId, setActiveSetId);
