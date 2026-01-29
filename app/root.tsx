@@ -20,6 +20,7 @@ import {
 import type { Route } from "./+types/root";
 import "~/app.css";
 import { Toaster } from "~/components/ui/sonner";
+import { LeagueProvider } from "~/context/league-context";
 import { I18nProvider } from "~/i18n";
 import { NotFoundPage } from "~/routes/$";
 import { themeSessionResolver } from "~/sessions.server";
@@ -50,7 +51,9 @@ function AppLayout({ children }: { children: ReactNode }) {
 				<Links />
 			</head>
 			<body className="bg-background text-foreground">
-				<I18nProvider>{children}</I18nProvider>
+				<LeagueProvider>
+					<I18nProvider>{children}</I18nProvider>
+				</LeagueProvider>
 				<Toaster />
 				<ScrollRestoration />
 				<Scripts />
