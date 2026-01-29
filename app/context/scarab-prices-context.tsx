@@ -1,5 +1,12 @@
-import { useCallback, useEffect, useState } from "react";
-import { useLeague } from "~/hooks/use-league";
+import {
+	createContext,
+	type ReactNode,
+	useCallback,
+	useContext,
+	useEffect,
+	useState,
+} from "react";
+import { useLeague } from "~/context/league-context";
 import {
 	type ScarabPricesData,
 	ScarabPricesDataSchema,
@@ -11,7 +18,20 @@ interface ScarabPricesState {
 	error: string | null;
 }
 
-export function useScarabPrices() {
+interface ScarabPricesContextValue {
+	prices: ScarabPricesData["prices"] | null;
+	isLoading: boolean;
+	error: string | null;
+	updatedAt: string | null;
+	getPrice: (scarabId: string) => number | null;
+	refetch: () => void;
+}
+
+const ScarabPricesContext = createContext<ScarabPricesContextValue | null>(
+	null,
+);
+
+export function ScarabPricesProvider({ children }: { children: ReactNode }) {
 	const { league, realm, isHydrated } = useLeague();
 	const [state, setState] = useState<ScarabPricesState>({
 		data: null,
@@ -77,12 +97,32 @@ export function useScarabPrices() {
 		[state.data],
 	);
 
-	return {
-		prices: state.data?.prices ?? null,
-		isLoading: state.isLoading,
-		error: state.error,
-		updatedAt: state.data?.updatedAt ?? null,
-		getPrice,
-		refetch: () => fetchPrices(league),
-	};
+	const refetch = useCallback(() => {
+		fetchPrices(league);
+	}, [fetchPrices, league]);
+
+	return (
+		<ScarabPricesContext.Provider
+			value={{
+				prices: state.data?.prices ?? null,
+				isLoading: state.isLoading,
+				error: state.error,
+				updatedAt: state.data?.updatedAt ?? null,
+				getPrice,
+				refetch,
+			}}
+		>
+			{children}
+		</ScarabPricesContext.Provider>
+	);
+}
+
+export function useScarabPrices(): ScarabPricesContextValue {
+	const context = useContext(ScarabPricesContext);
+	if (!context) {
+		throw new Error(
+			"useScarabPrices must be used within a ScarabPricesProvider",
+		);
+	}
+	return context;
 }

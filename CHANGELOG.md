@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.11.0
+
+### Minor Changes
+
+- 464f959: Add Sentry client-side error tracking with hydration and browser extension error filtering
+
+### Patch Changes
+
+- 0b07112: Improve mobile responsiveness: fix layout stacking, modal widths, and header/button visibility on small screens. Use narrower sidebar columns (280px/260px) at lg breakpoint, wider (400px/350px) at xl breakpoint to prevent overlap.
+- 689b75f: Fix scarab price API issues: eliminate double API requests by sharing state via LeagueContext and ScarabPricesContext, and ensure prices update correctly when changing leagues. Also fix unnecessary scrollbar on the main app layout.
+
 ## 0.10.0
 
 ### Minor Changes

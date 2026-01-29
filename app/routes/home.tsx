@@ -12,6 +12,8 @@ import { StatsSummary } from "~/components/stats-summary";
 import { ClipboardProvider, useClipboard } from "~/context/clipboard-context";
 import { DndProvider } from "~/context/dnd-context";
 import { FavoritesProvider } from "~/context/favorites-context";
+import { LeagueProvider } from "~/context/league-context";
+import { ScarabPricesProvider } from "~/context/scarab-prices-context";
 import { usePlannerState } from "~/hooks/use-planner-state";
 import { useTranslations } from "~/i18n";
 import type { IdolInstance } from "~/schemas/idol";
@@ -71,7 +73,7 @@ function HomeContent() {
 
 	if (!isHydrated) {
 		return (
-			<div className="flex min-h-screen items-center justify-center">
+			<div className="flex h-screen items-center justify-center">
 				<div className="text-muted-foreground">{t.actions.loading}</div>
 			</div>
 		);
@@ -81,10 +83,10 @@ function HomeContent() {
 	const inventory = activeSet?.inventory ?? [];
 
 	return (
-		<div className="flex min-h-screen flex-col">
+		<div className="flex h-screen flex-col overflow-hidden">
 			<AppHeader onShareClick={() => setShareModalOpen(true)} />
 
-			<main className="container mx-auto flex-1 p-4">
+			<main className="container mx-auto flex min-h-0 flex-1 flex-col p-4">
 				<SetTabs
 					sets={sets.sets}
 					activeSetId={sets.activeSetId}
@@ -95,8 +97,10 @@ function HomeContent() {
 					onDeleteSet={sets.deleteSet}
 				/>
 
-				<div className="mt-4 grid gap-4 lg:grid-cols-[400px_1fr_350px]">
-					<aside className="h-[calc(100vh-180px)]">
+				{/* Mobile: stack vertically (inventory, grid, stats). Desktop: 3-column layout */}
+				<div className="mt-4 grid min-h-0 flex-1 gap-4 overflow-y-auto lg:grid-cols-[280px_1fr_260px] lg:overflow-visible xl:grid-cols-[400px_1fr_350px]">
+					{/* Inventory panel - above grid on mobile */}
+					<aside className="max-h-[50vh] lg:h-[calc(100vh-180px)] lg:max-h-none">
 						<InventoryPanel
 							inventory={inventory}
 							onImportClick={() => setImportModalOpen(true)}
@@ -111,26 +115,29 @@ function HomeContent() {
 						/>
 					</aside>
 
-					<section className="flex flex-col items-center gap-4">
+					{/* Grid section - horizontal scroll on mobile */}
+					<section className="flex flex-col items-center gap-4 overflow-x-auto">
 						{activeSet && (
 							<>
-								<IdolGrid
-									placements={activeSet.placements}
-									inventory={inventory}
-									unlockedConditions={
-										activeSet.unlockedConditions
-									}
-									onPlaceIdol={(inventoryIdolId, x, y) =>
-										sets.placeIdol(inventoryIdolId, {
-											x,
-											y,
-										})
-									}
-									onMoveIdol={(placementId, x, y) =>
-										sets.moveIdol(placementId, { x, y })
-									}
-									onRemoveIdol={sets.removeIdolFromSet}
-								/>
+								<div className="min-w-fit">
+									<IdolGrid
+										placements={activeSet.placements}
+										inventory={inventory}
+										unlockedConditions={
+											activeSet.unlockedConditions
+										}
+										onPlaceIdol={(inventoryIdolId, x, y) =>
+											sets.placeIdol(inventoryIdolId, {
+												x,
+												y,
+											})
+										}
+										onMoveIdol={(placementId, x, y) =>
+											sets.moveIdol(placementId, { x, y })
+										}
+										onRemoveIdol={sets.removeIdolFromSet}
+									/>
+								</div>
 								<MapDeviceComponent
 									mapDevice={activeSet.mapDevice}
 									onSlotChange={sets.updateMapDeviceSlot}
@@ -148,7 +155,8 @@ function HomeContent() {
 						)}
 					</section>
 
-					<aside className="h-[calc(100vh-180px)]">
+					{/* Stats panel - below grid on mobile */}
+					<aside className="max-h-[50vh] lg:h-[calc(100vh-180px)] lg:max-h-none">
 						<StatsSummary
 							placements={activeSet?.placements ?? []}
 							inventory={inventory}
@@ -185,12 +193,16 @@ function HomeContent() {
 
 export default function Home(_props: Route.ComponentProps) {
 	return (
-		<FavoritesProvider>
-			<ClipboardProvider>
-				<DndProvider>
-					<HomeContent />
-				</DndProvider>
-			</ClipboardProvider>
-		</FavoritesProvider>
+		<LeagueProvider>
+			<ScarabPricesProvider>
+				<FavoritesProvider>
+					<ClipboardProvider>
+						<DndProvider>
+							<HomeContent />
+						</DndProvider>
+					</ClipboardProvider>
+				</FavoritesProvider>
+			</ScarabPricesProvider>
+		</LeagueProvider>
 	);
 }

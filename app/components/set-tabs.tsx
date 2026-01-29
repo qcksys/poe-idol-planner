@@ -176,9 +176,12 @@ export function SetTabs({
 							variant="outline"
 							size="sm"
 							onClick={onCreateSet}
+							className="shrink-0"
 						>
-							<Plus className="mr-1 h-4 w-4" />
-							{t.idolSet.newSet}
+							<Plus className="h-4 w-4 sm:mr-1" />
+							<span className="hidden sm:inline">
+								{t.idolSet.newSet}
+							</span>
 						</Button>
 					</TooltipTrigger>
 					<TooltipContent>{t.actions.newSet}</TooltipContent>
@@ -190,9 +193,12 @@ export function SetTabs({
 							variant="outline"
 							size="sm"
 							onClick={handleImportClick}
+							className="shrink-0"
 						>
-							<Download className="mr-1 h-4 w-4" />
-							{t.idolSet.importShare}
+							<Download className="h-4 w-4 sm:mr-1" />
+							<span className="hidden sm:inline">
+								{t.idolSet.importShare}
+							</span>
 						</Button>
 					</TooltipTrigger>
 					<TooltipContent>
