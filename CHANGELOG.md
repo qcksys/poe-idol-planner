@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.2
+
+### Patch Changes
+
+- Update idol mods, scarabs, leauges as of 2026-01-30
+
 ## 0.11.1
 
 ### Patch Changes

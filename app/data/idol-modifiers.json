@@ -1875,7 +1875,7 @@
 					"ru": "(30—40)% увеличение длительности эффекта алтарей на игроках на ваших картах",
 					"pt-BR": "Duração dos Efeitos de Altares em Jogadores em seus Mapas aumentado em (30—40)%",
 					"de": "(30—40)% verlängerte Dauer von Schrein-Stärkungen auf Spieler, die von Schreinen in Euren Karten gewährt werden",
-					"fr": "Dans vos Cartes, les Effets des Autels qui affectent les joueurs ont (30—40)% d'Augmentation de Durée",
+					"fr": "Dans vos Cartes, les Effets bénéfiques des Autels ont (30—40)% d'Augmentation de Durée sur les Joueurs",
 					"es": "Duración de los efectos de los santuarios en los jugadores aumentada un (30—40)% en tus mapas"
 				},
 				"values": [
@@ -3971,7 +3971,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "Des Prospektors",
-			"fr": "",
+			"fr": "du Prospecteur",
 			"es": ""
 		},
 		"tiers": [
@@ -3987,7 +3987,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten haben (80—100)% erhöhte Chance, Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes ont (80—100)% d'Augmentation de chances de contenir des Gisements de minerai",
 					"es": ""
 				},
 				"values": [
@@ -4014,7 +4014,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "Des Prospektors",
-			"fr": "",
+			"fr": "du Prospecteur",
 			"es": ""
 		},
 		"tiers": [
@@ -4030,7 +4030,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten haben +(15—25)% Chance, Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes ont +(15—25)% de chances de contenir des Gisements de minerai",
 					"es": ""
 				},
 				"values": [
@@ -4057,7 +4057,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -4073,7 +4073,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Erzvorkommen in Euren Karten enthalten (10—15)% erhöhtes Erz",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de minerai ont (10—15)% d'Augmentation de Minerai qu'ils contiennent",
 					"es": ""
 				},
 				"values": [
@@ -4100,7 +4100,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -4116,7 +4116,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(30—50)% erhöhte Chance, dass Erzvorkommen in Euren Karten Bismut-Vorkommen sind",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de minerai ont (30—50)% d'Augmentation de chances d'être du Bismuth",
 					"es": ""
 				},
 				"values": [
@@ -4143,7 +4143,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -4159,7 +4159,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(30—50)% erhöhte Chance, dass Erzvorkommen in Euren Karten Blutrotes-Eisen-Vorkommen sind",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de minerai ont (30—50)% d'Augmentation de chances d'être du Fer écarlate",
 					"es": ""
 				},
 				"values": [
@@ -4186,7 +4186,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -4202,7 +4202,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(30—50)% erhöhte Chance, dass Erzvorkommen in Euren Karten Oreichalkos-Vorkommen sind",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de minerai ont (30—50)% d'Augmentation de chances d'être de l'Orichalque",
 					"es": ""
 				},
 				"values": [
@@ -4229,7 +4229,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -4245,7 +4245,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(30—50)% erhöhte Chance, dass Erzvorkommen in Euren Karten Amberium-Vorkommen sind",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de minerai ont (30—50)% d'Augmentation de chances d'être de l'Ambre pétrifié",
 					"es": ""
 				},
 				"values": [
@@ -4272,7 +4272,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -4288,7 +4288,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(30—50)% erhöhte Chance, dass Erzvorkommen in Euren Karten Verisium-Vorkommen sind",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de minerai ont (30—50)% d'Augmentation de chances d'être du Vérisium",
 					"es": ""
 				},
 				"values": [
@@ -7498,7 +7498,7 @@
 					"ru": "(25—35)% усиление эффекта алтарей на игроках на ваших картах",
 					"pt-BR": "Efeito dos Buffs de Altares em Jogadores em seus Mapas aumentado em (25—35)%",
 					"de": "(25—35)% erhöhte Wirkung von Schrein-Stärkungen auf Spieler, die von Schreinen in Euren Karten gewährt werden",
-					"fr": "Dans vos Cartes, les Effets bénéfiques des Autels affectant les joueurs ont (25—35)% d'Augmentation d'Effet",
+					"fr": "Dans vos Cartes, les Effets bénéfiques des Autels ont (25—35)% d'Augmentation d'Effet sur les Joueurs",
 					"es": "En tus mapas, el efecto de las bonificaciones de los santuarios está aumentado un (25—35)% sobre los jugadores"
 				},
 				"values": [
@@ -7507,7 +7507,8 @@
 						"max": 35
 					}
 				],
-				"weight": 1000
+				"weight": 1000,
+				"tradeStatId": "explicit.stat_1773503150"
 			}
 		],
 		"mechanic": "shrine",
@@ -7525,7 +7526,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -7541,7 +7542,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(10—20)% erhöhte Chance, dass Eure Karten Erinnerungsrisse enthalten (Level 16+)",
-					"fr": "",
+					"fr": "Vos Cartes ont (10—20)% d'Augmentation de chances de contenir des Déchirures de Souvenir (Palier 16+)",
 					"es": ""
 				},
 				"values": [
@@ -7568,7 +7569,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -7584,7 +7585,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(15—25)% erhöhte Chance, dass Erinnerungsfäden zur Inkarnation der Furcht führen",
-					"fr": "",
+					"fr": "Les Fils de Souvenir ont (15—25)% d'Augmentation de chances de mener jusqu'à l'Incarnation de la Peur",
 					"es": ""
 				},
 				"values": [
@@ -7611,7 +7612,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -7627,7 +7628,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(15—25)% erhöhte Chance, dass Erinnerungsfäden zur Inkarnation der Vernachlässigung führen",
-					"fr": "",
+					"fr": "Les Fils de Souvenir ont (15—25)% d'Augmentation de chances de mener jusqu'à l'Incarnation de la Négligence",
 					"es": ""
 				},
 				"values": [
@@ -7654,7 +7655,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -7670,7 +7671,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(15—25)% erhöhte Chance, dass Erinnerungsfäden zur Inkarnation des Schreckens führen",
-					"fr": "",
+					"fr": "Les Fils de Souvenir ont (15—25)% d'Augmentation de chances de mener jusqu'à l'Incarnation de la Terreur",
 					"es": ""
 				},
 				"values": [
@@ -9501,7 +9502,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "Des Prospektors",
-			"fr": "",
+			"fr": "du Prospecteur",
 			"es": ""
 		},
 		"tiers": [
@@ -9517,7 +9518,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten haben (144—180)% erhöhte Chance, Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes ont (144—180)% d'Augmentation de chances de contenir des Gisements de minerai",
 					"es": ""
 				},
 				"values": [
@@ -9544,7 +9545,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "Des Prospektors",
-			"fr": "",
+			"fr": "du Prospecteur",
 			"es": ""
 		},
 		"tiers": [
@@ -9560,7 +9561,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten haben +(30—45)% Chance, Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes ont +(30—45)% de chances de contenir des Gisements de minerai",
 					"es": ""
 				},
 				"values": [
@@ -10247,7 +10248,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10263,7 +10264,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Bestien-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées du Bestiaire",
 					"es": ""
 				},
 				"values": [
@@ -10290,7 +10291,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10306,7 +10307,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Weissagungs-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées de Divination",
 					"es": ""
 				},
 				"values": [
@@ -10333,7 +10334,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10349,7 +10350,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Legion-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées de Légion",
 					"es": ""
 				},
 				"values": [
@@ -10376,7 +10377,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10392,7 +10393,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Sulfit-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées de Sulfite",
 					"es": ""
 				},
 				"values": [
@@ -10419,7 +10420,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10435,7 +10436,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Befall-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées de l'Infestation",
 					"es": ""
 				},
 				"values": [
@@ -10462,7 +10463,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10478,7 +10479,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Abgrund-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées abyssaux",
 					"es": ""
 				},
 				"values": [
@@ -10505,7 +10506,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10521,7 +10522,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Ultimatum-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées d'Ultimatum",
 					"es": ""
 				},
 				"values": [
@@ -10548,7 +10549,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10564,7 +10565,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Delirium-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées du Délire",
 					"es": ""
 				},
 				"values": [
@@ -10591,7 +10592,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10607,7 +10608,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Ritual-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées de Rituel",
 					"es": ""
 				},
 				"values": [
@@ -10634,7 +10635,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10650,7 +10651,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Hain-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées du Bosquet",
 					"es": ""
 				},
 				"values": [
@@ -10677,7 +10678,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10693,7 +10694,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Syndikat-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées du Syndicat",
 					"es": ""
 				},
 				"values": [
@@ -10720,7 +10721,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10736,7 +10737,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Inkursion-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées d'Incursion",
 					"es": ""
 				},
 				"values": [
@@ -10763,7 +10764,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10779,7 +10780,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Expedition-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées d'Expédition",
 					"es": ""
 				},
 				"values": [
@@ -10806,7 +10807,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -10822,7 +10823,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Kalguurische Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées kalguuriens",
 					"es": ""
 				},
 				"values": [
@@ -13197,7 +13198,7 @@
 					"ru": "(25—35)% усиление эффекта алтарей на игроках на ваших картах",
 					"pt-BR": "Efeito dos Buffs de Altares em Jogadores em seus Mapas aumentado em (25—35)%",
 					"de": "(25—35)% erhöhte Wirkung von Schrein-Stärkungen auf Spieler, die von Schreinen in Euren Karten gewährt werden",
-					"fr": "Dans vos Cartes, les Effets bénéfiques des Autels affectant les joueurs ont (25—35)% d'Augmentation d'Effet",
+					"fr": "Dans vos Cartes, les Effets bénéfiques des Autels ont (25—35)% d'Augmentation d'Effet sur les Joueurs",
 					"es": "En tus mapas, el efecto de las bonificaciones de los santuarios está aumentado un (25—35)% sobre los jugadores"
 				},
 				"values": [
@@ -13206,7 +13207,8 @@
 						"max": 35
 					}
 				],
-				"weight": 1000
+				"weight": 1000,
+				"tradeStatId": "explicit.stat_1773503150"
 			}
 		],
 		"mechanic": "shrine",
@@ -13224,7 +13226,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -13240,7 +13242,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(10—20)% erhöhte Chance, dass Eure Karten Erinnerungsrisse enthalten (Level 16+)",
-					"fr": "",
+					"fr": "Vos Cartes ont (10—20)% d'Augmentation de chances de contenir des Déchirures de Souvenir (Palier 16+)",
 					"es": ""
 				},
 				"values": [
@@ -13267,7 +13269,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -13283,7 +13285,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(15—25)% erhöhte Chance, dass Erinnerungsfäden zur Inkarnation der Furcht führen",
-					"fr": "",
+					"fr": "Les Fils de Souvenir ont (15—25)% d'Augmentation de chances de mener jusqu'à l'Incarnation de la Peur",
 					"es": ""
 				},
 				"values": [
@@ -13310,7 +13312,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -13326,7 +13328,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(15—25)% erhöhte Chance, dass Erinnerungsfäden zur Inkarnation der Vernachlässigung führen",
-					"fr": "",
+					"fr": "Les Fils de Souvenir ont (15—25)% d'Augmentation de chances de mener jusqu'à l'Incarnation de la Négligence",
 					"es": ""
 				},
 				"values": [
@@ -13353,7 +13355,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -13369,7 +13371,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(15—25)% erhöhte Chance, dass Erinnerungsfäden zur Inkarnation des Schreckens führen",
-					"fr": "",
+					"fr": "Les Fils de Souvenir ont (15—25)% d'Augmentation de chances de mener jusqu'à l'Incarnation de la Terreur",
 					"es": ""
 				},
 				"values": [
@@ -15200,7 +15202,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "Des Prospektors",
-			"fr": "",
+			"fr": "du Prospecteur",
 			"es": ""
 		},
 		"tiers": [
@@ -15216,7 +15218,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten haben (144—180)% erhöhte Chance, Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes ont (144—180)% d'Augmentation de chances de contenir des Gisements de minerai",
 					"es": ""
 				},
 				"values": [
@@ -15243,7 +15245,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "Des Prospektors",
-			"fr": "",
+			"fr": "du Prospecteur",
 			"es": ""
 		},
 		"tiers": [
@@ -15259,7 +15261,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten haben +(30—45)% Chance, Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes ont +(30—45)% de chances de contenir des Gisements de minerai",
 					"es": ""
 				},
 				"values": [
@@ -15946,7 +15948,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -15962,7 +15964,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Bestien-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées du Bestiaire",
 					"es": ""
 				},
 				"values": [
@@ -15989,7 +15991,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16005,7 +16007,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Weissagungs-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées de Divination",
 					"es": ""
 				},
 				"values": [
@@ -16032,7 +16034,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16048,7 +16050,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Legion-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées de Légion",
 					"es": ""
 				},
 				"values": [
@@ -16075,7 +16077,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16091,7 +16093,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Sulfit-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées de Sulfite",
 					"es": ""
 				},
 				"values": [
@@ -16118,7 +16120,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16134,7 +16136,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Befall-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées de l'Infestation",
 					"es": ""
 				},
 				"values": [
@@ -16161,7 +16163,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16177,7 +16179,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Abgrund-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées abyssaux",
 					"es": ""
 				},
 				"values": [
@@ -16204,7 +16206,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16220,7 +16222,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Ultimatum-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées d'Ultimatum",
 					"es": ""
 				},
 				"values": [
@@ -16247,7 +16249,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16263,7 +16265,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Delirium-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées du Délire",
 					"es": ""
 				},
 				"values": [
@@ -16290,7 +16292,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16306,7 +16308,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Ritual-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées de Rituel",
 					"es": ""
 				},
 				"values": [
@@ -16333,7 +16335,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16349,7 +16351,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Hain-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées du Bosquet",
 					"es": ""
 				},
 				"values": [
@@ -16376,7 +16378,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16392,7 +16394,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Syndikat-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées du Syndicat",
 					"es": ""
 				},
 				"values": [
@@ -16419,7 +16421,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16435,7 +16437,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Inkursion-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées d'Incursion",
 					"es": ""
 				},
 				"values": [
@@ -16462,7 +16464,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16478,7 +16480,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Expedition-Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées d'Expédition",
 					"es": ""
 				},
 				"values": [
@@ -16505,7 +16507,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Huschens",
-			"fr": "",
+			"fr": "du Grouillement",
 			"es": ""
 		},
 		"tiers": [
@@ -16521,7 +16523,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Kalguurische Skarabäen zu sein",
-					"fr": "",
+					"fr": "Les Scarabées cédés dans vos Cartes ont (60—80)% d'Augmentation de chances d'être des Scarabées kalguuriens",
 					"es": ""
 				},
 				"values": [
@@ -18875,7 +18877,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -18891,7 +18893,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(15—25)% erhöhte Chance, dass in Euren Karten fallen gelassene Ausrüstungsgegenstände Erinnerungsstränge haben",
-					"fr": "",
+					"fr": "Les Équipements cédés dans vos Cartes ont (15—25)% d'Augmentation de chances d'avoir des Brins de Souvenir",
 					"es": ""
 				},
 				"values": [
@@ -18918,7 +18920,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -18934,7 +18936,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(15—25)% erhöhte Chance, dass gefundene Karten in Euren Karten Erinnerungseinfluss haben",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Cartes trouvées ont (15—25)% d'Augmentation de chances d'avoir de l'Influence de Souvenir",
 					"es": ""
 				},
 				"values": [
@@ -21287,7 +21289,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "Des Prospektors",
-			"fr": "",
+			"fr": "du Prospecteur",
 			"es": ""
 		},
 		"tiers": [
@@ -21303,7 +21305,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten haben (192—240)% erhöhte Chance, Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes ont (192—240)% d'Augmentation de chances de contenir des Gisements de minerai",
 					"es": ""
 				},
 				"values": [
@@ -21330,7 +21332,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "Des Prospektors",
-			"fr": "",
+			"fr": "du Prospecteur",
 			"es": ""
 		},
 		"tiers": [
@@ -21346,7 +21348,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten haben +(40—60)% Chance, Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes ont +(40—60)% de chances de contenir des Gisements de minerai",
 					"es": ""
 				},
 				"values": [
@@ -21373,7 +21375,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -21389,7 +21391,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten mit Erzvorkommen haben (30—50)% erhöhte Chance, mindestens zwei Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes contenant des Filons de Minerai ont (30—50)% d'Augmentation de chances de contenir au moins deux Filons de Minerai",
 					"es": ""
 				},
 				"values": [
@@ -21416,7 +21418,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -21432,7 +21434,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Bismut-Erzvorkommen in Euren Karten haben (20—30)% Chance, Monstern, die sie beeinflussen, einen zusätzlichen Modifikator hinzuzufügen",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de Bismuth ont (20—30)% de chances d'ajouter un Modificateur supplémentaire aux Monstres qu'ils affectent",
 					"es": ""
 				},
 				"values": [
@@ -21459,7 +21461,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -21475,7 +21477,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Blutrotes-Eisen-Erzvorkommen in Euren Karten werden von einem zusätzlichen Verderbten Wachstum bewacht",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de Fer écarlate sont gardés par une Croissance corrompue supplémentaire",
 					"es": ""
 				},
 				"values": [],
@@ -21497,7 +21499,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -21513,7 +21515,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Von Oreichalkos-Erzvorkommen gewährte Stärkungen in Euren Karten haben (60—100)% verlängerte Dauer",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Effets bénéfiques octroyés par les Gisements de Minerai d'Orichalque ont (60—100)% d'Augmentation de Durée",
 					"es": ""
 				},
 				"values": [
@@ -21540,7 +21542,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -21556,7 +21558,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Amberium-Erzvorkommen in Euren Karten erleiden (15—25)% verringerten Schaden",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de Minerai d'Ambre pétrifié ont (15—25)% de Réduction des Dégâts subis",
 					"es": ""
 				},
 				"values": [
@@ -21583,7 +21585,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -21599,7 +21601,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Verisium-Erzvorkommen in Euren Karten können (20—30)% länger kanalisiert werden",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de Minerai de Vérisium peuvent être Canalisés pendant (20—30)% plus longtemps",
 					"es": ""
 				},
 				"values": [
@@ -21802,7 +21804,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Rituals",
-			"fr": "",
+			"fr": "du Rituel",
 			"es": ""
 		},
 		"tiers": [
@@ -21818,7 +21820,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Das Abschließen des letzten Ritual-Altars in Euren Karten hat (10—15)% Chance, ein Blutgefülltes Gefäß fallen zu lassen",
-					"fr": "",
+					"fr": "Dans vos Cartes, le fait de compléter le dernier Autel de Rituel a (10—15)% de chances de céder un Réceptacle gorgé sang",
 					"es": ""
 				},
 				"values": [
@@ -21950,7 +21952,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(6—9)% erhöhte Wirkung von expliziten Modifikatoren auf Euren Karten",
-					"fr": "",
+					"fr": "Les Modificateurs Explicites de vos Cartes ont (6—9)% d'Augmentation d'Effet",
 					"es": ""
 				},
 				"values": [
@@ -24577,7 +24579,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -24593,7 +24595,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(15—25)% erhöhte Chance, dass in Euren Karten fallen gelassene Ausrüstungsgegenstände Erinnerungsstränge haben",
-					"fr": "",
+					"fr": "Les Équipements cédés dans vos Cartes ont (15—25)% d'Augmentation de chances d'avoir des Brins de Souvenir",
 					"es": ""
 				},
 				"values": [
@@ -24620,7 +24622,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -24636,7 +24638,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(15—25)% erhöhte Chance, dass gefundene Karten in Euren Karten Erinnerungseinfluss haben",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Cartes trouvées ont (15—25)% d'Augmentation de chances d'avoir de l'Influence de Souvenir",
 					"es": ""
 				},
 				"values": [
@@ -26989,7 +26991,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "Des Prospektors",
-			"fr": "",
+			"fr": "du Prospecteur",
 			"es": ""
 		},
 		"tiers": [
@@ -27005,7 +27007,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten haben (192—240)% erhöhte Chance, Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes ont (192—240)% d'Augmentation de chances de contenir des Gisements de minerai",
 					"es": ""
 				},
 				"values": [
@@ -27032,7 +27034,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "Des Prospektors",
-			"fr": "",
+			"fr": "du Prospecteur",
 			"es": ""
 		},
 		"tiers": [
@@ -27048,7 +27050,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten haben +(40—60)% Chance, Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes ont +(40—60)% de chances de contenir des Gisements de minerai",
 					"es": ""
 				},
 				"values": [
@@ -27075,7 +27077,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -27091,7 +27093,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten mit Erzvorkommen haben (30—50)% erhöhte Chance, mindestens zwei Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes contenant des Filons de Minerai ont (30—50)% d'Augmentation de chances de contenir au moins deux Filons de Minerai",
 					"es": ""
 				},
 				"values": [
@@ -27118,7 +27120,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -27134,7 +27136,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Bismut-Erzvorkommen in Euren Karten haben (20—30)% Chance, Monstern, die sie beeinflussen, einen zusätzlichen Modifikator hinzuzufügen",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de Bismuth ont (20—30)% de chances d'ajouter un Modificateur supplémentaire aux Monstres qu'ils affectent",
 					"es": ""
 				},
 				"values": [
@@ -27161,7 +27163,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -27177,7 +27179,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Blutrotes-Eisen-Erzvorkommen in Euren Karten werden von einem zusätzlichen Verderbten Wachstum bewacht",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de Fer écarlate sont gardés par une Croissance corrompue supplémentaire",
 					"es": ""
 				},
 				"values": [],
@@ -27199,7 +27201,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -27215,7 +27217,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Von Oreichalkos-Erzvorkommen gewährte Stärkungen in Euren Karten haben (60—100)% verlängerte Dauer",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Effets bénéfiques octroyés par les Gisements de Minerai d'Orichalque ont (60—100)% d'Augmentation de Durée",
 					"es": ""
 				},
 				"values": [
@@ -27242,7 +27244,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -27258,7 +27260,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Amberium-Erzvorkommen in Euren Karten erleiden (15—25)% verringerten Schaden",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de Minerai d'Ambre pétrifié ont (15—25)% de Réduction des Dégâts subis",
 					"es": ""
 				},
 				"values": [
@@ -27285,7 +27287,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -27301,7 +27303,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Verisium-Erzvorkommen in Euren Karten können (20—30)% länger kanalisiert werden",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de Minerai de Vérisium peuvent être Canalisés pendant (20—30)% plus longtemps",
 					"es": ""
 				},
 				"values": [
@@ -27504,7 +27506,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Rituals",
-			"fr": "",
+			"fr": "du Rituel",
 			"es": ""
 		},
 		"tiers": [
@@ -27520,7 +27522,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Das Abschließen des letzten Ritual-Altars in Euren Karten hat (10—15)% Chance, ein Blutgefülltes Gefäß fallen zu lassen",
-					"fr": "",
+					"fr": "Dans vos Cartes, le fait de compléter le dernier Autel de Rituel a (10—15)% de chances de céder un Réceptacle gorgé sang",
 					"es": ""
 				},
 				"values": [
@@ -27652,7 +27654,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(6—9)% erhöhte Wirkung von expliziten Modifikatoren auf Euren Karten",
-					"fr": "",
+					"fr": "Les Modificateurs Explicites de vos Cartes ont (6—9)% d'Augmentation d'Effet",
 					"es": ""
 				},
 				"values": [
@@ -30720,7 +30722,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "der Erinnerungen",
-			"fr": "",
+			"fr": "des Souvenirs",
 			"es": ""
 		},
 		"tiers": [
@@ -30736,7 +30738,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Die Anzahl von Erinnerungssträngen auf gefundenen Ausrüstungsgegenständen in Euren Karten hat (30—50)% Chance, günstig zu sein",
-					"fr": "",
+					"fr": "Le nombre de Brins de Souvenir sur l'Équipement trouvé dans vos Cartes a (30—50)% de chances d'être Favorable",
 					"es": ""
 				},
 				"values": [
@@ -32515,7 +32517,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "Des Prospektors",
-			"fr": "",
+			"fr": "du Prospecteur",
 			"es": ""
 		},
 		"tiers": [
@@ -32531,7 +32533,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten haben (224—280)% erhöhte Chance, Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes ont (224—280)% d'Augmentation de chances de contenir des Gisements de minerai",
 					"es": ""
 				},
 				"values": [
@@ -32558,7 +32560,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "Des Prospektors",
-			"fr": "",
+			"fr": "du Prospecteur",
 			"es": ""
 		},
 		"tiers": [
@@ -32574,7 +32576,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Eure Karten haben +(45—70)% Chance, Erzvorkommen zu enthalten",
-					"fr": "",
+					"fr": "Vos Cartes ont +(45—70)% de chances de contenir des Gisements de minerai",
 					"es": ""
 				},
 				"values": [
@@ -32601,7 +32603,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -32617,7 +32619,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "In Euren Karten gefundene Erzvorkommen gehören mit größerer Wahrscheinlichkeit selteneren Typen an",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de Minerai sont davantage susceptibles d'être de variétés plus rares",
 					"es": ""
 				},
 				"values": [],
@@ -32639,7 +32641,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Prospektors",
-			"fr": "",
+			"fr": "de la Prospection",
 			"es": ""
 		},
 		"tiers": [
@@ -32655,7 +32657,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(5—7)% Chance, dass Erzvorkommen in Euren Karten durch Verlorene Schiffsladungen ersetzt werden",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Gisements de minerai ont (5—7)% de chances d'être remplacés par des Cargaisons perdues",
 					"es": ""
 				},
 				"values": [
@@ -32848,7 +32850,7 @@
 			"ru": "",
 			"pt-BR": "",
 			"de": "des Rituals",
-			"fr": "",
+			"fr": "du Rituel",
 			"es": ""
 		},
 		"tiers": [
@@ -32864,7 +32866,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "Das Aufbewahren von Gaben in Ritual-Altären in Euren Karten kostet (15—20)% verringerten Tribut",
-					"fr": "",
+					"fr": "Dans vos Cartes, les Faveurs Différées auprès des Autels de Rituel ont (15—20)% de Réduction du Tribut requis",
 					"es": ""
 				},
 				"values": [
@@ -33537,7 +33539,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "(2—4)% erhöhte Wirkung von expliziten Modifikatoren auf Euren Karten pro 5% Kartenqualität",
-					"fr": "",
+					"fr": "Les Modificateurs Explicites de vos Cartes ont (2—4)% d'Augmentation d'Effet tous les 5% de Qualité",
 					"es": ""
 				},
 				"values": [
@@ -33581,7 +33583,7 @@
 					"ru": "",
 					"pt-BR": "",
 					"de": "2% erhöhte Wirkung von expliziten Modifikatoren auf Euren Karten pro explizitem Kartenmodifikator",
-					"fr": "",
+					"fr": "Les Modificateurs Explicites de vos Cartes ont 2% d'Augmentation d'Effet par Modificateur Explicite",
 					"es": ""
 				},
 				"values": [],
