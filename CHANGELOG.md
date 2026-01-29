@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.1
+
+### Patch Changes
+
+- f4bc8a7: fix prefixes array validation to support unique idol mods storage while enforcing 2-prefix limit
+
 ## 0.9.0
 
 ### Minor Changes
