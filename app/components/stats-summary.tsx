@@ -1,10 +1,10 @@
 import { useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { ScrollArea } from "~/components/ui/scroll-area";
+import { useScarabPrices } from "~/context/scarab-prices-context";
 import { IDOL_BASES, LEAGUE_MECHANICS } from "~/data/idol-bases";
 import { getMapCraftingOptionById } from "~/data/map-crafting-options";
 import { getScarabById, getScarabEffect } from "~/data/scarab-data";
-import { useScarabPrices } from "~/hooks/use-scarab-prices";
 import { useLocale, useTranslations } from "~/i18n";
 import type { SupportedLocale } from "~/i18n/types";
 import { highlightNumbers } from "~/lib/highlight-numbers";

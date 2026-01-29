@@ -11,7 +11,7 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
-import { useLeague } from "~/hooks/use-league";
+import { useLeague } from "~/context/league-context";
 import { useTranslations } from "~/i18n";
 
 export function LeagueSelector() {

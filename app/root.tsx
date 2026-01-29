@@ -49,7 +49,7 @@ function AppLayout({ children }: { children: ReactNode }) {
 				<PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
 				<Links />
 			</head>
-			<body className="min-h-screen bg-background text-foreground">
+			<body className="bg-background text-foreground">
 				<I18nProvider>{children}</I18nProvider>
 				<Toaster />
 				<ScrollRestoration />

@@ -22,6 +22,7 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
+import { useScarabPrices } from "~/context/scarab-prices-context";
 import {
 	getAvailableOptions,
 	getMapCraftingOptionById,
@@ -34,7 +35,6 @@ import {
 	SCARAB_CATEGORIES,
 	SCARABS,
 } from "~/data/scarab-data";
-import { useScarabPrices } from "~/hooks/use-scarab-prices";
 import { useLocale, useTranslations } from "~/i18n";
 import type { SupportedLocale } from "~/i18n/types";
 import { cn } from "~/lib/utils";

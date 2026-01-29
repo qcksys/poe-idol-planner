@@ -1,4 +1,11 @@
-import { useEffect, useState } from "react";
+import {
+	createContext,
+	type ReactNode,
+	useCallback,
+	useContext,
+	useEffect,
+	useState,
+} from "react";
 import leaguesData from "~/data/leagues.json";
 import {
 	DEFAULT_LEAGUE,
@@ -13,6 +20,17 @@ interface LeagueSettings {
 	league: string;
 	realm: Realm;
 }
+
+interface LeagueContextValue {
+	league: string;
+	realm: Realm;
+	leagues: League[];
+	setLeague: (league: string) => void;
+	setRealm: (realm: Realm) => void;
+	isHydrated: boolean;
+}
+
+const LeagueContext = createContext<LeagueContextValue | null>(null);
 
 function loadLeagueSettings(): LeagueSettings {
 	if (typeof window === "undefined") {
@@ -39,7 +57,7 @@ function saveLeagueSettings(settings: LeagueSettings): void {
 	localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
 }
 
-export function useLeague() {
+export function LeagueProvider({ children }: { children: ReactNode }) {
 	const [settings, setSettings] = useState<LeagueSettings>({
 		league: DEFAULT_LEAGUE,
 		realm: DEFAULT_REALM,
@@ -60,11 +78,11 @@ export function useLeague() {
 		(l) => l.realm === settings.realm,
 	) as League[];
 
-	const setLeague = (league: string) => {
+	const setLeague = useCallback((league: string) => {
 		setSettings((prev) => ({ ...prev, league }));
-	};
+	}, []);
 
-	const setRealm = (realm: Realm) => {
+	const setRealm = useCallback((realm: Realm) => {
 		setSettings((prev) => {
 			const leaguesForRealm = leaguesData.result.filter(
 				(l) => l.realm === realm,
@@ -79,14 +97,28 @@ export function useLeague() {
 					: (leaguesForRealm[0]?.id ?? DEFAULT_LEAGUE),
 			};
 		});
-	};
+	}, []);
 
-	return {
-		league: settings.league,
-		realm: settings.realm,
-		leagues,
-		setLeague,
-		setRealm,
-		isHydrated,
-	};
+	return (
+		<LeagueContext.Provider
+			value={{
+				league: settings.league,
+				realm: settings.realm,
+				leagues,
+				setLeague,
+				setRealm,
+				isHydrated,
+			}}
+		>
+			{children}
+		</LeagueContext.Provider>
+	);
+}
+
+export function useLeague(): LeagueContextValue {
+	const context = useContext(LeagueContext);
+	if (!context) {
+		throw new Error("useLeague must be used within a LeagueProvider");
+	}
+	return context;
 }

@@ -12,6 +12,8 @@ import { StatsSummary } from "~/components/stats-summary";
 import { ClipboardProvider, useClipboard } from "~/context/clipboard-context";
 import { DndProvider } from "~/context/dnd-context";
 import { FavoritesProvider } from "~/context/favorites-context";
+import { LeagueProvider } from "~/context/league-context";
+import { ScarabPricesProvider } from "~/context/scarab-prices-context";
 import { usePlannerState } from "~/hooks/use-planner-state";
 import { useTranslations } from "~/i18n";
 import type { IdolInstance } from "~/schemas/idol";
@@ -191,12 +193,16 @@ function HomeContent() {
 
 export default function Home(_props: Route.ComponentProps) {
 	return (
-		<FavoritesProvider>
-			<ClipboardProvider>
-				<DndProvider>
-					<HomeContent />
-				</DndProvider>
-			</ClipboardProvider>
-		</FavoritesProvider>
+		<LeagueProvider>
+			<ScarabPricesProvider>
+				<FavoritesProvider>
+					<ClipboardProvider>
+						<DndProvider>
+							<HomeContent />
+						</DndProvider>
+					</ClipboardProvider>
+				</FavoritesProvider>
+			</ScarabPricesProvider>
+		</LeagueProvider>
 	);
 }

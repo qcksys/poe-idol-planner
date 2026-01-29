@@ -32,8 +32,8 @@ import {
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
 import { useDnd } from "~/context/dnd-context";
+import { useLeague } from "~/context/league-context";
 import type { LeagueMechanic } from "~/data/idol-bases";
-import { useLeague } from "~/hooks/use-league";
 import { useLocale, useTranslations } from "~/i18n";
 import { getModMechanic, resolveModText } from "~/lib/mod-text-resolver";
 import { generateTradeUrl } from "~/lib/trade-search";
