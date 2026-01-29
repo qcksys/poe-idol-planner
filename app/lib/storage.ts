@@ -162,24 +162,35 @@ export function loadStorage(): StorageData {
 	}
 }
 
-export function saveStorage(data: StorageData): void {
+export type SaveStorageResult =
+	| { success: true }
+	| { success: false; error: string };
+
+export function saveStorage(data: StorageData): SaveStorageResult {
 	if (typeof window === "undefined") {
-		return;
+		return { success: true };
 	}
 
 	try {
 		const result = StorageSchema.safeParse(data);
 		if (!result.success) {
+			const errorMessage = result.error.issues
+				.map((issue) => `${issue.path.join(".")}: ${issue.message}`)
+				.join(", ");
 			console.error(
 				"Storage validation failed, not saving:",
 				result.error,
 			);
-			return;
+			return { success: false, error: errorMessage };
 		}
 
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(result.data));
+		return { success: true };
 	} catch (error) {
+		const message =
+			error instanceof Error ? error.message : "Unknown error";
 		console.error("Failed to save storage:", error);
+		return { success: false, error: message };
 	}
 }
 

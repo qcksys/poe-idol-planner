@@ -16,8 +16,9 @@ import {
 } from "remix-themes";
 
 import type { Route } from "./+types/root";
-import "./app.css";
+import "~/app.css";
 import type { ReactNode } from "react";
+import { Toaster } from "~/components/ui/sonner";
 import { I18nProvider } from "~/i18n";
 import { NotFoundPage } from "~/routes/$";
 import { themeSessionResolver } from "~/sessions.server";
@@ -49,6 +50,7 @@ function AppLayout({ children }: { children: ReactNode }) {
 			</head>
 			<body className="min-h-screen bg-background text-foreground">
 				<I18nProvider>{children}</I18nProvider>
+				<Toaster />
 				<ScrollRestoration />
 				<Scripts />
 			</body>

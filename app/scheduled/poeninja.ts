@@ -80,8 +80,6 @@ async function fetchScarabPricesForLeague(
 export async function updateScarabPrices(
 	kv: KVNamespace,
 ): Promise<{ successCount: number; errorCount: number }> {
-	console.log({ message: "Starting scarab price update" });
-
 	let successCount = 0;
 	let errorCount = 0;
 
@@ -93,21 +91,10 @@ export async function updateScarabPrices(
 				expirationTtl: 86400,
 			});
 			successCount++;
-			console.log({
-				message: "Scarab prices updated",
-				league,
-				priceCount: Object.keys(pricesData.prices).length,
-			});
 		} else {
 			errorCount++;
 		}
 	}
-
-	console.log({
-		message: "Scarab price update complete",
-		successCount,
-		errorCount,
-	});
 
 	return { successCount, errorCount };
 }
