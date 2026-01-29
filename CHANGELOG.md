@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.11.1
+
+### Patch Changes
+
+- 0eef50c: automatically sort favorited modifiers to the top of lists
+- f45e2b3: fix LeagueProvider not available on /changelog route (QS-POE-IDOL-PLANNER-4)
+- 7a5b394: fix crash when root loader fails by adding null check for theme data
+- 3cfb3ff: fix GET request body error when bots crawl the site
+
 ## 0.11.0
 
 ### Minor Changes
