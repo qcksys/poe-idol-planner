@@ -111,7 +111,7 @@ export function ImportModal({
 
 	return (
 		<Dialog open={open} onOpenChange={handleClose}>
-			<DialogContent className="flex max-h-[85vh] max-w-[1000px] flex-col overflow-hidden">
+			<DialogContent className="flex max-h-[85vh] w-[calc(100vw-2rem)] max-w-[1000px] flex-col overflow-hidden">
 				<DialogHeader>
 					<DialogTitle>{t.import.title}</DialogTitle>
 					<DialogDescription>

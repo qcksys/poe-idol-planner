@@ -21,39 +21,52 @@ export function AppHeader({ onShareClick }: AppHeaderProps) {
 
 	return (
 		<header className="sticky top-0 z-50 border-border border-b bg-background/90 backdrop-blur">
-			<div className="container mx-auto flex h-14 items-center justify-between px-4">
-				<div className="flex items-center gap-2">
-					<Link to="/" className="font-bold text-accent text-lg">
+			<div className="container mx-auto flex h-14 items-center justify-between gap-2 px-4">
+				<div className="flex min-w-0 items-center gap-2">
+					<Link
+						to="/"
+						className="shrink-0 font-bold text-accent text-lg"
+					>
 						{t.app.title}
 					</Link>
-					<span className="rounded bg-primary px-1.5 py-0.5 text-primary-foreground text-xs">
+					<span className="hidden shrink-0 rounded bg-primary px-1.5 py-0.5 text-primary-foreground text-xs sm:inline">
 						{t.app.subtitle}
 					</span>
 					<Link
 						to="/changelog"
-						className="text-muted-foreground text-sm hover:text-foreground"
+						className="hidden text-muted-foreground text-sm hover:text-foreground md:inline"
 					>
 						{t.nav.changelog}
 					</Link>
 				</div>
 
-				<div className="flex items-center gap-2">
+				<div className="flex shrink-0 items-center gap-1 sm:gap-2">
 					{onShareClick && (
 						<Button
 							variant="outline"
 							size="sm"
 							onClick={onShareClick}
+							className="h-8 px-2 sm:px-3"
 						>
-							<Share2 className="mr-1 h-4 w-4" />
-							{t.actions.share}
+							<Share2 className="h-4 w-4 sm:mr-1" />
+							<span className="hidden sm:inline">
+								{t.actions.share}
+							</span>
 						</Button>
 					)}
 					<LeagueSelector />
-					<LocaleSwitcher />
+					<span className="hidden sm:inline">
+						<LocaleSwitcher />
+					</span>
 					<ModeToggle />
 					<Tooltip>
 						<TooltipTrigger asChild>
-							<Button variant="ghost" size="icon" asChild>
+							<Button
+								variant="ghost"
+								size="icon"
+								className="hidden sm:inline-flex"
+								asChild
+							>
 								<a href="mailto:poe@qcksys.com">
 									<Mail className="h-5 w-5" />
 								</a>

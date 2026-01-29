@@ -95,8 +95,10 @@ function HomeContent() {
 					onDeleteSet={sets.deleteSet}
 				/>
 
-				<div className="mt-4 grid gap-4 lg:grid-cols-[400px_1fr_350px]">
-					<aside className="h-[calc(100vh-180px)]">
+				{/* Mobile: stack vertically (inventory, grid, stats). Desktop: 3-column layout */}
+				<div className="mt-4 grid gap-4 lg:grid-cols-[280px_1fr_260px] xl:grid-cols-[400px_1fr_350px]">
+					{/* Inventory panel - above grid on mobile */}
+					<aside className="max-h-[50vh] lg:h-[calc(100vh-180px)] lg:max-h-none">
 						<InventoryPanel
 							inventory={inventory}
 							onImportClick={() => setImportModalOpen(true)}
@@ -111,26 +113,29 @@ function HomeContent() {
 						/>
 					</aside>
 
-					<section className="flex flex-col items-center gap-4">
+					{/* Grid section - horizontal scroll on mobile */}
+					<section className="flex flex-col items-center gap-4 overflow-x-auto">
 						{activeSet && (
 							<>
-								<IdolGrid
-									placements={activeSet.placements}
-									inventory={inventory}
-									unlockedConditions={
-										activeSet.unlockedConditions
-									}
-									onPlaceIdol={(inventoryIdolId, x, y) =>
-										sets.placeIdol(inventoryIdolId, {
-											x,
-											y,
-										})
-									}
-									onMoveIdol={(placementId, x, y) =>
-										sets.moveIdol(placementId, { x, y })
-									}
-									onRemoveIdol={sets.removeIdolFromSet}
-								/>
+								<div className="min-w-fit">
+									<IdolGrid
+										placements={activeSet.placements}
+										inventory={inventory}
+										unlockedConditions={
+											activeSet.unlockedConditions
+										}
+										onPlaceIdol={(inventoryIdolId, x, y) =>
+											sets.placeIdol(inventoryIdolId, {
+												x,
+												y,
+											})
+										}
+										onMoveIdol={(placementId, x, y) =>
+											sets.moveIdol(placementId, { x, y })
+										}
+										onRemoveIdol={sets.removeIdolFromSet}
+									/>
+								</div>
 								<MapDeviceComponent
 									mapDevice={activeSet.mapDevice}
 									onSlotChange={sets.updateMapDeviceSlot}
@@ -148,7 +153,8 @@ function HomeContent() {
 						)}
 					</section>
 
-					<aside className="h-[calc(100vh-180px)]">
+					{/* Stats panel - below grid on mobile */}
+					<aside className="max-h-[50vh] lg:h-[calc(100vh-180px)] lg:max-h-none">
 						<StatsSummary
 							placements={activeSet?.placements ?? []}
 							inventory={inventory}
