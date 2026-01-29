@@ -243,8 +243,19 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 			}
 			groups[mod.mechanic].push(mod);
 		}
+		// Sort favorites to the top within each group
+		const favSet = new Set(favorites);
+		for (const mods of Object.values(groups)) {
+			mods.sort((a, b) => {
+				const aFav = favSet.has(a.id);
+				const bFav = favSet.has(b.id);
+				if (aFav && !bFav) return -1;
+				if (!aFav && bFav) return 1;
+				return 0;
+			});
+		}
 		return groups;
-	}, [filteredModifiers]);
+	}, [filteredModifiers, favorites]);
 
 	const handleToggleFavorite = useCallback(
 		(id: string) => {
