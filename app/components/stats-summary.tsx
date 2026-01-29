@@ -220,6 +220,7 @@ function getModTextForAggregation(
 interface AggregatedStatsResult {
 	statsByMechanic: StatsByMechanic[];
 	uniqueStats: UniqueIdolStat[];
+	baseImplicit: number;
 }
 
 function aggregateStats(
@@ -229,6 +230,7 @@ function aggregateStats(
 ): AggregatedStatsResult {
 	const statMap = new Map<string, AggregatedStat>();
 	const uniqueStats: UniqueIdolStat[] = [];
+	let baseImplicit = 0;
 
 	for (const placement of placements) {
 		const inventoryIdol = inventory.find(
@@ -237,6 +239,9 @@ function aggregateStats(
 		if (!inventoryIdol) continue;
 
 		const idol = inventoryIdol.idol;
+		const base = IDOL_BASES[idol.baseType];
+		baseImplicit += base.implicit;
+
 		const allMods = [...idol.prefixes, ...idol.suffixes];
 		const contribution: IdolContribution = {
 			baseType: idol.baseType,
@@ -286,7 +291,7 @@ function aggregateStats(
 		}
 	}
 
-	return { statsByMechanic, uniqueStats };
+	return { statsByMechanic, uniqueStats, baseImplicit };
 }
 
 function MechanicSection({ data }: { data: StatsByMechanic }) {
@@ -323,6 +328,21 @@ function MechanicSection({ data }: { data: StatsByMechanic }) {
 						</div>
 					);
 				})}
+			</div>
+		</div>
+	);
+}
+
+function BaseImplicitSection({ value }: { value: number }) {
+	if (value === 0) return null;
+
+	return (
+		<div className="mb-4">
+			<h4 className="mb-2 font-semibold text-primary text-sm">
+				Base Implicit
+			</h4>
+			<div className="text-secondary-foreground text-sm">
+				{highlightNumbers(`${value}% increased Maps found in Area`)}
 			</div>
 		</div>
 	);
@@ -453,7 +473,7 @@ export function StatsSummary({
 	const locale = useLocale();
 	const { getPrice } = useScarabPrices();
 
-	const { statsByMechanic, uniqueStats } = useMemo(
+	const { statsByMechanic, uniqueStats, baseImplicit } = useMemo(
 		() => aggregateStats(placements, inventory, locale),
 		[placements, inventory, locale],
 	);
@@ -499,6 +519,7 @@ export function StatsSummary({
 	}, [selectedScarabs, selectedCraftingOption, getPrice]);
 
 	const hasContent =
+		baseImplicit > 0 ||
 		statsByMechanic.length > 0 ||
 		uniqueStats.length > 0 ||
 		selectedScarabs.length > 0 ||
@@ -544,6 +565,7 @@ export function StatsSummary({
 								/>
 							))}
 							<UniqueIdolSection stats={uniqueStats} />
+							<BaseImplicitSection value={baseImplicit} />
 							<CraftingOptionSection
 								craftingOption={selectedCraftingOption}
 							/>

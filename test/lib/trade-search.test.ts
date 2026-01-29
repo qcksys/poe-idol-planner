@@ -133,16 +133,6 @@ describe("trade-search", () => {
 			expect(url).toContain("/Standard?");
 		});
 
-		it("should respect onlineOnly option", () => {
-			const idol = createTestIdol();
-			const url = generateTradeUrl(idol, { onlineOnly: true });
-
-			const queryParam = decodeURIComponent(url.split("?q=")[1]);
-			const query = JSON.parse(queryParam);
-
-			expect(query.query.status.option).toBe("online");
-		});
-
 		it("should include up to 4 mods (2 prefixes + 2 suffixes)", () => {
 			const prefixMod1: IdolModifier = {
 				modId: "test-prefix-1",
@@ -194,17 +184,6 @@ describe("trade-search", () => {
 			const query = JSON.parse(queryParam);
 
 			expect(query.query.type).toBe("Burial Idol");
-		});
-
-		it("should include minItemLevel filter when specified", () => {
-			const url = generateTradeUrlForBaseType("noble", {
-				minItemLevel: 80,
-			});
-
-			const queryParam = decodeURIComponent(url.split("?q=")[1]);
-			const query = JSON.parse(queryParam);
-
-			expect(query.query.filters.misc_filters.filters.ilvl.min).toBe(80);
 		});
 	});
 

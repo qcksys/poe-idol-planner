@@ -124,11 +124,18 @@ async function main(): Promise<void> {
 	console.log("\nApplying trade stat mappings...");
 	const tradeStatResult = await applyTradeStatMappings(
 		convertedData.modifiers,
+		convertedData.uniqueIdols,
 	);
-	if (tradeStatResult.unmatchedModifiers.length > 0) {
+	if (tradeStatResult.regular.unmatchedModifiers.length > 0) {
 		console.log(
 			"  Unmatched modifiers:",
-			tradeStatResult.unmatchedModifiers,
+			tradeStatResult.regular.unmatchedModifiers,
+		);
+	}
+	if (tradeStatResult.unique.unmatchedMods.length > 0) {
+		console.log(
+			"  Unmatched unique mods:",
+			tradeStatResult.unique.unmatchedMods,
 		);
 	}
 

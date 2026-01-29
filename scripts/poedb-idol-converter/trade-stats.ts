@@ -1,4 +1,4 @@
-import type { ModifierData } from "./types.ts";
+import type { ModifierData, UniqueIdol } from "./types.ts";
 
 const TRADE_STATS_API_URL = "https://www.pathofexile.com/api/trade/data/stats";
 
@@ -85,10 +85,17 @@ async function fetchTradeStats(): Promise<TradeStatsData | null> {
 	}
 }
 
+// Unique idol mods that should use implicit stat IDs instead of explicit
+// "increased Maps found in Area" is a base implicit on all idols (2% per cell)
+// The prefix mod with the same text is explicit, so this only applies to unique idols
+const UNIQUE_IMPLICIT_OVERRIDES = ["#% increased Maps found in Area"];
+
 function buildTradeStatIndex(
 	data: TradeStatsData,
+	forUniqueIdols = false,
 ): Map<string, TradeStatMapping> {
 	const index = new Map<string, TradeStatMapping>();
+	const implicitOverrides = new Map<string, TradeStatMapping>();
 
 	for (const category of data.result) {
 		if (category.id !== "explicit" && category.id !== "implicit") {
@@ -98,6 +105,19 @@ function buildTradeStatIndex(
 		for (const entry of category.entries) {
 			const normalized = normalizeModText(entry.text);
 
+			// For unique idols, collect implicit overrides
+			if (forUniqueIdols && category.id === "implicit") {
+				for (const pattern of UNIQUE_IMPLICIT_OVERRIDES) {
+					if (normalizeModText(pattern) === normalized) {
+						implicitOverrides.set(normalized, {
+							normalizedText: normalized,
+							statId: entry.id,
+							originalText: entry.text,
+						});
+					}
+				}
+			}
+
 			if (!index.has(normalized)) {
 				index.set(normalized, {
 					normalizedText: normalized,
@@ -105,6 +125,14 @@ function buildTradeStatIndex(
 					originalText: entry.text,
 				});
 			}
+		}
+	}
+
+	// Apply overrides only for unique idol index
+	if (forUniqueIdols) {
+		// Apply implicit overrides
+		for (const [key, mapping] of implicitOverrides) {
+			index.set(key, mapping);
 		}
 	}
 
@@ -152,26 +180,38 @@ function findBestMatch(
 	return bestMatch;
 }
 
+export interface UniqueStatResult {
+	matchedCount: number;
+	unmatchedCount: number;
+	unmatchedMods: string[];
+}
+
 export async function applyTradeStatMappings(
 	modifiers: ModifierData[],
-): Promise<TradeStatResult> {
+	uniqueIdols: UniqueIdol[],
+): Promise<{ regular: TradeStatResult; unique: UniqueStatResult }> {
 	const tradeStats = await fetchTradeStats();
 	if (!tradeStats) {
 		return {
-			matchedCount: 0,
-			unmatchedCount: 0,
-			unmatchedModifiers: [],
+			regular: {
+				matchedCount: 0,
+				unmatchedCount: 0,
+				unmatchedModifiers: [],
+			},
+			unique: { matchedCount: 0, unmatchedCount: 0, unmatchedMods: [] },
 		};
 	}
 
-	console.log("  Building trade stat index...");
-	const index = buildTradeStatIndex(tradeStats);
-	console.log(`  Trade stat index size: ${index.size} entries`);
+	console.log("  Building trade stat indices...");
+	const regularIndex = buildTradeStatIndex(tradeStats, false);
+	const uniqueIndex = buildTradeStatIndex(tradeStats, true);
+	console.log(`  Regular mod index size: ${regularIndex.size} entries`);
+	console.log(`  Unique idol index size: ${uniqueIndex.size} entries`);
 
+	// Map regular modifiers (use explicit stats)
 	const unmatchedModifiers: string[] = [];
 	let matchedCount = 0;
 	let unmatchedCount = 0;
-
 	const seenTexts = new Set<string>();
 
 	for (const mod of modifiers) {
@@ -179,7 +219,7 @@ export async function applyTradeStatMappings(
 			const englishText = tier.text.en;
 			if (!englishText) continue;
 
-			const match = findBestMatch(englishText, index);
+			const match = findBestMatch(englishText, regularIndex);
 
 			if (match) {
 				tier.tradeStatId = match.statId;
@@ -200,15 +240,61 @@ export async function applyTradeStatMappings(
 	console.log(`  Matched modifiers: ${matchedCount}`);
 	console.log(`  Unmatched modifiers: ${unmatchedCount}`);
 
+	// Map unique idol modifiers (with implicit overrides for base stats)
+	console.log("  Mapping unique idol modifiers...");
+	const unmatchedUniqueMods: string[] = [];
+	let uniqueMatchedCount = 0;
+	let uniqueUnmatchedCount = 0;
+	const seenUniqueMods = new Set<string>();
+
+	for (const idol of uniqueIdols) {
+		for (const mod of idol.modifiers) {
+			const englishText = mod.text.en;
+			if (!englishText) continue;
+
+			const match = findBestMatch(englishText, uniqueIndex);
+
+			if (match) {
+				mod.tradeStatId = match.statId;
+				if (!seenUniqueMods.has(englishText)) {
+					uniqueMatchedCount++;
+					seenUniqueMods.add(englishText);
+				}
+			} else {
+				if (!seenUniqueMods.has(englishText)) {
+					unmatchedUniqueMods.push(englishText);
+					uniqueUnmatchedCount++;
+					seenUniqueMods.add(englishText);
+				}
+			}
+		}
+	}
+
+	console.log(`  Matched unique mods: ${uniqueMatchedCount}`);
+	console.log(`  Unmatched unique mods: ${uniqueUnmatchedCount}`);
+
 	return {
-		matchedCount,
-		unmatchedCount,
-		unmatchedModifiers:
-			unmatchedModifiers.length > 10
-				? [
-						...unmatchedModifiers.slice(0, 10),
-						`... and ${unmatchedModifiers.length - 10} more`,
-					]
-				: unmatchedModifiers,
+		regular: {
+			matchedCount,
+			unmatchedCount,
+			unmatchedModifiers:
+				unmatchedModifiers.length > 10
+					? [
+							...unmatchedModifiers.slice(0, 10),
+							`... and ${unmatchedModifiers.length - 10} more`,
+						]
+					: unmatchedModifiers,
+		},
+		unique: {
+			matchedCount: uniqueMatchedCount,
+			unmatchedCount: uniqueUnmatchedCount,
+			unmatchedMods:
+				unmatchedUniqueMods.length > 10
+					? [
+							...unmatchedUniqueMods.slice(0, 10),
+							`... and ${unmatchedUniqueMods.length - 10} more`,
+						]
+					: unmatchedUniqueMods,
+		},
 	};
 }

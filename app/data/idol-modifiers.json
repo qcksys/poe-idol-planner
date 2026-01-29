@@ -1188,446 +1188,6 @@
 		"applicableIdols": ["Minor"]
 	},
 	{
-		"id": "prefix_minor_breach_additional_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps have +(15—25)% chance to contain Breaches",
-					"zh-TW": "你的地圖 +(15—25)% 機率含有裂痕",
-					"zh-CN": "地图内有裂隙的几率 +(15—25)%",
-					"ko": "지도에 균열이 등장할 확률 +(15—25)%",
-					"ja": "マップには+(15—25)%の確率でブリーチが出現する",
-					"ru": "На ваших картах с +(15—25)% шансом можно встретить Разломы",
-					"pt-BR": "Seus Mapas têm +(15—25)% de chance de conter Fendas",
-					"de": "Eure Karten haben +(15—25)% Chance, Risse zu enthalten",
-					"fr": "Vos Cartes ont +(15—25)% de chances de contenir des Brèches",
-					"es": "Tus mapas tienen +(15—25)% de probabilidad de contener fisuras"
-				},
-				"values": [
-					{
-						"min": 15,
-						"max": 25
-					}
-				],
-				"weight": 1000,
-				"tradeStatId": "explicit.stat_1133841298"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Minor"]
-	},
-	{
-		"id": "prefix_minor_breach_increased_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps have (80—100)% increased chance to contain a Breach",
-					"zh-TW": "你的地圖增加 (80—100)% 機率含有 1 個裂痕",
-					"zh-CN": "地图内有裂隙的几率提高 (80—100)%",
-					"ko": "지도에 균열이 등장할 확률 (80—100)% 증가",
-					"ja": "マップにブリーチが出現する確率が(80—100)%増加する",
-					"ru": "На ваших картах с увеличенным на (80—100)% шансом можно встретить Разлом",
-					"pt-BR": "Seus Mapas têm chance de conter uma Fenda aumentada em (80—100)%",
-					"de": "Eure Karten haben (80—100)% erhöhte Chance, einen Riss zu enthalten",
-					"fr": "Vos Cartes ont (80—100)% d'Augmentation de chances de contenir une Brèche",
-					"es": "Tus mapas tienen la probabilidad de contener una fisura aumentada un (80—100)%"
-				},
-				"values": [
-					{
-						"min": 80,
-						"max": 100
-					}
-				],
-				"weight": 2000,
-				"tradeStatId": "explicit.stat_2372432713"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Minor"]
-	},
-	{
-		"id": "suffix_minor_breach_increased_magic_packs",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps spawn (15—20)% increased Magic Monsters",
-					"zh-TW": "你地圖中的裂痕增加產生 (15—20)% 魔法怪物",
-					"zh-CN": "地图内裂隙产生的魔法怪物提高 (15—20)%",
-					"ko": "지도 내 균열에서 생성되는 마법 몬스터 (15—20)% 증가",
-					"ja": "マップに出現するブリーチがスポーンさせるマジックモンスターの数が(15—20)%増加する",
-					"ru": "(15—20)% увеличение количества волшебных монстров, появляющихся из Разломов",
-					"pt-BR": "Fendas em seus Mapas criam quantidade de Monstros Mágicos aumentada em (15—20)%",
-					"de": "Risse in Euren Karten beschwören (15—20)% erhöhte Menge magischer Monster",
-					"fr": "Dans vos Cartes, les Brèches ont (15—20)% d'Augmentation du nombre de Monstres Magiques générés",
-					"es": "Las fisuras de tus mapas generan una cantidad de monstruos mágicos aumentada un (15—20)%"
-				},
-				"values": [
-					{
-						"min": 15,
-						"max": 20
-					}
-				],
-				"weight": 600,
-				"tradeStatId": "explicit.stat_1090596078"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Minor"]
-	},
-	{
-		"id": "suffix_minor_breach_chayula_boss_dupe_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Chayula, Who Dreamt in your Maps has a (20—30)% chance to be Duplicated",
-					"zh-TW": "你地圖中的逐夢者‧夏烏拉有 (20—30)% 機率被複製",
-					"zh-CN": "你地图中逐梦者‧夏乌拉有 (20—30)% 几率会被复制",
-					"ko": "지도 내 꿈꿨던 차율라가 (20—30)%의 확률로 복제됨",
-					"ja": "マップに出現する夢見た者チャユラは(20—30)%の確率で複製される",
-					"ru": "Чаюла, Приходящий во снах, с (20—30)% шансом может быть продублирован на ваших картах",
-					"pt-BR": "Chayula, A Que Sonhou tem (20—30)% de chance de ser Duplicada em seus Mapas",
-					"de": "Chayula der Träumende in Euren Karten hat (20—30)% Chance, dupliziert zu werden",
-					"fr": "Dans vos Cartes, Chayula, Celui qui rêva, a (20—30)% de chances d'être dupliqué",
-					"es": "Chayula, Quien ha soñado tiene un (20—30)% de probabilidad de estar duplicado en tus mapas"
-				},
-				"values": [
-					{
-						"min": 20,
-						"max": 30
-					}
-				],
-				"weight": 200,
-				"tradeStatId": "explicit.stat_3374535912"
-			}
-		],
-		"mechanic": "map",
-		"applicableIdols": ["Minor"]
-	},
-	{
-		"id": "prefix_minor_breach_one_additional_breach_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps which contain Breaches have (15—25)% chance to contain an additional Breach",
-					"zh-TW": "你含有裂痕的地圖有 (15—25)% 機率含有 1 個額外裂痕",
-					"zh-CN": "你包含裂隙的地图有 (15—25)% 几率包含一个额外的裂隙",
-					"ko": "균열이 등장하는 지도에 (15—25)%의 확률로 균열 1개 추가 등장",
-					"ja": "ブリーチの出現するマップには(15—25)%の確率でブリーチが追加で1個出現する",
-					"ru": "На ваших картах, содержащих Разломы, с (15—25)% шансом можно встретить дополнительный Разлом",
-					"pt-BR": "Seus Mapas que contém Fendas têm (15—25)% de chance de conterem uma Fenda adicional",
-					"de": "Eure Karten, die Risse enthalten, haben (15—25)% Chance, einen zusätzlichen Riss zu enthalten",
-					"fr": "Vos Cartes qui contiennent des Brèches ont (15—25)% de chances de contenir une Brèche supplémentaire",
-					"es": "Tus mapas que contienen fisuras tienen un (15—25)% de probabilidad de contener una fisura adicional"
-				},
-				"values": [
-					{
-						"min": 15,
-						"max": 25
-					}
-				],
-				"weight": 1000,
-				"tradeStatId": "explicit.stat_3049505189"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Minor"]
-	},
-	{
-		"id": "suffix_minor_breach_esh_boss_dupe_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Esh, Forked Thought in your Maps has a (20—30)% chance to be Duplicated",
-					"zh-TW": "你地圖中的異念‧艾許有 (20—30)% 機率被複製",
-					"zh-CN": "你地图中异念‧艾许有 (20—30)% 几率会被复制",
-					"ko": "지도 내 갈라진 생각 에쉬가 (20—30)%의 확률로 복제됨",
-					"ja": "マップに出現する分岐した思考エシュは(20—30)%の確率で複製される",
-					"ru": "Иш, Расщеплённая мысль, с (20—30)% шансом может быть продублирована на ваших картах",
-					"pt-BR": "Esh, Pensamento Bifurcado tem (20—30)% de chance de ser Duplicado em seus Mapas",
-					"de": "Esh, Gedankenspalterin in Euren Karten hat (20—30)% Chance, dupliziert zu werden",
-					"fr": "Dans vos Cartes, Esh, la Pensée fourchue, a (20—30)% de chances d'être dupliqué",
-					"es": "Esh, Pensamiento bifurcado tiene un (20—30)% de probabilidad de estar duplicada en tus mapas"
-				},
-				"values": [
-					{
-						"min": 20,
-						"max": 30
-					}
-				],
-				"weight": 200,
-				"tradeStatId": "explicit.stat_1539916749"
-			}
-		],
-		"mechanic": "map",
-		"applicableIdols": ["Minor"]
-	},
-	{
-		"id": "suffix_minor_breach_uul_netol_boss_dupe_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Uul-Netol, Unburdened Flesh in your Maps has a (20—30)% chance to be Duplicated",
-					"zh-TW": "你地圖中的截載者‧烏爾尼多有 (20—30)% 機率被複製",
-					"zh-CN": "你地图中截载者‧乌尔尼多有 (20—30)% 几率会被复制",
-					"ko": "지도 내 내려놓은 육체 울네톨이 (20—30)%의 확률로 복제됨",
-					"ja": "マップに出現する荷を捨てた肉体ウール・ネトルは(20—30)%の確率で複製される",
-					"ru": "Уул-Нетол, Необременённая плоть, с (20—30)% шансом может быть продублирован на ваших картах",
-					"pt-BR": "Uul-Netol, Carne Não Queimada tem (20—30)% de chance de ser Duplicado em seus Mapas",
-					"de": "Uul-Netol, Offenbartes Fleisch in Euren Karten hat (20—30)% Chance, dupliziert zu werden",
-					"fr": "Dans vos Cartes, Uul-Netol, la Chair à vif, a (20—30)% de chances d'être dupliquée",
-					"es": "Uul-Netol, Carne impávida tiene un (20—30)% de probabilidad de estar duplicada en tus mapas"
-				},
-				"values": [
-					{
-						"min": 20,
-						"max": 30
-					}
-				],
-				"weight": 200,
-				"tradeStatId": "explicit.stat_66623393"
-			}
-		],
-		"mechanic": "map",
-		"applicableIdols": ["Minor"]
-	},
-	{
-		"id": "suffix_minor_breach_xoph_boss_dupe_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Xoph, Dark Embers in your Maps has a (20—30)% chance to be Duplicated",
-					"zh-TW": "你地圖中的黑暗餘燼‧索伏有 (20—30)% 機率被複製",
-					"zh-CN": "你地图中黑暗余烬·索伏有 (20—30)% 几率会被复制",
-					"ko": "지도 내 검은 불씨 조프가 (20—30)%의 확률로 복제됨",
-					"ja": "マップに出現する昏き残り火ゾフは(20—30)%の確率で複製される",
-					"ru": "Ксоф, Тёмные угли, с (20—30)% шансом может быть продублирован на ваших картах",
-					"pt-BR": "Xoph, Brasas Sombrias tem (20—30)% de chance de ser Duplicado em seus Mapas",
-					"de": "Xoph, Finstere Glut in Euren Karten hat (20—30)% Chance, dupliziert zu werden",
-					"fr": "Dans vos Cartes, Xoph, les Braises sombres, a (20—30)% de chances d'être dupliqué",
-					"es": "Xoph, Ascuas oscuras tiene un (20—30)% de probabilidad de estar duplicado en tus mapas"
-				},
-				"values": [
-					{
-						"min": 20,
-						"max": 30
-					}
-				],
-				"weight": 200,
-				"tradeStatId": "explicit.stat_482204003"
-			}
-		],
-		"mechanic": "map",
-		"applicableIdols": ["Minor"]
-	},
-	{
-		"id": "suffix_minor_breach_tul_boss_dupe_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Tul, Creeping Avalanche in your Maps has a (20—30)% chance to be Duplicated",
-					"zh-TW": "你地圖中的崩雪‧托沃有 (20—30)% 機率被複製",
-					"zh-CN": "你地图中崩雪‧托沃有 (20—30)% 几率会被复制",
-					"ko": "지도 내 번지는 사태 툴이 (20—30)%의 확률로 복제됨",
-					"ja": "マップに出現する忍び寄る雪崩トゥルは(20—30)%の確率で複製される",
-					"ru": "Тул, Ползучая лавина, с (20—30)% шансом может быть продублирована на ваших картах",
-					"pt-BR": "Tul, Avalanche Rastejante tem (20—30)% de chance de ser Duplicado em seus Mapas",
-					"de": "Tul, Schleichende Lawine in Euren Karten hat (20—30)% Chance, dupliziert zu werden",
-					"fr": "Dans vos Cartes, Tul, l'Avalanche insidieuse, a (20—30)% de chances d'être dupliqué",
-					"es": "Tul, Avalancha reptante tiene un (20—30)% de probabilidad de estar duplicada en tus mapas"
-				},
-				"values": [
-					{
-						"min": 20,
-						"max": 30
-					}
-				],
-				"weight": 200,
-				"tradeStatId": "explicit.stat_4059583727"
-			}
-		],
-		"mechanic": "map",
-		"applicableIdols": ["Minor"]
-	},
-	{
-		"id": "suffix_minor_breach_large_chest_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (35—45)% increased chance to contain a Breach Boss' Clasped Hand",
-					"zh-TW": "你地圖中的裂痕增加 (35—45)% 機率含有 1 個裂痕頭目的抑制之手",
-					"zh-CN": "你地图中的裂隙包含裂隙首领的紧握之手的几率提高 (35—45)%",
-					"ko": "지도 내 균열에 균열 보스의 움켜잡는 손이 등장할 확률 (35—45)% 증가",
-					"ja": "マップに出現するブリーチではブリーチボスの閉じた手が出現する確率が(35—45)%増加する",
-					"ru": "В Разломах на ваших картах с увеличенным на (35—45)% можно встретить сокровища Повелителей Разлома",
-					"pt-BR": "Fendas em seus Mapas têm chance de conterem um Punho Fechado de Chefe de Fenda aumentada em (35—45)%",
-					"de": "Risse in Euren Karten haben (35—45)% erhöhte Chance, eine Klammernde Hand eines Riss-Bosses zu enthalten",
-					"fr": "Dans vos Cartes, les Brèches ont (35—45)% d'Augmentation de chances de contenir un Poing serré de Boss de Brèche",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de contener un puño cerrado de jefe de fisura aumentada un (35—45)%"
-				},
-				"values": [
-					{
-						"min": 35,
-						"max": 45
-					}
-				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_2042562038"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Minor"]
-	},
-	{
 		"id": "suffix_minor_cleansing_fire_pack_size",
 		"type": "suffix",
 		"name": {
@@ -2307,14 +1867,14 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "(30—40)% increased Duration of Shrine Effects on Players in your Maps",
-					"zh-TW": "增加 (30—40)% 你地圖中玩家身上神殿效果的持續時間",
-					"zh-CN": "地图内玩家身上的神龛效果持续时间延长 (30—40)%",
-					"ko": "지도 내 플레이어에게 적용되는 성소 효과의 지속시간 (30—40)% 증가",
-					"ja": "マップで全てのプレイヤーに対するシュラインの効果の持続時間が(30—40)%増加する",
+					"en": "(30—40)% increased duration of Shrine Buffs on players granted by Shrines in your Maps",
+					"zh-TW": "在你的地圖裡，神殿所賦予玩家之增益效果的持續時間增加 (30—40)%",
+					"zh-CN": "你地图中的神龛为玩家提供的神龛增益状态持续时间延长 (30—40)%",
+					"ko": "지도 내 성소에서 플레이어에게 부여하는 성소 버프의 지속시간 (30—40)% 증가",
+					"ja": "マップに出現するシュラインに付与されたプレイヤーバフの持続時間が(30—40)%増加する",
 					"ru": "(30—40)% увеличение длительности эффекта алтарей на игроках на ваших картах",
 					"pt-BR": "Duração dos Efeitos de Altares em Jogadores em seus Mapas aumentado em (30—40)%",
-					"de": "(30—40)% verlängerte Dauer von Schrein-Wirkungen auf Spielern in Euren Karten",
+					"de": "(30—40)% verlängerte Dauer von Schrein-Stärkungen auf Spieler, die von Schreinen in Euren Karten gewährt werden",
 					"fr": "Dans vos Cartes, les Effets des Autels qui affectent les joueurs ont (30—40)% d'Augmentation de Durée",
 					"es": "Duración de los efectos de los santuarios en los jugadores aumentada un (30—40)% en tus mapas"
 				},
@@ -2325,7 +1885,7 @@
 					}
 				],
 				"weight": 1000,
-				"tradeStatId": "explicit.stat_495713612"
+				"tradeStatId": "explicit.stat_1458119808"
 			}
 		],
 		"mechanic": "map",
@@ -4400,6 +3960,350 @@
 		"applicableIdols": ["Minor"]
 	},
 	{
+		"id": "prefix_minor_settlers_increased_chance",
+		"type": "prefix",
+		"name": {
+			"en": "Prospector's",
+			"zh-TW": "勘探者的",
+			"zh-CN": "Prospector's",
+			"ko": "채광가의",
+			"ja": "探鉱者の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "Des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps have (80—100)% increased chance to contain Ore Deposits",
+					"zh-TW": "你的地圖含有礦床的機率增加 (80—100)%",
+					"zh-CN": "地图内有矿脉的几率提高 (80—100)%",
+					"ko": "지도에 광맥이 등장할 확률 (80—100)% 증가",
+					"ja": "マップに鉱石の鉱床が出現する確率が(80—100)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten haben (80—100)% erhöhte Chance, Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 80,
+						"max": 100
+					}
+				],
+				"weight": 2000
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Minor"]
+	},
+	{
+		"id": "prefix_minor_settlers_additional_chance",
+		"type": "prefix",
+		"name": {
+			"en": "Prospector's",
+			"zh-TW": "勘探者的",
+			"zh-CN": "Prospector's",
+			"ko": "채광가의",
+			"ja": "探鉱者の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "Des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps have +(15—25)% chance to contain Ore Deposits",
+					"zh-TW": "你的地圖 +(15—25)% 機率含有礦床",
+					"zh-CN": "地图内有矿脉的几率 +(15—25)%",
+					"ko": "지도에 광맥이 등장할 확률 +(15—25)%",
+					"ja": "マップに鉱石の鉱床が出現する確率が+(15—25)%される",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten haben +(15—25)% Chance, Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 2000
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Minor"]
+	},
+	{
+		"id": "suffix_minor_settlers_ore_found",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Ore Deposits in your Maps contain (10—15)% increased Ore",
+					"zh-TW": "在你的地圖中，礦床含有的礦材增加 (10—15)%",
+					"zh-CN": "你地图中的矿脉含有的矿石数量提高 (10—15)%",
+					"ko": "지도 내 광맥에 포함된 광석 (10—15)% 증가",
+					"ja": "マップに出現する鉱石の鉱床に含まれる鉱石の量が(10—15)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Erzvorkommen in Euren Karten enthalten (10—15)% erhöhtes Erz",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 10,
+						"max": 15
+					}
+				],
+				"weight": 800
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Minor"]
+	},
+	{
+		"id": "suffix_minor_settlers_bismuth_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "(30—50)% increased chance for Ore Deposits found in your Maps to be Bismuth",
+					"zh-TW": "你地圖中發現的礦床為鉍的機率增加 (30—50)%",
+					"zh-CN": "地图中找到的矿脉为铋矿的几率提高 (30—50)%",
+					"ko": "지도에서 발견하는 광맥이 비스무트일 확률 (30—50)% 증가",
+					"ja": "マップで見つかる鉱床がビスマスのものになる確率が(30—50)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(30—50)% erhöhte Chance, dass Erzvorkommen in Euren Karten Bismut-Vorkommen sind",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 30,
+						"max": 50
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Minor"]
+	},
+	{
+		"id": "suffix_minor_settlers_crimson_ore_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "(30—50)% increased chance for Ore Deposits found in your Maps to be Crimson Iron",
+					"zh-TW": "你地圖中發現的礦床為緋紅鍛鐵的機率增加 (30—50)%",
+					"zh-CN": "地图中找到的矿脉为绯红铁矿的几率提高 (30—50)%",
+					"ko": "지도에서 발견하는 광맥이 진홍철일 확률 (30—50)% 증가",
+					"ja": "マップで見つかる鉱床がクリムゾンアイアンのものになる確率が(30—50)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(30—50)% erhöhte Chance, dass Erzvorkommen in Euren Karten Blutrotes-Eisen-Vorkommen sind",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 30,
+						"max": 50
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Minor"]
+	},
+	{
+		"id": "suffix_minor_settlers_orichalcum_ore_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "(30—50)% increased chance for Ore Deposits found in your Maps to be Orichalcum",
+					"zh-TW": "你地圖中發現的礦床為山銅的機率增加 (30—50)%",
+					"zh-CN": "地图中找到的矿脉为奥利哈刚的几率提高 (30—50)%",
+					"ko": "지도에서 발견하는 광맥이 오리칼쿰일 확률 (30—50)% 증가",
+					"ja": "マップで見つかる鉱床がオリハルコンのものになる確率が(30—50)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(30—50)% erhöhte Chance, dass Erzvorkommen in Euren Karten Oreichalkos-Vorkommen sind",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 30,
+						"max": 50
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Minor"]
+	},
+	{
+		"id": "suffix_minor_settlers_amber_ore_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "(30—50)% increased chance for Ore Deposits found in your Maps to be Petrified Amber",
+					"zh-TW": "你地圖中發現的礦床為石化琥珀的機率增加 (30—50)%",
+					"zh-CN": "地图中找到的矿脉为石化琥珀的几率提高 (30—50)%",
+					"ko": "지도에서 발견하는 광맥이 석화 호박일 확률 (30—50)% 증가",
+					"ja": "マップで見つかる鉱床が石化琥珀のものになる確率が(30—50)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(30—50)% erhöhte Chance, dass Erzvorkommen in Euren Karten Amberium-Vorkommen sind",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 30,
+						"max": 50
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Minor"]
+	},
+	{
+		"id": "suffix_minor_settlers_verisium_ore_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "(30—50)% increased chance for Ore Deposits found in your Maps to be Verisium",
+					"zh-TW": "你地圖中發現的礦床為維里西姆的機率增加 (30—50)%",
+					"zh-CN": "地图中找到的矿脉为维金的几率提高 (30—50)%",
+					"ko": "지도에서 발견하는 광맥이 베리시움일 확률 (30—50)% 증가",
+					"ja": "マップで見つかる鉱床がヴェリシウムのものになる確率が(30—50)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(30—50)% erhöhte Chance, dass Erzvorkommen in Euren Karten Verisium-Vorkommen sind",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 30,
+						"max": 50
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Minor"]
+	},
+	{
 		"id": "prefix_minor_ritual_additional_chance",
 		"type": "prefix",
 		"name": {
@@ -5318,50 +5222,6 @@
 				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_602879359"
-			}
-		],
-		"mechanic": "map",
-		"applicableIdols": ["Minor"]
-	},
-	{
-		"id": "suffix_minor_scouting_reports_drop_as_otherworldly_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of Scouting",
-			"zh-TW": "斥侯之",
-			"zh-CN": "侦察之",
-			"ko": "- 정찰",
-			"ja": "斥候の",
-			"ru": "разведки",
-			"pt-BR": "da Patrulha",
-			"de": "des Spähens",
-			"fr": "de la Reconnaissance",
-			"es": "de exploración"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "(2—4)% chance for Scouting Reports to drop as Otherworldly Scouting Reports instead in your Maps",
-					"zh-TW": "你地圖中掉落的偵查報告有 (2—4)% 機率改為掉落超凡偵查報告",
-					"zh-CN": "区域内掉落的侦察报告有 (2—4)% 的几率变成异界侦察报告",
-					"ko": "지역 내 정찰 보고서가 (2—4)%의 확률로 신기한 정찰 보고서로 떨어짐",
-					"ja": "マップでは(2—4)%の確率で偵察報告書の代わりに異世界の偵察報告書がドロップする",
-					"ru": "Выпадающие в областях доклады разведки с (2—4)% шансом могут оказаться потусторонними докладами разведки",
-					"pt-BR": "(2—4)% de chance de Relatórios de Batedores nas Áreas caírem como Relatórios Sobrenaturais de Batedores ao invés",
-					"de": "(2—4)% Chance, dass Kundschafterberichte in Gebieten stattdessen als Jenseitige Kundschafterberichte fallen gelassen werden",
-					"fr": "Dans les Zones, il y a (2—4)% de chances que les Rapports de reconnaissance soient cédés sous forme de Rapports de reconnaissance d'un autre monde à la place",
-					"es": "(2—4)% de probabilidad de que los informes de exploración de las áreas caigan como informes de exploración de otro mundo"
-				},
-				"values": [
-					{
-						"min": 2,
-						"max": 4
-					}
-				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_2703551872"
 			}
 		],
 		"mechanic": "map",
@@ -6449,7 +6309,7 @@
 					"ja": "捕獲可能なビーストがいるマップには(12—18)%の確率で赤ビーストが追加で1体出現する",
 					"ru": "На ваших картах со зверями с (12—18)% шансом можно встретить дополнительного красного зверя",
 					"pt-BR": "Seus Mapas contendo Bestas capturáveis têm (12—18)% de chance de conter uma Besta Vermelha adicional",
-					"de": "Eure Karten, die Bestien enthalten, haben (12—18)% Chance, eine zusätzliche rote Bestie zu enthalten",
+					"de": "Eure Karten, die einfangbare Bestien enthalten, haben (12—18)% Chance, eine zusätzliche rote Bestie zu enthalten",
 					"fr": "Vos Cartes contenant des Bêtes capturables ont (12—18)% de chances de contenir une Bête rouge supplémentaire",
 					"es": "Tus mapas que contienen bestias tienen un (12—18)% de probabilidad de contener una bestia roja adicional"
 				},
@@ -6992,533 +6852,6 @@
 			}
 		],
 		"mechanic": "blight",
-		"applicableIdols": ["Noble"]
-	},
-	{
-		"id": "prefix_noble_breach_additional_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps have +(30—45)% chance to contain Breaches",
-					"zh-TW": "你的地圖 +(30—45)% 機率含有裂痕",
-					"zh-CN": "地图内有裂隙的几率 +(30—45)%",
-					"ko": "지도에 균열이 등장할 확률 +(30—45)%",
-					"ja": "マップには+(30—45)%の確率でブリーチが出現する",
-					"ru": "На ваших картах с +(30—45)% шансом можно встретить Разломы",
-					"pt-BR": "Seus Mapas têm +(30—45)% de chance de conter Fendas",
-					"de": "Eure Karten haben +(30—45)% Chance, Risse zu enthalten",
-					"fr": "Vos Cartes ont +(30—45)% de chances de contenir des Brèches",
-					"es": "Tus mapas tienen +(30—45)% de probabilidad de contener fisuras"
-				},
-				"values": [
-					{
-						"min": 30,
-						"max": 45
-					}
-				],
-				"weight": 1000,
-				"tradeStatId": "explicit.stat_1133841298"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Noble"]
-	},
-	{
-		"id": "prefix_noble_breach_increased_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps have (144—180)% increased chance to contain a Breach",
-					"zh-TW": "你的地圖增加 (144—180)% 機率含有 1 個裂痕",
-					"zh-CN": "地图内有裂隙的几率提高 (144—180)%",
-					"ko": "지도에 균열이 등장할 확률 (144—180)% 증가",
-					"ja": "マップにブリーチが出現する確率が(144—180)%増加する",
-					"ru": "На ваших картах с увеличенным на (144—180)% шансом можно встретить Разлом",
-					"pt-BR": "Seus Mapas têm chance de conter uma Fenda aumentada em (144—180)%",
-					"de": "Eure Karten haben (144—180)% erhöhte Chance, einen Riss zu enthalten",
-					"fr": "Vos Cartes ont (144—180)% d'Augmentation de chances de contenir une Brèche",
-					"es": "Tus mapas tienen la probabilidad de contener una fisura aumentada un (144—180)%"
-				},
-				"values": [
-					{
-						"min": 144,
-						"max": 180
-					}
-				],
-				"weight": 2000,
-				"tradeStatId": "explicit.stat_2372432713"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Noble"]
-	},
-	{
-		"id": "suffix_noble_breach_boss_double_splinters_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breach Bosses in your Maps have (12—16)% chance to drop double Breach Splinters",
-					"zh-TW": "你地圖中的裂痕頭目有 (12—16)% 機率掉落 2 倍裂痕裂片",
-					"zh-CN": "你地图中的裂隙首领有 (12—16)% 的几率掉落双倍的裂隙碎片",
-					"ko": "지도 내 균열 보스가 (12—16)%의 확률로 균열 파편을 2배 많이 떨어뜨림",
-					"ja": "マップに出現するブリーチボスがドロップするブリーチスプリンターが(12—16)%の確率で二倍になる",
-					"ru": "Из боссов Разлома на ваших картах с (12—16)% шансом может выпасть удвоенное количество осколков Разлома",
-					"pt-BR": "Chefes de Fendas em seus Mapas têm (12—16)% de chance de derrubar Fragmentos de Fenda dobrados",
-					"de": "Riss-Bosse in Euren Karten haben (12—16)% Chance, doppelte Riss-Splitter fallen zu lassen",
-					"fr": "Dans vos Cartes, les Boss de Brèche ont (12—16)% de chances de céder deux fois plus d'Esquilles de Brèche",
-					"es": "Los jefes de fisura de tus mapas tienen un (12—16)% de probabilidad de arrojar el doble de astillas de fisura"
-				},
-				"values": [
-					{
-						"min": 12,
-						"max": 16
-					}
-				],
-				"weight": 300
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Noble"]
-	},
-	{
-		"id": "suffix_noble_breach_chest_splinter_quantity",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "(20—25)% increased Quantity of Breach Splinters found in Breach Hands in your Maps",
-					"zh-TW": "增加 (20—25)% 你地圖中裂痕之手掉落裂痕裂片的數量",
-					"zh-CN": "从地图内裂隙之手获得的裂隙碎片数量提高 (20—25)%",
-					"ko": "지도에 등장하는 균열 손에서 나오는 균열 파편 수량 (20—25)% 증가",
-					"ja": "マップに出現するブリーチの手から見つかるブリーチスプリンターの数量が(20—25)%増加する",
-					"ru": "(20—25)% увеличение количества находимых на ваших картах осколков Разлома в руках Разлома",
-					"pt-BR": "Quantidade de Fragmentos de Fendas encontrados em Punhos de Fendas em seus Mapas aumentada em (20—25)%",
-					"de": "(20—25)% erhöhte Menge von gefundenen Riss-Splittern aus Riss-Händen in Euren Karten",
-					"fr": "Vos Cartes ont (20—25)% d'Augmentation de la Quantité d'Esquilles de Brèche trouvées dans les Mains de Brèche",
-					"es": "Cantidad de astillas de fisura contenidas en los puños cerrados de tus mapas aumentada un (20—25)%"
-				},
-				"values": [
-					{
-						"min": 20,
-						"max": 25
-					}
-				],
-				"weight": 300,
-				"tradeStatId": "explicit.stat_3870984748"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Noble"]
-	},
-	{
-		"id": "suffix_noble_breach_xoph_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (80—120)% increased chance to belong to Xoph",
-					"zh-TW": "你地圖中的裂痕增加 (80—120)% 機率為索伏",
-					"zh-CN": "地图中的裂隙属于索伏的几率提高(80—120)%",
-					"ko": "지도 내 균열이 조프의 것일 확률 (80—120)% 증가",
-					"ja": "マップに出現するブリーチがゾフのものである確率が(80—120)%増加する",
-					"ru": "Разломы на ваших картах с увеличенным на (80—120)% шансом могут принадлежать Ксофу",
-					"pt-BR": "Fendas em seus Mapas têm chance de pertencerem ao Xoph aumentada em (80—120)%",
-					"de": "Risse in Euren Karten haben (80—120)% erhöhte Chance, zu Xoph zu gehören",
-					"fr": "Dans vos Cartes, les Brèches ont (80—120)% d'Augmentation de chances d'appartenir à Xoph",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de pertenecer a Xoph aumentada un (80—120)%"
-				},
-				"values": [
-					{
-						"min": 80,
-						"max": 120
-					}
-				],
-				"weight": 160,
-				"tradeStatId": "explicit.stat_3963266703"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Noble"]
-	},
-	{
-		"id": "suffix_noble_breach_tul_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (80—120)% increased chance to belong to Tul",
-					"zh-TW": "你地圖中的裂痕增加 (80—120)% 機率為托沃",
-					"zh-CN": "地图中的裂隙属于托沃的几率提高(80—120)%",
-					"ko": "지도 내 균열이 툴의 것일 확률 (80—120)% 증가",
-					"ja": "マップに出現するブリーチがトゥルのものである確率が(80—120)%増加する",
-					"ru": "Разломы на ваших картах с увеличенным на (80—120)% шансом могут принадлежать Тул",
-					"pt-BR": "Fendas em seus Mapas têm chance de pertencerem ao Tul aumentada em (80—120)%",
-					"de": "Risse in Euren Karten haben (80—120)% erhöhte Chance, zu Tul zu gehören",
-					"fr": "Dans vos Cartes, les Brèches ont (80—120)% d'Augmentation de chances d'appartenir à Tul",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de pertenecer a Tul aumentada un (80—120)%"
-				},
-				"values": [
-					{
-						"min": 80,
-						"max": 120
-					}
-				],
-				"weight": 160,
-				"tradeStatId": "explicit.stat_622901199"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Noble"]
-	},
-	{
-		"id": "suffix_noble_breach_esh_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (80—120)% increased chance to belong to Esh",
-					"zh-TW": "你地圖中的裂痕增加 (80—120)% 機率為艾許",
-					"zh-CN": "地图中的裂隙属于艾许的几率提高(80—120)%",
-					"ko": "지도 내 균열이 에쉬의 것일 확률 (80—120)% 증가",
-					"ja": "マップに出現するブリーチがエシュのものである確率が(80—120)%増加する",
-					"ru": "Разломы на ваших картах с увеличенным на (80—120)% шансом могут принадлежать Иш",
-					"pt-BR": "Fendas em seus Mapas têm chance de pertencerem ao Esh aumentada em (80—120)%",
-					"de": "Risse in Euren Karten haben (80—120)% erhöhte Chance, zu Esh zu gehören",
-					"fr": "Dans vos Cartes, les Brèches ont (80—120)% d'Augmentation de chances d'appartenir à Esh",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de pertenecer a Esh aumentada un (80—120)%"
-				},
-				"values": [
-					{
-						"min": 80,
-						"max": 120
-					}
-				],
-				"weight": 160,
-				"tradeStatId": "explicit.stat_2147182152"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Noble"]
-	},
-	{
-		"id": "suffix_noble_breach_uul_netol_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (70—100)% increased chance to belong to Uul-Netol",
-					"zh-TW": "你地圖中的裂痕增加 (70—100)% 機率為烏爾尼多",
-					"zh-CN": "地图中的裂隙属于乌尔尼多的几率提高(70—100)%",
-					"ko": "지도 내 균열이 울네톨의 것일 확률 (70—100)% 증가",
-					"ja": "マップに出現するブリーチがウール・ネトルのものである確率が(70—100)%増加する",
-					"ru": "Разломы на ваших картах с увеличенным на (70—100)% шансом могут принадлежать Уул-Нетолу",
-					"pt-BR": "Fendas em seus Mapas têm chance de pertencerem ao Uul-Netol aumentada em (70—100)%",
-					"de": "Risse in Euren Karten haben (70—100)% erhöhte Chance, zu Uul-Netol zu gehören",
-					"fr": "Dans vos Cartes, les Brèches ont (70—100)% d'Augmentation de chances d'appartenir à Uul-Netol",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de pertenecer a Uul-Netol aumentada un (70—100)%"
-				},
-				"values": [
-					{
-						"min": 70,
-						"max": 100
-					}
-				],
-				"weight": 160,
-				"tradeStatId": "explicit.stat_2819193674"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Noble"]
-	},
-	{
-		"id": "suffix_noble_breach_chayula_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (60—80)% increased chance to belong to Chayula",
-					"zh-TW": "你地圖中的裂痕增加 (60—80)% 機率為夏烏拉",
-					"zh-CN": "地图内裂隙归属夏乌拉的几率提高 (60—80)%",
-					"ko": "지도 내 균열이 차율라의 것일 확률 (60—80)% 증가",
-					"ja": "マップに出現するブリーチがチャユラのものである確率が(60—80)%増加する",
-					"ru": "Разломы с увеличенным на (60—80)% шансом могут принадлежать Чаюле",
-					"pt-BR": "Fendas em seus Mapas têm chance de pertencerem ao Chayula aumentada em (60—80)%",
-					"de": "Risse in Euren Karten haben (60—80)% erhöhte Chance, zu Chayula zu gehören",
-					"fr": "Dans vos Cartes, les Brèches ont (60—80)% d'Augmentation de chances d'appartenir à Chayula",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de pertenecer a Chayula aumentada un (60—80)%"
-				},
-				"values": [
-					{
-						"min": 60,
-						"max": 80
-					}
-				],
-				"weight": 160,
-				"tradeStatId": "explicit.stat_3377019059"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Noble"]
-	},
-	{
-		"id": "suffix_noble_breach_increased_monster_splinter_quantity",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "(20—25)% increased Quantity of Breach Splinters dropped by Breach Monsters in your Maps",
-					"zh-TW": "增加 (20—25)% 你地圖中裂痕怪物掉落裂痕裂片的數量",
-					"zh-CN": "你地图中裂隙怪物掉落的裂隙碎片的数量提高 (20—25)%",
-					"ko": "지도 내 균열 몬스터가 떨어뜨리는 균열 파편의 수량 (20—25)% 증가",
-					"ja": "マップに出現するブリーチモンスターがドロップするブリーチスプリンターの数量が(20—25)%増加する",
-					"ru": "(20—25)% увеличение количества осколков Разлома, выпадающих из монстров Разлома на ваших картах",
-					"pt-BR": "Quantidade dos Fragmentos de Fendas derrubados por Monstros de Fendas em seus Mapas aumentada em (20—25)%",
-					"de": "(20—25)% erhöhte Menge fallen gelassener Riss-Splitter von Riss-Monstern in Euren Karten",
-					"fr": "Vos Cartes ont (20—25)% d'Augmentation de la Quantité d'Esquilles de Brèche cédées par les Monstres de Brèche",
-					"es": "Cantidad de astillas de fisura arrojadas por los monstruos de fisura de tus mapas aumentada un (20—25)%"
-				},
-				"values": [
-					{
-						"min": 20,
-						"max": 25
-					}
-				],
-				"weight": 300,
-				"tradeStatId": "explicit.stat_624534143"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Noble"]
-	},
-	{
-		"id": "prefix_noble_breach_two_additional_breach_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps which contain Breaches have (5—10)% chance to contain two additional Breaches",
-					"zh-TW": "你含有裂痕的地圖有 (5—10)% 機率含有 2 個額外裂痕",
-					"zh-CN": "你包含裂隙的地图有 (5—10)% 几率包含两个额外的裂隙",
-					"ko": "균열이 등장하는 지도에 (5—10)%의 확률로 균열 2개 추가 등장",
-					"ja": "ブリーチの出現するマップには(5—10)%の確率でブリーチが追加で2個出現する",
-					"ru": "На ваших картах, содержащих Разломы, с (5—10)% шансом можно встретить два дополнительных Разлома",
-					"pt-BR": "Seus Mapas que contêm Fendas têm (5—10)% de chance de conterem duas Fendas adicionais",
-					"de": "Eure Karten, die Risse enthalten, haben (5—10)% Chance, zwei zusätzliche Risse zu enthalten",
-					"fr": "Vos Cartes qui contiennent des Brèches ont (5—10)% de chances de contenir deux Brèches supplémentaires",
-					"es": "Tus mapas que contienen fisuras tienen un (5—10)% de probabilidad de contener dos fisuras adicionales"
-				},
-				"values": [
-					{
-						"min": 5,
-						"max": 10
-					}
-				],
-				"weight": 1000,
-				"tradeStatId": "explicit.stat_3051957033"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Noble"]
-	},
-	{
-		"id": "suffix_noble_breach_monster_increased_unique_drop_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breach Monsters in your Maps have (3—7)% increased chance to drop a Breach Unique Item",
-					"zh-TW": "你地圖的裂痕怪物增加 (3—7)% 機率掉落 1 個裂痕傳奇物品",
-					"zh-CN": "你地图中裂隙怪物掉落一件裂隙传奇物品的几率提高 (3—7)%",
-					"ko": "지도 내 균열 몬스터가 균열 고유 아이템을 떨어뜨릴 확률 (3—7)% 증가",
-					"ja": "マップに出現するブリーチモンスターがブリーチユニークアイテムをドロップする確率が(3—7)%増加する",
-					"ru": "Из монстров Разлома на ваших картах с увеличенным на (3—7)% шансом может выпасть уникальный предмет Разлома",
-					"pt-BR": "Monstros de Fendas em seus Mapas têm chance aumentada em (3—7)% de derrubarem um Item Único de Fenda",
-					"de": "Riss-Monster in Euren Karten haben (3—7)% erhöhte Chance, einen einzigartigen Riss-Gegenstand fallen zu lassen",
-					"fr": "Dans vos Cartes, les Monstres de Brèche ont (3—7)% de chances de céder un Objet Unique de Brèche",
-					"es": "Los monstruos de fisura de tus mapas tienen la probabilidad de arrojar un objeto único de fisura aumentada un (3—7)%"
-				},
-				"values": [
-					{
-						"min": 3,
-						"max": 7
-					}
-				],
-				"weight": 300,
-				"tradeStatId": "explicit.stat_538335880"
-			}
-		],
-		"mechanic": "breach",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -8157,14 +7490,14 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "(25—35)% increased Effect of Shrine Buffs on Players in your Maps",
-					"zh-TW": "增加 (25—35)% 你地圖中玩家身上神殿的增益效果",
-					"zh-CN": "你的地图中的玩家的神龛增益效果提高(25—35)%",
-					"ko": "지도 내 플레이어들에게 적용되는 성소 버프 효과 (25—35)% 증가",
-					"ja": "マップで全てのプレイヤーに対するシュラインのバフの効果が(25—35)%増加する",
+					"en": "(25—35)% increased effect of Shrine Buffs on players granted by Shrines in your Maps",
+					"zh-TW": "在你的地圖裡，神殿所賦予玩家的增益效果增加 (25—35)%",
+					"zh-CN": "你地图中的神龛为玩家提供的神龛增益状态效果提高 (25—35)%",
+					"ko": "지도 내 성소에서 플레이어에게 부여하는 성소 버프의 효과 (25—35)% 증가",
+					"ja": "マップに出現するシュラインに付与されたプレイヤーバフの効果が(25—35)%増加する",
 					"ru": "(25—35)% усиление эффекта алтарей на игроках на ваших картах",
 					"pt-BR": "Efeito dos Buffs de Altares em Jogadores em seus Mapas aumentado em (25—35)%",
-					"de": "(25—35)% erhöhte Wirkung von Schrein-Stärkungen auf Spieler in Euren Karten",
+					"de": "(25—35)% erhöhte Wirkung von Schrein-Stärkungen auf Spieler, die von Schreinen in Euren Karten gewährt werden",
 					"fr": "Dans vos Cartes, les Effets bénéfiques des Autels affectant les joueurs ont (25—35)% d'Augmentation d'Effet",
 					"es": "En tus mapas, el efecto de las bonificaciones de los santuarios está aumentado un (25—35)% sobre los jugadores"
 				},
@@ -8174,11 +7507,182 @@
 						"max": 35
 					}
 				],
-				"weight": 1000,
-				"tradeStatId": "explicit.stat_866902458"
+				"weight": 1000
 			}
 		],
 		"mechanic": "map",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_zana_influence_memory_tear_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "(10—20)% increased chance for your Maps to contain Memory Tears (Tier 16+)",
+					"zh-TW": "你的地圖內含有記憶裂口（階級 16 以上）的機率增加 (10—20)%",
+					"zh-CN": "你的地图包含回忆裂口的几率提高 (10—20)%（16 阶及以上）",
+					"ko": "지도에 기억의 틈새가 등장할 확률 (10—20)% 증가 (16등급 이상)",
+					"ja": "マップにメモリーの裂け目が出現する確率が(10—20)%増加する (ティア16以上)",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(10—20)% erhöhte Chance, dass Eure Karten Erinnerungsrisse enthalten (Level 16+)",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 10,
+						"max": 20
+					}
+				],
+				"weight": 475
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_zana_influence_anger_boss_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "(15—25)% increased chance for Memory Threads to lead towards the Incarnation of Fear",
+					"zh-TW": "記憶綢帶導向恐懼化身的機率增加 (15—25)%",
+					"zh-CN": "回忆丝缕通向畏惧化形的几率提高 (15—25)%",
+					"ko": "기억의 실낱이 두려움의 화신으로 이어질 확률 (15—25)% 증가",
+					"ja": "メモリースレッドが恐怖の化身に繋がる確率が(15—25)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(15—25)% erhöhte Chance, dass Erinnerungsfäden zur Inkarnation der Furcht führen",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "generic",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_zana_influence_ignorance_boss_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "(15—25)% increased chance for Memory Threads to lead towards the Incarnation of Neglect",
+					"zh-TW": "記憶綢帶導向漠視化身的機率增加 (15—25)%",
+					"zh-CN": "回忆丝缕通向漠视化形的几率提高 (15—25)%",
+					"ko": "기억의 실낱이 방치의 화신으로 이어질 확률 (15—25)% 증가",
+					"ja": "メモリースレッドが無視の化身に繋がる確率が(15—25)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(15—25)% erhöhte Chance, dass Erinnerungsfäden zur Inkarnation der Vernachlässigung führen",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "generic",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_zana_influence_benevolence_boss_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "(15—25)% increased chance for Memory Threads to lead towards the Incarnation of Dread",
+					"zh-TW": "記憶綢帶導向恐慌化身的機率增加 (15—25)%",
+					"zh-CN": "回忆丝缕通向惊怖化形的几率提高 (15—25)%",
+					"ko": "기억의 실낱이 불안의 화신으로 이어질 확률 (15—25)% 증가",
+					"ja": "メモリースレッドが畏怖の化身に繋がる確率が(15—25)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(15—25)% erhöhte Chance, dass Erinnerungsfäden zur Inkarnation des Schreckens führen",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "generic",
 		"applicableIdols": ["Noble"]
 	},
 	{
@@ -9986,6 +9490,92 @@
 		"applicableIdols": ["Noble"]
 	},
 	{
+		"id": "prefix_noble_settlers_increased_chance",
+		"type": "prefix",
+		"name": {
+			"en": "Prospector's",
+			"zh-TW": "勘探者的",
+			"zh-CN": "Prospector's",
+			"ko": "채광가의",
+			"ja": "探鉱者の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "Des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps have (144—180)% increased chance to contain Ore Deposits",
+					"zh-TW": "你的地圖含有礦床的機率增加 (144—180)%",
+					"zh-CN": "地图内有矿脉的几率提高 (144—180)%",
+					"ko": "지도에 광맥이 등장할 확률 (144—180)% 증가",
+					"ja": "マップに鉱石の鉱床が出現する確率が(144—180)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten haben (144—180)% erhöhte Chance, Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 144,
+						"max": 180
+					}
+				],
+				"weight": 2000
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "prefix_noble_settlers_additional_chance",
+		"type": "prefix",
+		"name": {
+			"en": "Prospector's",
+			"zh-TW": "勘探者的",
+			"zh-CN": "Prospector's",
+			"ko": "채광가의",
+			"ja": "探鉱者の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "Des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps have +(30—45)% chance to contain Ore Deposits",
+					"zh-TW": "你的地圖 +(30—45)% 機率含有礦床",
+					"zh-CN": "地图内有矿脉的几率 +(30—45)%",
+					"ko": "지도에 광맥이 등장할 확률 +(30—45)%",
+					"ja": "マップに鉱石の鉱床が出現する確率が+(30—45)%される",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten haben +(30—45)% Chance, Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 30,
+						"max": 45
+					}
+				],
+				"weight": 2000
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Noble"]
+	},
+	{
 		"id": "prefix_noble_ritual_additional_chance",
 		"type": "prefix",
 		"name": {
@@ -10640,6 +10230,608 @@
 				],
 				"weight": 500,
 				"tradeStatId": "explicit.stat_723578929"
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_bestiary_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Bestiary Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為獸獵聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为猎魔圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 야수 도감 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがベスティアリースカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Bestien-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "bestiary",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_divination_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Divination Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為命運聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为神恩圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 점술 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベが占いスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Weissagungs-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_legion_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Legion Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為戰亂聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为军团圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 군단 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがリージョンスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Legion-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "legion",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_delve_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Sulphite Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為硫酸聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为亚硫酸圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 아황산염 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがサルファイトスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Sulfit-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "delve",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_blight_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Blight Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為凋落聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为菌潮圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 역병 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがブライトスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Befall-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "blight",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_abyss_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Abyss Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為深淵聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为深渊圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 심연 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがアビススカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Abgrund-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "abyss",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_ultimatum_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Ultimatum Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為通牒聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为致命贪婪圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 결전 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがアルティメイタムスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Ultimatum-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_delirium_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Delirium Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為譫妄聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为惊悸迷雾圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 환영 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがデリリウムスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Delirium-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "delirium",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_ritual_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Ritual Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為祭祀聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为仪式圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 의식 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがリチュアルスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Ritual-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_harvest_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Harvest Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為豐收聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为庄园圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 수확 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがハーベストスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Hain-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "harvest",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_betrayal_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Betrayal Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為反叛聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为背叛者圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 배신 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがビトレイアルスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Syndikat-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "betrayal",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_incursion_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Incursion Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為穿越聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为穿越圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 기습 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがインカージョンスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Inkursion-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "incursion",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_expedition_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Expedition Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為探險聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为先祖秘藏圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 탐험 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがエクスペディションスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Expedition-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "expedition",
+		"applicableIdols": ["Noble"]
+	},
+	{
+		"id": "suffix_noble_scarab_settlers_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Kalguuran Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為卡爾葛聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为卡古兰圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 칼구르 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがカルグールスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Kalguurische Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
 			}
 		],
 		"mechanic": "map",
@@ -11816,7 +12008,7 @@
 					"ja": "捕獲可能なビーストがいるマップには(12—18)%の確率で赤ビーストが追加で1体出現する",
 					"ru": "На ваших картах со зверями с (12—18)% шансом можно встретить дополнительного красного зверя",
 					"pt-BR": "Seus Mapas contendo Bestas capturáveis têm (12—18)% de chance de conter uma Besta Vermelha adicional",
-					"de": "Eure Karten, die Bestien enthalten, haben (12—18)% Chance, eine zusätzliche rote Bestie zu enthalten",
+					"de": "Eure Karten, die einfangbare Bestien enthalten, haben (12—18)% Chance, eine zusätzliche rote Bestie zu enthalten",
 					"fr": "Vos Cartes contenant des Bêtes capturables ont (12—18)% de chances de contenir une Bête rouge supplémentaire",
 					"es": "Tus mapas que contienen bestias tienen un (12—18)% de probabilidad de contener una bestia roja adicional"
 				},
@@ -12359,533 +12551,6 @@
 			}
 		],
 		"mechanic": "blight",
-		"applicableIdols": ["Kamasan"]
-	},
-	{
-		"id": "prefix_kamasan_breach_additional_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps have +(30—45)% chance to contain Breaches",
-					"zh-TW": "你的地圖 +(30—45)% 機率含有裂痕",
-					"zh-CN": "地图内有裂隙的几率 +(30—45)%",
-					"ko": "지도에 균열이 등장할 확률 +(30—45)%",
-					"ja": "マップには+(30—45)%の確率でブリーチが出現する",
-					"ru": "На ваших картах с +(30—45)% шансом можно встретить Разломы",
-					"pt-BR": "Seus Mapas têm +(30—45)% de chance de conter Fendas",
-					"de": "Eure Karten haben +(30—45)% Chance, Risse zu enthalten",
-					"fr": "Vos Cartes ont +(30—45)% de chances de contenir des Brèches",
-					"es": "Tus mapas tienen +(30—45)% de probabilidad de contener fisuras"
-				},
-				"values": [
-					{
-						"min": 30,
-						"max": 45
-					}
-				],
-				"weight": 1000,
-				"tradeStatId": "explicit.stat_1133841298"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Kamasan"]
-	},
-	{
-		"id": "prefix_kamasan_breach_increased_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps have (144—180)% increased chance to contain a Breach",
-					"zh-TW": "你的地圖增加 (144—180)% 機率含有 1 個裂痕",
-					"zh-CN": "地图内有裂隙的几率提高 (144—180)%",
-					"ko": "지도에 균열이 등장할 확률 (144—180)% 증가",
-					"ja": "マップにブリーチが出現する確率が(144—180)%増加する",
-					"ru": "На ваших картах с увеличенным на (144—180)% шансом можно встретить Разлом",
-					"pt-BR": "Seus Mapas têm chance de conter uma Fenda aumentada em (144—180)%",
-					"de": "Eure Karten haben (144—180)% erhöhte Chance, einen Riss zu enthalten",
-					"fr": "Vos Cartes ont (144—180)% d'Augmentation de chances de contenir une Brèche",
-					"es": "Tus mapas tienen la probabilidad de contener una fisura aumentada un (144—180)%"
-				},
-				"values": [
-					{
-						"min": 144,
-						"max": 180
-					}
-				],
-				"weight": 2000,
-				"tradeStatId": "explicit.stat_2372432713"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Kamasan"]
-	},
-	{
-		"id": "suffix_kamasan_breach_boss_double_splinters_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breach Bosses in your Maps have (12—16)% chance to drop double Breach Splinters",
-					"zh-TW": "你地圖中的裂痕頭目有 (12—16)% 機率掉落 2 倍裂痕裂片",
-					"zh-CN": "你地图中的裂隙首领有 (12—16)% 的几率掉落双倍的裂隙碎片",
-					"ko": "지도 내 균열 보스가 (12—16)%의 확률로 균열 파편을 2배 많이 떨어뜨림",
-					"ja": "マップに出現するブリーチボスがドロップするブリーチスプリンターが(12—16)%の確率で二倍になる",
-					"ru": "Из боссов Разлома на ваших картах с (12—16)% шансом может выпасть удвоенное количество осколков Разлома",
-					"pt-BR": "Chefes de Fendas em seus Mapas têm (12—16)% de chance de derrubar Fragmentos de Fenda dobrados",
-					"de": "Riss-Bosse in Euren Karten haben (12—16)% Chance, doppelte Riss-Splitter fallen zu lassen",
-					"fr": "Dans vos Cartes, les Boss de Brèche ont (12—16)% de chances de céder deux fois plus d'Esquilles de Brèche",
-					"es": "Los jefes de fisura de tus mapas tienen un (12—16)% de probabilidad de arrojar el doble de astillas de fisura"
-				},
-				"values": [
-					{
-						"min": 12,
-						"max": 16
-					}
-				],
-				"weight": 300
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Kamasan"]
-	},
-	{
-		"id": "suffix_kamasan_breach_chest_splinter_quantity",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "(20—25)% increased Quantity of Breach Splinters found in Breach Hands in your Maps",
-					"zh-TW": "增加 (20—25)% 你地圖中裂痕之手掉落裂痕裂片的數量",
-					"zh-CN": "从地图内裂隙之手获得的裂隙碎片数量提高 (20—25)%",
-					"ko": "지도에 등장하는 균열 손에서 나오는 균열 파편 수량 (20—25)% 증가",
-					"ja": "マップに出現するブリーチの手から見つかるブリーチスプリンターの数量が(20—25)%増加する",
-					"ru": "(20—25)% увеличение количества находимых на ваших картах осколков Разлома в руках Разлома",
-					"pt-BR": "Quantidade de Fragmentos de Fendas encontrados em Punhos de Fendas em seus Mapas aumentada em (20—25)%",
-					"de": "(20—25)% erhöhte Menge von gefundenen Riss-Splittern aus Riss-Händen in Euren Karten",
-					"fr": "Vos Cartes ont (20—25)% d'Augmentation de la Quantité d'Esquilles de Brèche trouvées dans les Mains de Brèche",
-					"es": "Cantidad de astillas de fisura contenidas en los puños cerrados de tus mapas aumentada un (20—25)%"
-				},
-				"values": [
-					{
-						"min": 20,
-						"max": 25
-					}
-				],
-				"weight": 300,
-				"tradeStatId": "explicit.stat_3870984748"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Kamasan"]
-	},
-	{
-		"id": "suffix_kamasan_breach_xoph_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (80—120)% increased chance to belong to Xoph",
-					"zh-TW": "你地圖中的裂痕增加 (80—120)% 機率為索伏",
-					"zh-CN": "地图中的裂隙属于索伏的几率提高(80—120)%",
-					"ko": "지도 내 균열이 조프의 것일 확률 (80—120)% 증가",
-					"ja": "マップに出現するブリーチがゾフのものである確率が(80—120)%増加する",
-					"ru": "Разломы на ваших картах с увеличенным на (80—120)% шансом могут принадлежать Ксофу",
-					"pt-BR": "Fendas em seus Mapas têm chance de pertencerem ao Xoph aumentada em (80—120)%",
-					"de": "Risse in Euren Karten haben (80—120)% erhöhte Chance, zu Xoph zu gehören",
-					"fr": "Dans vos Cartes, les Brèches ont (80—120)% d'Augmentation de chances d'appartenir à Xoph",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de pertenecer a Xoph aumentada un (80—120)%"
-				},
-				"values": [
-					{
-						"min": 80,
-						"max": 120
-					}
-				],
-				"weight": 160,
-				"tradeStatId": "explicit.stat_3963266703"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Kamasan"]
-	},
-	{
-		"id": "suffix_kamasan_breach_tul_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (80—120)% increased chance to belong to Tul",
-					"zh-TW": "你地圖中的裂痕增加 (80—120)% 機率為托沃",
-					"zh-CN": "地图中的裂隙属于托沃的几率提高(80—120)%",
-					"ko": "지도 내 균열이 툴의 것일 확률 (80—120)% 증가",
-					"ja": "マップに出現するブリーチがトゥルのものである確率が(80—120)%増加する",
-					"ru": "Разломы на ваших картах с увеличенным на (80—120)% шансом могут принадлежать Тул",
-					"pt-BR": "Fendas em seus Mapas têm chance de pertencerem ao Tul aumentada em (80—120)%",
-					"de": "Risse in Euren Karten haben (80—120)% erhöhte Chance, zu Tul zu gehören",
-					"fr": "Dans vos Cartes, les Brèches ont (80—120)% d'Augmentation de chances d'appartenir à Tul",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de pertenecer a Tul aumentada un (80—120)%"
-				},
-				"values": [
-					{
-						"min": 80,
-						"max": 120
-					}
-				],
-				"weight": 160,
-				"tradeStatId": "explicit.stat_622901199"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Kamasan"]
-	},
-	{
-		"id": "suffix_kamasan_breach_esh_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (80—120)% increased chance to belong to Esh",
-					"zh-TW": "你地圖中的裂痕增加 (80—120)% 機率為艾許",
-					"zh-CN": "地图中的裂隙属于艾许的几率提高(80—120)%",
-					"ko": "지도 내 균열이 에쉬의 것일 확률 (80—120)% 증가",
-					"ja": "マップに出現するブリーチがエシュのものである確率が(80—120)%増加する",
-					"ru": "Разломы на ваших картах с увеличенным на (80—120)% шансом могут принадлежать Иш",
-					"pt-BR": "Fendas em seus Mapas têm chance de pertencerem ao Esh aumentada em (80—120)%",
-					"de": "Risse in Euren Karten haben (80—120)% erhöhte Chance, zu Esh zu gehören",
-					"fr": "Dans vos Cartes, les Brèches ont (80—120)% d'Augmentation de chances d'appartenir à Esh",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de pertenecer a Esh aumentada un (80—120)%"
-				},
-				"values": [
-					{
-						"min": 80,
-						"max": 120
-					}
-				],
-				"weight": 160,
-				"tradeStatId": "explicit.stat_2147182152"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Kamasan"]
-	},
-	{
-		"id": "suffix_kamasan_breach_uul_netol_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (70—100)% increased chance to belong to Uul-Netol",
-					"zh-TW": "你地圖中的裂痕增加 (70—100)% 機率為烏爾尼多",
-					"zh-CN": "地图中的裂隙属于乌尔尼多的几率提高(70—100)%",
-					"ko": "지도 내 균열이 울네톨의 것일 확률 (70—100)% 증가",
-					"ja": "マップに出現するブリーチがウール・ネトルのものである確率が(70—100)%増加する",
-					"ru": "Разломы на ваших картах с увеличенным на (70—100)% шансом могут принадлежать Уул-Нетолу",
-					"pt-BR": "Fendas em seus Mapas têm chance de pertencerem ao Uul-Netol aumentada em (70—100)%",
-					"de": "Risse in Euren Karten haben (70—100)% erhöhte Chance, zu Uul-Netol zu gehören",
-					"fr": "Dans vos Cartes, les Brèches ont (70—100)% d'Augmentation de chances d'appartenir à Uul-Netol",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de pertenecer a Uul-Netol aumentada un (70—100)%"
-				},
-				"values": [
-					{
-						"min": 70,
-						"max": 100
-					}
-				],
-				"weight": 160,
-				"tradeStatId": "explicit.stat_2819193674"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Kamasan"]
-	},
-	{
-		"id": "suffix_kamasan_breach_chayula_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (60—80)% increased chance to belong to Chayula",
-					"zh-TW": "你地圖中的裂痕增加 (60—80)% 機率為夏烏拉",
-					"zh-CN": "地图内裂隙归属夏乌拉的几率提高 (60—80)%",
-					"ko": "지도 내 균열이 차율라의 것일 확률 (60—80)% 증가",
-					"ja": "マップに出現するブリーチがチャユラのものである確率が(60—80)%増加する",
-					"ru": "Разломы с увеличенным на (60—80)% шансом могут принадлежать Чаюле",
-					"pt-BR": "Fendas em seus Mapas têm chance de pertencerem ao Chayula aumentada em (60—80)%",
-					"de": "Risse in Euren Karten haben (60—80)% erhöhte Chance, zu Chayula zu gehören",
-					"fr": "Dans vos Cartes, les Brèches ont (60—80)% d'Augmentation de chances d'appartenir à Chayula",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de pertenecer a Chayula aumentada un (60—80)%"
-				},
-				"values": [
-					{
-						"min": 60,
-						"max": 80
-					}
-				],
-				"weight": 160,
-				"tradeStatId": "explicit.stat_3377019059"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Kamasan"]
-	},
-	{
-		"id": "suffix_kamasan_breach_increased_monster_splinter_quantity",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "(20—25)% increased Quantity of Breach Splinters dropped by Breach Monsters in your Maps",
-					"zh-TW": "增加 (20—25)% 你地圖中裂痕怪物掉落裂痕裂片的數量",
-					"zh-CN": "你地图中裂隙怪物掉落的裂隙碎片的数量提高 (20—25)%",
-					"ko": "지도 내 균열 몬스터가 떨어뜨리는 균열 파편의 수량 (20—25)% 증가",
-					"ja": "マップに出現するブリーチモンスターがドロップするブリーチスプリンターの数量が(20—25)%増加する",
-					"ru": "(20—25)% увеличение количества осколков Разлома, выпадающих из монстров Разлома на ваших картах",
-					"pt-BR": "Quantidade dos Fragmentos de Fendas derrubados por Monstros de Fendas em seus Mapas aumentada em (20—25)%",
-					"de": "(20—25)% erhöhte Menge fallen gelassener Riss-Splitter von Riss-Monstern in Euren Karten",
-					"fr": "Vos Cartes ont (20—25)% d'Augmentation de la Quantité d'Esquilles de Brèche cédées par les Monstres de Brèche",
-					"es": "Cantidad de astillas de fisura arrojadas por los monstruos de fisura de tus mapas aumentada un (20—25)%"
-				},
-				"values": [
-					{
-						"min": 20,
-						"max": 25
-					}
-				],
-				"weight": 300,
-				"tradeStatId": "explicit.stat_624534143"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Kamasan"]
-	},
-	{
-		"id": "prefix_kamasan_breach_two_additional_breach_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps which contain Breaches have (5—10)% chance to contain two additional Breaches",
-					"zh-TW": "你含有裂痕的地圖有 (5—10)% 機率含有 2 個額外裂痕",
-					"zh-CN": "你包含裂隙的地图有 (5—10)% 几率包含两个额外的裂隙",
-					"ko": "균열이 등장하는 지도에 (5—10)%의 확률로 균열 2개 추가 등장",
-					"ja": "ブリーチの出現するマップには(5—10)%の確率でブリーチが追加で2個出現する",
-					"ru": "На ваших картах, содержащих Разломы, с (5—10)% шансом можно встретить два дополнительных Разлома",
-					"pt-BR": "Seus Mapas que contêm Fendas têm (5—10)% de chance de conterem duas Fendas adicionais",
-					"de": "Eure Karten, die Risse enthalten, haben (5—10)% Chance, zwei zusätzliche Risse zu enthalten",
-					"fr": "Vos Cartes qui contiennent des Brèches ont (5—10)% de chances de contenir deux Brèches supplémentaires",
-					"es": "Tus mapas que contienen fisuras tienen un (5—10)% de probabilidad de contener dos fisuras adicionales"
-				},
-				"values": [
-					{
-						"min": 5,
-						"max": 10
-					}
-				],
-				"weight": 1000,
-				"tradeStatId": "explicit.stat_3051957033"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Kamasan"]
-	},
-	{
-		"id": "suffix_kamasan_breach_monster_increased_unique_drop_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breach Monsters in your Maps have (3—7)% increased chance to drop a Breach Unique Item",
-					"zh-TW": "你地圖的裂痕怪物增加 (3—7)% 機率掉落 1 個裂痕傳奇物品",
-					"zh-CN": "你地图中裂隙怪物掉落一件裂隙传奇物品的几率提高 (3—7)%",
-					"ko": "지도 내 균열 몬스터가 균열 고유 아이템을 떨어뜨릴 확률 (3—7)% 증가",
-					"ja": "マップに出現するブリーチモンスターがブリーチユニークアイテムをドロップする確率が(3—7)%増加する",
-					"ru": "Из монстров Разлома на ваших картах с увеличенным на (3—7)% шансом может выпасть уникальный предмет Разлома",
-					"pt-BR": "Monstros de Fendas em seus Mapas têm chance aumentada em (3—7)% de derrubarem um Item Único de Fenda",
-					"de": "Riss-Monster in Euren Karten haben (3—7)% erhöhte Chance, einen einzigartigen Riss-Gegenstand fallen zu lassen",
-					"fr": "Dans vos Cartes, les Monstres de Brèche ont (3—7)% de chances de céder un Objet Unique de Brèche",
-					"es": "Los monstruos de fisura de tus mapas tienen la probabilidad de arrojar un objeto único de fisura aumentada un (3—7)%"
-				},
-				"values": [
-					{
-						"min": 3,
-						"max": 7
-					}
-				],
-				"weight": 300,
-				"tradeStatId": "explicit.stat_538335880"
-			}
-		],
-		"mechanic": "breach",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -13524,14 +13189,14 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "(25—35)% increased Effect of Shrine Buffs on Players in your Maps",
-					"zh-TW": "增加 (25—35)% 你地圖中玩家身上神殿的增益效果",
-					"zh-CN": "你的地图中的玩家的神龛增益效果提高(25—35)%",
-					"ko": "지도 내 플레이어들에게 적용되는 성소 버프 효과 (25—35)% 증가",
-					"ja": "マップで全てのプレイヤーに対するシュラインのバフの効果が(25—35)%増加する",
+					"en": "(25—35)% increased effect of Shrine Buffs on players granted by Shrines in your Maps",
+					"zh-TW": "在你的地圖裡，神殿所賦予玩家的增益效果增加 (25—35)%",
+					"zh-CN": "你地图中的神龛为玩家提供的神龛增益状态效果提高 (25—35)%",
+					"ko": "지도 내 성소에서 플레이어에게 부여하는 성소 버프의 효과 (25—35)% 증가",
+					"ja": "マップに出現するシュラインに付与されたプレイヤーバフの効果が(25—35)%増加する",
 					"ru": "(25—35)% усиление эффекта алтарей на игроках на ваших картах",
 					"pt-BR": "Efeito dos Buffs de Altares em Jogadores em seus Mapas aumentado em (25—35)%",
-					"de": "(25—35)% erhöhte Wirkung von Schrein-Stärkungen auf Spieler in Euren Karten",
+					"de": "(25—35)% erhöhte Wirkung von Schrein-Stärkungen auf Spieler, die von Schreinen in Euren Karten gewährt werden",
 					"fr": "Dans vos Cartes, les Effets bénéfiques des Autels affectant les joueurs ont (25—35)% d'Augmentation d'Effet",
 					"es": "En tus mapas, el efecto de las bonificaciones de los santuarios está aumentado un (25—35)% sobre los jugadores"
 				},
@@ -13541,11 +13206,182 @@
 						"max": 35
 					}
 				],
-				"weight": 1000,
-				"tradeStatId": "explicit.stat_866902458"
+				"weight": 1000
 			}
 		],
 		"mechanic": "map",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_zana_influence_memory_tear_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "(10—20)% increased chance for your Maps to contain Memory Tears (Tier 16+)",
+					"zh-TW": "你的地圖內含有記憶裂口（階級 16 以上）的機率增加 (10—20)%",
+					"zh-CN": "你的地图包含回忆裂口的几率提高 (10—20)%（16 阶及以上）",
+					"ko": "지도에 기억의 틈새가 등장할 확률 (10—20)% 증가 (16등급 이상)",
+					"ja": "マップにメモリーの裂け目が出現する確率が(10—20)%増加する (ティア16以上)",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(10—20)% erhöhte Chance, dass Eure Karten Erinnerungsrisse enthalten (Level 16+)",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 10,
+						"max": 20
+					}
+				],
+				"weight": 475
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_zana_influence_anger_boss_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "(15—25)% increased chance for Memory Threads to lead towards the Incarnation of Fear",
+					"zh-TW": "記憶綢帶導向恐懼化身的機率增加 (15—25)%",
+					"zh-CN": "回忆丝缕通向畏惧化形的几率提高 (15—25)%",
+					"ko": "기억의 실낱이 두려움의 화신으로 이어질 확률 (15—25)% 증가",
+					"ja": "メモリースレッドが恐怖の化身に繋がる確率が(15—25)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(15—25)% erhöhte Chance, dass Erinnerungsfäden zur Inkarnation der Furcht führen",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "generic",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_zana_influence_ignorance_boss_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "(15—25)% increased chance for Memory Threads to lead towards the Incarnation of Neglect",
+					"zh-TW": "記憶綢帶導向漠視化身的機率增加 (15—25)%",
+					"zh-CN": "回忆丝缕通向漠视化形的几率提高 (15—25)%",
+					"ko": "기억의 실낱이 방치의 화신으로 이어질 확률 (15—25)% 증가",
+					"ja": "メモリースレッドが無視の化身に繋がる確率が(15—25)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(15—25)% erhöhte Chance, dass Erinnerungsfäden zur Inkarnation der Vernachlässigung führen",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "generic",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_zana_influence_benevolence_boss_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "(15—25)% increased chance for Memory Threads to lead towards the Incarnation of Dread",
+					"zh-TW": "記憶綢帶導向恐慌化身的機率增加 (15—25)%",
+					"zh-CN": "回忆丝缕通向惊怖化形的几率提高 (15—25)%",
+					"ko": "기억의 실낱이 불안의 화신으로 이어질 확률 (15—25)% 증가",
+					"ja": "メモリースレッドが畏怖の化身に繋がる確率が(15—25)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(15—25)% erhöhte Chance, dass Erinnerungsfäden zur Inkarnation des Schreckens führen",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "generic",
 		"applicableIdols": ["Kamasan"]
 	},
 	{
@@ -15353,6 +15189,92 @@
 		"applicableIdols": ["Kamasan"]
 	},
 	{
+		"id": "prefix_kamasan_settlers_increased_chance",
+		"type": "prefix",
+		"name": {
+			"en": "Prospector's",
+			"zh-TW": "勘探者的",
+			"zh-CN": "Prospector's",
+			"ko": "채광가의",
+			"ja": "探鉱者の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "Des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps have (144—180)% increased chance to contain Ore Deposits",
+					"zh-TW": "你的地圖含有礦床的機率增加 (144—180)%",
+					"zh-CN": "地图内有矿脉的几率提高 (144—180)%",
+					"ko": "지도에 광맥이 등장할 확률 (144—180)% 증가",
+					"ja": "マップに鉱石の鉱床が出現する確率が(144—180)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten haben (144—180)% erhöhte Chance, Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 144,
+						"max": 180
+					}
+				],
+				"weight": 2000
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "prefix_kamasan_settlers_additional_chance",
+		"type": "prefix",
+		"name": {
+			"en": "Prospector's",
+			"zh-TW": "勘探者的",
+			"zh-CN": "Prospector's",
+			"ko": "채광가의",
+			"ja": "探鉱者の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "Des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps have +(30—45)% chance to contain Ore Deposits",
+					"zh-TW": "你的地圖 +(30—45)% 機率含有礦床",
+					"zh-CN": "地图内有矿脉的几率 +(30—45)%",
+					"ko": "지도에 광맥이 등장할 확률 +(30—45)%",
+					"ja": "マップに鉱石の鉱床が出現する確率が+(30—45)%される",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten haben +(30—45)% Chance, Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 30,
+						"max": 45
+					}
+				],
+				"weight": 2000
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
 		"id": "prefix_kamasan_ritual_additional_chance",
 		"type": "prefix",
 		"name": {
@@ -16007,6 +15929,608 @@
 				],
 				"weight": 500,
 				"tradeStatId": "explicit.stat_723578929"
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_bestiary_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Bestiary Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為獸獵聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为猎魔圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 야수 도감 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがベスティアリースカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Bestien-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "bestiary",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_divination_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Divination Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為命運聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为神恩圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 점술 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベが占いスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Weissagungs-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_legion_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Legion Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為戰亂聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为军团圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 군단 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがリージョンスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Legion-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "legion",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_delve_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Sulphite Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為硫酸聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为亚硫酸圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 아황산염 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがサルファイトスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Sulfit-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "delve",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_blight_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Blight Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為凋落聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为菌潮圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 역병 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがブライトスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Befall-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "blight",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_abyss_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Abyss Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為深淵聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为深渊圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 심연 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがアビススカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Abgrund-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "abyss",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_ultimatum_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Ultimatum Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為通牒聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为致命贪婪圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 결전 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがアルティメイタムスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Ultimatum-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_delirium_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Delirium Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為譫妄聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为惊悸迷雾圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 환영 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがデリリウムスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Delirium-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "delirium",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_ritual_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Ritual Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為祭祀聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为仪式圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 의식 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがリチュアルスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Ritual-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_harvest_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Harvest Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為豐收聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为庄园圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 수확 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがハーベストスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Hain-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "harvest",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_betrayal_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Betrayal Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為反叛聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为背叛者圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 배신 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがビトレイアルスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Syndikat-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "betrayal",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_incursion_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Incursion Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為穿越聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为穿越圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 기습 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがインカージョンスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Inkursion-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "incursion",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_expedition_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Expedition Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為探險聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为先祖秘藏圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 탐험 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがエクスペディションスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Expedition-Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
+			}
+		],
+		"mechanic": "expedition",
+		"applicableIdols": ["Kamasan"]
+	},
+	{
+		"id": "suffix_kamasan_scarab_settlers_more_likely",
+		"type": "suffix",
+		"name": {
+			"en": "of Skittering",
+			"zh-TW": "零碎之",
+			"zh-CN": "of Skittering",
+			"ko": "- 달리기",
+			"ja": "駆けずりの",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Huschens",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Scarabs dropped in your Maps have (60—80)% increased chance to be Kalguuran Scarabs",
+					"zh-TW": "你地圖中掉落的聖甲蟲為卡爾葛聖甲蟲的機率增加 (60—80)%",
+					"zh-CN": "你的地图中掉落的圣甲虫为卡古兰圣甲虫的几率提高 (60—80)%",
+					"ko": "지도에서 떨어지는 갑충석이 칼구르 갑충석일 확률 (60—80)% 증가",
+					"ja": "マップでドロップするスカラベがカルグールスカラベになる確率が(60—80)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten fallen gelassene Skarabäen haben (60—80)% erhöhte Chance, Kalguurische Skarabäen zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 80
+					}
+				],
+				"weight": 500
 			}
 		],
 		"mechanic": "map",
@@ -17007,7 +17531,7 @@
 					"ja": "捕獲可能なビーストがいるマップには黄ビーストが追加で(3—4)体出現する",
 					"ru": "На ваших картах со зверями можно встретить дополнительных желтых зверей: (3—4)",
 					"pt-BR": "Seus Mapas contendo Bestas capturáveis contêm (3—4) Bestas Amarelas adicionais",
-					"de": "Eure Karten, die Bestien enthalten, enthalten (3—4) zusätzliche gelbe Bestien",
+					"de": "Eure Karten, die einfangbare Bestien enthalten, enthalten (3—4) zusätzliche gelbe Bestien",
 					"fr": "Vos Cartes contenant des Bêtes capturables contiennent (3—4) Bêtes jaunes supplémentaires",
 					"es": "Tus mapas que contienen bestias capturables contienen (3—4) bestias amarillas adicionales"
 				},
@@ -17685,382 +18209,6 @@
 		"applicableIdols": ["Burial"]
 	},
 	{
-		"id": "prefix_burial_breach_additional_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps have +(40—60)% chance to contain Breaches",
-					"zh-TW": "你的地圖 +(40—60)% 機率含有裂痕",
-					"zh-CN": "地图内有裂隙的几率 +(40—60)%",
-					"ko": "지도에 균열이 등장할 확률 +(40—60)%",
-					"ja": "マップには+(40—60)%の確率でブリーチが出現する",
-					"ru": "На ваших картах с +(40—60)% шансом можно встретить Разломы",
-					"pt-BR": "Seus Mapas têm +(40—60)% de chance de conter Fendas",
-					"de": "Eure Karten haben +(40—60)% Chance, Risse zu enthalten",
-					"fr": "Vos Cartes ont +(40—60)% de chances de contenir des Brèches",
-					"es": "Tus mapas tienen +(40—60)% de probabilidad de contener fisuras"
-				},
-				"values": [
-					{
-						"min": 40,
-						"max": 60
-					}
-				],
-				"weight": 1200,
-				"tradeStatId": "explicit.stat_1133841298"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Burial"]
-	},
-	{
-		"id": "prefix_burial_breach_increased_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps have (192—240)% increased chance to contain a Breach",
-					"zh-TW": "你的地圖增加 (192—240)% 機率含有 1 個裂痕",
-					"zh-CN": "地图内有裂隙的几率提高 (192—240)%",
-					"ko": "지도에 균열이 등장할 확률 (192—240)% 증가",
-					"ja": "マップにブリーチが出現する確率が(192—240)%増加する",
-					"ru": "На ваших картах с увеличенным на (192—240)% шансом можно встретить Разлом",
-					"pt-BR": "Seus Mapas têm chance de conter uma Fenda aumentada em (192—240)%",
-					"de": "Eure Karten haben (192—240)% erhöhte Chance, einen Riss zu enthalten",
-					"fr": "Vos Cartes ont (192—240)% d'Augmentation de chances de contenir une Brèche",
-					"es": "Tus mapas tienen la probabilidad de contener una fisura aumentada un (192—240)%"
-				},
-				"values": [
-					{
-						"min": 192,
-						"max": 240
-					}
-				],
-				"weight": 2000,
-				"tradeStatId": "explicit.stat_2372432713"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Burial"]
-	},
-	{
-		"id": "suffix_burial_breach_boss_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (35—45)% increased chance to contain a Boss",
-					"zh-TW": "你地圖中的裂痕增加 (35—45)% 機率含有 1 個頭目",
-					"zh-CN": "地图内裂隙包含首领的几率提高 (35—45)%",
-					"ko": "지도 내 균열에 보스가 등장할 확률 (35—45)% 증가",
-					"ja": "マップに出現するブリーチにボスが含まれる確率が(35—45)%増加する",
-					"ru": "(35—45)% увеличение шанса встретить босса в Разломах",
-					"pt-BR": "Fendas em seus Mapas têm chance de conterem um chefe aumentada em (35—45)%",
-					"de": "Risse in Euren Karten haben (35—45)% erhöhte Chance, einen Boss zu enthalten",
-					"fr": "Dans vos Cartes, les Brèches ont (35—45)% de chances de contenir un Boss",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de contener un jefe aumentada un (35—45)%"
-				},
-				"values": [
-					{
-						"min": 35,
-						"max": 45
-					}
-				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_2433436306"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Burial"]
-	},
-	{
-		"id": "suffix_burial_breach_boss_flawless_breachstone_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breachstones dropped by Breach Bosses in your Maps have (3—5)% chance to be Flawless",
-					"zh-TW": "你地圖中裂痕頭目掉落的裂痕石有 (3—5)% 機率為無暇的",
-					"zh-CN": "你地图中的裂隙首领掉落的裂隙石有 (3—5)% 几率变为无暇的",
-					"ko": "지도 내 균열 보스가 떨어뜨린 균열석이 결함 없는 균열석일 확률 (3—5)%",
-					"ja": "マップに出現するブリーチボスがドロップするブリーチストーンは(3—5)%の確率で極限ブリーチストーンになる",
-					"ru": "Камни Разлома, выпадающие из боссов Разлома на ваших картах, с (3—5)% шансом могут оказаться безупречными",
-					"pt-BR": "Pedras de Fenda derrubadas por Chefes de Fendas em seus Mapas têm (3—5)% de chance de serem Impecáveis",
-					"de": "Von Riss-Bossen fallen gelassene Riss-Steine in Euren Karten haben (3—5)% Chance, makellos zu sein",
-					"fr": "Dans vos Cartes, les Pierres de Brèche cédées par les Boss de Brèche ont (3—5)% de chances d'être Parfaites",
-					"es": "Las piedras de fisura que arrojan los jefes de fisura de tus mapas tienen un (3—5)% de probabilidad de ser perfectas"
-				},
-				"values": [
-					{
-						"min": 3,
-						"max": 5
-					}
-				],
-				"weight": 200,
-				"tradeStatId": "explicit.stat_1940017254"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Burial"]
-	},
-	{
-		"id": "suffix_burial_breach_speed",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps open and close (6—10)% faster",
-					"zh-TW": "你地圖中的裂痕開啟和關閉比平常快 (6—10)%",
-					"zh-CN": "地图内裂隙开合的速度加快 (6—10)%",
-					"ko": "지도 내 균열이 (6—10)% 더 빠르게 열리고 닫힘",
-					"ja": "マップに出現するブリーチが開く速度および閉じる速度が(6—10)%速くなる",
-					"ru": "Разломы открываются и закрываются на (6—10)% быстрее",
-					"pt-BR": "Fendas em seus Mapas abrem e fecham (6—10)% mais rápido",
-					"de": "Risse in Euren Karten öffnen und schließen sich (6—10)% schneller",
-					"fr": "Dans vos Cartes, les Brèches s'ouvrent et se ferment (6—10)% plus rapidement",
-					"es": "Las fisuras de tus mapas se abren y se cierran un (6—10)% más rápido"
-				},
-				"values": [
-					{
-						"min": 6,
-						"max": 10
-					}
-				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_2504358770"
-			},
-			{
-				"tier": 2,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps open and close (20—30)% slower",
-					"zh-TW": "你地圖中的裂痕開啟和關閉比平常慢 (20—30)%",
-					"zh-CN": "地图内裂隙开合的速度减慢 (20—30)%",
-					"ko": "지도 내 균열이 (20—30)% 더 느리게 열리고 닫힘",
-					"ja": "マップに出現するブリーチが開く速度および閉じる速度が(20—30)%遅くなる",
-					"ru": "Разломы открываются и закрываются на (20—30)% медленнее",
-					"pt-BR": "Fendas em seus Mapas abrem e fecham (20—30)% mais lentamente",
-					"de": "Risse in Euren Karten öffnen und schließen sich (20—30)% langsamer",
-					"fr": "Dans vos Cartes, les Brèches s'ouvrent et se ferment (20—30)% plus lentement",
-					"es": "Las fisuras de tus mapas se abren y se cierran un (20—30)% más despacio"
-				},
-				"values": [
-					{
-						"min": 20,
-						"max": 30
-					}
-				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_2504358770"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Burial"]
-	},
-	{
-		"id": "prefix_burial_breach_three_additional_breach_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps which contain Breaches have (5—10)% chance to contain three additional Breaches",
-					"zh-TW": "你含有裂痕的地圖有 (5—10)% 機率含有 3 個額外裂痕",
-					"zh-CN": "你包含裂隙的地图有 (5—10)% 几率包含三个额外的裂隙",
-					"ko": "균열이 등장하는 지도에 (5—10)%의 확률로 균열 3개 추가 등장",
-					"ja": "ブリーチの出現するマップには(5—10)%の確率でブリーチが追加で3個出現する",
-					"ru": "На ваших картах, содержащих Разломы, с (5—10)% шансом можно встретить три дополнительных Разлома",
-					"pt-BR": "Seus Mapas que contêm Fendas têm (5—10)% de chance de conterem três Fendas adicionais",
-					"de": "Eure Karten, die Risse enthalten, haben (5—10)% Chance, drei zusätzliche Risse zu enthalten",
-					"fr": "Vos Cartes qui contiennent des Brèches ont (5—10)% de chances de contenir trois Brèches supplémentaires",
-					"es": "Tus mapas que contienen fisuras tienen un (5—10)% de probabilidad de contener tres fisuras adicionales"
-				},
-				"values": [
-					{
-						"min": 5,
-						"max": 10
-					}
-				],
-				"weight": 800,
-				"tradeStatId": "explicit.stat_2440265466"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Burial"]
-	},
-	{
-		"id": "suffix_burial_breach_super_chest_spawn_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (10—15)% chance to contain a Hand of Xesht-Ula",
-					"zh-TW": "你地圖中的裂痕有 (10—15)% 機率含有 1 隻烈許烏拉之手",
-					"zh-CN": "地图内裂隙有 (10—15)% 的几率有一个薛乌勒之手",
-					"ko": "지도 내 균열에 (10—15)%의 확률로 제쉬트-울라의 손 등장",
-					"ja": "マップに出現するブリーチは(10—15)%の確率でゼシュト・ウラの手が出現する",
-					"ru": "Разломы на ваших картах с (10—15)% шансом могут содержать Руку Ксешт-Ула",
-					"pt-BR": "Fendas em seus Mapas têm (10—15)% de chance de conter uma Mão de Xesht-Ula",
-					"de": "Risse in Euren Karten haben (10—15)% Chance, eine Hand von Xesht-Ula zu enthalten",
-					"fr": "Dans vos Cartes, les Brèches ont (10—15)% de chances de contenir une Main de Xesht-Ula",
-					"es": "Las fisuras de tus mapas tienen un (10—15)% de probabilidad de contener un puño de Xesht-Ula"
-				},
-				"values": [
-					{
-						"min": 10,
-						"max": 15
-					}
-				],
-				"weight": 300,
-				"tradeStatId": "explicit.stat_3366450262"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Burial"]
-	},
-	{
-		"id": "suffix_burial_breach_monster_density",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (8—12)% increased Monster density",
-					"zh-TW": "你地圖中的裂痕增加 (8—12)% 怪物密度",
-					"zh-CN": "地图内裂隙的怪物密集度提高 (8—12)%",
-					"ko": "지도 내 균열의 몬스터 밀집도 (8—12)% 증가",
-					"ja": "マップに出現するブリーチのモンスター密度が(8—12)%増加する",
-					"ru": "(8—12)% увеличение кучности монстров в Разломах",
-					"pt-BR": "Fendas em seus Mapas têm densidade de Monstros aumentada em (8—12)%",
-					"de": "Risse in Euren Karten haben (8—12)% erhöhte Monsterdichte",
-					"fr": "Dans vos Cartes, les Brèches ont (8—12)% d'Augmentation de Densité monstres",
-					"es": "Las fisuras de tus mapas tienen la densidad de monstruos aumentada un (8—12)%"
-				},
-				"values": [
-					{
-						"min": 8,
-						"max": 12
-					}
-				],
-				"weight": 300,
-				"tradeStatId": "explicit.stat_1210760818"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Burial"]
-	},
-	{
 		"id": "suffix_burial_cleansing_fire_altar_spawn_chance_on_influence_appearance",
 		"type": "suffix",
 		"name": {
@@ -18713,6 +18861,92 @@
 			}
 		],
 		"mechanic": "conqueror",
+		"applicableIdols": ["Burial"]
+	},
+	{
+		"id": "suffix_burial_zana_influence_equipment_item_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "(15—25)% increased chance for Equipment Items dropped in your Maps to have Memory Strands",
+					"zh-TW": "在你的地圖中掉落的裝備物品具有記憶絲縷的機率增加 (15—25)%",
+					"zh-CN": "你地图内掉落的装备物品具有回忆束丝的几率提高 (15—25)%",
+					"ko": "지도에서 떨어지는 장비 아이템이 기억 가닥을 보유할 확률 (15—25)% 증가",
+					"ja": "マップでドロップする装備品がメモリーストランドを持つ確率が(15—25)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(15—25)% erhöhte Chance, dass in Euren Karten fallen gelassene Ausrüstungsgegenstände Erinnerungsstränge haben",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 350
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Burial"]
+	},
+	{
+		"id": "suffix_burial_zana_influence_map_item_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "(15—25)% increased chance for Maps found in your Maps to have Memory Influence",
+					"zh-TW": "在你的地圖中，掉落地圖具有記憶勢力的機率增加 (15—25)%",
+					"zh-CN": "你地图中找到的地图具有回忆影响的几率提高 (15—25)%",
+					"ko": "지도에서 발견하는 지도에 기억 영향력이 등장할 확률 (15—25)% 증가",
+					"ja": "マップで見つかるマップがメモリーインフルエンスを持つ確率が(15—25)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(15—25)% erhöhte Chance, dass gefundene Karten in Euren Karten Erinnerungseinfluss haben",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 350
+			}
+		],
+		"mechanic": "map",
 		"applicableIdols": ["Burial"]
 	},
 	{
@@ -21042,6 +21276,345 @@
 		"applicableIdols": ["Burial"]
 	},
 	{
+		"id": "prefix_burial_settlers_increased_chance",
+		"type": "prefix",
+		"name": {
+			"en": "Prospector's",
+			"zh-TW": "勘探者的",
+			"zh-CN": "Prospector's",
+			"ko": "채광가의",
+			"ja": "探鉱者の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "Des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps have (192—240)% increased chance to contain Ore Deposits",
+					"zh-TW": "你的地圖含有礦床的機率增加 (192—240)%",
+					"zh-CN": "地图内有矿脉的几率提高 (192—240)%",
+					"ko": "지도에 광맥이 등장할 확률 (192—240)% 증가",
+					"ja": "マップに鉱石の鉱床が出現する確率が(192—240)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten haben (192—240)% erhöhte Chance, Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 192,
+						"max": 240
+					}
+				],
+				"weight": 2000
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Burial"]
+	},
+	{
+		"id": "prefix_burial_settlers_additional_chance",
+		"type": "prefix",
+		"name": {
+			"en": "Prospector's",
+			"zh-TW": "勘探者的",
+			"zh-CN": "Prospector's",
+			"ko": "채광가의",
+			"ja": "探鉱者の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "Des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps have +(40—60)% chance to contain Ore Deposits",
+					"zh-TW": "你的地圖 +(40—60)% 機率含有礦床",
+					"zh-CN": "地图内有矿脉的几率 +(40—60)%",
+					"ko": "지도에 광맥이 등장할 확률 +(40—60)%",
+					"ja": "マップに鉱石の鉱床が出現する確率が+(40—60)%される",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten haben +(40—60)% Chance, Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 40,
+						"max": 60
+					}
+				],
+				"weight": 2000
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Burial"]
+	},
+	{
+		"id": "suffix_burial_settlers_second_ore_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps with Ore Deposits have (30—50)% increased chance to contain at least two Ore Deposits",
+					"zh-TW": "你的地圖含有礦床時， 含有至少兩個礦床的機率增加 (30—50)%",
+					"zh-CN": "你的包含矿脉的地图包含 至少两个矿脉的几率提高 (30—50)%",
+					"ko": "광맥이 있는 지도에 광맥이 2개 이상 등장할 확률 (30—50)% 증가",
+					"ja": "鉱石の鉱床の出現するマップは 少なくとも二個の鉱床が出現する確率が(30—50)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten mit Erzvorkommen haben (30—50)% erhöhte Chance, mindestens zwei Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 30,
+						"max": 50
+					}
+				],
+				"weight": 400
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Burial"]
+	},
+	{
+		"id": "suffix_burial_settlers_bismuth_additional_modifier_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Bismuth Ore Deposits in your Maps have (20—30)% chance to add an additional Modifier to Monsters they affect",
+					"zh-TW": "在你的地圖中，鉍礦床有 (20—30)% 機率 對其影響的怪物附加一個詞綴",
+					"zh-CN": "你地图中的铋矿矿脉有 (20—30)% 的几率 为受其影响的怪物额外增加一个词缀",
+					"ko": "지도 내 비스무트 광맥이 영향을 주는 몬스터에게 (20—30)% 확률로 속성 1개 추가",
+					"ja": "マップに出現するビスマスの鉱石は(20—30)%の確率で影響を与えたモンスターにモッドを追加で1個追加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Bismut-Erzvorkommen in Euren Karten haben (20—30)% Chance, Monstern, die sie beeinflussen, einen zusätzlichen Modifikator hinzuzufügen",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 20,
+						"max": 30
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Burial"]
+	},
+	{
+		"id": "suffix_burial_settlers_crimson_ore_additional_pods",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Crimson Iron Ore Deposits in your Maps are guarded by an additional Corrupted Growth",
+					"zh-TW": "在你的地圖中，緋紅鍛鐵礦床會受到 1 個額外汙染生長物看守",
+					"zh-CN": "你地图中的绯红铁矿矿脉被 1 个额外的腐化增生守卫",
+					"ko": "지도 내 진홍철 광맥을 추가 타락한 종양 1개가 방어",
+					"ja": "マップに出現するクリムゾンアイアンは穢れた成長追加で1体に守られている",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Blutrotes-Eisen-Erzvorkommen in Euren Karten werden von einem zusätzlichen Verderbten Wachstum bewacht",
+					"fr": "",
+					"es": ""
+				},
+				"values": [],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Burial"]
+	},
+	{
+		"id": "suffix_burial_settlers_orichalcum_ore_buff_duration",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Buffs granted by Orichalcum Ore Deposits in your Maps have (60—100)% increased Duration",
+					"zh-TW": "在你的地圖中，山銅礦床所賦予之增益效果的持續時間增加 (60—100)%",
+					"zh-CN": "你地图中的奥利哈刚矿脉提供的增益持续时间延长 (60—100)%",
+					"ko": "지도 내 오리칼쿰 광맥이 부여하는 버프의 지속시간 (60—100)% 증가",
+					"ja": "マップでオリハルコンの鉱石の鉱床により付与されたバフは持続時間が(60—100)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Von Oreichalkos-Erzvorkommen gewährte Stärkungen in Euren Karten haben (60—100)% verlängerte Dauer",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 100
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Burial"]
+	},
+	{
+		"id": "suffix_burial_settlers_amber_ore_tree_damage_taken",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Petrified Amber Ore Deposits in your Maps take (15—25)% reduced Damage",
+					"zh-TW": "在你的地圖中，石化琥珀礦床受到的傷害減少 (15—25)%",
+					"zh-CN": "你地图中石化琥珀矿脉受到的伤害降低 (15—25)%",
+					"ko": "지도 내 석화 호박 광맥이 받는 피해 (15—25)% 감소",
+					"ja": "マップに出現する石化琥珀の鉱石は受けるダメージが(15—25)%減少する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Amberium-Erzvorkommen in Euren Karten erleiden (15—25)% verringerten Schaden",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Burial"]
+	},
+	{
+		"id": "suffix_burial_settlers_verisium_ore_maximum_channel",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Verisium Ore Deposits in your Maps can be channelled on for (20—30)% longer",
+					"zh-TW": "在你的地圖中，維里西姆礦床可引導的時間增加 (20—30)%",
+					"zh-CN": "你地图中的维金矿脉的可吟唱时间延长 (20—30)%",
+					"ko": "지도 내 베리시움 광맥에 대한 집중 유지 시간 (20—30)% 연장",
+					"ja": "マップのヴェリジウムの鉱石の鉱床がチャネリングできる最大時間が(20—30)%長くなる",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Verisium-Erzvorkommen in Euren Karten können (20—30)% länger kanalisiert werden",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 20,
+						"max": 30
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Burial"]
+	},
+	{
 		"id": "prefix_burial_ritual_additional_chance",
 		"type": "prefix",
 		"name": {
@@ -21218,7 +21791,7 @@
 		"applicableIdols": ["Burial"]
 	},
 	{
-		"id": "suffix_burial_ritual_deferred_rewards_tribute_cost",
+		"id": "suffix_burial_ritual_vessel_from_final_encounter_chance",
 		"type": "suffix",
 		"name": {
 			"en": "of the Ritual",
@@ -21226,36 +21799,36 @@
 			"zh-CN": "仪式之",
 			"ko": "- 의식",
 			"ja": "リチュアルの",
-			"ru": "Ритуала",
-			"pt-BR": "do Ritual",
+			"ru": "",
+			"pt-BR": "",
 			"de": "des Rituals",
-			"fr": "du Rituel",
-			"es": "del ritual"
+			"fr": "",
+			"es": ""
 		},
 		"tiers": [
 			{
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Deferring Favours at Ritual Altars in your Maps costs (15—20)% reduced Tribute",
-					"zh-TW": "你地圖中在祭祀神壇延遲恩賜之物，減少 (15—20)% 貢禮消耗",
-					"zh-CN": "你地图中在驱灵祭坛延时恩典消耗的贡品降低 (15—20)%",
-					"ko": "지도 내 의식 제단에서 헌정품을 보류하는 데 소모되는 공물 점수 (15—20)% 감소",
-					"ja": "マップのリチュアルの祭壇で恩寵を繰り越すのに必要なトリビュートが(15—20)%減少する",
-					"ru": "(15—20)% снижение стоимости в дани откладывания наград на алтарях Ритуала на ваших картах",
-					"pt-BR": "Favores Adiados em Altares Ritualísticos em seus Mapas custam Tributo reduzido em (15—20)%",
-					"de": "Das Aufbewahren von Gaben in Ritual-Altären in Euren Karten kostet (15—20)% verringerten Tribut",
-					"fr": "Dans vos Cartes, les Faveurs Différées auprès des Autels de Rituel ont (15—20)% de Réduction du Tribut requis",
-					"es": "El costo de tributo para reservar favores en los altares de Ritual de tus mapas está reducido un (15—20)%"
+					"en": "Completing the final Ritual Altar in your Maps has (10—15)% chance to drop a Blood-filled Vessel",
+					"zh-TW": "完成你地圖中最後一個祭祀神壇，有 (10—15)% 機率掉落 1 個浸血碑器",
+					"zh-CN": "在地图内完成最终驱灵祭坛有 (10—15)% 的几率掉落一个浸血法器",
+					"ko": "지도 내 마지막 의식 제단을 완료하면 (10—15)%의 확률로 피 담긴 그릇이 떨어짐",
+					"ja": "マップで最後にリチュアルの祭壇を完了すると(10—15)%の確率で血で満たされた器がドロップする",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Das Abschließen des letzten Ritual-Altars in Euren Karten hat (10—15)% Chance, ein Blutgefülltes Gefäß fallen zu lassen",
+					"fr": "",
+					"es": ""
 				},
 				"values": [
 					{
-						"min": 15,
-						"max": 20
+						"min": 10,
+						"max": 15
 					}
 				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_1345835998"
+				"weight": 600,
+				"tradeStatId": "explicit.stat_3008766302"
 			}
 		],
 		"mechanic": "map",
@@ -21369,21 +21942,21 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "(8—12)% increased effect of Explicit Modifiers on your Maps",
-					"zh-TW": "增加 (8—12)% 你地圖上變動詞綴的效果",
-					"zh-CN": "你地图上外延词缀的效果提高 (8—12)%",
-					"ko": "지도에 적용되는 비고정 속성의 효과 (8—12)% 증가",
-					"ja": "マップに対する明示モッドの効果が(8—12)%増加する",
-					"ru": "(8—12)% усиление эффекта добавленных свойств на ваших картах",
-					"pt-BR": "Efeito dos Modificadores Explícitos em seus Mapas aumentada em (8—12)%",
-					"de": "(8—12)% erhöhte Wirkung von expliziten Modifikatoren auf Euren Karten",
-					"fr": "Les Modificateurs Explicites de vos Cartes ont (8—12)% d'Augmentation d'Effet",
-					"es": "Efecto de los modificadores explícitos de tus mapas aumentado un (8—12)%"
+					"en": "(6—9)% increased effect of Explicit Modifiers on your Maps",
+					"zh-TW": "增加 (6—9)% 你地圖上變動詞綴的效果",
+					"zh-CN": "你地图上外延词缀的效果提高 (6—9)%",
+					"ko": "지도에 적용되는 비고정 속성의 효과 (6—9)% 증가",
+					"ja": "マップに対する明示モッドの効果が(6—9)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(6—9)% erhöhte Wirkung von expliziten Modifikatoren auf Euren Karten",
+					"fr": "",
+					"es": ""
 				},
 				"values": [
 					{
-						"min": 8,
-						"max": 12
+						"min": 6,
+						"max": 9
 					}
 				],
 				"weight": 1000,
@@ -22660,7 +23233,7 @@
 					"ja": "捕獲可能なビーストがいるマップには黄ビーストが追加で(3—4)体出現する",
 					"ru": "На ваших картах со зверями можно встретить дополнительных желтых зверей: (3—4)",
 					"pt-BR": "Seus Mapas contendo Bestas capturáveis contêm (3—4) Bestas Amarelas adicionais",
-					"de": "Eure Karten, die Bestien enthalten, enthalten (3—4) zusätzliche gelbe Bestien",
+					"de": "Eure Karten, die einfangbare Bestien enthalten, enthalten (3—4) zusätzliche gelbe Bestien",
 					"fr": "Vos Cartes contenant des Bêtes capturables contiennent (3—4) Bêtes jaunes supplémentaires",
 					"es": "Tus mapas que contienen bestias capturables contienen (3—4) bestias amarillas adicionales"
 				},
@@ -23338,382 +23911,6 @@
 		"applicableIdols": ["Totemic"]
 	},
 	{
-		"id": "prefix_totemic_breach_additional_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps have +(40—60)% chance to contain Breaches",
-					"zh-TW": "你的地圖 +(40—60)% 機率含有裂痕",
-					"zh-CN": "地图内有裂隙的几率 +(40—60)%",
-					"ko": "지도에 균열이 등장할 확률 +(40—60)%",
-					"ja": "マップには+(40—60)%の確率でブリーチが出現する",
-					"ru": "На ваших картах с +(40—60)% шансом можно встретить Разломы",
-					"pt-BR": "Seus Mapas têm +(40—60)% de chance de conter Fendas",
-					"de": "Eure Karten haben +(40—60)% Chance, Risse zu enthalten",
-					"fr": "Vos Cartes ont +(40—60)% de chances de contenir des Brèches",
-					"es": "Tus mapas tienen +(40—60)% de probabilidad de contener fisuras"
-				},
-				"values": [
-					{
-						"min": 40,
-						"max": 60
-					}
-				],
-				"weight": 1200,
-				"tradeStatId": "explicit.stat_1133841298"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Totemic"]
-	},
-	{
-		"id": "prefix_totemic_breach_increased_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps have (192—240)% increased chance to contain a Breach",
-					"zh-TW": "你的地圖增加 (192—240)% 機率含有 1 個裂痕",
-					"zh-CN": "地图内有裂隙的几率提高 (192—240)%",
-					"ko": "지도에 균열이 등장할 확률 (192—240)% 증가",
-					"ja": "マップにブリーチが出現する確率が(192—240)%増加する",
-					"ru": "На ваших картах с увеличенным на (192—240)% шансом можно встретить Разлом",
-					"pt-BR": "Seus Mapas têm chance de conter uma Fenda aumentada em (192—240)%",
-					"de": "Eure Karten haben (192—240)% erhöhte Chance, einen Riss zu enthalten",
-					"fr": "Vos Cartes ont (192—240)% d'Augmentation de chances de contenir une Brèche",
-					"es": "Tus mapas tienen la probabilidad de contener una fisura aumentada un (192—240)%"
-				},
-				"values": [
-					{
-						"min": 192,
-						"max": 240
-					}
-				],
-				"weight": 2000,
-				"tradeStatId": "explicit.stat_2372432713"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Totemic"]
-	},
-	{
-		"id": "suffix_totemic_breach_boss_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (35—45)% increased chance to contain a Boss",
-					"zh-TW": "你地圖中的裂痕增加 (35—45)% 機率含有 1 個頭目",
-					"zh-CN": "地图内裂隙包含首领的几率提高 (35—45)%",
-					"ko": "지도 내 균열에 보스가 등장할 확률 (35—45)% 증가",
-					"ja": "マップに出現するブリーチにボスが含まれる確率が(35—45)%増加する",
-					"ru": "(35—45)% увеличение шанса встретить босса в Разломах",
-					"pt-BR": "Fendas em seus Mapas têm chance de conterem um chefe aumentada em (35—45)%",
-					"de": "Risse in Euren Karten haben (35—45)% erhöhte Chance, einen Boss zu enthalten",
-					"fr": "Dans vos Cartes, les Brèches ont (35—45)% de chances de contenir un Boss",
-					"es": "Las fisuras de tus mapas tienen la probabilidad de contener un jefe aumentada un (35—45)%"
-				},
-				"values": [
-					{
-						"min": 35,
-						"max": 45
-					}
-				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_2433436306"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Totemic"]
-	},
-	{
-		"id": "suffix_totemic_breach_boss_flawless_breachstone_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breachstones dropped by Breach Bosses in your Maps have (3—5)% chance to be Flawless",
-					"zh-TW": "你地圖中裂痕頭目掉落的裂痕石有 (3—5)% 機率為無暇的",
-					"zh-CN": "你地图中的裂隙首领掉落的裂隙石有 (3—5)% 几率变为无暇的",
-					"ko": "지도 내 균열 보스가 떨어뜨린 균열석이 결함 없는 균열석일 확률 (3—5)%",
-					"ja": "マップに出現するブリーチボスがドロップするブリーチストーンは(3—5)%の確率で極限ブリーチストーンになる",
-					"ru": "Камни Разлома, выпадающие из боссов Разлома на ваших картах, с (3—5)% шансом могут оказаться безупречными",
-					"pt-BR": "Pedras de Fenda derrubadas por Chefes de Fendas em seus Mapas têm (3—5)% de chance de serem Impecáveis",
-					"de": "Von Riss-Bossen fallen gelassene Riss-Steine in Euren Karten haben (3—5)% Chance, makellos zu sein",
-					"fr": "Dans vos Cartes, les Pierres de Brèche cédées par les Boss de Brèche ont (3—5)% de chances d'être Parfaites",
-					"es": "Las piedras de fisura que arrojan los jefes de fisura de tus mapas tienen un (3—5)% de probabilidad de ser perfectas"
-				},
-				"values": [
-					{
-						"min": 3,
-						"max": 5
-					}
-				],
-				"weight": 200,
-				"tradeStatId": "explicit.stat_1940017254"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Totemic"]
-	},
-	{
-		"id": "suffix_totemic_breach_speed",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps open and close (6—10)% faster",
-					"zh-TW": "你地圖中的裂痕開啟和關閉比平常快 (6—10)%",
-					"zh-CN": "地图内裂隙开合的速度加快 (6—10)%",
-					"ko": "지도 내 균열이 (6—10)% 더 빠르게 열리고 닫힘",
-					"ja": "マップに出現するブリーチが開く速度および閉じる速度が(6—10)%速くなる",
-					"ru": "Разломы открываются и закрываются на (6—10)% быстрее",
-					"pt-BR": "Fendas em seus Mapas abrem e fecham (6—10)% mais rápido",
-					"de": "Risse in Euren Karten öffnen und schließen sich (6—10)% schneller",
-					"fr": "Dans vos Cartes, les Brèches s'ouvrent et se ferment (6—10)% plus rapidement",
-					"es": "Las fisuras de tus mapas se abren y se cierran un (6—10)% más rápido"
-				},
-				"values": [
-					{
-						"min": 6,
-						"max": 10
-					}
-				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_2504358770"
-			},
-			{
-				"tier": 2,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps open and close (20—30)% slower",
-					"zh-TW": "你地圖中的裂痕開啟和關閉比平常慢 (20—30)%",
-					"zh-CN": "地图内裂隙开合的速度减慢 (20—30)%",
-					"ko": "지도 내 균열이 (20—30)% 더 느리게 열리고 닫힘",
-					"ja": "マップに出現するブリーチが開く速度および閉じる速度が(20—30)%遅くなる",
-					"ru": "Разломы открываются и закрываются на (20—30)% медленнее",
-					"pt-BR": "Fendas em seus Mapas abrem e fecham (20—30)% mais lentamente",
-					"de": "Risse in Euren Karten öffnen und schließen sich (20—30)% langsamer",
-					"fr": "Dans vos Cartes, les Brèches s'ouvrent et se ferment (20—30)% plus lentement",
-					"es": "Las fisuras de tus mapas se abren y se cierran un (20—30)% más despacio"
-				},
-				"values": [
-					{
-						"min": 20,
-						"max": 30
-					}
-				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_2504358770"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Totemic"]
-	},
-	{
-		"id": "prefix_totemic_breach_three_additional_breach_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps which contain Breaches have (5—10)% chance to contain three additional Breaches",
-					"zh-TW": "你含有裂痕的地圖有 (5—10)% 機率含有 3 個額外裂痕",
-					"zh-CN": "你包含裂隙的地图有 (5—10)% 几率包含三个额外的裂隙",
-					"ko": "균열이 등장하는 지도에 (5—10)%의 확률로 균열 3개 추가 등장",
-					"ja": "ブリーチの出現するマップには(5—10)%の確率でブリーチが追加で3個出現する",
-					"ru": "На ваших картах, содержащих Разломы, с (5—10)% шансом можно встретить три дополнительных Разлома",
-					"pt-BR": "Seus Mapas que contêm Fendas têm (5—10)% de chance de conterem três Fendas adicionais",
-					"de": "Eure Karten, die Risse enthalten, haben (5—10)% Chance, drei zusätzliche Risse zu enthalten",
-					"fr": "Vos Cartes qui contiennent des Brèches ont (5—10)% de chances de contenir trois Brèches supplémentaires",
-					"es": "Tus mapas que contienen fisuras tienen un (5—10)% de probabilidad de contener tres fisuras adicionales"
-				},
-				"values": [
-					{
-						"min": 5,
-						"max": 10
-					}
-				],
-				"weight": 800,
-				"tradeStatId": "explicit.stat_2440265466"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Totemic"]
-	},
-	{
-		"id": "suffix_totemic_breach_super_chest_spawn_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (10—15)% chance to contain a Hand of Xesht-Ula",
-					"zh-TW": "你地圖中的裂痕有 (10—15)% 機率含有 1 隻烈許烏拉之手",
-					"zh-CN": "地图内裂隙有 (10—15)% 的几率有一个薛乌勒之手",
-					"ko": "지도 내 균열에 (10—15)%의 확률로 제쉬트-울라의 손 등장",
-					"ja": "マップに出現するブリーチは(10—15)%の確率でゼシュト・ウラの手が出現する",
-					"ru": "Разломы на ваших картах с (10—15)% шансом могут содержать Руку Ксешт-Ула",
-					"pt-BR": "Fendas em seus Mapas têm (10—15)% de chance de conter uma Mão de Xesht-Ula",
-					"de": "Risse in Euren Karten haben (10—15)% Chance, eine Hand von Xesht-Ula zu enthalten",
-					"fr": "Dans vos Cartes, les Brèches ont (10—15)% de chances de contenir une Main de Xesht-Ula",
-					"es": "Las fisuras de tus mapas tienen un (10—15)% de probabilidad de contener un puño de Xesht-Ula"
-				},
-				"values": [
-					{
-						"min": 10,
-						"max": 15
-					}
-				],
-				"weight": 300,
-				"tradeStatId": "explicit.stat_3366450262"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Totemic"]
-	},
-	{
-		"id": "suffix_totemic_breach_monster_density",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (8—12)% increased Monster density",
-					"zh-TW": "你地圖中的裂痕增加 (8—12)% 怪物密度",
-					"zh-CN": "地图内裂隙的怪物密集度提高 (8—12)%",
-					"ko": "지도 내 균열의 몬스터 밀집도 (8—12)% 증가",
-					"ja": "マップに出現するブリーチのモンスター密度が(8—12)%増加する",
-					"ru": "(8—12)% увеличение кучности монстров в Разломах",
-					"pt-BR": "Fendas em seus Mapas têm densidade de Monstros aumentada em (8—12)%",
-					"de": "Risse in Euren Karten haben (8—12)% erhöhte Monsterdichte",
-					"fr": "Dans vos Cartes, les Brèches ont (8—12)% d'Augmentation de Densité monstres",
-					"es": "Las fisuras de tus mapas tienen la densidad de monstruos aumentada un (8—12)%"
-				},
-				"values": [
-					{
-						"min": 8,
-						"max": 12
-					}
-				],
-				"weight": 300,
-				"tradeStatId": "explicit.stat_1210760818"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Totemic"]
-	},
-	{
 		"id": "suffix_totemic_cleansing_fire_altar_spawn_chance_on_influence_appearance",
 		"type": "suffix",
 		"name": {
@@ -24366,6 +24563,92 @@
 			}
 		],
 		"mechanic": "conqueror",
+		"applicableIdols": ["Totemic"]
+	},
+	{
+		"id": "suffix_totemic_zana_influence_equipment_item_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "(15—25)% increased chance for Equipment Items dropped in your Maps to have Memory Strands",
+					"zh-TW": "在你的地圖中掉落的裝備物品具有記憶絲縷的機率增加 (15—25)%",
+					"zh-CN": "你地图内掉落的装备物品具有回忆束丝的几率提高 (15—25)%",
+					"ko": "지도에서 떨어지는 장비 아이템이 기억 가닥을 보유할 확률 (15—25)% 증가",
+					"ja": "マップでドロップする装備品がメモリーストランドを持つ確率が(15—25)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(15—25)% erhöhte Chance, dass in Euren Karten fallen gelassene Ausrüstungsgegenstände Erinnerungsstränge haben",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 350
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Totemic"]
+	},
+	{
+		"id": "suffix_totemic_zana_influence_map_item_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "(15—25)% increased chance for Maps found in your Maps to have Memory Influence",
+					"zh-TW": "在你的地圖中，掉落地圖具有記憶勢力的機率增加 (15—25)%",
+					"zh-CN": "你地图中找到的地图具有回忆影响的几率提高 (15—25)%",
+					"ko": "지도에서 발견하는 지도에 기억 영향력이 등장할 확률 (15—25)% 증가",
+					"ja": "マップで見つかるマップがメモリーインフルエンスを持つ確率が(15—25)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(15—25)% erhöhte Chance, dass gefundene Karten in Euren Karten Erinnerungseinfluss haben",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 350
+			}
+		],
+		"mechanic": "map",
 		"applicableIdols": ["Totemic"]
 	},
 	{
@@ -26695,6 +26978,345 @@
 		"applicableIdols": ["Totemic"]
 	},
 	{
+		"id": "prefix_totemic_settlers_increased_chance",
+		"type": "prefix",
+		"name": {
+			"en": "Prospector's",
+			"zh-TW": "勘探者的",
+			"zh-CN": "Prospector's",
+			"ko": "채광가의",
+			"ja": "探鉱者の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "Des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps have (192—240)% increased chance to contain Ore Deposits",
+					"zh-TW": "你的地圖含有礦床的機率增加 (192—240)%",
+					"zh-CN": "地图内有矿脉的几率提高 (192—240)%",
+					"ko": "지도에 광맥이 등장할 확률 (192—240)% 증가",
+					"ja": "マップに鉱石の鉱床が出現する確率が(192—240)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten haben (192—240)% erhöhte Chance, Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 192,
+						"max": 240
+					}
+				],
+				"weight": 2000
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Totemic"]
+	},
+	{
+		"id": "prefix_totemic_settlers_additional_chance",
+		"type": "prefix",
+		"name": {
+			"en": "Prospector's",
+			"zh-TW": "勘探者的",
+			"zh-CN": "Prospector's",
+			"ko": "채광가의",
+			"ja": "探鉱者の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "Des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps have +(40—60)% chance to contain Ore Deposits",
+					"zh-TW": "你的地圖 +(40—60)% 機率含有礦床",
+					"zh-CN": "地图内有矿脉的几率 +(40—60)%",
+					"ko": "지도에 광맥이 등장할 확률 +(40—60)%",
+					"ja": "マップに鉱石の鉱床が出現する確率が+(40—60)%される",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten haben +(40—60)% Chance, Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 40,
+						"max": 60
+					}
+				],
+				"weight": 2000
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Totemic"]
+	},
+	{
+		"id": "suffix_totemic_settlers_second_ore_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps with Ore Deposits have (30—50)% increased chance to contain at least two Ore Deposits",
+					"zh-TW": "你的地圖含有礦床時， 含有至少兩個礦床的機率增加 (30—50)%",
+					"zh-CN": "你的包含矿脉的地图包含 至少两个矿脉的几率提高 (30—50)%",
+					"ko": "광맥이 있는 지도에 광맥이 2개 이상 등장할 확률 (30—50)% 증가",
+					"ja": "鉱石の鉱床の出現するマップは 少なくとも二個の鉱床が出現する確率が(30—50)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten mit Erzvorkommen haben (30—50)% erhöhte Chance, mindestens zwei Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 30,
+						"max": 50
+					}
+				],
+				"weight": 400
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Totemic"]
+	},
+	{
+		"id": "suffix_totemic_settlers_bismuth_additional_modifier_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Bismuth Ore Deposits in your Maps have (20—30)% chance to add an additional Modifier to Monsters they affect",
+					"zh-TW": "在你的地圖中，鉍礦床有 (20—30)% 機率 對其影響的怪物附加一個詞綴",
+					"zh-CN": "你地图中的铋矿矿脉有 (20—30)% 的几率 为受其影响的怪物额外增加一个词缀",
+					"ko": "지도 내 비스무트 광맥이 영향을 주는 몬스터에게 (20—30)% 확률로 속성 1개 추가",
+					"ja": "マップに出現するビスマスの鉱石は(20—30)%の確率で影響を与えたモンスターにモッドを追加で1個追加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Bismut-Erzvorkommen in Euren Karten haben (20—30)% Chance, Monstern, die sie beeinflussen, einen zusätzlichen Modifikator hinzuzufügen",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 20,
+						"max": 30
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Totemic"]
+	},
+	{
+		"id": "suffix_totemic_settlers_crimson_ore_additional_pods",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Crimson Iron Ore Deposits in your Maps are guarded by an additional Corrupted Growth",
+					"zh-TW": "在你的地圖中，緋紅鍛鐵礦床會受到 1 個額外汙染生長物看守",
+					"zh-CN": "你地图中的绯红铁矿矿脉被 1 个额外的腐化增生守卫",
+					"ko": "지도 내 진홍철 광맥을 추가 타락한 종양 1개가 방어",
+					"ja": "マップに出現するクリムゾンアイアンは穢れた成長追加で1体に守られている",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Blutrotes-Eisen-Erzvorkommen in Euren Karten werden von einem zusätzlichen Verderbten Wachstum bewacht",
+					"fr": "",
+					"es": ""
+				},
+				"values": [],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Totemic"]
+	},
+	{
+		"id": "suffix_totemic_settlers_orichalcum_ore_buff_duration",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Buffs granted by Orichalcum Ore Deposits in your Maps have (60—100)% increased Duration",
+					"zh-TW": "在你的地圖中，山銅礦床所賦予之增益效果的持續時間增加 (60—100)%",
+					"zh-CN": "你地图中的奥利哈刚矿脉提供的增益持续时间延长 (60—100)%",
+					"ko": "지도 내 오리칼쿰 광맥이 부여하는 버프의 지속시간 (60—100)% 증가",
+					"ja": "マップでオリハルコンの鉱石の鉱床により付与されたバフは持続時間が(60—100)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Von Oreichalkos-Erzvorkommen gewährte Stärkungen in Euren Karten haben (60—100)% verlängerte Dauer",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 60,
+						"max": 100
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Totemic"]
+	},
+	{
+		"id": "suffix_totemic_settlers_amber_ore_tree_damage_taken",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Petrified Amber Ore Deposits in your Maps take (15—25)% reduced Damage",
+					"zh-TW": "在你的地圖中，石化琥珀礦床受到的傷害減少 (15—25)%",
+					"zh-CN": "你地图中石化琥珀矿脉受到的伤害降低 (15—25)%",
+					"ko": "지도 내 석화 호박 광맥이 받는 피해 (15—25)% 감소",
+					"ja": "マップに出現する石化琥珀の鉱石は受けるダメージが(15—25)%減少する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Amberium-Erzvorkommen in Euren Karten erleiden (15—25)% verringerten Schaden",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 15,
+						"max": 25
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Totemic"]
+	},
+	{
+		"id": "suffix_totemic_settlers_verisium_ore_maximum_channel",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Verisium Ore Deposits in your Maps can be channelled on for (20—30)% longer",
+					"zh-TW": "在你的地圖中，維里西姆礦床可引導的時間增加 (20—30)%",
+					"zh-CN": "你地图中的维金矿脉的可吟唱时间延长 (20—30)%",
+					"ko": "지도 내 베리시움 광맥에 대한 집중 유지 시간 (20—30)% 연장",
+					"ja": "マップのヴェリジウムの鉱石の鉱床がチャネリングできる最大時間が(20—30)%長くなる",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Verisium-Erzvorkommen in Euren Karten können (20—30)% länger kanalisiert werden",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 20,
+						"max": 30
+					}
+				],
+				"weight": 200
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Totemic"]
+	},
+	{
 		"id": "prefix_totemic_ritual_additional_chance",
 		"type": "prefix",
 		"name": {
@@ -26871,7 +27493,7 @@
 		"applicableIdols": ["Totemic"]
 	},
 	{
-		"id": "suffix_totemic_ritual_deferred_rewards_tribute_cost",
+		"id": "suffix_totemic_ritual_vessel_from_final_encounter_chance",
 		"type": "suffix",
 		"name": {
 			"en": "of the Ritual",
@@ -26879,36 +27501,36 @@
 			"zh-CN": "仪式之",
 			"ko": "- 의식",
 			"ja": "リチュアルの",
-			"ru": "Ритуала",
-			"pt-BR": "do Ritual",
+			"ru": "",
+			"pt-BR": "",
 			"de": "des Rituals",
-			"fr": "du Rituel",
-			"es": "del ritual"
+			"fr": "",
+			"es": ""
 		},
 		"tiers": [
 			{
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Deferring Favours at Ritual Altars in your Maps costs (15—20)% reduced Tribute",
-					"zh-TW": "你地圖中在祭祀神壇延遲恩賜之物，減少 (15—20)% 貢禮消耗",
-					"zh-CN": "你地图中在驱灵祭坛延时恩典消耗的贡品降低 (15—20)%",
-					"ko": "지도 내 의식 제단에서 헌정품을 보류하는 데 소모되는 공물 점수 (15—20)% 감소",
-					"ja": "マップのリチュアルの祭壇で恩寵を繰り越すのに必要なトリビュートが(15—20)%減少する",
-					"ru": "(15—20)% снижение стоимости в дани откладывания наград на алтарях Ритуала на ваших картах",
-					"pt-BR": "Favores Adiados em Altares Ritualísticos em seus Mapas custam Tributo reduzido em (15—20)%",
-					"de": "Das Aufbewahren von Gaben in Ritual-Altären in Euren Karten kostet (15—20)% verringerten Tribut",
-					"fr": "Dans vos Cartes, les Faveurs Différées auprès des Autels de Rituel ont (15—20)% de Réduction du Tribut requis",
-					"es": "El costo de tributo para reservar favores en los altares de Ritual de tus mapas está reducido un (15—20)%"
+					"en": "Completing the final Ritual Altar in your Maps has (10—15)% chance to drop a Blood-filled Vessel",
+					"zh-TW": "完成你地圖中最後一個祭祀神壇，有 (10—15)% 機率掉落 1 個浸血碑器",
+					"zh-CN": "在地图内完成最终驱灵祭坛有 (10—15)% 的几率掉落一个浸血法器",
+					"ko": "지도 내 마지막 의식 제단을 완료하면 (10—15)%의 확률로 피 담긴 그릇이 떨어짐",
+					"ja": "マップで最後にリチュアルの祭壇を完了すると(10—15)%の確率で血で満たされた器がドロップする",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Das Abschließen des letzten Ritual-Altars in Euren Karten hat (10—15)% Chance, ein Blutgefülltes Gefäß fallen zu lassen",
+					"fr": "",
+					"es": ""
 				},
 				"values": [
 					{
-						"min": 15,
-						"max": 20
+						"min": 10,
+						"max": 15
 					}
 				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_1345835998"
+				"weight": 600,
+				"tradeStatId": "explicit.stat_3008766302"
 			}
 		],
 		"mechanic": "map",
@@ -27022,21 +27644,21 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "(8—12)% increased effect of Explicit Modifiers on your Maps",
-					"zh-TW": "增加 (8—12)% 你地圖上變動詞綴的效果",
-					"zh-CN": "你地图上外延词缀的效果提高 (8—12)%",
-					"ko": "지도에 적용되는 비고정 속성의 효과 (8—12)% 증가",
-					"ja": "マップに対する明示モッドの効果が(8—12)%増加する",
-					"ru": "(8—12)% усиление эффекта добавленных свойств на ваших картах",
-					"pt-BR": "Efeito dos Modificadores Explícitos em seus Mapas aumentada em (8—12)%",
-					"de": "(8—12)% erhöhte Wirkung von expliziten Modifikatoren auf Euren Karten",
-					"fr": "Les Modificateurs Explicites de vos Cartes ont (8—12)% d'Augmentation d'Effet",
-					"es": "Efecto de los modificadores explícitos de tus mapas aumentado un (8—12)%"
+					"en": "(6—9)% increased effect of Explicit Modifiers on your Maps",
+					"zh-TW": "增加 (6—9)% 你地圖上變動詞綴的效果",
+					"zh-CN": "你地图上外延词缀的效果提高 (6—9)%",
+					"ko": "지도에 적용되는 비고정 속성의 효과 (6—9)% 증가",
+					"ja": "マップに対する明示モッドの効果が(6—9)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(6—9)% erhöhte Wirkung von expliziten Modifikatoren auf Euren Karten",
+					"fr": "",
+					"es": ""
 				},
 				"values": [
 					{
-						"min": 8,
-						"max": 12
+						"min": 6,
+						"max": 9
 					}
 				],
 				"weight": 1000,
@@ -29277,313 +29899,6 @@
 		"applicableIdols": ["Conqueror"]
 	},
 	{
-		"id": "prefix_conqueror_breach_additional_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps have +(45—70)% chance to contain Breaches",
-					"zh-TW": "你的地圖 +(45—70)% 機率含有裂痕",
-					"zh-CN": "地图内有裂隙的几率 +(45—70)%",
-					"ko": "지도에 균열이 등장할 확률 +(45—70)%",
-					"ja": "マップには+(45—70)%の確率でブリーチが出現する",
-					"ru": "На ваших картах с +(45—70)% шансом можно встретить Разломы",
-					"pt-BR": "Seus Mapas têm +(45—70)% de chance de conter Fendas",
-					"de": "Eure Karten haben +(45—70)% Chance, Risse zu enthalten",
-					"fr": "Vos Cartes ont +(45—70)% de chances de contenir des Brèches",
-					"es": "Tus mapas tienen +(45—70)% de probabilidad de contener fisuras"
-				},
-				"values": [
-					{
-						"min": 45,
-						"max": 70
-					}
-				],
-				"weight": 1600,
-				"tradeStatId": "explicit.stat_1133841298"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Conqueror"]
-	},
-	{
-		"id": "prefix_conqueror_breach_increased_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps have (224—280)% increased chance to contain a Breach",
-					"zh-TW": "你的地圖增加 (224—280)% 機率含有 1 個裂痕",
-					"zh-CN": "地图内有裂隙的几率提高 (224—280)%",
-					"ko": "지도에 균열이 등장할 확률 (224—280)% 증가",
-					"ja": "マップにブリーチが出現する確率が(224—280)%増加する",
-					"ru": "На ваших картах с увеличенным на (224—280)% шансом можно встретить Разлом",
-					"pt-BR": "Seus Mapas têm chance de conter uma Fenda aumentada em (224—280)%",
-					"de": "Eure Karten haben (224—280)% erhöhte Chance, einen Riss zu enthalten",
-					"fr": "Vos Cartes ont (224—280)% d'Augmentation de chances de contenir une Brèche",
-					"es": "Tus mapas tienen la probabilidad de contener una fisura aumentada un (224—280)%"
-				},
-				"values": [
-					{
-						"min": 224,
-						"max": 280
-					}
-				],
-				"weight": 2000,
-				"tradeStatId": "explicit.stat_2372432713"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Conqueror"]
-	},
-	{
-		"id": "suffix_conqueror_breach_boss_breachstone_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breach Bosses Defeated in your Maps have (3—5)% chance to drop a Breachstone",
-					"zh-TW": "你地圖中被擊敗的裂痕頭目有 (3—5)% 機率掉落 1 顆裂痕石",
-					"zh-CN": "在地图内被击败的裂隙首领有 (3—5)% 的几率掉落一个裂隙石",
-					"ko": "지도 내 처치당한 균열 보스가 (3—5)%의 확률로 균열석을 떨어뜨림",
-					"ja": "マップで倒したブリーチボスは(3—5)%の確率でブリーチストーンをドロップする",
-					"ru": "Из побежденных Боссов Разлома с (3—5)% шансом может выпасть камень Разлома",
-					"pt-BR": "Chefes de Fendas Derrotados em seus Mapas têm (3—5)% de chance de derrubarem uma Pedra de Fenda",
-					"de": "Besiegte Riss-Bosse in Euren Karten haben (3—5)% Chance, einen Riss-Stein fallen zu lassen",
-					"fr": "Dans vos Cartes, les Boss de Brèche vaincus ont (3—5)% de chances de céder une Pierre de Brèche",
-					"es": "Los jefes de las fisuras derrotados en tus mapas tienen un (3—5)% de probabilidad de arrojar una piedra de fisura"
-				},
-				"values": [
-					{
-						"min": 3,
-						"max": 5
-					}
-				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_988187710"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Conqueror"]
-	},
-	{
-		"id": "suffix_conqueror_breach_additional_chests",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps contain (2—3) additional Clasped Hands",
-					"zh-TW": "你地圖中的裂痕含有 (2—3) 個額外抑制之手",
-					"zh-CN": "地图中有(2—3) 个额外紧握之手",
-					"ko": "지도 내 균열에 움켜잡는 손 (2—3)개 추가 등장",
-					"ja": "マップに出現するブリーチには閉じた手が追加で(2—3)個出現する",
-					"ru": "Разломы содержат дополнительных особых сундуков: (2—3)",
-					"pt-BR": "Fendas em seus Mapas contêm (2—3) Punhos Fechados adicionais",
-					"de": "Risse in Euren Karten enthalten (2—3) zusätzliche klammernde Hände",
-					"fr": "Dans vos Cartes, les Brèches contiennent (2—3) Poings serrés supplémentaires",
-					"es": "Las fisuras de tus mapas contienen (2—3) Puños cerrados adicionales"
-				},
-				"values": [
-					{
-						"min": 2,
-						"max": 3
-					}
-				],
-				"weight": 800
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Conqueror"]
-	},
-	{
-		"id": "prefix_conqueror_breach_ten_additional_breach_chance",
-		"type": "prefix",
-		"name": {
-			"en": "Breachlord's",
-			"zh-TW": "裂痕王的",
-			"zh-CN": "裂隙领主的",
-			"ko": "균열 군주의",
-			"ja": "ブリーチロードの",
-			"ru": "<if:MS>{Повелительский}<elif:FS>{Повелительская}<elif:NS>{Повелительское}<elif:MP>{Повелительские}<elif:FP>{Повелительские}<elif:NP>{Повелительские}",
-			"pt-BR": "de Lorde da Fenda",
-			"de": "Des Rissfürsten",
-			"fr": "du Seigneur de Brèche",
-			"es": "del señor de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Your Maps which contain Breaches have (1—2)% chance to contain ten additional Breaches",
-					"zh-TW": "你含有裂痕的地圖有 (1—2)% 機率含有 10 個額外裂痕",
-					"zh-CN": "你包含裂隙的地图有 (1—2)% 几率包含十个额外的裂隙",
-					"ko": "균열이 등장하는 지도에 (1—2)%의 확률로 균열 10개 추가 등장",
-					"ja": "ブリーチの出現するマップには(1—2)%の確率でブリーチが追加で10個出現する",
-					"ru": "На ваших картах, содержащих Разломы, с (1—2)% шансом можно встретить десять дополнительных Разломов",
-					"pt-BR": "Seus Mapas que contém Fendas têm (1—2)% de chance de conter dez Fendas adicionais",
-					"de": "Eure Karten, die Risse enthalten, haben (1—2)% Chance, zehn zusätzliche Risse zu enthalten",
-					"fr": "Vos Cartes qui contiennent des Brèches ont (1—2)% de chances de contenir dix Brèches supplémentaires",
-					"es": "Tus mapas que contienen fisuras tienen un (1—2)% de probabilidad de contener diez fisuras adicionales"
-				},
-				"values": [
-					{
-						"min": 1,
-						"max": 2
-					}
-				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_2714721644"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Conqueror"]
-	},
-	{
-		"id": "suffix_conqueror_breach_super_boss_spawn_chance",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breaches in your Maps have (2—3)% chance to contain Xesht-Ula, the Open Hand",
-					"zh-TW": "你地圖中的裂痕有 (2—3)% 機率含有佈施者．烈許烏拉",
-					"zh-CN": "地图内裂隙有 (2—3)% 的几率有开放之手薛乌勒",
-					"ko": "지도 내 균열에 (2—3)%의 확률로 펼쳐진 손 제쉬트-울라 등장",
-					"ja": "マップに出現するブリーチは(2—3)%の確率で開きし手ゼシュト・ウラが出現する",
-					"ru": "В Разломах на ваших картах с (2—3)% шансом можно встретить Ксешт-Ула, Открытую руку",
-					"pt-BR": "Fendas em seus Mapas têm (2—3)% de chance de conter Xesht-Ula, o Mão Aberta",
-					"de": "Risse in Euren Karten haben (2—3)% Chance, Xesht-Ula, die offene Hand zu enthalten",
-					"fr": "Dans vos Cartes, les Brèches ont (2—3)% de chances de contenir Xesht-Ula, la Main ouverte",
-					"es": "Las fisuras de tus mapas tienen un (2—3)% de probabilidad de contener a Xesht-Ula, la Mano abierta"
-				},
-				"values": [
-					{
-						"min": 2,
-						"max": 3
-					}
-				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_1601064200"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Conqueror"]
-	},
-	{
-		"id": "suffix_conqueror_breach_breachloard_spawn_chance_on_large_chest_open",
-		"type": "suffix",
-		"name": {
-			"en": "of the Breach",
-			"zh-TW": "裂痕之",
-			"zh-CN": "裂隙之",
-			"ko": "- 균열",
-			"ja": "ブリーチの",
-			"ru": "Разлома",
-			"pt-BR": "da Fenda",
-			"de": "des Risses",
-			"fr": "de la Brèche",
-			"es": "de la fisura"
-		},
-		"tiers": [
-			{
-				"tier": 1,
-				"levelReq": 68,
-				"text": {
-					"en": "Breach Boss' Clasped Hands in your Maps have (3—5)% chance to spawn a Breach Boss when opened",
-					"zh-TW": "你地圖中的抑制之手開啟時，有 (3—5)% 機率產生 1 個裂痕頭目",
-					"zh-CN": "你地图中裂隙首领的紧握之手有 (3—5)% 几率在打开时产生一个裂隙首领",
-					"ko": "지도 내 균열 보스의 움켜잡는 손을 열었을 때 (3—5)%의 확률로 균열 보스 1마리 생성",
-					"ja": "マップに出現するブリーチボスの閉じた手は(3—5)%の確率で開いた時にブリーチボスをスポーンさせる",
-					"ru": "Сокровища Повелителей Разлома на ваших картах с (3—5)% шансом могут породить босса Разлома при открытии",
-					"pt-BR": "Punhos Fechados de Chefes de Fendas em seus Mapas têm (3—5)% de chance de criarem um Chefe de Fenda quando abertos",
-					"de": "Klammernde Hände von Riss-Bossen in Euren Karten haben (3—5)% Chance, bei Öffnung einen Riss-Boss zu beschwören",
-					"fr": "Dans vos Cartes, les Poings serrés des Boss de Brèche ont (3—5)% de chances de générer un Boss de Brèche lorsqu'ils sont ouverts",
-					"es": "Los puños cerrados de los Señores de fisura de tus mapas tienen un (3—5)% de probabilidad de generar un Señor de fisura al abrirse"
-				},
-				"values": [
-					{
-						"min": 3,
-						"max": 5
-					}
-				],
-				"weight": 400,
-				"tradeStatId": "explicit.stat_3465894962"
-			}
-		],
-		"mechanic": "breach",
-		"applicableIdols": ["Conqueror"]
-	},
-	{
 		"id": "suffix_conqueror_cleansing_fire_double_progress_chance",
 		"type": "suffix",
 		"name": {
@@ -30388,6 +30703,49 @@
 				],
 				"weight": 500,
 				"tradeStatId": "explicit.stat_2831543675"
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Conqueror"]
+	},
+	{
+		"id": "suffix_conqueror_zana_influence_lucky_strand_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Memories",
+			"zh-TW": "回憶之",
+			"zh-CN": "of Memories",
+			"ko": "- 기억",
+			"ja": "記憶の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "der Erinnerungen",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 78,
+				"text": {
+					"en": "The number of Memory Strands on Equipment Items found in your Maps has (30—50)% chance to be Lucky",
+					"zh-TW": "在你的地圖中所找到之裝備物品的記憶絲縷數量 有 (30—50)% 機率帶來幸運",
+					"zh-CN": "你地图中找到的装备物品的回忆束丝数量有 (30—50)% 的几率特别幸运",
+					"ko": "지도에서 발견하는 장비 아이템의 기억 가닥 수량에 (30—50)% 확률로 행운 적용",
+					"ja": "マップで見つかる装備品についているメモリーストランドの数が (30—50)%の確率で幸運になる",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Die Anzahl von Erinnerungssträngen auf gefundenen Ausrüstungsgegenständen in Euren Karten hat (30—50)% Chance, günstig zu sein",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 30,
+						"max": 50
+					}
+				],
+				"weight": 475
 			}
 		],
 		"mechanic": "map",
@@ -32146,6 +32504,173 @@
 		"applicableIdols": ["Conqueror"]
 	},
 	{
+		"id": "prefix_conqueror_settlers_increased_chance",
+		"type": "prefix",
+		"name": {
+			"en": "Prospector's",
+			"zh-TW": "勘探者的",
+			"zh-CN": "Prospector's",
+			"ko": "채광가의",
+			"ja": "探鉱者の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "Des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps have (224—280)% increased chance to contain Ore Deposits",
+					"zh-TW": "你的地圖含有礦床的機率增加 (224—280)%",
+					"zh-CN": "地图内有矿脉的几率提高 (224—280)%",
+					"ko": "지도에 광맥이 등장할 확률 (224—280)% 증가",
+					"ja": "マップに鉱石の鉱床が出現する確率が(224—280)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten haben (224—280)% erhöhte Chance, Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 224,
+						"max": 280
+					}
+				],
+				"weight": 2000
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Conqueror"]
+	},
+	{
+		"id": "prefix_conqueror_settlers_additional_chance",
+		"type": "prefix",
+		"name": {
+			"en": "Prospector's",
+			"zh-TW": "勘探者的",
+			"zh-CN": "Prospector's",
+			"ko": "채광가의",
+			"ja": "探鉱者の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "Des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Your Maps have +(45—70)% chance to contain Ore Deposits",
+					"zh-TW": "你的地圖 +(45—70)% 機率含有礦床",
+					"zh-CN": "地图内有矿脉的几率 +(45—70)%",
+					"ko": "지도에 광맥이 등장할 확률 +(45—70)%",
+					"ja": "マップに鉱石の鉱床が出現する確率が+(45—70)%される",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Eure Karten haben +(45—70)% Chance, Erzvorkommen zu enthalten",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 45,
+						"max": 70
+					}
+				],
+				"weight": 2000
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Conqueror"]
+	},
+	{
+		"id": "suffix_conqueror_settlers_rarer_ores",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "Ore Deposits in your Maps are more likely to be rarer varieties",
+					"zh-TW": "在你的地圖中，礦床更可能為稀有種類",
+					"zh-CN": "你地图中的矿脉更有可能为稀有品种",
+					"ko": "지도 내 광맥이 보다 희귀한 종류일 확률이 높아짐",
+					"ja": "マップの鉱石の鉱床はより高い確率で珍しい種類のものになる",
+					"ru": "",
+					"pt-BR": "",
+					"de": "In Euren Karten gefundene Erzvorkommen gehören mit größerer Wahrscheinlichkeit selteneren Typen an",
+					"fr": "",
+					"es": ""
+				},
+				"values": [],
+				"weight": 500
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Conqueror"]
+	},
+	{
+		"id": "suffix_conqueror_settlers_lost_shipment_chance",
+		"type": "suffix",
+		"name": {
+			"en": "of Prospecting",
+			"zh-TW": "勘探之",
+			"zh-CN": "of Prospecting",
+			"ko": "- 채광",
+			"ja": "探鉱の",
+			"ru": "",
+			"pt-BR": "",
+			"de": "des Prospektors",
+			"fr": "",
+			"es": ""
+		},
+		"tiers": [
+			{
+				"tier": 1,
+				"levelReq": 68,
+				"text": {
+					"en": "(5—7)% chance for Ore Deposits in your Maps to be replaced by Lost Shipments",
+					"zh-TW": "在你的地圖中，有 (5—7)% 使礦床替換為遺失貨物",
+					"zh-CN": "你地图中的矿脉有 (5—7)% 的几率被替换为失落的货物",
+					"ko": "지도 내 광맥이 (5—7)%의 확률로 잃어버린 수송품으로 등장",
+					"ja": "マップに出現する鉱石の鉱床は(5—7)%の確率で失われた輸出品に置き換えられる",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(5—7)% Chance, dass Erzvorkommen in Euren Karten durch Verlorene Schiffsladungen ersetzt werden",
+					"fr": "",
+					"es": ""
+				},
+				"values": [
+					{
+						"min": 5,
+						"max": 7
+					}
+				],
+				"weight": 300
+			}
+		],
+		"mechanic": "map",
+		"applicableIdols": ["Conqueror"]
+	},
+	{
 		"id": "prefix_conqueror_ritual_additional_chance",
 		"type": "prefix",
 		"name": {
@@ -32312,7 +32837,7 @@
 		"applicableIdols": ["Conqueror"]
 	},
 	{
-		"id": "suffix_conqueror_ritual_vessel_from_final_encounter_chance",
+		"id": "suffix_conqueror_ritual_deferred_rewards_tribute_cost",
 		"type": "suffix",
 		"name": {
 			"en": "of the Ritual",
@@ -32320,27 +32845,27 @@
 			"zh-CN": "仪式之",
 			"ko": "- 의식",
 			"ja": "リチュアルの",
-			"ru": "Ритуала",
-			"pt-BR": "do Ritual",
+			"ru": "",
+			"pt-BR": "",
 			"de": "des Rituals",
-			"fr": "du Rituel",
-			"es": "del ritual"
+			"fr": "",
+			"es": ""
 		},
 		"tiers": [
 			{
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Completing the final Ritual Altar in your Maps has (15—20)% chance to drop a Blood-filled Vessel",
-					"zh-TW": "完成你地圖中最後一個祭祀神壇，有 (15—20)% 機率掉落 1 個浸血碑器",
-					"zh-CN": "在地图内完成最终驱灵祭坛有 (15—20)% 的几率掉落一个浸血法器",
-					"ko": "지도 내 마지막 의식 제단을 완료하면 (15—20)%의 확률로 피 담긴 그릇이 떨어짐",
-					"ja": "マップで最後にリチュアルの祭壇を完了すると(15—20)%の確率で血で満たされた器がドロップする",
-					"ru": "При завершении последнего алтаря Ритуала на ваших картах с (15—20)% шансом может выпасть наполненный кровью сосуд",
-					"pt-BR": "Completar o Altar Ritualístico final em seus Mapas têm (15—20)% de chance de derrubar um Recipiente Cheio de Sangue",
-					"de": "Das Abschließen des letzten Ritual-Altars in Euren Karten hat (15—20)% Chance, ein Blutgefülltes Gefäß fallen zu lassen",
-					"fr": "Dans vos Cartes, le fait de compléter le dernier Autel de Rituel a (15—20)% de chances de céder un Réceptacle gorgé sang",
-					"es": "Completar el altar de ritual final en tus mapas otorga un (15—20)% de probabilidad de que caiga un recipiente lleno de sangre"
+					"en": "Deferring Favours at Ritual Altars in your Maps costs (15—20)% reduced Tribute",
+					"zh-TW": "你地圖中在祭祀神壇延遲恩賜之物，減少 (15—20)% 貢禮消耗",
+					"zh-CN": "你地图中在驱灵祭坛延时恩典消耗的贡品降低 (15—20)%",
+					"ko": "지도 내 의식 제단에서 헌정품을 보류하는 데 소모되는 공물 점수 (15—20)% 감소",
+					"ja": "マップのリチュアルの祭壇で恩寵を繰り越すのに必要なトリビュートが(15—20)%減少する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "Das Aufbewahren von Gaben in Ritual-Altären in Euren Karten kostet (15—20)% verringerten Tribut",
+					"fr": "",
+					"es": ""
 				},
 				"values": [
 					{
@@ -32348,8 +32873,8 @@
 						"max": 20
 					}
 				],
-				"weight": 1200,
-				"tradeStatId": "explicit.stat_3008766302"
+				"weight": 400,
+				"tradeStatId": "explicit.stat_1345835998"
 			}
 		],
 		"mechanic": "map",
@@ -33004,21 +33529,21 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "(3—5)% increased effect of Explicit Modifiers on your Maps per 5% Map Quality",
-					"zh-TW": "根據每 5% 地圖品質，增加 (3—5)% 你地圖上變動詞綴的效果",
-					"zh-CN": "每 5% 品质使你地图上外延词缀的效果提高 (3—5)%",
-					"ko": "지도 퀄리티 5%당 지도에 부여되는 비고정 속성의 효과 (3—5)% 증가",
-					"ja": "マップに対する明示モッドの効果がマップ品質5%ごとに(3—5)%増加する",
-					"ru": "(3—5)% усиление эффекта добавленных свойств на ваших картах за каждые 5% качества карты",
-					"pt-BR": "Efeito dos Modificadores Explícitos em seus Mapas aumentada em (3—5)% por cada 5% de Qualidade do Mapa",
-					"de": "(3—5)% erhöhte Wirkung von expliziten Modifikatoren auf Euren Karten pro 5% Kartenqualität",
-					"fr": "Les Modificateurs Explicites de vos Cartes ont (3—5)% d'Augmentation d'Effet tous les 5% de Qualité",
-					"es": "Efecto de los modificadores explícitos de tus mapas aumentado un (3—5)% por cada 5% de calidad en el mapa"
+					"en": "(2—4)% increased effect of Explicit Modifiers on your Maps per 5% Map Quality",
+					"zh-TW": "根據每 5% 地圖品質，增加 (2—4)% 你地圖上變動詞綴的效果",
+					"zh-CN": "每 5% 品质使你地图上外延词缀的效果提高 (2—4)%",
+					"ko": "지도 퀄리티 5%당 지도에 부여되는 비고정 속성의 효과 (2—4)% 증가",
+					"ja": "マップに対する明示モッドの効果がマップ品質5%ごとに(2—4)%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "(2—4)% erhöhte Wirkung von expliziten Modifikatoren auf Euren Karten pro 5% Kartenqualität",
+					"fr": "",
+					"es": ""
 				},
 				"values": [
 					{
-						"min": 3,
-						"max": 5
+						"min": 2,
+						"max": 4
 					}
 				],
 				"weight": 1000,
@@ -33048,23 +33573,18 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "(2—3)% increased effect of Explicit Modifiers on your Maps per Explicit Modifier",
-					"zh-TW": "根據每個變動詞綴，增加 (2—3)% 你地圖上變動詞綴的效果",
-					"zh-CN": "每有一个地图外延词缀，你地图的词缀效果提高 (2—3)%",
-					"ko": "비고정 속성 하나당 지도에 적용되는 비고정 속성의 효과 (2—3)% 증가",
-					"ja": "マップに対する明示モッドの効果が明示モッドごとに(2—3)%増加する",
-					"ru": "(2—3)% усиление эффекта добавленных свойств на ваших картах за каждое добавленное свойство",
-					"pt-BR": "Efeito dos Modificadores Explícitos em seus Mapas aumentada em (2—3)% por cada Modificador Explícito",
-					"de": "(2—3)% erhöhte Wirkung von expliziten Modifikatoren auf Euren Karten pro explizitem Kartenmodifikator",
-					"fr": "Les Modificateurs Explicites de vos Cartes ont (2—3)% d'Augmentation d'Effet par Modificateur Explicite",
-					"es": "Efecto de los modificadores explícitos de tus mapas aumentado un (2—3)% por cada modificador explícito"
+					"en": "2% increased effect of Explicit Modifiers on your Maps per Explicit Modifier",
+					"zh-TW": "根據每個變動詞綴，增加 2% 你地圖上變動詞綴的效果",
+					"zh-CN": "每有一个地图外延词缀，你地图的词缀效果提高 2%",
+					"ko": "비고정 속성 하나당 지도에 적용되는 비고정 속성의 효과 2% 증가",
+					"ja": "マップに対する明示モッドの効果が明示モッドごとに2%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "2% erhöhte Wirkung von expliziten Modifikatoren auf Euren Karten pro explizitem Kartenmodifikator",
+					"fr": "",
+					"es": ""
 				},
-				"values": [
-					{
-						"min": 2,
-						"max": 3
-					}
-				],
+				"values": [],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_2792863714"
 			}
