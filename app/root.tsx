@@ -47,7 +47,7 @@ function AppLayout({ children }: { children: ReactNode }) {
 					content="width=device-width, initial-scale=1"
 				/>
 				<Meta />
-				<PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
+				<PreventFlashOnWrongTheme ssrTheme={Boolean(data?.theme)} />
 				<Links />
 			</head>
 			<body className="bg-background text-foreground">
@@ -64,12 +64,10 @@ function AppLayout({ children }: { children: ReactNode }) {
 
 export function Layout({ children }: { children: ReactNode }) {
 	const data = useLoaderData<typeof loader>();
+	const theme = data?.theme ?? Theme.DARK;
 
 	return (
-		<ThemeProvider
-			specifiedTheme={data.theme}
-			themeAction="/action/set-theme"
-		>
+		<ThemeProvider specifiedTheme={theme} themeAction="/action/set-theme">
 			<AppLayout>{children}</AppLayout>
 		</ThemeProvider>
 	);
