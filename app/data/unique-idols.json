@@ -2784,5 +2784,87 @@
 				"values": []
 			}
 		]
+	},
+	{
+		"id": "Refiners_Bargain",
+		"name": {
+			"en": "Refiner's Bargain",
+			"zh-TW": "精煉廠的講價者",
+			"zh-CN": "Refiner's Bargain",
+			"ko": "정제사의 협상",
+			"ja": "精錬者の取引",
+			"ru": "",
+			"pt-BR": "",
+			"de": "",
+			"fr": "Aubaine du Raffineur",
+			"es": ""
+		},
+		"baseType": "Minor",
+		"modifiers": [
+			{
+				"text": {
+					"en": "2% increased Maps found in Area",
+					"zh-TW": "增加 2% 區域中掉落的地圖",
+					"zh-CN": "该区域内找到的地图数量提高 2%",
+					"ko": "지역에서 발견하는 지도 2% 증가",
+					"ja": "エリアで見つかるマップの量が2%増加する",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "2% d'Augmentation des Cartes trouvées dans la Zone",
+					"es": ""
+				},
+				"values": [],
+				"tradeStatId": "implicit.stat_2777224821"
+			},
+			{
+				"text": {
+					"en": "Equipment Items with Rarity dropped by Possessed Monsters in your Maps have 5% chance to be converted to Thaumaturgic Dust",
+					"zh-TW": "在你的地圖中，被附身的怪物所掉落之具有稀有度的裝備物品有 5% 機率轉換為奇術魔塵",
+					"zh-CN": "你地图中被附身的怪物掉落的具有稀有度的装备物品有 5% 的几率被转化为奇术之尘",
+					"ko": "지도 내 사로잡힌 몬스터가 떨어뜨리는 희귀도 등급이 있는 장비 아이템이 5% 확률로 마석학 가루로 전환됨",
+					"ja": "マップで憑依されたモンスターからドロップしたレアリティを持つ装備品は5%の確率で魔術の粉に変換される",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "Dans vos Cartes, l'Équipement ayant de la Rareté qui est cédé par les Monstres Possédés a 5% de chances d'être converti en Poussière thaumaturgique",
+					"es": ""
+				},
+				"values": [],
+				"tradeStatId": "explicit.stat_1813488582"
+			},
+			{
+				"text": {
+					"en": "Sulphite found in your Maps is granted as a random Ore instead at 15% of the value",
+					"zh-TW": "在你的地圖中找到的硫酸以其數值之 15% 賦予為隨機礦材",
+					"zh-CN": "你地图中找到的亚硫酸改为提供 15% 数量的随机矿石",
+					"ko": "지도에서 발견하는 아황산염을 대신 해당 수치의 15%에 해당하는 무작위 광석으로 획득",
+					"ja": "マップに見つかるサルファイトはその数値の15%の代わりにランダムな鉱石として付与される",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "Dans vos Cartes, le Sulfite trouvé est octroyé sous forme de Minerai aléatoire à 15% de sa valeur",
+					"es": ""
+				},
+				"values": [],
+				"tradeStatId": "explicit.stat_2604629394"
+			},
+			{
+				"text": {
+					"en": "Lifeforce found in your Maps is granted as a random Crop instead at 150% of the value",
+					"zh-TW": "在你的地圖中找到的生靈之力以其數值之 150% 賦予為隨機作物",
+					"zh-CN": "你地图中找到的命能改为提供 150% 数量的随机作物。",
+					"ko": "지도에서 발견하는 생기를 대신 해당 수치의 150%에 해당하는 무작위 작물로 획득",
+					"ja": "マップで見つかるライフフォースはその数値の150%の代わりにランダムな農作物として付与される",
+					"ru": "",
+					"pt-BR": "",
+					"de": "",
+					"fr": "Dans vos Cartes, la Force vitale trouvée est octroyée sous forme de Culture à 150% de sa valeur",
+					"es": ""
+				},
+				"values": [],
+				"tradeStatId": "explicit.stat_2175879462"
+			}
+		]
 	}
 ]
