@@ -6,6 +6,7 @@ import { HydratedRouter } from "react-router/dom";
 Sentry.init({
 	dsn: import.meta.env.VITE_SENTRY_DSN,
 	environment: import.meta.env.VITE_SENTRY_ENVIRONMENT,
+	enabled: !import.meta.env.DEV,
 	integrations: [Sentry.reactRouterTracingIntegration()],
 	tracesSampleRate: 0.1,
 	replaysSessionSampleRate: 0,
