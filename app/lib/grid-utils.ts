@@ -1,4 +1,8 @@
-import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
+import {
+	getIdolBaseOrDefault,
+	IDOL_BASES,
+	type IdolBaseKey,
+} from "~/data/idol-bases";
 import type { IdolPlacement } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
 
@@ -50,7 +54,8 @@ export function buildOccupancyGrid(
 		);
 		if (!invIdol) continue;
 
-		const base = IDOL_BASES[invIdol.idol.baseType as IdolBaseKey];
+		const base = getIdolBaseOrDefault(invIdol.idol.baseType);
+		if (!base) continue;
 		const { x, y } = placement.position;
 
 		for (let dy = 0; dy < base.height; dy++) {

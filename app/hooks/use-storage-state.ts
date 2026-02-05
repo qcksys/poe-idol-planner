@@ -22,18 +22,20 @@ export function useStorageState<T>(
 	const [isHydrated, setIsHydrated] = useState(false);
 
 	// Load from storage on mount
+	// biome-ignore lint/correctness/useExhaustiveDependencies: Only run once
 	useEffect(() => {
 		const loaded = loadFn();
 		setState(loaded);
 		setIsHydrated(true);
-	}, [loadFn]);
+	}, []);
 
 	// Save to storage when state changes (after hydration)
+	// biome-ignore lint/correctness/useExhaustiveDependencies: Only run once
 	useEffect(() => {
 		if (isHydrated) {
 			saveFn(state);
 		}
-	}, [state, isHydrated, saveFn]);
+	}, [state, isHydrated]);
 
 	return [state, setState, isHydrated];
 }
