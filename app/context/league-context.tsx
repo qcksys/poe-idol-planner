@@ -6,20 +6,30 @@ import {
 	useEffect,
 	useState,
 } from "react";
+import { z } from "zod";
 import leaguesData from "~/data/leagues.json";
+import { loadFromStorage, saveToStorage } from "~/lib/storage-utils";
 import {
 	DEFAULT_LEAGUE,
 	DEFAULT_REALM,
 	type League,
 	type Realm,
+	RealmSchema,
 } from "~/schemas/league";
 
 const STORAGE_KEY = "poe-idol-planner-league";
 
-interface LeagueSettings {
-	league: string;
-	realm: Realm;
-}
+const LeagueSettingsSchema = z.object({
+	league: z.string(),
+	realm: RealmSchema,
+});
+
+type LeagueSettings = z.infer<typeof LeagueSettingsSchema>;
+
+const DEFAULT_LEAGUE_SETTINGS: LeagueSettings = {
+	league: DEFAULT_LEAGUE,
+	realm: DEFAULT_REALM,
+};
 
 interface LeagueContextValue {
 	league: string;
@@ -33,28 +43,15 @@ interface LeagueContextValue {
 const LeagueContext = createContext<LeagueContextValue | null>(null);
 
 function loadLeagueSettings(): LeagueSettings {
-	if (typeof window === "undefined") {
-		return { league: DEFAULT_LEAGUE, realm: DEFAULT_REALM };
-	}
-
-	try {
-		const stored = localStorage.getItem(STORAGE_KEY);
-		if (stored) {
-			const parsed = JSON.parse(stored);
-			if (parsed.league && parsed.realm) {
-				return parsed;
-			}
-		}
-	} catch {
-		// ignore
-	}
-
-	return { league: DEFAULT_LEAGUE, realm: DEFAULT_REALM };
+	return loadFromStorage(
+		STORAGE_KEY,
+		LeagueSettingsSchema,
+		DEFAULT_LEAGUE_SETTINGS,
+	);
 }
 
 function saveLeagueSettings(settings: LeagueSettings): void {
-	if (typeof window === "undefined") return;
-	localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+	saveToStorage(STORAGE_KEY, settings);
 }
 
 export function LeagueProvider({ children }: { children: ReactNode }) {
@@ -65,7 +62,17 @@ export function LeagueProvider({ children }: { children: ReactNode }) {
 	const [isHydrated, setIsHydrated] = useState(false);
 
 	useEffect(() => {
-		setSettings(loadLeagueSettings());
+		const loaded = loadLeagueSettings();
+		const leaguesForRealm = leaguesData.result.filter(
+			(l) => l.realm === loaded.realm,
+		);
+		const leagueExists = leaguesForRealm.some(
+			(l) => l.id === loaded.league,
+		);
+		if (!leagueExists && leaguesForRealm.length > 0) {
+			loaded.league = leaguesForRealm[0].id;
+		}
+		setSettings(loaded);
 		setIsHydrated(true);
 	}, []);
 

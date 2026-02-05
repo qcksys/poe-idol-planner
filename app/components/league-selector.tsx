@@ -21,7 +21,7 @@ export function LeagueSelector() {
 	if (!isHydrated) {
 		return (
 			<Select disabled>
-				<SelectTrigger className="w-[180px]">
+				<SelectTrigger className="w-full">
 					<Trophy className="mr-2 h-4 w-4" />
 					<SelectValue placeholder={t.actions.loading} />
 				</SelectTrigger>
@@ -34,11 +34,14 @@ export function LeagueSelector() {
 			<TooltipTrigger asChild>
 				<div>
 					<Select value={league} onValueChange={setLeague}>
-						<SelectTrigger className="w-[180px]">
+						<SelectTrigger className="w-full">
 							<Trophy className="mr-2 h-4 w-4" />
 							<SelectValue />
 						</SelectTrigger>
-						<SelectContent>
+						<SelectContent
+							position="popper"
+							className="w-[var(--radix-select-trigger-width)]"
+						>
 							{leagues.map((l) => (
 								<SelectItem key={l.id} value={l.id}>
 									{l.text}

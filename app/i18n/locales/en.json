@@ -28,7 +28,7 @@
 		"empty": "No idols in inventory. Import or create some using the buttons below.",
 		"import": "Import",
 		"create": "Create",
-		"browseMods": "Browse Mods",
+		"browseMods": "View All Idol Modifiers",
 		"paste": "Paste",
 		"search": "Search idols...",
 		"clear": "Clear All",
@@ -59,7 +59,7 @@
 	"actions": {
 		"import": "Import",
 		"export": "Export",
-		"share": "Share",
+		"share": "Create Share Link",
 		"search": "Search",
 		"clear": "Clear",
 		"cancel": "Cancel",

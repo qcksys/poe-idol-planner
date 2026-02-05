@@ -58,6 +58,7 @@ import {
 } from "~/data/unique-idols";
 import { useLocale, useTranslations } from "~/i18n";
 import { highlightNumbers } from "~/lib/highlight-numbers";
+import { cn } from "~/lib/utils";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
 
 interface IdolEditorProps {
@@ -207,13 +208,19 @@ function ModSlot({
 					</div>
 					{selectedTier?.text && (
 						<div
-							className={
+							className={cn(
+								"flex items-start gap-1 text-sm",
 								type === "prefix"
-									? "text-mod-prefix text-sm"
-									: "text-mod-suffix text-sm"
-							}
+									? "text-mod-prefix"
+									: "text-mod-suffix",
+							)}
 						>
-							{highlightNumbers(selectedTier.text)}
+							<span>{highlightNumbers(selectedTier.text)}</span>
+							{selectedTier.weight !== undefined && (
+								<span className="shrink-0 text-muted-foreground text-xs tabular-nums">
+									[{selectedTier.weight}]
+								</span>
+							)}
 						</div>
 					)}
 				</div>
@@ -488,61 +495,87 @@ export function IdolEditor({
 
 				<ScrollArea className="h-0 flex-1 pr-4">
 					<div className="space-y-6">
-						<div className="space-y-2">
-							<span className="font-medium text-sm">
-								{t.editor.baseType}
-							</span>
-							<Select
-								value={
-									editorMode === "unique"
-										? "unique"
-										: baseType
-								}
-								onValueChange={(v) => {
-									if (v === "unique") {
-										setEditorMode("unique");
-									} else {
-										setEditorMode("regular");
-										setBaseType(v as IdolBaseKey);
-										setSelectedUniqueIdol(null);
+						<div className="grid grid-cols-2 gap-4">
+							<div className="space-y-2">
+								<span className="font-medium text-sm">
+									{t.editor.baseType}
+								</span>
+								<Select
+									value={
+										editorMode === "unique"
+											? "unique"
+											: baseType
 									}
-								}}
-							>
-								<SelectTrigger aria-label={t.editor.baseType}>
-									<SelectValue />
-								</SelectTrigger>
-								<SelectContent>
-									{IDOL_BASE_KEYS.map((key) => (
-										<SelectItem key={key} value={key}>
+									onValueChange={(v) => {
+										if (v === "unique") {
+											setEditorMode("unique");
+										} else {
+											setEditorMode("regular");
+											setBaseType(v as IdolBaseKey);
+											setSelectedUniqueIdol(null);
+										}
+									}}
+								>
+									<SelectTrigger
+										aria-label={t.editor.baseType}
+									>
+										<SelectValue />
+									</SelectTrigger>
+									<SelectContent>
+										{IDOL_BASE_KEYS.map((key) => (
+											<SelectItem key={key} value={key}>
+												<div className="flex items-center gap-2">
+													<img
+														src={
+															IDOL_BASES[key]
+																.image
+														}
+														alt=""
+														className="h-5 w-5 object-contain"
+													/>
+													<span>
+														{IDOL_BASES[key].name}
+													</span>
+												</div>
+											</SelectItem>
+										))}
+										<SelectItem value="unique">
 											<div className="flex items-center gap-2">
 												<img
-													src={IDOL_BASES[key].image}
+													src={
+														IDOL_BASES.minor
+															.uniqueImage
+													}
 													alt=""
 													className="h-5 w-5 object-contain"
 												/>
 												<span>
-													{IDOL_BASES[key].name}
+													{t.editor.uniqueIdols ||
+														"Unique Idols"}
 												</span>
 											</div>
 										</SelectItem>
-									))}
-									<SelectItem value="unique">
-										<div className="flex items-center gap-2">
-											<img
-												src={
-													IDOL_BASES.minor.uniqueImage
-												}
-												alt=""
-												className="h-5 w-5 object-contain"
-											/>
-											<span>
-												{t.editor.uniqueIdols ||
-													"Unique Idols"}
-											</span>
-										</div>
-									</SelectItem>
-								</SelectContent>
-							</Select>
+									</SelectContent>
+								</Select>
+							</div>
+							{editorMode === "regular" && (
+								<div className="space-y-2">
+									<label
+										htmlFor="idol-editor-name"
+										className="font-medium text-sm"
+									>
+										{t.editor.name} ({t.editor.optional})
+									</label>
+									<Input
+										id="idol-editor-name"
+										value={name}
+										onChange={(e) =>
+											setName(e.target.value)
+										}
+										placeholder={t.editor.namePlaceholder}
+									/>
+								</div>
+							)}
 						</div>
 
 						{editorMode === "unique" ? (
@@ -734,23 +767,6 @@ export function IdolEditor({
 							</>
 						) : (
 							<>
-								<div className="space-y-2">
-									<label
-										htmlFor="idol-editor-name"
-										className="font-medium text-sm"
-									>
-										{t.editor.name} ({t.editor.optional})
-									</label>
-									<Input
-										id="idol-editor-name"
-										value={name}
-										onChange={(e) =>
-											setName(e.target.value)
-										}
-										placeholder={t.editor.namePlaceholder}
-									/>
-								</div>
-
 								<div className="space-y-2">
 									<span className="font-medium text-sm">
 										{t.editor.filterByMechanic}

@@ -23,15 +23,7 @@ export function WeightFilterAccordion({
 	showMatchAffixType = false,
 }: WeightFilterAccordionProps) {
 	const t = useTranslations();
-	const {
-		settings: tradeSettings,
-		setMaxWeight,
-		setFilterByMaxWeight,
-		setSeparateWeightFilters,
-		setMaxPrefixWeight,
-		setMaxSuffixWeight,
-		setWeightFilterMode,
-	} = useTradeSettings();
+	const { settings: tradeSettings, updateSettings } = useTradeSettings();
 
 	const weightRange = getWeightRange();
 
@@ -57,7 +49,9 @@ export function WeightFilterAccordion({
 							<Switch
 								id="filter-by-weight"
 								checked={tradeSettings.filterByMaxWeight}
-								onCheckedChange={setFilterByMaxWeight}
+								onCheckedChange={(v) =>
+									updateSettings({ filterByMaxWeight: v })
+								}
 							/>
 							<label
 								htmlFor="filter-by-weight"
@@ -76,8 +70,10 @@ export function WeightFilterAccordion({
 										checked={
 											tradeSettings.separateWeightFilters
 										}
-										onCheckedChange={
-											setSeparateWeightFilters
+										onCheckedChange={(v: boolean) =>
+											updateSettings({
+												separateWeightFilters: v,
+											})
 										}
 									/>
 									<label
@@ -93,7 +89,9 @@ export function WeightFilterAccordion({
 									<button
 										type="button"
 										onClick={() =>
-											setWeightFilterMode("gte")
+											updateSettings({
+												weightFilterMode: "gte",
+											})
 										}
 										className={`rounded px-2 py-0.5 text-xs ${
 											tradeSettings.weightFilterMode ===
@@ -107,7 +105,9 @@ export function WeightFilterAccordion({
 									<button
 										type="button"
 										onClick={() =>
-											setWeightFilterMode("lte")
+											updateSettings({
+												weightFilterMode: "lte",
+											})
 										}
 										className={`rounded px-2 py-0.5 text-xs ${
 											tradeSettings.weightFilterMode ===
@@ -149,11 +149,12 @@ export function WeightFilterAccordion({
 														weightRange.max,
 												]}
 												onValueChange={(values) => {
-													setMaxPrefixWeight(
-														snapToNearestWeight(
-															values[0],
-														),
-													);
+													updateSettings({
+														maxPrefixWeight:
+															snapToNearestWeight(
+																values[0],
+															),
+													});
 												}}
 											/>
 										</div>
@@ -180,11 +181,12 @@ export function WeightFilterAccordion({
 														weightRange.max,
 												]}
 												onValueChange={(values) => {
-													setMaxSuffixWeight(
-														snapToNearestWeight(
-															values[0],
-														),
-													);
+													updateSettings({
+														maxSuffixWeight:
+															snapToNearestWeight(
+																values[0],
+															),
+													});
 												}}
 											/>
 										</div>
@@ -211,11 +213,12 @@ export function WeightFilterAccordion({
 													weightRange.max,
 											]}
 											onValueChange={(values) => {
-												setMaxWeight(
-													snapToNearestWeight(
-														values[0],
-													),
-												);
+												updateSettings({
+													maxWeight:
+														snapToNearestWeight(
+															values[0],
+														),
+												});
 											}}
 										/>
 									</div>

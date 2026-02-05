@@ -9,6 +9,7 @@ interface ModifierTier {
 	levelReq: number;
 	text: Record<string, string>;
 	values: { min: number; max: number }[];
+	weight?: number;
 }
 
 interface ModifierDefinition {
@@ -199,4 +200,16 @@ function getUniqueModValueRange(
 
 	const mod = idol.modifiers[modIndex];
 	return mod?.values[0];
+}
+
+export function getModWeight(
+	modId: string,
+	tier: number | null,
+): number | undefined {
+	if (modId.startsWith("unique_")) {
+		return undefined;
+	}
+
+	const tierData = getModTier(modId, tier);
+	return tierData?.weight;
 }
