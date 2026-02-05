@@ -24,14 +24,13 @@ import {
 import { loadStorage, saveStorage } from "~/lib/storage";
 import type { IdolSet } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
+import { DEFAULT_LEAGUE } from "~/schemas/league";
 import {
 	type ScarabPricesData,
 	ScarabPricesDataSchema,
 } from "~/schemas/scarab";
 import type { SharedSet } from "~/schemas/share";
 import type { Route } from "./+types/share.$id";
-
-const DEFAULT_LEAGUE = "Keepers";
 
 export async function loader({ params, request, context }: Route.LoaderArgs) {
 	const shareId = params.id;

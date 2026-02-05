@@ -1,4 +1,5 @@
 import { z } from "zod";
+import leaguesData from "~/data/leagues.json";
 
 export const RealmSchema = z.enum(["pc", "xbox", "sony"]);
 export type Realm = z.infer<typeof RealmSchema>;
@@ -17,5 +18,6 @@ export const LeaguesDataSchema = z.object({
 
 export type LeaguesData = z.infer<typeof LeaguesDataSchema>;
 
-export const DEFAULT_LEAGUE = "Keepers";
 export const DEFAULT_REALM: Realm = "pc";
+export const DEFAULT_LEAGUE =
+	leaguesData.result.find((l) => l.realm === DEFAULT_REALM)?.id ?? "Standard";
