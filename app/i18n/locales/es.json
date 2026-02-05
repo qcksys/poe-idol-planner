@@ -92,7 +92,8 @@
 		"searchBaseType": "Buscar {type} en el comercio",
 		"maxWeight": "Peso máx.",
 		"maxWeightPlaceholder": "Sin límite",
-		"filterByMaxWeight": "Excluir mods por encima de este peso de la búsqueda comercial"
+		"filterByMaxWeight": "Excluir mods por encima de este peso de la búsqueda comercial",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
 	},
 	"import": {
 		"title": "Importar ídolo",

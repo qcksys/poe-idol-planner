@@ -92,7 +92,8 @@
 		"searchBaseType": "在交易站搜索 {type}",
 		"maxWeight": "最大权重",
 		"maxWeightPlaceholder": "无限制",
-		"filterByMaxWeight": "从交易搜索中排除高于此权重的词缀"
+		"filterByMaxWeight": "从交易搜索中排除高于此权重的词缀",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
 	},
 	"import": {
 		"title": "导入神像",

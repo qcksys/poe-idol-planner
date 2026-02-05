@@ -92,7 +92,8 @@
 		"searchBaseType": "Искать {type} на трейде",
 		"maxWeight": "Макс. вес",
 		"maxWeightPlaceholder": "Без ограничений",
-		"filterByMaxWeight": "Исключить моды выше этого веса из торгового поиска"
+		"filterByMaxWeight": "Исключить моды выше этого веса из торгового поиска",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
 	},
 	"import": {
 		"title": "Импорт идола",

@@ -75,7 +75,9 @@ interface ModifierTierData {
 
 interface ModifierDataFromJson {
 	id: string;
+	type?: "prefix" | "suffix";
 	tiers: ModifierTierData[];
+	applicableIdols?: string[];
 }
 
 function getModWeight(modId: string, tier: number | null): number | null {
@@ -157,6 +159,43 @@ function snapToNearestWeight(value: number): number {
 	}
 
 	return closest;
+}
+
+const IDOL_TYPE_NAME_MAP: Record<IdolBaseKey, string> = {
+	minor: "Minor",
+	kamasan: "Kamasan",
+	totemic: "Totemic",
+	noble: "Noble",
+	burial: "Burial",
+	conqueror: "Conqueror",
+};
+
+function getHighWeightStatIdsForIdolType(
+	idolType: IdolBaseKey,
+	maxWeight: number,
+	excludeStatIds: Set<string>,
+	affixType?: "prefix" | "suffix",
+): string[] {
+	const idolTypeName = IDOL_TYPE_NAME_MAP[idolType];
+	const statIds: string[] = [];
+
+	for (const mod of idolModifiers as ModifierDataFromJson[]) {
+		if (!mod.applicableIdols?.includes(idolTypeName)) continue;
+		if (affixType && mod.type !== affixType) continue;
+
+		for (const tier of mod.tiers) {
+			if (
+				tier.weight != null &&
+				tier.weight >= maxWeight &&
+				tier.tradeStatId &&
+				!excludeStatIds.has(tier.tradeStatId)
+			) {
+				statIds.push(tier.tradeStatId);
+			}
+		}
+	}
+
+	return [...new Set(statIds)];
 }
 
 let modIdIndex: Map<string, string> | null = null;
@@ -293,10 +332,11 @@ interface BuildTradeQueryOptions {
 	idolType?: IdolBaseKey;
 	mods?: IdolModifier[];
 	maxWeight?: number | null;
+	affixTypeFilter?: "prefix" | "suffix";
 }
 
 function buildTradeQuery(options: BuildTradeQueryOptions = {}): TradeQuery {
-	const { idolType, mods, maxWeight } = options;
+	const { idolType, mods, maxWeight, affixTypeFilter } = options;
 
 	const query: TradeQuery = {
 		query: {
@@ -319,6 +359,8 @@ function buildTradeQuery(options: BuildTradeQueryOptions = {}): TradeQuery {
 		query.query.type = IDOL_TYPE_MAP[idolType];
 	}
 
+	const searchedStatIds = new Set<string>();
+
 	if (mods && mods.length > 0) {
 		const statFilters: TradeStatFilter[] = [];
 
@@ -326,13 +368,7 @@ function buildTradeQuery(options: BuildTradeQueryOptions = {}): TradeQuery {
 			const statId = findStatIdForMod(mod);
 			if (!statId) continue;
 
-			// Skip mods that exceed maxWeight threshold
-			if (maxWeight != null && mod.tier != null) {
-				const weight = getModWeight(mod.modId, mod.tier);
-				if (weight != null && weight > maxWeight) {
-					continue;
-				}
-			}
+			searchedStatIds.add(statId);
 
 			statFilters.push({
 				id: statId,
@@ -344,6 +380,23 @@ function buildTradeQuery(options: BuildTradeQueryOptions = {}): TradeQuery {
 
 		if (statFilters.length > 0) {
 			query.query.stats[0].filters = statFilters;
+		}
+	}
+
+	// Add "not" filters for all high-weight mods on this idol type (excluding searched mods)
+	if (idolType && maxWeight != null) {
+		const highWeightStatIds = getHighWeightStatIdsForIdolType(
+			idolType,
+			maxWeight,
+			searchedStatIds,
+			affixTypeFilter,
+		);
+
+		if (highWeightStatIds.length > 0) {
+			query.query.stats.push({
+				type: "not",
+				filters: highWeightStatIds.map((id) => ({ id })),
+			});
 		}
 	}
 
@@ -396,12 +449,22 @@ export function generateTradeUrlForMod(
 		league?: string;
 		onlineOnly?: boolean;
 		baseType?: IdolBaseKey;
+		maxWeight?: number | null;
+		matchAffixType?: boolean;
 	},
 ): string {
 	const league = options?.league || DEFAULT_LEAGUE;
+	const affixType =
+		options?.matchAffixType &&
+		(mod.type === "prefix" || mod.type === "suffix")
+			? mod.type
+			: undefined;
+
 	const query = buildTradeQuery({
 		idolType: options?.baseType,
 		mods: [mod],
+		maxWeight: options?.maxWeight,
+		affixTypeFilter: affixType,
 	});
 
 	const queryParam = encodeURIComponent(JSON.stringify(query));

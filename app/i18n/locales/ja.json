@@ -92,7 +92,8 @@
 		"searchBaseType": "トレードで{type}を検索",
 		"maxWeight": "最大ウェイト",
 		"maxWeightPlaceholder": "制限なし",
-		"filterByMaxWeight": "このウェイト以上のmodを取引検索から除外"
+		"filterByMaxWeight": "このウェイト以上のmodを取引検索から除外",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
 	},
 	"import": {
 		"title": "アイドルをインポート",

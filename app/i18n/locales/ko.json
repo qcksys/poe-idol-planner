@@ -92,7 +92,8 @@
 		"searchBaseType": "거래소에서 {type} 검색",
 		"maxWeight": "최대 가중치",
 		"maxWeightPlaceholder": "제한 없음",
-		"filterByMaxWeight": "이 가중치 이상의 옵션을 거래 검색에서 제외"
+		"filterByMaxWeight": "이 가중치 이상의 옵션을 거래 검색에서 제외",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
 	},
 	"import": {
 		"title": "우상 가져오기",

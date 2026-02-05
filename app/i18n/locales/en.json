@@ -92,7 +92,8 @@
 		"searchBaseType": "Search {type} on Trade",
 		"maxWeight": "Max Weight",
 		"maxWeightPlaceholder": "No limit",
-		"filterByMaxWeight": "Exclude mods above this weight from trade search"
+		"filterByMaxWeight": "Exclude mods above this weight from trade search",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
 	},
 	"import": {
 		"title": "Import Idol",
