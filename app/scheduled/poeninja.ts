@@ -1,21 +1,51 @@
 import leaguesData from "~/data/leagues.json";
 import {
-	PoeNinjaResponseSchema,
+	PoeNinjaExchangeResponseSchema,
 	type ScarabPricesData,
 } from "~/schemas/scarab";
 
 const POE_NINJA_API_URL =
-	"https://poe.ninja/poe1/api/economy/stash/current/item/overview";
+	"https://poe.ninja/poe1/api/economy/exchange/current/overview";
 
 const PC_LEAGUES = leaguesData.result
 	.filter((league) => league.realm === "pc")
 	.map((league) => league.id);
 
-function normalizeNameToId(name: string): string {
-	return name
-		.toLowerCase()
-		.replace(/[^a-z0-9\s]/g, "")
-		.replace(/\s+/g, "_");
+export function normalizeExchangeId(exchangeId: string): string {
+	return exchangeId.replace(/-/g, "_");
+}
+
+export function parseScarabPricesFromExchangeResponse(
+	data: unknown,
+	league: string,
+): ScarabPricesData | null {
+	const parsed = PoeNinjaExchangeResponseSchema.safeParse(data);
+	if (!parsed.success) {
+		return null;
+	}
+
+	const itemNameMap = new Map<string, string>();
+	for (const item of parsed.data.items) {
+		itemNameMap.set(item.id, item.name);
+	}
+
+	const prices: ScarabPricesData["prices"] = {};
+	for (const line of parsed.data.lines) {
+		if (!line.id.includes("scarab")) continue;
+
+		const id = normalizeExchangeId(line.id);
+		const name = itemNameMap.get(line.id) ?? line.id;
+		prices[id] = {
+			name,
+			chaosValue: line.primaryValue,
+		};
+	}
+
+	return {
+		league,
+		prices,
+		updatedAt: new Date().toISOString(),
+	};
 }
 
 async function fetchScarabPricesForLeague(
@@ -37,30 +67,16 @@ async function fetchScarabPricesForLeague(
 		}
 
 		const data = await response.json();
-		const parsed = PoeNinjaResponseSchema.safeParse(data);
-		if (!parsed.success) {
+		const result = parseScarabPricesFromExchangeResponse(data, league);
+		if (!result) {
 			console.log({
 				message: "POE Ninja API response validation failed",
 				league,
-				error: parsed.error.message,
 			});
 			return null;
 		}
 
-		const prices: ScarabPricesData["prices"] = {};
-		for (const item of parsed.data.lines) {
-			const id = normalizeNameToId(item.name);
-			prices[id] = {
-				name: item.name,
-				chaosValue: item.chaosValue,
-			};
-		}
-
-		return {
-			league,
-			prices,
-			updatedAt: new Date().toISOString(),
-		};
+		return result;
 	} catch (error) {
 		console.log({
 			message: "POE Ninja API fetch error",

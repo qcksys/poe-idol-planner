@@ -65,23 +65,32 @@ export function createEmptyMapDevice(): MapDevice {
 
 export const HORNED_SCARAB_OF_AWAKENING_ID = "horned_scarab_of_awakening";
 
-export const PoeNinjaScarabSchema = z.object({
-	id: z.number(),
+export const PoeNinjaExchangeLineSchema = z.object({
+	id: z.string(),
+	primaryValue: z.number(),
+	volumePrimaryValue: z.number().optional(),
+});
+
+export type PoeNinjaExchangeLine = z.infer<typeof PoeNinjaExchangeLineSchema>;
+
+export const PoeNinjaExchangeItemSchema = z.object({
+	id: z.string(),
 	name: z.string(),
-	chaosValue: z.number(),
-	exaltedValue: z.number().optional(),
-	divineValue: z.number().optional(),
-	icon: z.string().optional(),
-	listingCount: z.number().optional(),
+	image: z.string().optional(),
+	category: z.string().optional(),
+	detailsId: z.string().optional(),
 });
 
-export type PoeNinjaScarab = z.infer<typeof PoeNinjaScarabSchema>;
+export type PoeNinjaExchangeItem = z.infer<typeof PoeNinjaExchangeItemSchema>;
 
-export const PoeNinjaResponseSchema = z.object({
-	lines: z.array(PoeNinjaScarabSchema),
+export const PoeNinjaExchangeResponseSchema = z.object({
+	lines: z.array(PoeNinjaExchangeLineSchema),
+	items: z.array(PoeNinjaExchangeItemSchema),
 });
 
-export type PoeNinjaResponse = z.infer<typeof PoeNinjaResponseSchema>;
+export type PoeNinjaExchangeResponse = z.infer<
+	typeof PoeNinjaExchangeResponseSchema
+>;
 
 export const ScarabPriceSchema = z.object({
 	name: z.string(),
