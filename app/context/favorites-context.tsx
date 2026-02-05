@@ -1,11 +1,5 @@
-import {
-	createContext,
-	type ReactNode,
-	useCallback,
-	useContext,
-	useEffect,
-	useState,
-} from "react";
+import { createContext, type ReactNode, useCallback, useContext } from "react";
+import { useStorageState } from "~/hooks/use-storage-state";
 import { loadFavorites, saveFavorites } from "~/lib/favorites";
 
 interface FavoritesContextValue {
@@ -20,42 +14,40 @@ interface FavoritesContextValue {
 const FavoritesContext = createContext<FavoritesContextValue | null>(null);
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
-	const [favorites, setFavorites] = useState<string[]>([]);
-	const [isHydrated, setIsHydrated] = useState(false);
+	const [favorites, setFavorites, isHydrated] = useStorageState(
+		loadFavorites,
+		saveFavorites,
+		[],
+	);
 
-	// Load favorites on mount
-	useEffect(() => {
-		const stored = loadFavorites();
-		setFavorites(stored);
-		setIsHydrated(true);
-	}, []);
+	const addFavorite = useCallback(
+		(modId: string) => {
+			setFavorites((prev) => {
+				if (prev.includes(modId)) return prev;
+				return [...prev, modId];
+			});
+		},
+		[setFavorites],
+	);
 
-	// Save favorites when they change (after hydration)
-	useEffect(() => {
-		if (isHydrated) {
-			saveFavorites(favorites);
-		}
-	}, [favorites, isHydrated]);
+	const removeFavorite = useCallback(
+		(modId: string) => {
+			setFavorites((prev) => prev.filter((id) => id !== modId));
+		},
+		[setFavorites],
+	);
 
-	const addFavorite = useCallback((modId: string) => {
-		setFavorites((prev) => {
-			if (prev.includes(modId)) return prev;
-			return [...prev, modId];
-		});
-	}, []);
-
-	const removeFavorite = useCallback((modId: string) => {
-		setFavorites((prev) => prev.filter((id) => id !== modId));
-	}, []);
-
-	const toggleFavorite = useCallback((modId: string) => {
-		setFavorites((prev) => {
-			if (prev.includes(modId)) {
-				return prev.filter((id) => id !== modId);
-			}
-			return [...prev, modId];
-		});
-	}, []);
+	const toggleFavorite = useCallback(
+		(modId: string) => {
+			setFavorites((prev) => {
+				if (prev.includes(modId)) {
+					return prev.filter((id) => id !== modId);
+				}
+				return [...prev, modId];
+			});
+		},
+		[setFavorites],
+	);
 
 	const isFavorite = useCallback(
 		(modId: string) => favorites.includes(modId),
