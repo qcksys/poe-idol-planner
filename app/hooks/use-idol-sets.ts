@@ -1,19 +1,16 @@
 import { nanoid } from "nanoid";
 import { useCallback, useMemo } from "react";
-import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
+import type { IdolBaseKey } from "~/data/idol-bases";
 import { getAllUnlockIds } from "~/data/map-device-unlocks";
+import {
+	buildOccupancyGrid,
+	checkCanPlace,
+	type Position,
+} from "~/lib/grid-utils";
 import type { IdolInstance } from "~/schemas/idol";
 import type { IdolPlacement, IdolSet } from "~/schemas/idol-set";
 import type { ImportSource, InventoryIdol } from "~/schemas/inventory";
 import { createEmptyMapDevice } from "~/schemas/scarab";
-
-const GRID_WIDTH = 6;
-const GRID_HEIGHT = 7;
-
-interface Position {
-	x: number;
-	y: number;
-}
 
 export interface UseIdolSetsReturn {
 	sets: IdolSet[];
@@ -46,72 +43,6 @@ export interface UseIdolSetsReturn {
 	removeIdol: (id: string) => void;
 	removeIdols: (ids: string[]) => void;
 	clearInventory: () => void;
-}
-
-function createEmptyGrid(): boolean[][] {
-	return Array.from({ length: GRID_HEIGHT }, () =>
-		Array.from({ length: GRID_WIDTH }, () => false),
-	);
-}
-
-function buildOccupancyGrid(
-	placements: IdolPlacement[],
-	inventory: InventoryIdol[],
-	excludePlacementId?: string,
-): boolean[][] {
-	const grid = createEmptyGrid();
-	const filteredPlacements = placements.filter(
-		(p) => p.id !== excludePlacementId,
-	);
-
-	for (const placement of filteredPlacements) {
-		const invIdol = inventory.find(
-			(i) => i.id === placement.inventoryIdolId,
-		);
-		if (!invIdol) continue;
-
-		const base = IDOL_BASES[invIdol.idol.baseType as IdolBaseKey];
-		const { x, y } = placement.position;
-
-		for (let dy = 0; dy < base.height; dy++) {
-			for (let dx = 0; dx < base.width; dx++) {
-				const cellY = y + dy;
-				const cellX = x + dx;
-				if (cellY < GRID_HEIGHT && cellX < GRID_WIDTH) {
-					grid[cellY][cellX] = true;
-				}
-			}
-		}
-	}
-
-	return grid;
-}
-
-function checkCanPlace(
-	grid: boolean[][],
-	baseType: IdolBaseKey,
-	position: Position,
-): boolean {
-	const base = IDOL_BASES[baseType];
-	const { x, y } = position;
-
-	if (x + base.width > GRID_WIDTH || y + base.height > GRID_HEIGHT) {
-		return false;
-	}
-
-	if (x < 0 || y < 0) {
-		return false;
-	}
-
-	for (let dy = 0; dy < base.height; dy++) {
-		for (let dx = 0; dx < base.width; dx++) {
-			if (grid[y + dy][x + dx]) {
-				return false;
-			}
-		}
-	}
-
-	return true;
 }
 
 export function useIdolSets(

@@ -13,32 +13,13 @@ import {
 	MAP_DEVICE_UNLOCKS,
 } from "~/data/map-device-unlocks";
 import { useTranslations } from "~/i18n";
+import { GRID_HEIGHT, GRID_WIDTH, isCellValid } from "~/lib/grid-utils";
 import { cn } from "~/lib/utils";
 import type { IdolInstance } from "~/schemas/idol";
 import type { IdolPlacement } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
 
-const GRID_WIDTH = 6;
-const GRID_HEIGHT = 7;
 const CELL_SIZE = 64;
-
-// Invalid cells (blocked) based on POE idol inventory layout:
-const INVALID_CELLS: Set<string> = new Set([
-	"0,0",
-	"1,2",
-	"1,3",
-	"1,4",
-	"2,3",
-	"3,3",
-	"4,3",
-	"4,2",
-	"4,4",
-	"5,6",
-]);
-
-function isCellValid(x: number, y: number): boolean {
-	return !INVALID_CELLS.has(`${x},${y}`);
-}
 
 interface IdolGridProps {
 	placements: IdolPlacement[];
@@ -126,32 +107,6 @@ function populateGrid(
 
 	return grid;
 }
-
-function canPlaceIdol(
-	grid: GridCell[][],
-	idol: IdolInstance,
-	x: number,
-	y: number,
-): boolean {
-	const base = IDOL_BASES[idol.baseType as IdolBaseKey];
-
-	if (x + base.width > GRID_WIDTH || y + base.height > GRID_HEIGHT) {
-		return false;
-	}
-
-	for (let dy = 0; dy < base.height; dy++) {
-		for (let dx = 0; dx < base.width; dx++) {
-			const cell = grid[y + dy][x + dx];
-			// Check if cell is occupied, invalid (blocked), or locked
-			if (cell.occupied || !cell.isValid || cell.isLocked) {
-				return false;
-			}
-		}
-	}
-
-	return true;
-}
-
 // Creates a custom drag image element for an idol
 function createDragImage(
 	idol: IdolInstance,
@@ -746,11 +701,4 @@ export function IdolGrid({
 	);
 }
 
-export {
-	canPlaceIdol,
-	GRID_WIDTH,
-	GRID_HEIGHT,
-	CELL_SIZE,
-	INVALID_CELLS,
-	isCellValid,
-};
+export { CELL_SIZE };
