@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.13.1
+
+### Patch Changes
+
+- d45ed4c: Switch scarab price fetching from poe.ninja stash API to exchange API for improved reliability
+
 ## 0.13.0
 
 ### Minor Changes
