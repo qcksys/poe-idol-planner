@@ -40,7 +40,11 @@ import { useTradeSettings } from "~/context/trade-settings-context";
 import type { LeagueMechanic } from "~/data/idol-bases";
 import { useLocale, useTranslations } from "~/i18n";
 import { getModMechanic, resolveModText } from "~/lib/mod-text-resolver";
-import { generateTradeUrl, getWeightRange } from "~/lib/trade-search";
+import {
+	generateTradeUrl,
+	getWeightRange,
+	snapToNearestWeight,
+} from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
 import type { InventoryIdol } from "~/schemas/inventory";
 
@@ -238,10 +242,10 @@ function WeightFilterSection({
 				id="max-weight"
 				min={weightRange.min}
 				max={weightRange.max}
-				step={10}
+				step={1}
 				value={[tradeSettings.maxWeight ?? weightRange.max]}
 				onValueChange={(values) => {
-					setMaxWeight(values[0]);
+					setMaxWeight(snapToNearestWeight(values[0]));
 				}}
 			/>
 			<div className="flex items-center gap-2">
