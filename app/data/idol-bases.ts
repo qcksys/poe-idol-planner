@@ -54,6 +54,19 @@ export type IdolBase = (typeof IDOL_BASES)[IdolBaseKey];
 
 export const IDOL_BASE_KEYS = Object.keys(IDOL_BASES) as IdolBaseKey[];
 
+const IDOL_BASE_KEY_SET = new Set<string>(IDOL_BASE_KEYS);
+
+export function isIdolBaseKey(value: unknown): value is IdolBaseKey {
+	return typeof value === "string" && IDOL_BASE_KEY_SET.has(value);
+}
+
+export function getIdolBaseOrDefault(key: string): IdolBase | undefined {
+	if (isIdolBaseKey(key)) {
+		return IDOL_BASES[key];
+	}
+	return undefined;
+}
+
 export const RARITY_TYPES = ["normal", "magic", "rare", "unique"] as const;
 export type Rarity = (typeof RARITY_TYPES)[number];
 
