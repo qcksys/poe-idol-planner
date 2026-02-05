@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { loadFromStorage, saveToStorage } from "~/lib/storage-utils";
 
 const FAVORITES_KEY = "poe-idol-planner-favorite-mods";
 
@@ -7,6 +8,8 @@ const FavoritesSchema = z.object({
 });
 
 type FavoritesData = z.infer<typeof FavoritesSchema>;
+
+const DEFAULT_FAVORITES: FavoritesData = { modIds: [] };
 
 // Default favorite mods - valuable generic mods that most players want
 // These IDs correspond to mods in idol-modifiers.json
@@ -19,28 +22,12 @@ export const DEFAULT_FAVORITE_MOD_PATTERNS = [
 ];
 
 export function loadFavorites(): string[] {
-	if (typeof window === "undefined") return [];
-
-	try {
-		const stored = localStorage.getItem(FAVORITES_KEY);
-		if (!stored) return [];
-
-		const parsed = JSON.parse(stored);
-		const result = FavoritesSchema.safeParse(parsed);
-		if (result.success) {
-			return result.data.modIds;
-		}
-	} catch {
-		// Ignore parse errors
-	}
-	return [];
+	return loadFromStorage(FAVORITES_KEY, FavoritesSchema, DEFAULT_FAVORITES)
+		.modIds;
 }
 
 export function saveFavorites(modIds: string[]): void {
-	if (typeof window === "undefined") return;
-
-	const data: FavoritesData = { modIds };
-	localStorage.setItem(FAVORITES_KEY, JSON.stringify(data));
+	saveToStorage(FAVORITES_KEY, { modIds } satisfies FavoritesData);
 }
 
 export function addFavorite(modId: string): string[] {
