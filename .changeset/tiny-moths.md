@@ -1,10 +1,11 @@
 ---
-"poe-idol-planner": patch
+"poe-idol-planner": minor
 ---
 
-Improve weight filter for trade searches:
-- The "not" query group now excludes all high-weight mods that can roll on the idol type (not the idol's own mods)
-- All mods on the idol are now searched for regardless of weight (previously high-weight mods were skipped)
-- Weight filter threshold is now inclusive (>= instead of >)
-- Single mod searches in the Browse Mods modal now respect the weight filter settings
-- Added "Only exclude matching affix type" toggle for single mod searches to filter by prefix/suffix type
+Enhanced weight filter for trade searches with new features:
+- Added option for separate prefix/suffix weight sliders
+- Added toggle to switch between GTE (>=) and LTE (<=) comparison modes
+- Weight filter now applies to both idol trade searches and single mod searches in Browse Mods
+- The "not" query group excludes all mods that match the weight criteria for that idol type
+- Removed multi-select functionality from inventory panel for simpler UX
+- Slider now snaps to actual mod weights instead of fixed increments

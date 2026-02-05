@@ -92,8 +92,16 @@
 		"searchBaseType": "Search {type} on Trade",
 		"maxWeight": "Max Weight",
 		"maxWeightPlaceholder": "No limit",
-		"filterByMaxWeight": "Exclude mods above this weight from trade search",
-		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
+		"filterByMaxWeight": "Exclude mods from trade search",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "Import Idol",

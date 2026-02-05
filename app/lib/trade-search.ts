@@ -170,23 +170,52 @@ const IDOL_TYPE_NAME_MAP: Record<IdolBaseKey, string> = {
 	conqueror: "Conqueror",
 };
 
+interface WeightFilterOptions {
+	maxWeight?: number | null;
+	maxPrefixWeight?: number | null;
+	maxSuffixWeight?: number | null;
+	mode: "gte" | "lte";
+	affixType?: "prefix" | "suffix";
+}
+
+function matchesWeightFilter(
+	weight: number,
+	threshold: number,
+	mode: "gte" | "lte",
+): boolean {
+	return mode === "gte" ? weight >= threshold : weight <= threshold;
+}
+
 function getHighWeightStatIdsForIdolType(
 	idolType: IdolBaseKey,
-	maxWeight: number,
 	excludeStatIds: Set<string>,
-	affixType?: "prefix" | "suffix",
+	options: WeightFilterOptions,
 ): string[] {
 	const idolTypeName = IDOL_TYPE_NAME_MAP[idolType];
 	const statIds: string[] = [];
+	const { maxWeight, maxPrefixWeight, maxSuffixWeight, mode, affixType } =
+		options;
 
 	for (const mod of idolModifiers as ModifierDataFromJson[]) {
 		if (!mod.applicableIdols?.includes(idolTypeName)) continue;
 		if (affixType && mod.type !== affixType) continue;
 
+		// Determine the weight threshold for this mod type
+		let threshold: number | null = null;
+		if (mod.type === "prefix" && maxPrefixWeight != null) {
+			threshold = maxPrefixWeight;
+		} else if (mod.type === "suffix" && maxSuffixWeight != null) {
+			threshold = maxSuffixWeight;
+		} else if (maxWeight != null) {
+			threshold = maxWeight;
+		}
+
+		if (threshold == null) continue;
+
 		for (const tier of mod.tiers) {
 			if (
 				tier.weight != null &&
-				tier.weight >= maxWeight &&
+				matchesWeightFilter(tier.weight, threshold, mode) &&
 				tier.tradeStatId &&
 				!excludeStatIds.has(tier.tradeStatId)
 			) {
@@ -332,11 +361,22 @@ interface BuildTradeQueryOptions {
 	idolType?: IdolBaseKey;
 	mods?: IdolModifier[];
 	maxWeight?: number | null;
+	maxPrefixWeight?: number | null;
+	maxSuffixWeight?: number | null;
+	weightFilterMode?: "gte" | "lte";
 	affixTypeFilter?: "prefix" | "suffix";
 }
 
 function buildTradeQuery(options: BuildTradeQueryOptions = {}): TradeQuery {
-	const { idolType, mods, maxWeight, affixTypeFilter } = options;
+	const {
+		idolType,
+		mods,
+		maxWeight,
+		maxPrefixWeight,
+		maxSuffixWeight,
+		weightFilterMode = "gte",
+		affixTypeFilter,
+	} = options;
 
 	const query: TradeQuery = {
 		query: {
@@ -383,13 +423,22 @@ function buildTradeQuery(options: BuildTradeQueryOptions = {}): TradeQuery {
 		}
 	}
 
+	// Check if any weight filter is set
+	const hasWeightFilter =
+		maxWeight != null || maxPrefixWeight != null || maxSuffixWeight != null;
+
 	// Add "not" filters for all high-weight mods on this idol type (excluding searched mods)
-	if (idolType && maxWeight != null) {
+	if (idolType && hasWeightFilter) {
 		const highWeightStatIds = getHighWeightStatIdsForIdolType(
 			idolType,
-			maxWeight,
 			searchedStatIds,
-			affixTypeFilter,
+			{
+				maxWeight,
+				maxPrefixWeight,
+				maxSuffixWeight,
+				mode: weightFilterMode,
+				affixType: affixTypeFilter,
+			},
 		);
 
 		if (highWeightStatIds.length > 0) {
@@ -409,6 +458,9 @@ export function generateTradeUrl(
 		league?: string;
 		includeAllMods?: boolean;
 		maxWeight?: number | null;
+		maxPrefixWeight?: number | null;
+		maxSuffixWeight?: number | null;
+		weightFilterMode?: "gte" | "lte";
 	},
 ): string {
 	const league = options?.league || DEFAULT_LEAGUE;
@@ -422,6 +474,9 @@ export function generateTradeUrl(
 		idolType: idol.baseType,
 		mods: modsToSearch,
 		maxWeight: options?.maxWeight,
+		maxPrefixWeight: options?.maxPrefixWeight,
+		maxSuffixWeight: options?.maxSuffixWeight,
+		weightFilterMode: options?.weightFilterMode,
 	});
 
 	const queryParam = encodeURIComponent(JSON.stringify(query));
@@ -450,6 +505,9 @@ export function generateTradeUrlForMod(
 		onlineOnly?: boolean;
 		baseType?: IdolBaseKey;
 		maxWeight?: number | null;
+		maxPrefixWeight?: number | null;
+		maxSuffixWeight?: number | null;
+		weightFilterMode?: "gte" | "lte";
 		matchAffixType?: boolean;
 	},
 ): string {
@@ -464,6 +522,9 @@ export function generateTradeUrlForMod(
 		idolType: options?.baseType,
 		mods: [mod],
 		maxWeight: options?.maxWeight,
+		maxPrefixWeight: options?.maxPrefixWeight,
+		maxSuffixWeight: options?.maxSuffixWeight,
+		weightFilterMode: options?.weightFilterMode,
 		affixTypeFilter: affixType,
 	});
 

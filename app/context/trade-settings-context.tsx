@@ -11,6 +11,7 @@ import {
 	loadTradeSettings,
 	saveTradeSettings,
 	type TradeSettings,
+	type WeightFilterMode,
 } from "~/lib/trade-settings";
 
 interface TradeSettingsContextValue {
@@ -18,6 +19,10 @@ interface TradeSettingsContextValue {
 	isHydrated: boolean;
 	setMaxWeight: (maxWeight: number | null) => void;
 	setFilterByMaxWeight: (filterByMaxWeight: boolean) => void;
+	setSeparateWeightFilters: (separate: boolean) => void;
+	setMaxPrefixWeight: (maxWeight: number | null) => void;
+	setMaxSuffixWeight: (maxWeight: number | null) => void;
+	setWeightFilterMode: (mode: WeightFilterMode) => void;
 }
 
 const TradeSettingsContext = createContext<TradeSettingsContextValue | null>(
@@ -50,6 +55,22 @@ export function TradeSettingsProvider({ children }: { children: ReactNode }) {
 		setSettings((prev) => ({ ...prev, filterByMaxWeight }));
 	}, []);
 
+	const setSeparateWeightFilters = useCallback((separate: boolean) => {
+		setSettings((prev) => ({ ...prev, separateWeightFilters: separate }));
+	}, []);
+
+	const setMaxPrefixWeight = useCallback((maxWeight: number | null) => {
+		setSettings((prev) => ({ ...prev, maxPrefixWeight: maxWeight }));
+	}, []);
+
+	const setMaxSuffixWeight = useCallback((maxWeight: number | null) => {
+		setSettings((prev) => ({ ...prev, maxSuffixWeight: maxWeight }));
+	}, []);
+
+	const setWeightFilterMode = useCallback((mode: WeightFilterMode) => {
+		setSettings((prev) => ({ ...prev, weightFilterMode: mode }));
+	}, []);
+
 	return (
 		<TradeSettingsContext.Provider
 			value={{
@@ -57,6 +78,10 @@ export function TradeSettingsProvider({ children }: { children: ReactNode }) {
 				isHydrated,
 				setMaxWeight,
 				setFilterByMaxWeight,
+				setSeparateWeightFilters,
+				setMaxPrefixWeight,
+				setMaxSuffixWeight,
+				setWeightFilterMode,
 			}}
 		>
 			{children}

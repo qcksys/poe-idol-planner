@@ -93,7 +93,15 @@
 		"maxWeight": "最大ウェイト",
 		"maxWeightPlaceholder": "制限なし",
 		"filterByMaxWeight": "このウェイト以上のmodを取引検索から除外",
-		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "アイドルをインポート",

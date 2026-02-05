@@ -93,7 +93,15 @@
 		"maxWeight": "Poids max.",
 		"maxWeightPlaceholder": "Pas de limite",
 		"filterByMaxWeight": "Exclure les mods au-dessus de ce poids de la recherche commerciale",
-		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "Importer une idole",

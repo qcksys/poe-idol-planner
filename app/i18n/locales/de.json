@@ -93,7 +93,15 @@
 		"maxWeight": "Max. Gewicht",
 		"maxWeightPlaceholder": "Kein Limit",
 		"filterByMaxWeight": "Mods über diesem Gewicht aus Handelssuche ausschließen",
-		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "Idol importieren",

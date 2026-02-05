@@ -23,12 +23,12 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "~/components/ui/select";
-import { Switch } from "~/components/ui/switch";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
+import { WeightFilterAccordion } from "~/components/weight-filter-accordion";
 import { useFavorites } from "~/context/favorites-context";
 import { useLeague } from "~/context/league-context";
 import { useTradeSettings } from "~/context/trade-settings-context";
@@ -57,8 +57,14 @@ interface ModifierRowProps {
 	onToggleFavorite: (id: string) => void;
 	t: Translations;
 	league: string;
-	maxWeight: number | null;
-	filterByMaxWeight: boolean;
+	tradeSettings: {
+		maxWeight: number | null;
+		filterByMaxWeight: boolean;
+		separateWeightFilters: boolean;
+		maxPrefixWeight: number | null;
+		maxSuffixWeight: number | null;
+		weightFilterMode: "gte" | "lte";
+	};
 	matchAffixType: boolean;
 	idolTypeFilter: IdolBaseKey[];
 }
@@ -69,8 +75,7 @@ const ModifierRow = memo(function ModifierRow({
 	onToggleFavorite,
 	t,
 	league,
-	maxWeight,
-	filterByMaxWeight,
+	tradeSettings,
 	matchAffixType,
 	idolTypeFilter,
 }: ModifierRowProps) {
@@ -98,19 +103,27 @@ const ModifierRow = memo(function ModifierRow({
 			{
 				league,
 				baseType,
-				maxWeight: filterByMaxWeight ? maxWeight : null,
+				maxWeight: tradeSettings.filterByMaxWeight
+					? tradeSettings.separateWeightFilters
+						? null
+						: tradeSettings.maxWeight
+					: null,
+				maxPrefixWeight:
+					tradeSettings.filterByMaxWeight &&
+					tradeSettings.separateWeightFilters
+						? tradeSettings.maxPrefixWeight
+						: null,
+				maxSuffixWeight:
+					tradeSettings.filterByMaxWeight &&
+					tradeSettings.separateWeightFilters
+						? tradeSettings.maxSuffixWeight
+						: null,
+				weightFilterMode: tradeSettings.weightFilterMode,
 				matchAffixType,
 			},
 		);
 		window.open(url, "_blank", "noopener,noreferrer");
-	}, [
-		mod,
-		league,
-		maxWeight,
-		filterByMaxWeight,
-		matchAffixType,
-		idolTypeFilter,
-	]);
+	}, [mod, league, tradeSettings, matchAffixType, idolTypeFilter]);
 
 	const weight = mod.tiers[0]?.weight ?? 0;
 
@@ -207,8 +220,14 @@ interface MechanicSectionProps {
 	onToggleFavorite: (id: string) => void;
 	t: Translations;
 	league: string;
-	maxWeight: number | null;
-	filterByMaxWeight: boolean;
+	tradeSettings: {
+		maxWeight: number | null;
+		filterByMaxWeight: boolean;
+		separateWeightFilters: boolean;
+		maxPrefixWeight: number | null;
+		maxSuffixWeight: number | null;
+		weightFilterMode: "gte" | "lte";
+	};
 	matchAffixType: boolean;
 	idolTypeFilter: IdolBaseKey[];
 }
@@ -220,8 +239,7 @@ const MechanicSection = memo(function MechanicSection({
 	onToggleFavorite,
 	t,
 	league,
-	maxWeight,
-	filterByMaxWeight,
+	tradeSettings,
 	matchAffixType,
 	idolTypeFilter,
 }: MechanicSectionProps) {
@@ -241,8 +259,7 @@ const MechanicSection = memo(function MechanicSection({
 						onToggleFavorite={onToggleFavorite}
 						t={t}
 						league={league}
-						maxWeight={maxWeight}
-						filterByMaxWeight={filterByMaxWeight}
+						tradeSettings={tradeSettings}
 						matchAffixType={matchAffixType}
 						idolTypeFilter={idolTypeFilter}
 					/>
@@ -455,22 +472,11 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 						</div>
 					</div>
 
-					{tradeSettings.filterByMaxWeight && (
-						<div className="flex items-center gap-2">
-							<Switch
-								id="match-affix-type"
-								checked={matchAffixType}
-								onCheckedChange={setMatchAffixType}
-							/>
-							<label
-								htmlFor="match-affix-type"
-								className="text-muted-foreground text-xs"
-							>
-								{t.trade?.matchAffixType ||
-									"Only exclude matching affix type (prefix/suffix)"}
-							</label>
-						</div>
-					)}
+					<WeightFilterAccordion
+						matchAffixType={matchAffixType}
+						onMatchAffixTypeChange={setMatchAffixType}
+						showMatchAffixType
+					/>
 
 					<div className="text-muted-foreground text-xs">
 						{(
@@ -494,10 +500,7 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 									onToggleFavorite={handleToggleFavorite}
 									t={t}
 									league={league}
-									maxWeight={tradeSettings.maxWeight}
-									filterByMaxWeight={
-										tradeSettings.filterByMaxWeight
-									}
+									tradeSettings={tradeSettings}
 									matchAffixType={matchAffixType}
 									idolTypeFilter={idolTypeFilter}
 								/>

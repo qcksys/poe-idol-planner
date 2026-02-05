@@ -93,7 +93,15 @@
 		"maxWeight": "Макс. вес",
 		"maxWeightPlaceholder": "Без ограничений",
 		"filterByMaxWeight": "Исключить моды выше этого веса из торгового поиска",
-		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "Импорт идола",

@@ -93,7 +93,15 @@
 		"maxWeight": "最大权重",
 		"maxWeightPlaceholder": "无限制",
 		"filterByMaxWeight": "从交易搜索中排除高于此权重的词缀",
-		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "导入神像",

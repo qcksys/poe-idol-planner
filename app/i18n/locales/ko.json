@@ -93,7 +93,15 @@
 		"maxWeight": "최대 가중치",
 		"maxWeightPlaceholder": "제한 없음",
 		"filterByMaxWeight": "이 가중치 이상의 옵션을 거래 검색에서 제외",
-		"matchAffixType": "Only exclude matching affix type (prefix/suffix)"
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "우상 가져오기",
