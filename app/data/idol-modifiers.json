@@ -3996,7 +3996,8 @@
 						"max": 100
 					}
 				],
-				"weight": 2000
+				"weight": 2000,
+				"tradeStatId": "explicit.stat_2661886285"
 			}
 		],
 		"mechanic": "settlers",
@@ -5562,16 +5563,16 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain (3—5)% more Monster Packs consisting of difficult and rewarding Monsters map chance to spawn t17 pack % [100]",
-					"zh-TW": "你的地圖所包含的困難和會賦予獎勵的怪物群增加 (3—5)% map chance to spawn t17 pack % [100]",
-					"zh-CN": "你的地图包含高难度与高奖励怪物的怪物群总增 (3—5)% map chance to spawn t17 pack % [100]",
-					"ko": "지도 내 난이도와 보상이 높은 몬스터로 이루어진 몬스터 무리 (3—5)% 증폭 map chance to spawn t17 pack % [100]",
-					"ja": "マップに出現する、難易度が高く報酬も多いモンスターからなるモンスターパックの数が(3—5)%上昇する map chance to spawn t17 pack % [100]",
-					"ru": "Ваши карты содержат на (3—5)% больше групп монстров, состоящих из сильных и вознаграждающих монстров map chance to spawn t17 pack % [100]",
-					"pt-BR": "Seus Mapas contêm (3—5)% mais Grupos de Monstros que consistem em Monstros difíceis e recompensadores map chance to spawn t17 pack % [100]",
-					"de": "Eure Karten enthalten (3—5)% mehr Monstergruppen mit schwierigen und lohnenden Monstern map chance to spawn t17 pack % [100]",
-					"fr": "Vos Cartes contiennent (3—5)% Davantage de Groupes de Monstres constitués de Monstres difficiles et généreux en récompenses map chance to spawn t17 pack % [100]",
-					"es": "Tus mapas contienen un (3—5)% más de grupos de monstruos compuestos por monstruos difíciles y gratificantes map chance to spawn t17 pack % [100]"
+					"en": "Your Maps contain (3—5)% more Monster Packs consisting of difficult and rewarding Monsters",
+					"zh-TW": "你的地圖所包含的困難和會賦予獎勵的怪物群增加 (3—5)%",
+					"zh-CN": "你的地图包含高难度与高奖励怪物的怪物群总增 (3—5)%",
+					"ko": "지도 내 난이도와 보상이 높은 몬스터로 이루어진 몬스터 무리 (3—5)% 증폭",
+					"ja": "マップに出現する、難易度が高く報酬も多いモンスターからなるモンスターパックの数が(3—5)%上昇する",
+					"ru": "Ваши карты содержат на (3—5)% больше групп монстров, состоящих из сильных и вознаграждающих монстров",
+					"pt-BR": "Seus Mapas contêm (3—5)% mais Grupos de Monstros que consistem em Monstros difíceis e recompensadores",
+					"de": "Eure Karten enthalten (3—5)% mehr Monstergruppen mit schwierigen und lohnenden Monstern",
+					"fr": "Vos Cartes contiennent (3—5)% Davantage de Groupes de Monstres constitués de Monstres difficiles et généreux en récompenses",
+					"es": "Tus mapas contienen un (3—5)% más de grupos de monstruos compuestos por monstruos difíciles y gratificantes"
 				},
 				"values": [
 					{
@@ -5579,7 +5580,8 @@
 						"max": 5
 					}
 				],
-				"weight": 1000
+				"weight": 1000,
+				"tradeStatId": "explicit.stat_1366180761"
 			}
 		],
 		"mechanic": "map",
@@ -9538,7 +9540,8 @@
 						"max": 180
 					}
 				],
-				"weight": 2000
+				"weight": 2000,
+				"tradeStatId": "explicit.stat_2661886285"
 			}
 		],
 		"mechanic": "settlers",
@@ -15257,7 +15260,8 @@
 						"max": 180
 					}
 				],
-				"weight": 2000
+				"weight": 2000,
+				"tradeStatId": "explicit.stat_2661886285"
 			}
 		],
 		"mechanic": "settlers",
@@ -21361,7 +21365,8 @@
 						"max": 240
 					}
 				],
-				"weight": 2000
+				"weight": 2000,
+				"tradeStatId": "explicit.stat_2661886285"
 			}
 		],
 		"mechanic": "settlers",
@@ -22054,7 +22059,8 @@
 					"es": "Tus mapas contienen una caja fuerte adicional"
 				},
 				"values": [],
-				"weight": 1000
+				"weight": 1000,
+				"tradeStatId": "explicit.stat_3240183538"
 			}
 		],
 		"mechanic": "strongbox",
@@ -27072,7 +27078,8 @@
 						"max": 240
 					}
 				],
-				"weight": 2000
+				"weight": 2000,
+				"tradeStatId": "explicit.stat_2661886285"
 			}
 		],
 		"mechanic": "settlers",
@@ -27765,7 +27772,8 @@
 					"es": "Tus mapas contienen una caja fuerte adicional"
 				},
 				"values": [],
-				"weight": 1000
+				"weight": 1000,
+				"tradeStatId": "explicit.stat_3240183538"
 			}
 		],
 		"mechanic": "strongbox",
@@ -29747,7 +29755,8 @@
 						"max": 5
 					}
 				],
-				"weight": 800
+				"weight": 800,
+				"tradeStatId": "explicit.stat_1730598557"
 			}
 		],
 		"mechanic": "blight",
@@ -30562,7 +30571,8 @@
 					"es": "Los depósitos y cofres de sulfito voltáxico que se encuentran en tus mapas contienen espíritus condenados"
 				},
 				"values": [],
-				"weight": 300
+				"weight": 300,
+				"tradeStatId": "explicit.stat_3236481633"
 			}
 		],
 		"mechanic": "delve",
@@ -30976,7 +30986,8 @@
 						"max": 35
 					}
 				],
-				"weight": 500
+				"weight": 500,
+				"tradeStatId": "explicit.stat_1506277901"
 			}
 		],
 		"mechanic": "essence",
@@ -32182,7 +32193,8 @@
 					"es": "Los encuentros de Legion de tus mapas contienen 2 sargentos adicionales"
 				},
 				"values": [],
-				"weight": 800
+				"weight": 800,
+				"tradeStatId": "explicit.stat_480028751"
 			}
 		],
 		"mechanic": "legion",
@@ -32606,7 +32618,8 @@
 						"max": 280
 					}
 				],
-				"weight": 2000
+				"weight": 2000,
+				"tradeStatId": "explicit.stat_2661886285"
 			}
 		],
 		"mechanic": "settlers",
@@ -32732,7 +32745,8 @@
 						"max": 7
 					}
 				],
-				"weight": 300
+				"weight": 300,
+				"tradeStatId": "explicit.stat_643727077"
 			}
 		],
 		"mechanic": "settlers",
@@ -33063,7 +33077,8 @@
 					"es": "Tus mapas contienen una caja fuerte adicional"
 				},
 				"values": [],
-				"weight": 1000
+				"weight": 1000,
+				"tradeStatId": "explicit.stat_3240183538"
 			}
 		],
 		"mechanic": "strongbox",

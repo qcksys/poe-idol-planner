@@ -37,6 +37,51 @@ const DIRECTION_CANONICALIZATION: [RegExp, string][] = [
 	[/\bfewer\b/gi, "additional"],
 ];
 
+// Manual text overrides for mods where idol text differs from trade API text
+// Format: [idol pattern after normalization, trade API pattern to search for]
+const TEXT_OVERRIDES: [RegExp, string][] = [
+	// Singular vs plural: "an additional Strongbox" -> "# additional Strongboxes"
+	[
+		/^Your Maps contain an additional Strongbox$/i,
+		"Your Maps contain # additional Strongboxes",
+	],
+	// Plural vs singular: "Sergeants" -> "Sergeant"
+	[
+		/^Legion Encounters in your Maps contain # additional Sergeants$/i,
+		"Legion Encounters in your Maps contain # additional Sergeant",
+	],
+	// Blight Chests: "# Blight Chests in your Maps" -> "# Blight Chests" (no "in your Maps" for range version)
+	[
+		/^Varieties of Items contained in # Blight Chests in your Maps are Lucky$/i,
+		"Varieties of Items contained in # Blight Chests are Lucky",
+	],
+	// Guaranteed vs chance: "contains Doomed Spirits" -> "#% chance to contain Doomed Spirits"
+	[
+		/^Voltaxic Sulphite Veins and Chests found in your Maps contains Doomed Spirits$/i,
+		"Voltaxic Sulphite Veins and Chests found in your Maps have #% chance to contain Doomed Spirits",
+	],
+	// Unique: Maven guaranteed -> chance (idol has comma "Stakes,", trade API doesn't)
+	// Use trade API format with newlines - normalizeModText will handle conversion
+	[
+		/^The Maven casts Up the Stakes,? summoning/i,
+		"The Maven has a 100% chance to cast Up the Stakes summoning 1 to 3 additional Atlas Bosses\nwhen Witnessing Map Bosses\nThe number of additional Bosses summoned is higher if there\nare fewer monsters remaining in the Map\nModifiers to the Final Map Boss in each Map also apply to these summoned Bosses",
+	],
+	// Chance-based mods -> guaranteed versions (trade API only has guaranteed)
+	[
+		/^Essences found in your Maps have #% chance to be a tier higher$/i,
+		"Essences found in your Maps are a tier higher",
+	],
+	[
+		/^#% chance for Ore Deposits in your Maps to be replaced by Lost Shipments$/i,
+		"Ore Deposits in your Maps are replaced by Lost Shipments",
+	],
+	// "increased chance" -> "+#% chance" (different wording, same stat)
+	[
+		/^Your Maps have #% increased chance to contain Ore Deposits$/i,
+		"Your Maps have +#% chance to contain Ore Deposits",
+	],
+];
+
 export function normalizeModText(text: string): string {
 	let normalized = text
 		.replace(
@@ -139,22 +184,33 @@ function buildTradeStatIndex(
 	return index;
 }
 
+function applyTextOverrides(normalized: string): string {
+	for (const [pattern, replacement] of TEXT_OVERRIDES) {
+		if (pattern.test(normalized)) {
+			return normalizeModText(replacement);
+		}
+	}
+	return normalized;
+}
+
 function findBestMatch(
 	modText: string,
 	index: Map<string, TradeStatMapping>,
 ): TradeStatMapping | null {
 	const normalized = normalizeModText(modText);
 
+	// Check for exact match first
 	if (index.has(normalized)) {
 		return index.get(normalized) || null;
 	}
 
-	for (const [key, mapping] of index) {
-		if (key === normalized) {
-			return mapping;
-		}
+	// Try text overrides for known mismatches
+	const overridden = applyTextOverrides(normalized);
+	if (overridden !== normalized && index.has(overridden)) {
+		return index.get(overridden) || null;
 	}
 
+	// Fuzzy word matching as fallback
 	const modWords = normalized.toLowerCase().split(" ");
 	let bestMatch: TradeStatMapping | null = null;
 	let bestScore = 0;

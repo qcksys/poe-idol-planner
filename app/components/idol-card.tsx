@@ -1,4 +1,4 @@
-import { Copy, X } from "lucide-react";
+import { Copy, ExternalLink, X } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import {
@@ -15,6 +15,7 @@ import {
 	getModValueRange,
 	resolveModTextWithRange,
 } from "~/lib/mod-text-resolver";
+import { generateTradeUrlForMod } from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
 
@@ -115,9 +116,11 @@ function formatModTextWithRange(
 function ModifierLine({
 	mod,
 	locale,
+	showTradeButton = false,
 }: {
 	mod: IdolModifier;
 	locale: SupportedLocale;
+	showTradeButton?: boolean;
 }) {
 	const resolvedText = resolveModTextWithRange(mod, locale);
 	const valueRange = getModValueRange(mod.modId, mod.tier);
@@ -126,11 +129,28 @@ function ModifierLine({
 		mod.rolledValue,
 		valueRange,
 	);
+
+	const handleTradeSearch = (e: React.MouseEvent) => {
+		e.stopPropagation();
+		const url = generateTradeUrlForMod(mod);
+		window.open(url, "_blank", "noopener,noreferrer");
+	};
+
 	return (
-		<div className="text-sm">
-			<span className={getModTypeColor(mod.type)}>
+		<div className="group/mod flex items-start gap-1 text-sm">
+			<span className={cn("flex-1", getModTypeColor(mod.type))}>
 				{highlightNumbers(displayText)}
 			</span>
+			{showTradeButton && (
+				<button
+					type="button"
+					onClick={handleTradeSearch}
+					className="shrink-0 rounded p-0.5 opacity-0 transition-opacity hover:bg-accent group-hover/mod:opacity-100"
+					title="Search Trade"
+				>
+					<ExternalLink className="h-3 w-3 text-muted-foreground" />
+				</button>
+			)}
 		</div>
 	);
 }
@@ -138,9 +158,11 @@ function ModifierLine({
 function IdolCardContent({
 	idol,
 	compact,
+	showTradeButtons = false,
 }: {
 	idol: IdolInstance;
 	compact?: boolean;
+	showTradeButtons?: boolean;
 }) {
 	const t = useTranslations();
 	const locale = useLocale();
@@ -183,6 +205,7 @@ function IdolCardContent({
 							key={`${mod.modId}-${index}`}
 							mod={mod}
 							locale={locale}
+							showTradeButton={showTradeButtons}
 						/>
 					))}
 				</div>
@@ -237,7 +260,11 @@ export function IdolCard({
 					collisionPadding={8}
 					className="max-w-xs border border-border bg-card text-card-foreground"
 				>
-					<IdolCardContent idol={idol} compact={false} />
+					<IdolCardContent
+						idol={idol}
+						compact={false}
+						showTradeButtons
+					/>
 				</TooltipContent>
 			</Tooltip>
 		</TooltipProvider>
@@ -322,7 +349,11 @@ export function IdolCardMini({
 						collisionPadding={8}
 						className="max-w-xs border border-border bg-card text-card-foreground"
 					>
-						<IdolCardContent idol={idol} compact={false} />
+						<IdolCardContent
+							idol={idol}
+							compact={false}
+							showTradeButtons
+						/>
 					</TooltipContent>
 				</Tooltip>
 				{(onCopy || onRemove) && (

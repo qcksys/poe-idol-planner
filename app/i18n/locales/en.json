@@ -89,7 +89,19 @@
 		"findThisMod": "Find This Mod on Trade",
 		"searchAll": "Search All on Trade",
 		"openTrade": "Open Trade Site",
-		"searchBaseType": "Search {type} on Trade"
+		"searchBaseType": "Search {type} on Trade",
+		"maxWeight": "Max Weight",
+		"maxWeightPlaceholder": "No limit",
+		"filterByMaxWeight": "Exclude mods from trade search",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "Import Idol",
@@ -123,7 +135,11 @@
 		"sharedSetDescription": "Someone shared an idol set with you",
 		"idolsInSet": "Idols in this set:",
 		"importing": "Importing...",
-		"importSet": "Import Set"
+		"importSet": "Import Set",
+		"duplicateFound": "Duplicate Set Found",
+		"duplicateDescription": "A set with identical content already exists:",
+		"importAnyway": "Import Anyway",
+		"viewExisting": "View Existing Set"
 	},
 	"errors": {
 		"invalidIdol": "Invalid idol data",
@@ -174,7 +190,9 @@
 		"favoritesAll": "All",
 		"favoritesOnly": "Favorites Only",
 		"favoritesExclude": "Non-Favorites Only",
-		"modsFound": "{count} modifiers found"
+		"modsFound": "{count} modifiers found",
+		"weight": "Weight",
+		"searchTrade": "Search Trade"
 	},
 	"filter": {
 		"mechanic": "Mechanic",

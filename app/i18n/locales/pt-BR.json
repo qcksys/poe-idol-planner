@@ -89,7 +89,19 @@
 		"findThisMod": "Encontrar Este Mod no Trade",
 		"searchAll": "Buscar Todos no Trade",
 		"openTrade": "Abrir Site de Trade",
-		"searchBaseType": "Buscar {type} no Trade"
+		"searchBaseType": "Buscar {type} no Trade",
+		"maxWeight": "Peso Máximo",
+		"maxWeightPlaceholder": "Sem limite",
+		"filterByMaxWeight": "Excluir mods acima deste peso da busca de comércio",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "Importar Ídolo",
@@ -123,7 +135,11 @@
 		"sharedSetDescription": "Alguém compartilhou um conjunto de ídolos com você",
 		"idolsInSet": "Ídolos neste conjunto:",
 		"importing": "Importando...",
-		"importSet": "Importar Conjunto"
+		"importSet": "Importar Conjunto",
+		"duplicateFound": "Conjunto Duplicado Encontrado",
+		"duplicateDescription": "Um conjunto com conteúdo idêntico já existe:",
+		"importAnyway": "Importar Mesmo Assim",
+		"viewExisting": "Ver Conjunto Existente"
 	},
 	"errors": {
 		"invalidIdol": "Dados de ídolo inválidos",
@@ -174,7 +190,9 @@
 		"favoritesAll": "Todos",
 		"favoritesOnly": "Apenas Favoritos",
 		"favoritesExclude": "Apenas Não-Favoritos",
-		"modsFound": "{count} modificadores encontrados"
+		"modsFound": "{count} modificadores encontrados",
+		"weight": "Peso",
+		"searchTrade": "Buscar no Trade"
 	},
 	"filter": {
 		"mechanic": "Mecânica",

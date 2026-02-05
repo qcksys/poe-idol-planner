@@ -51,13 +51,21 @@ function extractValues(text: string): ValueRange[] {
 }
 
 function normalizeModText(html: string): string {
-	return html
-		.replace(/<span[^>]*class=['"]mod-value['"][^>]*>/gi, "")
-		.replace(/<\/span>/gi, "")
-		.replace(/<br\s*\/?>/gi, "\n")
-		.replace(/<[^>]*>/g, "")
-		.replace(/\s+/g, " ")
-		.trim();
+	return (
+		html
+			// Remove entire <span class="secondary">...</span> (internal poedb metadata)
+			.replace(
+				/<span[^>]*class=['"]secondary['"][^>]*>[\s\S]*?<\/span>/gi,
+				"",
+			)
+			// Remove opening mod-value spans (we want to keep the content)
+			.replace(/<span[^>]*class=['"]mod-value['"][^>]*>/gi, "")
+			.replace(/<\/span>/gi, "")
+			.replace(/<br\s*\/?>/gi, "\n")
+			.replace(/<[^>]*>/g, "")
+			.replace(/\s+/g, " ")
+			.trim()
+	);
 }
 
 // All known mechanics that can be extracted from modFamily or text

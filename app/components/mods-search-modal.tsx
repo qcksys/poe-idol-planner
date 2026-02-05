@@ -1,4 +1,4 @@
-import { Search, Star } from "lucide-react";
+import { ExternalLink, Search, Star } from "lucide-react";
 import { memo, useCallback, useDeferredValue, useMemo, useState } from "react";
 import {
 	getModifierOptions,
@@ -28,7 +28,10 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
+import { WeightFilterAccordion } from "~/components/weight-filter-accordion";
 import { useFavorites } from "~/context/favorites-context";
+import { useLeague } from "~/context/league-context";
+import { useTradeSettings } from "~/context/trade-settings-context";
 import {
 	IDOL_BASES,
 	type IdolBaseKey,
@@ -37,6 +40,7 @@ import {
 } from "~/data/idol-bases";
 import { useLocale, useTranslations } from "~/i18n";
 import type { Translations } from "~/i18n/types";
+import { generateTradeUrlForMod } from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
 
 interface ModsSearchModalProps {
@@ -52,6 +56,17 @@ interface ModifierRowProps {
 	isFavorite: boolean;
 	onToggleFavorite: (id: string) => void;
 	t: Translations;
+	league: string;
+	tradeSettings: {
+		maxWeight: number | null;
+		filterByMaxWeight: boolean;
+		separateWeightFilters: boolean;
+		maxPrefixWeight: number | null;
+		maxSuffixWeight: number | null;
+		weightFilterMode: "gte" | "lte";
+	};
+	matchAffixType: boolean;
+	idolTypeFilter: IdolBaseKey[];
 }
 
 const ModifierRow = memo(function ModifierRow({
@@ -59,10 +74,58 @@ const ModifierRow = memo(function ModifierRow({
 	isFavorite,
 	onToggleFavorite,
 	t,
+	league,
+	tradeSettings,
+	matchAffixType,
+	idolTypeFilter,
 }: ModifierRowProps) {
 	const handleToggle = useCallback(() => {
 		onToggleFavorite(mod.id);
 	}, [mod.id, onToggleFavorite]);
+
+	const handleTradeSearch = useCallback(() => {
+		// Use selected idol type filter if exactly one is selected, otherwise use first applicable
+		const baseType =
+			idolTypeFilter.length === 1
+				? idolTypeFilter[0]
+				: (mod.applicableIdols[0]?.toLowerCase() as
+						| IdolBaseKey
+						| undefined);
+
+		const url = generateTradeUrlForMod(
+			{
+				modId: mod.id,
+				tier: mod.tiers[0]?.tier ?? 1,
+				type: mod.type,
+				text: mod.tiers[0]?.text || "",
+				rolledValue: 0,
+			},
+			{
+				league,
+				baseType,
+				maxWeight: tradeSettings.filterByMaxWeight
+					? tradeSettings.separateWeightFilters
+						? null
+						: tradeSettings.maxWeight
+					: null,
+				maxPrefixWeight:
+					tradeSettings.filterByMaxWeight &&
+					tradeSettings.separateWeightFilters
+						? tradeSettings.maxPrefixWeight
+						: null,
+				maxSuffixWeight:
+					tradeSettings.filterByMaxWeight &&
+					tradeSettings.separateWeightFilters
+						? tradeSettings.maxSuffixWeight
+						: null,
+				weightFilterMode: tradeSettings.weightFilterMode,
+				matchAffixType,
+			},
+		);
+		window.open(url, "_blank", "noopener,noreferrer");
+	}, [mod, league, tradeSettings, matchAffixType, idolTypeFilter]);
+
+	const weight = mod.tiers[0]?.weight ?? 0;
 
 	return (
 		<div className="flex items-start gap-2 rounded-md p-2 hover:bg-muted/50">
@@ -107,6 +170,10 @@ const ModifierRow = memo(function ModifierRow({
 							: t.modsSearch?.suffix || "Suffix"}
 					</span>
 					<span>•</span>
+					<span title={t.modsSearch?.weight || "Weight"}>
+						{weight}
+					</span>
+					<span>•</span>
 					{mod.applicableIdols.map((idol, index) => {
 						const key = idol.toLowerCase() as IdolBaseKey;
 						const base = IDOL_BASES[key];
@@ -128,6 +195,20 @@ const ModifierRow = memo(function ModifierRow({
 					})}
 				</div>
 			</div>
+			<Tooltip>
+				<TooltipTrigger asChild>
+					<button
+						type="button"
+						onClick={handleTradeSearch}
+						className="mt-0.5 shrink-0 rounded p-1 hover:bg-accent"
+					>
+						<ExternalLink className="h-4 w-4 text-muted-foreground" />
+					</button>
+				</TooltipTrigger>
+				<TooltipContent>
+					{t.modsSearch?.searchTrade || "Search Trade"}
+				</TooltipContent>
+			</Tooltip>
 		</div>
 	);
 });
@@ -138,6 +219,17 @@ interface MechanicSectionProps {
 	isFavorite: (id: string) => boolean;
 	onToggleFavorite: (id: string) => void;
 	t: Translations;
+	league: string;
+	tradeSettings: {
+		maxWeight: number | null;
+		filterByMaxWeight: boolean;
+		separateWeightFilters: boolean;
+		maxPrefixWeight: number | null;
+		maxSuffixWeight: number | null;
+		weightFilterMode: "gte" | "lte";
+	};
+	matchAffixType: boolean;
+	idolTypeFilter: IdolBaseKey[];
 }
 
 const MechanicSection = memo(function MechanicSection({
@@ -146,6 +238,10 @@ const MechanicSection = memo(function MechanicSection({
 	isFavorite,
 	onToggleFavorite,
 	t,
+	league,
+	tradeSettings,
+	matchAffixType,
+	idolTypeFilter,
 }: MechanicSectionProps) {
 	if (mods.length === 0) return null;
 
@@ -162,6 +258,10 @@ const MechanicSection = memo(function MechanicSection({
 						isFavorite={isFavorite(mod.id)}
 						onToggleFavorite={onToggleFavorite}
 						t={t}
+						league={league}
+						tradeSettings={tradeSettings}
+						matchAffixType={matchAffixType}
+						idolTypeFilter={idolTypeFilter}
 					/>
 				))}
 			</div>
@@ -173,12 +273,15 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 	const t = useTranslations();
 	const locale = useLocale();
 	const { favorites, toggleFavorite, isFavorite } = useFavorites();
+	const { league } = useLeague();
+	const { settings: tradeSettings } = useTradeSettings();
 
 	const [searchQuery, setSearchQuery] = useState("");
 	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic[]>([]);
 	const [idolTypeFilter, setIdolTypeFilter] = useState<IdolBaseKey[]>([]);
 	const [typeFilter, setTypeFilter] = useState<TypeFilter>("all");
 	const [favoriteFilter, setFavoriteFilter] = useState<FavoriteFilter>("all");
+	const [matchAffixType, setMatchAffixType] = useState(true);
 
 	// Defer the search query to avoid blocking input
 	const deferredSearchQuery = useDeferredValue(searchQuery);
@@ -369,6 +472,12 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 						</div>
 					</div>
 
+					<WeightFilterAccordion
+						matchAffixType={matchAffixType}
+						onMatchAffixTypeChange={setMatchAffixType}
+						showMatchAffixType
+					/>
+
 					<div className="text-muted-foreground text-xs">
 						{(
 							t.modsSearch?.modsFound || "{count} modifiers found"
@@ -390,6 +499,10 @@ export function ModsSearchModal({ open, onOpenChange }: ModsSearchModalProps) {
 									isFavorite={isFavorite}
 									onToggleFavorite={handleToggleFavorite}
 									t={t}
+									league={league}
+									tradeSettings={tradeSettings}
+									matchAffixType={matchAffixType}
+									idolTypeFilter={idolTypeFilter}
 								/>
 							);
 						})}

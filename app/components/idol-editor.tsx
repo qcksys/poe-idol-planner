@@ -43,6 +43,7 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
+import { WeightFilterAccordion } from "~/components/weight-filter-accordion";
 import {
 	IDOL_BASE_KEYS,
 	IDOL_BASES,
@@ -759,6 +760,8 @@ export function IdolEditor({
 										onChange={setMechanicFilter}
 									/>
 								</div>
+
+								<WeightFilterAccordion />
 
 								<div className="space-y-4">
 									<h4 className="font-medium text-sm">

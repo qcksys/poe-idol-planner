@@ -89,7 +89,19 @@
 		"findThisMod": "在交易站搜尋此詞綴",
 		"searchAll": "在交易站搜尋全部",
 		"openTrade": "開啟交易站",
-		"searchBaseType": "在交易站搜尋 {type}"
+		"searchBaseType": "在交易站搜尋 {type}",
+		"maxWeight": "最大權重",
+		"maxWeightPlaceholder": "無限制",
+		"filterByMaxWeight": "從交易搜索中排除高於此權重的詞綴",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "匯入神像",
@@ -123,7 +135,11 @@
 		"sharedSetDescription": "有人與你分享了一個神像配置",
 		"idolsInSet": "此配置中的神像：",
 		"importing": "匯入中...",
-		"importSet": "匯入配置"
+		"importSet": "匯入配置",
+		"duplicateFound": "發現重複配置",
+		"duplicateDescription": "已存在具有相同內容的配置：",
+		"importAnyway": "仍要匯入",
+		"viewExisting": "檢視現有配置"
 	},
 	"errors": {
 		"invalidIdol": "無效的神像資料",
@@ -174,7 +190,9 @@
 		"favoritesAll": "全部",
 		"favoritesOnly": "僅收藏",
 		"favoritesExclude": "僅非收藏",
-		"modsFound": "找到 {count} 個詞綴"
+		"modsFound": "找到 {count} 個詞綴",
+		"weight": "權重",
+		"searchTrade": "交易站搜尋"
 	},
 	"filter": {
 		"mechanic": "機制",

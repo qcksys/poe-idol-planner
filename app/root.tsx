@@ -79,7 +79,10 @@ export default function App() {
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 	useEffect(() => {
-		if (!isRouteErrorResponse(error) || error.status >= 500) {
+		if (
+			!import.meta.env.DEV &&
+			(!isRouteErrorResponse(error) || error.status >= 500)
+		) {
 			Sentry.captureException(error);
 		}
 	}, [error]);

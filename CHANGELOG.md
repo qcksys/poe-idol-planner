@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.12.0
+
+### Minor Changes
+
+- 3ce53b2: Add duplicate detection for shared idol sets. When importing a shared set that already exists in your collection (based on content hash), you'll see a prompt to either view the existing set or import it anyway.
+- c83c63e: Enhanced weight filter for trade searches with new features:
+  - Added option for separate prefix/suffix weight sliders
+  - Added toggle to switch between GTE (>=) and LTE (<=) comparison modes
+  - Weight filter now applies to both idol trade searches and single mod searches in Browse Mods
+  - The "not" query group excludes all mods that match the weight criteria for that idol type
+  - Removed multi-select functionality from inventory panel for simpler UX
+  - Slider now snaps to actual mod weights instead of fixed increments
+- 5742848: Add idol mod weights feature:
+  - Display mod weights in the mods search modal
+  - Add max weight filter for trade searches with dynamic range based on actual mod data
+  - Mods above the weight threshold are added to a "not" filter in trade API (excludes items with common mods)
+  - Add toggle switch to enable/disable weight filtering
+  - Add single-mod trade search buttons in mods search modal and idol tooltips
+  - Fix league name validation to allow periods (e.g., "Phrecia 2.0")
+
+### Patch Changes
+
+- 73bdecb: Derive default league from leagues.json instead of hardcoding it. The default league is now the first PC realm league in the data file.
+
 ## 0.11.3
 
 ### Patch Changes

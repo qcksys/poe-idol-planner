@@ -89,7 +89,19 @@
 		"findThisMod": "Найти этот мод на трейде",
 		"searchAll": "Искать всё на трейде",
 		"openTrade": "Открыть сайт трейда",
-		"searchBaseType": "Искать {type} на трейде"
+		"searchBaseType": "Искать {type} на трейде",
+		"maxWeight": "Макс. вес",
+		"maxWeightPlaceholder": "Без ограничений",
+		"filterByMaxWeight": "Исключить моды выше этого веса из торгового поиска",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "Импорт идола",
@@ -123,7 +135,11 @@
 		"sharedSetDescription": "Кто-то поделился с вами набором идолов",
 		"idolsInSet": "Идолы в этом наборе:",
 		"importing": "Импорт...",
-		"importSet": "Импортировать набор"
+		"importSet": "Импортировать набор",
+		"duplicateFound": "Найден дубликат набора",
+		"duplicateDescription": "Набор с таким же содержимым уже существует:",
+		"importAnyway": "Всё равно импортировать",
+		"viewExisting": "Посмотреть существующий"
 	},
 	"errors": {
 		"invalidIdol": "Неверные данные идола",
@@ -174,7 +190,9 @@
 		"favoritesAll": "Все",
 		"favoritesOnly": "Только избранное",
 		"favoritesExclude": "Только не избранное",
-		"modsFound": "{count} модификаторов найдено"
+		"modsFound": "{count} модификаторов найдено",
+		"weight": "Вес",
+		"searchTrade": "Поиск на трейде"
 	},
 	"filter": {
 		"mechanic": "Механика",

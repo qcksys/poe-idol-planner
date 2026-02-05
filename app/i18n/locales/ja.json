@@ -89,7 +89,19 @@
 		"findThisMod": "トレードでこのModを検索",
 		"searchAll": "トレードで全て検索",
 		"openTrade": "トレードサイトを開く",
-		"searchBaseType": "トレードで{type}を検索"
+		"searchBaseType": "トレードで{type}を検索",
+		"maxWeight": "最大ウェイト",
+		"maxWeightPlaceholder": "制限なし",
+		"filterByMaxWeight": "このウェイト以上のmodを取引検索から除外",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "アイドルをインポート",
@@ -123,7 +135,11 @@
 		"sharedSetDescription": "誰かがアイドルセットを共有しました",
 		"idolsInSet": "このセットのアイドル:",
 		"importing": "インポート中...",
-		"importSet": "セットをインポート"
+		"importSet": "セットをインポート",
+		"duplicateFound": "重複セットを検出",
+		"duplicateDescription": "同一の内容を持つセットが既に存在します:",
+		"importAnyway": "それでもインポート",
+		"viewExisting": "既存のセットを表示"
 	},
 	"errors": {
 		"invalidIdol": "無効なアイドルデータ",
@@ -174,7 +190,9 @@
 		"favoritesAll": "すべて",
 		"favoritesOnly": "お気に入りのみ",
 		"favoritesExclude": "お気に入り以外のみ",
-		"modsFound": "{count}件のModが見つかりました"
+		"modsFound": "{count}件のModが見つかりました",
+		"weight": "ウェイト",
+		"searchTrade": "トレード検索"
 	},
 	"filter": {
 		"mechanic": "メカニック",

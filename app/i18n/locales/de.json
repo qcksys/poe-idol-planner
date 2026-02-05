@@ -89,7 +89,19 @@
 		"findThisMod": "Diesen Mod im Handel finden",
 		"searchAll": "Alle im Handel suchen",
 		"openTrade": "Handelsseite öffnen",
-		"searchBaseType": "{type} im Handel suchen"
+		"searchBaseType": "{type} im Handel suchen",
+		"maxWeight": "Max. Gewicht",
+		"maxWeightPlaceholder": "Kein Limit",
+		"filterByMaxWeight": "Mods über diesem Gewicht aus Handelssuche ausschließen",
+		"matchAffixType": "Only exclude matching affix type (prefix/suffix)",
+		"weightFilter": "Weight Filter",
+		"weightFilterActive": "Active",
+		"separateWeights": "Separate prefix/suffix weights",
+		"prefixWeight": "Prefix",
+		"suffixWeight": "Suffix",
+		"gte": "GTE",
+		"lte": "LTE",
+		"weightThreshold": "weight threshold"
 	},
 	"import": {
 		"title": "Idol importieren",
@@ -123,7 +135,11 @@
 		"sharedSetDescription": "Jemand hat ein Idol-Set mit Ihnen geteilt",
 		"idolsInSet": "Idole in diesem Set:",
 		"importing": "Importieren...",
-		"importSet": "Set importieren"
+		"importSet": "Set importieren",
+		"duplicateFound": "Duplikat-Set gefunden",
+		"duplicateDescription": "Ein Set mit identischem Inhalt existiert bereits:",
+		"importAnyway": "Trotzdem importieren",
+		"viewExisting": "Bestehendes Set anzeigen"
 	},
 	"errors": {
 		"invalidIdol": "Ungültige Idol-Daten",
@@ -174,7 +190,9 @@
 		"favoritesAll": "Alle",
 		"favoritesOnly": "Nur Favoriten",
 		"favoritesExclude": "Nur Nicht-Favoriten",
-		"modsFound": "{count} Modifikatoren gefunden"
+		"modsFound": "{count} Modifikatoren gefunden",
+		"weight": "Gewicht",
+		"searchTrade": "Im Handel suchen"
 	},
 	"filter": {
 		"mechanic": "Mechanik",
