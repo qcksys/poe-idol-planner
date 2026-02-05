@@ -89,7 +89,9 @@
 		"findThisMod": "Find This Mod on Trade",
 		"searchAll": "Search All on Trade",
 		"openTrade": "Open Trade Site",
-		"searchBaseType": "Search {type} on Trade"
+		"searchBaseType": "Search {type} on Trade",
+		"maxWeight": "Max Weight",
+		"maxWeightPlaceholder": "No limit"
 	},
 	"import": {
 		"title": "Import Idol",
@@ -178,7 +180,9 @@
 		"favoritesAll": "All",
 		"favoritesOnly": "Favorites Only",
 		"favoritesExclude": "Non-Favorites Only",
-		"modsFound": "{count} modifiers found"
+		"modsFound": "{count} modifiers found",
+		"weight": "Weight",
+		"searchTrade": "Search Trade"
 	},
 	"filter": {
 		"mechanic": "Mechanic",

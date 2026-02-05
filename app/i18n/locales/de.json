@@ -89,7 +89,9 @@
 		"findThisMod": "Diesen Mod im Handel finden",
 		"searchAll": "Alle im Handel suchen",
 		"openTrade": "Handelsseite öffnen",
-		"searchBaseType": "{type} im Handel suchen"
+		"searchBaseType": "{type} im Handel suchen",
+		"maxWeight": "Max. Gewicht",
+		"maxWeightPlaceholder": "Kein Limit"
 	},
 	"import": {
 		"title": "Idol importieren",
@@ -178,7 +180,9 @@
 		"favoritesAll": "Alle",
 		"favoritesOnly": "Nur Favoriten",
 		"favoritesExclude": "Nur Nicht-Favoriten",
-		"modsFound": "{count} Modifikatoren gefunden"
+		"modsFound": "{count} Modifikatoren gefunden",
+		"weight": "Gewicht",
+		"searchTrade": "Im Handel suchen"
 	},
 	"filter": {
 		"mechanic": "Mechanik",

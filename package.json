@@ -22,7 +22,7 @@
 		"types:rr": "react-router typegen",
 		"types:tsc": "tsc -b",
 		"postinstall": "pnpm run types:cf",
-		"preview": "pnpm run build && vite preview",
+		"scarab-price-update": "curl \"http://localhost:5173/cdn-cgi/handler/scheduled?cron=*/15+*+*+*+*\"",
 		"precommit": "pnpm run biome:ci && pnpm run types",
 		"prepare": "husky"
 	},

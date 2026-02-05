@@ -89,7 +89,9 @@
 		"findThisMod": "Encontrar Este Mod no Trade",
 		"searchAll": "Buscar Todos no Trade",
 		"openTrade": "Abrir Site de Trade",
-		"searchBaseType": "Buscar {type} no Trade"
+		"searchBaseType": "Buscar {type} no Trade",
+		"maxWeight": "Peso Máximo",
+		"maxWeightPlaceholder": "Sem limite"
 	},
 	"import": {
 		"title": "Importar Ídolo",
@@ -178,7 +180,9 @@
 		"favoritesAll": "Todos",
 		"favoritesOnly": "Apenas Favoritos",
 		"favoritesExclude": "Apenas Não-Favoritos",
-		"modsFound": "{count} modificadores encontrados"
+		"modsFound": "{count} modificadores encontrados",
+		"weight": "Peso",
+		"searchTrade": "Buscar no Trade"
 	},
 	"filter": {
 		"mechanic": "Mecânica",

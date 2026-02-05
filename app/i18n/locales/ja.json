@@ -89,7 +89,9 @@
 		"findThisMod": "トレードでこのModを検索",
 		"searchAll": "トレードで全て検索",
 		"openTrade": "トレードサイトを開く",
-		"searchBaseType": "トレードで{type}を検索"
+		"searchBaseType": "トレードで{type}を検索",
+		"maxWeight": "最大ウェイト",
+		"maxWeightPlaceholder": "制限なし"
 	},
 	"import": {
 		"title": "アイドルをインポート",
@@ -178,7 +180,9 @@
 		"favoritesAll": "すべて",
 		"favoritesOnly": "お気に入りのみ",
 		"favoritesExclude": "お気に入り以外のみ",
-		"modsFound": "{count}件のModが見つかりました"
+		"modsFound": "{count}件のModが見つかりました",
+		"weight": "ウェイト",
+		"searchTrade": "トレード検索"
 	},
 	"filter": {
 		"mechanic": "メカニック",

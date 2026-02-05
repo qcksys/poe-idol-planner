@@ -1,3 +1,4 @@
+import leaguesData from "~/data/leagues.json";
 import {
 	PoeNinjaResponseSchema,
 	type ScarabPricesData,
@@ -6,16 +7,9 @@ import {
 const POE_NINJA_API_URL =
 	"https://poe.ninja/poe1/api/economy/stash/current/item/overview";
 
-const PC_LEAGUES = [
-	"Keepers",
-	"Hardcore Keepers",
-	"Ruthless Keepers",
-	"HC Ruthless Keepers",
-	"Standard",
-	"Hardcore",
-	"Ruthless",
-	"Hardcore Ruthless",
-];
+const PC_LEAGUES = leaguesData.result
+	.filter((league) => league.realm === "pc")
+	.map((league) => league.id);
 
 function normalizeNameToId(name: string): string {
 	return name

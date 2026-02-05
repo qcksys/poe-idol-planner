@@ -1,4 +1,4 @@
-import { Search, Star } from "lucide-react";
+import { ExternalLink, Search, Star } from "lucide-react";
 import { memo, useCallback, useDeferredValue, useMemo, useState } from "react";
 import {
 	getModifierOptions,
@@ -37,6 +37,7 @@ import {
 } from "~/data/idol-bases";
 import { useLocale, useTranslations } from "~/i18n";
 import type { Translations } from "~/i18n/types";
+import { generateTradeUrlForMod } from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
 
 interface ModsSearchModalProps {
@@ -63,6 +64,19 @@ const ModifierRow = memo(function ModifierRow({
 	const handleToggle = useCallback(() => {
 		onToggleFavorite(mod.id);
 	}, [mod.id, onToggleFavorite]);
+
+	const handleTradeSearch = useCallback(() => {
+		const url = generateTradeUrlForMod({
+			modId: mod.id,
+			tier: mod.tiers[0]?.tier ?? 1,
+			type: mod.type,
+			text: mod.tiers[0]?.text || "",
+			rolledValue: 0,
+		});
+		window.open(url, "_blank", "noopener,noreferrer");
+	}, [mod]);
+
+	const weight = mod.tiers[0]?.weight ?? 0;
 
 	return (
 		<div className="flex items-start gap-2 rounded-md p-2 hover:bg-muted/50">
@@ -107,6 +121,10 @@ const ModifierRow = memo(function ModifierRow({
 							: t.modsSearch?.suffix || "Suffix"}
 					</span>
 					<span>•</span>
+					<span title={t.modsSearch?.weight || "Weight"}>
+						{weight}
+					</span>
+					<span>•</span>
 					{mod.applicableIdols.map((idol, index) => {
 						const key = idol.toLowerCase() as IdolBaseKey;
 						const base = IDOL_BASES[key];
@@ -128,6 +146,20 @@ const ModifierRow = memo(function ModifierRow({
 					})}
 				</div>
 			</div>
+			<Tooltip>
+				<TooltipTrigger asChild>
+					<button
+						type="button"
+						onClick={handleTradeSearch}
+						className="mt-0.5 shrink-0 rounded p-1 hover:bg-accent"
+					>
+						<ExternalLink className="h-4 w-4 text-muted-foreground" />
+					</button>
+				</TooltipTrigger>
+				<TooltipContent>
+					{t.modsSearch?.searchTrade || "Search Trade"}
+				</TooltipContent>
+			</Tooltip>
 		</div>
 	);
 });

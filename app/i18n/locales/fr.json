@@ -89,7 +89,9 @@
 		"findThisMod": "Trouver ce mod sur le marché",
 		"searchAll": "Rechercher tout sur le marché",
 		"openTrade": "Ouvrir le site de commerce",
-		"searchBaseType": "Rechercher {type} sur le marché"
+		"searchBaseType": "Rechercher {type} sur le marché",
+		"maxWeight": "Poids max.",
+		"maxWeightPlaceholder": "Pas de limite"
 	},
 	"import": {
 		"title": "Importer une idole",
@@ -178,7 +180,9 @@
 		"favoritesAll": "Tous",
 		"favoritesOnly": "Favoris Uniquement",
 		"favoritesExclude": "Non-Favoris Uniquement",
-		"modsFound": "{count} modificateurs trouvés"
+		"modsFound": "{count} modificateurs trouvés",
+		"weight": "Poids",
+		"searchTrade": "Rechercher sur le marché"
 	},
 	"filter": {
 		"mechanic": "Mécanique",

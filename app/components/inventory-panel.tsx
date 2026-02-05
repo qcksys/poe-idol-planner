@@ -33,6 +33,7 @@ import {
 } from "~/components/ui/tooltip";
 import { useDnd } from "~/context/dnd-context";
 import { useLeague } from "~/context/league-context";
+import { useTradeSettings } from "~/context/trade-settings-context";
 import type { LeagueMechanic } from "~/data/idol-bases";
 import { useLocale, useTranslations } from "~/i18n";
 import { getModMechanic, resolveModText } from "~/lib/mod-text-resolver";
@@ -57,6 +58,7 @@ function DraggableIdolCard({
 	item,
 	isSelected,
 	league,
+	maxWeight,
 	onIdolClick,
 	onDuplicateIdol,
 	onRemoveIdol,
@@ -66,6 +68,7 @@ function DraggableIdolCard({
 	item: InventoryIdol;
 	isSelected: boolean;
 	league: string;
+	maxWeight: number | null;
 	onIdolClick?: (idol: InventoryIdol) => void;
 	onDuplicateIdol?: (id: string) => void;
 	onRemoveIdol?: (id: string) => void;
@@ -86,7 +89,7 @@ function DraggableIdolCard({
 
 	const handleFindOnTrade = (e: React.MouseEvent) => {
 		e.stopPropagation();
-		const url = generateTradeUrl(item.idol, { league });
+		const url = generateTradeUrl(item.idol, { league, maxWeight });
 		window.open(url, "_blank", "noopener,noreferrer");
 	};
 
@@ -211,6 +214,7 @@ export function InventoryPanel({
 	const t = useTranslations();
 	const locale = useLocale();
 	const { league } = useLeague();
+	const { settings: tradeSettings, setMaxWeight } = useTradeSettings();
 	const [searchQuery, setSearchQuery] = useState("");
 	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic[]>([]);
 	const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
@@ -218,6 +222,9 @@ export function InventoryPanel({
 	const [modsSearchOpen, setModsSearchOpen] = useState(false);
 	const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 	const [idsToDelete, setIdsToDelete] = useState<string[]>([]);
+	const [maxWeightInput, setMaxWeightInput] = useState(
+		tradeSettings.maxWeight?.toString() ?? "",
+	);
 
 	const filteredInventory = inventory.filter((item) => {
 		const idol = item.idol;
@@ -397,6 +404,35 @@ export function InventoryPanel({
 							onChange={setMechanicFilter}
 						/>
 
+						<div className="flex items-center gap-2">
+							<label
+								htmlFor="max-weight"
+								className="shrink-0 text-muted-foreground text-xs"
+							>
+								{t.trade?.maxWeight || "Max Weight"}
+							</label>
+							<Input
+								id="max-weight"
+								type="number"
+								placeholder={
+									t.trade?.maxWeightPlaceholder || "No limit"
+								}
+								value={maxWeightInput}
+								onChange={(e) => {
+									setMaxWeightInput(e.target.value);
+									const val = e.target.value
+										? Number.parseInt(e.target.value, 10)
+										: null;
+									setMaxWeight(
+										val && !Number.isNaN(val) && val > 0
+											? val
+											: null,
+									);
+								}}
+								className="h-8"
+							/>
+						</div>
+
 						<div className="flex flex-wrap gap-2">
 							<Button
 								onClick={onImportClick}
@@ -488,6 +524,7 @@ export function InventoryPanel({
 									item={item}
 									isSelected={selectedIds.has(item.id)}
 									league={league}
+									maxWeight={tradeSettings.maxWeight}
 									onIdolClick={onIdolClick}
 									onDuplicateIdol={onDuplicateIdol}
 									onRemoveIdol={

@@ -89,7 +89,9 @@
 		"findThisMod": "Buscar este mod en el comercio",
 		"searchAll": "Buscar todo en el comercio",
 		"openTrade": "Abrir sitio de comercio",
-		"searchBaseType": "Buscar {type} en el comercio"
+		"searchBaseType": "Buscar {type} en el comercio",
+		"maxWeight": "Peso máx.",
+		"maxWeightPlaceholder": "Sin límite"
 	},
 	"import": {
 		"title": "Importar ídolo",
@@ -178,7 +180,9 @@
 		"favoritesAll": "Todos",
 		"favoritesOnly": "Solo Favoritos",
 		"favoritesExclude": "Solo No-Favoritos",
-		"modsFound": "{count} modificadores encontrados"
+		"modsFound": "{count} modificadores encontrados",
+		"weight": "Peso",
+		"searchTrade": "Buscar en comercio"
 	},
 	"filter": {
 		"mechanic": "Mecánica",

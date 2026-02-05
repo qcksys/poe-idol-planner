@@ -89,7 +89,9 @@
 		"findThisMod": "Найти этот мод на трейде",
 		"searchAll": "Искать всё на трейде",
 		"openTrade": "Открыть сайт трейда",
-		"searchBaseType": "Искать {type} на трейде"
+		"searchBaseType": "Искать {type} на трейде",
+		"maxWeight": "Макс. вес",
+		"maxWeightPlaceholder": "Без ограничений"
 	},
 	"import": {
 		"title": "Импорт идола",
@@ -178,7 +180,9 @@
 		"favoritesAll": "Все",
 		"favoritesOnly": "Только избранное",
 		"favoritesExclude": "Только не избранное",
-		"modsFound": "{count} модификаторов найдено"
+		"modsFound": "{count} модификаторов найдено",
+		"weight": "Вес",
+		"searchTrade": "Поиск на трейде"
 	},
 	"filter": {
 		"mechanic": "Механика",

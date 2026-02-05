@@ -89,7 +89,9 @@
 		"findThisMod": "在交易站搜尋此詞綴",
 		"searchAll": "在交易站搜尋全部",
 		"openTrade": "開啟交易站",
-		"searchBaseType": "在交易站搜尋 {type}"
+		"searchBaseType": "在交易站搜尋 {type}",
+		"maxWeight": "最大權重",
+		"maxWeightPlaceholder": "無限制"
 	},
 	"import": {
 		"title": "匯入神像",
@@ -178,7 +180,9 @@
 		"favoritesAll": "全部",
 		"favoritesOnly": "僅收藏",
 		"favoritesExclude": "僅非收藏",
-		"modsFound": "找到 {count} 個詞綴"
+		"modsFound": "找到 {count} 個詞綴",
+		"weight": "權重",
+		"searchTrade": "交易站搜尋"
 	},
 	"filter": {
 		"mechanic": "機制",

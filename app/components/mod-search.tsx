@@ -44,6 +44,7 @@ export interface ModifierOption {
 		levelReq: number;
 		text: string;
 		values: { min: number; max: number }[];
+		weight: number;
 	}[];
 }
 
@@ -103,6 +104,7 @@ export function getModifierOptions(
 					levelReq: tier.levelReq,
 					text: getLocalizedText(tier.text, locale),
 					values: tier.values || [],
+					weight: tier.weight ?? 0,
 				})),
 			});
 		}

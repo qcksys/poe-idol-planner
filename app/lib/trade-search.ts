@@ -70,11 +70,24 @@ interface ModifierTierData {
 	tier: number;
 	text: Record<string, string>;
 	tradeStatId?: string;
+	weight?: number;
 }
 
 interface ModifierDataFromJson {
 	id: string;
 	tiers: ModifierTierData[];
+}
+
+function getModWeight(modId: string, tier: number | null): number | null {
+	if (tier === null) return null;
+
+	for (const mod of idolModifiers as ModifierDataFromJson[]) {
+		if (mod.id === modId) {
+			const tierData = mod.tiers.find((t) => t.tier === tier);
+			return tierData?.weight ?? null;
+		}
+	}
+	return null;
 }
 
 let modIdIndex: Map<string, string> | null = null;
@@ -207,10 +220,15 @@ function findStatIdForMod(mod: IdolModifier): string | null {
 	return null;
 }
 
-function buildTradeQuery(
-	idolType?: IdolBaseKey,
-	mods?: IdolModifier[],
-): TradeQuery {
+interface BuildTradeQueryOptions {
+	idolType?: IdolBaseKey;
+	mods?: IdolModifier[];
+	maxWeight?: number | null;
+}
+
+function buildTradeQuery(options: BuildTradeQueryOptions = {}): TradeQuery {
+	const { idolType, mods, maxWeight } = options;
+
 	const query: TradeQuery = {
 		query: {
 			status: {
@@ -236,6 +254,14 @@ function buildTradeQuery(
 		const statFilters: TradeStatFilter[] = [];
 
 		for (const mod of mods) {
+			// Skip mods that exceed maxWeight threshold
+			if (maxWeight != null && mod.tier != null) {
+				const weight = getModWeight(mod.modId, mod.tier);
+				if (weight != null && weight > maxWeight) {
+					continue;
+				}
+			}
+
 			const statId = findStatIdForMod(mod);
 			if (statId) {
 				statFilters.push({
@@ -260,6 +286,7 @@ export function generateTradeUrl(
 	options?: {
 		league?: string;
 		includeAllMods?: boolean;
+		maxWeight?: number | null;
 	},
 ): string {
 	const league = options?.league || DEFAULT_LEAGUE;
@@ -269,7 +296,11 @@ export function generateTradeUrl(
 		? allMods
 		: allMods.slice(0, 4);
 
-	const query = buildTradeQuery(idol.baseType, modsToSearch);
+	const query = buildTradeQuery({
+		idolType: idol.baseType,
+		mods: modsToSearch,
+		maxWeight: options?.maxWeight,
+	});
 
 	const queryParam = encodeURIComponent(JSON.stringify(query));
 	return `${TRADE_BASE_URL}/${league}?q=${queryParam}`;
@@ -284,7 +315,7 @@ export function generateTradeUrlForBaseType(
 	},
 ): string {
 	const league = options?.league || DEFAULT_LEAGUE;
-	const query = buildTradeQuery(baseType);
+	const query = buildTradeQuery({ idolType: baseType });
 
 	const queryParam = encodeURIComponent(JSON.stringify(query));
 	return `${TRADE_BASE_URL}/${league}?q=${queryParam}`;
@@ -299,11 +330,16 @@ export function generateTradeUrlForMod(
 	},
 ): string {
 	const league = options?.league || DEFAULT_LEAGUE;
-	const query = buildTradeQuery(options?.baseType, [mod]);
+	const query = buildTradeQuery({
+		idolType: options?.baseType,
+		mods: [mod],
+	});
 
 	const queryParam = encodeURIComponent(JSON.stringify(query));
 	return `${TRADE_BASE_URL}/${league}?q=${queryParam}`;
 }
+
+export { getModWeight };
 
 export function getTradeStatId(modText: string): string | null {
 	return findStatIdByText(modText);

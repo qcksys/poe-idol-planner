@@ -89,7 +89,9 @@
 		"findThisMod": "거래소에서 이 속성 찾기",
 		"searchAll": "거래소에서 모두 검색",
 		"openTrade": "거래소 열기",
-		"searchBaseType": "거래소에서 {type} 검색"
+		"searchBaseType": "거래소에서 {type} 검색",
+		"maxWeight": "최대 가중치",
+		"maxWeightPlaceholder": "제한 없음"
 	},
 	"import": {
 		"title": "우상 가져오기",
@@ -178,7 +180,9 @@
 		"favoritesAll": "전체",
 		"favoritesOnly": "즐겨찾기만",
 		"favoritesExclude": "즐겨찾기 제외",
-		"modsFound": "{count}개 모드 발견"
+		"modsFound": "{count}개 모드 발견",
+		"weight": "가중치",
+		"searchTrade": "거래소 검색"
 	},
 	"filter": {
 		"mechanic": "메카닉",

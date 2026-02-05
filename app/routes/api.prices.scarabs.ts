@@ -10,7 +10,7 @@ const LeagueQuerySchema = z
 	.string()
 	.min(1, "League is required")
 	.max(100, "League name too long")
-	.regex(/^[\w\s-]+$/, "Invalid league name format");
+	.regex(/^[\w\s.-]+$/, "Invalid league name format");
 
 export async function loader({ request, context }: Route.LoaderArgs) {
 	const env = context.get(envContext);
