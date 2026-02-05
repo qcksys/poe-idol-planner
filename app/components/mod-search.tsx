@@ -201,6 +201,8 @@ export function ModSearch({
 		placeholder ||
 		t.editor.selectMod;
 
+	const selectedWeight = selectedMod?.tiers[0]?.weight;
+
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
@@ -210,8 +212,13 @@ export function ModSearch({
 					className="h-auto min-h-9 w-full justify-between text-left font-normal"
 					disabled={disabled}
 				>
-					<span className="whitespace-normal text-wrap">
-						{displayText}
+					<span className="flex items-start gap-1 whitespace-normal text-wrap">
+						<span>{displayText}</span>
+						{selectedWeight !== undefined && (
+							<span className="shrink-0 text-muted-foreground text-xs tabular-nums">
+								[{selectedWeight}]
+							</span>
+						)}
 					</span>
 					<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 				</Button>
@@ -270,11 +277,22 @@ export function ModSearch({
 															: "opacity-0",
 													)}
 												/>
-												<div className="flex flex-1 flex-col">
+												<div className="flex flex-1 items-start gap-1">
 													<span className="text-sm">
 														{mod.tiers[0]?.text ||
 															mod.name}
 													</span>
+													{mod.tiers[0]?.weight !==
+														undefined && (
+														<span className="shrink-0 text-muted-foreground text-xs tabular-nums">
+															[
+															{
+																mod.tiers[0]
+																	.weight
+															}
+															]
+														</span>
+													)}
 												</div>
 												<Tooltip>
 													<TooltipTrigger asChild>

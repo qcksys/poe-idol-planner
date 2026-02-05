@@ -1,7 +1,6 @@
-import { Mail, Share2 } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Link } from "react-router";
 import { siGithub } from "simple-icons";
-import { LeagueSelector } from "~/components/league-selector";
 import { LocaleSwitcher } from "~/components/locale-switcher";
 import { ModeToggle } from "~/components/mode-toggle";
 import { Button } from "~/components/ui/button";
@@ -12,11 +11,7 @@ import {
 } from "~/components/ui/tooltip";
 import { useTranslations } from "~/i18n";
 
-interface AppHeaderProps {
-	onShareClick?: () => void;
-}
-
-export function AppHeader({ onShareClick }: AppHeaderProps) {
+export function AppHeader() {
 	const t = useTranslations();
 
 	return (
@@ -41,20 +36,6 @@ export function AppHeader({ onShareClick }: AppHeaderProps) {
 				</div>
 
 				<div className="flex shrink-0 items-center gap-1 sm:gap-2">
-					{onShareClick && (
-						<Button
-							variant="outline"
-							size="sm"
-							onClick={onShareClick}
-							className="h-8 px-2 sm:px-3"
-						>
-							<Share2 className="h-4 w-4 sm:mr-1" />
-							<span className="hidden sm:inline">
-								{t.actions.share}
-							</span>
-						</Button>
-					)}
-					<LeagueSelector />
 					<span className="hidden sm:inline">
 						<LocaleSwitcher />
 					</span>

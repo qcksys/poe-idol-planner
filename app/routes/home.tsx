@@ -1,3 +1,4 @@
+import { BookOpen, Share2 } from "lucide-react";
 import { useState } from "react";
 import { AppFooter } from "~/components/app-footer";
 import { AppHeader } from "~/components/app-header";
@@ -5,10 +6,14 @@ import { IdolEditor } from "~/components/idol-editor";
 import { IdolGrid } from "~/components/idol-grid";
 import { ImportModal } from "~/components/import-modal";
 import { InventoryPanel } from "~/components/inventory-panel";
+import { LeagueSelector } from "~/components/league-selector";
 import { MapDeviceComponent } from "~/components/map-device";
+import { ModsSearchModal } from "~/components/mods-search-modal";
 import { SetTabs } from "~/components/set-tabs";
 import { ShareModal } from "~/components/share-modal";
 import { StatsSummary } from "~/components/stats-summary";
+import { Button } from "~/components/ui/button";
+import { Card, CardContent } from "~/components/ui/card";
 import { ClipboardProvider, useClipboard } from "~/context/clipboard-context";
 import { DndProvider } from "~/context/dnd-context";
 import { FavoritesProvider } from "~/context/favorites-context";
@@ -41,6 +46,7 @@ function HomeContent() {
 	const { clipboardIdol, clearClipboard } = useClipboard();
 	const [importModalOpen, setImportModalOpen] = useState(false);
 	const [shareModalOpen, setShareModalOpen] = useState(false);
+	const [modsSearchOpen, setModsSearchOpen] = useState(false);
 	const [editorOpen, setEditorOpen] = useState(false);
 	const [editingIdol, setEditingIdol] = useState<InventoryIdol | null>(null);
 
@@ -84,7 +90,7 @@ function HomeContent() {
 
 	return (
 		<div className="flex h-screen flex-col overflow-hidden">
-			<AppHeader onShareClick={() => setShareModalOpen(true)} />
+			<AppHeader />
 
 			<main className="container mx-auto flex min-h-0 flex-1 flex-col p-4">
 				<SetTabs
@@ -100,7 +106,21 @@ function HomeContent() {
 				{/* Mobile: stack vertically (inventory, grid, stats). Desktop: 3-column layout */}
 				<div className="mt-4 grid min-h-0 flex-1 gap-4 overflow-y-auto lg:grid-cols-[280px_1fr_260px] lg:overflow-visible xl:grid-cols-[400px_1fr_350px]">
 					{/* Inventory panel - above grid on mobile */}
-					<aside className="max-h-[50vh] lg:h-[calc(100vh-180px)] lg:max-h-none">
+					<aside className="flex max-h-[50vh] min-h-0 flex-col gap-2 overflow-hidden lg:max-h-none">
+						<Card className="shrink-0">
+							<CardContent className="flex flex-col gap-2 p-3">
+								<Button
+									variant="outline"
+									size="sm"
+									className="w-full"
+									onClick={() => setModsSearchOpen(true)}
+								>
+									<BookOpen className="mr-1 h-4 w-4" />
+									{t.inventory.browseMods || "Browse Mods"}
+								</Button>
+								<LeagueSelector />
+							</CardContent>
+						</Card>
 						<InventoryPanel
 							inventory={inventory}
 							onImportClick={() => setImportModalOpen(true)}
@@ -117,6 +137,14 @@ function HomeContent() {
 
 					{/* Grid section - horizontal scroll on mobile */}
 					<section className="flex flex-col items-center gap-4 overflow-x-auto">
+						<Button
+							variant="outline"
+							size="sm"
+							onClick={() => setShareModalOpen(true)}
+						>
+							<Share2 className="mr-1 h-4 w-4" />
+							{t.actions.share}
+						</Button>
 						{activeSet && (
 							<>
 								<div className="min-w-fit">
@@ -156,7 +184,7 @@ function HomeContent() {
 					</section>
 
 					{/* Stats panel - below grid on mobile */}
-					<aside className="max-h-[50vh] lg:h-[calc(100vh-180px)] lg:max-h-none">
+					<aside className="max-h-[50vh] min-h-0 lg:max-h-none">
 						<StatsSummary
 							placements={activeSet?.placements ?? []}
 							inventory={inventory}
@@ -177,6 +205,11 @@ function HomeContent() {
 				onOpenChange={setShareModalOpen}
 				set={activeSet}
 				inventory={inventory}
+			/>
+
+			<ModsSearchModal
+				open={modsSearchOpen}
+				onOpenChange={setModsSearchOpen}
 			/>
 
 			<IdolEditor

@@ -1,17 +1,14 @@
 import {
-	BookOpen,
 	ClipboardPaste,
 	Copy,
-	ExternalLink,
 	PenLine,
 	Plus,
 	Search,
+	ShoppingCart,
 	Trash2,
 } from "lucide-react";
 import { type DragEvent, useState } from "react";
 import { IdolCard } from "~/components/idol-card";
-import { MultiMechanicFilter } from "~/components/mod-search";
-import { ModsSearchModal } from "~/components/mods-search-modal";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import {
@@ -29,13 +26,11 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "~/components/ui/tooltip";
-import { WeightFilterAccordion } from "~/components/weight-filter-accordion";
 import { useDnd } from "~/context/dnd-context";
 import { useLeague } from "~/context/league-context";
 import { useTradeSettings } from "~/context/trade-settings-context";
-import type { LeagueMechanic } from "~/data/idol-bases";
 import { useLocale, useTranslations } from "~/i18n";
-import { getModMechanic, resolveModText } from "~/lib/mod-text-resolver";
+import { resolveModText } from "~/lib/mod-text-resolver";
 import { generateTradeUrl } from "~/lib/trade-search";
 import type { InventoryIdol } from "~/schemas/inventory";
 
@@ -125,7 +120,7 @@ function DraggableIdolCard({
 			onClick={handleClick}
 		>
 			<IdolCard idol={item.idol} showTooltip={false} />
-			<div className="absolute top-1 right-1 flex gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+			<div className="absolute top-1 right-1 flex gap-1">
 				<Tooltip>
 					<TooltipTrigger asChild>
 						<Button
@@ -134,7 +129,7 @@ function DraggableIdolCard({
 							className="h-6 w-6"
 							onClick={handleFindOnTrade}
 						>
-							<ExternalLink className="h-3 w-3" />
+							<ShoppingCart className="h-3 w-3" />
 						</Button>
 					</TooltipTrigger>
 					<TooltipContent>{t.trade.findSimilar}</TooltipContent>
@@ -225,25 +220,13 @@ export function InventoryPanel({
 	const { league } = useLeague();
 	const { settings: tradeSettings } = useTradeSettings();
 	const [searchQuery, setSearchQuery] = useState("");
-	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic[]>([]);
-	const [modsSearchOpen, setModsSearchOpen] = useState(false);
 	const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 	const [idsToDelete, setIdsToDelete] = useState<string[]>([]);
 
 	const filteredInventory = inventory.filter((item) => {
+		if (!searchQuery) return true;
 		const idol = item.idol;
 		const allMods = [...idol.prefixes, ...idol.suffixes];
-
-		if (mechanicFilter.length > 0) {
-			const mechanicSet = new Set(mechanicFilter);
-			const hasMechanic = allMods.some((mod) => {
-				const mechanic = getModMechanic(mod.modId);
-				return mechanic && mechanicSet.has(mechanic);
-			});
-			if (!hasMechanic) return false;
-		}
-
-		if (!searchQuery) return true;
 		const query = searchQuery.toLowerCase();
 		return (
 			idol.name?.toLowerCase().includes(query) ||
@@ -278,7 +261,7 @@ export function InventoryPanel({
 	};
 
 	return (
-		<Card className="flex h-full flex-col">
+		<Card className="flex min-h-0 flex-1 flex-col">
 			<CardHeader className="pb-2">
 				<div className="flex items-center justify-between">
 					<CardTitle className="text-lg">
@@ -294,16 +277,6 @@ export function InventoryPanel({
 			</CardHeader>
 
 			<CardContent className="flex flex-1 flex-col gap-2 overflow-hidden">
-				<Button
-					variant="outline"
-					size="sm"
-					className="w-full"
-					onClick={() => setModsSearchOpen(true)}
-				>
-					<BookOpen className="mr-1 h-4 w-4" />
-					{t.inventory.browseMods || "Browse Mods"}
-				</Button>
-
 				<div className="relative">
 					<Search className="absolute top-2.5 left-2 h-4 w-4 text-muted-foreground" />
 					<Input
@@ -313,13 +286,6 @@ export function InventoryPanel({
 						className="pl-8"
 					/>
 				</div>
-
-				<MultiMechanicFilter
-					value={mechanicFilter}
-					onChange={setMechanicFilter}
-				/>
-
-				<WeightFilterAccordion />
 
 				<div className="flex flex-wrap gap-2">
 					<Button
@@ -401,11 +367,6 @@ export function InventoryPanel({
 					)}
 				</ScrollArea>
 			</CardContent>
-
-			<ModsSearchModal
-				open={modsSearchOpen}
-				onOpenChange={setModsSearchOpen}
-			/>
 
 			<Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
 				<DialogContent>

@@ -13,6 +13,7 @@ import type { SupportedLocale } from "~/i18n/types";
 import { highlightNumbers } from "~/lib/highlight-numbers";
 import {
 	getModValueRange,
+	getModWeight,
 	resolveModTextWithRange,
 } from "~/lib/mod-text-resolver";
 import { generateTradeUrlForMod } from "~/lib/trade-search";
@@ -129,6 +130,7 @@ function ModifierLine({
 		mod.rolledValue,
 		valueRange,
 	);
+	const weight = getModWeight(mod.modId, mod.tier);
 
 	const handleTradeSearch = (e: React.MouseEvent) => {
 		e.stopPropagation();
@@ -141,6 +143,11 @@ function ModifierLine({
 			<span className={cn("flex-1", getModTypeColor(mod.type))}>
 				{highlightNumbers(displayText)}
 			</span>
+			{weight !== undefined && (
+				<span className="shrink-0 text-muted-foreground text-xs tabular-nums">
+					[{weight}]
+				</span>
+			)}
 			{showTradeButton && (
 				<button
 					type="button"

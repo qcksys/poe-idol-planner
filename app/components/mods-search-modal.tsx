@@ -1,4 +1,4 @@
-import { ExternalLink, Search, Star } from "lucide-react";
+import { Search, ShoppingCart, Star } from "lucide-react";
 import { memo, useCallback, useDeferredValue, useMemo, useState } from "react";
 import {
 	getModifierOptions,
@@ -202,7 +202,7 @@ const ModifierRow = memo(function ModifierRow({
 						onClick={handleTradeSearch}
 						className="mt-0.5 shrink-0 rounded p-1 hover:bg-accent"
 					>
-						<ExternalLink className="h-4 w-4 text-muted-foreground" />
+						<ShoppingCart className="h-4 w-4 text-muted-foreground" />
 					</button>
 				</TooltipTrigger>
 				<TooltipContent>

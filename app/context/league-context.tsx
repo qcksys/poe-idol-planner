@@ -65,7 +65,17 @@ export function LeagueProvider({ children }: { children: ReactNode }) {
 	const [isHydrated, setIsHydrated] = useState(false);
 
 	useEffect(() => {
-		setSettings(loadLeagueSettings());
+		const loaded = loadLeagueSettings();
+		const leaguesForRealm = leaguesData.result.filter(
+			(l) => l.realm === loaded.realm,
+		);
+		const leagueExists = leaguesForRealm.some(
+			(l) => l.id === loaded.league,
+		);
+		if (!leagueExists && leaguesForRealm.length > 0) {
+			loaded.league = leaguesForRealm[0].id;
+		}
+		setSettings(loaded);
 		setIsHydrated(true);
 	}, []);
 

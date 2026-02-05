@@ -24,6 +24,7 @@ import {
 	DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 import { Input } from "~/components/ui/input";
+import { ScrollArea, ScrollBar } from "~/components/ui/scroll-area";
 import {
 	Tooltip,
 	TooltipContent,
@@ -111,65 +112,83 @@ export function SetTabs({
 
 	return (
 		<>
-			<div className="flex items-center gap-1 overflow-x-auto border-border border-b pb-2">
-				{sets.map((set) => (
-					<div key={set.id} className="group flex items-center">
-						<Button
-							variant={
-								activeSetId === set.id ? "default" : "ghost"
-							}
-							size="sm"
-							className="rounded-r-none"
-							onClick={() => onSelectSet(set.id)}
-						>
-							{set.name}
-						</Button>
-						<DropdownMenu>
-							<Tooltip>
-								<TooltipTrigger asChild>
-									<DropdownMenuTrigger asChild>
-										<Button
-											variant={
-												activeSetId === set.id
-													? "default"
-													: "ghost"
+			<div className="flex items-center gap-1 border-border border-b pb-2">
+				{/* Scrollable tabs section */}
+				<ScrollArea className="min-w-0 shrink">
+					<div className="flex items-center gap-1 pb-2">
+						{sets.map((set) => (
+							<div
+								key={set.id}
+								className="group flex shrink-0 items-center"
+							>
+								<Button
+									variant={
+										activeSetId === set.id
+											? "default"
+											: "ghost"
+									}
+									size="sm"
+									className="rounded-r-none"
+									onClick={() => onSelectSet(set.id)}
+								>
+									{set.name}
+								</Button>
+								<DropdownMenu>
+									<Tooltip>
+										<TooltipTrigger asChild>
+											<DropdownMenuTrigger asChild>
+												<Button
+													variant={
+														activeSetId === set.id
+															? "default"
+															: "ghost"
+													}
+													size="sm"
+													className="h-8 w-6 rounded-l-none px-1"
+												>
+													<MoreVertical className="h-3 w-3" />
+												</Button>
+											</DropdownMenuTrigger>
+										</TooltipTrigger>
+										<TooltipContent>
+											{t.actions.moreOptions}
+										</TooltipContent>
+									</Tooltip>
+									<DropdownMenuContent align="end">
+										<DropdownMenuItem
+											onClick={() =>
+												handleRenameClick(set)
 											}
-											size="sm"
-											className="h-8 w-6 rounded-l-none px-1"
 										>
-											<MoreVertical className="h-3 w-3" />
-										</Button>
-									</DropdownMenuTrigger>
-								</TooltipTrigger>
-								<TooltipContent>
-									{t.actions.moreOptions}
-								</TooltipContent>
-							</Tooltip>
-							<DropdownMenuContent align="end">
-								<DropdownMenuItem
-									onClick={() => handleRenameClick(set)}
-								>
-									<Pencil className="mr-2 h-4 w-4" />
-									{t.idolSet.rename}
-								</DropdownMenuItem>
-								<DropdownMenuItem
-									onClick={() => onDuplicateSet(set.id)}
-								>
-									<Copy className="mr-2 h-4 w-4" />
-									{t.idolSet.duplicate}
-								</DropdownMenuItem>
-								<DropdownMenuItem
-									className="text-destructive"
-									onClick={() => handleDeleteClick(set.id)}
-								>
-									<Trash2 className="mr-2 h-4 w-4" />
-									{t.idolSet.delete}
-								</DropdownMenuItem>
-							</DropdownMenuContent>
-						</DropdownMenu>
+											<Pencil className="mr-2 h-4 w-4" />
+											{t.idolSet.rename}
+										</DropdownMenuItem>
+										<DropdownMenuItem
+											onClick={() =>
+												onDuplicateSet(set.id)
+											}
+										>
+											<Copy className="mr-2 h-4 w-4" />
+											{t.idolSet.duplicate}
+										</DropdownMenuItem>
+										<DropdownMenuItem
+											className="text-destructive"
+											onClick={() =>
+												handleDeleteClick(set.id)
+											}
+										>
+											<Trash2 className="mr-2 h-4 w-4" />
+											{t.idolSet.delete}
+										</DropdownMenuItem>
+									</DropdownMenuContent>
+								</DropdownMenu>
+							</div>
+						))}
 					</div>
-				))}
+					<ScrollBar orientation="horizontal" />
+				</ScrollArea>
 
+				{/* Action buttons - always visible, aligned after tabs */}
 				<Tooltip>
 					<TooltipTrigger asChild>
 						<Button
