@@ -11,6 +11,7 @@ import {
 } from "~/components/ui/card";
 import { envContext } from "~/context";
 import { useTranslations } from "~/i18n";
+import { computeSetHash, findDuplicateSet } from "~/lib/set-hash";
 import {
 	buildShareUrl,
 	calculateScarabCost,
@@ -21,6 +22,7 @@ import {
 	loadShare,
 } from "~/lib/share";
 import { loadStorage, saveStorage } from "~/lib/storage";
+import type { IdolSet } from "~/schemas/idol-set";
 import type { InventoryIdol } from "~/schemas/inventory";
 import {
 	type ScarabPricesData,
@@ -120,7 +122,8 @@ export function meta({ loaderData }: Route.MetaArgs) {
 type LoadState =
 	| { status: "loading" }
 	| { status: "error"; message: string }
-	| { status: "loaded"; data: SharedSet };
+	| { status: "loaded"; data: SharedSet }
+	| { status: "duplicate"; data: SharedSet; existingSet: IdolSet };
 
 export default function SharePage({ loaderData }: Route.ComponentProps) {
 	const t = useTranslations();
@@ -134,15 +137,38 @@ export default function SharePage({ loaderData }: Route.ComponentProps) {
 		return { status: "error", message: "Share not found or expired" };
 	});
 	const [importing, setImporting] = useState(false);
+	const [duplicateChecked, setDuplicateChecked] = useState(false);
 
 	useEffect(() => {
 		if (initialData) {
 			setLoadState({ status: "loaded", data: initialData });
+			setDuplicateChecked(false);
 		}
 	}, [initialData]);
 
-	const handleImport = () => {
-		if (loadState.status !== "loaded") return;
+	useEffect(() => {
+		if (loadState.status === "loaded" && !duplicateChecked) {
+			setDuplicateChecked(true);
+			const storage = loadStorage();
+			const tempSet: IdolSet = {
+				...loadState.data.set,
+				inventory: loadState.data.idols,
+			};
+			const existingSet = findDuplicateSet(tempSet, storage.sets);
+			if (existingSet) {
+				setLoadState({
+					status: "duplicate",
+					data: loadState.data,
+					existingSet,
+				});
+			}
+		}
+	}, [loadState, duplicateChecked]);
+
+	const handleImport = (forceImport = false) => {
+		if (loadState.status !== "loaded" && loadState.status !== "duplicate")
+			return;
+		if (loadState.status === "duplicate" && !forceImport) return;
 
 		setImporting(true);
 		try {
@@ -165,7 +191,7 @@ export default function SharePage({ loaderData }: Route.ComponentProps) {
 			}
 
 			const newSetId = nanoid();
-			const importedSet = {
+			const importedSet: IdolSet = {
 				...sharedSet,
 				id: newSetId,
 				name: `${sharedSet.name} (Imported)`,
@@ -180,6 +206,8 @@ export default function SharePage({ loaderData }: Route.ComponentProps) {
 				})),
 			};
 
+			importedSet.contentHash = computeSetHash(importedSet);
+
 			storage.sets.push(importedSet);
 			storage.activeSetId = newSetId;
 
@@ -193,6 +221,15 @@ export default function SharePage({ loaderData }: Route.ComponentProps) {
 			});
 			setImporting(false);
 		}
+	};
+
+	const handleViewExisting = () => {
+		if (loadState.status !== "duplicate") return;
+
+		const storage = loadStorage();
+		storage.activeSetId = loadState.existingSet.id;
+		saveStorage(storage);
+		navigate("/", { replace: true });
 	};
 
 	if (loadState.status === "loading") {
@@ -230,6 +267,83 @@ export default function SharePage({ loaderData }: Route.ComponentProps) {
 						>
 							{t.share.goToPlanner}
 						</Button>
+					</CardContent>
+				</Card>
+			</div>
+		);
+	}
+
+	if (loadState.status === "duplicate") {
+		const { set, idols } = loadState.data;
+		const { existingSet } = loadState;
+
+		return (
+			<div className="flex min-h-screen items-center justify-center bg-background p-4">
+				<Card className="w-full max-w-lg">
+					<CardHeader>
+						<CardTitle className="text-amber-600 dark:text-amber-400">
+							{t.share.duplicateFound}
+						</CardTitle>
+						<CardDescription>
+							{t.share.duplicateDescription}
+						</CardDescription>
+					</CardHeader>
+					<CardContent className="space-y-4">
+						<div className="rounded-lg border border-amber-500/50 bg-amber-500/10 p-4">
+							<h3 className="mb-2 font-semibold text-foreground text-lg">
+								{existingSet.name}
+							</h3>
+							<div className="space-y-1 text-muted-foreground text-sm">
+								<p>
+									{existingSet.inventory.length} idol
+									{existingSet.inventory.length !== 1 && "s"}
+								</p>
+								<p>
+									{existingSet.placements.length} placement
+									{existingSet.placements.length !== 1 && "s"}
+								</p>
+							</div>
+						</div>
+
+						<div className="rounded-lg border border-border bg-muted/50 p-4">
+							<p className="mb-2 text-muted-foreground text-sm">
+								Incoming set:
+							</p>
+							<h3 className="font-semibold text-accent">
+								{set.name}
+							</h3>
+							<div className="space-y-1 text-muted-foreground text-sm">
+								<p>
+									{idols.length} idol
+									{idols.length !== 1 && "s"}
+								</p>
+								<p>
+									{set.placements.length} placement
+									{set.placements.length !== 1 && "s"}
+								</p>
+							</div>
+						</div>
+
+						<div className="flex gap-3 pt-4">
+							<Button
+								variant="outline"
+								onClick={handleViewExisting}
+								className="flex-1"
+							>
+								{t.share.viewExisting}
+							</Button>
+							<Button
+								onClick={() => {
+									handleImport(true);
+								}}
+								disabled={importing}
+								className="flex-1"
+							>
+								{importing
+									? t.share.importing
+									: t.share.importAnyway}
+							</Button>
+						</div>
 					</CardContent>
 				</Card>
 			</div>
@@ -290,7 +404,9 @@ export default function SharePage({ loaderData }: Route.ComponentProps) {
 							{t.actions.cancel}
 						</Button>
 						<Button
-							onClick={handleImport}
+							onClick={() => {
+								handleImport();
+							}}
 							disabled={importing}
 							className="flex-1"
 						>

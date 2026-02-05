@@ -123,7 +123,11 @@
 		"sharedSetDescription": "誰かがアイドルセットを共有しました",
 		"idolsInSet": "このセットのアイドル:",
 		"importing": "インポート中...",
-		"importSet": "セットをインポート"
+		"importSet": "セットをインポート",
+		"duplicateFound": "重複セットを検出",
+		"duplicateDescription": "同一の内容を持つセットが既に存在します:",
+		"importAnyway": "それでもインポート",
+		"viewExisting": "既存のセットを表示"
 	},
 	"errors": {
 		"invalidIdol": "無効なアイドルデータ",

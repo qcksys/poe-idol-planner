@@ -123,7 +123,11 @@
 		"sharedSetDescription": "Quelqu'un a partagé un ensemble d'idoles avec vous",
 		"idolsInSet": "Idoles dans cet ensemble :",
 		"importing": "Importation...",
-		"importSet": "Importer l'ensemble"
+		"importSet": "Importer l'ensemble",
+		"duplicateFound": "Ensemble en double trouvé",
+		"duplicateDescription": "Un ensemble avec un contenu identique existe déjà :",
+		"importAnyway": "Importer quand même",
+		"viewExisting": "Voir l'ensemble existant"
 	},
 	"errors": {
 		"invalidIdol": "Données d'idole invalides",

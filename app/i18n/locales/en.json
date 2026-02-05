@@ -123,7 +123,11 @@
 		"sharedSetDescription": "Someone shared an idol set with you",
 		"idolsInSet": "Idols in this set:",
 		"importing": "Importing...",
-		"importSet": "Import Set"
+		"importSet": "Import Set",
+		"duplicateFound": "Duplicate Set Found",
+		"duplicateDescription": "A set with identical content already exists:",
+		"importAnyway": "Import Anyway",
+		"viewExisting": "View Existing Set"
 	},
 	"errors": {
 		"invalidIdol": "Invalid idol data",

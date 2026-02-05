@@ -22,6 +22,7 @@ export const IdolSetSchema = z.object({
 	inventory: z.array(InventoryIdolSchema).default([]),
 	mapDevice: MapDeviceSchema.default(createEmptyMapDevice()),
 	unlockedConditions: z.array(z.string()).default([]),
+	contentHash: z.string().optional(),
 });
 
 export type GridPosition = z.infer<typeof GridPositionSchema>;

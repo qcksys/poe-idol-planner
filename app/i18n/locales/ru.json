@@ -123,7 +123,11 @@
 		"sharedSetDescription": "Кто-то поделился с вами набором идолов",
 		"idolsInSet": "Идолы в этом наборе:",
 		"importing": "Импорт...",
-		"importSet": "Импортировать набор"
+		"importSet": "Импортировать набор",
+		"duplicateFound": "Найден дубликат набора",
+		"duplicateDescription": "Набор с таким же содержимым уже существует:",
+		"importAnyway": "Всё равно импортировать",
+		"viewExisting": "Посмотреть существующий"
 	},
 	"errors": {
 		"invalidIdol": "Неверные данные идола",
