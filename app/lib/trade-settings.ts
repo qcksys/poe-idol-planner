@@ -4,12 +4,14 @@ const TRADE_SETTINGS_KEY = "poe-idol-planner-trade-settings";
 
 const TradeSettingsSchema = z.object({
 	maxWeight: z.number().int().min(0).nullable(),
+	filterByMaxWeight: z.boolean(),
 });
 
 export type TradeSettings = z.infer<typeof TradeSettingsSchema>;
 
 export const DEFAULT_TRADE_SETTINGS: TradeSettings = {
 	maxWeight: null,
+	filterByMaxWeight: false,
 };
 
 export function loadTradeSettings(): TradeSettings {

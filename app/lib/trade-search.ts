@@ -90,6 +90,37 @@ function getModWeight(modId: string, tier: number | null): number | null {
 	return null;
 }
 
+interface WeightRange {
+	min: number;
+	max: number;
+}
+
+let cachedWeightRange: WeightRange | null = null;
+
+function getWeightRange(): WeightRange {
+	if (cachedWeightRange) {
+		return cachedWeightRange;
+	}
+
+	let min = Number.POSITIVE_INFINITY;
+	let max = Number.NEGATIVE_INFINITY;
+
+	for (const mod of idolModifiers as ModifierDataFromJson[]) {
+		for (const tier of mod.tiers) {
+			if (tier.weight != null) {
+				min = Math.min(min, tier.weight);
+				max = Math.max(max, tier.weight);
+			}
+		}
+	}
+
+	if (min === Number.POSITIVE_INFINITY) min = 0;
+	if (max === Number.NEGATIVE_INFINITY) max = 1000;
+
+	cachedWeightRange = { min, max };
+	return cachedWeightRange;
+}
+
 let modIdIndex: Map<string, string> | null = null;
 let textMappings: Record<string, string> | null = null;
 let uniqueModIndex: Map<string, string> | null = null;
@@ -252,29 +283,39 @@ function buildTradeQuery(options: BuildTradeQueryOptions = {}): TradeQuery {
 
 	if (mods && mods.length > 0) {
 		const statFilters: TradeStatFilter[] = [];
+		const notFilters: TradeStatFilter[] = [];
 
 		for (const mod of mods) {
-			// Skip mods that exceed maxWeight threshold
+			const statId = findStatIdForMod(mod);
+			if (!statId) continue;
+
+			// Check if mod exceeds maxWeight threshold
 			if (maxWeight != null && mod.tier != null) {
 				const weight = getModWeight(mod.modId, mod.tier);
 				if (weight != null && weight > maxWeight) {
+					// Add to "not" filter to exclude these mods
+					notFilters.push({ id: statId });
 					continue;
 				}
 			}
 
-			const statId = findStatIdForMod(mod);
-			if (statId) {
-				statFilters.push({
-					id: statId,
-					value: {
-						min: mod.rolledValue > 0 ? mod.rolledValue : undefined,
-					},
-				});
-			}
+			statFilters.push({
+				id: statId,
+				value: {
+					min: mod.rolledValue > 0 ? mod.rolledValue : undefined,
+				},
+			});
 		}
 
 		if (statFilters.length > 0) {
 			query.query.stats[0].filters = statFilters;
+		}
+
+		if (notFilters.length > 0) {
+			query.query.stats.push({
+				type: "not",
+				filters: notFilters,
+			});
 		}
 	}
 
@@ -339,7 +380,7 @@ export function generateTradeUrlForMod(
 	return `${TRADE_BASE_URL}/${league}?q=${queryParam}`;
 }
 
-export { getModWeight };
+export { getModWeight, getWeightRange, type WeightRange };
 
 export function getTradeStatId(modText: string): string | null {
 	return findStatIdByText(modText);

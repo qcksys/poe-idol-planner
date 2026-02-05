@@ -17,6 +17,7 @@ interface TradeSettingsContextValue {
 	settings: TradeSettings;
 	isHydrated: boolean;
 	setMaxWeight: (maxWeight: number | null) => void;
+	setFilterByMaxWeight: (filterByMaxWeight: boolean) => void;
 }
 
 const TradeSettingsContext = createContext<TradeSettingsContextValue | null>(
@@ -45,12 +46,17 @@ export function TradeSettingsProvider({ children }: { children: ReactNode }) {
 		setSettings((prev) => ({ ...prev, maxWeight }));
 	}, []);
 
+	const setFilterByMaxWeight = useCallback((filterByMaxWeight: boolean) => {
+		setSettings((prev) => ({ ...prev, filterByMaxWeight }));
+	}, []);
+
 	return (
 		<TradeSettingsContext.Provider
 			value={{
 				settings,
 				isHydrated,
 				setMaxWeight,
+				setFilterByMaxWeight,
 			}}
 		>
 			{children}

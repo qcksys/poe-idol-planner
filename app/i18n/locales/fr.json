@@ -91,7 +91,8 @@
 		"openTrade": "Ouvrir le site de commerce",
 		"searchBaseType": "Rechercher {type} sur le marché",
 		"maxWeight": "Poids max.",
-		"maxWeightPlaceholder": "Pas de limite"
+		"maxWeightPlaceholder": "Pas de limite",
+		"filterByMaxWeight": "Exclure les mods au-dessus de ce poids de la recherche commerciale"
 	},
 	"import": {
 		"title": "Importer une idole",

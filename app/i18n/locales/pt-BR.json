@@ -91,7 +91,8 @@
 		"openTrade": "Abrir Site de Trade",
 		"searchBaseType": "Buscar {type} no Trade",
 		"maxWeight": "Peso Máximo",
-		"maxWeightPlaceholder": "Sem limite"
+		"maxWeightPlaceholder": "Sem limite",
+		"filterByMaxWeight": "Excluir mods acima deste peso da busca de comércio"
 	},
 	"import": {
 		"title": "Importar Ídolo",

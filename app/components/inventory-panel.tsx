@@ -4,6 +4,7 @@ import {
 	ClipboardPaste,
 	Copy,
 	ExternalLink,
+	Filter,
 	PenLine,
 	Plus,
 	Search,
@@ -26,6 +27,8 @@ import {
 } from "~/components/ui/dialog";
 import { Input } from "~/components/ui/input";
 import { ScrollArea } from "~/components/ui/scroll-area";
+import { Slider } from "~/components/ui/slider";
+import { Switch } from "~/components/ui/switch";
 import {
 	Tooltip,
 	TooltipContent,
@@ -37,7 +40,7 @@ import { useTradeSettings } from "~/context/trade-settings-context";
 import type { LeagueMechanic } from "~/data/idol-bases";
 import { useLocale, useTranslations } from "~/i18n";
 import { getModMechanic, resolveModText } from "~/lib/mod-text-resolver";
-import { generateTradeUrl } from "~/lib/trade-search";
+import { generateTradeUrl, getWeightRange } from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
 import type { InventoryIdol } from "~/schemas/inventory";
 
@@ -59,6 +62,7 @@ function DraggableIdolCard({
 	isSelected,
 	league,
 	maxWeight,
+	filterByMaxWeight,
 	onIdolClick,
 	onDuplicateIdol,
 	onRemoveIdol,
@@ -69,6 +73,7 @@ function DraggableIdolCard({
 	isSelected: boolean;
 	league: string;
 	maxWeight: number | null;
+	filterByMaxWeight: boolean;
 	onIdolClick?: (idol: InventoryIdol) => void;
 	onDuplicateIdol?: (id: string) => void;
 	onRemoveIdol?: (id: string) => void;
@@ -89,7 +94,10 @@ function DraggableIdolCard({
 
 	const handleFindOnTrade = (e: React.MouseEvent) => {
 		e.stopPropagation();
-		const url = generateTradeUrl(item.idol, { league, maxWeight });
+		const url = generateTradeUrl(item.idol, {
+			league,
+			maxWeight: filterByMaxWeight ? maxWeight : null,
+		});
 		window.open(url, "_blank", "noopener,noreferrer");
 	};
 
@@ -199,6 +207,61 @@ function DraggableIdolCard({
 	);
 }
 
+function WeightFilterSection({
+	tradeSettings,
+	setMaxWeight,
+	setFilterByMaxWeight,
+	t,
+}: {
+	tradeSettings: { maxWeight: number | null; filterByMaxWeight: boolean };
+	setMaxWeight: (value: number | null) => void;
+	setFilterByMaxWeight: (value: boolean) => void;
+	t: ReturnType<typeof useTranslations>;
+}) {
+	const weightRange = getWeightRange();
+
+	return (
+		<div className="space-y-2 rounded-md border border-border p-2">
+			<div className="flex items-center gap-2">
+				<Filter className="h-4 w-4 text-muted-foreground" />
+				<label
+					htmlFor="max-weight"
+					className="flex-1 text-muted-foreground text-xs"
+				>
+					{t.trade?.maxWeight || "Max Weight"}:{" "}
+					<span className="font-medium text-foreground">
+						{tradeSettings.maxWeight ?? weightRange.max}
+					</span>
+				</label>
+			</div>
+			<Slider
+				id="max-weight"
+				min={weightRange.min}
+				max={weightRange.max}
+				step={10}
+				value={[tradeSettings.maxWeight ?? weightRange.max]}
+				onValueChange={(values) => {
+					setMaxWeight(values[0]);
+				}}
+			/>
+			<div className="flex items-center gap-2">
+				<Switch
+					id="filter-by-weight"
+					checked={tradeSettings.filterByMaxWeight}
+					onCheckedChange={setFilterByMaxWeight}
+				/>
+				<label
+					htmlFor="filter-by-weight"
+					className="text-muted-foreground text-xs"
+				>
+					{t.trade?.filterByMaxWeight ||
+						"Exclude mods above this weight from trade search"}
+				</label>
+			</div>
+		</div>
+	);
+}
+
 export function InventoryPanel({
 	inventory,
 	onImportClick,
@@ -214,7 +277,11 @@ export function InventoryPanel({
 	const t = useTranslations();
 	const locale = useLocale();
 	const { league } = useLeague();
-	const { settings: tradeSettings, setMaxWeight } = useTradeSettings();
+	const {
+		settings: tradeSettings,
+		setMaxWeight,
+		setFilterByMaxWeight,
+	} = useTradeSettings();
 	const [searchQuery, setSearchQuery] = useState("");
 	const [mechanicFilter, setMechanicFilter] = useState<LeagueMechanic[]>([]);
 	const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
@@ -222,9 +289,6 @@ export function InventoryPanel({
 	const [modsSearchOpen, setModsSearchOpen] = useState(false);
 	const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 	const [idsToDelete, setIdsToDelete] = useState<string[]>([]);
-	const [maxWeightInput, setMaxWeightInput] = useState(
-		tradeSettings.maxWeight?.toString() ?? "",
-	);
 
 	const filteredInventory = inventory.filter((item) => {
 		const idol = item.idol;
@@ -404,34 +468,12 @@ export function InventoryPanel({
 							onChange={setMechanicFilter}
 						/>
 
-						<div className="flex items-center gap-2">
-							<label
-								htmlFor="max-weight"
-								className="shrink-0 text-muted-foreground text-xs"
-							>
-								{t.trade?.maxWeight || "Max Weight"}
-							</label>
-							<Input
-								id="max-weight"
-								type="number"
-								placeholder={
-									t.trade?.maxWeightPlaceholder || "No limit"
-								}
-								value={maxWeightInput}
-								onChange={(e) => {
-									setMaxWeightInput(e.target.value);
-									const val = e.target.value
-										? Number.parseInt(e.target.value, 10)
-										: null;
-									setMaxWeight(
-										val && !Number.isNaN(val) && val > 0
-											? val
-											: null,
-									);
-								}}
-								className="h-8"
-							/>
-						</div>
+						<WeightFilterSection
+							tradeSettings={tradeSettings}
+							setMaxWeight={setMaxWeight}
+							setFilterByMaxWeight={setFilterByMaxWeight}
+							t={t}
+						/>
 
 						<div className="flex flex-wrap gap-2">
 							<Button
@@ -525,6 +567,9 @@ export function InventoryPanel({
 									isSelected={selectedIds.has(item.id)}
 									league={league}
 									maxWeight={tradeSettings.maxWeight}
+									filterByMaxWeight={
+										tradeSettings.filterByMaxWeight
+									}
 									onIdolClick={onIdolClick}
 									onDuplicateIdol={onDuplicateIdol}
 									onRemoveIdol={

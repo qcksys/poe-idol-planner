@@ -91,7 +91,8 @@
 		"openTrade": "トレードサイトを開く",
 		"searchBaseType": "トレードで{type}を検索",
 		"maxWeight": "最大ウェイト",
-		"maxWeightPlaceholder": "制限なし"
+		"maxWeightPlaceholder": "制限なし",
+		"filterByMaxWeight": "このウェイト以上のmodを取引検索から除外"
 	},
 	"import": {
 		"title": "アイドルをインポート",

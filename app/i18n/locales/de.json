@@ -91,7 +91,8 @@
 		"openTrade": "Handelsseite öffnen",
 		"searchBaseType": "{type} im Handel suchen",
 		"maxWeight": "Max. Gewicht",
-		"maxWeightPlaceholder": "Kein Limit"
+		"maxWeightPlaceholder": "Kein Limit",
+		"filterByMaxWeight": "Mods über diesem Gewicht aus Handelssuche ausschließen"
 	},
 	"import": {
 		"title": "Idol importieren",

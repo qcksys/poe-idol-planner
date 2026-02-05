@@ -91,7 +91,8 @@
 		"openTrade": "Открыть сайт трейда",
 		"searchBaseType": "Искать {type} на трейде",
 		"maxWeight": "Макс. вес",
-		"maxWeightPlaceholder": "Без ограничений"
+		"maxWeightPlaceholder": "Без ограничений",
+		"filterByMaxWeight": "Исключить моды выше этого веса из торгового поиска"
 	},
 	"import": {
 		"title": "Импорт идола",
