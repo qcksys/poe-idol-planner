@@ -40,10 +40,30 @@ const DIRECTION_CANONICALIZATION: [RegExp, string][] = [
 // Manual text overrides for mods where idol text differs from trade API text
 // Format: [idol pattern after normalization, trade API pattern to search for]
 const TEXT_OVERRIDES: [RegExp, string][] = [
-	// Singular vs plural: "an additional Strongbox" -> "# additional Strongboxes"
+	// "# additional Strongbox" -> "# additional Strongboxes" (trade API uses # plural)
 	[
-		/^Your Maps contain an additional Strongbox$/i,
+		/^Your Maps contain # additional Strongbox$/i,
 		"Your Maps contain # additional Strongboxes",
+	],
+	// "# additional Shrine" -> "an additional Shrine" (trade API uses singular)
+	[
+		/^Your Maps contain # additional Shrine$/i,
+		"Your Maps contain an additional Shrine",
+	],
+	// "# additional Harbinger" -> "an additional Harbinger" (trade API uses singular)
+	[
+		/^Your Maps contain # additional Harbinger$/i,
+		"Your Maps contain an additional Harbinger",
+	],
+	// "# additional Imprisoned Monster" -> "an additional Imprisoned Monster" (trade API uses singular)
+	[
+		/^Your Maps contain # additional Imprisoned Monster$/i,
+		"Your Maps contain an additional Imprisoned Monster",
+	],
+	// "# additional Tormented Spirit" -> "an additional Tormented Spirit" (trade API uses singular)
+	[
+		/^Your Maps are haunted by # additional Tormented Spirit$/i,
+		"Your Maps are haunted by an additional Tormented Spirit",
 	],
 	// Plural vs singular: "Sergeants" -> "Sergeant"
 	[

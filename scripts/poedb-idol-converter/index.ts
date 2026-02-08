@@ -10,6 +10,7 @@ import { applyTradeStatMappings } from "./trade-stats.ts";
 import { transform } from "./transformer.ts";
 import type { Locale, ParsedPage } from "./types.ts";
 import { LOCALES } from "./types.ts";
+import { applyValueOverrides } from "./value-overrides.ts";
 
 const IDOL_PAGES = [
 	"Minor_Idol",
@@ -120,6 +121,17 @@ async function main(): Promise<void> {
 
 	console.log(`  Total modifiers: ${convertedData.modifiers.length}`);
 	console.log(`  Total uniques: ${convertedData.uniqueIdols.length}`);
+
+	console.log("\nApplying value overrides...");
+	const overrideResult = applyValueOverrides(convertedData.modifiers);
+	if (overrideResult.modifiedCount > 0) {
+		console.log(`  Modified ${overrideResult.modifiedCount} modifier(s):`);
+		for (const mod of overrideResult.modifications) {
+			console.log(`    - ${mod}`);
+		}
+	} else {
+		console.log("  No overrides applied");
+	}
 
 	console.log("\nApplying trade stat mappings...");
 	const tradeStatResult = await applyTradeStatMappings(

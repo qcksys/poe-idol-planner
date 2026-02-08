@@ -18719,18 +18719,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain an additional Shrine",
-					"zh-TW": "你的地圖含有 1 個額外神殿",
-					"zh-CN": "地图内有一个额外的神龛",
-					"ko": "지도에 성소 1개 추가 등장",
-					"ja": "マップにはシュラインが追加で1個出現する",
+					"en": "Your Maps contain (1—1) additional Shrine",
+					"zh-TW": "你的地圖含有 (1—1) 個額外神殿",
+					"zh-CN": "地图内有(1—1) 个额外的神龛",
+					"ko": "지도에 성소 (1—1)개 추가 등장",
+					"ja": "マップにはシュラインが追加で(1—1)個出現する",
 					"ru": "Ваши карты содержат дополнительный алтарь",
-					"pt-BR": "Seus Mapas contêm um Altar adicional",
-					"de": "Eure Karten enthalten einen zusätzlichen Schrein",
-					"fr": "Vos Cartes contiennent un Autel supplémentaire",
-					"es": "Tus mapas contienen un santuario adicional"
+					"pt-BR": "Seus Mapas contêm (1—1) Altar adicional",
+					"de": "Eure Karten enthalten (1—1) zusätzlichen Schrein",
+					"fr": "Vos Cartes contiennent (1—1) Autel supplémentaire",
+					"es": "Tus mapas contienen (1—1) santuario adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 1
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_1468737867"
 			}
@@ -19022,18 +19027,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain an additional Imprisoned Monster",
-					"zh-TW": "你的地圖含有 1 個額外禁錮怪物",
-					"zh-CN": "地图内有一个额外的禁锢怪物",
-					"ko": "지도에 갇힌 몬스터 1마리 추가 등장",
-					"ja": "マップには追加で1体のエッセンスに囚われたモンスターが出現する",
+					"en": "Your Maps contain (1—1) additional Imprisoned Monster",
+					"zh-TW": "你的地圖含有 (1—1) 個額外禁錮怪物",
+					"zh-CN": "地图内有(1—1) 个额外的禁锢怪物",
+					"ko": "지도에 갇힌 몬스터 (1—1)개 추가 등장",
+					"ja": "マップには追加で(1—1)個のエッセンスに囚われたモンスターが出現する",
 					"ru": "На ваших картах можно встретить дополнительного заточенного монстра",
-					"pt-BR": "Seus Mapas contêm um Monstro Aprisionado adicional",
-					"de": "Eure Karten enthalten ein zusätzliches eingeschlossenes Monster",
-					"fr": "Vos Cartes contiennent un Monstre Emprisonné supplémentaire",
-					"es": "Tus mapas contienen un monstruo aprisionado adicional"
+					"pt-BR": "Seus Mapas contêm (1—1) Monstro Aprisionado adicional",
+					"de": "Eure Karten enthalten (1—1) zusätzliches eingeschlossenes Monster",
+					"fr": "Vos Cartes contiennent (1—1) Monstre Emprisonné supplémentaire",
+					"es": "Tus mapas contienen (1—1) monstruo aprisionado adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 1
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_395808938"
 			}
@@ -19501,18 +19511,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain an additional Harbinger",
-					"zh-TW": "你的地圖含有 1 個額外神諭",
-					"zh-CN": "地图内有一个额外的先驱者",
-					"ko": "지도에 선구자 1명 추가 등장",
-					"ja": "マップにはハービンジャーが追加で1体出現する",
+					"en": "Your Maps contain (1—1) additional Harbinger",
+					"zh-TW": "你的地圖含有 (1—1) 個額外神諭",
+					"zh-CN": "地图内有(1—1) 个额外的先驱者",
+					"ko": "지도에 선구자 (1—1)개 추가 등장",
+					"ja": "マップにはハービンジャーが追加で(1—1)個出現する",
 					"ru": "На ваших картах можно встретить дополнительного Предвестника",
-					"pt-BR": "Seus Mapas contêm um Emissário adicional",
-					"de": "Eure Karten enthalten einen zusätzlichen Vorboten",
-					"fr": "Vos Cartes contiennent un Précurseur supplémentaire",
-					"es": "Tus mapas contienen un heraldo adicional"
+					"pt-BR": "Seus Mapas contêm (1—1) Emissário adicional",
+					"de": "Eure Karten enthalten (1—1) zusätzlichen Vorboten",
+					"fr": "Vos Cartes contiennent (1—1) Précurseur supplémentaire",
+					"es": "Tus mapas contienen (1—1) heraldo adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 1
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_504850499"
 			}
@@ -22047,18 +22062,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain an additional Strongbox",
-					"zh-TW": "你的地圖含有額外一個保險箱",
-					"zh-CN": "地图内有一个额外的保险箱",
-					"ko": "지도에 금고 1개 추가 등장",
-					"ja": "マップにはストロングボックスが追加で1個出現する",
+					"en": "Your Maps contain (1—1) additional Strongbox",
+					"zh-TW": "你的地圖含有額外(1—1) 個保險箱",
+					"zh-CN": "地图内有(1—1) 个额外的保险箱",
+					"ko": "지도에 금고 (1—1)개 추가 등장",
+					"ja": "マップにはストロングボックスが追加で(1—1)個出現する",
 					"ru": "Ваши карты содержат дополнительный ларец",
-					"pt-BR": "Seus Mapas contêm um Cofre adicional",
-					"de": "Eure Karten enthalten einen zusätzlichen Tresor",
-					"fr": "Vos Cartes contiennent un Coffre-fort supplémentaire",
-					"es": "Tus mapas contienen una caja fuerte adicional"
+					"pt-BR": "Seus Mapas contêm (1—1) Cofre adicional",
+					"de": "Eure Karten enthalten (1—1) zusätzlichen Tresor",
+					"fr": "Vos Cartes contiennent (1—1) Coffre-fort supplémentaire",
+					"es": "Tus mapas contienen (1—1) caja fuerte adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 1
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_3240183538"
 			}
@@ -22457,18 +22477,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps are haunted by an additional Tormented Spirit",
-					"zh-TW": "你的地圖被 1 個額外罪魂糾纏",
-					"zh-CN": "你的地图额外被 1 个罪魂纠缠",
-					"ko": "지도에 고통받는 혼백 1명 추가 등장",
-					"ja": "マップは追加で1体の拷問された幽霊が彷徨っている",
+					"en": "Your Maps are haunted by (1—1) additional Tormented Spirit",
+					"zh-TW": "你的地圖被 (1—1) 個額外罪魂糾纏",
+					"zh-CN": "你的地图额外被 (1—1) 个罪魂纠缠",
+					"ko": "지도에 고통받는 혼백 (1—1)개 추가 등장",
+					"ja": "マップは追加で(1—1)個の拷問された幽霊が彷徨っている",
 					"ru": "На ваших картах обитает дополнительный страдающий дух",
-					"pt-BR": "Seus Mapas são assombrados por um Espírito Atormentado adicional",
+					"pt-BR": "Seus Mapas são assombrados por (1—1) Espírito Atormentado adicional",
 					"de": "Eure Karten sind von einer zusätzlichen Gequälten Seele heimgesucht",
-					"fr": "Vos Cartes sont Hantées par un Esprit tourmenté supplémentaire",
-					"es": "Tus mapas contienen un espíritu atormentado adicional"
+					"fr": "Vos Cartes sont Hantées par (1—1) Esprit tourmenté supplémentaire",
+					"es": "Tus mapas contienen (1—1) espíritu atormentado adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 1
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_358129101"
 			}
@@ -24432,18 +24457,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain an additional Shrine",
-					"zh-TW": "你的地圖含有 1 個額外神殿",
-					"zh-CN": "地图内有一个额外的神龛",
-					"ko": "지도에 성소 1개 추가 등장",
-					"ja": "マップにはシュラインが追加で1個出現する",
+					"en": "Your Maps contain (1—1) additional Shrine",
+					"zh-TW": "你的地圖含有 (1—1) 個額外神殿",
+					"zh-CN": "地图内有(1—1) 个额外的神龛",
+					"ko": "지도에 성소 (1—1)개 추가 등장",
+					"ja": "マップにはシュラインが追加で(1—1)個出現する",
 					"ru": "Ваши карты содержат дополнительный алтарь",
-					"pt-BR": "Seus Mapas contêm um Altar adicional",
-					"de": "Eure Karten enthalten einen zusätzlichen Schrein",
-					"fr": "Vos Cartes contiennent un Autel supplémentaire",
-					"es": "Tus mapas contienen un santuario adicional"
+					"pt-BR": "Seus Mapas contêm (1—1) Altar adicional",
+					"de": "Eure Karten enthalten (1—1) zusätzlichen Schrein",
+					"fr": "Vos Cartes contiennent (1—1) Autel supplémentaire",
+					"es": "Tus mapas contienen (1—1) santuario adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 1
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_1468737867"
 			}
@@ -24735,18 +24765,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain an additional Imprisoned Monster",
-					"zh-TW": "你的地圖含有 1 個額外禁錮怪物",
-					"zh-CN": "地图内有一个额外的禁锢怪物",
-					"ko": "지도에 갇힌 몬스터 1마리 추가 등장",
-					"ja": "マップには追加で1体のエッセンスに囚われたモンスターが出現する",
+					"en": "Your Maps contain (1—1) additional Imprisoned Monster",
+					"zh-TW": "你的地圖含有 (1—1) 個額外禁錮怪物",
+					"zh-CN": "地图内有(1—1) 个额外的禁锢怪物",
+					"ko": "지도에 갇힌 몬스터 (1—1)개 추가 등장",
+					"ja": "マップには追加で(1—1)個のエッセンスに囚われたモンスターが出現する",
 					"ru": "На ваших картах можно встретить дополнительного заточенного монстра",
-					"pt-BR": "Seus Mapas contêm um Monstro Aprisionado adicional",
-					"de": "Eure Karten enthalten ein zusätzliches eingeschlossenes Monster",
-					"fr": "Vos Cartes contiennent un Monstre Emprisonné supplémentaire",
-					"es": "Tus mapas contienen un monstruo aprisionado adicional"
+					"pt-BR": "Seus Mapas contêm (1—1) Monstro Aprisionado adicional",
+					"de": "Eure Karten enthalten (1—1) zusätzliches eingeschlossenes Monster",
+					"fr": "Vos Cartes contiennent (1—1) Monstre Emprisonné supplémentaire",
+					"es": "Tus mapas contienen (1—1) monstruo aprisionado adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 1
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_395808938"
 			}
@@ -25214,18 +25249,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain an additional Harbinger",
-					"zh-TW": "你的地圖含有 1 個額外神諭",
-					"zh-CN": "地图内有一个额外的先驱者",
-					"ko": "지도에 선구자 1명 추가 등장",
-					"ja": "マップにはハービンジャーが追加で1体出現する",
+					"en": "Your Maps contain (1—1) additional Harbinger",
+					"zh-TW": "你的地圖含有 (1—1) 個額外神諭",
+					"zh-CN": "地图内有(1—1) 个额外的先驱者",
+					"ko": "지도에 선구자 (1—1)개 추가 등장",
+					"ja": "マップにはハービンジャーが追加で(1—1)個出現する",
 					"ru": "На ваших картах можно встретить дополнительного Предвестника",
-					"pt-BR": "Seus Mapas contêm um Emissário adicional",
-					"de": "Eure Karten enthalten einen zusätzlichen Vorboten",
-					"fr": "Vos Cartes contiennent un Précurseur supplémentaire",
-					"es": "Tus mapas contienen un heraldo adicional"
+					"pt-BR": "Seus Mapas contêm (1—1) Emissário adicional",
+					"de": "Eure Karten enthalten (1—1) zusätzlichen Vorboten",
+					"fr": "Vos Cartes contiennent (1—1) Précurseur supplémentaire",
+					"es": "Tus mapas contienen (1—1) heraldo adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 1
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_504850499"
 			}
@@ -27760,18 +27800,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain an additional Strongbox",
-					"zh-TW": "你的地圖含有額外一個保險箱",
-					"zh-CN": "地图内有一个额外的保险箱",
-					"ko": "지도에 금고 1개 추가 등장",
-					"ja": "マップにはストロングボックスが追加で1個出現する",
+					"en": "Your Maps contain (1—1) additional Strongbox",
+					"zh-TW": "你的地圖含有額外(1—1) 個保險箱",
+					"zh-CN": "地图内有(1—1) 个额外的保险箱",
+					"ko": "지도에 금고 (1—1)개 추가 등장",
+					"ja": "マップにはストロングボックスが追加で(1—1)個出現する",
 					"ru": "Ваши карты содержат дополнительный ларец",
-					"pt-BR": "Seus Mapas contêm um Cofre adicional",
-					"de": "Eure Karten enthalten einen zusätzlichen Tresor",
-					"fr": "Vos Cartes contiennent un Coffre-fort supplémentaire",
-					"es": "Tus mapas contienen una caja fuerte adicional"
+					"pt-BR": "Seus Mapas contêm (1—1) Cofre adicional",
+					"de": "Eure Karten enthalten (1—1) zusätzlichen Tresor",
+					"fr": "Vos Cartes contiennent (1—1) Coffre-fort supplémentaire",
+					"es": "Tus mapas contienen (1—1) caja fuerte adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 1
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_3240183538"
 			}
@@ -28170,18 +28215,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps are haunted by an additional Tormented Spirit",
-					"zh-TW": "你的地圖被 1 個額外罪魂糾纏",
-					"zh-CN": "你的地图额外被 1 个罪魂纠缠",
-					"ko": "지도에 고통받는 혼백 1명 추가 등장",
-					"ja": "マップは追加で1体の拷問された幽霊が彷徨っている",
+					"en": "Your Maps are haunted by (1—1) additional Tormented Spirit",
+					"zh-TW": "你的地圖被 (1—1) 個額外罪魂糾纏",
+					"zh-CN": "你的地图额外被 (1—1) 个罪魂纠缠",
+					"ko": "지도에 고통받는 혼백 (1—1)개 추가 등장",
+					"ja": "マップは追加で(1—1)個の拷問された幽霊が彷徨っている",
 					"ru": "На ваших картах обитает дополнительный страдающий дух",
-					"pt-BR": "Seus Mapas são assombrados por um Espírito Atormentado adicional",
+					"pt-BR": "Seus Mapas são assombrados por (1—1) Espírito Atormentado adicional",
 					"de": "Eure Karten sind von einer zusätzlichen Gequälten Seele heimgesucht",
-					"fr": "Vos Cartes sont Hantées par un Esprit tourmenté supplémentaire",
-					"es": "Tus mapas contienen un espíritu atormentado adicional"
+					"fr": "Vos Cartes sont Hantées par (1—1) Esprit tourmenté supplémentaire",
+					"es": "Tus mapas contienen (1—1) espíritu atormentado adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 1
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_358129101"
 			}
@@ -30598,18 +30648,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain an additional Shrine",
-					"zh-TW": "你的地圖含有 1 個額外神殿",
-					"zh-CN": "地图内有一个额外的神龛",
-					"ko": "지도에 성소 1개 추가 등장",
-					"ja": "マップにはシュラインが追加で1個出現する",
+					"en": "Your Maps contain (1—2) additional Shrine",
+					"zh-TW": "你的地圖含有 (1—2) 個額外神殿",
+					"zh-CN": "地图内有(1—2) 个额外的神龛",
+					"ko": "지도에 성소 (1—2)개 추가 등장",
+					"ja": "マップにはシュラインが追加で(1—2)個出現する",
 					"ru": "Ваши карты содержат дополнительный алтарь",
-					"pt-BR": "Seus Mapas contêm um Altar adicional",
-					"de": "Eure Karten enthalten einen zusätzlichen Schrein",
-					"fr": "Vos Cartes contiennent un Autel supplémentaire",
-					"es": "Tus mapas contienen un santuario adicional"
+					"pt-BR": "Seus Mapas contêm (1—2) Altar adicional",
+					"de": "Eure Karten enthalten (1—2) zusätzlichen Schrein",
+					"fr": "Vos Cartes contiennent (1—2) Autel supplémentaire",
+					"es": "Tus mapas contienen (1—2) santuario adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 2
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_1468737867"
 			}
@@ -30847,18 +30902,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain an additional Imprisoned Monster",
-					"zh-TW": "你的地圖含有 1 個額外禁錮怪物",
-					"zh-CN": "地图内有一个额外的禁锢怪物",
-					"ko": "지도에 갇힌 몬스터 1마리 추가 등장",
-					"ja": "マップには追加で1体のエッセンスに囚われたモンスターが出現する",
+					"en": "Your Maps contain (1—2) additional Imprisoned Monster",
+					"zh-TW": "你的地圖含有 (1—2) 個額外禁錮怪物",
+					"zh-CN": "地图内有(1—2) 个额外的禁锢怪物",
+					"ko": "지도에 갇힌 몬스터 (1—2)개 추가 등장",
+					"ja": "マップには追加で(1—2)個のエッセンスに囚われたモンスターが出現する",
 					"ru": "На ваших картах можно встретить дополнительного заточенного монстра",
-					"pt-BR": "Seus Mapas contêm um Monstro Aprisionado adicional",
-					"de": "Eure Karten enthalten ein zusätzliches eingeschlossenes Monster",
-					"fr": "Vos Cartes contiennent un Monstre Emprisonné supplémentaire",
-					"es": "Tus mapas contienen un monstruo aprisionado adicional"
+					"pt-BR": "Seus Mapas contêm (1—2) Monstro Aprisionado adicional",
+					"de": "Eure Karten enthalten (1—2) zusätzliches eingeschlossenes Monster",
+					"fr": "Vos Cartes contiennent (1—2) Monstre Emprisonné supplémentaire",
+					"es": "Tus mapas contienen (1—2) monstruo aprisionado adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 2
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_395808938"
 			}
@@ -31272,18 +31332,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain an additional Harbinger",
-					"zh-TW": "你的地圖含有 1 個額外神諭",
-					"zh-CN": "地图内有一个额外的先驱者",
-					"ko": "지도에 선구자 1명 추가 등장",
-					"ja": "マップにはハービンジャーが追加で1体出現する",
+					"en": "Your Maps contain (1—2) additional Harbinger",
+					"zh-TW": "你的地圖含有 (1—2) 個額外神諭",
+					"zh-CN": "地图内有(1—2) 个额外的先驱者",
+					"ko": "지도에 선구자 (1—2)개 추가 등장",
+					"ja": "マップにはハービンジャーが追加で(1—2)個出現する",
 					"ru": "На ваших картах можно встретить дополнительного Предвестника",
-					"pt-BR": "Seus Mapas contêm um Emissário adicional",
-					"de": "Eure Karten enthalten einen zusätzlichen Vorboten",
-					"fr": "Vos Cartes contiennent un Précurseur supplémentaire",
-					"es": "Tus mapas contienen un heraldo adicional"
+					"pt-BR": "Seus Mapas contêm (1—2) Emissário adicional",
+					"de": "Eure Karten enthalten (1—2) zusätzlichen Vorboten",
+					"fr": "Vos Cartes contiennent (1—2) Précurseur supplémentaire",
+					"es": "Tus mapas contienen (1—2) heraldo adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 2
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_504850499"
 			}
@@ -33065,18 +33130,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps contain an additional Strongbox",
-					"zh-TW": "你的地圖含有額外一個保險箱",
-					"zh-CN": "地图内有一个额外的保险箱",
-					"ko": "지도에 금고 1개 추가 등장",
-					"ja": "マップにはストロングボックスが追加で1個出現する",
+					"en": "Your Maps contain (1—2) additional Strongbox",
+					"zh-TW": "你的地圖含有額外(1—2) 個保險箱",
+					"zh-CN": "地图内有(1—2) 个额外的保险箱",
+					"ko": "지도에 금고 (1—2)개 추가 등장",
+					"ja": "マップにはストロングボックスが追加で(1—2)個出現する",
 					"ru": "Ваши карты содержат дополнительный ларец",
-					"pt-BR": "Seus Mapas contêm um Cofre adicional",
-					"de": "Eure Karten enthalten einen zusätzlichen Tresor",
-					"fr": "Vos Cartes contiennent un Coffre-fort supplémentaire",
-					"es": "Tus mapas contienen una caja fuerte adicional"
+					"pt-BR": "Seus Mapas contêm (1—2) Cofre adicional",
+					"de": "Eure Karten enthalten (1—2) zusätzlichen Tresor",
+					"fr": "Vos Cartes contiennent (1—2) Coffre-fort supplémentaire",
+					"es": "Tus mapas contienen (1—2) caja fuerte adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 2
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_3240183538"
 			}
@@ -33441,18 +33511,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Your Maps are haunted by an additional Tormented Spirit",
-					"zh-TW": "你的地圖被 1 個額外罪魂糾纏",
-					"zh-CN": "你的地图额外被 1 个罪魂纠缠",
-					"ko": "지도에 고통받는 혼백 1명 추가 등장",
-					"ja": "マップは追加で1体の拷問された幽霊が彷徨っている",
+					"en": "Your Maps are haunted by (1—2) additional Tormented Spirit",
+					"zh-TW": "你的地圖被 (1—2) 個額外罪魂糾纏",
+					"zh-CN": "你的地图额外被 (1—2) 个罪魂纠缠",
+					"ko": "지도에 고통받는 혼백 (1—2)개 추가 등장",
+					"ja": "マップは追加で(1—2)個の拷問された幽霊が彷徨っている",
 					"ru": "На ваших картах обитает дополнительный страдающий дух",
-					"pt-BR": "Seus Mapas são assombrados por um Espírito Atormentado adicional",
+					"pt-BR": "Seus Mapas são assombrados por (1—2) Espírito Atormentado adicional",
 					"de": "Eure Karten sind von einer zusätzlichen Gequälten Seele heimgesucht",
-					"fr": "Vos Cartes sont Hantées par un Esprit tourmenté supplémentaire",
-					"es": "Tus mapas contienen un espíritu atormentado adicional"
+					"fr": "Vos Cartes sont Hantées par (1—2) Esprit tourmenté supplémentaire",
+					"es": "Tus mapas contienen (1—2) espíritu atormentado adicional"
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 2
+					}
+				],
 				"weight": 1000,
 				"tradeStatId": "explicit.stat_358129101"
 			}
