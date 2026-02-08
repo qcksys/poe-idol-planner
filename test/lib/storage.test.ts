@@ -19,39 +19,17 @@ vi.stubGlobal("localStorage", localStorageMock);
 
 const { loadStorage } = await import("~/lib/storage");
 const { STORAGE_VERSION } = await import("~/schemas/storage");
-const { createEmptyMapDevice } = await import("~/schemas/scarab");
 
-interface TestInventoryItem {
-	id: string;
-	idol: {
-		id: string;
-		baseType: string;
-		itemLevel: number;
-		rarity: string;
-		prefixes: unknown[];
-		suffixes: unknown[];
-	};
-	importedAt: number;
-	source: string;
-	usageCount: number;
-}
-
-interface TestPlacement {
-	id: string;
-	inventoryIdolId: string;
-	position: { x: number; y: number };
-}
-
-interface TestSet {
-	id: string;
-	name: string;
-	createdAt: number;
-	updatedAt: number;
-	placements: TestPlacement[];
-	inventory: TestInventoryItem[];
-	mapDevice: ReturnType<typeof createEmptyMapDevice>;
-	unlockedConditions: string[];
-}
+const {
+	VALID_STORAGE_FIXTURE,
+	createStorageFixture,
+	createFixtureWithInvalidSet,
+	createFixtureWithInvalidInventoryItem,
+	createFixtureWithOrphanedPlacements,
+	createFixtureWithInvalidPlacements,
+	createFixtureWithWrongVersion,
+	createFixtureWithInvalidActiveSetId,
+} = await import("~test/fixtures/storage-fixtures");
 
 describe("storage granular validation", () => {
 	beforeEach(() => {
@@ -63,240 +41,359 @@ describe("storage granular validation", () => {
 		localStorageMock.clear();
 	});
 
-	const createValidSet = (id: string, name: string): TestSet => ({
-		id,
-		name,
-		createdAt: Date.now(),
-		updatedAt: Date.now(),
-		placements: [],
-		inventory: [],
-		mapDevice: createEmptyMapDevice(),
-		unlockedConditions: [],
+	describe("valid storage", () => {
+		it("loads valid storage with multiple sets without changes", () => {
+			localStorageMock.store["poe-idol-planner-data"] = JSON.stringify(
+				VALID_STORAGE_FIXTURE,
+			);
+
+			const result = loadStorage();
+
+			expect(result.version).toBe(STORAGE_VERSION);
+			expect(result.sets).toHaveLength(5);
+			expect(result.activeSetId).toBe("set-delirium-ritual");
+
+			// Verify set details
+			expect(result.sets.map((s) => s.name)).toEqual([
+				"Abyss Farmer",
+				"Delirium Ritual",
+				"Legion Full Juice",
+				"Empty Template",
+				"Harvest Expedition",
+			]);
+		});
+
+		it("preserves all inventory items in valid storage", () => {
+			localStorageMock.store["poe-idol-planner-data"] = JSON.stringify(
+				VALID_STORAGE_FIXTURE,
+			);
+
+			const result = loadStorage();
+
+			// Check Abyss Farmer set
+			const abyssSet = result.sets.find(
+				(s) => s.id === "set-abyss-focus",
+			);
+			expect(abyssSet?.inventory).toHaveLength(2);
+			expect(abyssSet?.inventory[0].idol.baseType).toBe("conqueror");
+			expect(abyssSet?.inventory[1].idol.baseType).toBe("kamasan");
+
+			// Check Delirium Ritual set
+			const deliriumSet = result.sets.find(
+				(s) => s.id === "set-delirium-ritual",
+			);
+			expect(deliriumSet?.inventory).toHaveLength(3);
+			expect(deliriumSet?.inventory.map((i) => i.source)).toEqual([
+				"clipboard",
+				"manual",
+				"shared",
+			]);
+		});
+
+		it("preserves all placements in valid storage", () => {
+			localStorageMock.store["poe-idol-planner-data"] = JSON.stringify(
+				VALID_STORAGE_FIXTURE,
+			);
+
+			const result = loadStorage();
+
+			// Check Legion set with placements
+			const legionSet = result.sets.find(
+				(s) => s.id === "set-legion-full",
+			);
+			expect(legionSet?.placements).toHaveLength(1);
+			expect(legionSet?.placements[0].inventoryIdolId).toBe(
+				"inv-legion-1",
+			);
+
+			// Check empty set has no placements
+			const emptySet = result.sets.find((s) => s.id === "set-empty");
+			expect(emptySet?.placements).toHaveLength(0);
+		});
+
+		it("preserves map device configuration", () => {
+			localStorageMock.store["poe-idol-planner-data"] = JSON.stringify(
+				VALID_STORAGE_FIXTURE,
+			);
+
+			const result = loadStorage();
+
+			// Check Legion set with all scarab slots filled
+			const legionSet = result.sets.find(
+				(s) => s.id === "set-legion-full",
+			);
+			expect(
+				legionSet?.mapDevice.slots.filter((s) => s.scarabId),
+			).toHaveLength(5);
+			expect(legionSet?.mapDevice.craftingOptionId).toBe("domination");
+
+			// Check empty set with no scarabs
+			const emptySet = result.sets.find((s) => s.id === "set-empty");
+			expect(
+				emptySet?.mapDevice.slots.filter((s) => s.scarabId),
+			).toHaveLength(0);
+			expect(emptySet?.mapDevice.craftingOptionId).toBeNull();
+		});
+
+		it("preserves idol implicits", () => {
+			localStorageMock.store["poe-idol-planner-data"] = JSON.stringify(
+				VALID_STORAGE_FIXTURE,
+			);
+
+			const result = loadStorage();
+
+			// Check Harvest set has idol with implicit
+			const harvestSet = result.sets.find(
+				(s) => s.id === "set-harvest-expedition",
+			);
+			const harvestIdol = harvestSet?.inventory.find(
+				(i) => i.id === "inv-harvest-1",
+			);
+			expect(harvestIdol?.idol.implicit).toEqual({
+				text: "8% increased Maps found in Area",
+				value: 8,
+			});
+		});
 	});
 
-	const createValidInventoryItem = (id: string): TestInventoryItem => ({
-		id,
-		idol: {
-			id: `idol-${id}`,
-			baseType: "minor",
-			itemLevel: 85,
-			rarity: "rare",
-			prefixes: [],
-			suffixes: [],
-		},
-		importedAt: Date.now(),
-		source: "clipboard",
-		usageCount: 0,
+	describe("granular validation", () => {
+		it("removes only invalid sets, keeping valid ones", () => {
+			const fixture = createFixtureWithInvalidSet();
+			localStorageMock.store["poe-idol-planner-data"] =
+				JSON.stringify(fixture);
+
+			const result = loadStorage();
+
+			// Should have 5 valid sets (invalid one removed)
+			expect(result.sets).toHaveLength(5);
+			expect(result.sets.map((s) => s.name)).toEqual([
+				"Abyss Farmer",
+				"Delirium Ritual",
+				"Legion Full Juice",
+				"Empty Template",
+				"Harvest Expedition",
+			]);
+		});
+
+		it("removes only invalid inventory items within a set", () => {
+			const fixture = createFixtureWithInvalidInventoryItem();
+			localStorageMock.store["poe-idol-planner-data"] =
+				JSON.stringify(fixture);
+
+			const result = loadStorage();
+
+			// First set should still have its 2 valid inventory items
+			const abyssSet = result.sets.find(
+				(s) => s.id === "set-abyss-focus",
+			);
+			expect(abyssSet?.inventory).toHaveLength(2);
+			expect(abyssSet?.inventory.map((i) => i.id)).toEqual([
+				"inv-abyss-1",
+				"inv-abyss-2",
+			]);
+		});
+
+		it("removes placements referencing invalid inventory items", () => {
+			const fixture = createFixtureWithOrphanedPlacements();
+			localStorageMock.store["poe-idol-planner-data"] =
+				JSON.stringify(fixture);
+
+			const result = loadStorage();
+
+			// First set should have only 2 valid placements (orphaned one removed)
+			const abyssSet = result.sets.find(
+				(s) => s.id === "set-abyss-focus",
+			);
+			expect(abyssSet?.placements).toHaveLength(2);
+			expect(abyssSet?.placements.map((p) => p.inventoryIdolId)).toEqual([
+				"inv-abyss-1",
+				"inv-abyss-2",
+			]);
+		});
+
+		it("removes only invalid placements, keeping valid ones", () => {
+			const fixture = createFixtureWithInvalidPlacements();
+			localStorageMock.store["poe-idol-planner-data"] =
+				JSON.stringify(fixture);
+
+			const result = loadStorage();
+
+			// First set should have only its 2 valid placements
+			const abyssSet = result.sets.find(
+				(s) => s.id === "set-abyss-focus",
+			);
+			expect(abyssSet?.placements).toHaveLength(2);
+		});
+
+		it("clears activeSetId if it references a removed set", () => {
+			const fixture = createFixtureWithInvalidActiveSetId();
+			localStorageMock.store["poe-idol-planner-data"] =
+				JSON.stringify(fixture);
+
+			const result = loadStorage();
+
+			// activeSetId should be cleared since it references non-existent set
+			expect(result.activeSetId).toBeNull();
+			// All sets should still be present
+			expect(result.sets).toHaveLength(5);
+		});
 	});
 
-	const createValidPlacement = (
-		id: string,
-		inventoryIdolId: string,
-		x: number,
-		y: number,
-	): TestPlacement => ({
-		id,
-		inventoryIdolId,
-		position: { x, y },
+	describe("edge cases", () => {
+		it("returns empty storage for wrong version", () => {
+			const fixture = createFixtureWithWrongVersion();
+			localStorageMock.store["poe-idol-planner-data"] =
+				JSON.stringify(fixture);
+
+			const result = loadStorage();
+
+			expect(result.sets).toHaveLength(0);
+			expect(result.activeSetId).toBeNull();
+		});
+
+		it("returns empty storage when localStorage is empty", () => {
+			const result = loadStorage();
+
+			expect(result.version).toBe(STORAGE_VERSION);
+			expect(result.sets).toHaveLength(0);
+			expect(result.activeSetId).toBeNull();
+		});
+
+		it("returns empty storage for invalid JSON", () => {
+			localStorageMock.store["poe-idol-planner-data"] =
+				"not valid json {{{";
+
+			const result = loadStorage();
+
+			expect(result.sets).toHaveLength(0);
+		});
+
+		it("handles storage with empty sets array", () => {
+			const fixture = createStorageFixture({
+				sets: [],
+				activeSetId: null,
+			});
+			localStorageMock.store["poe-idol-planner-data"] =
+				JSON.stringify(fixture);
+
+			const result = loadStorage();
+
+			expect(result.sets).toHaveLength(0);
+			expect(result.activeSetId).toBeNull();
+		});
+
+		it("preserves unused inventory items (usageCount: 0)", () => {
+			localStorageMock.store["poe-idol-planner-data"] = JSON.stringify(
+				VALID_STORAGE_FIXTURE,
+			);
+
+			const result = loadStorage();
+
+			// Legion set has an unused inventory item
+			const legionSet = result.sets.find(
+				(s) => s.id === "set-legion-full",
+			);
+			const unusedIdol = legionSet?.inventory.find(
+				(i) => i.id === "inv-legion-unused",
+			);
+			expect(unusedIdol).toBeDefined();
+			expect(unusedIdol?.usageCount).toBe(0);
+		});
 	});
 
-	it("loads valid storage without changes", () => {
-		const validStorage = {
-			version: STORAGE_VERSION,
-			sets: [createValidSet("set1", "My Set")],
-			activeSetId: "set1",
-		};
-		localStorageMock.store["poe-idol-planner-data"] =
-			JSON.stringify(validStorage);
+	describe("complex scenarios", () => {
+		it("handles multiple invalid items across different sets", () => {
+			// Start with valid fixture
+			const fixture = JSON.parse(JSON.stringify(VALID_STORAGE_FIXTURE));
 
-		const result = loadStorage();
-		expect(result.sets).toHaveLength(1);
-		expect(result.sets[0].id).toBe("set1");
-		expect(result.activeSetId).toBe("set1");
-	});
+			// Add invalid inventory to first set
+			fixture.sets[0].inventory.push({
+				id: "bad-inv",
+				idol: "not an object",
+				importedAt: "not a number",
+				source: "invalid",
+				usageCount: -5,
+			});
 
-	it("removes only invalid sets, keeping valid ones", () => {
-		const storage = {
-			version: STORAGE_VERSION,
-			sets: [
-				createValidSet("set1", "Valid Set"),
-				{ id: "", name: "Invalid - empty ID" }, // Invalid: empty id
-				createValidSet("set3", "Another Valid"),
-			],
-			activeSetId: "set1",
-		};
-		localStorageMock.store["poe-idol-planner-data"] =
-			JSON.stringify(storage);
+			// Add orphaned placement to second set
+			fixture.sets[1].placements.push({
+				id: "orphan-p",
+				inventoryIdolId: "does-not-exist",
+				position: { x: 0, y: 0 },
+			});
 
-		const result = loadStorage();
-		expect(result.sets).toHaveLength(2);
-		expect(result.sets.map((s) => s.id)).toEqual(["set1", "set3"]);
-	});
+			// Add invalid set
+			fixture.sets.push({
+				id: "",
+				name: "",
+			});
 
-	it("removes only invalid inventory items within a set", () => {
-		const set = createValidSet("set1", "My Set");
-		set.inventory = [
-			createValidInventoryItem("inv1"),
-			{ id: "", idol: null } as unknown as TestInventoryItem, // Invalid: empty id and null idol
-			createValidInventoryItem("inv3"),
-		];
+			localStorageMock.store["poe-idol-planner-data"] =
+				JSON.stringify(fixture);
 
-		const storage = {
-			version: STORAGE_VERSION,
-			sets: [set],
-			activeSetId: "set1",
-		};
-		localStorageMock.store["poe-idol-planner-data"] =
-			JSON.stringify(storage);
+			const result = loadStorage();
 
-		const result = loadStorage();
-		expect(result.sets).toHaveLength(1);
-		expect(result.sets[0].inventory).toHaveLength(2);
-		expect(result.sets[0].inventory.map((i) => i.id)).toEqual([
-			"inv1",
-			"inv3",
-		]);
-	});
+			// Should have 5 valid sets (invalid one removed)
+			expect(result.sets).toHaveLength(5);
 
-	it("removes placements referencing invalid inventory items", () => {
-		const set = createValidSet("set1", "My Set");
-		set.inventory = [createValidInventoryItem("inv1")];
-		set.placements = [
-			createValidPlacement("p1", "inv1", 0, 0), // Valid - references inv1
-			createValidPlacement("p2", "inv-deleted", 1, 0), // Invalid - references non-existent
-		];
+			// First set should have 2 valid inventory items
+			const abyssSet = result.sets.find(
+				(s) => s.id === "set-abyss-focus",
+			);
+			expect(abyssSet?.inventory).toHaveLength(2);
 
-		const storage = {
-			version: STORAGE_VERSION,
-			sets: [set],
-			activeSetId: "set1",
-		};
-		localStorageMock.store["poe-idol-planner-data"] =
-			JSON.stringify(storage);
+			// Second set should have 3 valid placements (orphan removed)
+			const deliriumSet = result.sets.find(
+				(s) => s.id === "set-delirium-ritual",
+			);
+			expect(deliriumSet?.placements).toHaveLength(3);
+		});
 
-		const result = loadStorage();
-		expect(result.sets).toHaveLength(1);
-		expect(result.sets[0].placements).toHaveLength(1);
-		expect(result.sets[0].placements[0].inventoryIdolId).toBe("inv1");
-	});
+		it("preserves data integrity across all idol types", () => {
+			localStorageMock.store["poe-idol-planner-data"] = JSON.stringify(
+				VALID_STORAGE_FIXTURE,
+			);
 
-	it("removes only invalid placements, keeping valid ones", () => {
-		const set = createValidSet("set1", "My Set");
-		set.inventory = [
-			createValidInventoryItem("inv1"),
-			createValidInventoryItem("inv2"),
-		];
-		set.placements = [
-			createValidPlacement("p1", "inv1", 0, 0), // Valid
-			{ id: "", inventoryIdolId: "inv2", position: { x: 1, y: 0 } }, // Invalid: empty id
-			createValidPlacement("p3", "inv2", 2, 0), // Valid
-		];
+			const result = loadStorage();
 
-		const storage = {
-			version: STORAGE_VERSION,
-			sets: [set],
-			activeSetId: "set1",
-		};
-		localStorageMock.store["poe-idol-planner-data"] =
-			JSON.stringify(storage);
+			// Collect all idol base types
+			const allBaseTypes = result.sets.flatMap((s) =>
+				s.inventory.map((i) => i.idol.baseType),
+			);
 
-		const result = loadStorage();
-		expect(result.sets[0].placements).toHaveLength(2);
-		expect(result.sets[0].placements.map((p) => p.id)).toEqual([
-			"p1",
-			"p3",
-		]);
-	});
+			// Should have variety of idol types
+			expect(allBaseTypes).toContain("conqueror");
+			expect(allBaseTypes).toContain("kamasan");
+			expect(allBaseTypes).toContain("burial");
+			expect(allBaseTypes).toContain("noble");
+			expect(allBaseTypes).toContain("totemic");
+			expect(allBaseTypes).toContain("minor");
+		});
 
-	it("clears activeSetId if it references a removed set", () => {
-		const storage = {
-			version: STORAGE_VERSION,
-			sets: [
-				createValidSet("set1", "Valid Set"),
-				{ id: "set2", name: "" }, // Invalid: empty name
-			],
-			activeSetId: "set2", // References the invalid set
-		};
-		localStorageMock.store["poe-idol-planner-data"] =
-			JSON.stringify(storage);
+		it("preserves modifier tiers and values", () => {
+			localStorageMock.store["poe-idol-planner-data"] = JSON.stringify(
+				VALID_STORAGE_FIXTURE,
+			);
 
-		const result = loadStorage();
-		expect(result.sets).toHaveLength(1);
-		expect(result.sets[0].id).toBe("set1");
-		expect(result.activeSetId).toBeNull();
-	});
+			const result = loadStorage();
 
-	it("returns empty storage when all data is invalid", () => {
-		const storage = {
-			version: STORAGE_VERSION,
-			sets: [
-				{ id: "", name: "Invalid1" },
-				{ id: "set2", name: "" },
-			],
-			activeSetId: null,
-		};
-		localStorageMock.store["poe-idol-planner-data"] =
-			JSON.stringify(storage);
+			// Check Legion idol has multiple prefixes and suffixes
+			const legionSet = result.sets.find(
+				(s) => s.id === "set-legion-full",
+			);
+			const legionIdol = legionSet?.inventory.find(
+				(i) => i.id === "inv-legion-1",
+			);
 
-		const result = loadStorage();
-		expect(result.sets).toHaveLength(0);
-		expect(result.activeSetId).toBeNull();
-	});
+			expect(legionIdol?.idol.prefixes).toHaveLength(2);
+			expect(legionIdol?.idol.suffixes).toHaveLength(2);
 
-	it("returns empty storage for wrong version", () => {
-		const storage = {
-			version: 999,
-			sets: [createValidSet("set1", "My Set")],
-			activeSetId: "set1",
-		};
-		localStorageMock.store["poe-idol-planner-data"] =
-			JSON.stringify(storage);
+			// Check tiers are preserved
+			expect(legionIdol?.idol.prefixes[0].tier).toBe(1);
+			expect(legionIdol?.idol.suffixes[1].tier).toBe(2);
 
-		const result = loadStorage();
-		expect(result.sets).toHaveLength(0);
-	});
-
-	it("handles complex scenario with multiple invalid items across sets", () => {
-		const set1 = createValidSet("set1", "Set 1");
-		set1.inventory = [
-			createValidInventoryItem("inv1"),
-			createValidInventoryItem("inv2"),
-		];
-		set1.placements = [
-			createValidPlacement("p1", "inv1", 0, 0),
-			createValidPlacement("p2", "inv2", 1, 0),
-		];
-
-		const set2 = createValidSet("set2", "Set 2");
-		set2.inventory = [
-			createValidInventoryItem("inv3"),
-			{ id: "inv4", idol: "invalid" } as unknown as TestInventoryItem, // Invalid idol
-		];
-		set2.placements = [
-			createValidPlacement("p3", "inv3", 0, 0),
-			createValidPlacement("p4", "inv4", 1, 0), // References invalid inventory
-		];
-
-		const storage = {
-			version: STORAGE_VERSION,
-			sets: [set1, set2],
-			activeSetId: "set1",
-		};
-		localStorageMock.store["poe-idol-planner-data"] =
-			JSON.stringify(storage);
-
-		const result = loadStorage();
-
-		// Set 1 should be unchanged
-		expect(result.sets[0].id).toBe("set1");
-		expect(result.sets[0].inventory).toHaveLength(2);
-		expect(result.sets[0].placements).toHaveLength(2);
-
-		// Set 2 should have inv4 and p4 removed
-		expect(result.sets[1].id).toBe("set2");
-		expect(result.sets[1].inventory).toHaveLength(1);
-		expect(result.sets[1].inventory[0].id).toBe("inv3");
-		expect(result.sets[1].placements).toHaveLength(1);
-		expect(result.sets[1].placements[0].id).toBe("p3");
+			// Check values are preserved
+			expect(legionIdol?.idol.prefixes[0].rolledValue).toBe(200);
+		});
 	});
 });

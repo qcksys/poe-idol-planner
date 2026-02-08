@@ -349,14 +349,16 @@ function loadStorageGranularly(parsed: unknown): StorageData | null {
 }
 
 function cleanupOrphanedReferences(data: StorageData): StorageData | null {
-	let cleanedCount = 0;
+	let cleanedPlacements = 0;
+	let activeSetIdCleared = false;
+
 	const cleanedSets = data.sets.map((set) => {
 		const inventoryIds = new Set(set.inventory.map((inv) => inv.id));
 		const validPlacements = set.placements.filter((p) => {
 			if (inventoryIds.has(p.inventoryIdolId)) {
 				return true;
 			}
-			cleanedCount++;
+			cleanedPlacements++;
 			reportValidationError("Removed orphaned placement", p, {
 				placementId: p.id,
 				inventoryIdolId: p.inventoryIdolId,
@@ -371,18 +373,34 @@ function cleanupOrphanedReferences(data: StorageData): StorageData | null {
 		return set;
 	});
 
-	if (cleanedCount === 0) {
+	// Check if activeSetId references a valid set
+	let activeSetId = data.activeSetId;
+	if (
+		activeSetId !== null &&
+		!cleanedSets.some((s) => s.id === activeSetId)
+	) {
+		console.warn({
+			message: "activeSetId references non-existent set, clearing",
+			activeSetId,
+		});
+		activeSetId = null;
+		activeSetIdCleared = true;
+	}
+
+	if (cleanedPlacements === 0 && !activeSetIdCleared) {
 		return null;
 	}
 
 	console.warn({
 		message: "Cleaned up orphaned references in valid storage",
-		removedPlacements: cleanedCount,
+		removedPlacements: cleanedPlacements,
+		activeSetIdCleared,
 	});
 
 	return {
 		...data,
 		sets: cleanedSets,
+		activeSetId,
 	};
 }
 
