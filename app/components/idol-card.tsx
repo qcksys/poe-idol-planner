@@ -11,11 +11,7 @@ import { IDOL_BASES, type IdolBaseKey } from "~/data/idol-bases";
 import { useLocale, useTranslations } from "~/i18n";
 import type { SupportedLocale } from "~/i18n/types";
 import { highlightNumbers } from "~/lib/highlight-numbers";
-import {
-	getModValueRange,
-	getModWeight,
-	resolveModTextWithRange,
-} from "~/lib/mod-text-resolver";
+import { getModWeight, resolveModText } from "~/lib/mod-text-resolver";
 import { generateTradeUrlForMod } from "~/lib/trade-search";
 import { cn } from "~/lib/utils";
 import type { IdolInstance, IdolModifier } from "~/schemas/idol";
@@ -71,49 +67,6 @@ function getModTypeColor(type: IdolModifier["type"]): string {
 	}
 }
 
-function formatModTextWithRange(
-	text: string,
-	rolledValue: number,
-	valueRange?: { min: number; max: number },
-): string {
-	if (
-		!valueRange ||
-		(valueRange.min === rolledValue && valueRange.max === rolledValue)
-	) {
-		return text;
-	}
-
-	const existingRangePattern = /\(\d+(?:\.\d+)?[—\-–]\d+(?:\.\d+)?\)/;
-	if (existingRangePattern.test(text)) {
-		return text;
-	}
-
-	const rangeStr = `(${valueRange.min}—${valueRange.max})`;
-
-	const valueStr = Number.isInteger(rolledValue)
-		? String(rolledValue)
-		: rolledValue.toFixed(1);
-
-	const valuePattern = new RegExp(
-		`(^|[^\\d])(${valueStr.replace(".", "\\.")})(%?)(?!\\s*[—\\-–]|\\s*\\()`,
-		"g",
-	);
-
-	let replaced = false;
-	const result = text.replace(
-		valuePattern,
-		(match, prefix, _value, percent) => {
-			if (!replaced) {
-				replaced = true;
-				return `${prefix}${rangeStr}${percent}`;
-			}
-			return match;
-		},
-	);
-
-	return replaced ? result : text;
-}
-
 function ModifierLine({
 	mod,
 	locale,
@@ -123,13 +76,7 @@ function ModifierLine({
 	locale: SupportedLocale;
 	showTradeButton?: boolean;
 }) {
-	const resolvedText = resolveModTextWithRange(mod, locale);
-	const valueRange = getModValueRange(mod.modId, mod.tier);
-	const displayText = formatModTextWithRange(
-		resolvedText,
-		mod.rolledValue,
-		valueRange,
-	);
+	const displayText = resolveModText(mod, locale);
 	const weight = getModWeight(mod.modId, mod.tier);
 
 	const handleTradeSearch = (e: React.MouseEvent) => {
