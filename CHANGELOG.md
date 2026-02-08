@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.14.0
+
+### Minor Changes
+
+- d8f060b: Add value override system for idol modifiers that injects numeric value ranges where poedb shows static "an additional X" text. Larger idols (Conqueror) can now correctly show 1-2 values for Strongbox, Shrine, Harbinger, Imprisoned Monster, and Tormented Spirit modifiers.
+
+### Patch Changes
+
+- faa5612: Show selected rolled values instead of value ranges on inventory panel idol cards for cleaner display
+- 058a625: Improve storage validation to be granular - removes only invalid data items instead of clearing all storage when validation fails. Adds Sentry alerts with detailed Zod error context when invalid data is detected.
+  - Also clears `activeSetId` when it references a non-existent set
+  - Refactor tests to use shared realistic fixtures with varied idol sets, map devices, and edge cases
+
 ## 0.13.1
 
 ### Patch Changes
