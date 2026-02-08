@@ -8573,7 +8573,7 @@
 					}
 				],
 				"weight": 400,
-				"tradeStatId": "explicit.stat_3688987182"
+				"tradeStatId": "explicit.stat_2054538312"
 			}
 		],
 		"mechanic": "heist",
@@ -8617,7 +8617,7 @@
 					}
 				],
 				"weight": 400,
-				"tradeStatId": "explicit.stat_3688987182"
+				"tradeStatId": "explicit.stat_2054538312"
 			}
 		],
 		"mechanic": "heist",
@@ -8661,7 +8661,7 @@
 					}
 				],
 				"weight": 400,
-				"tradeStatId": "explicit.stat_3688987182"
+				"tradeStatId": "explicit.stat_2054538312"
 			}
 		],
 		"mechanic": "heist",
@@ -14293,7 +14293,7 @@
 					}
 				],
 				"weight": 400,
-				"tradeStatId": "explicit.stat_3688987182"
+				"tradeStatId": "explicit.stat_2054538312"
 			}
 		],
 		"mechanic": "heist",
@@ -14337,7 +14337,7 @@
 					}
 				],
 				"weight": 400,
-				"tradeStatId": "explicit.stat_3688987182"
+				"tradeStatId": "explicit.stat_2054538312"
 			}
 		],
 		"mechanic": "heist",
@@ -14381,7 +14381,7 @@
 					}
 				],
 				"weight": 400,
-				"tradeStatId": "explicit.stat_3688987182"
+				"tradeStatId": "explicit.stat_2054538312"
 			}
 		],
 		"mechanic": "heist",
@@ -21539,18 +21539,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Crimson Iron Ore Deposits in your Maps are guarded by an additional Corrupted Growth",
-					"zh-TW": "在你的地圖中，緋紅鍛鐵礦床會受到 1 個額外汙染生長物看守",
-					"zh-CN": "你地图中的绯红铁矿矿脉被 1 个额外的腐化增生守卫",
-					"ko": "지도 내 진홍철 광맥을 추가 타락한 종양 1개가 방어",
-					"ja": "マップに出現するクリムゾンアイアンは穢れた成長追加で1体に守られている",
+					"en": "Crimson Iron Ore Deposits in your Maps are guarded by (1—2) additional Corrupted Growth",
+					"zh-TW": "在你的地圖中，緋紅鍛鐵礦床會受到 (1—2) 個額外汙染生長物看守",
+					"zh-CN": "你地图中的绯红铁矿矿脉被 (1—2) 个额外的腐化增生守卫",
+					"ko": "지도 내 진홍철 광맥을 추가 타락한 종양 (1—2)개가 방어",
+					"ja": "マップに出現するクリムゾンアイアンは穢れた成長追加で(1—2)個に守られている",
 					"ru": "",
 					"pt-BR": "",
 					"de": "Blutrotes-Eisen-Erzvorkommen in Euren Karten werden von einem zusätzlichen Verderbten Wachstum bewacht",
-					"fr": "Dans vos Cartes, les Gisements de Fer écarlate sont gardés par une Croissance corrompue supplémentaire",
+					"fr": "Dans vos Cartes, les Gisements de Fer écarlate sont gardés par (1—2) Croissance corrompue supplémentaire",
 					"es": ""
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 2
+					}
+				],
 				"weight": 200,
 				"tradeStatId": "explicit.stat_3208431815"
 			}
@@ -27277,18 +27282,23 @@
 				"tier": 1,
 				"levelReq": 68,
 				"text": {
-					"en": "Crimson Iron Ore Deposits in your Maps are guarded by an additional Corrupted Growth",
-					"zh-TW": "在你的地圖中，緋紅鍛鐵礦床會受到 1 個額外汙染生長物看守",
-					"zh-CN": "你地图中的绯红铁矿矿脉被 1 个额外的腐化增生守卫",
-					"ko": "지도 내 진홍철 광맥을 추가 타락한 종양 1개가 방어",
-					"ja": "マップに出現するクリムゾンアイアンは穢れた成長追加で1体に守られている",
+					"en": "Crimson Iron Ore Deposits in your Maps are guarded by (1—2) additional Corrupted Growth",
+					"zh-TW": "在你的地圖中，緋紅鍛鐵礦床會受到 (1—2) 個額外汙染生長物看守",
+					"zh-CN": "你地图中的绯红铁矿矿脉被 (1—2) 个额外的腐化增生守卫",
+					"ko": "지도 내 진홍철 광맥을 추가 타락한 종양 (1—2)개가 방어",
+					"ja": "マップに出現するクリムゾンアイアンは穢れた成長追加で(1—2)個に守られている",
 					"ru": "",
 					"pt-BR": "",
 					"de": "Blutrotes-Eisen-Erzvorkommen in Euren Karten werden von einem zusätzlichen Verderbten Wachstum bewacht",
-					"fr": "Dans vos Cartes, les Gisements de Fer écarlate sont gardés par une Croissance corrompue supplémentaire",
+					"fr": "Dans vos Cartes, les Gisements de Fer écarlate sont gardés par (1—2) Croissance corrompue supplémentaire",
 					"es": ""
 				},
-				"values": [],
+				"values": [
+					{
+						"min": 1,
+						"max": 2
+					}
+				],
 				"weight": 200,
 				"tradeStatId": "explicit.stat_3208431815"
 			}

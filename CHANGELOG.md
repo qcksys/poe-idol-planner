@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.14.1
+
+### Patch Changes
+
+- faa5612: add value override for Crimson Iron Ore Corrupted Growth modifier (1-2 roll range)
+
 ## 0.14.0
 
 ### Minor Changes
