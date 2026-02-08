@@ -85,6 +85,14 @@ const VALUE_OVERRIDES: ValueOverrideConfig[] = [
 			Conqueror: { min: 1, max: 2 },
 		},
 	},
+	{
+		pattern:
+			/^Crimson Iron Ore Deposits in your Maps are guarded by an additional Corrupted Growth$/i,
+		valuesByIdol: {
+			Burial: { min: 1, max: 2 },
+			Totemic: { min: 1, max: 2 },
+		},
+	},
 ];
 
 /**
